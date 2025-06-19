@@ -1,0 +1,24 @@
+<svg width="280" height="200" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="140" cy="100" r="70" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- 云朵形状 -->
+  <path d="M100 110C95 110 90 105 90 100C90 95 95 90 100 90C105 85 115 85 120 90C125 85 135 85 140 90C145 85 155 85 160 90C165 90 170 95 170 100C170 105 165 110 160 110H100Z" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- 上传箭头 -->
+  <path d="M140 95L140 125M130 105L140 95L150 105" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- 文件图标 -->
+  <rect x="125" y="130" width="30" height="40" rx="4" fill="white" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M145 130L145 140L155 140" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 装饰性文件 -->
+  <rect x="105" y="140" width="15" height="20" rx="2" fill="#fbbf24" opacity="0.7"/>
+  <rect x="160" y="135" width="15" height="25" rx="2" fill="#f97316" opacity="0.7"/>
+  
+  <!-- 浮动点装饰 -->
+  <circle cx="80" cy="70" r="3" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="200" cy="80" r="4" fill="#06b6d4" opacity="0.5"/>
+  <circle cx="70" cy="140" r="2" fill="#10b981" opacity="0.6"/>
+  <circle cx="210" cy="130" r="3" fill="#f59e0b" opacity="0.6"/>
+</svg> 

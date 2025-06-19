@@ -1,0 +1,76 @@
+{
+  "sampleTexts": {
+    "english": {
+      "simple": "Hello, world!",
+      "complex": "The quick brown fox jumps over the lazy dog. This sentence contains all letters of the alphabet.",
+      "technical": "Authentication failed due to invalid credentials. Please check your API key and try again.",
+      "multilingual": "This text contains émojis 🌍 and special characters: áéíóú ñ ç"
+    },
+    "spanish": {
+      "simple": "¡Hola, mundo!",
+      "complex": "El rápido zorro marrón salta sobre el perro perezoso.",
+      "technical": "La autenticación falló debido a credenciales inválidas.",
+      "multilingual": "Este texto contiene emojis 🌍 y caracteres especiales: áéíóú ñ ç"
+    },
+    "french": {
+      "simple": "Bonjour le monde!",
+      "complex": "Le renard brun rapide saute par-dessus le chien paresseux.",
+      "technical": "L'authentification a échoué en raison d'informations d'identification non valides.",
+      "multilingual": "Ce texte contient des émojis 🌍 et des caractères spéciaux: áéíóú ñ ç"
+    }
+  },
+  "expectedResults": {
+    "english_to_spanish": {
+      "Hello, world!": "¡Hola, mundo!",
+      "Thank you": "Gracias",
+      "Good morning": "Buenos días"
+    },
+    "spanish_to_english": {
+      "¡Hola, mundo!": "Hello, world!",
+      "Gracias": "Thank you",
+      "Buenos días": "Good morning"
+    },
+    "french_to_english": {
+      "Bonjour le monde!": "Hello, world!",
+      "Merci": "Thank you",
+      "Bonjour": "Good morning"
+    }
+  },
+  "errorCases": {
+    "empty_text": "",
+    "very_long_text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "invalid_characters": "����",
+    "html_content": "<script>alert('xss')</script>Hello",
+    "sql_injection": "'; DROP TABLE users; --"
+  },
+  "languagePairs": [
+    { "from": "en", "to": "es", "name": "English to Spanish" },
+    { "from": "es", "to": "en", "name": "Spanish to English" },
+    { "from": "fr", "to": "en", "name": "French to English" },
+    { "from": "de", "to": "en", "name": "German to English" },
+    { "from": "zh", "to": "en", "name": "Chinese to English" },
+    { "from": "ja", "to": "en", "name": "Japanese to English" },
+    { "from": "ar", "to": "en", "name": "Arabic to English" },
+    { "from": "hi", "to": "en", "name": "Hindi to English" }
+  ],
+  "fileFormats": [
+    {
+      "name": "Plain Text",
+      "extension": ".txt",
+      "mimeType": "text/plain",
+      "content": "Hello, this is a test file.\nIt contains multiple lines.\nAnd should be translated properly."
+    },
+    {
+      "name": "JSON Document",
+      "extension": ".json",
+      "mimeType": "application/json",
+      "content": "{\"message\": \"Hello, world!\", \"description\": \"This is a test file\"}"
+    },
+    {
+      "name": "CSV Document",
+      "extension": ".csv",
+      "mimeType": "text/csv",
+      "content": "Name,Message,Language\nJohn,Hello world,English\nMaria,Hola mundo,Spanish"
+    }
+  ]
+} 

@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 左边文档 -->
+  <rect x="2" y="4" width="8" height="10" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <line x1="4" y1="7" x2="8" y2="7" stroke="currentColor" stroke-width="1"/>
+  <line x1="4" y1="9" x2="8" y2="9" stroke="currentColor" stroke-width="1"/>
+  <line x1="4" y1="11" x2="7" y2="11" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- 翻译箭头 -->
+  <path d="M11 9L14 6L14 8H16V10H14L14 12L11 9Z" fill="currentColor"/>
+  
+  <!-- 右边文档 -->
+  <rect x="14" y="10" width="8" height="10" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <line x1="16" y1="13" x2="20" y2="13" stroke="currentColor" stroke-width="1"/>
+  <line x1="16" y1="15" x2="20" y2="15" stroke="currentColor" stroke-width="1"/>
+  <line x1="16" y1="17" x2="19" y2="17" stroke="currentColor" stroke-width="1"/>
+</svg> 

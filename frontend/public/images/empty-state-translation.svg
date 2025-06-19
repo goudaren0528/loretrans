@@ -1,0 +1,32 @@
+<svg width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景装饰 -->
+  <circle cx="160" cy="120" r="80" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- 主要图形 - 翻译文档 -->
+  <rect x="120" y="80" width="80" height="100" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- 文档内容线条 -->
+  <line x1="130" y1="95" x2="180" y2="95" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+  <line x1="130" y1="105" x2="190" y2="105" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+  <line x1="130" y1="115" x2="175" y2="115" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 翻译箭头 -->
+  <path d="M205 120L220 110L220 115H235V125H220L220 130L205 120Z" fill="#2563eb"/>
+  
+  <!-- 目标文档 -->
+  <rect x="245" y="80" width="80" height="100" rx="8" fill="white" stroke="#16a34a" stroke-width="2"/>
+  
+  <!-- 翻译后内容线条 -->
+  <line x1="255" y1="95" x2="305" y2="95" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="255" y1="105" x2="315" y2="105" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+  <line x1="255" y1="115" x2="300" y2="115" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 装饰性元素 -->
+  <circle cx="100" cy="60" r="4" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="90" cy="200" r="6" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="240" cy="50" r="5" fill="#f97316" opacity="0.6"/>
+  
+  <!-- 浮动语言符号 -->
+  <text x="70" y="140" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#64748b" opacity="0.7">EN</text>
+  <text x="265" y="140" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#16a34a" opacity="0.8">中文</text>
+</svg> 

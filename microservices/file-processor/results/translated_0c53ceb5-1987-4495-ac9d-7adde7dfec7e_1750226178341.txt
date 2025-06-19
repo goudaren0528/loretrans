@@ -1,0 +1,48 @@
+# Translation Result
+Original File: 0c53ceb5-1987-4495-ac9d-7adde7dfec7e.txt
+Source Language: unknown
+Target Language: en
+Translation Date: 2025-06-18T05:56:18.341Z
+Word Count: 25 → 28
+
+## Original Text
+支付：
+兑换码增加领取充值优惠券,支持有效期配置
+B系列平台新增支付通道anspacepay
+充值信息不需要填写邮箱和姓名
+
+后台：
+B2迁移至CMS后台
+游戏管理后台2.0
+自动审核增加多条审核选项
+后台加用户身份功能,用户标签;模拟账户和测试账户剥离数据统计
+站内信优化1.0
+站内信优化1.1
+
+
+用户联系加强
+注册方式配置后台（支持手机/邮箱验证）
+领取奖励强制绑定手机或者邮箱
+"客服按钮，点开多选择： livechat，tg，whatup
+
+APP下载引导强化
+下载APP送钱活动引导
+"多域名落地页，频道推广，域名后面带上ping数值
+
+
+数据：
+事件分析-用户列表，数数加手机号码和邮箱
+
+
+新平台：
+N1平台
+B1上线Atom
+B2上线Atom
+
+## Translated Text
+支付： 兑换码增加领取充值优惠券,支持有效期配置 B系列平台新增支付通道anspacepay 充值信息不需要填写邮箱和姓名 后台： B2迁移至CMS后台 游戏管理后台2 0 自动审核增加多条审核选项 后台加用户身份功能,用户标签;模拟账户和测试账户剥离数据统计 站内信优化1 0 站内信优化1 1 用户联系加强 注册方式配置后台（支持手机/邮箱验证） 领取奖励强制绑定手机或者邮箱 "客服按钮，点开多选择： livechat，tg，whatup APP下载引导强化 下载APP送钱活动引导 "多域名落地页，频道推广，域名后面带上ping数值 数据： 事件分析-用户列表，数数加手机号码和邮箱 新平台： N1平台 B1上线Atom B2上线Atom
+
+## Statistics
+Chunks Processed: 1/1
+Original Length: 362 characters
+Translated Length: 323 characters

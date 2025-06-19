@@ -1,0 +1,29 @@
+{
+  "name": "@transly/shared",
+  "version": "1.0.0",
+  "description": "Shared types and utilities for Transly project",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint . --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "shared",
+    "translation"
+  ],
+  "license": "MIT"
+} 

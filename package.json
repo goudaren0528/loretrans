@@ -1,0 +1,79 @@
+{
+  "name": "transly",
+  "version": "1.0.0",
+  "description": "Translate Low-Resource Languages to English - AI-powered translation tool",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "microservices/*",
+    "shared"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:file-service\"",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:file-service\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:file-service": "cd microservices/file-processor && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:file-service": "cd microservices/file-processor && npm run dev",
+    "build": "npm run build:frontend && npm run build:file-service",
+    "build:frontend": "cd frontend && npm run build",
+    "build:file-service": "cd microservices/file-processor && npm run build",
+    "test": "npm run test:all",
+    "test:frontend": "cd frontend && npm test",
+    "test:file-service": "cd microservices/file-processor && npm test",
+    "lint": "npm run lint:frontend && npm run lint:file-service",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:file-service": "cd microservices/file-processor && npm run lint",
+    "clean": "rm -rf node_modules frontend/node_modules microservices/*/node_modules shared/node_modules",
+    "install:all": "npm install && npm run install:frontend && npm run install:file-service && npm run install:shared",
+    "install:frontend": "cd frontend && npm install",
+    "install:file-service": "cd microservices/file-processor && npm install",
+    "install:shared": "cd shared && npm install",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:unit": "jest --config=tests/jest.config.js",
+    "test:unit:frontend": "jest --config=tests/config/jest/frontend.config.js",
+    "test:unit:backend": "jest --config=tests/config/jest/backend.config.js",
+    "test:unit:watch": "npm run test:unit:frontend -- --watch",
+    "test:integration": "jest --config=tests/config/jest/backend.config.js --testPathPattern=integration",
+    "test:e2e": "playwright test --config=tests/config/playwright/playwright.config.ts",
+    "test:e2e:ui": "playwright test --config=tests/config/playwright/playwright.config.ts --ui",
+    "test:e2e:headed": "playwright test --config=tests/config/playwright/playwright.config.ts --headed",
+    "test:e2e:debug": "playwright test --config=tests/config/playwright/playwright.config.ts --debug",
+    "test:performance": "playwright test --config=tests/config/playwright/playwright.config.ts tests/e2e/performance",
+    "test:security": "playwright test --config=tests/config/playwright/playwright.config.ts tests/e2e/security",
+    "test:coverage": "npm run test:unit:frontend -- --coverage && npm run test:unit:backend -- --coverage",
+    "test:coverage:report": "npm run test:coverage && open tests/coverage/lcov-report/index.html",
+    "test:debug": "jest --config=tests/config/jest/frontend.config.js --runInBand --no-cache",
+    "test:verbose": "npm run test:unit -- --verbose",
+    "test:clean": "rimraf tests/coverage tests/reports tests/artifacts"
+  },
+  "keywords": [
+    "translation",
+    "ai",
+    "nllb",
+    "languages",
+    "low-resource",
+    "english",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Transly Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/transly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/transly/issues"
+  },
+  "homepage": "https://github.com/yourusername/transly#readme"
+} 

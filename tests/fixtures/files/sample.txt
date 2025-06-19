@@ -1,0 +1,12 @@
+Hello, this is a sample text file for testing file upload and translation functionality.
+
+This file contains multiple lines and should be processed correctly by the translation service.
+
+It includes:
+- Simple sentences
+- Multiple paragraphs  
+- Special characters: áéíóú ñ ç
+- Numbers: 123, 456.78
+- Punctuation marks: !@#$%^&*()
+
+The quick brown fox jumps over the lazy dog. 

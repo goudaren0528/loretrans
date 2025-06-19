@@ -1,0 +1,17 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 地球轮廓 -->
+  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  
+  <!-- 纵向分割线 -->
+  <path d="M12 3C16 6 16 18 12 21" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M12 3C8 6 8 18 12 21" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  
+  <!-- 横向分割线 -->
+  <path d="M21 12C18 8 6 8 3 12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <path d="M21 12C18 16 6 16 3 12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  
+  <!-- 装饰性语言点 -->
+  <circle cx="8" cy="8" r="1" fill="currentColor" opacity="0.6"/>
+  <circle cx="16" cy="16" r="1" fill="currentColor" opacity="0.6"/>
+  <circle cx="16" cy="8" r="1" fill="currentColor" opacity="0.6"/>
+</svg> 

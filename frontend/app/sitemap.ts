@@ -38,13 +38,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 语言特定页面
-  const languagePages: MetadataRoute.Sitemap = APP_CONFIG.languages.supported.map((language) => ({
+  // 小语种到英文页面
+  const languageToEnglishPages: MetadataRoute.Sitemap = APP_CONFIG.languages.supported.map((language) => ({
     url: `${baseUrl}/${language.code}-to-english`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
 
-  return [...staticPages, ...languagePages]
+  // 英文到小语种页面  
+  const englishToLanguagePages: MetadataRoute.Sitemap = APP_CONFIG.languages.supported.map((language) => ({
+    url: `${baseUrl}/english-to-${language.code}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  // 通用翻译页面
+  const translationPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/text-translate`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+  ]
+
+  return [...staticPages, ...languageToEnglishPages, ...englishToLanguagePages, ...translationPages]
 } 

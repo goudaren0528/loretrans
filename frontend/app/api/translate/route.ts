@@ -18,12 +18,13 @@ interface TranslateRequest {
   sourceLanguage: string
   targetLanguage: string
   // 双向翻译增强参数
-  mode?: 'single' | 'bidirectional' | 'batch'
+  mode?: 'single' | 'bidirectional' | 'batch' | 'auto-direction'
   options?: {
     enableCache?: boolean
     enableFallback?: boolean
     priority?: 'speed' | 'quality'
     format?: 'text' | 'structured'
+    autoDetectDirection?: boolean // 智能检测翻译方向
   }
   // 批量翻译支持
   texts?: string[]
@@ -124,10 +125,38 @@ export async function POST(request: NextRequest) {
 
     // 获取客户端IP（用于日志记录）
     const clientIP = getClientIP(request)
-    console.log(`Translation request from ${clientIP}: ${body.sourceLanguage} -> ${body.targetLanguage}`)
+    
+    // 智能方向检测
+    let actualSourceLang = body.sourceLanguage
+    let actualTargetLang = body.targetLanguage
+    let directionSwitched = false
+
+    if (mode === 'auto-direction' || options.autoDetectDirection) {
+      // 使用语言检测API来确定最佳翻译方向
+      try {
+        const { detectLanguage } = await import('@/lib/services/language-detection')
+        const detectedResult = detectLanguage(sanitizedText)
+        
+        // 如果检测到的语言与目标语言匹配，切换方向
+        if (detectedResult.language === body.targetLanguage && body.sourceLanguage === 'en') {
+          actualSourceLang = body.targetLanguage
+          actualTargetLang = body.sourceLanguage
+          directionSwitched = true
+          console.log(`Auto-switched translation direction: ${actualSourceLang} -> ${actualTargetLang} (confidence: ${detectedResult.confidence})`)
+        } else if (detectedResult.language !== body.sourceLanguage && detectedResult.language !== 'unknown') {
+          // 如果检测到不同的源语言，使用检测结果
+          actualSourceLang = detectedResult.language
+          console.log(`Auto-detected source language: ${actualSourceLang} (confidence: ${detectedResult.confidence})`)
+        }
+      } catch (error) {
+        console.warn('Language detection failed, using original direction:', error)
+      }
+    }
+
+    console.log(`Translation request from ${clientIP}: ${actualSourceLang} -> ${actualTargetLang}`)
 
     // 生成缓存键
-    const cacheKey = getTranslationCacheKey(sanitizedText, body.sourceLanguage, body.targetLanguage)
+    const cacheKey = getTranslationCacheKey(sanitizedText, actualSourceLang, actualTargetLang)
 
     // 根据模式执行不同的翻译逻辑
     let translationResult: any
@@ -141,38 +170,38 @@ export async function POST(request: NextRequest) {
       
       translationResult = await translateBatch(
         sanitizedTexts,
-        body.sourceLanguage,
-        body.targetLanguage
+        actualSourceLang,
+        actualTargetLang
       )
       
     } else if (mode === 'bidirectional') {
       // 双向翻译：同时获得正向和反向翻译
-      const cacheKeyReverse = getTranslationCacheKey(sanitizedText, body.targetLanguage, body.sourceLanguage)
+      const cacheKeyReverse = getTranslationCacheKey(sanitizedText, actualTargetLang, actualSourceLang)
       
       const [forwardResult, reverseResult] = await Promise.all([
         options.enableCache !== false ? 
           withCache(cacheKey, () => translateText({
             text: sanitizedText,
-            sourceLanguage: body.sourceLanguage,
-            targetLanguage: body.targetLanguage,
+            sourceLanguage: actualSourceLang,
+            targetLanguage: actualTargetLang,
           }), 3600) :
           translateText({
             text: sanitizedText,
-            sourceLanguage: body.sourceLanguage,
-            targetLanguage: body.targetLanguage,
+            sourceLanguage: actualSourceLang,
+            targetLanguage: actualTargetLang,
           }),
         
         // 反向翻译（用翻译结果作为输入）
         options.enableCache !== false ?
           withCache(cacheKeyReverse, () => translateText({
             text: sanitizedText, // 先用原文预翻译
-            sourceLanguage: body.targetLanguage,
-            targetLanguage: body.sourceLanguage,
+            sourceLanguage: actualTargetLang,
+            targetLanguage: actualSourceLang,
           }), 3600) :
           translateText({
             text: sanitizedText,
-            sourceLanguage: body.targetLanguage,
-            targetLanguage: body.sourceLanguage,
+            sourceLanguage: actualTargetLang,
+            targetLanguage: actualSourceLang,
           })
       ])
       
@@ -187,18 +216,34 @@ export async function POST(request: NextRequest) {
       translationResult = options.enableCache !== false ?
         await withCache(cacheKey, () => translateText({
           text: sanitizedText,
-          sourceLanguage: body.sourceLanguage,
-          targetLanguage: body.targetLanguage,
+          sourceLanguage: actualSourceLang,
+          targetLanguage: actualTargetLang,
         }), 3600) :
         await translateText({
           text: sanitizedText,
-          sourceLanguage: body.sourceLanguage,
-          targetLanguage: body.targetLanguage,
+          sourceLanguage: actualSourceLang,
+          targetLanguage: actualTargetLang,
         })
     }
 
+    // 构建响应数据，包含方向切换信息
+    const responseData = {
+      ...translationResult,
+      metadata: {
+        originalSourceLanguage: body.sourceLanguage,
+        originalTargetLanguage: body.targetLanguage,
+        actualSourceLanguage: actualSourceLang,
+        actualTargetLanguage: actualTargetLang,
+        directionSwitched,
+        mode,
+        ...(mode === 'auto-direction' || options.autoDetectDirection ? {
+          autoDetection: true
+        } : {})
+      }
+    }
+
     // 返回成功响应
-    return apiResponse(translationResult, 200, {
+    return apiResponse(responseData, 200, {
       'Cache-Control': 'public, max-age=3600', // 缓存1小时
     })
 

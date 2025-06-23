@@ -12,7 +12,33 @@ class TranslationService {
   /**
    * 将长文本分割成适合翻译的块
    */
-  splitTextIntoChunks(text, maxChunkSize = this.chunkSize) {
+  /**
+   * 智能分块策略：根据文本长度动态调整块大小
+   */
+  calculateOptimalChunkSize(totalLength) {
+    // 基础块大小
+    let chunkSize = this.chunkSize // 默认1500
+    
+    // 如果文本很长，使用更小的块以避免超时
+    if (totalLength > 5000) {
+      chunkSize = Math.max(800, this.chunkSize / 2) // 较长文本使用小块
+    } else if (totalLength > 2000) {
+      chunkSize = Math.max(1000, this.chunkSize * 0.75) // 中等文本稍微减小
+    }
+    
+    console.log(`=== SMART CHUNKING ===`)
+    console.log(`Total text length: ${totalLength}`)
+    console.log(`Optimal chunk size: ${chunkSize}`)
+    
+    return chunkSize
+  }
+
+  splitTextIntoChunks(text, maxChunkSize = null) {
+    // 如果没有指定块大小，计算最优块大小
+    if (!maxChunkSize) {
+      maxChunkSize = this.calculateOptimalChunkSize(text.length)
+    }
+    
     const sentences = text.split(/[.!?。！？\n]+/).filter(s => s.trim().length > 0)
     const chunks = []
     let currentChunk = ''
@@ -35,7 +61,12 @@ class TranslationService {
       chunks.push(currentChunk)
     }
 
-    return chunks.length > 0 ? chunks : [text]
+    const result = chunks.length > 0 ? chunks : [text]
+    
+    console.log(`Split ${text.length} chars into ${result.length} chunks`)
+    console.log(`Chunk sizes: ${result.map(c => c.length).join(', ')}`)
+    
+    return result
   }
 
   /**
@@ -53,8 +84,19 @@ class TranslationService {
         }
       })
 
-      if (response.data && (response.data.language || response.data.primary?.language)) {
-        return response.data.language || response.data.primary?.language || 'unknown'
+      if (response.data) {
+        // 处理单一检测结果
+        if (response.data.language) {
+          return response.data.language
+        }
+        // 处理多重检测结果
+        if (response.data.primary && response.data.primary.language) {
+          return response.data.primary.language
+        }
+        // 处理包装在data中的响应
+        if (response.data.data && response.data.data.language) {
+          return response.data.data.language
+        }
       }
       
       throw new Error('Language detection failed')
@@ -66,28 +108,142 @@ class TranslationService {
   }
 
   /**
-   * 翻译单个文本块
+   * 计算基于文本长度的动态超时时间
    */
-  async translateChunk(text, sourceLanguage, targetLanguage) {
+  calculateDynamicTimeout(text) {
+    const baseTimeout = 30000 // 基础30秒
+    const charCount = text.length
+    
+    // 每100个字符增加2秒
+    const additionalTimeout = Math.ceil(charCount / 100) * 2000
+    
+    // 最小60秒，最大300秒（5分钟）
+    const dynamicTimeout = Math.min(Math.max(baseTimeout + additionalTimeout, 60000), 300000)
+    
+    console.log(`=== DYNAMIC TIMEOUT CALCULATION ===`)
+    console.log(`Text length: ${charCount} characters`)
+    console.log(`Base timeout: ${baseTimeout}ms`)
+    console.log(`Additional timeout: ${additionalTimeout}ms`)
+    console.log(`Final timeout: ${dynamicTimeout}ms (${Math.round(dynamicTimeout/1000)}s)`)
+    
+    return dynamicTimeout
+  }
+
+  /**
+   * 翻译单个文本块（带重试和自动拆分）
+   */
+  async translateChunk(text, sourceLanguage, targetLanguage, retryCount = 0) {
+    const maxRetries = 2
+    const maxRetryChunkSize = 500 // 重试时使用的最小块大小
+    
+    console.log('=== CHUNK TRANSLATION DEBUG ===')
+    console.log('Input text length:', text.length)
+    console.log('Input text preview:', text.substring(0, 100) + (text.length > 100 ? '...' : ''))
+    console.log('Source language:', sourceLanguage)
+    console.log('Target language:', targetLanguage)
+    console.log('Retry count:', retryCount)
+    
     try {
-      const response = await axios.post(this.translationApiUrl, {
+      const requestPayload = {
         text,
         sourceLanguage,
         targetLanguage
-      }, {
-        timeout: 30000,
+      }
+      
+      console.log('=== SENDING REQUEST TO MAIN API ===')
+      console.log('Request payload:', JSON.stringify(requestPayload, null, 2))
+      
+      // 计算动态超时时间
+      const dynamicTimeout = this.calculateDynamicTimeout(text)
+      
+      const response = await axios.post(this.translationApiUrl, requestPayload, {
+        timeout: dynamicTimeout,
         headers: {
           'Content-Type': 'application/json'
         }
       })
 
-      if (response.data && response.data.translatedText) {
-        return response.data.translatedText
+      console.log('=== RECEIVED RESPONSE FROM MAIN API ===')
+      console.log('Response status:', response.status)
+      console.log('Response data:', JSON.stringify(response.data, null, 2))
+
+      // 处理不同的响应格式
+      if (response.data) {
+        let translatedText = null
+        
+        // 直接的翻译结果
+        if (response.data.translatedText) {
+          translatedText = response.data.translatedText
+          console.log('Found translatedText directly')
+        }
+        // 包装在data中的响应
+        else if (response.data.data && response.data.data.translatedText) {
+          translatedText = response.data.data.translatedText
+          console.log('Found translatedText in data wrapper')
+        }
+        // Next.js API响应格式
+        else if (response.data.success && response.data.data && response.data.data.translatedText) {
+          translatedText = response.data.data.translatedText
+          console.log('Found translatedText in Next.js format')
+        }
+        
+        if (translatedText) {
+          console.log('=== TRANSLATION RESULT ===')
+          console.log('Translated text length:', translatedText.length)
+          console.log('Translated text preview:', translatedText.substring(0, 150) + (translatedText.length > 150 ? '...' : ''))
+          console.log('Original vs Translated ratio:', (translatedText.length / text.length).toFixed(2))
+          return translatedText
+        }
       }
       
-      throw new Error('Translation API failed')
+      throw new Error('Translation API failed - no translatedText in response')
     } catch (error) {
-      console.error('Translation error for chunk:', error.message)
+      console.error('=== TRANSLATION ERROR ===')
+      console.error('Error message:', error.message)
+      console.error('Error type:', error.code || 'unknown')
+      
+      // 如果是超时错误且文本较长，尝试拆分重试
+      const isTimeoutError = error.message.includes('timeout') || error.code === 'ECONNABORTED'
+      const canRetry = retryCount < maxRetries && text.length > maxRetryChunkSize && isTimeoutError
+      
+      if (canRetry) {
+        console.log(`=== RETRY WITH SMALLER CHUNKS (${retryCount + 1}/${maxRetries}) ===`)
+        console.log('Splitting large chunk into smaller pieces...')
+        
+        try {
+          // 将当前块拆分成更小的块
+          const smallerChunks = this.splitTextIntoChunks(text, maxRetryChunkSize)
+          console.log(`Split into ${smallerChunks.length} smaller chunks`)
+          
+          const retryResults = []
+          for (const smallChunk of smallerChunks) {
+            const retryResult = await this.translateChunk(
+              smallChunk, 
+              sourceLanguage, 
+              targetLanguage, 
+              retryCount + 1
+            )
+            retryResults.push(retryResult)
+            
+            // 小延迟避免请求过于频繁
+            await new Promise(resolve => setTimeout(resolve, 200))
+          }
+          
+          const combinedResult = retryResults.join(' ')
+          console.log('=== RETRY SUCCESS ===')
+          console.log('Combined result length:', combinedResult.length)
+          return combinedResult
+          
+        } catch (retryError) {
+          console.error('Retry failed:', retryError.message)
+          // 重试失败，抛出原始错误
+        }
+      }
+      
+      if (error.response) {
+        console.error('Response status:', error.response.status)
+        console.error('Response data:', JSON.stringify(error.response.data, null, 2))
+      }
       throw error
     }
   }
@@ -96,13 +252,19 @@ class TranslationService {
    * 翻译完整文档
    */
   async translateDocument(fileId, text, sourceLanguage = 'auto', targetLanguage = 'en', onProgress) {
-    try {
-      // 如果是自动检测，先检测语言
-      let detectedSourceLanguage = sourceLanguage
-      if (sourceLanguage === 'auto') {
+    // 如果是自动检测，先检测语言
+    let detectedSourceLanguage = sourceLanguage
+    if (sourceLanguage === 'auto') {
+      try {
         detectedSourceLanguage = await this.detectLanguage(text)
         console.log(`Detected language: ${detectedSourceLanguage}`)
+      } catch (error) {
+        console.error('Language detection failed:', error.message)
+        detectedSourceLanguage = 'en' // 默认假设英语
       }
+    }
+
+    try {
 
       // 分割文本
       const chunks = this.splitTextIntoChunks(text)
@@ -168,7 +330,7 @@ class TranslationService {
         success: false,
         error: error.message,
         originalText: text,
-        sourceLanguage,
+        sourceLanguage: detectedSourceLanguage || sourceLanguage,
         targetLanguage
       }
     }

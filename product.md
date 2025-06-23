@@ -46,13 +46,185 @@
 - 支持的语言列表
 - 使用帮助与FAQ
 
+### 5. 用户系统页面（新增）
+- `/auth/signin` - 登录页面
+- `/auth/signup` - 注册页面
+- `/auth/verify` - 邮箱验证页面
+- `/dashboard` - 用户控制台
+- `/pricing` - 定价页面
+- `/credits/purchase` - 积分充值页面
+- `/profile` - 用户资料页面
+
+---
+
+## 🔐 用户系统与身份验证
+
+### 身份验证方案
+**推荐技术方案：NextAuth.js + Resend + Prisma**
+- **NextAuth.js**：业界标准的Next.js身份验证库
+  - 邮箱/密码登录
+  - 社交登录（Google、GitHub等，可选）
+  - JWT令牌管理
+  - Session管理
+  - 内置安全最佳实践
+- **Resend**：现代化邮件发送服务
+  - 免费额度：3000封邮件/月
+  - 邮箱验证、密码重置
+  - 交易邮件发送
+- **Prisma + SQLite/PostgreSQL**：用户数据存储
+
+### 用户注册流程
+1. **邮箱注册**：用户输入邮箱地址和密码
+2. **邮箱验证**：发送验证链接到用户邮箱
+3. **账户激活**：点击验证链接激活账户
+4. **初始积分**：新用户获得500积分（用于体验付费功能）
+5. **用户引导**：介绍产品功能和积分使用方式
+
+### 登录系统
+- **邮箱/密码登录**：标准登录方式
+- **社交登录**：Google OAuth（可选，后期添加）
+- **记住我功能**：30天免登录
+- **密码重置**：通过邮箱重置密码
+- **登录限制**：防暴力破解保护
+
+### 用户权限管理
+- **游客用户**：500字符以下免费翻译
+- **注册用户**：500字符以下免费翻译 + 初始积分
+- **付费用户**：基于积分的翻译服务
+- **管理员**：后台管理权限（可选）
+
+---
+
+## 💰 积分系统与付费策略
+
+### 积分制度设计
+#### 积分计费规则
+- **短文本翻译（≤500字符）**：免费，无需积分
+- **长文本翻译（>500字符）**：付费，按字符数消耗积分
+- **计费公式**：超出部分字符数 × 0.1积分/字符
+- **最小扣费**：50积分（500字符以上的最小扣费）
+
+#### 积分定价体系（美元锚定）
+```
+积分包规格（USD定价，可配置）：
+┌─────────────────────────────────────┐
+│ 积分包      价格(USD)  价值   优惠   │
+├─────────────────────────────────────┤
+│ 1,000积分    $1.99    $1.99   0%    │
+│ 5,000积分    $8.99    $9.95   10%   │
+│ 10,000积分   $15.99   $19.90  20%   │
+│ 25,000积分   $34.99   $49.75  30%   │
+│ 50,000积分   $59.99   $99.50  40%   │
+└─────────────────────────────────────┘
+```
+
+#### 新用户激励
+- **注册奖励**：500积分（约$1价值）
+- **首次充值奖励**：额外赠送20%积分
+- **推荐奖励**：推荐成功注册用户获得200积分
+
+### 付费功能限制
+#### 文本翻译限制
+- **免费用户**：500字符以下无限次翻译
+- **付费用户**：超过500字符部分按积分计费
+- **未登录用户**：500字符以下，每天最多10次翻译
+
+#### 文档翻译限制
+- **免费用户**：仅支持500字符以下的文档（约1页）
+- **付费用户**：完整文档翻译，按提取文本字符数计费
+- **文档大小限制**：免费用户5MB，付费用户50MB
+
+#### 积分不足处理
+1. **提示机制**：翻译前检查积分余额，不足时显示充值提示
+2. **充值引导**：一键跳转到积分购买页面
+3. **续费优惠**：积分不足时提供优惠充值选项
+4. **降级提示**：建议将长文本分段为免费额度内进行翻译
+
+### 付费流程设计
+1. **积分检查**：用户发起长文本翻译时检查积分余额
+2. **费用预估**：显示预计消耗积分数量和费用
+3. **充值引导**：积分不足时显示充值页面链接
+4. **支付处理**：通过Stripe处理积分购买
+5. **即时充值**：支付成功后立即到账积分
+6. **翻译继续**：充值完成后自动继续翻译任务
+
+---
+
+## 💳 支付系统集成
+
+### 支付方案
+**推荐技术方案：Stripe + Next.js**
+- **Stripe Checkout**：托管式支付页面
+- **支持方式**：信用卡、借记卡、Apple Pay、Google Pay
+- **多币种支持**：美元为主，支持本地货币显示
+- **安全合规**：PCI DSS合规，无需处理敏感卡信息
+
+### 支付流程
+1. **选择积分包**：用户在定价页面选择积分包
+2. **创建支付会话**：服务端创建Stripe Checkout会话
+3. **跳转支付页面**：重定向到Stripe托管支付页面
+4. **处理支付结果**：Webhook接收支付成功通知
+5. **积分入账**：支付成功后立即为用户账户充值积分
+6. **发送确认**：发送购买确认邮件
+
+### 支付安全
+- **Webhook验证**：验证Stripe Webhook签名
+- **幂等性处理**：防止重复充值
+- **交易记录**：完整的支付和积分变动日志
+- **退款处理**：支持争议和退款管理
+
+---
+
+## 📊 用户控制台功能
+
+### Dashboard页面功能
+- **积分余额显示**：当前积分数量和价值
+- **使用历史统计**：翻译次数、字符数统计
+- **积分使用明细**：详细的积分消耗记录
+- **充值历史**：购买记录和发票下载
+- **使用量分析**：日/周/月使用量图表
+
+### 用户资料管理
+- **基本信息**：邮箱、昵称、头像
+- **密码修改**：安全的密码更新流程
+- **邮箱验证状态**：验证状态显示和重新验证
+- **账户设置**：通知偏好、语言偏好
+
+### 积分管理功能
+- **积分购买**：直接跳转到充值页面
+- **使用记录**：翻译任务和积分扣费明细
+- **余额提醒**：积分不足时的邮件/站内提醒
+- **有效期管理**：积分有效期显示（如设置）
+
+---
+
+## 🛡️ 安全与合规
+
+### 数据安全
+- **密码加密**：bcrypt哈希存储
+- **Session安全**：安全的JWT令牌管理
+- **数据传输**：HTTPS强制加密
+- **API安全**：Rate Limiting和API密钥保护
+
+### 隐私保护
+- **数据最小化**：仅收集必要的用户信息
+- **翻译内容**：不存储用户翻译的文本内容
+- **日志记录**：仅记录使用统计，不记录敏感内容
+- **数据删除**：用户可申请删除账户和所有数据
+
+### 合规要求
+- **GDPR合规**：欧盟用户数据保护
+- **CCPA合规**：加州用户隐私保护
+- **用户协议**：完整的服务条款和隐私政策
+- **Cookie政策**：透明的Cookie使用说明
+
 ---
 
 ## 🧠 核心功能模块
 
 | 模块         | 描述 |
 |--------------|------|
-| 文本输入框   | 最大支持1000字符，自动检测语种（或预选） |
+| 文本输入框   | 最大支持10000字符，超过500字符显示积分消耗预估 |
 | 双向翻译按钮 | 请求后台NLLB API，支持小语种↔英文双向翻译 |
 | 语言切换功能 | 一键切换源语言与目标语言，支持所有语言对的双向翻译 |
 | 快捷复制/朗读| 英文朗读+原文朗读（可选） |
@@ -61,16 +233,24 @@
 | 文件翻译     | 支持PDF/Word/PPT/图片文件上传与翻译，自动提取文本并翻译为英文或目标语种 |
 | 双向翻译支持 | 所有支持的语言都可以翻译成英文，同时支持英文翻译成对应语言 |
 | 语音播放     | 翻译结果支持语音播放（TTS），MVP先支持英文，后续支持小语种 |
+| 用户系统     | 邮箱注册/登录、积分管理、使用历史 |
+| 积分系统     | 基于字符数的积分计费，支持积分购买和余额管理 |
+| 支付系统     | Stripe集成的积分充值功能 |
 
 ---
 
 ## 🚀 MVP与功能扩展
 
 ### MVP首发功能
+- **用户身份验证**：邮箱注册/登录、邮箱验证、密码重置
+- **积分系统**：积分购买、余额管理、使用计费
 - **双向翻译系统**：所有支持语言↔英文双向文本翻译（独立页面）
+- **免费额度**：500字符以下免费翻译，超出部分按积分计费
 - **语言切换功能**：一键切换源语言与目标语言，无需重新输入
 - **语音播放支持**：英文翻译结果语音播放（TTS，优先支持英文）
-- **文件翻译**：支持PDF/Word文件上传与双向翻译（先实现文本型文件，后续支持图片/PPT）
+- **文件翻译**：支持PDF/Word文件上传与双向翻译（免费用户限制500字符）
+- **用户控制台**：积分余额、使用历史、充值管理
+- **支付系统**：Stripe集成的积分购买功能
 - **用户友好界面**：现代化Web界面与交互体验
 - **多语言界面**：i18n系统支持
 - **完整落地页系统**：每个语言对都有独立的SEO优化页面
@@ -79,41 +259,11 @@
 - 图片OCR翻译、PPT文件翻译
 - 小语种TTS语音播放
 - 多语种互译、更多文件格式支持
-- 用户历史记录、用量统计
-- 开发者API服务（API Key授权、限流、计费）
-
----
-
-## 🔄 双向翻译功能设计
-
-### 核心特性
-- **完整双向支持**：每个支持的语言都可以与英文进行双向翻译
-- **智能语言检测**：自动识别输入语言，支持手动切换
-- **一键切换**：源语言和目标语言可一键对调，内容自动调整
-- **状态保持**：切换语言时保持翻译内容，提升用户体验
-
-### 支持的语言对
-| 语言对 | 状态 | SEO页面 |
-|--------|------|---------|
-| 海地克里奥尔语 ↔ 英文 | ✅ 完成 | /creole-to-english, /english-to-creole |
-| 老挝语 ↔ 英文 | ✅ 完成 | /lao-to-english, /english-to-lao |
-| 斯瓦希里语 ↔ 英文 | ✅ 完成 | /swahili-to-english, /english-to-swahili |
-| 缅甸语 ↔ 英文 | ✅ 完成 | /burmese-to-english, /english-to-burmese |
-| 泰卢固语 ↔ 英文 | ✅ 完成 | /telugu-to-english, /english-to-telugu |
-
-### 用户交互流程
-1. **进入页面**：用户访问特定语言对页面，预设源语言和目标语言
-2. **输入文本**：在源语言输入框输入要翻译的内容
-3. **自动检测**：系统自动检测语言，确认或纠正预设
-4. **执行翻译**：点击翻译按钮，获得目标语言结果
-5. **切换方向**：点击切换按钮，源语言和目标语言对调
-6. **继续翻译**：在新的输入框继续翻译，实现双向对话式翻译
-
-### 技术实现要点
-- **NLLB模型支持**：确保所有语言对都有NLLB模型支持
-- **缓存策略**：双向翻译结果都进行缓存，提升响应速度
-- **错误处理**：不同语言方向可能有不同的错误情况
-- **性能优化**：批量处理多个语言方向的翻译请求
+- 企业API服务（API Key授权、限流、计费）
+- 团队协作功能
+- 批量翻译工具
+- 翻译质量评分
+- 自定义词典功能
 
 ---
 
@@ -123,11 +273,15 @@
 - 支持自动检测源语言，用户可通过按钮切换语种，自动检测优先级高于手动选择
 - 文件翻译交互：上传后显示文件名、进度条、错误提示和翻译结果提示。翻译结果支持原文-译文对照，内容过长可滚动查看，支持下载新文件。MVP支持最大30~50MB、100页文档，需采用分块/异步处理等技术方案
 - 语音播放（TTS）：支持暂停、继续、重播，内嵌播放器，音频格式为mp3或webm
+- **积分消耗提示**：长文本翻译前显示预估积分消耗和剩余积分
+- **充值引导**：积分不足时显示明显的充值按钮和优惠信息
 
 ### 2. Web应用用户体验
 - 响应式设计：完美适配桌面端、平板、手机等各种设备
 - 直观操作：一键翻译、快速复制、语音播放等便捷功能
 - 实时反馈：翻译进度、错误提示、成功状态等用户友好提示
+- **登录状态保持**：30天免登录，安全的Session管理
+- **积分余额显示**：页面右上角常驻积分余额显示
 
 ### 3. SEO与内容运营
 - Schema.org结构化数据：MVP阶段静态生成，后续可动态渲染，保证SEO友好
@@ -135,14 +289,19 @@
 - 多语种SEO策略：明确hreflang标签、canonical策略，提升多语种SEO，站点地图自动生成
 
 ### 4. 技术实现细节
-- NLLB模型部署：MVP阶段采用Hugging Face云API
+- NLLB模型部署：MVP阶段采用本地NLLB + Hugging Face云API备选
 - 多语种模型切换、模型版本管理：建议通过配置文件管理支持语种和模型版本，便于后续扩展和升级
-- 数据存储与隐私：不存储用户翻译历史。文件类翻译结果通过异步方式发送到用户邮箱，用户需在翻译时提供邮箱，无需页面等待
+- 数据存储与隐私：不存储用户翻译历史。文件类翻译结果通过异步方式处理，支持下载链接
 - 可扩展性：预留接口支持更多文件格式、语种、TTS引擎
+- **用户数据存储**：用户信息、积分余额、使用记录安全存储
+- **支付数据安全**：PCI DSS合规的支付数据处理
 
 ### 5. 运营与合规
-- 免费额度与付费策略：免费用户仅支持文本翻译且有长度限制，文档翻译仅支持第1页且输出长度有限。付费用户可根据文档长度计价，支持完整文档翻译。付费能力集成Creem
+- **积分定价策略**：基于美元锚定的积分体系，支持配置调整
+- **免费额度设计**：500字符免费额度平衡用户体验和商业价值
+- **新用户激励**：注册赠送积分、首充奖励提升转化率
 - 用户协议、隐私政策、合规声明：需提供相应页面，确保合规
+- **GDPR/CCPA合规**：用户数据保护和隐私权利实现
 
 ### 6. 网站架构优化需求
 
@@ -154,6 +313,7 @@
     - Text翻译（跳转到 `/text-translate`）
     - Document翻译（跳转到 `/document-translate`）
     - 图片翻译（Coming Soon状态）
+  - **用户状态显示**：首页右上角显示登录状态和积分余额
 
 #### 6.2 语言落地页系统
 - **功能需求**: 为Supported Languages模块中的每个语言创建完整落地页
@@ -162,6 +322,7 @@
   - **暂不支持语言**: Coming Soon提示页面
 - **SEO要求**: 所有页面需包含完整的Schema.org结构化数据
 - **路径规范**: `/{source-language}-to-english` 格式
+- **付费功能集成**：语言页面集成积分计费和用户系统
 
 #### 6.3 多语言界面支持 (i18n)
 - **功能描述**: 整个网站支持界面语言切换
@@ -170,6 +331,7 @@
   - 导航栏、按钮、表单等所有UI元素
   - 页面标题、描述文案
   - 错误提示、状态信息
+  - **积分系统相关文案**：充值提示、余额显示、计费说明
 - **技术方案**: Next.js国际化(i18n)系统 + react-i18next
 
 #### 6.4 Footer链接完善
@@ -179,301 +341,74 @@
   - API Documentation: API文档页面或Coming Soon  
   - Help & FAQ: 帮助文档页面
   - Blog: 博客页面或Coming Soon
+  - **新增**：Pricing定价页面、Terms服务条款、Privacy隐私政策
 
 ---
 
-## 🎨 UI设计规范与风格指南
+## 💾 数据架构设计
 
-### 设计理念
-- **专业简洁**：现代化的专业翻译工具体验
-- **国际化友好**：适配全球小语种用户的视觉习惯
-- **功能导向**：界面服务于翻译功能，避免视觉干扰
-- **信任感**：通过专业设计建立用户对翻译准确性的信任
-
-### 推荐设计系统
-**主要方案：shadcn/ui + Tailwind CSS**
-- 现代化组件库，基于Radix UI无障碍基础
-- 完美集成TypeScript和Next.js
-- 高度可定制，符合品牌调性
-- 组件质量高，维护成本低
-
-### 色彩方案
-```css
-/* 主色调 - 专业蓝 */
---primary: 220 90% 56%        /* #2563eb - 主要按钮、链接 */
---primary-foreground: 0 0% 100%  /* #ffffff - 主色文字 */
-
-/* 辅助色 - 成功绿 */
---success: 142 76% 36%        /* #16a34a - 翻译成功状态 */
---warning: 38 92% 50%         /* #eab308 - 警告提示 */
---destructive: 0 84% 60%      /* #ef4444 - 错误状态 */
-
-/* 中性色系 */
---background: 0 0% 100%       /* #ffffff - 页面背景 */
---foreground: 222 84% 5%      /* #09090b - 主要文字 */
---muted: 210 40% 98%          /* #f8fafc - 次要区域背景 */
---muted-foreground: 215 16% 47%  /* #64748b - 次要文字 */
---border: 214 32% 91%         /* #e2e8f0 - 边框颜色 */
-```
-
-### 字体规范
-```css
-/* 英文字体 */
-font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-/* 多语种字体栈 */
-font-family: 'Inter', 'Noto Sans', 'Microsoft YaHei', '微软雅黑', sans-serif;
-
-/* 字体大小层级 */
---text-xs: 0.75rem     /* 12px - 辅助信息 */
---text-sm: 0.875rem    /* 14px - 次要文字 */
---text-base: 1rem      /* 16px - 正文 */
---text-lg: 1.125rem    /* 18px - 小标题 */
---text-xl: 1.25rem     /* 20px - 页面标题 */
---text-2xl: 1.5rem     /* 24px - 主标题 */
---text-3xl: 1.875rem   /* 30px - 大标题 */
-```
-
-### 组件设计原则
-
-#### 翻译输入框
-- **设计**: 大尺寸文本域，清晰边框，focus状态突出
-- **交互**: 支持拖拽调整大小，字符计数显示
-- **无障碍**: 明确的label，键盘导航支持
-
-#### 按钮系统
-```tsx
-// 主要按钮 - 翻译行动
-<Button variant="default" size="lg">翻译</Button>
-
-// 次要按钮 - 辅助功能
-<Button variant="outline">复制</Button>
-
-// 图标按钮 - 语音播放
-<Button variant="ghost" size="icon">🔊</Button>
-```
-
-#### 文件上传区域
-- **视觉**: 虚线边框拖拽区域，清晰的上传指引
-- **状态**: 上传进度条，成功/错误状态反馈
-- **格式**: 支持格式明确标注
-
-#### 语言选择器
-- **设计**: 下拉选择器 + 搜索功能
-- **显示**: 语言名称（本地语言）+ 英文名称
-- **交互**: 快速切换按钮，常用语言置顶
-
-### 布局规范
-
-#### 响应式断点
-```css
-/* Mobile First */
-sm: 640px   /* 手机横屏 */
-md: 768px   /* 平板 */
-lg: 1024px  /* 小型桌面 */
-xl: 1280px  /* 标准桌面 */
-2xl: 1536px /* 大屏桌面 */
-```
-
-#### 页面布局
-- **最大宽度**: 1200px，居中对齐
-- **内边距**: 移动端16px，桌面端24px
-- **组件间距**: 8px递增规律（8px, 16px, 24px, 32px, 48px）
-
-#### 翻译界面布局
-```
-┌─────────────────────────────────┐
-│ 语言选择器   [切换] 语言选择器      │
-├─────────────────────────────────┤
-│                                 │
-│     源文本输入区域                │
-│                                 │
-├─────────────────────────────────┤
-│     [翻译按钮]                   │
-├─────────────────────────────────┤
-│                                 │
-│     翻译结果区域                 │
-│     [复制] [语音播放]             │
-│                                 │
-└─────────────────────────────────┘
-```
-
-### 动效规范
-```css
-/* 过渡动画 */
---transition-fast: 150ms ease     /* 快速反馈 */
---transition-base: 300ms ease     /* 标准动画 */
---transition-slow: 500ms ease     /* 重要状态变化 */
-
-/* 常用动效 */
-.fade-in { animation: fadeIn 300ms ease-in-out; }
-.slide-up { animation: slideUp 300ms ease-out; }
-.scale-in { animation: scaleIn 200ms ease-out; }
-```
-
-### 无障碍设计
-- **色彩对比度**: AA级标准（4.5:1）
-- **焦点指示**: 明显的焦点环
-- **屏幕阅读器**: 语义化HTML，ARIA标签
-- **键盘导航**: Tab顺序逻辑，快捷键支持
-
-### 组件库选择对比
-
-| 设计系统 | 优势 | 适合场景 |
-|---------|------|----------|
-| **shadcn/ui** ✅ | 现代、可定制、TypeScript友好 | **推荐使用** |
-| Ant Design | 组件丰富、企业级 | 管理后台 |
-| Material UI | Google设计语言、成熟 | 国际化产品 |
-| Chakra UI | 简洁、易用 | 快速原型 |
-
-### 品牌视觉元素
-- **Logo**: 简洁的字体LOGO + 翻译符号图标
-- **插图风格**: 扁平化插图，多语言场景
-- **图标**: Lucide React 图标库（统一风格）
-- **空状态**: 友好的插图 + 引导文案
-
----
-
-## 🔍 SEO内容结构模板（以 `/creole-to-english` 为例）
-
-```html
-<h1>Creole to English Translator – Free & Accurate Online Tool</h1>
-<p>Easily translate Haitian Creole to English using our free online tool powered by advanced AI. No signup, no ads – just simple and fast translation.</p>
-
-<h2>Why Use Our Creole to English Translator?</h2>
-<ul>
-  <li>✅ Instant translation with high accuracy</li>
-  <li>✅ Supports conversational and formal Creole</li>
-  <li>✅ 100% free and secure</li>
-</ul>
-
-<h2>How to Translate Creole to English</h2>
-<ol>
-  <li>Enter your Creole text in the box above</li>
-  <li>Click "Translate"</li>
-  <li>Copy or listen to the English translation</li>
-</ol>
-
-<h2>Use Cases</h2>
-<p>Perfect for immigration documents, Creole-English chat, school work, or Creole content localization.</p>
-
-<h2>FAQs</h2>
-<details><summary>Is this translator accurate?</summary><p>Yes, it uses Meta's NLLB model with support for over 200 languages.</p></details>
-<details><summary>Is it free to use?</summary><p>Yes, always free. No ads or limits.</p></details>
-
-<h2>More Translators</h2>
-<ul>
-  <li><a href="/swahili-to-english">Swahili to English</a></li>
-  <li><a href="/lao-to-english">Lao to English</a></li>
-  <li><a href="/burmese-to-english">Burmese to English</a></li>
-</ul>
-```
-
-结构化数据 Schema 集成（SERP 强化）
-
-FAQ Schema
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is this Creole to English translator accurate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we use Meta's NLLB AI model to ensure high-quality translations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It is 100% free with no limits or hidden charges."
-      }
-    }
-  ]
-}
-```
-
-SoftwareApplication Schema
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Creole to English Translator",
-  "applicationCategory": "Translation",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires JavaScript",
-  "url": "https://yourdomain.com/creole-to-english",
-  "description": "A free online tool to translate Haitian Creole to English instantly using AI.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0.00",
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "137"
+### 用户数据模型
+```typescript
+interface User {
+  id: string
+  email: string
+  emailVerified: boolean
+  passwordHash: string
+  credits: number          // 积分余额
+  createdAt: Date
+  updatedAt: Date
+  profile: {
+    name?: string
+    avatar?: string
+    language: string       // 界面语言偏好
   }
 }
 ```
 
-HowTo Schema
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Translate Creole to English",
-  "step": [
-    { "@type": "HowToStep", "text": "Enter your Creole text in the input box." },
-    { "@type": "HowToStep", "text": "Click the 'Translate' button to process." },
-    { "@type": "HowToStep", "text": "Copy or listen to the English output." }
-  ],
-  "tool": { "@type": "WebApplication", "name": "Creole to English Translator" }
+### 积分交易记录
+```typescript
+interface CreditTransaction {
+  id: string
+  userId: string
+  type: 'purchase' | 'consume' | 'reward'
+  amount: number           // 正数为增加，负数为消费
+  balance: number          // 交易后余额
+  description: string      // 交易描述
+  metadata?: {
+    translationId?: string
+    stripePaymentId?: string
+    characterCount?: number
+  }
+  createdAt: Date
 }
 ```
 
----
+### 翻译使用记录
+```typescript
+interface Translation {
+  id: string
+  userId?: string          // 可选，游客用户为空
+  sourceText: string
+  translatedText: string
+  sourceLanguage: string
+  targetLanguage: string
+  characterCount: number
+  creditsUsed: number      // 消耗的积分
+  method: 'nllb-local' | 'nllb-cloud' | 'mock'
+  createdAt: Date
+}
+```
 
-## 🏗️ 技术部署架构
-
-### 轻量化全栈方案（推荐）
-- **前端**：Next.js 14+ (App Router)
-- **后端**：
-  - **方案一**：Next.js API Routes + Node.js 微服务
-    - 核心翻译 API：Next.js API Routes
-    - 文件处理服务：独立 Node.js + Fastify
-  - **方案二**：Node.js + Fastify 全后端（轻量高性能）
-  - **方案三**：Bun + Hono（前沿轻量方案）
-- **AI 模型调用**：Hugging Face Inference API（NLLB模型）
-- **数据层**：
-  - Vercel KV / Upstash Redis（缓存 + 限流）
-  - MongoDB Atlas 免费层（用户记录，可选）
-- **部署**：
-  - 前端 + 核心API：Vercel（一体化部署）
-  - 文件处理微服务：Railway/Fly.io
-- **文件存储**：Vercel Blob / Cloudflare R2（临时文件）
-
-### 架构详细设计
-#### 核心翻译服务（Next.js API Routes）
-- `/api/translate` - 文本翻译
-- `/api/detect` - 语言检测
-- `/api/tts` - 语音合成
-- `/api/usage` - 用量统计（内部使用）
-
-#### 文件处理微服务（Node.js + Fastify）
-- `/file/upload` - 文件上传
-- `/file/extract` - 文本提取（PDF/Word/PPT）
-- `/file/translate` - 文件翻译
-- `/file/download` - 结果下载
-
-### 技术栈优势
-- **统一语言栈**：JavaScript/TypeScript 全栈
-- **类型安全**：前后端共享类型定义，微服务间类型同步
-- **轻量部署**：核心功能零配置，文件服务独立扩展
-- **开发体验**：热重载、调试友好，本地开发简单
-- **成本优化**：Serverless 按需付费 + 微服务按需扩展
-- **高可用性**：核心功能与重计算任务解耦，故障隔离
+### 支付记录
+```typescript
+interface Payment {
+  id: string
+  userId: string
+  stripePaymentId: string
+  amount: number           // 美元金额
+  credits: number          // 购买的积分数量
+  status: 'pending' | 'completed' | 'failed'
+  createdAt: Date
+  completedAt?: Date
+}
+```

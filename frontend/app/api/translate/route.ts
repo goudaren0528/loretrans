@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { translateText } from '@/lib/services/translation'
 import { getTranslationCacheKey, withCache } from '@/lib/services/cache'
 import { 
@@ -31,263 +31,159 @@ interface TranslateRequest {
 }
 
 export async function POST(request: NextRequest) {
+  console.log('=== MAIN API TRANSLATE ENDPOINT ===')
+  
   try {
-    // 验证请求方法
-    if (!validateMethod(request, ['POST'])) {
-      return apiError(
-        ApiErrorCodes.METHOD_NOT_ALLOWED,
-        'Only POST method is allowed',
-        405
-      )
-    }
-
-    // 解析请求体
-    let body: TranslateRequest
-    try {
-      body = await parseRequestBody<TranslateRequest>(request)
-    } catch (error) {
-      return apiError(
-        ApiErrorCodes.INVALID_JSON,
-        'Invalid JSON in request body',
-        400
-      )
-    }
-
-    // 确定操作模式
-    const mode = body.mode || 'single'
-    const options = body.options || {}
-
-    // 根据模式验证不同的字段
-    if (mode === 'batch') {
-      if (!body.texts || !Array.isArray(body.texts) || body.texts.length === 0) {
-        return apiError(
-          ApiErrorCodes.INVALID_REQUEST,
-          'Batch mode requires a non-empty texts array',
-          400
-        )
-      }
-      if (body.texts.length > 10) {
-        return apiError(
-          ApiErrorCodes.INVALID_REQUEST,
-          'Maximum 10 texts allowed per batch request',
-          400
-        )
-      }
-    } else {
-      // 单个或双向翻译验证
-    const validation = validateRequiredFields(body, ['text', 'sourceLanguage', 'targetLanguage'])
-    if (!validation.valid) {
-      return apiError(
-        ApiErrorCodes.MISSING_FIELDS,
-        `Missing required fields: ${validation.missing.join(', ')}`,
-        400,
-        { missingFields: validation.missing }
-      )
-    }
-    }
-
-    // 验证和清理文本（仅对非批量模式）
-    let sanitizedText: string = ''
-    if (mode !== 'batch') {
-      sanitizedText = sanitizeText(body.text || '')
-    if (!sanitizedText) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Text cannot be empty',
-        400
-      )
-    }
-
-    // 验证文本长度
-    const lengthValidation = validateTextLength(sanitizedText, 1000)
-    if (!lengthValidation.valid) {
-      return apiError(
-        ApiErrorCodes.TEXT_TOO_LONG,
-        `Text is too long. Maximum ${1000} characters allowed, got ${lengthValidation.length}`,
-        400,
-        { 
-          maxLength: 1000, 
-          actualLength: lengthValidation.length 
-        }
-      )
-      }
-    }
-
-    // 获取客户端IP（用于日志记录）
-    const clientIP = getClientIP(request)
+    const body = await request.json()
+    console.log('Received request body:', JSON.stringify(body, null, 2))
     
-    // 智能方向检测和语言代码处理
-    let actualSourceLang = body.sourceLanguage
-    let actualTargetLang = body.targetLanguage
-    let directionSwitched = false
+    const { text, sourceLanguage, targetLanguage } = body
+
+    if (!text || !targetLanguage) {
+      console.error('Missing required fields:', { text: !!text, targetLanguage: !!targetLanguage })
+      return NextResponse.json(
+        { error: 'Missing required fields: text and targetLanguage' },
+        { status: 400 }
+      )
+    }
+
+    console.log('=== INPUT ANALYSIS ===')
+    console.log('Text length:', text.length)
+    console.log('Text preview:', text.substring(0, 100) + (text.length > 100 ? '...' : ''))
+    console.log('Source language:', sourceLanguage)
+    console.log('Target language:', targetLanguage)
+
+    let finalSourceLanguage = sourceLanguage
 
     // 处理自动语言检测
-    if (body.sourceLanguage === 'auto' || mode === 'auto-direction' || options.autoDetectDirection) {
-      // 使用语言检测API来确定源语言
+    if (sourceLanguage === 'auto') {
+      console.log('=== AUTO LANGUAGE DETECTION ===')
       try {
-        const { detectLanguage } = await import('@/lib/services/language-detection')
-        const detectedResult = detectLanguage(sanitizedText)
-        
-        if (detectedResult.language !== 'unknown' && detectedResult.confidence > 0.3) {
-          actualSourceLang = detectedResult.language
-          console.log(`Auto-detected source language: ${actualSourceLang} (confidence: ${detectedResult.confidence})`)
-          
-          // 如果检测到的语言与目标语言相同，可能需要切换方向
-          if (actualSourceLang === body.targetLanguage && body.targetLanguage !== 'en') {
-            actualTargetLang = 'en'
-            directionSwitched = true
-            console.log(`Auto-switched translation direction: ${actualSourceLang} -> ${actualTargetLang}`)
-          }
-        } else {
-          // 如果检测失败，默认使用英语
-          actualSourceLang = 'en'
-          console.warn('Language detection failed or low confidence, defaulting to English')
-        }
-      } catch (error) {
-        console.warn('Language detection failed, defaulting to English:', error)
-        actualSourceLang = 'en'
-      }
-    }
-
-    // 验证语言代码格式（现在actualSourceLang不应该是auto了）
-    const langCodeRegex = /^[a-z]{2,4}$/
-    if (!langCodeRegex.test(actualSourceLang) || !langCodeRegex.test(actualTargetLang)) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Invalid language code format',
-        400
-      )
-    }
-
-    console.log(`Translation request from ${clientIP}: ${actualSourceLang} -> ${actualTargetLang}`)
-
-    // 生成缓存键
-    const cacheKey = getTranslationCacheKey(sanitizedText, actualSourceLang, actualTargetLang)
-
-    // 根据模式执行不同的翻译逻辑
-    let translationResult: any
-
-    if (mode === 'batch') {
-      // 批量翻译
-      const { translateBatch } = await import('@/lib/services/translation')
-      const sanitizedTexts = body.texts!.map(text => sanitizeText(text)).filter(Boolean)
-      
-      console.log(`Batch translation request: ${sanitizedTexts.length} texts, ${body.sourceLanguage} -> ${body.targetLanguage}`)
-
-      translationResult = await translateBatch(
-        sanitizedTexts,
-        actualSourceLang,
-        actualTargetLang
-      )
-      
-    } else if (mode === 'bidirectional') {
-      // 双向翻译：同时获得正向和反向翻译
-      const cacheKeyReverse = getTranslationCacheKey(sanitizedText, actualTargetLang, actualSourceLang)
-      
-      const [forwardResult, reverseResult] = await Promise.all([
-        options.enableCache !== false ? 
-          withCache(cacheKey, () => translateText({
-        text: sanitizedText,
-            sourceLanguage: actualSourceLang,
-            targetLanguage: actualTargetLang,
-          }), 3600) :
-          translateText({
-            text: sanitizedText,
-            sourceLanguage: actualSourceLang,
-            targetLanguage: actualTargetLang,
-          }),
-        
-        // 反向翻译（用翻译结果作为输入）
-        options.enableCache !== false ?
-          withCache(cacheKeyReverse, () => translateText({
-            text: sanitizedText, // 先用原文预翻译
-            sourceLanguage: actualTargetLang,
-            targetLanguage: actualSourceLang,
-          }), 3600) :
-          translateText({
-            text: sanitizedText,
-            sourceLanguage: actualTargetLang,
-            targetLanguage: actualSourceLang,
-          })
-      ])
-      
-      translationResult = {
-        forward: forwardResult,
-        reverse: reverseResult,
-        mode: 'bidirectional'
-      }
-      
-    } else {
-      // 单向翻译（默认模式）
-      translationResult = options.enableCache !== false ?
-        await withCache(cacheKey, () => translateText({
-          text: sanitizedText,
-          sourceLanguage: actualSourceLang,
-          targetLanguage: actualTargetLang,
-        }), 3600) :
-        await translateText({
-          text: sanitizedText,
-          sourceLanguage: actualSourceLang,
-          targetLanguage: actualTargetLang,
+        const detectResponse = await fetch('http://localhost:3000/api/detect', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, multiple: false })
         })
-    }
 
-    // 构建响应数据，包含方向切换信息
-    const responseData = {
-      ...translationResult,
-      metadata: {
-        originalSourceLanguage: body.sourceLanguage,
-        originalTargetLanguage: body.targetLanguage,
-        actualSourceLanguage: actualSourceLang,
-        actualTargetLanguage: actualTargetLang,
-        directionSwitched,
-        mode,
-        ...(mode === 'auto-direction' || options.autoDetectDirection ? {
-          autoDetection: true
-        } : {})
+        if (detectResponse.ok) {
+          const detectResult = await detectResponse.json()
+          console.log('Language detection result:', JSON.stringify(detectResult, null, 2))
+          
+          if (detectResult.language) {
+            finalSourceLanguage = detectResult.language
+          } else if (detectResult.data?.language) {
+            finalSourceLanguage = detectResult.data.language
+          }
+          
+          console.log('Detected source language:', finalSourceLanguage)
+        } else {
+          console.error('Language detection failed with status:', detectResponse.status)
+          finalSourceLanguage = 'en' // 默认假设英语
+        }
+      } catch (detectError) {
+        console.error('Language detection error:', detectError)
+        finalSourceLanguage = 'en' // 默认假设英语
       }
     }
 
-    // 返回成功响应
-    return apiResponse(responseData, 200, {
-      'Cache-Control': 'public, max-age=3600', // 缓存1小时
+    // 语言代码验证和映射
+    const languageMap: { [key: string]: string } = {
+      'zh': 'zho_Hans',
+      'en': 'eng_Latn',
+      'fr': 'fra_Latn',
+      'es': 'spa_Latn',
+      'de': 'deu_Latn',
+      'ja': 'jpn_Jpan',
+      'ko': 'kor_Hang',
+      'ar': 'arb_Arab',
+      'hi': 'hin_Deva',
+      'pt': 'por_Latn',
+      'ru': 'rus_Cyrl',
+      'my': 'mya_Mymr',
+      'lo': 'lao_Laoo',
+      'sw': 'swh_Latn',
+      'te': 'tel_Telu',
+      'ht': 'hat_Latn'
+    }
+
+    const nllbSourceLang = languageMap[finalSourceLanguage]
+    const nllbTargetLang = languageMap[targetLanguage]
+
+    if (!nllbSourceLang || !nllbTargetLang) {
+      console.error('Unsupported language mapping:', { 
+        finalSourceLanguage, 
+        targetLanguage, 
+        nllbSourceLang, 
+        nllbTargetLang 
+      })
+      return NextResponse.json(
+        { error: `Unsupported language: ${finalSourceLanguage} -> ${targetLanguage}` },
+        { status: 400 }
+      )
+    }
+
+    console.log('=== LANGUAGE MAPPING ===')
+    console.log('Original:', { source: finalSourceLanguage, target: targetLanguage })
+    console.log('NLLB codes:', { source: nllbSourceLang, target: nllbTargetLang })
+
+    // 调用NLLB本地服务
+    console.log('=== CALLING NLLB SERVICE ===')
+    const nllbPayload = {
+      text,
+      sourceLanguage: finalSourceLanguage,  // 传递简短代码，让NLLB服务自己映射
+      targetLanguage: targetLanguage
+    }
+    console.log('NLLB request payload:', JSON.stringify(nllbPayload, null, 2))
+
+    const nllbResponse = await fetch('http://localhost:8081/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(nllbPayload)
     })
 
-  } catch (error) {
-    console.error('Translation API error:', error)
+    console.log('NLLB response status:', nllbResponse.status)
     
-    // 处理特定的翻译错误
-    if (error instanceof Error) {
-      if (error.message.includes('Unsupported language')) {
-        return apiError(
-          ApiErrorCodes.UNSUPPORTED_LANGUAGE,
-          error.message,
-          400
-        )
-      }
-      
-      if (error.message.includes('API key not configured')) {
-        return apiError(
-          ApiErrorCodes.INTERNAL_ERROR,
-          'Translation service temporarily unavailable',
-          503
-        )
-      }
-
-      if (error.message.includes('Translation failed')) {
-        return apiError(
-          ApiErrorCodes.TRANSLATION_FAILED,
-          'Failed to translate text. Please try again.',
-          500
-        )
-      }
+    if (!nllbResponse.ok) {
+      const errorText = await nllbResponse.text()
+      console.error('NLLB service error:', errorText)
+      throw new Error(`NLLB service failed: ${errorText}`)
     }
 
-    // 通用错误响应
-    return apiError(
-      ApiErrorCodes.INTERNAL_ERROR,
-      'An unexpected error occurred',
-      500
+    const nllbResult = await nllbResponse.json()
+    console.log('=== NLLB SERVICE RESPONSE ===')
+    console.log('NLLB result:', JSON.stringify(nllbResult, null, 2))
+
+    if (!nllbResult.translatedText) {
+      console.error('No translatedText in NLLB response')
+      throw new Error('Translation failed - no result from NLLB service')
+    }
+
+    const finalResult = {
+      translatedText: nllbResult.translatedText,
+      sourceLanguage: finalSourceLanguage,
+      targetLanguage,
+      detectedLanguage: sourceLanguage === 'auto' ? finalSourceLanguage : undefined,
+      method: 'nllb-local',
+      originalLength: text.length,
+      translatedLength: nllbResult.translatedText.length
+    }
+
+    console.log('=== FINAL API RESPONSE ===')
+    console.log('Final result:', JSON.stringify(finalResult, null, 2))
+
+    return NextResponse.json(finalResult)
+
+  } catch (error) {
+    console.error('=== TRANSLATION API ERROR ===')
+    console.error('Error:', error)
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace')
+    
+    return NextResponse.json(
+      { 
+        error: 'Translation failed', 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      },
+      { status: 500 }
     )
   }
 }

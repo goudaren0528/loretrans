@@ -16,6 +16,7 @@ interface TranslationJob {
   targetLanguage: string
   status: 'pending' | 'processing' | 'completed' | 'failed'
   progress: number
+  message?: string
   createdAt: string
   completedAt?: string
   downloadUrl?: string
@@ -130,6 +131,7 @@ export default function DocumentTranslatePage() {
               ...job,
               status: jobData.status,
               progress: jobData.progress,
+              message: jobData.message,
               downloadUrl: jobData.downloadUrl,
               completedAt: jobData.completedAt,
               error: jobData.error
@@ -138,7 +140,9 @@ export default function DocumentTranslatePage() {
 
           // 如果任务还在进行中，继续轮询
           if (jobData.status === 'pending' || jobData.status === 'processing') {
-            setTimeout(poll, 2000) // 每2秒检查一次
+            // 减少轮询间隔，提供更实时的反馈
+            const pollInterval = jobData.status === 'processing' ? 1000 : 2000 // 处理中时每1秒，等待中时每2秒
+            setTimeout(poll, pollInterval)
           }
         }
       } catch (error) {
@@ -344,46 +348,86 @@ export default function DocumentTranslatePage() {
           <div className="space-y-4">
             {translationJobs.map((job) => (
               <div key={job.id} className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <FileText className="h-8 w-8 text-muted-foreground" />
-                    <div>
-                      <h3 className="font-medium">{job.fileName}</h3>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="relative">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                      {job.status === 'processing' && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                      )}
+                      {job.status === 'completed' && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"></div>
+                      )}
+                      {job.status === 'failed' && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium truncate">{job.fileName}</h3>
                       <p className="text-sm text-muted-foreground">
-                        {formatFileSize(job.fileSize)} • {sourceLanguage} → English
+                        {formatFileSize(job.fileSize)} • {job.sourceLanguage} → {job.targetLanguage}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Started: {formatDuration(job.createdAt)}
+                        {job.completedAt && ` • Completed: ${formatDuration(job.completedAt)}`}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    {job.status === 'completed' && (
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-sm text-green-600">Completed</span>
-                      </div>
-                    )}
-                    {job.status === 'processing' && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-32 bg-muted rounded-full h-2">
-                          <div
-                            className="bg-primary h-2 rounded-full transition-all duration-300"
-                            style={{ width: `${job.progress}%` }}
-                          />
+                  <div className="flex flex-col items-end gap-3 min-w-0 ml-4">
+                    {/* Status and Progress */}
+                    <div className="flex items-center gap-2">
+                      {job.status === 'pending' && (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-gray-600"></div>
+                          <span className="text-sm text-muted-foreground">Waiting...</span>
+                        </>
+                      )}
+                      {job.status === 'processing' && (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-300 border-t-blue-600"></div>
+                          <span className="text-sm text-blue-600 font-medium">{job.progress}%</span>
+                        </>
+                      )}
+                      {job.status === 'completed' && (
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-sm text-green-600 font-medium">Completed</span>
                         </div>
-                        <span className="text-sm text-primary">{job.progress}%</span>
-                      </div>
-                    )}
-                    {job.status === 'failed' && (
-                      <div className="flex items-center gap-2">
-                        <AlertCircle className="h-4 w-4 text-destructive" />
-                        <span className="text-sm text-destructive">Failed</span>
+                      )}
+                      {job.status === 'failed' && (
+                        <div className="flex items-center gap-2">
+                          <AlertCircle className="h-4 w-4 text-destructive" />
+                          <span className="text-sm text-destructive font-medium">Failed</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Progress Bar for Processing */}
+                    {job.status === 'processing' && (
+                      <div className="w-48">
+                        <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
+                          <div
+                            className="bg-blue-500 h-2.5 rounded-full transition-all duration-500 ease-out relative overflow-hidden"
+                            style={{ width: `${Math.max(job.progress, 5)}%` }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-pulse"></div>
+                          </div>
+                        </div>
+                        {job.message && (
+                          <p className="text-xs text-muted-foreground mt-1 text-right truncate" title={job.message}>
+                            {job.message}
+                          </p>
+                        )}
                       </div>
                     )}
 
+                    {/* Download Button */}
                     {job.status === 'completed' && job.downloadUrl && (
                       <Button
                         variant="outline"
                         size="sm"
+                        className="shrink-0"
                         onClick={() => {
                           const link = document.createElement('a')
                           link.href = job.downloadUrl!
@@ -398,9 +442,23 @@ export default function DocumentTranslatePage() {
                   </div>
                 </div>
 
+                {/* Error Message */}
                 {job.error && (
                   <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-md">
-                    <p className="text-sm text-destructive">{job.error}</p>
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="h-4 w-4 text-destructive mt-0.5 shrink-0" />
+                      <p className="text-sm text-destructive">{job.error}</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Processing Details */}
+                {job.status === 'processing' && job.message && (
+                  <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
+                    <div className="flex items-start gap-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-300 border-t-blue-600 mt-0.5 shrink-0"></div>
+                      <p className="text-sm text-blue-700">{job.message}</p>
+                    </div>
                   </div>
                 )}
               </div>

@@ -145,22 +145,28 @@ class NLLBTranslator:
             # 设置源语言 - 这是NLLB正确翻译的关键
             self.tokenizer.src_lang = src_lang
             
-            # 编码输入文本
-            inputs = self.tokenizer(text, return_tensors="pt", max_length=512, truncation=True)
+            # 编码输入文本 - 增加长度限制
+            inputs = self.tokenizer(text, return_tensors="pt", max_length=1024, truncation=True)
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             
             # 获取目标语言的token ID
             tgt_lang_id = self.tokenizer.convert_tokens_to_ids(tgt_lang)
             
-            # 生成翻译
+            # 生成翻译 - 强制完整翻译参数
             with torch.no_grad():
                 outputs = self.model.generate(
                     **inputs,
                     forced_bos_token_id=tgt_lang_id,
-                    max_length=512,
+                    max_new_tokens=512,  # 使用max_new_tokens而不是max_length
+                    min_length=20,  # 增加最小长度
                     num_beams=4,
-                    length_penalty=1.0,
-                    early_stopping=True
+                    length_penalty=0.0,  # 完全移除长度惩罚
+                    early_stopping=False,  # 禁用早停
+                    no_repeat_ngram_size=3,  # 避免重复
+                    do_sample=False,
+                    pad_token_id=self.tokenizer.pad_token_id,
+                    eos_token_id=self.tokenizer.eos_token_id,
+                    forced_eos_token_id=None  # 不强制结束
                 )
             
             # 解码结果
@@ -258,7 +264,10 @@ if __name__ == "__main__":
       const sourceCode = this.getNLLBLanguageCode(sourceLanguage)
       const targetCode = this.getNLLBLanguageCode(targetLanguage)
 
-      console.log(`Translating: ${sourceLanguage} (${sourceCode}) -> ${targetLanguage} (${targetCode})`)
+      console.log('=== NLLB TRANSLATION SERVICE ===')
+      console.log(`Input text length: ${text.length}`)
+      console.log(`Input text: "${text}"`)
+      console.log(`Language mapping: ${sourceLanguage} (${sourceCode}) -> ${targetLanguage} (${targetCode})`)
 
       return new Promise((resolve, reject) => {
         const python = spawn('python', [this.pythonScript, text, sourceCode, targetCode])
@@ -267,26 +276,41 @@ if __name__ == "__main__":
         let error = ''
         
         python.stdout.on('data', (data) => {
-          output += data.toString()
+          const chunk = data.toString()
+          output += chunk
+          console.log(`Python stdout: ${chunk}`)
         })
         
         python.stderr.on('data', (data) => {
-          error += data.toString()
+          const chunk = data.toString()
+          error += chunk
+          console.log(`Python stderr: ${chunk}`)
         })
         
         python.on('close', (code) => {
+          console.log(`=== PYTHON PROCESS COMPLETED ===`)
+          console.log(`Exit code: ${code}`)
+          console.log(`Full stdout: ${output}`)
+          console.log(`Full stderr: ${error}`)
+          
           if (code === 0) {
             try {
               const result = JSON.parse(output.trim())
               if (result.error) {
+                console.log(`Python script error: ${result.error}`)
                 reject(new Error(result.error))
               } else {
+                console.log(`=== TRANSLATION SUCCESS ===`)
+                console.log(`Translated text length: ${result.translatedText.length}`)
+                console.log(`Translated text: "${result.translatedText}"`)
                 resolve(result.translatedText)
               }
             } catch (e) {
+              console.log(`Failed to parse Python output: ${output}`)
               reject(new Error(`Failed to parse Python output: ${output}`))
             }
           } else {
+            console.log(`Python process failed with code ${code}: ${error}`)
             reject(new Error(`Python process failed: ${error}`))
           }
         })
@@ -372,6 +396,198 @@ if __name__ == "__main__":
    */
   isLanguageSupported(language) {
     return language in this.languageMap
+  }
+
+  async translate(text, sourceLang, targetLang) {
+    console.log('=== NLLB SERVICE TRANSLATE ===')
+    console.log('Input text length:', text.length)
+    console.log('Input text preview:', text.substring(0, 100) + (text.length > 100 ? '...' : ''))
+    console.log('Source language:', sourceLang)
+    console.log('Target language:', targetLang)
+    
+    return new Promise((resolve, reject) => {
+      // 创建Python脚本内容
+      const pythonScript = `#!/usr/bin/env python3
+import sys
+import json
+import os
+from pathlib import Path
+
+# 添加模型路径
+model_dir = Path(__file__).parent.parent / "models" / "nllb-600m"
+
+try:
+    from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+    import torch
+except ImportError as e:
+    print(json.dumps({"error": f"Missing dependency: {e}"}))
+    sys.exit(1)
+
+class NLLBTranslator:
+    def __init__(self):
+        self.model = None
+        self.tokenizer = None
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        
+    def load_model(self):
+        if self.model is None:
+            try:
+                self.tokenizer = AutoTokenizer.from_pretrained(model_dir)
+                self.model = AutoModelForSeq2SeqLM.from_pretrained(model_dir)
+                self.model.to(self.device)
+                return True
+            except Exception as e:
+                print(json.dumps({"error": f"Failed to load model: {e}"}))
+                return False
+        return True
+    
+    def translate(self, text, src_lang, tgt_lang):
+        if not self.load_model():
+            return None
+            
+        try:
+            # 设置源语言 - 这是NLLB正确翻译的关键
+            self.tokenizer.src_lang = src_lang
+            
+            # 编码输入文本 - 增加长度限制
+            inputs = self.tokenizer(text, return_tensors="pt", max_length=1024, truncation=True)
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+            
+            # 获取目标语言的token ID
+            tgt_lang_id = self.tokenizer.convert_tokens_to_ids(tgt_lang)
+            
+            # 生成翻译 - 强制完整翻译参数
+            with torch.no_grad():
+                outputs = self.model.generate(
+                    **inputs,
+                    forced_bos_token_id=tgt_lang_id,
+                    max_new_tokens=512,  # 使用max_new_tokens而不是max_length
+                    min_length=20,  # 增加最小长度
+                    num_beams=4,
+                    length_penalty=0.0,  # 完全移除长度惩罚
+                    early_stopping=False,  # 禁用早停
+                    no_repeat_ngram_size=3,  # 避免重复
+                    do_sample=False,
+                    pad_token_id=self.tokenizer.pad_token_id,
+                    eos_token_id=self.tokenizer.eos_token_id,
+                    forced_eos_token_id=None  # 不强制结束
+                )
+            
+            # 解码结果
+            result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            return result
+            
+        except Exception as e:
+            print(json.dumps({"error": f"Translation failed: {e}"}))
+            return None
+
+def main():
+    if len(sys.argv) != 4:
+        print(json.dumps({"error": "Usage: python translate.py <text> <src_lang> <tgt_lang>"}))
+        sys.exit(1)
+    
+    text = sys.argv[1]
+    src_lang = sys.argv[2]  
+    tgt_lang = sys.argv[3]
+    
+    translator = NLLBTranslator()
+    result = translator.translate(text, src_lang, tgt_lang)
+    
+    if result:
+        print(json.dumps({"translatedText": result}))
+    else:
+        print(json.dumps({"error": "Translation failed"}))
+
+if __name__ == "__main__":
+    main()
+`
+
+      // 创建临时Python文件
+      const tempFile = path.join(__dirname, `temp_translate_${Date.now()}.py`)
+      fs.writeFileSync(tempFile, pythonScript)
+
+      console.log('=== PYTHON SCRIPT EXECUTION ===')
+      console.log('Temp script path:', tempFile)
+      console.log('Executing command: python', [tempFile, text, sourceLang, targetLang])
+
+      // 执行Python脚本
+      const pythonProcess = spawn('python', [tempFile, text, sourceLang, targetLang], {
+        stdio: ['pipe', 'pipe', 'pipe']
+      })
+
+      let stdout = ''
+      let stderr = ''
+
+      pythonProcess.stdout.on('data', (data) => {
+        const chunk = data.toString()
+        stdout += chunk
+        console.log('Python stdout chunk:', chunk)
+      })
+
+      pythonProcess.stderr.on('data', (data) => {
+        const chunk = data.toString()
+        stderr += chunk
+        console.log('Python stderr chunk:', chunk)
+      })
+
+      pythonProcess.on('close', (code) => {
+        console.log('=== PYTHON SCRIPT COMPLETED ===')
+        console.log('Exit code:', code)
+        console.log('Full stdout:', stdout)
+        console.log('Full stderr:', stderr)
+        
+        // 清理临时文件
+        try {
+          fs.unlinkSync(tempFile)
+          console.log('Temp file cleaned up')
+        } catch (err) {
+          console.warn('Failed to clean up temp file:', err.message)
+        }
+
+        if (code !== 0) {
+          console.error('Python script failed with code:', code)
+          reject(new Error(`Translation failed: ${stderr || 'Unknown error'}`))
+          return
+        }
+
+        try {
+          const result = JSON.parse(stdout.trim())
+          console.log('=== PARSED PYTHON RESULT ===')
+          console.log('Parsed result:', JSON.stringify(result, null, 2))
+          
+          if (result.error) {
+            console.error('Python script returned error:', result.error)
+            reject(new Error(result.error))
+          } else if (result.translatedText) {
+            console.log('Translation successful')
+            console.log('Translated text length:', result.translatedText.length)
+            console.log('Translated text preview:', result.translatedText.substring(0, 150) + (result.translatedText.length > 150 ? '...' : ''))
+            resolve(result.translatedText)
+          } else {
+            console.error('Unexpected result format:', result)
+            reject(new Error('Invalid response format from translation script'))
+          }
+        } catch (parseError) {
+          console.error('Failed to parse Python output:', parseError)
+          console.error('Raw stdout:', stdout)
+          reject(new Error(`Failed to parse translation result: ${parseError.message}`))
+        }
+      })
+
+      pythonProcess.on('error', (error) => {
+        console.error('=== PYTHON PROCESS ERROR ===')
+        console.error('Error spawning Python process:', error)
+        
+        // 清理临时文件
+        try {
+          fs.unlinkSync(tempFile)
+        } catch (err) {
+          console.warn('Failed to clean up temp file after error:', err.message)
+        }
+        
+        reject(new Error(`Failed to execute translation: ${error.message}`))
+      })
+    })
   }
 }
 

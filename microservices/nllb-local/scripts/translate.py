@@ -40,22 +40,28 @@ class NLLBTranslator:
             # 设置源语言 - 这是NLLB正确翻译的关键
             self.tokenizer.src_lang = src_lang
             
-            # 编码输入文本
-            inputs = self.tokenizer(text, return_tensors="pt", max_length=512, truncation=True)
+            # 编码输入文本 - 增加长度限制
+            inputs = self.tokenizer(text, return_tensors="pt", max_length=1024, truncation=True)
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             
             # 获取目标语言的token ID
             tgt_lang_id = self.tokenizer.convert_tokens_to_ids(tgt_lang)
             
-            # 生成翻译
+            # 生成翻译 - 强制完整翻译参数
             with torch.no_grad():
                 outputs = self.model.generate(
                     **inputs,
                     forced_bos_token_id=tgt_lang_id,
-                    max_length=512,
+                    max_new_tokens=512,  # 使用max_new_tokens而不是max_length
+                    min_length=20,  # 增加最小长度
                     num_beams=4,
-                    length_penalty=1.0,
-                    early_stopping=True
+                    length_penalty=0.0,  # 完全移除长度惩罚
+                    early_stopping=False,  # 禁用早停
+                    no_repeat_ngram_size=3,  # 避免重复
+                    do_sample=False,
+                    pad_token_id=self.tokenizer.pad_token_id,
+                    eos_token_id=self.tokenizer.eos_token_id,
+                    forced_eos_token_id=None  # 不强制结束
                 )
             
             # 解码结果

@@ -81,16 +81,14 @@ export function TranslatorWidget({
   }, [state.sourceText, state.sourceLanguage, state.targetLanguage, isOverLimit])
 
   const handleSwapLanguages = useCallback(() => {
-    // 只有当目标语言不是英文时才允许交换
-    if (state.targetLanguage !== 'en') {
-      setState(prev => ({
-        ...prev,
-        sourceLanguage: prev.targetLanguage,
-        targetLanguage: prev.sourceLanguage,
-        sourceText: prev.translatedText,
-        translatedText: prev.sourceText,
-      }))
-    }
+    // 交换语言和文本内容
+    setState(prev => ({
+      ...prev,
+      sourceLanguage: prev.targetLanguage,
+      targetLanguage: prev.sourceLanguage,
+      sourceText: prev.translatedText,
+      translatedText: prev.sourceText,
+    }))
   }, [state.targetLanguage, state.translatedText, state.sourceText])
 
   const handleCopy = useCallback(async (text: string) => {
@@ -159,8 +157,9 @@ export function TranslatorWidget({
               variant="ghost"
               size="icon"
               onClick={handleSwapLanguages}
-              disabled={state.targetLanguage === 'en'}
+              disabled={state.isLoading}
               className="mt-6"
+              title="Switch languages"
             >
               <ArrowUpDown className="h-4 w-4" />
             </Button>
@@ -183,7 +182,14 @@ export function TranslatorWidget({
                       <span className="text-muted-foreground text-xs">(English)</span>
                     </div>
                   </SelectItem>
-                  {/* 为了MVP简化，主要支持到英文的翻译 */}
+                  {APP_CONFIG.languages.supported.map((lang) => (
+                    <SelectItem key={lang.code} value={lang.code}>
+                      <div className="flex items-center gap-2">
+                        <span>{lang.name}</span>
+                        <span className="text-muted-foreground text-xs">({lang.nativeName})</span>
+                      </div>
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -292,7 +298,7 @@ export function TranslatorWidget({
         <div className="flex flex-wrap justify-center gap-2">
           {[
             { text: 'Bonjou, kijan ou ye?', lang: 'ht', label: 'Creole greeting' },
-            { text: 'سلام علیکم', lang: 'fa', label: 'Persian greeting' },
+            { text: 'ສະບາຍດີ, ເຈົ້າເປັນແນວໃດ?', lang: 'lo', label: 'Lao greeting' },
             { text: 'Habari za asubuhi', lang: 'sw', label: 'Swahili greeting' },
           ].map((example, index) => (
             <Button

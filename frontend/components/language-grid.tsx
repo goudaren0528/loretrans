@@ -24,7 +24,7 @@ export function LanguageGrid({ currentLanguage }: LanguageGridProps = {}) {
           <div className="flex flex-col items-center text-center">
             <h3 className="font-semibold text-foreground">{language.name}</h3>
             <p className="text-sm text-muted-foreground mt-1">{language.nativeName}</p>
-            <Link href={`/${language.code}-to-english`}>
+            <Link href={`/${language.slug}-to-english`}>
               <Button
                 variant="outline"
                 size="sm"

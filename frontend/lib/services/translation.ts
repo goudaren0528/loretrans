@@ -12,7 +12,7 @@ interface TranslationResponse {
   targetLanguage: string
   confidence?: number
   processingTime: number
-  method?: 'huggingface' | 'mock' | 'fallback'
+  method?: 'nllb-local' | 'huggingface' | 'mock' | 'fallback'
 }
 
 interface HuggingFaceResponse {
@@ -96,12 +96,88 @@ function mockTranslation(text: string, sourceLanguage: string, targetLanguage: s
  * 检查是否应该使用mock模式
  */
 function shouldUseMockMode(): boolean {
-  const apiKey = process.env.HUGGINGFACE_API_KEY
-  const isDevelopment = process.env.NODE_ENV === 'development'
+  // 调试信息 - 检查环境变量和配置
+  console.log('DEBUG: shouldUseMockMode checks:')
+  console.log('  USE_MOCK_TRANSLATION:', process.env.USE_MOCK_TRANSLATION)
+  console.log('  NLLB_LOCAL_ENABLED:', process.env.NLLB_LOCAL_ENABLED)
+  console.log('  localConfig.enabled:', APP_CONFIG.nllb.localService.enabled)
+  console.log('  localConfig.url:', APP_CONFIG.nllb.localService.url)
+  console.log('  HF API Key exists:', !!process.env.HUGGINGFACE_API_KEY)
   
-  // 如果没有API key 或者明确设置了mock模式，使用mock
-  return !apiKey || process.env.USE_MOCK_TRANSLATION === 'true' || 
-         (isDevelopment && !apiKey)
+  // 如果明确设置了使用mock模式，则使用mock
+  if (process.env.USE_MOCK_TRANSLATION === 'true') {
+    console.log('DEBUG: Using mock mode (explicitly enabled)')
+    return true
+  }
+  
+  // 如果启用了本地NLLB服务，不使用mock模式
+  const localConfig = APP_CONFIG.nllb.localService
+  if (localConfig.enabled) {
+    console.log('DEBUG: Using NLLB local service mode')
+    return false
+  }
+  
+  // 如果有HuggingFace API key，不使用mock模式
+  const apiKey = process.env.HUGGINGFACE_API_KEY
+  if (apiKey) {
+    console.log('DEBUG: Using HuggingFace API mode')
+    return false
+  }
+  
+  // 其他情况使用mock模式
+  console.log('DEBUG: Falling back to mock mode')
+  return true
+}
+
+/**
+ * 调用本地NLLB服务进行翻译
+ */
+async function callLocalNLLBAPI(
+  text: string,
+  sourceLanguage: string,
+  targetLanguage: string
+): Promise<string> {
+  const localConfig = APP_CONFIG.nllb.localService
+  
+  if (!localConfig.enabled) {
+    throw new Error('Local NLLB service is not enabled')
+  }
+
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), localConfig.timeout)
+
+  try {
+    const response = await fetch(`${localConfig.url}/translate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text,
+        sourceLanguage,
+        targetLanguage,
+      }),
+      signal: controller.signal,
+    })
+
+    clearTimeout(timeoutId)
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(`Local NLLB API error: ${response.status} ${errorData.error || response.statusText}`)
+    }
+
+    const data = await response.json()
+    
+    if (!data.translatedText) {
+      throw new Error('No translation returned from local service')
+    }
+
+    return data.translatedText
+
+  } finally {
+    clearTimeout(timeoutId)
+  }
 }
 
 /**
@@ -242,8 +318,8 @@ export async function translateText(request: TranslationRequest): Promise<Transl
       }
     }
 
-    let translatedText: string
-    let method: 'huggingface' | 'mock' | 'fallback' = 'huggingface'
+    let translatedText: string = ''
+    let method: 'nllb-local' | 'huggingface' | 'mock' | 'fallback' = 'huggingface'
 
     // 检查是否使用mock模式
     if (shouldUseMockMode()) {
@@ -251,19 +327,46 @@ export async function translateText(request: TranslationRequest): Promise<Transl
       method = 'mock'
       console.log('Using mock translation mode')
     } else {
-      try {
-        // 尝试使用Hugging Face API
-        translatedText = await callHuggingFaceAPI(
-          request.text,
-          request.sourceLanguage,
-          request.targetLanguage
-        )
-        method = 'huggingface'
-      } catch (error) {
-        console.warn('Hugging Face API failed, using fallback:', error)
-        // 如果API失败，使用fallback
-        translatedText = fallbackTranslation(request.text, request.sourceLanguage, request.targetLanguage)
-        method = 'fallback'
+      // 优先尝试本地NLLB服务
+      const localConfig = APP_CONFIG.nllb.localService
+      let useLocalService = localConfig.enabled
+
+      if (useLocalService) {
+        try {
+          translatedText = await callLocalNLLBAPI(
+            request.text,
+            request.sourceLanguage,
+            request.targetLanguage
+          )
+          method = 'nllb-local'
+          console.log('Using local NLLB service')
+        } catch (error) {
+          console.warn('Local NLLB service failed:', error)
+          useLocalService = false
+          
+          // 如果不允许fallback到HuggingFace，直接抛出错误
+          if (!localConfig.fallbackToHuggingFace) {
+            throw error
+          }
+        }
+      }
+
+      // 如果本地服务不可用或失败，尝试Hugging Face API
+      if (!useLocalService) {
+        try {
+          translatedText = await callHuggingFaceAPI(
+            request.text,
+            request.sourceLanguage,
+            request.targetLanguage
+          )
+          method = 'huggingface'
+          console.log('Using Hugging Face API')
+        } catch (error) {
+          console.warn('Hugging Face API failed, using fallback:', error)
+          // 如果API失败，使用fallback
+          translatedText = fallbackTranslation(request.text, request.sourceLanguage, request.targetLanguage)
+          method = 'fallback'
+        }
       }
     }
 

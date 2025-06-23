@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 环境变量配置 - 确保NLLB本地服务配置正确生效
+  env: {
+    USE_MOCK_TRANSLATION: 'false',
+    NLLB_LOCAL_ENABLED: 'true',
+    NLLB_LOCAL_URL: 'http://localhost:8081',
+    NLLB_LOCAL_FALLBACK: 'true',
+    NLLB_LOCAL_TIMEOUT: '30000',
+  },
   images: {
     domains: ['cdn.transly.app'],
     formats: ['image/webp', 'image/avif'],

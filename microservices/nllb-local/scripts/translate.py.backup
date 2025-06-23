@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+import sys
+import json
+import os
+from pathlib import Path
+
+# 添加模型路径
+model_dir = Path(__file__).parent.parent / "models" / "nllb-600m"
+
+try:
+    from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+    import torch
+except ImportError as e:
+    print(json.dumps({"error": f"Missing dependency: {e}"}))
+    sys.exit(1)
+
+class NLLBTranslator:
+    def __init__(self):
+        self.model = None
+        self.tokenizer = None
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        
+    def load_model(self):
+        if self.model is None:
+            try:
+                self.tokenizer = AutoTokenizer.from_pretrained(model_dir)
+                self.model = AutoModelForSeq2SeqLM.from_pretrained(model_dir)
+                self.model.to(self.device)
+                return True
+            except Exception as e:
+                print(json.dumps({"error": f"Failed to load model: {e}"}))
+                return False
+        return True
+    
+    def translate(self, text, src_lang, tgt_lang):
+        if not self.load_model():
+            return None
+            
+        try:
+            # 编码输入文本
+            inputs = self.tokenizer(text, return_tensors="pt", max_length=512, truncation=True)
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+            
+            # 获取目标语言的token ID
+            tgt_lang_id = self.tokenizer.convert_tokens_to_ids(tgt_lang)
+            
+            # 生成翻译
+            with torch.no_grad():
+                outputs = self.model.generate(
+                    **inputs,
+                    forced_bos_token_id=tgt_lang_id,
+                    max_length=512,
+                    num_beams=4,
+                    length_penalty=1.0,
+                    early_stopping=True
+                )
+            
+            # 解码结果
+            result = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            return result
+            
+        except Exception as e:
+            print(json.dumps({"error": f"Translation failed: {e}"}))
+            return None
+
+def main():
+    if len(sys.argv) != 4:
+        print(json.dumps({"error": "Usage: python translate.py <text> <src_lang> <tgt_lang>"}))
+        sys.exit(1)
+    
+    text = sys.argv[1]
+    src_lang = sys.argv[2]  
+    tgt_lang = sys.argv[3]
+    
+    translator = NLLBTranslator()
+    result = translator.translate(text, src_lang, tgt_lang)
+    
+    if result:
+        print(json.dumps({"translatedText": result}))
+    else:
+        print(json.dumps({"error": "Translation failed"}))
+
+if __name__ == "__main__":
+    main()

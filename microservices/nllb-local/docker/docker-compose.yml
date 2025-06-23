@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  nllb-local:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: nllb-local-service
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - HOST=0.0.0.0
+      - LOG_LEVEL=info
+      - DEVICE=cpu
+      - DTYPE=fp32
+      - BATCH_SIZE=4
+      - MODEL_PATH=/app/models/nllb-600m
+    volumes:
+      - nllb_models:/app/models
+      - nllb_downloads:/app/downloads
+      - nllb_logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: '4.0'
+        reservations:
+          memory: 4G
+          cpus: '2.0'
+
+  # Redis缓存 (可选)
+  redis:
+    image: redis:7-alpine
+    container_name: nllb-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+volumes:
+  nllb_models:
+  nllb_downloads:
+  nllb_logs:
+  redis_data:
+
+networks:
+  default:
+    name: nllb-network 

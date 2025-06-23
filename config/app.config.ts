@@ -34,6 +34,13 @@ export const APP_CONFIG = {
     maxLength: parseInt(process.env.NLLB_MAX_LENGTH || '1000'),
     temperature: parseFloat(process.env.NLLB_TEMPERATURE || '0.3'),
     timeout: parseInt(process.env.NLLB_TIMEOUT || '30000'),
+    // 本地服务配置
+    localService: {
+      enabled: process.env.NLLB_LOCAL_ENABLED === 'true',
+      url: process.env.NLLB_LOCAL_URL || 'http://localhost:8081',
+      fallbackToHuggingFace: process.env.NLLB_LOCAL_FALLBACK === 'true',
+      timeout: parseInt(process.env.NLLB_LOCAL_TIMEOUT || '30000'),
+    },
   },
 
   // 文件处理配置

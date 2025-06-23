@@ -17,6 +17,16 @@ interface TranslateRequest {
   text: string
   sourceLanguage: string
   targetLanguage: string
+  // 双向翻译增强参数
+  mode?: 'single' | 'bidirectional' | 'batch'
+  options?: {
+    enableCache?: boolean
+    enableFallback?: boolean
+    priority?: 'speed' | 'quality'
+    format?: 'text' | 'structured'
+  }
+  // 批量翻译支持
+  texts?: string[]
 }
 
 export async function POST(request: NextRequest) {
@@ -42,39 +52,64 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 验证必需字段
-    const validation = validateRequiredFields(body, ['text', 'sourceLanguage', 'targetLanguage'])
-    if (!validation.valid) {
-      return apiError(
-        ApiErrorCodes.MISSING_FIELDS,
-        `Missing required fields: ${validation.missing.join(', ')}`,
-        400,
-        { missingFields: validation.missing }
-      )
+    // 确定操作模式
+    const mode = body.mode || 'single'
+    const options = body.options || {}
+
+    // 根据模式验证不同的字段
+    if (mode === 'batch') {
+      if (!body.texts || !Array.isArray(body.texts) || body.texts.length === 0) {
+        return apiError(
+          ApiErrorCodes.INVALID_REQUEST,
+          'Batch mode requires a non-empty texts array',
+          400
+        )
+      }
+      if (body.texts.length > 10) {
+        return apiError(
+          ApiErrorCodes.INVALID_REQUEST,
+          'Maximum 10 texts allowed per batch request',
+          400
+        )
+      }
+    } else {
+      // 单个或双向翻译验证
+      const validation = validateRequiredFields(body, ['text', 'sourceLanguage', 'targetLanguage'])
+      if (!validation.valid) {
+        return apiError(
+          ApiErrorCodes.MISSING_FIELDS,
+          `Missing required fields: ${validation.missing.join(', ')}`,
+          400,
+          { missingFields: validation.missing }
+        )
+      }
     }
 
-    // 清理和验证文本
-    const sanitizedText = sanitizeText(body.text)
-    if (!sanitizedText) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Text cannot be empty',
-        400
-      )
-    }
+    // 验证和清理文本（仅对非批量模式）
+    let sanitizedText: string = ''
+    if (mode !== 'batch') {
+      sanitizedText = sanitizeText(body.text || '')
+      if (!sanitizedText) {
+        return apiError(
+          ApiErrorCodes.INVALID_REQUEST,
+          'Text cannot be empty',
+          400
+        )
+      }
 
-    // 验证文本长度
-    const lengthValidation = validateTextLength(sanitizedText, 1000)
-    if (!lengthValidation.valid) {
-      return apiError(
-        ApiErrorCodes.TEXT_TOO_LONG,
-        `Text is too long. Maximum ${1000} characters allowed, got ${lengthValidation.length}`,
-        400,
-        { 
-          maxLength: 1000, 
-          actualLength: lengthValidation.length 
-        }
-      )
+      // 验证文本长度
+      const lengthValidation = validateTextLength(sanitizedText, 1000)
+      if (!lengthValidation.valid) {
+        return apiError(
+          ApiErrorCodes.TEXT_TOO_LONG,
+          `Text is too long. Maximum ${1000} characters allowed, got ${lengthValidation.length}`,
+          400,
+          { 
+            maxLength: 1000, 
+            actualLength: lengthValidation.length 
+          }
+        )
+      }
     }
 
     // 验证语言代码格式 (允许 auto 作为源语言)
@@ -94,16 +129,73 @@ export async function POST(request: NextRequest) {
     // 生成缓存键
     const cacheKey = getTranslationCacheKey(sanitizedText, body.sourceLanguage, body.targetLanguage)
 
-    // 执行翻译（带缓存）
-    const translationResult = await withCache(
-      cacheKey,
-      () => translateText({
-        text: sanitizedText,
-        sourceLanguage: body.sourceLanguage,
-        targetLanguage: body.targetLanguage,
-      }),
-      3600 // 缓存1小时
-    )
+    // 根据模式执行不同的翻译逻辑
+    let translationResult: any
+
+    if (mode === 'batch') {
+      // 批量翻译
+      const { translateBatch } = await import('@/lib/services/translation')
+      const sanitizedTexts = body.texts!.map(text => sanitizeText(text)).filter(Boolean)
+      
+      console.log(`Batch translation request: ${sanitizedTexts.length} texts, ${body.sourceLanguage} -> ${body.targetLanguage}`)
+      
+      translationResult = await translateBatch(
+        sanitizedTexts,
+        body.sourceLanguage,
+        body.targetLanguage
+      )
+      
+    } else if (mode === 'bidirectional') {
+      // 双向翻译：同时获得正向和反向翻译
+      const cacheKeyReverse = getTranslationCacheKey(sanitizedText, body.targetLanguage, body.sourceLanguage)
+      
+      const [forwardResult, reverseResult] = await Promise.all([
+        options.enableCache !== false ? 
+          withCache(cacheKey, () => translateText({
+            text: sanitizedText,
+            sourceLanguage: body.sourceLanguage,
+            targetLanguage: body.targetLanguage,
+          }), 3600) :
+          translateText({
+            text: sanitizedText,
+            sourceLanguage: body.sourceLanguage,
+            targetLanguage: body.targetLanguage,
+          }),
+        
+        // 反向翻译（用翻译结果作为输入）
+        options.enableCache !== false ?
+          withCache(cacheKeyReverse, () => translateText({
+            text: sanitizedText, // 先用原文预翻译
+            sourceLanguage: body.targetLanguage,
+            targetLanguage: body.sourceLanguage,
+          }), 3600) :
+          translateText({
+            text: sanitizedText,
+            sourceLanguage: body.targetLanguage,
+            targetLanguage: body.sourceLanguage,
+          })
+      ])
+      
+      translationResult = {
+        forward: forwardResult,
+        reverse: reverseResult,
+        mode: 'bidirectional'
+      }
+      
+    } else {
+      // 单向翻译（默认模式）
+      translationResult = options.enableCache !== false ?
+        await withCache(cacheKey, () => translateText({
+          text: sanitizedText,
+          sourceLanguage: body.sourceLanguage,
+          targetLanguage: body.targetLanguage,
+        }), 3600) :
+        await translateText({
+          text: sanitizedText,
+          sourceLanguage: body.sourceLanguage,
+          targetLanguage: body.targetLanguage,
+        })
+    }
 
     // 返回成功响应
     return apiResponse(translationResult, 200, {

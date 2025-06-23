@@ -91,4 +91,21 @@ temp/
 
 # TypeScript
 *.tsbuildinfo
-next-env.d.ts 
+next-env.d.ts
+
+# AI Models and Large Files
+microservices/nllb-local/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# File Processing Results
+microservices/file-processor/uploads/
+microservices/file-processor/results/
+microservices/file-processor/temp/
+
+# NLLB Service Temporary Files
+microservices/nllb-local/temp/

@@ -93,7 +93,7 @@ Write-Host @"
 🎯 准备启动服务...
 =================
 配置信息:
-- NLLB服务端口: 8080
+- NLLB服务端口: 8081
 - 主服务端口: 3000
 - 翻译模式: 本地NLLB优先
 - 支持语言: 英语→海地克里奥尔语、老挝语、斯瓦希里语、缅甸语、泰卢固语
@@ -119,7 +119,7 @@ $nllbReady = $false
 
 while ($retryCount -lt $maxRetries -and -not $nllbReady) {
     try {
-        $response = Invoke-RestMethod -Uri "http://localhost:8080/health" -TimeoutSec 3 -ErrorAction Stop
+        $response = Invoke-RestMethod -Uri "http://localhost:8081/health" -TimeoutSec 3 -ErrorAction Stop
         if ($response.status -eq "ok") {
             Write-Host "✅ NLLB服务启动成功！" -ForegroundColor Green
             Write-Host "   - 状态: $($response.status)" -ForegroundColor Gray
@@ -180,7 +180,7 @@ Write-Host @"
 "@ -ForegroundColor Green
 
 if ($nllbReady) {
-    Write-Host "✅ NLLB本地服务: 运行中 (http://localhost:8080)" -ForegroundColor Green
+    Write-Host "✅ NLLB本地服务: 运行中 (http://localhost:8081)" -ForegroundColor Green
 } else {
     Write-Host "❌ NLLB本地服务: 启动失败" -ForegroundColor Red
 }
@@ -197,7 +197,7 @@ Write-Host @"
 - 翻译界面: http://localhost:3000/text-translate
 - 文档翻译: http://localhost:3000/document-translate
 - API文档: http://localhost:3000/api-docs
-- 健康检查: http://localhost:8080/health
+- 健康检查: http://localhost:8081/health
 
 🔧 测试命令:
 # 测试翻译API

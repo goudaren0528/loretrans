@@ -1,0 +1,29 @@
+{
+  "name": "nllb-local-service",
+  "version": "1.0.0",
+  "description": "Local NLLB 600M inference service for Transly",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "setup": "node src/setup.js",
+    "download-model": "python scripts/download_model.py",
+    "test": "node test/test-service.js"
+  },
+  "dependencies": {
+    "fastify": "^4.24.3",
+    "@fastify/cors": "^8.4.0",
+    "@fastify/helmet": "^11.1.1",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "child_process": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Transly Team",
+  "license": "MIT"
+} 

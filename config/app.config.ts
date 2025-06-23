@@ -92,6 +92,14 @@ export const APP_CONFIG = {
         available: false,
         bidirectional: false,
       },
+      { 
+        code: 'zh', 
+        name: 'Chinese', 
+        nativeName: '中文', 
+        slug: 'chinese',
+        available: true, // 启用中文支持
+        bidirectional: true, // 支持中英双向翻译
+      },
     ],
     // 目标语言（主要是英文）
     target: { code: 'en', name: 'English', nativeName: 'English', slug: 'english' },

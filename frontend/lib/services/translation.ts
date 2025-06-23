@@ -57,6 +57,9 @@ const MOCK_TRANSLATIONS: Record<string, Record<string, string>> = {
   },
   'my': {
     'en': 'English translation of Burmese text'
+  },
+  'zh': {
+    'en': 'English translation of Chinese text'
   }
 }
 

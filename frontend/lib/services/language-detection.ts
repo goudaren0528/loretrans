@@ -98,6 +98,13 @@ const LANGUAGE_PATTERNS: LanguagePattern[] = [
     keywords: ['sy', 'ny', 'amin\'ny', 'izany', 'fa', 'ary', 'dia', 'hoe', 'toa', 'raha'],
     weight: 2.0,
   },
+  {
+    code: 'zh',
+    name: 'Chinese',
+    unicode: [/[\u4e00-\u9fff]/], // CJK Unified Ideographs
+    keywords: ['的', '是', '在', '有', '我', '他', '这', '个', '你', '不', '了', '人', '都', '一', '一个'],
+    weight: 3.0,
+  },
 ]
 
 /**

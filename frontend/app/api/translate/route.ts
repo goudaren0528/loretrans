@@ -75,41 +75,41 @@ export async function POST(request: NextRequest) {
       }
     } else {
       // 单个或双向翻译验证
-      const validation = validateRequiredFields(body, ['text', 'sourceLanguage', 'targetLanguage'])
-      if (!validation.valid) {
-        return apiError(
-          ApiErrorCodes.MISSING_FIELDS,
-          `Missing required fields: ${validation.missing.join(', ')}`,
-          400,
-          { missingFields: validation.missing }
-        )
-      }
+    const validation = validateRequiredFields(body, ['text', 'sourceLanguage', 'targetLanguage'])
+    if (!validation.valid) {
+      return apiError(
+        ApiErrorCodes.MISSING_FIELDS,
+        `Missing required fields: ${validation.missing.join(', ')}`,
+        400,
+        { missingFields: validation.missing }
+      )
+    }
     }
 
     // 验证和清理文本（仅对非批量模式）
     let sanitizedText: string = ''
     if (mode !== 'batch') {
       sanitizedText = sanitizeText(body.text || '')
-      if (!sanitizedText) {
-        return apiError(
-          ApiErrorCodes.INVALID_REQUEST,
-          'Text cannot be empty',
-          400
-        )
-      }
+    if (!sanitizedText) {
+      return apiError(
+        ApiErrorCodes.INVALID_REQUEST,
+        'Text cannot be empty',
+        400
+      )
+    }
 
-      // 验证文本长度
-      const lengthValidation = validateTextLength(sanitizedText, 1000)
-      if (!lengthValidation.valid) {
-        return apiError(
-          ApiErrorCodes.TEXT_TOO_LONG,
-          `Text is too long. Maximum ${1000} characters allowed, got ${lengthValidation.length}`,
-          400,
-          { 
-            maxLength: 1000, 
-            actualLength: lengthValidation.length 
-          }
-        )
+    // 验证文本长度
+    const lengthValidation = validateTextLength(sanitizedText, 1000)
+    if (!lengthValidation.valid) {
+      return apiError(
+        ApiErrorCodes.TEXT_TOO_LONG,
+        `Text is too long. Maximum ${1000} characters allowed, got ${lengthValidation.length}`,
+        400,
+        { 
+          maxLength: 1000, 
+          actualLength: lengthValidation.length 
+        }
+      )
       }
     }
 
@@ -167,7 +167,7 @@ export async function POST(request: NextRequest) {
       const sanitizedTexts = body.texts!.map(text => sanitizeText(text)).filter(Boolean)
       
       console.log(`Batch translation request: ${sanitizedTexts.length} texts, ${body.sourceLanguage} -> ${body.targetLanguage}`)
-      
+
       translationResult = await translateBatch(
         sanitizedTexts,
         actualSourceLang,
@@ -181,7 +181,7 @@ export async function POST(request: NextRequest) {
       const [forwardResult, reverseResult] = await Promise.all([
         options.enableCache !== false ? 
           withCache(cacheKey, () => translateText({
-            text: sanitizedText,
+        text: sanitizedText,
             sourceLanguage: actualSourceLang,
             targetLanguage: actualTargetLang,
           }), 3600) :

@@ -108,17 +108,17 @@ class TranslationService {
   }
 
   /**
-   * 计算基于文本长度的动态超时时间
+   * 计算基于文本长度的动态超时时间（翻倍以适应NLLB处理时间）
    */
   calculateDynamicTimeout(text) {
-    const baseTimeout = 30000 // 基础30秒
+    const baseTimeout = 60000 // 基础60秒（翻倍）
     const charCount = text.length
     
-    // 每100个字符增加2秒
-    const additionalTimeout = Math.ceil(charCount / 100) * 2000
+    // 每100个字符增加4秒（翻倍）
+    const additionalTimeout = Math.ceil(charCount / 100) * 4000
     
-    // 最小60秒，最大300秒（5分钟）
-    const dynamicTimeout = Math.min(Math.max(baseTimeout + additionalTimeout, 60000), 300000)
+    // 最小120秒，最大600秒（10分钟）（翻倍）
+    const dynamicTimeout = Math.min(Math.max(baseTimeout + additionalTimeout, 120000), 600000)
     
     console.log(`=== DYNAMIC TIMEOUT CALCULATION ===`)
     console.log(`Text length: ${charCount} characters`)

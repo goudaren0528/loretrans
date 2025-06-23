@@ -113,44 +113,50 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 验证语言代码格式 (允许 auto 作为源语言)
+    // 获取客户端IP（用于日志记录）
+    const clientIP = getClientIP(request)
+    
+    // 智能方向检测和语言代码处理
+    let actualSourceLang = body.sourceLanguage
+    let actualTargetLang = body.targetLanguage
+    let directionSwitched = false
+
+    // 处理自动语言检测
+    if (body.sourceLanguage === 'auto' || mode === 'auto-direction' || options.autoDetectDirection) {
+      // 使用语言检测API来确定源语言
+      try {
+        const { detectLanguage } = await import('@/lib/services/language-detection')
+        const detectedResult = detectLanguage(sanitizedText)
+        
+        if (detectedResult.language !== 'unknown' && detectedResult.confidence > 0.3) {
+          actualSourceLang = detectedResult.language
+          console.log(`Auto-detected source language: ${actualSourceLang} (confidence: ${detectedResult.confidence})`)
+          
+          // 如果检测到的语言与目标语言相同，可能需要切换方向
+          if (actualSourceLang === body.targetLanguage && body.targetLanguage !== 'en') {
+            actualTargetLang = 'en'
+            directionSwitched = true
+            console.log(`Auto-switched translation direction: ${actualSourceLang} -> ${actualTargetLang}`)
+          }
+        } else {
+          // 如果检测失败，默认使用英语
+          actualSourceLang = 'en'
+          console.warn('Language detection failed or low confidence, defaulting to English')
+        }
+      } catch (error) {
+        console.warn('Language detection failed, defaulting to English:', error)
+        actualSourceLang = 'en'
+      }
+    }
+
+    // 验证语言代码格式（现在actualSourceLang不应该是auto了）
     const langCodeRegex = /^[a-z]{2,4}$/
-    if (!langCodeRegex.test(body.sourceLanguage) || !langCodeRegex.test(body.targetLanguage)) {
+    if (!langCodeRegex.test(actualSourceLang) || !langCodeRegex.test(actualTargetLang)) {
       return apiError(
         ApiErrorCodes.INVALID_REQUEST,
         'Invalid language code format',
         400
       )
-    }
-
-    // 获取客户端IP（用于日志记录）
-    const clientIP = getClientIP(request)
-    
-    // 智能方向检测
-    let actualSourceLang = body.sourceLanguage
-    let actualTargetLang = body.targetLanguage
-    let directionSwitched = false
-
-    if (mode === 'auto-direction' || options.autoDetectDirection) {
-      // 使用语言检测API来确定最佳翻译方向
-      try {
-        const { detectLanguage } = await import('@/lib/services/language-detection')
-        const detectedResult = detectLanguage(sanitizedText)
-        
-        // 如果检测到的语言与目标语言匹配，切换方向
-        if (detectedResult.language === body.targetLanguage && body.sourceLanguage === 'en') {
-          actualSourceLang = body.targetLanguage
-          actualTargetLang = body.sourceLanguage
-          directionSwitched = true
-          console.log(`Auto-switched translation direction: ${actualSourceLang} -> ${actualTargetLang} (confidence: ${detectedResult.confidence})`)
-        } else if (detectedResult.language !== body.sourceLanguage && detectedResult.language !== 'unknown') {
-          // 如果检测到不同的源语言，使用检测结果
-          actualSourceLang = detectedResult.language
-          console.log(`Auto-detected source language: ${actualSourceLang} (confidence: ${detectedResult.confidence})`)
-        }
-      } catch (error) {
-        console.warn('Language detection failed, using original direction:', error)
-      }
     }
 
     console.log(`Translation request from ${clientIP}: ${actualSourceLang} -> ${actualTargetLang}`)

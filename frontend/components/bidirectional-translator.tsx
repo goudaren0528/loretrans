@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Copy, Volume2, Loader2, AlertCircle } from 'lucide-react'
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
 import { APP_CONFIG } from '../../config/app.config'
+import { getTargetLanguageOptions } from '@/lib/language-utils'
 import { LanguageSwitch, useLanguageSwitch } from './language-switch'
 import { LanguageDetection } from './language-detection'
 import { BidirectionalNavigation } from './bidirectional-navigation'
@@ -139,15 +140,7 @@ export function BidirectionalTranslator({
   }, [])
 
   // 获取目标语言选项
-  const getTargetLanguageOptions = () => {
-    if (sourceLanguage === 'en') {
-      // 英文到小语种
-      return APP_CONFIG.languages.supported
-    } else {
-      // 小语种到英文和其他小语种（支持双向翻译）
-      return [APP_CONFIG.languages.target, ...APP_CONFIG.languages.supported.filter(lang => lang.code !== sourceLanguage)]
-    }
-  }
+  const targetLanguageOptions = getTargetLanguageOptions(sourceLanguage)
 
   return (
     <div className={cn("w-full max-w-4xl mx-auto space-y-6", className)}>
@@ -178,7 +171,9 @@ export function BidirectionalTranslator({
                       <span className="text-muted-foreground text-xs">(English)</span>
                     </div>
                   </SelectItem>
-                  {APP_CONFIG.languages.supported.map((lang) => (
+                  {APP_CONFIG.languages.supported
+                    .filter(lang => lang.available)
+                    .map((lang) => (
                     <SelectItem key={lang.code} value={lang.code}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>
@@ -212,7 +207,7 @@ export function BidirectionalTranslator({
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
-                  {getTargetLanguageOptions().map((lang) => (
+                  {targetLanguageOptions.map((lang) => (
                     <SelectItem key={lang.code} value={lang.code}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>

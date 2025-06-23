@@ -141,7 +141,9 @@ export function TranslatorWidget({
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
-                  {APP_CONFIG.languages.supported.map((lang) => (
+                  {APP_CONFIG.languages.supported
+                    .filter(lang => lang.available)
+                    .map((lang) => (
                     <SelectItem key={lang.code} value={lang.code}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>
@@ -182,7 +184,9 @@ export function TranslatorWidget({
                       <span className="text-muted-foreground text-xs">(English)</span>
                     </div>
                   </SelectItem>
-                  {APP_CONFIG.languages.supported.map((lang) => (
+                  {APP_CONFIG.languages.supported
+                    .filter(lang => lang.available)
+                    .map((lang) => (
                     <SelectItem key={lang.code} value={lang.code}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>

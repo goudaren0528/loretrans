@@ -4,6 +4,8 @@ export interface Language {
   name: string;
   nativeName: string;
   slug: string;
+  available?: boolean;
+  bidirectional?: boolean;
 }
 
 export interface LanguagePair {

@@ -1,5 +1,7 @@
 import { createSupabaseBrowserClient, createSupabaseServerClient } from '../supabase'
 import type { Database } from '../supabase'
+import { userService } from './user'
+import { creditService } from './credits'
 
 export type User = Database['public']['Tables']['users']['Row']
 export type UserProfile = Database['public']['Tables']['user_profiles']['Row']
@@ -244,82 +246,44 @@ class AuthService {
   }
 
   /**
-   * 创建用户记录和资料
+   * 创建用户记录和资料（现在由数据库触发器自动处理）
    */
   private async createUserRecord(userId: string, email: string, name?: string) {
     try {
-      // 创建用户记录
-      const { error: userError } = await this.supabase
-        .from('users')
-        .insert({
-          id: userId,
-          email,
-          email_verified: false,
-          credits: 500, // 注册奖励500积分
-        })
-
-      if (userError) {
-        console.error('Create user record error:', userError)
+      // 注意：用户记录创建现在由数据库触发器自动处理
+      // 这里我们只需要确认用户记录存在
+      const user = await userService.getUserById(userId)
+      
+      if (!user) {
+        console.warn('用户记录未找到，可能触发器执行失败')
+        return
       }
 
-      // 创建用户资料
-      const { error: profileError } = await this.supabase
-        .from('user_profiles')
-        .insert({
-          user_id: userId,
-          name: name || null,
-          language: 'en', // 默认语言
-        })
-
-      if (profileError) {
-        console.error('Create user profile error:', profileError)
+      // 如果提供了姓名，更新用户资料
+      if (name) {
+        await userService.updateUserProfile(userId, { name })
       }
 
-      // 创建注册积分奖励记录
-      const { error: transactionError } = await this.supabase
-        .from('credit_transactions')
-        .insert({
-          user_id: userId,
-          type: 'reward',
-          amount: 500,
-          balance: 500,
-          description: '注册奖励',
-          metadata: {
-            reward_type: 'signup',
-          },
-        })
-
-      if (transactionError) {
-        console.error('Create credit transaction error:', transactionError)
-      }
+      console.log('用户记录创建成功:', { userId, email, credits: user.credits })
     } catch (error) {
       console.error('Create user record error:', error)
     }
   }
 
   /**
-   * 获取完整用户数据
+   * 获取完整用户数据（使用新的数据服务）
    */
   private async getUserData(userId: string): Promise<AuthUser | null> {
     try {
-      // 获取用户基本信息
-      const { data: user, error: userError } = await this.supabase
-        .from('users')
-        .select('*')
-        .eq('id', userId)
-        .single()
-
-      if (userError || !user) {
-        console.error('Get user data error:', userError)
+      // 使用用户服务获取完整用户信息
+      const userWithProfile = await userService.getUserWithProfile(userId)
+      
+      if (!userWithProfile) {
+        console.error('Get user data error: User not found')
         return null
       }
 
-      // 获取用户资料
-      const { data: profile } = await this.supabase
-        .from('user_profiles')
-        .select('*')
-        .eq('user_id', userId)
-        .single()
+      const { user, profile } = userWithProfile
 
       return {
         id: user.id,

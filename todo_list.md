@@ -254,7 +254,7 @@
 - [x] 6.2.1 Supabase数据库设计与表结构创建
     - **任务描述**: 设计用户数据表结构，创建users、user_profiles、credit_transactions等表
     - **产品文档出处**: product.md - 数据架构设计 - 用户数据模型
-- [ ] 6.2.2 用户数据模型实现（User、Profile、CreditTransaction等）
+- [x] 6.2.2 用户数据模型实现（User、Profile、CreditTransaction等）
     - **任务描述**: 实现TypeScript数据模型接口，定义数据库操作函数和类型安全
     - **产品文档出处**: product.md - 数据架构设计 - 用户数据模型、积分交易记录
 - [ ] 6.2.3 Supabase客户端配置与连接

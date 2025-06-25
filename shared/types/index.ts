@@ -134,16 +134,82 @@ export interface ApiError {
   details?: any;
 }
 
-// 用户相关类型
+// 用户相关类型（基于Supabase数据模型）
 export interface User {
   id: string;
-  email?: string;
-  plan: UserPlan;
-  usage: UserUsage;
-  createdAt: string;
-  updatedAt: string;
+  email: string;
+  email_verified: boolean;
+  credits: number;
+  created_at: string;
+  updated_at: string;
 }
 
+export interface UserProfile {
+  id: string;
+  user_id: string;
+  name: string | null;
+  avatar_url: string | null;
+  language: string;
+  timezone: string;
+  notification_preferences: NotificationPreferences;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface NotificationPreferences {
+  email: boolean;
+  push: boolean;
+  translation_complete?: boolean;
+  credit_low?: boolean;
+  promotional?: boolean;
+}
+
+// 积分交易类型
+export type TransactionType = 'purchase' | 'consume' | 'reward' | 'refund';
+
+export interface CreditTransaction {
+  id: string;
+  user_id: string;
+  type: TransactionType;
+  amount: number;
+  balance: number;
+  description: string;
+  metadata: Record<string, any> | null;
+  created_at: string;
+}
+
+// 支付状态类型
+export type PaymentStatus = 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded';
+
+export interface Payment {
+  id: string;
+  user_id: string;
+  creem_payment_id: string;
+  creem_session_id: string | null;
+  amount: number;
+  credits: number;
+  status: PaymentStatus;
+  payment_method: string | null;
+  metadata: Record<string, any> | null;
+  created_at: string;
+  completed_at: string | null;
+}
+
+// 用户统计数据（基于数据库视图）
+export interface UserStats {
+  id: string;
+  email: string;
+  credits: number;
+  created_at: string;
+  name: string | null;
+  language: string;
+  total_consumed: number;
+  total_purchased: number;
+  total_payments: number;
+  total_spent: number;
+}
+
+// 用户计划（保留兼容性）
 export enum UserPlan {
   FREE = 'free',
   PREMIUM = 'premium',
@@ -155,6 +221,47 @@ export interface UserUsage {
   fileTranslations: number;
   charactersTranslated: number;
   lastResetDate: string;
+}
+
+// 用户数据操作相关类型
+export interface CreateUserData {
+  email: string;
+  name?: string;
+  language?: string;
+  timezone?: string;
+}
+
+export interface UpdateUserProfileData {
+  name?: string;
+  avatar_url?: string;
+  language?: string;
+  timezone?: string;
+  notification_preferences?: Partial<NotificationPreferences>;
+}
+
+export interface CreditConsumptionRequest {
+  amount: number;
+  description: string;
+  metadata?: Record<string, any>;
+}
+
+export interface CreditPurchaseRequest {
+  amount: number;
+  payment_id: string;
+  description?: string;
+}
+
+// 积分计费相关
+export interface CreditCalculation {
+  total_characters: number;
+  free_characters: number;
+  billable_characters: number;
+  credits_required: number;
+  cost_breakdown: {
+    free_allowance: number;
+    chargeable_portion: number;
+    rate_per_character: number;
+  };
 }
 
 // SEO相关类型

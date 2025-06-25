@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { CheckCircle, Globe, Zap, Shield, Heart, Users, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from '@/navigation';
+import Link from 'next/link';
 import { APP_CONFIG } from '../../../../config/app.config';
 
 export async function generateMetadata({

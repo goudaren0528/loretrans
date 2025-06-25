@@ -149,8 +149,10 @@ export function Navigation() {
           </div>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <AuthNav />
+        <div className="flex items-center space-x-4">
+          {/* Desktop Auth */}
+          <div className="hidden md:flex">
+            <AuthNav />
           </div>
 
           {/* Mobile Menu Button */}
@@ -167,6 +169,7 @@ export function Navigation() {
                 <Menu className="h-5 w-5" />
               )}
             </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

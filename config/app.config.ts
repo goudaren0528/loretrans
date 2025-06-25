@@ -226,4 +226,32 @@ export const API_ENDPOINTS = {
   fileUpload: '/api/files/upload',
   fileStatus: '/api/files/status',
   fileDownload: '/api/files/download',
-} as const; 
+} as const;
+
+// 类型定义
+export type Language = {
+  code: string;
+  name: string;
+  nativeName: string;
+  slug: string;
+  available: boolean;
+  bidirectional: boolean;
+};
+
+// 语言到英文页面映射
+export const LANG_TO_ENGLISH_PAGES = {
+  'creole': '/creole-to-english',
+  'lao': '/lao-to-english', 
+  'swahili': '/swahili-to-english',
+  'burmese': '/burmese-to-english',
+  'telugu': '/telugu-to-english',
+  'sinhala': '/sinhala-to-english',
+  'amharic': '/amharic-to-english',
+  'khmer': '/khmer-to-english',
+  'nepali': '/nepali-to-english',
+  'malagasy': '/malagasy-to-english',
+  'chinese': '/chinese-to-english',
+} as const;
+
+// Export available languages for UI components
+export const AVAILABLE_LANGUAGES: Language[] = APP_CONFIG.languages.supported.filter(lang => lang.available); 

@@ -5,7 +5,7 @@ import { LanguageGrid } from '@/components/language-grid'
 
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
-import { Link } from '@/navigation'
+import Link from 'next/link'
 import { TranslationServiceStructuredData, FAQStructuredData, HowToStructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {

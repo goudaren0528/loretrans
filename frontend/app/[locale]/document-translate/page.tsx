@@ -2,8 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Upload, FileText, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Language, LANG_TO_ENGLISH_PAGES } from '../../../../config/app.config';
-import { Link } from '@/navigation';
+import { Language, AVAILABLE_LANGUAGES } from '../../../../config/app.config';
+import Link from 'next/link';
 
 export async function generateMetadata({
   params: { locale },
@@ -91,8 +91,8 @@ export default async function DocumentTranslatePage({
       <div>
         <h2 className="text-2xl font-bold text-center mb-6">{t('supported_languages.title')}</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {LANG_TO_ENGLISH_PAGES.map((lang: Language) => (
-            <Link href={lang.path} key={lang.code} className="group">
+          {AVAILABLE_LANGUAGES.map((lang: Language) => (
+            <Link href={`/${lang.slug}-to-english`} key={lang.code} className="group">
               <div className="p-4 border rounded-lg hover:bg-muted/50 transition-colors flex justify-between items-center">
                 <div>
                   <div className="font-medium">{lang.name}</div>

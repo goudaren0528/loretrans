@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from '@/navigation';
+import Link from 'next/link';
 
 export async function generateMetadata({
   params: { locale },

@@ -5,6 +5,35 @@
     "pricing": "Tarifs",
     "contact": "Contact"
   },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - Traducteur IA pour Langues à Faibles Ressources",
+      "description": "Traduction IA gratuite pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez textes et documents en anglais instantanément."
+    },
+    "hero": {
+      "title": "Traduction Alimentée par l'IA pour Langues à Faibles Ressources",
+      "description": "Brisez les barrières linguistiques avec une IA de pointe. Notre plateforme fournit des traductions de haute qualité pour les langues souvent négligées par les services grand public. Commencez gratuitement.",
+      "features": {
+        "free": "100% Gratuit",
+        "ai_powered": "Alimenté par l'IA",
+        "languages": "+20 Langues"
+      },
+      "cta": {
+        "start_translating": "Commencer à Traduire",
+        "upload_document": "Télécharger un Document"
+      }
+    },
+    "languages": {
+      "title": "Langues Supportées",
+      "description": "Traduisez de ces langues à faibles ressources vers l'anglais"
+    },
+    "cta": {
+      "title": "Commencez à Traduire Aujourd'hui",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
+      "try_now": "Essayez Maintenant - C'est Gratuit",
+      "translate_documents": "Traduire des Documents"
+    }
+  },
   "IndexPage": {
     "meta": {
       "title": "Transly - Traducteur IA pour Langues à Faibles Ressources",

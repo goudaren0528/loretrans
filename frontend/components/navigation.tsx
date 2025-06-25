@@ -24,6 +24,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import LocaleSwitcher from './LocaleSwitcher'
 
 type NavLink = ComponentProps<typeof Link>['href']
 
@@ -150,6 +151,9 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center space-x-4">
+          {/* Language Switcher */}
+          <LocaleSwitcher />
+          
           {/* Desktop Auth */}
           <div className="hidden md:flex">
             <AuthNav />
@@ -196,7 +200,11 @@ export function Navigation() {
                 )
               })}
               </div>
-              <div className="border-t pt-4">
+              <div className="border-t pt-4 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">Language / 语言</span>
+                  <LocaleSwitcher />
+                </div>
                 <AuthNav />
               </div>
             </div>

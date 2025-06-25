@@ -5,6 +5,35 @@
     "pricing": "Pricing",
     "contact": "Contact"
   },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - AI Translator for Low-Resource Languages",
+      "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
+    },
+    "hero": {
+      "title": "AI-Powered Translation for Low-Resource Languages",
+      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for languages often underserved by mainstream services. Get started for free.",
+      "features": {
+        "free": "100% Free",
+        "ai_powered": "AI-Powered",
+        "languages": "20+ Languages"
+      },
+      "cta": {
+        "start_translating": "Start Translating",
+        "upload_document": "Upload Document"
+      }
+    },
+    "languages": {
+      "title": "Supported Languages",
+      "description": "Translate from these low-resource languages to English"
+    },
+    "cta": {
+      "title": "Start Translating Today",
+      "description": "Join thousands of users who trust Transly for their translation needs",
+      "try_now": "Try Now - It's Free",
+      "translate_documents": "Translate Documents"
+    }
+  },
   "IndexPage": {
     "meta": {
       "title": "Transly - AI Translator for Low-Resource Languages",

@@ -5,6 +5,35 @@
     "pricing": "Precios",
     "contact": "Contacto"
   },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - Traductor IA para Idiomas de Bajos Recursos",
+      "description": "Traducción gratuita con IA para más de 20 idiomas de bajos recursos como Criollo, Lao y Swahili. Traduzca textos y documentos al inglés al instante."
+    },
+    "hero": {
+      "title": "Traducción Impulsada por IA para Idiomas de Bajos Recursos",
+      "description": "Rompa las barreras del idioma con IA de vanguardia. Nuestra plataforma ofrece traducciones de alta calidad para idiomas a menudo desatendidos por los servicios principales. Comience de forma gratuita.",
+      "features": {
+        "free": "100% Gratis",
+        "ai_powered": "Con IA",
+        "languages": "+20 Idiomas"
+      },
+      "cta": {
+        "start_translating": "Empezar a Traducir",
+        "upload_document": "Subir Documento"
+      }
+    },
+    "languages": {
+      "title": "Idiomas Soportados",
+      "description": "Traduzca de estos idiomas de bajos recursos al inglés"
+    },
+    "cta": {
+      "title": "Comience a Traducir Hoy",
+      "description": "Únase a miles de usuarios que confían en Transly para sus necesidades de traducción",
+      "try_now": "Pruébelo Ahora - Es Gratis",
+      "translate_documents": "Traducir Documentos"
+    }
+  },
   "IndexPage": {
     "meta": {
       "title": "Transly - Traductor IA para Idiomas de Bajos Recursos",

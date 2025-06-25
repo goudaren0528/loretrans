@@ -179,5 +179,36 @@
       "copyright": "© 2024 Transly. Tous droits réservés.",
       "powered_by": "Propulsé par la Technologie IA de Meta NLLB"
     }
+  },
+  "DocumentTranslatePage": {
+    "hero": {
+      "title": "Traduction de Documents",
+      "description": "Chargez des documents et traduisez-les en anglais avec une grande précision"
+    },
+    "upload_section": {
+      "title": "Chargez Votre Document",
+      "description": "Choisissez un fichier à traduire. Formats pris en charge : PDF, Word, PowerPoint, Texte. Taille maximale : 50 Mo."
+    },
+    "settings_section": {
+      "title": "Paramètres de Traduction",
+      "source_language_label": "Langue Source",
+      "source_language_placeholder": "Détection Automatique",
+      "target_language_label": "Langue Cible",
+      "target_language_placeholder": "Sélectionner la cible",
+      "translate_button": "Traduire le Fichier",
+      "translating_button": "Traduction en cours..."
+    },
+    "jobs_section": {
+      "title": "Historique des Traductions",
+      "no_jobs": "Vos documents traduits apparaîtront ici.",
+      "status": {
+        "pending": "En attente",
+        "processing": "En cours de traitement",
+        "completed": "Terminé",
+        "failed": "Échoué"
+      },
+      "error_message": "Erreur",
+      "download_button": "Télécharger"
+    }
   }
 } 

@@ -396,30 +396,31 @@
   "DocumentTranslatePage": {
     "hero": {
       "title": "Document Translation",
-      "description": "Upload documents and translate them to English"
+      "description": "Upload documents and translate them to English with high accuracy"
     },
     "upload_section": {
-      "title": "Upload Document",
-      "description": "Choose a document to translate. Supported: PDF, Word, PowerPoint, Text files"
+      "title": "Upload Your Document",
+      "description": "Choose a file to translate. Supported formats: PDF, Word, PowerPoint, Text. Max size: 50MB."
     },
     "settings_section": {
       "title": "Translation Settings",
       "source_language_label": "Source Language",
-      "source_language_placeholder": "Auto-detect",
+      "source_language_placeholder": "Auto-Detect",
       "target_language_label": "Target Language",
-      "target_language_placeholder": "English",
-      "submit_button": "Translate File",
-      "processing_button": "Processing..."
+      "target_language_placeholder": "Select target",
+      "translate_button": "Translate File",
+      "translating_button": "Translating..."
     },
     "jobs_section": {
       "title": "Translation History",
-      "empty_message": "Your translated documents will appear here.",
-      "job_status": {
+      "no_jobs": "Your translated documents will appear here.",
+      "status": {
         "pending": "Pending",
         "processing": "Processing",
         "completed": "Completed",
         "failed": "Failed"
       },
+      "error_message": "Error",
       "download_button": "Download"
     }
   }

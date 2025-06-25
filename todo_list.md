@@ -71,7 +71,7 @@
     - [x] 联系我们页面 (contact page)
     - [x] 定价页面 (pricing page)
     - [x] 文本翻译页面 (text translate)
-    - [ ] 文档翻译页面 (document translate)
+    - [x] 文档翻译页面 (document translate)
 - [ ] 2.5.5 其他部分的翻译  - 暂不处理
     - [ ] 邮件模板
     - [ ] 错误信息

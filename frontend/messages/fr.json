@@ -1,1 +1,183 @@
- 
+{
+  "Navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "pricing": "Tarifs",
+    "contact": "Contact"
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Transly - Traducteur IA pour Langues à Faibles Ressources",
+      "description": "Traduction gratuite par IA pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez instantanément du texte et des documents en anglais."
+    },
+    "hero": {
+      "title": "Traduction par IA pour les Langues à Faibles Ressources",
+      "description": "Dépassez les barrières linguistiques avec une IA de pointe. Notre plateforme fournit des traductions de haute qualité pour des langues souvent négligées par les services grand public. Commencez gratuitement.",
+      "status": {
+        "free": "100% Gratuit",
+        "ai_powered": "Propulsé par l'IA",
+        "multi_language": "20+ Langues"
+      },
+      "cta_start": "Commencer à Traduire",
+      "cta_upload": "Charger un Document"
+    },
+    "supported_languages": {
+      "title": "Langues Prises en Charge",
+      "description": "Traduisez de ces langues à faibles ressources vers l'anglais"
+    },
+    "translation_options": {
+      "title": "Choisissez Votre Méthode de Traduction",
+      "description": "Sélectionnez la meilleure option pour vos besoins de traduction",
+      "options": {
+        "text": {
+          "title": "Traduction de Texte",
+          "description": "Traduisez instantanément du texte entre plus de 20 langues à faibles ressources et l'anglais.",
+          "features": [
+            "Jusqu'à 1000 caractères",
+            "Résultats instantanés",
+            "Lecture vocale",
+            "Copier dans le presse-papiers"
+          ],
+          "button": "Commencer à Traduire"
+        },
+        "document": {
+          "title": "Traduction de Documents",
+          "description": "Chargez et traduisez des documents PDF, Word et PowerPoint.",
+          "features": [
+            "Support PDF, Word, PPT",
+            "Préserve la mise en forme",
+            "Télécharger les résultats",
+            "Traitement par lots"
+          ],
+          "button": "Commencer à Traduire"
+        },
+        "image": {
+          "title": "Traduction d'Images",
+          "description": "Extrayez et traduisez du texte à partir d'images grâce à la technologie OCR.",
+          "features": [
+            "Extraction de texte OCR",
+            "Plusieurs formats d'image",
+            "Préserve la mise en page",
+            "Bientôt disponible"
+          ],
+          "button": "Bientôt disponible"
+        }
+      },
+      "quick_start": {
+        "title": "Vous ne savez pas quelle option choisir ? Commencez par la traduction de texte",
+        "button": "Essayer la Traduction de Texte"
+      },
+      "coming_soon": "Bientôt disponible"
+    },
+    "feature_section": {
+      "title": "Pourquoi Choisir Transly ?",
+      "description": "Outils de traduction de qualité professionnelle conçus pour les langues à faibles ressources",
+      "features": {
+        "ai_powered": {
+          "name": "Traduction par IA",
+          "description": "Propulsé par le modèle NLLB de Meta pour une traduction précise des langues à faibles ressources."
+        },
+        "fast": {
+          "name": "Ultra Rapide",
+          "description": "Obtenez des traductions instantanées grâce à notre infrastructure IA optimisée."
+        },
+        "privacy": {
+          "name": "Confidentialité d'Abord",
+          "description": "Votre texte est traité en toute sécurité et n'est jamais stocké sur nos serveurs."
+        },
+        "languages": {
+          "name": "20+ Langues",
+          "description": "Prise en charge du Créole, du Lao, du Swahili, du Birman et de nombreuses autres langues à faibles ressources."
+        },
+        "tts": {
+          "name": "Synthèse Vocale",
+          "description": "Écoutez les traductions avec notre fonction de synthèse vocale de haute qualité."
+        },
+        "documents": {
+          "name": "Traduction de Documents",
+          "description": "Chargez et traduisez des fichiers PDF, Word et PowerPoint en toute simplicité."
+        }
+      },
+      "stats": {
+        "languages": "Langues Prises en Charge",
+        "free": "Utilisation Gratuite",
+        "characters": "Caractères par Traduction",
+        "availability": "Disponible"
+      }
+    },
+    "faq_section": {
+      "title": "Questions Fréquemment Posées",
+      "description": "Tout ce que vous devez savoir sur Transly",
+      "questions": [
+        {
+          "question": "Transly est-il vraiment gratuit ?",
+          "answer": "Oui ! Transly est entièrement gratuit pour la traduction de texte jusqu'à 1000 caractères par requête. Il n'y a pas de frais cachés ni d'abonnement requis."
+        },
+        {
+          "question": "Quelle est la précision des traductions ?",
+          "answer": "Nous utilisons le modèle NLLB (No Language Left Behind) de Meta, qui fournit des traductions de haute qualité pour les langues à faibles ressources. Bien qu'aucune traduction automatisée не soit parfaite, NLLB est spécifiquement conçu pour traiter les langues avec des données d'entraînement limitées."
+        },
+        {
+          "question": "Quelles langues prenez-vous en charge ?",
+          "answer": "Nous prenons en charge plus de 20 langues à faibles ressources, dont le créole haïtien, le lao, le swahili, le birman, le telugu, le cingalais, l'amharique, le khmer, le népalais et le malgache. Toutes les langues peuvent être traduites en anglais."
+        },
+        {
+          "question": "Mes données sont-elles sécurisées et confidentielles ?",
+          "answer": "Absolument. Nous ne stockons pas le texte de votre traduction sur nos serveurs. Votre texte est traité en toute sécurité et supprimé immédiatement après la traduction. Nous prenons la confidentialité très au sérieux."
+        },
+        {
+          "question": "Puis-je traduire des documents ?",
+          "answer": "Oui ! Nous prenons en charge la traduction de fichiers PDF, Word (.docx) et PowerPoint (.pptx). Il vous suffit de charger votre fichier, nous extrairons le texte, le traduirons et vous fournirons les résultats."
+        },
+        {
+          "question": "Comment fonctionne la fonction de synthèse vocale ?",
+          "answer": "Notre fonction de synthèse vocale prend en charge la sortie en anglais avec une synthèse vocale de haute qualité. Cliquez simplement sur l'icône du haut-parleur à côté de n'importe quelle traduction pour l'entendre."
+        },
+        {
+          "question": "Y a-t-il une limite de caractères ?",
+          "answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 1000 caractères par requête. Pour les textes plus longs, vous можете les diviser en morceaux plus petits ou charger des documents pour le traitement."
+        },
+        {
+          "question": "Puis-je utiliser Transly à des fins commerciales ?",
+          "answer": "Oui, vous pouvez utiliser Transly à des fins personnelles et commerciales. Pour une utilisation commerciale à grand volume, veuillez nous contacter au sujet de nos services API."
+        }
+      ],
+      "contact_prompt": "Vous avez d'autres questions ?",
+      "contact_link": "Contactez notre équipe de support"
+    },
+    "cta_section": {
+      "title": "Commencez à Traduire Dès Aujourd'hui",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
+      "cta_try": "Essayez Maintenant - C'est Gratuit",
+      "cta_docs": "Traduire des Documents"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Traduction de Texte",
+      "text_translation_desc": "Traduire du texte entre les langues",
+      "document_translation": "Traduction de Documents",
+      "document_translation_desc": "Charger et traduire des documents",
+      "about": "À propos",
+      "about_desc": "En savoir plus sur Transly"
+    },
+    "Footer": {
+      "tagline": "Traduction professionnelle pour les langues à faibles ressources vers l'anglais. Propulsé par la technologie IA de Meta NLLB.",
+      "product": "Produit",
+      "text_translation": "Traduction de Texte",
+      "document_translation": "Traduction de Documents",
+      "supported_languages": "Langues Prises en Charge",
+      "company": "Entreprise",
+      "about_us": "À propos de Nous",
+      "privacy_policy": "Politique de Confidentialité",
+      "terms_of_service": "Conditions d'Utilisation",
+      "compliance": "Conformité",
+      "resources": "Ressources",
+      "faq": "FAQ",
+      "contact_support": "Contacter le Support",
+      "api_docs": "Documentation de l'API",
+      "copyright": "© 2024 Transly. Tous droits réservés.",
+      "powered_by": "Propulsé par la Technologie IA de Meta NLLB"
+    }
+  }
+} 

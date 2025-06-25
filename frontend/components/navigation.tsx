@@ -8,29 +8,31 @@ import { Button } from '@/components/ui/button'
 import { Languages, FileText, Info, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import LocaleSwitcher from './LocaleSwitcher'
+import { useTranslations } from 'next-intl'
 
 export function Navigation() {
+  const t = useTranslations('Layout.Navigation')
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
     {
       href: '/',
-      label: 'Text Translation',
+      label: t('text_translation'),
       icon: Languages,
-      description: 'Translate text between languages'
+      description: t('text_translation_desc')
     },
     {
       href: '/document-translate',
-      label: 'Document Translation',
+      label: t('document_translation'),
       icon: FileText,
-      description: 'Upload and translate documents'
+      description: t('document_translation_desc')
     },
     {
       href: '/about',
-      label: 'About',
+      label: t('about'),
       icon: Info,
-      description: 'Learn about Transly'
+      description: t('about_desc')
     }
   ]
 
@@ -127,6 +129,7 @@ export function Navigation() {
 }
 
 export function Footer() {
+  const t = useTranslations('Layout.Footer')
   return (
     <footer className="border-t bg-muted/30">
       <div className="container mx-auto px-4 py-8">
@@ -140,28 +143,27 @@ export function Footer() {
               <span className="text-lg font-bold">Transly</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Professional translation for low-resource languages to English. 
-              Powered by Meta NLLB AI technology.
+              {t('tagline')}
             </p>
           </div>
 
           {/* Product */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Product</h3>
+            <h3 className="font-semibold">{t('product')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/" className="hover:text-foreground transition-colors">
-                  Text Translation
+                  {t('text_translation')}
                 </Link>
               </li>
               <li>
                 <Link href="/document-translate" className="hover:text-foreground transition-colors">
-                  Document Translation
+                  {t('document_translation')}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-foreground transition-colors">
-                  Supported Languages
+                  {t('supported_languages')}
                 </Link>
               </li>
             </ul>
@@ -169,26 +171,26 @@ export function Footer() {
 
           {/* Company */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Company</h3>
+            <h3 className="font-semibold">{t('company')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/about" className="hover:text-foreground transition-colors">
-                  About Us
+                  {t('about_us')}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="hover:text-foreground transition-colors">
-                  Privacy Policy
+                  {t('privacy_policy')}
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="hover:text-foreground transition-colors">
-                  Terms of Service
+                  {t('terms_of_service')}
                 </Link>
               </li>
               <li>
                 <Link href="/compliance" className="hover:text-foreground transition-colors">
-                  Compliance
+                  {t('compliance')}
                 </Link>
               </li>
             </ul>
@@ -196,21 +198,21 @@ export function Footer() {
 
           {/* Resources */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Resources</h3>
+            <h3 className="font-semibold">{t('resources')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/about#faq" className="hover:text-foreground transition-colors">
-                  FAQ
+                  {t('faq')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-foreground transition-colors">
-                  Contact Support
+                  {t('contact_support')}
                 </Link>
               </li>
               <li>
                 <Link href="/api" className="hover:text-foreground transition-colors">
-                  API Documentation
+                  {t('api_docs')}
                 </Link>
               </li>
             </ul>
@@ -219,10 +221,10 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Transly. All rights reserved.
+            {t('copyright')}
           </p>
           <p className="text-sm text-muted-foreground">
-            Powered by Meta NLLB AI Technology
+            {t('powered_by')}
           </p>
         </div>
       </div>

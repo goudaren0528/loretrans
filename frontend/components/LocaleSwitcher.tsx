@@ -3,7 +3,19 @@
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Languages } from 'lucide-react';
+
+const locales = [
+  { code: 'en', name: 'English' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+];
 
 export default function LocaleSwitcher() {
   const router = useRouter();
@@ -13,23 +25,33 @@ export default function LocaleSwitcher() {
   const handleLocaleChange = (newLocale: string) => {
     if (locale === newLocale) return;
 
-    const currentPath = pathname;
-    const pathSegments = currentPath.split('/');
-    
-    // Naive check if the first segment is a locale, needs improvement
-    if (pathSegments.length > 1 && (pathSegments[1] === 'en' || pathSegments[1] === 'es' || pathSegments[1] === 'fr')) {
-      pathSegments[1] = newLocale;
-      router.replace(pathSegments.join('/'));
-    } else {
-      router.replace(`/${newLocale}${currentPath}`);
-    }
+    // This regex replaces the existing locale in the path with the new one.
+    // e.g., /en/about -> /fr/about
+    const newPath = pathname.replace(/^\/[a-z]{2}(\/|$)/, `/${newLocale}$1`);
+    router.replace(newPath);
   };
 
+  const currentLocaleName = locales.find(l => l.code === locale)?.name || 'Language';
+
   return (
-    <div>
-      <Button variant="outline" size="icon" onClick={() => handleLocaleChange('en')} disabled={locale === 'en'}>EN</Button>
-      <Button variant="outline" size="icon" onClick={() => handleLocaleChange('es')} disabled={locale === 'es'}>ES</Button>
-      <Button variant="outline" size="icon" onClick={() => handleLocaleChange('fr')} disabled={locale === 'fr'}>FR</Button>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" size="icon">
+          <Languages className="h-[1.2rem] w-[1.2rem]" />
+          <span className="sr-only">Change language</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {locales.map(({ code, name }) => (
+          <DropdownMenuItem
+            key={code}
+            onClick={() => handleLocaleChange(code)}
+            disabled={locale === code}
+          >
+            {name}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

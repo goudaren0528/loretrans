@@ -365,6 +365,34 @@
       "button": "Translate Documents"
     }
   },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Text Translation",
+      "text_translation_desc": "Translate text between languages",
+      "document_translation": "Document Translation",
+      "document_translation_desc": "Upload and translate documents",
+      "about": "About",
+      "about_desc": "Learn about Transly"
+    },
+    "Footer": {
+      "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
+      "product": "Product",
+      "text_translation": "Text Translation",
+      "document_translation": "Document Translation",
+      "supported_languages": "Supported Languages",
+      "company": "Company",
+      "about_us": "About Us",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_service": "Terms of Service",
+      "compliance": "Compliance",
+      "resources": "Resources",
+      "faq": "FAQ",
+      "contact_support": "Contact Support",
+      "api_docs": "API Documentation",
+      "copyright": "© 2024 Transly. All rights reserved.",
+      "powered_by": "Powered by Meta NLLB AI Technology"
+    }
+  },
   "DocumentTranslatePage": {
     "hero": {
       "title": "Document Translation",

@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { generateSpeech, sanitizeTextForTTS, isTTSSupported, getVoiceOptions } from '@/lib/services/tts'
 import { 
   apiResponse, 
@@ -10,6 +10,7 @@ import {
   getClientIP,
   ApiErrorCodes 
 } from '@/lib/api-utils'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 interface TTSRequest {
   text: string
@@ -20,14 +21,13 @@ interface TTSRequest {
 }
 
 export async function POST(request: NextRequest) {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'Errors' });
+
   try {
     // 验证请求方法
     if (!validateMethod(request, ['POST'])) {
-      return apiError(
-        ApiErrorCodes.METHOD_NOT_ALLOWED,
-        'Only POST method is allowed',
-        405
-      )
+      return NextResponse.json({ error: t('method_not_allowed') }, { status: 405 });
     }
 
     // 解析请求体
@@ -35,73 +35,43 @@ export async function POST(request: NextRequest) {
     try {
       body = await parseRequestBody<TTSRequest>(request)
     } catch (error) {
-      return apiError(
-        ApiErrorCodes.INVALID_JSON,
-        'Invalid JSON in request body',
-        400
-      )
+      return NextResponse.json({ error: t('invalid_json') }, { status: 400 });
     }
 
     // 验证必需字段
     const validation = validateRequiredFields(body, ['text', 'language'])
     if (!validation.valid) {
-      return apiError(
-        ApiErrorCodes.MISSING_FIELDS,
-        `Missing required fields: ${validation.missing.join(', ')}`,
-        400,
-        { missingFields: validation.missing }
-      )
+      const missingFields = validation.missing.join(', ');
+      return NextResponse.json({ error: t('missing_fields', { fields: missingFields }) }, { status: 400 });
     }
 
     // 清理和验证文本
     const sanitizedText = sanitizeTextForTTS(body.text)
     if (!sanitizedText) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Text cannot be empty',
-        400
-      )
+      return NextResponse.json({ error: t('empty_text') }, { status: 400 });
     }
 
     // 验证文本长度（TTS有更严格的限制）
     const lengthValidation = validateTextLength(sanitizedText, 500)
     if (!lengthValidation.valid) {
-      return apiError(
-        ApiErrorCodes.TEXT_TOO_LONG,
-        `Text is too long for TTS. Maximum ${500} characters allowed, got ${lengthValidation.length}`,
-        400,
-        { 
-          maxLength: 500, 
-          actualLength: lengthValidation.length 
-        }
-      )
+      return NextResponse.json({ 
+        error: t('text_too_long', { maxLength: 500, actualLength: lengthValidation.length }) 
+      }, { status: 400 });
     }
 
     // 验证语言代码格式
     const langCodeRegex = /^[a-z]{2,3}$/
     if (!langCodeRegex.test(body.language)) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Invalid language code format',
-        400
-      )
+      return NextResponse.json({ error: t('invalid_lang_code') }, { status: 400 });
     }
 
     // 验证语音参数
     if (body.rate !== undefined && (body.rate < 0.5 || body.rate > 2.0)) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Speech rate must be between 0.5 and 2.0',
-        400
-      )
+      return NextResponse.json({ error: t('invalid_speech_rate') }, { status: 400 });
     }
 
     if (body.pitch !== undefined && (body.pitch < 0.5 || body.pitch > 2.0)) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Speech pitch must be between 0.5 and 2.0',
-        400
-      )
+      return NextResponse.json({ error: t('invalid_speech_pitch') }, { status: 400 });
     }
 
     // 验证语音选项
@@ -109,14 +79,7 @@ export async function POST(request: NextRequest) {
       const availableVoices = getVoiceOptions(body.language)
       const isValidVoice = availableVoices.some(voice => voice.code === body.voice)
       if (!isValidVoice) {
-        return apiError(
-          ApiErrorCodes.INVALID_REQUEST,
-          `Invalid voice for language ${body.language}`,
-          400,
-          { 
-            availableVoices: availableVoices.map(v => ({ code: v.code, name: v.name }))
-          }
-        )
+        return NextResponse.json({ error: t('invalid_voice', { language: body.language }) }, { status: 400 });
       }
     }
 
@@ -149,36 +112,23 @@ export async function POST(request: NextRequest) {
     // 处理特定的TTS错误
     if (error instanceof Error) {
       if (error.message.includes('Text is too long')) {
-        return apiError(
-          ApiErrorCodes.TEXT_TOO_LONG,
-          error.message,
-          400
-        )
+        // This case might be redundant if validated before, but good for safety
+        return NextResponse.json({ 
+          error: t('text_too_long', { maxLength: 500, actualLength: error.message.length }) 
+        }, { status: 400 });
       }
       
       if (error.message.includes('TTS services are currently unavailable')) {
-        return apiError(
-          ApiErrorCodes.TTS_FAILED,
-          'Text-to-speech service is temporarily unavailable. Please try again later.',
-          503
-        )
+        return NextResponse.json({ error: t('tts_unavailable') }, { status: 503 });
       }
 
       if (error.message.includes('TTS generation failed')) {
-        return apiError(
-          ApiErrorCodes.TTS_FAILED,
-          'Failed to generate speech audio. Please try again.',
-          500
-        )
+        return NextResponse.json({ error: t('tts_failed') }, { status: 500 });
       }
     }
 
     // 通用错误响应
-    return apiError(
-      ApiErrorCodes.INTERNAL_ERROR,
-      'An unexpected error occurred during speech generation',
-      500
-    )
+    return NextResponse.json({ error: t('unexpected_tts_error') }, { status: 500 });
   }
 }
 
@@ -186,6 +136,9 @@ export async function POST(request: NextRequest) {
  * GET请求：获取支持的语音选项
  */
 export async function GET(request: NextRequest) {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'Errors' });
+
   try {
     const url = new URL(request.url)
     const language = url.searchParams.get('language')
@@ -221,11 +174,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('TTS GET API error:', error)
     
-    return apiError(
-      ApiErrorCodes.INTERNAL_ERROR,
-      'Failed to retrieve voice options',
-      500
-    )
+    return NextResponse.json({ error: t('failed_to_get_voices') }, { status: 500 });
   }
 }
 

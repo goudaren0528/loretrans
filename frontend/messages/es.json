@@ -210,5 +210,29 @@
       "error_message": "Error",
       "download_button": "Descargar"
     }
+  },
+  "Errors": {
+    "user_not_authenticated": "Usuario no autenticado",
+    "missing_parameters": "Faltan parámetros requeridos",
+    "insufficient_credits": "Créditos insuficientes. Por favor, compre más para continuar.",
+    "credit_error": "Error de crédito: {error}",
+    "translation_invalid_response": "El servicio de traducción devolvió una respuesta no válida.",
+    "translation_failed_refund_failed": "La traducción falló y no pudimos reembolsar sus créditos. Por favor, contacte a soporte. Error: {error}",
+    "translation_failed": "La traducción falló: {error}",
+    "unexpected_error": "Ocurrió un error inesperado: {error}",
+    "method_not_allowed": "Método no permitido",
+    "invalid_json": "JSON no válido en el cuerpo de la solicitud",
+    "missing_fields": "Faltan campos requeridos: {fields}",
+    "empty_text": "El texto no puede estar vacío",
+    "text_too_long": "El texto es demasiado largo. Se permite un máximo de {maxLength} caracteres, se recibieron {actualLength}",
+    "unexpected_detection_error": "Ocurrió un error inesperado durante la detección de idioma",
+    "invalid_lang_code": "Formato de código de idioma no válido",
+    "invalid_speech_rate": "La velocidad del habla debe estar entre 0.5 y 2.0",
+    "invalid_speech_pitch": "El tono del habla debe estar entre 0.5 y 2.0",
+    "invalid_voice": "Voz no válida para el idioma {language}",
+    "tts_unavailable": "El servicio de texto a voz no está disponible temporalmente. Por favor, inténtelo de nuevo más tarde.",
+    "tts_failed": "No se pudo generar el audio. Por favor, inténtelo de nuevo.",
+    "unexpected_tts_error": "Ocurrió un error inesperado durante la generación de voz",
+    "failed_to_get_voices": "No se pudieron recuperar las opciones de voz"
   }
 } 

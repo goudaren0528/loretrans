@@ -115,7 +115,7 @@
         },
         {
           "question": "Quelle est la précision des traductions ?",
-          "answer": "Nous utilisons le modèle NLLB (No Language Left Behind) de Meta, qui fournit des traductions de haute qualité pour les langues à faibles ressources. Bien qu'aucune traduction automatisée не soit parfaite, NLLB est spécifiquement conçu pour traiter les langues avec des données d'entraînement limitées."
+          "answer": "Nous utilisons le modèle NLLB (No Language Left Behind) de Meta, qui fournit des traductions de haute qualité pour les langues à faibles ressources. Bien qu'aucune traduction automatisée ne soit parfaite, NLLB est spécifiquement conçu pour traiter les langues avec des données d'entraînement limitées."
         },
         {
           "question": "Quelles langues prenez-vous en charge ?",
@@ -135,7 +135,7 @@
         },
         {
           "question": "Y a-t-il une limite de caractères ?",
-          "answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 1000 caractères par requête. Pour les textes plus longs, vous можете les diviser en morceaux plus petits ou charger des documents pour le traitement."
+          "answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 1000 caractères par requête. Pour les textes plus longs, vous pouvez les diviser en morceaux plus petits ou charger des documents pour le traitement."
         },
         {
           "question": "Puis-je utiliser Transly à des fins commerciales ?",
@@ -210,5 +210,29 @@
       "error_message": "Erreur",
       "download_button": "Télécharger"
     }
+  },
+  "Errors": {
+    "user_not_authenticated": "Utilisateur non authentifié",
+    "missing_parameters": "Paramètres requis manquants",
+    "insufficient_credits": "Crédits insuffisants. Veuillez en acheter plus pour continuer.",
+    "credit_error": "Erreur de crédit : {error}",
+    "translation_invalid_response": "Le service de traduction a renvoyé une réponse non valide.",
+    "translation_failed_refund_failed": "La traduction a échoué et nous n'avons pas pu rembourser vos crédits. Veuillez contacter le support. Erreur : {error}",
+    "translation_failed": "La traduction a échoué : {error}",
+    "unexpected_error": "Une erreur inattendue est survenue : {error}",
+    "method_not_allowed": "Méthode non autorisée",
+    "invalid_json": "JSON non valide dans le corps de la requête",
+    "missing_fields": "Champs requis manquants : {fields}",
+    "empty_text": "Le texte ne peut pas être vide",
+    "text_too_long": "Le texte est trop long. Maximum {maxLength} caractères autorisés, {actualLength} reçus",
+    "unexpected_detection_error": "Une erreur inattendue est survenue lors de la détection de la langue",
+    "invalid_lang_code": "Format de code de langue invalide",
+    "invalid_speech_rate": "La vitesse de parole doit être comprise entre 0.5 et 2.0",
+    "invalid_speech_pitch": "La hauteur de la voix doit être comprise entre 0.5 et 2.0",
+    "invalid_voice": "Voix invalide pour la langue {language}",
+    "tts_unavailable": "Le service de synthèse vocale est temporairement indisponible. Veuillez réessayer plus tard.",
+    "tts_failed": "Échec de la génération de l'audio. Veuillez réessayer.",
+    "unexpected_tts_error": "Une erreur inattendue est survenue lors de la génération de la parole",
+    "failed_to_get_voices": "Échec de la récupération des options de voix"
   }
 } 

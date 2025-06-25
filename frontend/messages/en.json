@@ -423,5 +423,29 @@
       "error_message": "Error",
       "download_button": "Download"
     }
+  },
+  "Errors": {
+    "user_not_authenticated": "User not authenticated",
+    "missing_parameters": "Missing required parameters",
+    "insufficient_credits": "Insufficient credits. Please purchase more to continue.",
+    "credit_error": "Credit error: {error}",
+    "translation_invalid_response": "Translation service returned an invalid response.",
+    "translation_failed_refund_failed": "Translation failed, and we could not refund your credits. Please contact support. Error: {error}",
+    "translation_failed": "Translation failed: {error}",
+    "unexpected_error": "An unexpected error occurred: {error}",
+    "method_not_allowed": "Method not allowed",
+    "invalid_json": "Invalid JSON in request body",
+    "missing_fields": "Missing required fields: {fields}",
+    "empty_text": "Text cannot be empty",
+    "text_too_long": "Text is too long. Maximum {maxLength} characters allowed, got {actualLength}",
+    "unexpected_detection_error": "An unexpected error occurred during language detection",
+    "invalid_lang_code": "Invalid language code format",
+    "invalid_speech_rate": "Speech rate must be between 0.5 and 2.0",
+    "invalid_speech_pitch": "Speech pitch must be between 0.5 and 2.0",
+    "invalid_voice": "Invalid voice for language {language}",
+    "tts_unavailable": "Text-to-speech service is temporarily unavailable. Please try again later.",
+    "tts_failed": "Failed to generate speech audio. Please try again.",
+    "unexpected_tts_error": "An unexpected error occurred during speech generation",
+    "failed_to_get_voices": "Failed to retrieve voice options"
   }
 } 

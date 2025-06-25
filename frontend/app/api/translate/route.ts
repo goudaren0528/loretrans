@@ -15,6 +15,7 @@ import {
   type NextRequestWithUser
 } from '@/lib/api-utils'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 interface TranslateRequest {
   text: string
@@ -34,20 +35,23 @@ interface TranslateRequest {
 }
 
 async function translateHandler(req: NextRequestWithUser) {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'Errors' });
+
   console.log(`[POST /api/translate] user ${req.userContext.user.id} initiated translation.`);
   const supabase = createServerSupabaseClient();
   const { text, sourceLang, targetLang } = await req.json()
   const { user, role } = req.userContext
 
   if (!user) {
-    return NextResponse.json({ error: 'User not authenticated' }, { status: 401 });
+    return NextResponse.json({ error: t('user_not_authenticated') }, { status: 401 });
   }
   const userId = user.id;
   console.log(`Authenticated user ${userId} initiated translation.`);
 
   if (!text || !sourceLang || !targetLang) {
     return NextResponse.json(
-      { error: 'Missing required parameters' },
+      { error: t('missing_parameters') },
       { status: 400 }
     )
   }
@@ -67,9 +71,9 @@ async function translateHandler(req: NextRequestWithUser) {
     if (creditError) {
       console.error(`Credit consumption failed for user ${userId}:`, creditError.message);
       if (creditError.message.includes('Insufficient credits')) {
-        return NextResponse.json({ error: 'Insufficient credits' }, { status: 402 });
+        return NextResponse.json({ error: t('insufficient_credits') }, { status: 402 });
       }
-      return NextResponse.json({ error: `Credit error: ${creditError.message}` }, { status: 500 });
+      return NextResponse.json({ error: t('credit_error', { error: creditError.message }) }, { status: 500 });
     }
     console.log(`Successfully consumed ${characterCount} credits for user ${userId}.`);
 
@@ -79,7 +83,7 @@ async function translateHandler(req: NextRequestWithUser) {
       const translationResponse = await translateText({ text, sourceLanguage: sourceLang, targetLanguage: targetLang });
       
       if (!translationResponse || !translationResponse.translatedText) {
-        throw new Error('Translation service returned an invalid response.');
+        throw new Error(t('translation_invalid_response'));
       }
       
       console.log(`Translation successful for user ${userId}. Method: ${translationResponse.method}`);
@@ -98,15 +102,15 @@ async function translateHandler(req: NextRequestWithUser) {
         if (refundError) {
             console.error(`CRITICAL: Credit refund failed for user ${userId} after translation failure. Manual intervention required.`, refundError);
             // Still return the original translation error to the user
-            return NextResponse.json({ error: `Translation failed, and credit refund failed: ${translationError.message}` }, { status: 500 });
+            return NextResponse.json({ error: t('translation_failed_refund_failed', { error: translationError.message }) }, { status: 500 });
         }
         
         console.log(`Successfully refunded ${characterCount} credits to user ${userId} after failed translation.`);
-        return NextResponse.json({ error: `Translation failed: ${translationError.message}` }, { status: 500 });
+        return NextResponse.json({ error: t('translation_failed', { error: translationError.message }) }, { status: 500 });
     }
   } catch (e: any) {
     console.error('An unexpected error occurred in the translation endpoint:', e);
-    return NextResponse.json({ error: e.message }, { status: 500 });
+    return NextResponse.json({ error: t('unexpected_error', { error: e.message }) }, { status: 500 });
   }
 }
 

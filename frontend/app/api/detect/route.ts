@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { detectLanguage, detectLanguageMultiple } from '@/lib/services/language-detection'
 import { 
   apiResponse, 
@@ -11,6 +11,7 @@ import {
   getClientIP,
   ApiErrorCodes 
 } from '@/lib/api-utils'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 interface DetectRequest {
   text: string
@@ -19,14 +20,13 @@ interface DetectRequest {
 }
 
 export async function POST(request: NextRequest) {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'Errors' });
+
   try {
     // 验证请求方法
     if (!validateMethod(request, ['POST'])) {
-      return apiError(
-        ApiErrorCodes.METHOD_NOT_ALLOWED,
-        'Only POST method is allowed',
-        405
-      )
+      return NextResponse.json({ error: t('method_not_allowed') }, { status: 405 });
     }
 
     // 解析请求体
@@ -34,46 +34,28 @@ export async function POST(request: NextRequest) {
     try {
       body = await parseRequestBody<DetectRequest>(request)
     } catch (error) {
-      return apiError(
-        ApiErrorCodes.INVALID_JSON,
-        'Invalid JSON in request body',
-        400
-      )
+      return NextResponse.json({ error: t('invalid_json') }, { status: 400 });
     }
 
     // 验证必需字段
     const validation = validateRequiredFields(body, ['text'])
     if (!validation.valid) {
-      return apiError(
-        ApiErrorCodes.MISSING_FIELDS,
-        `Missing required fields: ${validation.missing.join(', ')}`,
-        400,
-        { missingFields: validation.missing }
-      )
+      const missingFields = validation.missing.join(', ');
+      return NextResponse.json({ error: t('missing_fields', { fields: missingFields }) }, { status: 400 });
     }
 
     // 清理和验证文本
     const sanitizedText = sanitizeText(body.text)
     if (!sanitizedText) {
-      return apiError(
-        ApiErrorCodes.INVALID_REQUEST,
-        'Text cannot be empty',
-        400
-      )
+      return NextResponse.json({ error: t('empty_text') }, { status: 400 });
     }
 
     // 验证文本长度（检测允许更长的文本）
     const lengthValidation = validateTextLength(sanitizedText, 2000)
     if (!lengthValidation.valid) {
-      return apiError(
-        ApiErrorCodes.TEXT_TOO_LONG,
-        `Text is too long. Maximum ${2000} characters allowed, got ${lengthValidation.length}`,
-        400,
-        { 
-          maxLength: 2000, 
-          actualLength: lengthValidation.length 
-        }
-      )
+      return NextResponse.json({ 
+        error: t('text_too_long', { maxLength: 2000, actualLength: lengthValidation.length }) 
+      }, { status: 400 });
     }
 
     // 获取客户端IP（用于日志记录）
@@ -110,11 +92,7 @@ export async function POST(request: NextRequest) {
     console.error('Language detection API error:', error)
     
     // 通用错误响应
-    return apiError(
-      ApiErrorCodes.INTERNAL_ERROR,
-      'An unexpected error occurred during language detection',
-      500
-    )
+    return NextResponse.json({ error: t('unexpected_detection_error') }, { status: 500 });
   }
 }
 

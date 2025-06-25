@@ -1,25 +1,55 @@
 import { createClient } from '@supabase/supabase-js'
 import { createBrowserClient, createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
 
 // 环境变量类型检查
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables')
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Missing Supabase environment variables')
+  } else {
+    console.warn('Supabase environment variables not configured - using placeholder values for development')
+  }
+}
+
+// Supabase客户端配置选项
+const supabaseOptions = {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+    flowType: 'pkce' as const
+  },
+  db: {
+    schema: 'public'
+  },
+  global: {
+    headers: {
+      'X-Client-Info': 'transly-frontend'
+    }
+  },
+  realtime: {
+    timeout: 20000,
+    heartbeatIntervalMs: 30000
+  }
 }
 
 // 浏览器端客户端（用于客户端组件）
 export const createSupabaseBrowserClient = () => {
-  return createBrowserClient(supabaseUrl, supabaseAnonKey)
+  return createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
 }
 
 // 服务器端客户端（用于服务器组件和API路由）
-export const createSupabaseServerClient = () => {
-  const cookieStore = cookies()
+export const createSupabaseServerClient = (cookieStore?: any) => {
+  if (!cookieStore) {
+    // 如果没有传入cookieStore，使用无状态的客户端
+    return createClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+  }
 
   return createServerClient(supabaseUrl, supabaseAnonKey, {
+    ...supabaseOptions,
     cookies: {
       get(name: string) {
         return cookieStore.get(name)?.value
@@ -29,6 +59,7 @@ export const createSupabaseServerClient = () => {
           cookieStore.set({ name, value, ...options })
         } catch (error) {
           // SSR环境中无法设置cookie，忽略错误
+          console.warn('Failed to set cookie in SSR environment:', error)
         }
       },
       remove(name: string, options: any) {
@@ -36,14 +67,37 @@ export const createSupabaseServerClient = () => {
           cookieStore.set({ name, value: '', ...options })
         } catch (error) {
           // SSR环境中无法删除cookie，忽略错误
+          console.warn('Failed to remove cookie in SSR environment:', error)
         }
       },
     },
   })
 }
 
+// 服务角色客户端（用于后端管理操作）
+export const createSupabaseServiceClient = () => {
+  if (!supabaseServiceKey) {
+    throw new Error('Service role key not configured')
+  }
+  
+  return createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+    db: {
+      schema: 'public'
+    },
+    global: {
+      headers: {
+        'X-Client-Info': 'transly-service'
+      }
+    }
+  })
+}
+
 // 通用客户端（用于非React环境）
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
 
 // 数据库类型定义
 export type Database = {

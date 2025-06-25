@@ -257,7 +257,7 @@
 - [x] 6.2.2 用户数据模型实现（User、Profile、CreditTransaction等）
     - **任务描述**: 实现TypeScript数据模型接口，定义数据库操作函数和类型安全
     - **产品文档出处**: product.md - 数据架构设计 - 用户数据模型、积分交易记录
-- [ ] 6.2.3 Supabase客户端配置与连接
+- [x] 6.2.3 Supabase客户端配置与连接
     - **任务描述**: 配置Supabase客户端SDK，实现数据库连接和查询操作
     - **产品文档出处**: product.md - 身份验证方案 - Supabase PostgreSQL
 - [ ] 6.2.4 数据库RLS（行级安全）策略配置

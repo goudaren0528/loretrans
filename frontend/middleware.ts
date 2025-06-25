@@ -1,55 +1,57 @@
+import { type NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
-import { NextResponse, type NextRequest } from 'next/server'
+import { getUserRole } from './lib/auth-utils'
+import { permissionsConfig, REDIRECT_MAP } from '../config/permissions.config'
 
 export async function middleware(request: NextRequest) {
-  let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  })
+  const { pathname } = request.nextUrl
+  const response = NextResponse.next()
+  
+  // 创建一个能在中间件中工作的Supabase客户端
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value
+        },
+        set(name: string, value: string, options) {
+          request.cookies.set({ name, value, ...options })
+        },
+        remove(name: string, options) {
+          request.cookies.set({ name, value: '', ...options })
+        },
+      },
+    }
+  )
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    console.error('Missing Supabase environment variables')
-    return response
+  const user = session?.user
+  const userRole = user ? (await getUserRole(user.id)) || 'free_user' : 'guest'
+
+  // 如果用户已登录并访问登录/注册页面，则重定向
+  if (user && (pathname.startsWith('/auth/signin') || pathname.startsWith('/auth/signup'))) {
+    return NextResponse.redirect(new URL(REDIRECT_MAP.auth, request.url))
   }
 
-  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
-    cookies: {
-      get(name: string) {
-        return request.cookies.get(name)?.value
-      },
-      set(name: string, value: string, options: any) {
-        response = NextResponse.next({
-          request: {
-            headers: request.headers,
-          },
-        })
-        response.cookies.set({
-          name,
-          value,
-          ...options,
-        })
-      },
-      remove(name: string, options: any) {
-        response = NextResponse.next({
-          request: {
-            headers: request.headers,
-          },
-        })
-        response.cookies.set({
-          name,
-          value: '',
-          ...options,
-        })
-      },
-    },
-  })
+  // 检查路径权限
+  const requiredRoles =
+    permissionsConfig.find((config) => {
+      if (typeof config.path === 'string') {
+        return pathname === config.path
+      }
+      return config.path.test(pathname)
+    })?.roles || []
 
-  // 刷新身份验证令牌
-  await supabase.auth.getUser()
+  if (requiredRoles.length > 0 && !requiredRoles.includes(userRole as any)) {
+    // 根据用户登录状态决定重定向地址
+    const redirectUrl = user ? REDIRECT_MAP.unauthorized : REDIRECT_MAP.default
+    return NextResponse.redirect(new URL(redirectUrl, request.url))
+  }
 
   return response
 }
@@ -57,12 +59,12 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * 匹配所有请求路径，除了以下开头的：
+     * 匹配除了以下路径之外的所有请求路径:
+     * - api (API 路由)
      * - _next/static (静态文件)
      * - _next/image (图片优化文件)
-     * - favicon.ico (favicon文件)
-     * - *.svg, *.png, *.jpg, *.jpeg, *.gif, *.webp (图片文件)
+     * - favicon.ico (网站图标)
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 } 

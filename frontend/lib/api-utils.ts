@@ -1,4 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
+import { getUserRole } from './auth-utils'
+import type { UserRole } from '../../shared/types'
+import { User } from '@supabase/supabase-js'
 
 // 定义基础类型
 interface ApiError {
@@ -168,3 +172,74 @@ export const ApiErrorCodes = {
   TTS_FAILED: 'TTS_FAILED',
   INTERNAL_ERROR: 'INTERNAL_ERROR',
 } as const 
+
+// 扩展 NextRequest 类型以包含用户上下文
+export interface NextRequestWithUser extends NextRequest {
+  userContext: {
+    user: User
+    role: UserRole
+  }
+}
+
+type AppRouterApiHandler = (
+  req: NextRequestWithUser,
+  // context (e.g., params) is implicitly available in the handler
+) => Promise<NextResponse> 
+
+type RoleCheck = UserRole | UserRole[]
+
+/**
+ * 高阶函数，用于保护App Router的API路由
+ * @param handler - 原始的API路由处理函数
+ * @param requiredRoles - 可选的角色要求
+ */
+export function withApiAuth(handler: AppRouterApiHandler, requiredRoles?: RoleCheck) {
+  return async (req: NextRequest) => {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      return NextResponse.json({ error: 'API auth not configured' }, { status: 500 })
+    }
+    
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+    const authHeader = req.headers.get('authorization')
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return NextResponse.json({ error: 'Unauthorized: No token provided' }, { status: 401 })
+    }
+
+    const jwt = authHeader.split(' ')[1]
+
+    try {
+      const { data, error } = await supabase.auth.getUser(jwt)
+
+      if (error || !data.user) {
+        return NextResponse.json({ error: 'Unauthorized: Invalid token' }, { status: 401 })
+      }
+
+      const user = data.user
+      const role = (await getUserRole(user.id)) as UserRole | null
+
+      if (!role) {
+        return NextResponse.json({ error: 'Forbidden: Could not determine user role' }, { status: 403 })
+      }
+      
+      if (requiredRoles) {
+        const roles = Array.isArray(requiredRoles) ? requiredRoles : [requiredRoles]
+        if (!roles.includes(role)) {
+          return NextResponse.json({ error: `Forbidden: Role '${role}' is not authorized` }, { status: 403 })
+        }
+      }
+
+      const extendedReq = req as NextRequestWithUser
+      extendedReq.userContext = { user, role }
+      
+      return handler(extendedReq)
+
+    } catch (e) {
+      console.error('API Auth Error:', e)
+      return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    }
+  }
+} 

@@ -1,5 +1,5 @@
 import { ArrowRight, Clock, Mail, Bell } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 

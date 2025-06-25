@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -20,33 +20,39 @@ import {
 } from '@/lib/utils/password-strength'
 import { cn } from '@/lib/utils'
 
-// 表单验证Schema
-const signUpSchema = z.object({
-  name: z.string().min(1, '请输入姓名').max(50, '姓名不能超过50个字符'),
-  email: z.string()
-    .min(1, '请输入邮箱')
-    .email('邮箱格式不正确')
-    .max(100, '邮箱不能超过100个字符'),
-  password: z.string()
-    .min(8, '密码至少需要8个字符')
-    .max(128, '密码不能超过128个字符'),
-  confirmPassword: z.string()
-    .min(1, '请确认密码'),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: '两次输入的密码不一致',
-  path: ['confirmPassword'],
-})
-
-type SignUpFormData = z.infer<typeof signUpSchema>
-
 interface SignUpFormProps {
   onSuccess?: () => void
 }
 
+const signUpSchema = z
+  .object({
+    name: z
+      .string()
+      .min(1, 'Name is required')
+      .max(50, 'Name must be less than 50 characters'),
+    email: z
+      .string()
+      .min(1, 'Email is required')
+      .email('Invalid email address')
+      .max(100, 'Email must be less than 100 characters'),
+    password: z
+      .string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(128, 'Password must be less than 128 characters'),
+    confirmPassword: z.string().min(1, 'Please confirm your password'),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ['confirmPassword'],
+  })
+
 export function SignUpForm({ onSuccess }: SignUpFormProps) {
+  type SignUpFormData = z.infer<typeof signUpSchema>
+
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [passwordStrength, setPasswordStrength] = useState<PasswordStrengthResult | null>(null)
+  const [passwordStrength, setPasswordStrength] =
+    useState<PasswordStrengthResult | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
 
@@ -64,7 +70,6 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
 
   const watchedPassword = watch('password', '')
 
-  // 监听密码变化，实时检查强度
   useEffect(() => {
     if (watchedPassword) {
       const strength = checkPasswordStrength(watchedPassword)
@@ -79,10 +84,10 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
     setAuthError(null)
 
     try {
-      // 最终密码强度检查
       const finalStrengthCheck = checkPasswordStrength(data.password)
       if (!finalStrengthCheck.isValid) {
-        setAuthError('密码强度不符合要求，请改进密码')
+        setAuthError('Password does not meet the strength requirements.')
+        setIsLoading(false)
         return
       }
 
@@ -93,40 +98,40 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
       })
 
       if (result.success) {
-        // 注册成功
         onSuccess?.()
       } else {
-        setAuthError(result.error || '注册失败，请重试')
+        setAuthError(result.error || 'Sign up failed. Please try again.')
       }
     } catch (error) {
       console.error('Sign up form error:', error)
-      setAuthError('注册过程中发生错误，请重试')
+      setAuthError('An unexpected error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
   }
 
-  const requirements = passwordStrength ? getPasswordRequirements(watchedPassword) : []
+  const requirements = passwordStrength
+    ? getPasswordRequirements(watchedPassword)
+    : []
 
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-bold">注册 Transly 账户</h1>
+        <h1 className="text-2xl font-bold">Create an Account</h1>
         <p className="text-muted-foreground">
-          创建账户即可获得 500 积分奖励
+          Get started with your free account and 10,000 credits
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* 姓名字段 */}
         <div className="space-y-2">
-          <Label htmlFor="name">姓名</Label>
+          <Label htmlFor="name">Name</Label>
           <div className="relative">
             <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="name"
               type="text"
-              placeholder="请输入您的姓名"
+              placeholder="Your Name"
               className="pl-10"
               {...register('name')}
             />
@@ -136,15 +141,14 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
           )}
         </div>
 
-        {/* 邮箱字段 */}
         <div className="space-y-2">
-          <Label htmlFor="email">邮箱</Label>
+          <Label htmlFor="email">Email</Label>
           <div className="relative">
             <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="email"
               type="email"
-              placeholder="请输入您的邮箱"
+              placeholder="name@example.com"
               className="pl-10"
               {...register('email')}
             />
@@ -154,15 +158,14 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
           )}
         </div>
 
-        {/* 密码字段 */}
         <div className="space-y-2">
-          <Label htmlFor="password">密码</Label>
+          <Label htmlFor="password">Password</Label>
           <div className="relative">
             <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="password"
               type={showPassword ? 'text' : 'password'}
-              placeholder="请输入密码"
+              placeholder="••••••••"
               className="pl-10 pr-10"
               {...register('password')}
             />
@@ -170,6 +173,7 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff /> : <Eye />}
             </button>
@@ -178,67 +182,67 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
             <p className="text-sm text-red-600">{errors.password.message}</p>
           )}
 
-          {/* 密码强度指示器 */}
           {passwordStrength && watchedPassword && (
-            <div className="space-y-2">
+            <div className="space-y-2 pt-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">密码强度</span>
-                <span className={cn(
-                  'text-sm font-medium',
-                  getStrengthColor(passwordStrength.strength)
-                )}>
+                <span className="text-sm text-muted-foreground">
+                  Password strength
+                </span>
+                <span
+                  className={cn(
+                    'text-sm font-medium',
+                    getStrengthColor(passwordStrength.strength)
+                  )}
+                >
                   {getStrengthText(passwordStrength.strength)}
                 </span>
               </div>
-              
-              {/* 强度进度条 */}
+
               <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className={cn(
                     'h-full transition-all duration-300',
                     getStrengthProgressColor(passwordStrength.strength)
                   )}
-                  style={{ width: `${(passwordStrength.score / 4) * 100}%` }}
+                  style={{
+                    width: `${(passwordStrength.score / 4) * 100}%`,
+                  }}
                 />
               </div>
 
-              {/* 密码要求列表 */}
-              <div className="space-y-1">
+              <div className="space-y-1 pt-1">
                 {requirements.map((req, index) => (
-                  <div key={index} className="flex items-center space-x-2 text-sm">
+                  <div
+                    key={index}
+                    className="flex items-center space-x-2 text-sm"
+                  >
                     {req.met ? (
                       <CheckCircle className="h-3 w-3 text-green-500" />
                     ) : (
                       <XCircle className="h-3 w-3 text-gray-400" />
                     )}
-                    <span className={req.met ? 'text-green-600' : 'text-gray-500'}>
+                    <span
+                      className={
+                        req.met ? 'text-green-600' : 'text-gray-500'
+                      }
+                    >
                       {req.label}
                     </span>
                   </div>
                 ))}
               </div>
-
-              {/* 密码反馈 */}
-              {passwordStrength.feedback.length > 0 && (
-                <div className="text-sm text-muted-foreground">
-                  {passwordStrength.feedback.map((feedback, index) => (
-                    <div key={index}>{feedback}</div>
-                  ))}
-                </div>
-              )}
             </div>
           )}
         </div>
 
-        {/* 确认密码字段 */}
         <div className="space-y-2">
-          <Label htmlFor="confirmPassword">确认密码</Label>
+          <Label htmlFor="confirmPassword">Confirm Password</Label>
           <div className="relative">
             <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="confirmPassword"
               type={showConfirmPassword ? 'text' : 'password'}
-              placeholder="请再次输入密码"
+              placeholder="••••••••"
               className="pl-10 pr-10"
               {...register('confirmPassword')}
             />
@@ -246,57 +250,43 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
+              aria-label={
+                showConfirmPassword ? 'Hide password' : 'Show password'
+              }
             >
               {showConfirmPassword ? <EyeOff /> : <Eye />}
             </button>
           </div>
           {errors.confirmPassword && (
-            <p className="text-sm text-red-600">{errors.confirmPassword.message}</p>
+            <p className="text-sm text-red-600">
+              {errors.confirmPassword.message}
+            </p>
           )}
         </div>
 
-        {/* 错误提示 */}
         {authError && (
-          <div className="rounded-md bg-red-50 p-4">
-            <p className="text-sm text-red-600">{authError}</p>
+          <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+            {authError}
           </div>
         )}
 
-        {/* 提交按钮 */}
         <Button
           type="submit"
           className="w-full"
-          disabled={isLoading || !isValid || (passwordStrength ? !passwordStrength.isValid : false)}
+          disabled={!isValid || isLoading}
         >
-          {isLoading ? '注册中...' : '注册账户'}
+          {isLoading ? 'Creating Account...' : 'Create Free Account'}
         </Button>
       </form>
 
-      {/* 登录链接 */}
-      <div className="text-center">
-        <p className="text-sm text-muted-foreground">
-          已有账户？{' '}
-          <Link 
-            href="/auth/signin" 
-            className="font-medium text-primary hover:underline"
-          >
-            立即登录
-          </Link>
-        </p>
-      </div>
-
-      {/* 服务条款 */}
-      <div className="text-center">
-        <p className="text-xs text-muted-foreground">
-          注册即表示您同意我们的{' '}
-          <Link href="/terms" className="underline hover:text-foreground">
-            服务条款
-          </Link>
-          {' '}和{' '}
-          <Link href="/privacy" className="underline hover:text-foreground">
-            隐私政策
-          </Link>
-        </p>
+      <div className="text-center text-sm text-muted-foreground">
+        Already have an account?{' '}
+        <Link
+          href="/auth/signin"
+          className="font-medium text-primary hover:underline"
+        >
+          Sign in
+        </Link>
       </div>
     </div>
   )

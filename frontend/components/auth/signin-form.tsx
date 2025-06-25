@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -10,21 +10,19 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/lib/hooks/useAuth'
-import { cn } from '@/lib/utils'
 
-// 表单验证Schema
 const signInSchema = z.object({
-  email: z.string()
-    .min(1, '请输入邮箱')
-    .email('邮箱格式不正确')
-    .max(100, '邮箱不能超过100个字符'),
-  password: z.string()
-    .min(1, '请输入密码')
-    .max(128, '密码不能超过128个字符'),
+  email: z
+    .string()
+    .min(1, 'Email is required')
+    .email('Invalid email address')
+    .max(100, 'Email must be less than 100 characters'),
+  password: z
+    .string()
+    .min(1, 'Password is required')
+    .max(128, 'Password must be less than 128 characters'),
   rememberMe: z.boolean().optional(),
 })
-
-type SignInFormData = z.infer<typeof signInSchema>
 
 interface SignInFormProps {
   onSuccess?: () => void
@@ -32,6 +30,8 @@ interface SignInFormProps {
 }
 
 export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
+  type SignInFormData = z.infer<typeof signInSchema>
+
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
@@ -62,14 +62,13 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
       })
 
       if (result.success) {
-        // 登录成功
         onSuccess?.()
       } else {
-        setAuthError(result.error || '登录失败，请重试')
+        setAuthError(result.error || 'Sign in failed. Please check your credentials.')
       }
     } catch (error) {
       console.error('Sign in form error:', error)
-      setAuthError('登录过程中发生错误，请重试')
+      setAuthError('An unexpected error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -78,22 +77,21 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-bold">登录 Transly</h1>
+        <h1 className="text-2xl font-bold">Sign In</h1>
         <p className="text-muted-foreground">
-          欢迎回来！请登录您的账户
+          Enter your credentials to access your account
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* 邮箱字段 */}
         <div className="space-y-2">
-          <Label htmlFor="email">邮箱</Label>
+          <Label htmlFor="email">Email</Label>
           <div className="relative">
             <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="email"
               type="email"
-              placeholder="请输入您的邮箱"
+              placeholder="name@example.com"
               className="pl-10"
               {...register('email')}
             />
@@ -103,15 +101,14 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
           )}
         </div>
 
-        {/* 密码字段 */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Label htmlFor="password">密码</Label>
+            <Label htmlFor="password">Password</Label>
             <Link
               href="/auth/forgot-password"
               className="text-sm text-primary hover:underline"
             >
-              忘记密码？
+              Forgot your password?
             </Link>
           </div>
           <div className="relative">
@@ -119,7 +116,7 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
             <Input
               id="password"
               type={showPassword ? 'text' : 'password'}
-              placeholder="请输入密码"
+              placeholder="••••••••"
               className="pl-10 pr-10"
               {...register('password')}
             />
@@ -127,6 +124,7 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-3 h-4 w-4 text-muted-foreground hover:text-foreground"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff /> : <Eye />}
             </button>
@@ -136,7 +134,6 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
           )}
         </div>
 
-        {/* 记住我选项 */}
         <div className="flex items-center space-x-2">
           <input
             id="rememberMe"
@@ -148,11 +145,10 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
             htmlFor="rememberMe"
             className="text-sm font-normal cursor-pointer"
           >
-            记住我30天
+            Remember me
           </Label>
         </div>
 
-        {/* 错误提示 */}
         {authError && (
           <div className="flex items-center space-x-2 rounded-md bg-red-50 p-4">
             <AlertCircle className="h-4 w-4 text-red-600" />
@@ -160,49 +156,38 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
           </div>
         )}
 
-        {/* 提交按钮 */}
         <Button
           type="submit"
           className="w-full"
           disabled={isLoading || !isValid}
         >
-          {isLoading ? '登录中...' : '登录'}
+          {isLoading ? 'Signing In...' : 'Sign In'}
         </Button>
       </form>
 
-      {/* 注册链接 */}
-      <div className="text-center">
-        <p className="text-sm text-muted-foreground">
-          还没有账户？{' '}
-          <Link 
-            href="/auth/signup" 
-            className="font-medium text-primary hover:underline"
-          >
-            立即注册
-          </Link>
-        </p>
+      <div className="text-center text-sm text-muted-foreground">
+        Don't have an account?{' '}
+        <Link
+          href="/auth/signup"
+          className="font-medium text-primary hover:underline"
+        >
+          Sign up
+        </Link>
       </div>
 
-      {/* 社交登录分隔线 */}
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-background px-2 text-muted-foreground">
-            或者
+            Or continue with
           </span>
         </div>
       </div>
 
-      {/* 社交登录按钮（预留，暂时禁用） */}
       <div className="space-y-2">
-        <Button
-          type="button"
-          variant="outline"
-          className="w-full"
-          disabled
-        >
+        <Button type="button" variant="outline" className="w-full" disabled>
           <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -221,16 +206,16 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          使用 Google 登录（即将推出）
+          Sign in with Google
         </Button>
       </div>
 
-      {/* 注册提示 */}
       <div className="text-center">
         <p className="text-xs text-muted-foreground">
-          注册新账户即可获得{' '}
-          <span className="font-medium text-primary">500 积分</span>
-          {' '}奖励
+          Sign up now and get{' '}
+          <span className="font-medium text-primary">
+            10,000 free credits!
+          </span>
         </p>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+// import { NextIntlClientProvider } from 'next-intl';
+// import { getMessages } from 'next-intl/server';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
@@ -6,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { Navigation, Footer } from '@/components/navigation'
 import { Providers } from '../providers'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
@@ -17,7 +18,8 @@ export const metadata: Metadata = {
     default: 'Transly - Translate Low-Resource Languages to English',
     template: '%s | Transly',
   },
-  description: 'Free AI-powered translation tool for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.',
+  description:
+    'Free AI-powered translation tool for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.',
   keywords: [
     'translation',
     'AI',
@@ -46,7 +48,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://transly.app',
     title: 'Transly - Translate Low-Resource Languages to English',
-    description: 'Free AI-powered translation tool for 20+ low-resource languages.',
+    description:
+      'Free AI-powered translation tool for 20+ low-resource languages.',
     siteName: 'Transly',
     images: [
       {
@@ -60,7 +63,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Transly - Translate Low-Resource Languages to English',
-    description: 'Free AI-powered translation tool for 20+ low-resource languages.',
+    description:
+      'Free AI-powered translation tool for 20+ low-resource languages.',
     images: ['/images/og-image.png'],
     creator: '@TranslyApp',
   },
@@ -83,40 +87,35 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
 }: {
-  children: React.ReactNode;
-  params: {locale: string};
+  children: React.ReactNode
 }) {
-  const messages = useMessages();
-
   return (
-    <html lang={locale} className={cn(inter.variable, 'scroll-smooth')}>
+    <html lang="en" className={cn(inter.variable, 'scroll-smooth')}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
       </head>
-      <body 
+      <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
           'selection:bg-primary/20 selection:text-primary-foreground'
         )}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
-            <div className="relative flex min-h-screen flex-col">
-              <Navigation />
-              <main className="flex-1">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </Providers>
-        </NextIntlClientProvider>
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Navigation />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   )

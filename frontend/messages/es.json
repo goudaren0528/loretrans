@@ -234,5 +234,86 @@
     "tts_failed": "No se pudo generar el audio. Por favor, inténtelo de nuevo.",
     "unexpected_tts_error": "Ocurrió un error inesperado durante la generación de voz",
     "failed_to_get_voices": "No se pudieron recuperar las opciones de voz"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Restablecer Contraseña",
+      "description": "La función de restablecimiento de contraseña está en desarrollo",
+      "info": "Esta función estará disponible en una versión futura. Si ha olvidado su contraseña, póngase en contacto con el servicio de atención al cliente para obtener ayuda.",
+      "contact_support": "Contactar a Soporte"
+    },
+    "SignUpForm": {
+      "title": "Crear una cuenta de Transly",
+      "subtitle": "Crea una cuenta para obtener 500 créditos de bonificación",
+      "name_label": "Nombre",
+      "name_placeholder": "Introduce tu nombre",
+      "name_required": "Por favor, introduce tu nombre",
+      "name_max_length": "El nombre no puede exceder los 50 caracteres",
+      "email_label": "Correo electrónico",
+      "email_placeholder": "Introduce tu correo electrónico",
+      "email_required": "Por favor, introduce tu correo electrónico",
+      "email_invalid": "Formato de correo electrónico no válido",
+      "email_max_length": "El correo electrónico no puede exceder los 100 caracteres",
+      "password_label": "Contraseña",
+      "password_placeholder": "Introduce tu contraseña",
+      "password_min_length": "La contraseña debe tener al menos 8 caracteres",
+      "password_max_length": "La contraseña no puede exceder los 128 caracteres",
+      "confirm_password_label": "Confirmar contraseña",
+      "confirm_password_placeholder": "Vuelve a introducir tu contraseña",
+      "confirm_password_required": "Por favor, confirma tu contraseña",
+      "password_mismatch": "Las contraseñas no coinciden",
+      "password_strength_label": "Fortaleza de la contraseña",
+      "password_strength_feedback": "La fortaleza de la contraseña no cumple los requisitos, por favor mejórala",
+      "submit_button": "Registrarse",
+      "submit_loading_button": "Registrando...",
+      "signup_failed": "El registro ha fallado, por favor inténtalo de nuevo",
+      "signup_error": "Ha ocurrido un error durante el registro, por favor inténtalo de nuevo",
+      "signin_prompt": "¿Ya tienes una cuenta?",
+      "signin_link": "Iniciar sesión"
+    },
+    "SignInForm": {
+      "title": "Iniciar sesión en Transly",
+      "subtitle": "¡Bienvenido de nuevo! Por favor, inicia sesión en tu cuenta",
+      "email_label": "Correo electrónico",
+      "email_placeholder": "Introduce tu correo electrónico",
+      "email_required": "Por favor, introduce tu correo electrónico",
+      "email_invalid": "Formato de correo electrónico no válido",
+      "email_max_length": "El correo electrónico no puede exceder los 100 caracteres",
+      "password_label": "Contraseña",
+      "password_placeholder": "Introduce tu contraseña",
+      "password_required": "Por favor, introduce tu contraseña",
+      "password_max_length": "La contraseña no puede exceder los 128 caracteres",
+      "forgot_password_link": "¿Has olvidado la contraseña?",
+      "remember_me_label": "Recordarme durante 30 días",
+      "submit_button": "Iniciar sesión",
+      "submit_loading_button": "Iniciando sesión...",
+      "signin_failed": "El inicio de sesión ha fallado, por favor inténtalo de nuevo",
+      "signin_error": "Ha ocurrido un error durante el inicio de sesión, por favor inténtalo de nuevo",
+      "signup_prompt": "¿Aún no tienes una cuenta?",
+      "signup_link": "Regístrate ahora",
+      "social_divider": "O",
+      "google_signin_button": "Iniciar sesión con Google (próximamente)",
+      "signup_bonus_prompt_1": "Regístrate para obtener una nueva cuenta y consigue",
+      "signup_bonus_prompt_2": "500 créditos de bonificación"
+    }
+  },
+  "AboutPage": {
+    "faq": {
+      "q1_title": "¿Qué diferencia a Transly de otros servicios de traducción?",
+      "q1_answer": "Transly se especializa en idiomas de bajos recursos que a menudo son mal soportados por los servicios de traducción convencionales. Usamos el modelo NLLB de Meta, que está específicamente diseñado para estos idiomas, asegurando una mejor precisión y contexto cultural.",
+      "q2_title": "¿Mis datos están seguros y son privados?",
+      "q2_answer": "Sí, priorizamos tu privacidad. No almacenamos tus traducciones ni tus datos personales. Todas las traducciones se procesan de forma segura y se eliminan inmediatamente después de la entrega. Para las traducciones de documentos, los archivos se eliminan automáticamente después de la descarga.",
+      "q3_title": "¿Qué formatos de archivo admiten para la traducción de documentos?",
+      "q3_answer": "Actualmente admitimos archivos PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx) y texto sin formato (.txt). Estamos trabajando para agregar soporte para más formatos según los comentarios de los usuarios.",
+      "q4_title": "¿Qué tan precisas son las traducciones?",
+      "q4_answer": "Nuestras traducciones están impulsadas por el modelo NLLB de última generación de Meta, que ha sido entrenado específicamente en idiomas de bajos recursos. Si bien ninguna traducción automática es perfecta, nuestro sistema proporciona resultados significativamente mejores para idiomas pequeños en comparación con los servicios tradicionales.",
+      "q5_title": "¿Puedo traducir del inglés a mi idioma?",
+      "q5_answer": "¡Sí! Si bien nuestro enfoque principal es traducir de idiomas de bajos recursos al inglés, también admitimos la traducción inversa del inglés a los idiomas admitidos. Simplemente usa el selector de idiomas para elegir la dirección de traducción deseada.",
+      "q6_title": "¿Ofrecen acceso a la API para desarrolladores?",
+      "q6_answer": "Actualmente estamos desarrollando acceso a la API para desarrolladores y empresas. Si estás interesado en integrar nuestras capacidades de traducción en tu aplicación, contáctanos para obtener información sobre el acceso anticipado."
+    },
+    "supported_languages": {
+      "request_cta_description": "¿No ves tu idioma? Estamos expandiendo constantemente nuestro soporte de idiomas."
+    }
   }
 } 

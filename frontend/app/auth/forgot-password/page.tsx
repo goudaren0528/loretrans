@@ -1,10 +1,15 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
+import { Input } from '@/components/ui/input'
 
 export default function ForgotPasswordPage() {
+  const t = useTranslations('Auth.ForgotPassword');
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -14,15 +19,15 @@ export default function ForgotPasswordPage() {
           </div>
           
           <div className="space-y-2">
-            <h1 className="text-2xl font-bold">密码重置</h1>
+            <h1 className="text-2xl font-bold">{t('title')}</h1>
             <p className="text-muted-foreground">
-              密码重置功能正在开发中
+              {t('description')}
             </p>
           </div>
 
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              此功能将在后续版本中推出。如果您忘记了密码，请联系客服获得帮助。
+              {t('info')}
             </p>
             
             <div className="space-y-2">
@@ -32,7 +37,7 @@ export default function ForgotPasswordPage() {
                 asChild
               >
                 <Link href="/contact">
-                  联系客服
+                  {t('contact_support')}
                 </Link>
               </Button>
               
@@ -43,7 +48,7 @@ export default function ForgotPasswordPage() {
               >
                 <Link href="/auth/signin" className="flex items-center justify-center">
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  返回登录
+                  {t('return_to_login')}
                 </Link>
               </Button>
             </div>

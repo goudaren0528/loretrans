@@ -190,7 +190,8 @@
     "supported_languages": {
       "title": "Supported Languages",
       "description": "We support {count} low-resource languages with more being added regularly.",
-      "request_cta": "Request a Language"
+      "request_cta": "Request a Language",
+      "request_cta_description": "Don't see your language? We're constantly expanding our language support."
     },
     "technology": {
       "title": "Powered by Advanced AI",
@@ -209,7 +210,19 @@
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions"
+      "title": "Frequently Asked Questions",
+      "q1_title": "What makes Transly different from other translation services?",
+      "q1_answer": "Transly specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
+      "q2_title": "Is my data safe and private?",
+      "q2_answer": "Yes, we prioritize your privacy. We don't store your translations or personal data. All translations are processed securely and deleted immediately after delivery. For document translations, files are automatically removed after download.",
+      "q3_title": "What file formats do you support for document translation?",
+      "q3_answer": "We currently support PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx), and plain text (.txt) files. We're working on adding support for more formats based on user feedback.",
+      "q4_title": "How accurate are the translations?",
+      "q4_answer": "Our translations are powered by Meta's state-of-the-art NLLB model, which has been trained specifically on low-resource languages. While no automated translation is perfect, our system provides significantly better results for small languages compared to traditional services.",
+      "q5_title": "Can I translate from English to my language?",
+      "q5_answer": "Yes! While our primary focus is translating from low-resource languages to English, we also support reverse translation from English to supported languages. Just use the language selector to choose your desired translation direction.",
+      "q6_title": "Do you offer API access for developers?",
+      "q6_answer": "We're currently developing API access for developers and businesses. If you're interested in integrating our translation capabilities into your application, please contact us for early access information."
     },
     "cta_section": {
       "title": "Ready to Get Started?",
@@ -447,5 +460,67 @@
     "tts_failed": "Failed to generate speech audio. Please try again.",
     "unexpected_tts_error": "An unexpected error occurred during speech generation",
     "failed_to_get_voices": "Failed to retrieve voice options"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Reset Password",
+      "description": "Password reset feature is under development",
+      "info": "This feature will be available in a future release. If you have forgotten your password, please contact customer support for assistance.",
+      "contact_support": "Contact Support"
+    },
+    "SignUpForm": {
+      "title": "Create a Transly Account",
+      "subtitle": "Create an account to get 500 bonus credits",
+      "name_label": "Name",
+      "name_placeholder": "Enter your name",
+      "name_required": "Please enter your name",
+      "name_max_length": "Name cannot exceed 50 characters",
+      "email_label": "Email",
+      "email_placeholder": "Enter your email",
+      "email_required": "Please enter your email",
+      "email_invalid": "Invalid email format",
+      "email_max_length": "Email cannot exceed 100 characters",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "password_min_length": "Password must be at least 8 characters",
+      "password_max_length": "Password cannot exceed 128 characters",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Enter your password again",
+      "confirm_password_required": "Please confirm your password",
+      "password_mismatch": "Passwords do not match",
+      "password_strength_label": "Password Strength",
+      "password_strength_feedback": "Password strength does not meet requirements, please improve your password",
+      "submit_button": "Sign Up",
+      "submit_loading_button": "Signing Up...",
+      "signup_failed": "Sign up failed, please try again",
+      "signup_error": "An error occurred during sign up, please try again",
+      "signin_prompt": "Already have an account?",
+      "signin_link": "Sign In"
+    },
+    "SignInForm": {
+      "title": "Sign In to Transly",
+      "subtitle": "Welcome back! Please sign in to your account",
+      "email_label": "Email",
+      "email_placeholder": "Enter your email",
+      "email_required": "Please enter your email",
+      "email_invalid": "Invalid email format",
+      "email_max_length": "Email cannot exceed 100 characters",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "password_required": "Please enter your password",
+      "password_max_length": "Password cannot exceed 128 characters",
+      "forgot_password_link": "Forgot password?",
+      "remember_me_label": "Remember me for 30 days",
+      "submit_button": "Sign In",
+      "submit_loading_button": "Signing In...",
+      "signin_failed": "Sign in failed, please try again",
+      "signin_error": "An error occurred during sign in, please try again",
+      "signup_prompt": "Don't have an account yet?",
+      "signup_link": "Sign Up Now",
+      "social_divider": "OR",
+      "google_signin_button": "Sign in with Google (coming soon)",
+      "signup_bonus_prompt_1": "Sign up for a new account and get",
+      "signup_bonus_prompt_2": "500 bonus credits"
+    }
   }
 } 

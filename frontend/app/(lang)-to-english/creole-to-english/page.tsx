@@ -5,7 +5,7 @@ import { LanguageGrid } from '@/components/language-grid'
 
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import { TranslationServiceStructuredData, FAQStructuredData, HowToStructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
@@ -272,26 +272,18 @@ export default function CreoleToEnglishPage() {
 
       {/* Document Translation CTA */}
       <section className="py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center bg-primary/5 rounded-2xl p-8">
-            <FileText className="h-16 w-16 text-primary mx-auto mb-6" />
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center">
             <h2 className="text-3xl font-bold mb-4">
               Translate Haitian Creole Documents
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Need to translate official documents, letters, or files from Kreyòl Ayisyen to English? 
-              Our document translation service maintains formatting while providing accurate translations.
+            <p className="text-lg text-muted-foreground mb-8">
+              From business reports to personal letters, get your Haitian Creole documents 
+              translated to English accurately.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/document-translate">
-                <Button size="lg">
-                  Upload Document
-                </Button>
-              </Link>
-              <Button variant="outline" size="lg">
-                Learn More
-              </Button>
-            </div>
+            <Link href="/document-translate">
+              <Button size="lg">Translate Your Document Now</Button>
+            </Link>
           </div>
         </div>
       </section>

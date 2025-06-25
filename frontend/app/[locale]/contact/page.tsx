@@ -24,7 +24,12 @@ export async function generateMetadata({
       locale: 'en_US',
     },
     alternates: {
-      canonical: '/contact',
+      canonical: `/${locale}/contact`,
+      languages: {
+        'en': '/en/contact',
+        'es': '/es/contacto',
+        'fr': '/fr/contact',
+      },
     },
   };
 }

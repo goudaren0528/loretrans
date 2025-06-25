@@ -9,6 +9,7 @@ export type UserProfile = Database['public']['Tables']['user_profiles']['Row']
 export interface AuthUser {
   id: string
   email: string
+  name: string
   emailVerified: boolean
   credits: number
   profile?: UserProfile
@@ -275,26 +276,27 @@ class AuthService {
    */
   private async getUserData(userId: string): Promise<AuthUser | null> {
     try {
-      // 使用用户服务获取完整用户信息
-      const userWithProfile = await userService.getUserWithProfile(userId)
-      
-      if (!userWithProfile) {
-        console.error('Get user data error: User not found')
-        return null
-      }
+      const user = await userService.getUserById(userId);
+      if (!user) return null;
 
-      const { user, profile } = userWithProfile
+      const profile = await userService.getUserProfile(userId);
+      if (!profile) return null;
 
       return {
         id: user.id,
         email: user.email,
+        name: profile.name || 'User',
         emailVerified: user.email_verified,
         credits: user.credits,
-        profile: profile || undefined,
-      }
+        profile: {
+          ...profile,
+          language: profile.language || 'en',
+          timezone: profile.timezone || 'UTC',
+        },
+      };
     } catch (error) {
-      console.error('Get user data error:', error)
-      return null
+      console.error('Get user data error:', error);
+      return null;
     }
   }
 

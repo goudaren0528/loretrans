@@ -2,9 +2,14 @@ import React from 'react'
 import { Metadata } from 'next'
 import { TranslatorWidget } from '@/components/translator-widget'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
+import { CheckCircle, Globe, Zap, FileText, Volume2, Shield, Book } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 import Link from 'next/link'
 import { TranslationServiceStructuredData, FAQStructuredData, HowToStructuredData } from '@/components/structured-data'
+
+import { BidirectionalTranslator } from '@/components/bidirectional-translator'
+import { LanguageGrid } from '@/components/language-grid'
 
 export const metadata: Metadata = {
   title: 'Telugu to English Translator - Free AI Translation Tool | Transly',

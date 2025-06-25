@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { BidirectionalTranslator } from '@/components/bidirectional-translator'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import { TranslationServiceStructuredData, FAQStructuredData, HowToStructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {

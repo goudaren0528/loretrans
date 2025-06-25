@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { CheckCircle, Globe, Zap, Shield, Heart, Users, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { APP_CONFIG } from '../../../../config/app.config';
 
 export async function generateMetadata({
@@ -11,9 +11,18 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'AboutPage.meta' });
+
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: `/${locale}/about`,
+      languages: {
+        'en': '/en/about',
+        'es': '/es/sobre-nosotros',
+        'fr': '/fr/a-propos',
+      },
+    }
   };
 }
 
@@ -94,7 +103,7 @@ export default async function AboutPage({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {APP_CONFIG.languages.supported.map((language) => (
+          {APP_CONFIG.languages.supported.map((language: { code: string; name: string; nativeName: string }) => (
             <div
               key={language.code}
               className="flex items-center gap-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors"
@@ -112,7 +121,7 @@ export default async function AboutPage({
 
         <div className="text-center mt-8">
           <p className="text-muted-foreground mb-4">
-            Don't see your language? We're constantly expanding our language support.
+            {t('supported_languages.request_cta_description')}
           </p>
           <Button variant="outline">{t('supported_languages.request_cta')}</Button>
         </div>
@@ -169,74 +178,55 @@ export default async function AboutPage({
         <div className="space-y-6">
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              What makes Transly different from other translation services?
+              {t('faq.q1_title')}
             </h3>
             <p className="text-muted-foreground">
-              Transly specializes in low-resource languages that are often
-              poorly supported by mainstream translation services. We use
-              Meta's NLLB model, which is specifically designed for these
-              languages, ensuring better accuracy and cultural context.
+              {t('faq.q1_answer')}
             </p>
           </div>
 
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              Is my data safe and private?
+              {t('faq.q2_title')}
             </h3>
             <p className="text-muted-foreground">
-              Yes, we prioritize your privacy. We don't store your
-              translations or personal data. All translations are processed
-              securely and deleted immediately after delivery. For document
-              translations, files are automatically removed after download.
+              {t('faq.q2_answer')}
             </p>
           </div>
 
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              What file formats do you support for document translation?
+              {t('faq.q3_title')}
             </h3>
             <p className="text-muted-foreground">
-              We currently support PDF, Microsoft Word (.doc, .docx),
-              PowerPoint (.ppt, .pptx), and plain text (.txt) files. We're
-              working on adding support for more formats based on user
-              feedback.
+              {t('faq.q3_answer')}
             </p>
           </div>
 
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              How accurate are the translations?
+              {t('faq.q4_title')}
             </h3>
             <p className="text-muted-foreground">
-              Our translations are powered by Meta's state-of-the-art NLLB
-              model, which has been trained specifically on low-resource
-              languages. While no automated translation is perfect, our system
-              provides significantly better results for small languages
-              compared to traditional services.
+              {t('faq.q4_answer')}
             </p>
           </div>
 
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              Can I translate from English to my language?
+              {t('faq.q5_title')}
             </h3>
             <p className="text-muted-foreground">
-              Yes! While our primary focus is translating from low-resource
-              languages to English, we also support reverse translation from
-              English to supported languages. Just use the language selector to
-              choose your desired translation direction.
+              {t('faq.q5_answer')}
             </p>
           </div>
 
           <div className="border rounded-lg p-6">
             <h3 className="font-semibold text-lg mb-3">
-              Do you offer API access for developers?
+              {t('faq.q6_title')}
             </h3>
             <p className="text-muted-foreground">
-              We're currently developing API access for developers and
-              businesses. If you're interested in integrating our translation
-              capabilities into your application, please contact us for early
-              access information.
+              {t('faq.q6_answer')}
             </p>
           </div>
         </div>
@@ -248,14 +238,12 @@ export default async function AboutPage({
         <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
           {t('cta_section.description')}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/">
-            <Button size="lg">{t('cta_section.cta_text')}</Button>
+        <div className="flex justify-center gap-4">
+          <Link href="/text-translate">
+            <Button>{t('cta_section.primary_cta')}</Button>
           </Link>
-          <Link href="/document-translate">
-            <Button variant="outline" size="lg">
-              {t('cta_section.cta_docs')}
-            </Button>
+          <Link href="/contact">
+            <Button variant="outline">{t('cta_section.secondary_cta')}</Button>
           </Link>
         </div>
       </div>

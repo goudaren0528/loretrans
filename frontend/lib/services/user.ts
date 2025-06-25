@@ -7,6 +7,9 @@ import type {
   NotificationPreferences,
   UserStats 
 } from '../../../shared/types'
+import type { SupabaseClient } from '@supabase/supabase-js'
+
+const ENCRYPTION_KEY_ID = process.env.NEXT_PUBLIC_SUPABASE_ENCRYPTION_KEY_ID
 
 export class UserService {
   private supabase: ReturnType<typeof createSupabaseBrowserClient>
@@ -124,6 +127,21 @@ export class UserService {
         return null
       }
 
+      // 如果存在加密数据，则进行解密
+      if (data?.encrypted_metadata && ENCRYPTION_KEY_ID) {
+        const { data: decrypted, error: decryptError } = await this.supabase
+          .rpc('decrypt_secret', { 
+            p_encrypted_secret: data.encrypted_metadata,
+            p_key_id: ENCRYPTION_KEY_ID 
+          })
+        
+        if (decryptError) {
+          console.error('解密用户敏感数据失败:', decryptError)
+        } else {
+          data.sensitive_metadata = JSON.parse(decrypted || '{}')
+        }
+      }
+
       return data
     } catch (error) {
       console.error('获取用户资料失败:', error)
@@ -136,24 +154,53 @@ export class UserService {
    */
   async updateUserProfile(userId: string, profileData: UpdateUserProfileData): Promise<UserProfile | null> {
     try {
+      if (profileData.sensitive_metadata && !ENCRYPTION_KEY_ID) {
+        throw new Error('加密密钥未配置，无法更新敏感数据')
+      }
+
+      let encryptedData = null
+      // 如果有敏感数据，则加密
+      if (profileData.sensitive_metadata && ENCRYPTION_KEY_ID) {
+        const { data: encrypted, error: encryptError } = await this.supabase
+          .rpc('encrypt_secret', { 
+            p_secret: JSON.stringify(profileData.sensitive_metadata),
+            p_key_id: ENCRYPTION_KEY_ID
+          })
+        
+        if (encryptError) {
+          console.error('加密用户敏感数据失败:', encryptError)
+          throw new Error('加密敏感数据失败')
+        }
+        encryptedData = encrypted
+      }
+
+      // 从更新数据中移除敏感数据，因为它已单独处理
+      const { sensitive_metadata, ...restProfileData } = profileData
+      
+      const updatePayload: Partial<UserProfile> = {
+        ...restProfileData,
+        updated_at: new Date().toISOString(),
+      }
+
+      if (encryptedData) {
+        updatePayload.encrypted_metadata = encryptedData
+      }
+
       const { data, error } = await this.supabase
         .from('user_profiles')
-        .update({
-          ...profileData,
-          updated_at: new Date().toISOString()
-        })
+        .update(updatePayload as any)
         .eq('user_id', userId)
         .select()
         .single()
 
       if (error) {
-        console.error('更新用户资料失败:', error)
-        return null
+        console.error(`更新用户资料失败:`, error)
+        throw new Error('更新用户资料失败，请稍后重试')
       }
 
       return data
     } catch (error) {
-      console.error('更新用户资料失败:', error)
+      console.error(`更新用户资料时发生意外错误:`, error)
       return null
     }
   }

@@ -1,3 +1,11 @@
+/**
+ * 通用数据库类型
+ */
+export type bytea = string;
+
+/**
+ * 用户核心数据模型
+ */
 // 语言相关类型
 export interface Language {
   code: string;
@@ -149,9 +157,12 @@ export interface UserProfile {
   user_id: string;
   name: string | null;
   avatar_url: string | null;
-  language: string;
-  timezone: string;
+  language: string | null;
+  timezone: string | null;
   notification_preferences: NotificationPreferences;
+  metadata: Record<string, any> | null;
+  encrypted_metadata?: bytea | null;
+  sensitive_metadata?: Record<string, any> | null;
   created_at: string;
   updated_at: string;
 }
@@ -231,13 +242,7 @@ export interface CreateUserData {
   timezone?: string;
 }
 
-export interface UpdateUserProfileData {
-  name?: string;
-  avatar_url?: string;
-  language?: string;
-  timezone?: string;
-  notification_preferences?: Partial<NotificationPreferences>;
-}
+export interface UpdateUserProfileData extends Partial<Omit<UserProfile, 'user_id' | 'created_at' | 'updated_at' | 'encrypted_metadata'>> {}
 
 export interface CreditConsumptionRequest {
   amount: number;

@@ -60,18 +60,21 @@
 ## 🔐 用户系统与身份验证
 
 ### 身份验证方案
-**推荐技术方案：NextAuth.js + Resend + Prisma**
-- **NextAuth.js**：业界标准的Next.js身份验证库
+**技术方案：Supabase Auth + Supabase PostgreSQL**
+- **Supabase Auth**：现代化身份验证服务
   - 邮箱/密码登录
   - 社交登录（Google、GitHub等，可选）
   - JWT令牌管理
   - Session管理
   - 内置安全最佳实践
-- **Resend**：现代化邮件发送服务
+  - 免费额度：50,000 月活用户
+- **Supabase PostgreSQL**：云端数据库服务
+  - 免费额度：500MB数据库存储
+  - 实时数据同步
+  - 自动备份
+- **Resend**：邮件发送服务（低优先级）
   - 免费额度：3000封邮件/月
-  - 邮箱验证、密码重置
-  - 交易邮件发送
-- **Prisma + SQLite/PostgreSQL**：用户数据存储
+  - 邮箱验证、密码重置（后期添加）
 
 ### 用户注册流程
 1. **邮箱注册**：用户输入邮箱地址和密码
@@ -153,22 +156,23 @@
 ## 💳 支付系统集成
 
 ### 支付方案
-**推荐技术方案：Stripe + Next.js**
-- **Stripe Checkout**：托管式支付页面
-- **支持方式**：信用卡、借记卡、Apple Pay、Google Pay
+**技术方案：Creem + Next.js**
+- **Creem Checkout**：现代化订阅和支付解决方案
+- **支持方式**：信用卡、借记卡、数字钱包
 - **多币种支持**：美元为主，支持本地货币显示
 - **安全合规**：PCI DSS合规，无需处理敏感卡信息
+- **成本优势**：仅收取交易费用，无月费
 
 ### 支付流程
 1. **选择积分包**：用户在定价页面选择积分包
-2. **创建支付会话**：服务端创建Stripe Checkout会话
-3. **跳转支付页面**：重定向到Stripe托管支付页面
+2. **创建支付会话**：服务端创建Creem Checkout会话
+3. **跳转支付页面**：重定向到Creem托管支付页面
 4. **处理支付结果**：Webhook接收支付成功通知
 5. **积分入账**：支付成功后立即为用户账户充值积分
-6. **发送确认**：发送购买确认邮件
+6. **发送确认**：发送购买确认邮件（后期功能）
 
 ### 支付安全
-- **Webhook验证**：验证Stripe Webhook签名
+- **Webhook验证**：验证Creem Webhook签名
 - **幂等性处理**：防止重复充值
 - **交易记录**：完整的支付和积分变动日志
 - **退款处理**：支持争议和退款管理
@@ -347,13 +351,12 @@
 
 ## 💾 数据架构设计
 
-### 用户数据模型
+### 用户数据模型 (Supabase PostgreSQL)
 ```typescript
 interface User {
-  id: string
+  id: string               // Supabase Auth User ID
   email: string
   emailVerified: boolean
-  passwordHash: string
   credits: number          // 积分余额
   createdAt: Date
   updatedAt: Date
@@ -404,7 +407,7 @@ interface Translation {
 interface Payment {
   id: string
   userId: string
-  stripePaymentId: string
+  creemPaymentId: string   // Creem支付ID
   amount: number           // 美元金额
   credits: number          // 购买的积分数量
   status: 'pending' | 'completed' | 'failed'
@@ -412,3 +415,24 @@ interface Payment {
   completedAt?: Date
 }
 ```
+
+---
+
+## 💰 技术栈成本分析
+
+### 免费服务层级
+- **Frontend & Hosting**: Next.js + Vercel（免费层级）
+- **身份验证**: Supabase Auth（50,000 月活用户免费）
+- **数据库**: Supabase PostgreSQL（500MB 存储免费）
+- **邮件服务**: Resend（3,000封邮件/月免费，低优先级功能）
+- **支付处理**: Creem（仅收取交易费用，无月费）
+
+### 预期月度成本
+- **基础设施成本**: $0/月
+- **交易费用**: 仅在用户购买积分时产生（通常2.9% + $0.30/笔）
+- **总月度成本**: $0（除交易费用外）
+
+### 扩展计划
+- **Vercel Pro**: $20/月（团队协作、更多构建分钟）
+- **Supabase Pro**: $25/月（8GB数据库、更多API调用）
+- **成本可控**: 随用户增长按需升级

@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 
     // 获取客户端IP（用于日志记录）
     const clientIP = getClientIP(request)
-    console.log(`Language detection request from ${clientIP}`)
+    console.log(`[POST /api/detect] Language detection request from ${clientIP}`)
 
     // 执行语言检测
     let detectionResult

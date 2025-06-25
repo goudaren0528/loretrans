@@ -5,6 +5,7 @@ import { APP_CONFIG } from '../../config/app.config'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 interface LanguageGridProps {
   currentLanguage?: string
@@ -12,6 +13,7 @@ interface LanguageGridProps {
 }
 
 export function LanguageGrid({ currentLanguage, showComingSoon = true }: LanguageGridProps = {}) {
+  const t = useTranslations('IndexPage.language_grid')
   const supportedLanguages = APP_CONFIG.languages.supported.filter(
     lang => lang.code !== currentLanguage
   )
@@ -44,7 +46,7 @@ export function LanguageGrid({ currentLanguage, showComingSoon = true }: Languag
                   size="sm"
                   className="mt-3 w-full opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                  Try {language.name}
+                  {t('try_language', { language: language.name })}
                 </Button>
               </div>
               
@@ -62,7 +64,7 @@ export function LanguageGrid({ currentLanguage, showComingSoon = true }: Languag
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-semibold text-foreground">{language.name}</h3>
                   <Badge variant="secondary" className="text-xs">
-                    Coming Soon
+                    {t('coming_soon')}
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">{language.nativeName}</p>
@@ -73,7 +75,7 @@ export function LanguageGrid({ currentLanguage, showComingSoon = true }: Languag
                   className="mt-3 w-full"
                   disabled
                 >
-                  Coming Soon
+                  {t('coming_soon')}
                 </Button>
               </div>
               

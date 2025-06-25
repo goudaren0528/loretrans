@@ -1,9 +1,10 @@
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 import { cn } from '@/lib/utils'
 import { Navigation, Footer } from '@/components/navigation'
-import { Providers } from './providers'
+import { Providers } from '../providers'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -82,11 +83,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: {locale}
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
+  params: {locale: string};
 }) {
+  const messages = useMessages();
+
   return (
-    <html lang="en" className={cn(inter.variable, 'scroll-smooth')}>
+    <html lang={locale} className={cn(inter.variable, 'scroll-smooth')}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -101,16 +106,18 @@ export default function RootLayout({
           'selection:bg-primary/20 selection:text-primary-foreground'
         )}
       >
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Navigation />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Providers>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Providers>
+            <div className="relative flex min-h-screen flex-col">
+              <Navigation />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </Providers>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
-} 
+}

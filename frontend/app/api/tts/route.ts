@@ -122,7 +122,7 @@ export async function POST(request: NextRequest) {
 
     // 获取客户端IP（用于日志记录）
     const clientIP = getClientIP(request)
-    console.log(`TTS request from ${clientIP}: ${body.language} (${sanitizedText.slice(0, 50)}...)`)
+    console.log(`[POST /api/tts] TTS request from ${clientIP}: ${body.language} (${sanitizedText.slice(0, 50)}...)`)
 
     // 检查是否支持该语言的TTS
     if (!isTTSSupported(body.language)) {

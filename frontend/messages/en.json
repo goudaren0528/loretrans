@@ -1,0 +1,398 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Transly - AI Translator for Low-Resource Languages",
+      "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
+    },
+    "title": "Translate Low-Resource Languages",
+    "description": "AI-powered translation for languages with limited resources.",
+    "hero": {
+      "title": "AI-Powered Translation for Low-Resource Languages",
+      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for languages often underserved by mainstream services. Get started for free.",
+      "status": {
+        "free": "100% Free",
+        "ai_powered": "AI-Powered",
+        "multi_language": "20+ Languages"
+      },
+      "cta_start": "Start Translating",
+      "cta_upload": "Upload Document"
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "Translate from these low-resource languages to English"
+    },
+    "cta_section": {
+      "title": "Start Translating Today",
+      "description": "Join thousands of users who trust Transly for their translation needs",
+      "cta_try": "Try Now - It's Free",
+      "cta_docs": "Translate Documents"
+    },
+    "translation_options": {
+      "title": "Choose Your Translation Method",
+      "description": "Select the best option for your translation needs",
+      "options": {
+        "text": {
+          "title": "Text Translation",
+          "description": "Translate text between 20+ low-resource languages and English instantly.",
+          "features": [
+            "Up to 1000 characters",
+            "Instant results",
+            "Voice playback",
+            "Copy to clipboard"
+          ],
+          "button": "Start Translating"
+        },
+        "document": {
+          "title": "Document Translation",
+          "description": "Upload and translate PDF, Word, and PowerPoint documents.",
+          "features": [
+            "PDF, Word, PPT support",
+            "Preserves formatting",
+            "Download results",
+            "Batch processing"
+          ],
+          "button": "Start Translating"
+        },
+        "image": {
+          "title": "Image Translation",
+          "description": "Extract and translate text from images using OCR technology.",
+          "features": [
+            "OCR text extraction",
+            "Multiple image formats",
+            "Preserve layout",
+            "Coming soon"
+          ],
+          "button": "Coming Soon"
+        }
+      },
+      "quick_start": {
+        "title": "Not sure which option to choose? Start with text translation",
+        "button": "Try Text Translation Now"
+      },
+      "coming_soon": "Coming Soon"
+    },
+    "language_grid": {
+      "coming_soon": "Coming Soon",
+      "try_language": "Try {language}"
+    },
+    "feature_section": {
+      "title": "Why Choose Transly?",
+      "description": "Professional-grade translation tools designed for low-resource languages",
+      "features": {
+        "ai_powered": {
+          "name": "AI-Powered Translation",
+          "description": "Powered by Meta's NLLB model for accurate low-resource language translation."
+        },
+        "fast": {
+          "name": "Lightning Fast",
+          "description": "Get instant translations with our optimized AI infrastructure."
+        },
+        "privacy": {
+          "name": "Privacy First",
+          "description": "Your text is processed securely and never stored on our servers."
+        },
+        "languages": {
+          "name": "20+ Languages",
+          "description": "Support for Creole, Lao, Swahili, Burmese, and many more low-resource languages."
+        },
+        "tts": {
+          "name": "Text-to-Speech",
+          "description": "Listen to translations with our high-quality text-to-speech feature."
+        },
+        "documents": {
+          "name": "Document Translation",
+          "description": "Upload and translate PDF, Word, and PowerPoint files seamlessly."
+        }
+      },
+      "stats": {
+        "languages": "Languages Supported",
+        "free": "Free to Use",
+        "characters": "Characters per Translation",
+        "availability": "Available"
+      },
+      "faq_section": {
+        "title": "Frequently Asked Questions",
+        "description": "Everything you need to know about Transly",
+        "questions": [
+          {
+            "question": "Is Transly really free to use?",
+            "answer": "Yes! Transly is completely free for text translation up to 1000 characters per request. There are no hidden fees or subscription requirements."
+          },
+          {
+            "question": "How accurate are the translations?",
+            "answer": "We use Meta's NLLB (No Language Left Behind) model, which provides high-quality translations for low-resource languages. While no automated translation is perfect, NLLB is specifically designed to handle languages with limited training data."
+          },
+          {
+            "question": "Which languages do you support?",
+            "answer": "We support 20+ low-resource languages including Haitian Creole, Lao, Swahili, Burmese, Telugu, Sinhala, Amharic, Khmer, Nepali, and Malagasy. All languages can be translated to English."
+          },
+          {
+            "question": "Is my data safe and private?",
+            "answer": "Absolutely. We don't store your translation text on our servers. Your text is processed securely and deleted immediately after translation. We take privacy seriously."
+          },
+          {
+            "question": "Can I translate documents?",
+            "answer": "Yes! We support PDF, Word (.docx), and PowerPoint (.pptx) file translation. Simply upload your file and we'll extract the text, translate it, and provide you with the results."
+          },
+          {
+            "question": "How does the text-to-speech feature work?",
+            "answer": "Our text-to-speech feature supports English output with high-quality voice synthesis. Simply click the speaker icon next to any translation to hear it pronounced."
+          },
+          {
+            "question": "Is there a character limit?",
+            "answer": "Free users can translate up to 1000 characters per request. For longer texts, you can break them into smaller chunks or upload documents for processing."
+          },
+          {
+            "question": "Can I use Transly for commercial purposes?",
+            "answer": "Yes, you can use Transly for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
+          }
+        ],
+        "contact_prompt": "Have more questions?",
+        "contact_link": "Contact our support team"
+      }
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "About Transly - Professional Translation for Low-Resource Languages",
+      "description": "Learn about Transly, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
+    },
+    "hero": {
+      "title": "About Transly",
+      "description": "Professional translation platform dedicated to connecting low-resource languages with the world through accurate English translation."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "p1": "We believe every language deserves to be heard. Transly bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
+      "p2": "Powered by Meta's state-of-the-art NLLB (No Language Left Behind) model, we support over 20 languages that are often overlooked by mainstream translation services.",
+      "cta": "Try Document Translation"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Global Accessibility",
+        "description": "Making translation accessible for speakers of languages with limited digital resources."
+      },
+      "accuracy": {
+        "title": "Fast & Accurate",
+        "description": "Advanced AI technology delivers high-quality translations in seconds."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your translations are not stored. We respect your privacy and data security."
+      }
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "We support {count} low-resource languages with more being added regularly.",
+      "request_cta": "Request a Language"
+    },
+    "technology": {
+      "title": "Powered by Advanced AI",
+      "description": "Transly uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
+      "cultural_preservation": {
+        "title": "Cultural Preservation",
+        "description": "Supporting linguistic diversity and helping preserve cultural heritage through technology."
+      },
+      "community_driven": {
+        "title": "Community Driven",
+        "description": "Built with feedback from native speakers and language communities worldwide."
+      },
+      "continuous_improvement": {
+        "title": "Continuous Improvement",
+        "description": "Regular model updates and improvements to provide better translation quality."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
+    },
+    "cta_section": {
+      "title": "Ready to Get Started?",
+      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Transly is here to help you communicate with the world.",
+      "cta_text": "Try Text Translation",
+      "cta_docs": "Upload Document"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contact Support - Get Help with Transly",
+      "description": "Need help with translation? Contact our support team for assistance with Transly translation services, technical issues, or general inquiries."
+    },
+    "hero": {
+      "title": "Contact Support",
+      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Transly."
+    },
+    "form": {
+      "title": "Send us a message",
+      "firstName": "First Name *",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name *",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject *",
+      "subjectPlaceholder": "Select a topic",
+      "subjects": {
+        "translation_issue": "Translation Issue",
+        "technical_support": "Technical Support",
+        "feature_request": "Feature Request",
+        "language_request": "New Language Request",
+        "business_inquiry": "Business Inquiry",
+        "feedback": "General Feedback",
+        "other": "Other"
+      },
+      "relatedLanguage": "Related Language (if applicable)",
+      "relatedLanguagePlaceholder": "e.g., Swahili, Lao, Creole",
+      "message": "Message *",
+      "messagePlaceholder": "Please describe your issue or question in detail...",
+      "submit": "Send Message"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Quick Contact",
+        "email_support": "Email Support",
+        "email_address": "support@transly.app",
+        "response_time": "Response within 24 hours",
+        "live_chat": "Live Chat",
+        "live_chat_status": "Available soon",
+        "live_chat_eta": "Coming in Q2 2024",
+        "support_hours_title": "Support Hours",
+        "support_hours_days": "Monday - Friday",
+        "support_hours_time": "9:00 AM - 6:00 PM UTC"
+      },
+      "common_issues": {
+        "title": "Common Issues",
+        "translation_not_working": {
+          "title": "Translation not working",
+          "description": "Try refreshing the page or check your internet connection. For persistent issues, contact support."
+        },
+        "language_not_supported": {
+          "title": "Language not supported",
+          "description": "We're constantly adding new languages. Submit a request and we'll consider it for future updates."
+        },
+        "file_upload_issues": {
+          "title": "File upload issues",
+          "description": "Ensure your file is under 50MB and in supported format (PDF, DOCX, PPTX)."
+        },
+        "audio_playback_not_working": {
+          "title": "Audio playback not working",
+          "description": "Check your browser's audio settings and ensure you have a stable internet connection."
+        }
+      },
+      "self_help": {
+        "title": "Self-Help Resources",
+        "how_it_works": "→ How Transly works",
+        "try_text": "→ Try text translation",
+        "try_docs": "→ Document translation guide",
+        "privacy": "→ Privacy policy",
+        "terms": "→ Terms of service"
+      }
+    },
+    "what_to_expect": {
+      "title": "What to Expect",
+      "quick_response": {
+        "title": "Quick Response",
+        "description": "We typically respond to all inquiries within 24 hours during business days."
+      },
+      "personal_support": {
+        "title": "Personal Support",
+        "description": "Every message is read by our team. No bots, just real people who care about helping you."
+      },
+      "follow_up": {
+        "title": "Follow-up",
+        "description": "We'll keep working with you until your issue is completely resolved."
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "Pricing",
+      "description": "Choose a credit package that suits your translation needs."
+    },
+    "hero": {
+      "title": "Flexible Pricing for Everyone",
+      "description": "Choose the credit package that fits your needs. Get more credits for a lower price."
+    },
+    "alert": {
+      "canceled_title": "Payment Canceled",
+      "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
+    },
+    "loading": "Loading..."
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Text Translator - Free AI Translation Tool | Transly",
+      "description": "Free online text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly with AI."
+    },
+    "hero": {
+      "title": "Free Text Translator",
+      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free.",
+      "status_free": "100% Free",
+      "status_ai": "AI-Powered",
+      "status_instant": "Instant Results"
+    },
+    "features": {
+      "title": "Why Choose Our Text Translator?",
+      "fast_title": "Lightning Fast",
+      "fast_desc": "Get instant translations powered by advanced AI models. No waiting, no delays.",
+      "accurate_title": "High Accuracy",
+      "accurate_desc": "Powered by Meta's NLLB model, ensuring high-quality translations for all supported languages.",
+      "free_title": "Always Free",
+      "free_desc": "No hidden fees, no limits, no registration required. Translate as much as you need."
+    },
+    "how_to": {
+      "title": "How to Use the Text Translator",
+      "step1_title": "Select Languages",
+      "step1_desc": "Choose your source language and target language (English) from the dropdown menus.",
+      "step2_title": "Enter Text",
+      "step2_desc": "Type or paste your text in the input box. Up to 1000 characters supported.",
+      "step3_title": "Get Translation",
+      "step3_desc": "Click translate and instantly get your result. Copy or listen to the translation."
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "We support translation from these languages to English:",
+      "more": "And many more low-resource languages..."
+    },
+    "cta": {
+      "title": "Need to Translate Documents?",
+      "description": "Try our document translation service for PDF, Word, and PowerPoint files",
+      "button": "Translate Documents"
+    }
+  },
+  "DocumentTranslatePage": {
+    "hero": {
+      "title": "Document Translation",
+      "description": "Upload documents and translate them to English"
+    },
+    "upload_section": {
+      "title": "Upload Document",
+      "description": "Choose a document to translate. Supported: PDF, Word, PowerPoint, Text files"
+    },
+    "settings_section": {
+      "title": "Translation Settings",
+      "source_language_label": "Source Language",
+      "source_language_placeholder": "Auto-detect",
+      "target_language_label": "Target Language",
+      "target_language_placeholder": "English",
+      "submit_button": "Translate File",
+      "processing_button": "Processing..."
+    },
+    "jobs_section": {
+      "title": "Translation History",
+      "empty_message": "Your translated documents will appear here.",
+      "job_status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "completed": "Completed",
+        "failed": "Failed"
+      },
+      "download_button": "Download"
+    }
+  }
+} 

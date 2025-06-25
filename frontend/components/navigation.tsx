@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Languages, FileText, Info, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import LocaleSwitcher from './LocaleSwitcher'
 
 export function Navigation() {
   const pathname = usePathname()
@@ -66,6 +67,9 @@ export function Navigation() {
                 </Link>
               )
             })}
+            <div className="ml-4">
+              <LocaleSwitcher />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

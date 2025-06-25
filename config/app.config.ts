@@ -194,6 +194,21 @@ export const APP_CONFIG = {
     twitterHandle: '@TranslyApp',
     ogImage: '/images/og-image.png',
   },
+
+  supabase: {
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  },
+
+  creem: {
+    publishableKey: process.env.NEXT_PUBLIC_CREEM_PUBLISHABLE_KEY,
+    secretKey: process.env.CREEM_SECRET_KEY,
+    webhookSecret: process.env.CREEM_WEBHOOK_SECRET,
+  },
+
+  logging: {
+    level: process.env.LOG_LEVEL || 'info',
+  },
 } as const;
 
 // 环境相关配置

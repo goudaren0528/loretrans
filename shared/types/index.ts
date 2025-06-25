@@ -382,4 +382,36 @@ export type DeepPartial<T> = {
 
 export type RequiredFields<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
-export type OptionalFields<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>; 
+export type OptionalFields<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+// Creem Payment Integration Types (Placeholders)
+export namespace Creem {
+  export interface Price {
+    id: string;
+    object: 'price';
+    amount: number;
+    currency: string;
+    product: string;
+  }
+
+  export interface CheckoutSession {
+    id: string;
+    object: 'checkout.session';
+    url: string;
+    metadata?: {
+      [key: string]: string | number | null;
+    };
+    // other properties
+  }
+}
+
+// Pricing and Plans
+export interface PricingPlan {
+  id: string;
+  name: string;
+  description: string;
+  credits: number;
+  priceUSD: number;
+  creemPriceId: string; // The actual ID from the Creem dashboard
+  discount?: string;
+}

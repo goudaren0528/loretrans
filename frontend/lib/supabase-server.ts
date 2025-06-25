@@ -4,7 +4,7 @@
  */
 
 import { cookies } from 'next/headers'
-import { createSupabaseServerClient } from './supabase'
+import { createSupabaseServerClient, createSupabaseServiceClient } from './supabase'
 
 /**
  * 创建带cookie支持的服务器端客户端
@@ -41,4 +41,13 @@ export async function getCurrentSession() {
     console.error('Failed to get current session:', error)
     return null
   }
+}
+
+/**
+ * 创建一个具有服务角色的Supabase客户端
+ * 这个客户端会绕过所有RLS策略，只能在绝对需要时在服务器端使用
+ * (例如，在webhook处理器中)
+ */
+export function createServiceRoleClient() {
+  return createSupabaseServiceClient();
 } 

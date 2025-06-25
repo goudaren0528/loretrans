@@ -6,7 +6,17 @@ import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Label } from '@/components/ui/label'
 import { Download, FileText, Languages, CheckCircle, AlertCircle } from 'lucide-react'
-import { APP_CONFIG } from '../../../config/app.config'
+import { APP_CONFIG } from '../../../../config/app.config'
+import { useTranslations } from 'next-intl'
+
+interface Language {
+  code: string;
+  name: string;
+  nativeName: string;
+  slug: string;
+  available: boolean;
+  bidirectional: boolean;
+}
 
 interface TranslationJob {
   id: string
@@ -29,6 +39,7 @@ export default function DocumentTranslatePage() {
   const [targetLanguage, setTargetLanguage] = useState<string>('en')
   const [translationJobs, setTranslationJobs] = useState<TranslationJob[]>([])
   const [isProcessing, setIsProcessing] = useState(false)
+  const t = useTranslations('DocumentTranslatePage');
 
   const handleFileSelect = (file: File | null) => {
     setSelectedFile(file)
@@ -182,9 +193,9 @@ export default function DocumentTranslatePage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Document Translation</h1>
+        <h1 className="text-3xl font-bold mb-2">{t('hero.title')}</h1>
         <p className="text-muted-foreground">
-          Upload documents and translate them to English
+          {t('hero.description')}
         </p>
       </div>
 
@@ -195,10 +206,10 @@ export default function DocumentTranslatePage() {
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
                 <FileText className="h-5 w-5" />
-                Upload Document
+                {t('upload_section.title')}
               </h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Choose a document to translate. Supported: PDF, Word, PowerPoint, Text files
+                {t('upload_section.description')}
               </p>
               <SimpleFileSelectorV2
                 selectedFile={selectedFile}
@@ -215,19 +226,19 @@ export default function DocumentTranslatePage() {
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
                   <Languages className="h-5 w-5" />
-                  Translation Settings
+                  {t('settings_section.title')}
                 </h3>
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="source-language">Source Language</Label>
+                      <Label htmlFor="source-language">{t('settings_section.source_language_label')}</Label>
                       <Select value={sourceLanguage} onValueChange={setSourceLanguage}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Auto-detect" />
+                          <SelectValue placeholder={t('settings_section.source_language_placeholder')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="auto">Auto-detect</SelectItem>
-                          {APP_CONFIG.languages.supported.map((lang) => (
+                          <SelectItem value="auto">{t('settings_section.source_language_placeholder')}</SelectItem>
+                          {APP_CONFIG.languages.supported.map((lang: Language) => (
                             <SelectItem key={lang.code} value={lang.code}>
                               {lang.name} ({lang.nativeName})
                             </SelectItem>
@@ -237,33 +248,21 @@ export default function DocumentTranslatePage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="target-language">Target Language</Label>
+                      <Label htmlFor="target-language">{t('settings_section.target_language_label')}</Label>
                       <Select value={targetLanguage} onValueChange={setTargetLanguage}>
                         <SelectTrigger>
-                          <SelectValue placeholder="English" />
+                          <SelectValue placeholder={t('settings_section.target_language_placeholder')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="en">English</SelectItem>
+                          <SelectItem value="en">{t('settings_section.target_language_placeholder')}</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <p className="text-sm font-medium">{selectedFile.name}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {formatFileSize(selectedFile.size)}
-                      </p>
-                    </div>
-                    <Button 
-                      onClick={startTranslation}
-                      disabled={isProcessing}
-                      size="lg"
-                    >
-                      {isProcessing ? 'Processing...' : 'Start Translation'}
-                    </Button>
-                  </div>
+                  <Button onClick={startTranslation} disabled={isProcessing} className="w-full">
+                    {isProcessing ? t('settings_section.processing_button') : t('settings_section.submit_button')}
+                  </Button>
                 </div>
               </div>
             </div>
@@ -341,131 +340,67 @@ export default function DocumentTranslatePage() {
         </div>
       </div>
 
-      {/* Translation History */}
-      {translationJobs.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">Translation History</h2>
-          <div className="space-y-4">
-            {translationJobs.map((job) => (
-              <div key={job.id} className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-start gap-4 flex-1">
-                    <div className="relative">
-                      <FileText className="h-8 w-8 text-muted-foreground" />
-                      {job.status === 'processing' && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                      )}
-                      {job.status === 'completed' && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"></div>
-                      )}
-                      {job.status === 'failed' && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium truncate">{job.fileName}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {formatFileSize(job.fileSize)} • {job.sourceLanguage} → {job.targetLanguage}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Started: {formatDuration(job.createdAt)}
-                        {job.completedAt && ` • Completed: ${formatDuration(job.completedAt)}`}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-end gap-3 min-w-0 ml-4">
-                    {/* Status and Progress */}
-                    <div className="flex items-center gap-2">
-                      {job.status === 'pending' && (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-gray-600"></div>
-                          <span className="text-sm text-muted-foreground">Waiting...</span>
-                        </>
-                      )}
-                      {job.status === 'processing' && (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-300 border-t-blue-600"></div>
-                          <span className="text-sm text-blue-600 font-medium">{job.progress}%</span>
-                        </>
-                      )}
-                      {job.status === 'completed' && (
-                        <div className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-500" />
-                          <span className="text-sm text-green-600 font-medium">Completed</span>
-                        </div>
-                      )}
-                      {job.status === 'failed' && (
-                        <div className="flex items-center gap-2">
-                          <AlertCircle className="h-4 w-4 text-destructive" />
-                          <span className="text-sm text-destructive font-medium">Failed</span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Progress Bar for Processing */}
-                    {job.status === 'processing' && (
-                      <div className="w-48">
-                        <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
-                          <div
-                            className="bg-blue-500 h-2.5 rounded-full transition-all duration-500 ease-out relative overflow-hidden"
-                            style={{ width: `${Math.max(job.progress, 5)}%` }}
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-pulse"></div>
-                          </div>
-                        </div>
-                        {job.message && (
-                          <p className="text-xs text-muted-foreground mt-1 text-right truncate" title={job.message}>
-                            {job.message}
-                          </p>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Download Button */}
-                    {job.status === 'completed' && job.downloadUrl && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="shrink-0"
-                        onClick={() => {
-                          const link = document.createElement('a')
-                          link.href = job.downloadUrl!
-                          link.download = `translated_${job.fileName}`
-                          link.click()
-                        }}
-                      >
-                        <Download className="h-4 w-4 mr-2" />
-                        Download
-                      </Button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Error Message */}
-                {job.error && (
-                  <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-md">
-                    <div className="flex items-start gap-2">
-                      <AlertCircle className="h-4 w-4 text-destructive mt-0.5 shrink-0" />
-                      <p className="text-sm text-destructive">{job.error}</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Processing Details */}
-                {job.status === 'processing' && job.message && (
-                  <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
-                    <div className="flex items-start gap-2">
-                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-300 border-t-blue-600 mt-0.5 shrink-0"></div>
-                      <p className="text-sm text-blue-700">{job.message}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+      {/* Translation Jobs */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold mb-2">
+          {t('jobs_section.title')}
+        </h3>
+        {translationJobs.length === 0 ? (
+          <div className="text-center text-sm text-muted-foreground p-8 border rounded-lg">
+            {t('jobs_section.empty_message')}
           </div>
-        </div>
-      )}
+        ) : (
+          translationJobs.map((job) => (
+            <div key={job.id} className="rounded-lg border bg-card text-card-foreground shadow-sm p-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="font-semibold break-all">{job.fileName}</p>
+                  <p className="text-sm text-muted-foreground">{formatFileSize(job.fileSize)}</p>
+                </div>
+                <div className="text-xs font-medium px-2 py-1 rounded-full" style={{
+                  backgroundColor: job.status === 'completed' ? '#22c55e' : job.status === 'failed' ? '#ef4444' : '#3b82f6',
+                  color: 'white'
+                }}>
+                  {t(`jobs_section.job_status.${job.status}`)}
+                </div>
+              </div>
+
+              {job.status === 'processing' && (
+                <div className="mt-2">
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${job.progress}%` }}></div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">{job.message}</p>
+                </div>
+              )}
+              
+              {job.status === 'failed' && job.error && (
+                <div className="mt-2 text-xs text-red-500 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" /> {job.error}
+                </div>
+              )}
+
+              <div className="mt-2 pt-2 border-t flex justify-between items-center text-xs text-muted-foreground">
+                <span>ID: {job.id.substring(0, 8)}...</span>
+                <span>{formatDuration(job.createdAt, job.completedAt)}</span>
+              </div>
+
+              {job.status === 'completed' && job.downloadUrl && (
+                <a
+                  href={`http://localhost:3010${job.downloadUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" size="sm" className="w-full mt-2">
+                    <Download className="h-3 w-3 mr-1" />
+                    {t('jobs_section.download_button')}
+                  </Button>
+                </a>
+              )}
+            </div>
+          ))
+        )}
+      </div>
     </div>
   )
 } 

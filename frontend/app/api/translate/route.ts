@@ -14,6 +14,7 @@ import {
   withApiAuth,
   type NextRequestWithUser
 } from '@/lib/api-utils'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 
 interface TranslateRequest {
   text: string
@@ -33,30 +34,79 @@ interface TranslateRequest {
 }
 
 async function translateHandler(req: NextRequestWithUser) {
-  try {
-    const { text, sourceLang, targetLang } = await req.json()
-    const { user, role } = req.userContext
+  console.log(`[POST /api/translate] user ${req.userContext.user.id} initiated translation.`);
+  const supabase = createServerSupabaseClient();
+  const { text, sourceLang, targetLang } = await req.json()
+  const { user, role } = req.userContext
 
-    console.log(`Translation request by user ${user.id} with role ${role}`)
+  if (!user) {
+    return NextResponse.json({ error: 'User not authenticated' }, { status: 401 });
+  }
+  const userId = user.id;
+  console.log(`Authenticated user ${userId} initiated translation.`);
 
-    if (!text || !sourceLang || !targetLang) {
-      return NextResponse.json(
-        { error: 'Missing required parameters' },
-        { status: 400 }
-      )
-    }
-
-    // 在这里，我们可以调用实际的翻译服务。
-    // 为了演示目的，我们只返回一个模拟的成功响应。
-    const mockTranslation = `Translated: "${text}" from ${sourceLang} to ${targetLang} for user ${user.email}.`
-
-    return NextResponse.json({ translation: mockTranslation })
-  } catch (error: any) {
-    console.error('Translation API error:', error)
+  if (!text || !sourceLang || !targetLang) {
     return NextResponse.json(
-      { error: error.message || 'An unexpected error occurred' },
-      { status: 500 }
+      { error: 'Missing required parameters' },
+      { status: 400 }
     )
+  }
+
+  const characterCount = text.length;
+  console.log(`Request details: ${characterCount} characters, from ${sourceLang} to ${targetLang}.`);
+
+  try {
+    // Step 1: Consume credits
+    console.log(`Attempting to consume ${characterCount} credits for user ${userId}.`);
+    const { error: creditError } = await supabase.rpc('consume_credits_for_translation', {
+      p_user_id: userId,
+      p_amount: characterCount,
+      p_description: `Translation from ${sourceLang} to ${targetLang}`
+    });
+
+    if (creditError) {
+      console.error(`Credit consumption failed for user ${userId}:`, creditError.message);
+      if (creditError.message.includes('Insufficient credits')) {
+        return NextResponse.json({ error: 'Insufficient credits' }, { status: 402 });
+      }
+      return NextResponse.json({ error: `Credit error: ${creditError.message}` }, { status: 500 });
+    }
+    console.log(`Successfully consumed ${characterCount} credits for user ${userId}.`);
+
+    try {
+      // Step 2: Perform translation
+      console.log('Proceeding to call translation service.');
+      const translationResponse = await translateText({ text, sourceLanguage: sourceLang, targetLanguage: targetLang });
+      
+      if (!translationResponse || !translationResponse.translatedText) {
+        throw new Error('Translation service returned an invalid response.');
+      }
+      
+      console.log(`Translation successful for user ${userId}. Method: ${translationResponse.method}`);
+      return NextResponse.json({ translatedText: translationResponse.translatedText });
+
+    } catch (translationError: any) {
+        console.error(`Translation failed for user ${userId}. Attempting to refund credits.`, translationError);
+        
+        // Step 3: Refund credits if translation fails
+        const { error: refundError } = await supabase.rpc('refund_credits', {
+            p_user_id: userId,
+            p_amount: characterCount,
+            p_description: 'Refund for failed translation'
+        });
+
+        if (refundError) {
+            console.error(`CRITICAL: Credit refund failed for user ${userId} after translation failure. Manual intervention required.`, refundError);
+            // Still return the original translation error to the user
+            return NextResponse.json({ error: `Translation failed, and credit refund failed: ${translationError.message}` }, { status: 500 });
+        }
+        
+        console.log(`Successfully refunded ${characterCount} credits to user ${userId} after failed translation.`);
+        return NextResponse.json({ error: `Translation failed: ${translationError.message}` }, { status: 500 });
+    }
+  } catch (e: any) {
+    console.error('An unexpected error occurred in the translation endpoint:', e);
+    return NextResponse.json({ error: e.message }, { status: 500 });
   }
 }
 

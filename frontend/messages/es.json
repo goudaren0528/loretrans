@@ -1,0 +1,12 @@
+{
+  "Navigation": {
+    "home": "Inicio",
+    "about": "Sobre nosotros",
+    "pricing": "Precios",
+    "contact": "Contacto"
+  },
+  "IndexPage": {
+    "title": "Traducir idiomas de bajos recursos",
+    "description": "Traducción impulsada por IA para idiomas con recursos limitados."
+  }
+} 

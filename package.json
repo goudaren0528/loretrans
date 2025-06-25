@@ -76,5 +76,8 @@
   "bugs": {
     "url": "https://github.com/yourusername/transly/issues"
   },
-  "homepage": "https://github.com/yourusername/transly#readme"
+  "homepage": "https://github.com/yourusername/transly#readme",
+  "dependencies": {
+    "creem": "^0.3.37"
+  }
 }

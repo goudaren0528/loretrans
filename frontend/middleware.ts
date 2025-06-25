@@ -1,9 +1,24 @@
+import createMiddleware from 'next-intl/middleware';
 import { type NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 import { getUserRole } from './lib/auth-utils'
 import { permissionsConfig, REDIRECT_MAP } from '../config/permissions.config'
 
-export async function middleware(request: NextRequest) {
+const locales = ['en', 'es', 'fr']; // Add supported locales here
+const defaultLocale = 'en';
+
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale,
+});
+
+export default async function middleware(request: NextRequest) {
+  // Apply i18n handling
+  const i18nResponse = intlMiddleware(request);
+  if (i18nResponse.status !== 200) {
+    return i18nResponse;
+  }
+  
   const { pathname } = request.nextUrl
   const response = NextResponse.next()
   
@@ -53,7 +68,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(redirectUrl, request.url))
   }
 
-  return response
+  return i18nResponse
 }
 
 export const config = {
@@ -66,5 +81,7 @@ export const config = {
      * - favicon.ico (网站图标)
      */
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/',
+    '/(en|es|fr)/:path*'
   ],
 } 

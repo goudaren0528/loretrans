@@ -72,9 +72,8 @@ export default async function middleware(request: NextRequest) {
     return response;
   }
 
-  // 对于根路径和特定语言页面，跳过国际化处理
-  if (pathname === '/' || 
-      pathname.match(/^\/(creole|lao|swahili|burmese|telugu|english)-to-(english|creole|lao|swahili|burmese|telugu)$/)) {
+  // 对于特定语言页面，跳过国际化处理（但不包括根路径）
+  if (pathname.match(/^\/(creole|lao|swahili|burmese|telugu|english)-to-(english|creole|lao|swahili|burmese|telugu)$/)) {
     const response = NextResponse.next({
       request: {
         headers: new Headers(request.headers),
@@ -83,7 +82,7 @@ export default async function middleware(request: NextRequest) {
     return response;
   }
 
-  // 对其他路径应用国际化中间件
+  // 对所有其他路径（包括根路径）应用国际化中间件
   return intlMiddleware(request);
 }
 

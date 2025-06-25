@@ -1,3 +1,8 @@
+const withNextIntl = require('next-intl/plugin')(
+  // This is the default directory structure provided by `next-intl`.
+  './i18n.ts'
+);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // 环境变量配置 - 确保NLLB本地服务配置正确生效
@@ -77,4 +82,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig; 
+module.exports = withNextIntl(nextConfig); 

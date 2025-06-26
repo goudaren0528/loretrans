@@ -1,7 +1,6 @@
-const withNextIntl = require('next-intl/plugin')(
-  // This is the default directory structure provided by `next-intl`.
-  './i18n.ts'
-);
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

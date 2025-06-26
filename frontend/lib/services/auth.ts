@@ -38,12 +38,33 @@ export interface AuthResponse<T = any> {
 }
 
 class AuthService {
-  private supabase = createSupabaseBrowserClient()
+  private supabase: ReturnType<typeof createSupabaseBrowserClient>
+  private isConfigured: boolean
+
+  constructor() {
+    this.supabase = createSupabaseBrowserClient()
+    this.isConfigured = this.checkSupabaseConfig()
+  }
+
+  private checkSupabaseConfig(): boolean {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    return !!(url && key && !url.includes('placeholder') && key !== 'placeholder-anon-key')
+  }
 
   /**
    * 用户注册
    */
   async signUp({ email, password, name }: SignUpData): Promise<AuthResponse<AuthUser>> {
+    if (!this.isConfigured) {
+      return {
+        data: null,
+        error: {
+          message: '身份验证服务暂未配置',
+        },
+      }
+    }
+
     try {
       // 1. 使用 Supabase Auth 注册用户
       const { data: authData, error: authError } = await this.supabase.auth.signUp({
@@ -100,6 +121,15 @@ class AuthService {
    * 用户登录
    */
   async signIn({ email, password, rememberMe }: SignInData): Promise<AuthResponse<AuthUser>> {
+    if (!this.isConfigured) {
+      return {
+        data: null,
+        error: {
+          message: '身份验证服务暂未配置',
+        },
+      }
+    }
+
     try {
       const { data: authData, error: authError } = await this.supabase.auth.signInWithPassword({
         email,
@@ -186,6 +216,10 @@ class AuthService {
    * 获取当前用户
    */
   async getCurrentUser(): Promise<AuthUser | null> {
+    if (!this.isConfigured) {
+      return null
+    }
+
     try {
       const { data: { user } } = await this.supabase.auth.getUser()
       

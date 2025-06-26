@@ -14,10 +14,8 @@ const ENCRYPTION_KEY_ID = process.env.NEXT_PUBLIC_SUPABASE_ENCRYPTION_KEY_ID
 export class UserService {
   private supabase: ReturnType<typeof createSupabaseBrowserClient>
 
-  constructor(useServerClient = false) {
-    this.supabase = useServerClient 
-      ? createSupabaseServerClient() 
-      : createSupabaseBrowserClient()
+  constructor(supabaseClient?: ReturnType<typeof createSupabaseBrowserClient>) {
+    this.supabase = supabaseClient || createSupabaseBrowserClient()
   }
 
   // ===============================
@@ -402,8 +400,16 @@ export class UserService {
   }
 }
 
-// 默认导出实例
-export const userService = new UserService()
+// 创建单例实例
+let browserUserService: UserService | null = null
+
+// 默认导出实例 - 使用单例模式
+export const userService = (() => {
+  if (!browserUserService) {
+    browserUserService = new UserService()
+  }
+  return browserUserService
+})()
 
 // 服务端使用的实例
-export const createServerUserService = () => new UserService(true) 
+export const createServerUserService = () => new UserService() 

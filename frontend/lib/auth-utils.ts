@@ -9,7 +9,7 @@ const createServiceRoleClient = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-  if (!supabaseUrl || !serviceKey) {
+  if (!supabaseUrl || !serviceKey || supabaseUrl.includes('placeholder')) {
     throw new Error('Supabase service role key is not configured.')
   }
 
@@ -30,6 +30,15 @@ const createServiceRoleClient = () => {
  */
 export const getUserRole = async (userId: string): Promise<string | null> => {
   try {
+    // 检查环境变量是否正确配置
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+    
+    if (!supabaseUrl || !serviceKey || supabaseUrl.includes('placeholder')) {
+      console.log('Supabase not configured, returning default role')
+      return 'guest'
+    }
+
     const supabase = createServiceRoleClient()
     const { data, error } = await supabase
       .from('users')
@@ -39,12 +48,12 @@ export const getUserRole = async (userId: string): Promise<string | null> => {
 
     if (error) {
       console.error(`Error fetching user role for ${userId}:`, error.message)
-      return null
+      return 'guest'
     }
 
-    return data?.role || null
+    return data?.role || 'guest'
   } catch (error) {
     console.error('An unexpected error occurred in getUserRole:', error)
-    return null
+    return 'guest'
   }
 } 

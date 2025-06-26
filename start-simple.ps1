@@ -87,11 +87,11 @@ if (-not $nllbReady) {
 }
 
 # Start File Processor service in new window
-Write-Host "Starting File Processor Service on port 3010..." -ForegroundColor Yellow
+Write-Host "Starting File Processor Service on port 3011..." -ForegroundColor Yellow
 $fileJob = Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
-    "cd '$currentPath\microservices\file-processor'; Write-Host 'File Processor Service Starting...' -ForegroundColor Green; npm start"
+    "cd '$currentPath\microservices\file-processor'; Write-Host 'File Processor Service Starting...' -ForegroundColor Green; `$env:PORT=3011; npm start"
 ) -PassThru
 
 # Wait for File Processor service to start
@@ -105,7 +105,7 @@ $fileRetryCount = 0
 
 while ($fileRetryCount -lt $fileRetries -and -not $fileReady) {
     try {
-        $response = Invoke-RestMethod -Uri "http://localhost:3010/health" -TimeoutSec 3 -ErrorAction Stop
+        $response = Invoke-RestMethod -Uri "http://localhost:3011/health" -TimeoutSec 3 -ErrorAction Stop
         if ($response.status -eq "healthy") {
             Write-Host "File Processor Service is ready!" -ForegroundColor Green
             Write-Host "Status: $($response.status)" -ForegroundColor Gray
@@ -166,7 +166,7 @@ if ($nllbReady) {
 }
 
 if ($fileReady) {
-    Write-Host "File Processor: RUNNING (http://localhost:3010)" -ForegroundColor Green
+    Write-Host "File Processor: RUNNING (http://localhost:3011)" -ForegroundColor Green
 } else {
     Write-Host "File Processor: FAILED" -ForegroundColor Red
 }
@@ -187,7 +187,7 @@ Write-Host "Chinese Translator: http://localhost:3000"
 Write-Host ""
 Write-Host "=== API ENDPOINTS ===" -ForegroundColor Cyan
 Write-Host "NLLB Health: http://localhost:8081/health"
-Write-Host "File Processor Health: http://localhost:3010/health"
+Write-Host "File Processor Health: http://localhost:3011/health"
 Write-Host "Main API Health: http://localhost:3000/api/health"
 Write-Host ""
 

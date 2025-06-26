@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { Navigation, Footer } from '@/components/navigation'
-import { Providers } from './providers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -89,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn(inter.variable, 'scroll-smooth')}>
+    <html className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -106,14 +104,9 @@ export default function RootLayout({
           'min-h-screen bg-background font-sans antialiased',
           'selection:bg-primary/20 selection:text-primary-foreground'
         )}
+        suppressHydrationWarning
       >
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Navigation />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </Providers>
+        {children}
       </body>
     </html>
   )

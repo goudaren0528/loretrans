@@ -36,9 +36,21 @@ const supabaseOptions = {
   }
 }
 
-// 浏览器端客户端（用于客户端组件）
+// 单例模式的浏览器客户端
+let browserClient: ReturnType<typeof createBrowserClient> | null = null
+
+// 浏览器端客户端（用于客户端组件）- 使用单例模式
 export const createSupabaseBrowserClient = () => {
-  return createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+  if (typeof window === 'undefined') {
+    // 在服务器端，每次创建新的客户端
+    return createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+  }
+  
+  if (!browserClient) {
+    browserClient = createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+  }
+  
+  return browserClient
 }
 
 // 服务器端客户端（用于服务器组件和API路由）

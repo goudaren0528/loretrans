@@ -178,12 +178,12 @@ export const APP_CONFIG = {
     from: process.env.EMAIL_FROM || 'noreply@transly.app',
   },
 
-  // 支付配置
-  payment: {
-    creem: {
-      apiKey: process.env.CREEM_API_KEY || '',
-      webhookSecret: process.env.CREEM_WEBHOOK_SECRET || '',
-    },
+  // Creem支付配置
+  creem: {
+    secretKey: process.env.CREEM_SECRET_KEY || 'placeholder-secret-key',
+    publicKey: process.env.CREEM_PUBLIC_KEY || 'placeholder-public-key',
+    apiKey: process.env.CREEM_API_KEY || '',
+    webhookSecret: process.env.CREEM_WEBHOOK_SECRET || 'placeholder-webhook-secret',
   },
 
   // SEO配置
@@ -200,11 +200,7 @@ export const APP_CONFIG = {
     anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   },
 
-  creem: {
-    publishableKey: process.env.NEXT_PUBLIC_CREEM_PUBLISHABLE_KEY,
-    secretKey: process.env.CREEM_SECRET_KEY,
-    webhookSecret: process.env.CREEM_WEBHOOK_SECRET,
-  },
+
 
   logging: {
     level: process.env.LOG_LEVEL || 'info',

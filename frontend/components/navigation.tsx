@@ -14,6 +14,9 @@ import {
   LayoutDashboard,
   LogOut,
   User,
+  Home,
+  Contact,
+  DollarSign,
 } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import {
@@ -25,34 +28,23 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
 import LocaleSwitcher from './LocaleSwitcher'
+import {
+  navigationItems,
+  buildLocalizedUrl,
+  detectLocaleFromPath,
+  type Locale
+} from '@/lib/navigation';
+import { useTranslations } from 'next-intl';
 
 type NavLink = ComponentProps<typeof Link>['href']
 
-const mainNavItems: {
-  href: NavLink
-  label: string
-  icon: React.ElementType
-  description: string
-}[] = [
-  {
-    href: '/text-translate',
-    label: 'Text Translation',
-    icon: Languages,
-    description: 'Translate short texts instantly',
-  },
-  {
-    href: '/document-translate',
-    label: 'Document Translation',
-    icon: FileText,
-    description: 'Upload and translate documents',
-  },
-  {
-    href: '/about',
-    label: 'About',
-    icon: Info,
-    description: 'Learn more about the project',
-  },
-]
+// Add icons to navigationItems in navigation.ts or define them here
+const navIcons: { [key: string]: React.ElementType } = {
+  home: Home,
+  about: Info,
+  pricing: DollarSign,
+  contact: Contact,
+};
 
 function AuthNav() {
   const { user, loading, signOut } = useAuth()
@@ -115,6 +107,9 @@ function AuthNav() {
 export function Navigation() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const t = useTranslations()
+
+  const { locale: currentLocale } = detectLocaleFromPath(pathname)
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -129,11 +124,15 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {mainNavItems.map((item) => {
-              const Icon = item.icon
-              const isActive = pathname === item.href
+            {navigationItems.map((item) => {
+              const Icon = navIcons[item.key]
+              const localeAwareHref = buildLocalizedUrl(
+                currentLocale || 'en',
+                item.href as string
+              )
+              const isActive = pathname === localeAwareHref
               return (
-                <Link key={item.href.toString()} href={item.href}>
+                <Link key={item.href.toString()} href={localeAwareHref}>
                   <Button
                     variant={isActive ? 'default' : 'ghost'}
                     className={cn(
@@ -141,8 +140,8 @@ export function Navigation() {
                       isActive && 'bg-primary text-primary-foreground'
                     )}
                   >
-                    <Icon className="h-4 w-4" />
-                    <span>{item.label}</span>
+                    {Icon && <Icon className="h-4 w-4" />}
+                    <span>{t(item.translationKey)}</span>
                   </Button>
                 </Link>
               )
@@ -178,34 +177,39 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 z-50 border-t bg-background p-4 md:hidden">
+          <div className="absolute top-16 left-0 right-0 z-50 border-t bg-background p-4 shadow-lg md:hidden">
             <div className="space-y-4">
-            <div className="space-y-2">
-                {mainNavItems.map((item) => {
-                const Icon = item.icon
-                const isActive = pathname === item.href
-                return (
-                  <Link 
-                    key={item.href.toString()} 
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+              <div className="space-y-2">
+                {navigationItems.map((item) => {
+                  const Icon = navIcons[item.key]
+                  const localeAwareHref = buildLocalizedUrl(
+                    currentLocale || 'en',
+                    item.href as string
+                  )
+                  const isActive = pathname === localeAwareHref
+                  return (
+                    <Link
+                      key={item.href.toString()}
+                      href={localeAwareHref}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        'flex items-center space-x-3 rounded-lg p-3 text-lg font-medium transition-colors hover:bg-muted',
-                        isActive && 'bg-primary/10 text-primary'
+                        'flex items-center space-x-3 rounded-md px-3 py-2 text-base font-medium',
+                        isActive
+                          ? 'bg-primary text-primary-foreground'
+                          : 'text-muted-foreground hover:bg-accent'
                       )}
-                  >
-                      <Icon className="h-5 w-5" />
-                      <span>{item.label}</span>
-                  </Link>
-                )
-              })}
+                    >
+                      {Icon && <Icon className="h-5 w-5" />}
+                      <span>{t(item.translationKey)}</span>
+                    </Link>
+                  )
+                })}
               </div>
-              <div className="border-t pt-4 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Language / 语言</span>
-                  <LocaleSwitcher />
+              {/* Mobile Auth */}
+              <div className="border-t pt-4">
+                <div className="flex flex-col space-y-2">
+                  <AuthNav />
                 </div>
-                <AuthNav />
               </div>
             </div>
           </div>

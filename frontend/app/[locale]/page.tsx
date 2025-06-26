@@ -14,7 +14,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: 'HomePage' });
+  const t = await getTranslations('HomePage');
   
   return {
     title: t('meta.title'),
@@ -35,7 +35,8 @@ export default async function HomePage({
 }: {
   params: { locale: string };
 }) {
-  const t = await getTranslations({ locale, namespace: 'HomePage' });
+  console.log(`[Page] Rendering for locale: ${locale}`);
+  const t = await getTranslations('HomePage');
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Structured Data */}

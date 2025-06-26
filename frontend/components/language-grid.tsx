@@ -15,9 +15,14 @@ export function LanguageGrid({
   currentLanguage,
   showComingSoon = true,
 }: LanguageGridProps = {}) {
-  const supportedLanguages = APP_CONFIG.languages.supported.filter(
-    (lang) => lang.code !== currentLanguage
-  )
+  const supportedLanguages = APP_CONFIG.languages.supported
+    .filter((lang) => lang.code !== currentLanguage)
+    // 按启用状态排序：启用的语言排在前面
+    .sort((a, b) => {
+      if (a.available && !b.available) return -1
+      if (!a.available && b.available) return 1
+      return 0
+    })
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

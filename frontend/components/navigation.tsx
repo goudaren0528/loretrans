@@ -7,27 +7,16 @@ import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 import {
   Languages,
-  FileText,
-  Info,
   Menu,
   X,
-  LayoutDashboard,
-  LogOut,
-  User,
   Home,
+  Info,
   Contact,
   DollarSign,
 } from 'lucide-react'
-import { useAuth } from '@/lib/hooks/useAuth'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from './ui/dropdown-menu'
 import LocaleSwitcher from './LocaleSwitcher'
+import { UserMenu, UserMenuMobile } from './auth/user-menu'
+import { CreditBalance } from './credits/credit-balance'
 import {
   navigationItems,
   buildLocalizedUrl,
@@ -45,64 +34,6 @@ const navIcons: { [key: string]: React.ElementType } = {
   pricing: DollarSign,
   contact: Contact,
 };
-
-function AuthNav() {
-  const { user, loading, signOut } = useAuth()
-
-  if (loading) {
-    return (
-      <div className="flex items-center space-x-2">
-        <div className="h-8 w-20 animate-pulse rounded-md bg-muted" />
-        <div className="h-8 w-20 animate-pulse rounded-md bg-muted" />
-      </div>
-    )
-  }
-
-  if (!user) {
-    return (
-      <div className="flex items-center space-x-2">
-        <Link href="/auth/signin">
-          <Button variant="ghost">Sign In</Button>
-        </Link>
-        <Link href="/auth/signup">
-          <Button>Sign Up</Button>
-        </Link>
-      </div>
-    )
-  }
-
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <User className="h-5 w-5" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
-        <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {user.email}
-            </p>
-          </div>
-        </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href="/dashboard">
-            <LayoutDashboard className="mr-2 h-4 w-4" />
-            <span>Dashboard</span>
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut()}>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  )
-}
 
 export function Navigation() {
   const pathname = usePathname()
@@ -153,9 +84,14 @@ export function Navigation() {
           {/* Language Switcher */}
           <LocaleSwitcher />
           
+          {/* Credit Balance (Desktop) */}
+          <div className="hidden md:flex">
+            <CreditBalance size="sm" />
+          </div>
+          
           {/* Desktop Auth */}
           <div className="hidden md:flex">
-            <AuthNav />
+            <UserMenu />
           </div>
 
           {/* Mobile Menu Button */}
@@ -205,11 +141,15 @@ export function Navigation() {
                   )
                 })}
               </div>
+              
+              {/* Mobile Credit Balance */}
+              <div className="px-4 py-2 border-t">
+                <CreditBalance size="sm" />
+              </div>
+              
               {/* Mobile Auth */}
               <div className="border-t pt-4">
-                <div className="flex flex-col space-y-2">
-                  <AuthNav />
-                </div>
+                <UserMenuMobile />
               </div>
             </div>
           </div>

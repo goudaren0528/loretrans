@@ -1,35 +1,67 @@
 import type { PricingPlan } from '../shared/types';
 
 /**
- * Defines the available credit packages for purchase.
- * The `creemPriceId` is a placeholder and must be replaced with the actual
- * Price ID from the Creem dashboard once the products are configured there.
+ * 积分包规格（基于产品文档设计）
+ * 积分计费规则：
+ * - 短文本翻译（≤500字符）：免费，无需积分
+ * - 长文本翻译（>500字符）：付费，按字符数消耗积分
+ * - 计费公式：超出部分字符数 × 0.1积分/字符
+ * - 最小扣费：50积分（500字符以上的最小扣费）
  */
 export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'starter',
-    name: '入门包',
-    description: '适合偶尔使用的个人用户',
+    name: 'Starter Pack',
+    description: 'Perfect for occasional personal use',
     credits: 1000,
-    priceUSD: 10,
+    priceUSD: 1.99,
     creemPriceId: 'price_starter_placeholder',
+    originalValue: 1.99,
+    discount: 0,
+    popular: false,
+  },
+  {
+    id: 'value',
+    name: 'Value Pack',
+    description: 'Great value for regular users',
+    credits: 5000,
+    priceUSD: 8.99,
+    creemPriceId: 'price_value_placeholder',
+    originalValue: 9.95,
+    discount: 10,
+    popular: true,
+  },
+  {
+    id: 'premium',
+    name: 'Premium Pack',
+    description: 'Best value for heavy users',
+    credits: 10000,
+    priceUSD: 15.99,
+    creemPriceId: 'price_premium_placeholder',
+    originalValue: 19.90,
+    discount: 20,
+    popular: false,
   },
   {
     id: 'professional',
-    name: '专业包',
-    description: '为需要更高翻译量的专业人士和小型团队设计',
-    credits: 5500,
-    priceUSD: 50,
+    name: 'Professional Pack',
+    description: 'For professionals and small teams',
+    credits: 25000,
+    priceUSD: 34.99,
     creemPriceId: 'price_professional_placeholder',
-    discount: '节省 10%',
+    originalValue: 49.75,
+    discount: 30,
+    popular: false,
   },
   {
     id: 'business',
-    name: '商业包',
-    description: '满足企业级需求，提供最优惠的单价',
-    credits: 12000,
-    priceUSD: 100,
+    name: 'Business Pack',
+    description: 'Enterprise-level solution with maximum savings',
+    credits: 50000,
+    priceUSD: 59.99,
     creemPriceId: 'price_business_placeholder',
-    discount: '节省 20%',
+    originalValue: 99.50,
+    discount: 40,
+    popular: false,
   },
 ]; 

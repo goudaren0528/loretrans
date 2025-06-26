@@ -1,30 +1,34 @@
-import { PricingPageClient } from './client';
-import { getTranslations } from 'next-intl/server';
-import { Metadata } from 'next';
-import { Check, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Metadata } from 'next'
+import { PricingPage } from '@/components/billing/pricing-page'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: 'PricingPage.meta' });
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('pricing')
+  
   return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `/${locale}/pricing`,
-      languages: {
-        'en': '/en/pricing',
-        'es': '/es/precios',
-        'fr': '/fr/tarifs',
-      },
-    }
-  };
+    title: t('meta.title'),
+    description: t('meta.description'),
+    keywords: [
+      'translation pricing',
+      'AI translation cost',
+      'credit packages',
+      'translation credits',
+      'low-resource languages',
+      'NLLB pricing'
+    ],
+    openGraph: {
+      title: t('meta.title'),
+      description: t('meta.description'),
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('meta.title'),
+      description: t('meta.description'),
+    },
+  }
 }
 
-export default function PricingPage() {
-  return <PricingPageClient />;
+export default function Pricing() {
+  return <PricingPage />
 }

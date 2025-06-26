@@ -5,9 +5,15 @@ import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Label } from '@/components/ui/label'
-import { Copy, Volume2, ArrowUpDown, Loader2 } from 'lucide-react'
+import { Copy, Volume2, ArrowUpDown, Loader2, AlertTriangle, Coins } from 'lucide-react'
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
 import { APP_CONFIG } from '../../config/app.config'
+import { useAuth, useCredits } from '@/lib/hooks/useAuth'
+import { ConditionalRender } from '@/components/auth/auth-guard'
+import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-balance'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { useRouter } from 'next/navigation'
+import { toast } from '@/lib/hooks/use-toast'
 
 interface TranslationState {
   sourceText: string
@@ -29,6 +35,10 @@ export function TranslatorWidget({
   defaultTargetLang = 'en',
   placeholder = 'Type your text here...'
 }: TranslatorWidgetProps = {}) {
+  const { user } = useAuth()
+  const { credits, hasEnoughCredits, estimateCredits } = useCredits()
+  const router = useRouter()
+  
   const [state, setState] = useState<TranslationState>({
     sourceText: '',
     translatedText: '',
@@ -41,9 +51,35 @@ export function TranslatorWidget({
   const maxLength = APP_CONFIG.nllb.maxLength
   const characterCount = getCharacterCount(state.sourceText)
   const isOverLimit = characterCount > maxLength
+  
+  // 积分消耗计算
+  const estimatedCredits = estimateCredits(characterCount)
+  const canAfford = hasEnoughCredits(estimatedCredits)
+  const needsCredits = estimatedCredits > 0
 
   const handleTranslate = useCallback(async () => {
     if (!state.sourceText.trim() || isOverLimit) return
+
+    // 检查用户登录状态和积分
+    if (needsCredits && !user) {
+      toast({
+        title: "需要登录",
+        description: "长文本翻译需要登录账户",
+        variant: "destructive",
+      })
+      router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname))
+      return
+    }
+
+    if (needsCredits && !canAfford) {
+      toast({
+        title: "积分不足",
+        description: `需要 ${estimatedCredits} 积分，当前余额 ${credits} 积分`,
+        variant: "destructive",
+      })
+      router.push('/credits/purchase')
+      return
+    }
 
     setState(prev => ({ ...prev, isLoading: true, error: null }))
 
@@ -71,6 +107,14 @@ export function TranslatorWidget({
         translatedText: data.data.translatedText,
         isLoading: false,
       }))
+
+      // 显示积分消耗提示
+      if (needsCredits) {
+        toast({
+          title: "翻译完成",
+          description: `消耗了 ${estimatedCredits} 积分`,
+        })
+      }
     } catch (error) {
       setState(prev => ({
         ...prev,
@@ -78,7 +122,7 @@ export function TranslatorWidget({
         isLoading: false,
       }))
     }
-  }, [state.sourceText, state.sourceLanguage, state.targetLanguage, isOverLimit])
+  }, [state.sourceText, state.sourceLanguage, state.targetLanguage, isOverLimit, needsCredits, user, canAfford, estimatedCredits, credits, router])
 
   const handleSwapLanguages = useCallback(() => {
     // 交换语言和文本内容
@@ -229,7 +273,43 @@ export function TranslatorWidget({
                 <span className={cn(isOverLimit && 'text-destructive')}>
                   {characterCount}/{maxLength} characters
                 </span>
+                <CreditEstimate textLength={characterCount} />
               </div>
+              
+              {/* 免费额度进度条 */}
+              <FreeQuotaProgress currentLength={characterCount} />
+              
+              {/* 积分不足警告 */}
+              {needsCredits && !canAfford && (
+                <Alert className="mt-2">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription>
+                    积分不足！需要 {estimatedCredits} 积分，当前余额 {credits} 积分。
+                    <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/credits/purchase')}>
+                      立即充值
+                    </Button>
+                  </AlertDescription>
+                </Alert>
+              )}
+              
+              {/* 未登录用户提示 */}
+              <ConditionalRender when="unauthenticated">
+                {needsCredits && (
+                  <Alert className="mt-2">
+                    <Coins className="h-4 w-4" />
+                    <AlertDescription>
+                      长文本翻译需要登录账户。
+                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/auth/signin')}>
+                        立即登录
+                      </Button>
+                      或
+                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/auth/signup')}>
+                        注册账户
+                      </Button>
+                    </AlertDescription>
+                  </Alert>
+                )}
+              </ConditionalRender>
             </div>
 
             {/* Translation Result */}
@@ -279,17 +359,22 @@ export function TranslatorWidget({
           <div className="mt-6 flex justify-center">
             <Button
               onClick={handleTranslate}
-              disabled={!state.sourceText.trim() || isOverLimit || state.isLoading}
+              disabled={!state.sourceText.trim() || isOverLimit || state.isLoading || (needsCredits && !canAfford)}
               size="lg"
               className="min-w-[140px]"
             >
               {state.isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Translating...
+                  翻译中...
+                </>
+              ) : needsCredits ? (
+                <>
+                  <Coins className="mr-2 h-4 w-4" />
+                  翻译 ({estimatedCredits} 积分)
                 </>
               ) : (
-                'Translate'
+                '免费翻译'
               )}
             </Button>
           </div>

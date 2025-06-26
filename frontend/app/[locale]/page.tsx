@@ -78,7 +78,7 @@ export default async function HomePage({
                   </a>
                   <a
                     href={`/${locale}/document-translate`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   >
                     {t('hero.cta.upload_document')}
                   </a>

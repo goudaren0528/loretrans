@@ -413,5 +413,7 @@ export interface PricingPlan {
   credits: number;
   priceUSD: number;
   creemPriceId: string; // The actual ID from the Creem dashboard
-  discount?: string;
+  originalValue?: number; // 原价，用于计算折扣
+  discount?: number; // 折扣百分比
+  popular?: boolean; // 是否为推荐套餐
 }

@@ -353,18 +353,55 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Pricing",
-      "description": "Choose a credit package that suits your translation needs."
+      "title": "Pricing - Choose Your Translation Credits | Transly",
+      "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
     },
     "hero": {
       "title": "Flexible Pricing for Everyone",
       "description": "Choose the credit package that fits your needs. Get more credits for a lower price."
     },
+    "plans": {
+      "starter": {
+        "name": "Starter Pack",
+        "description": "Perfect for occasional personal use",
+        "discount": ""
+      },
+      "professional": {
+        "name": "Professional Pack", 
+        "description": "Designed for professionals and small teams who need higher translation volume",
+        "discount": "Save 10%"
+      },
+      "business": {
+        "name": "Business Pack",
+        "description": "Meet enterprise-level needs with the best unit price", 
+        "discount": "Save 20%"
+      }
+    },
+    "features": {
+      "title": "All Plans Include",
+      "unlimited_text": "Unlimited text translations",
+      "document_support": "Document translation support",
+      "tts_support": "Text-to-speech functionality",
+      "api_access": "API access",
+      "priority_support": "Priority customer support",
+      "no_expiry": "Credits never expire"
+    },
+    "buttons": {
+      "purchase": "Purchase",
+      "processing": "Processing...",
+      "get_started": "Get Started"
+    },
     "alert": {
       "canceled_title": "Payment Canceled",
       "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
     },
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of users who trust Transly for their translation needs. Start translating today!",
+      "free_trial": "Try Free Translation",
+      "contact_sales": "Contact Sales"
+    }
   },
   "TextTranslatePage": {
     "meta": {
@@ -373,10 +410,38 @@
     },
     "hero": {
       "title": "Free Text Translator",
-      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free.",
-      "status_free": "100% Free",
+      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free for up to 500 characters.",
+      "status_free": "500 chars free",
       "status_ai": "AI-Powered",
       "status_instant": "Instant Results"
+    },
+    "other_languages": {
+      "title": "Try Other Languages",
+      "description": "Explore translation for other low-resource languages"
+    },
+    "faq": {
+      "title": "Text Translation FAQ",
+      "description": "Everything you need to know about our text translation service",
+      "q1_title": "How much does text translation cost?",
+      "q1_answer": "Text translation is completely free for up to 500 characters per request. For longer texts (over 500 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 50 credits (500 free + 500×0.1 = 50 credits).",
+      "q2_title": "Which languages do you support?",
+      "q2_answer": "We specialize in low-resource languages that are often poorly supported by mainstream translation services. We currently support Haitian Creole, Lao, Swahili, Burmese, Telugu, Chinese, and more. All languages support bidirectional translation with English.",
+      "q3_title": "How accurate are the translations?",
+      "q3_answer": "Our translations are powered by Meta's NLLB (No Language Left Behind) model, which is specifically designed for low-resource languages. While no automated translation is perfect, NLLB provides significantly better accuracy for small languages compared to traditional translation services.",
+      "q4_title": "Do I need to create an account?",
+      "q4_answer": "No account is required for free translations (up to 500 characters). However, creating a free account gives you 500 bonus credits and allows you to purchase additional credits for longer translations. You'll also get access to translation history and other premium features.",
+      "q5_title": "Can I translate from English to other languages?",
+      "q5_answer": "Yes! All our supported languages work bidirectionally. You can translate from English to any supported language, or from any supported language to English. Just use the language selector to choose your desired translation direction.",
+      "q6_title": "What's the character limit?",
+      "q6_answer": "Free users can translate up to 500 characters per request without any cost. For longer texts, you can either break them into smaller chunks or purchase credits. Registered users get 500 bonus credits to start with, which allows for longer translations.",
+      "contact_text": "Have more questions?",
+      "contact_link": "Contact our support team"
+    },
+    "cta": {
+      "title": "Need More Translation Power?",
+      "description": "Translate longer texts and documents with our premium features",
+      "try_document": "Try Document Translation",
+      "view_pricing": "View Pricing Plans"
     },
     "features": {
       "title": "Why Choose Our Text Translator?",
@@ -400,11 +465,6 @@
       "title": "Supported Languages",
       "description": "We support translation from these languages to English:",
       "more": "And many more low-resource languages..."
-    },
-    "cta": {
-      "title": "Need to Translate Documents?",
-      "description": "Try our document translation service for PDF, Word, and PowerPoint files",
-      "button": "Translate Documents"
     }
   },
   "Layout": {

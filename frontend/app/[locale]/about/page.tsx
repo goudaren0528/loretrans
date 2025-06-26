@@ -103,14 +103,38 @@ export default async function AboutPage({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {APP_CONFIG.languages.supported.map((language: { code: string; name: string; nativeName: string }) => (
+          {APP_CONFIG.languages.supported
+            .sort((a, b) => {
+              // 启用的语言排在前面
+              if (a.available && !b.available) return -1
+              if (!a.available && b.available) return 1
+              return 0
+            })
+            .map((language: { code: string; name: string; nativeName: string; available: boolean }) => (
             <div
               key={language.code}
-              className="flex items-center gap-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors"
+              className={`flex items-center gap-3 p-4 border rounded-lg transition-colors ${
+                language.available 
+                  ? 'hover:bg-muted/50' 
+                  : 'opacity-70'
+              }`}
             >
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              <div>
-                <div className="font-medium">{language.name}</div>
+              {language.available ? (
+                <CheckCircle className="h-5 w-5 text-green-500" />
+              ) : (
+                <div className="h-5 w-5 rounded-full border-2 border-yellow-500 flex items-center justify-center">
+                  <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
+                </div>
+              )}
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <div className="font-medium">{language.name}</div>
+                  {!language.available && (
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
                 <div className="text-sm text-muted-foreground">
                   {language.nativeName}
                 </div>
@@ -176,59 +200,137 @@ export default async function AboutPage({
         </div>
 
         <div className="space-y-6">
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q1_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q1_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
 
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q2_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q2_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
 
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q3_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q3_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
 
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q4_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q4_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
 
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q5_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q5_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
 
-          <div className="border rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">
+          <details className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
               {t('faq.q6_title')}
-            </h3>
-            <p className="text-muted-foreground">
+              <svg
+                className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+            <div className="mt-4 text-gray-600 leading-7">
               {t('faq.q6_answer')}
-            </p>
-          </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -239,11 +341,11 @@ export default async function AboutPage({
           {t('cta_section.description')}
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/text-translate">
-            <Button>{t('cta_section.primary_cta')}</Button>
+          <Link href={`/${locale}/text-translate`}>
+            <Button>{t('cta_section.cta_text')}</Button>
           </Link>
-          <Link href="/contact">
-            <Button variant="outline">{t('cta_section.secondary_cta')}</Button>
+          <Link href={`/${locale}/document-translate`}>
+            <Button variant="outline">{t('cta_section.cta_docs')}</Button>
           </Link>
         </div>
       </div>

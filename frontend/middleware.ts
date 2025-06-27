@@ -7,6 +7,8 @@ export default createMiddleware({
   defaultLocale,
   localeDetection: true,
   localePrefix: 'always',
+  // 强制默认语言为英语
+  defaultLocale: 'en',
   pathnames: {
     '/': '/',
     '/about': {

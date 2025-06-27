@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Languages, Check, Globe } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { switchLocale, detectLocaleFromPath, type Locale } from '@/lib/navigation';
 
 const locales = [
@@ -22,22 +22,38 @@ export default function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const [isChanging, setIsChanging] = useState(false);
+  const [currentLocale, setCurrentLocale] = useState<Locale>('en');
   
-  const { locale: currentLocale } = detectLocaleFromPath(pathname);
+  // 更新当前语言检测
+  useEffect(() => {
+    const { locale } = detectLocaleFromPath(pathname);
+    if (locale) {
+      setCurrentLocale(locale);
+    }
+  }, [pathname]);
 
-  const handleLocaleChange = (newLocale: Locale) => {
-    if (isChanging || !currentLocale) return;
+  const handleLocaleChange = async (newLocale: Locale) => {
+    if (isChanging || currentLocale === newLocale) return;
+    
     setIsChanging(true);
     try {
       const newPath = switchLocale(pathname, currentLocale, newLocale);
-      router.push(newPath);
+      console.log('Switching locale:', { currentLocale, newLocale, pathname, newPath });
+      
+      // 使用replace而不是push，避免历史记录堆积
+      router.replace(newPath);
+      
+      // 延迟重置状态，确保路由切换完成
+      setTimeout(() => {
+        setIsChanging(false);
+      }, 500);
     } catch (error) {
       console.error('Error changing locale:', error);
       setIsChanging(false);
     }
   };
 
-  const currentLocaleInfo = locales.find(l => l.code === currentLocale);
+  const currentLocaleInfo = locales.find(l => l.code === currentLocale) || locales[0];
 
   return (
     <DropdownMenu>
@@ -49,10 +65,10 @@ export default function LocaleSwitcher() {
         >
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline-flex">
-            {currentLocaleInfo?.name || 'Language'}
+            {currentLocaleInfo.name}
           </span>
           <span className="sm:hidden">
-            {currentLocaleInfo?.flag || '🌐'}
+            {currentLocaleInfo.flag}
           </span>
         </Button>
       </DropdownMenuTrigger>

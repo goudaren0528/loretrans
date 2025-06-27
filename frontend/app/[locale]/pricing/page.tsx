@@ -3,7 +3,8 @@ import { PricingPage } from '@/components/billing/pricing-page'
 import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('pricing')
+  const locale = await getLocale()
+  const t = await getTranslations({ locale, namespace: 'pricing' })
   
   return {
     title: t('meta.title'),

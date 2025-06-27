@@ -610,6 +610,10 @@
       "google_signin_button": "Sign in with Google (coming soon)",
       "signup_bonus_prompt_1": "Sign up for a new account and get",
       "signup_bonus_prompt_2": "500 bonus credits"
+    },
+    "GuestLimit": {
+      "remaining_translations": "You can translate {count} more times today",
+      "register_for_unlimited": "Register for unlimited access"
     }
   },
   "pricing": {

@@ -2,8 +2,11 @@ import { Metadata } from 'next'
 import { PricingPage } from '@/components/billing/pricing-page'
 import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale()
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'pricing' })
   
   return {
@@ -30,6 +33,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function Pricing() {
+export default function Pricing({
+  params: { locale }
+}: {
+  params: { locale: string }
+}) {
   return <PricingPage />
 }

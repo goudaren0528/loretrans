@@ -375,6 +375,10 @@
       "google_signin_button": "Se connecter avec Google (bientôt disponible)",
       "signup_bonus_prompt_1": "Créez un nouveau compte et obtenez",
       "signup_bonus_prompt_2": "500 crédits bonus"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Vous pouvez encore traduire {count} fois aujourd'hui",
+      "register_for_unlimited": "S'inscrire pour un accès illimité"
     }
   },
   "AboutPage": {

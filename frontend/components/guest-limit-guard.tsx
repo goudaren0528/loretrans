@@ -9,6 +9,9 @@ import { AlertTriangle, Clock, UserPlus, Zap } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { GuestLimitService, type GuestLimitStatus } from '@/lib/services/guest-limits'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
+import { detectLocaleFromPath } from '@/lib/navigation'
 
 // 创建 Context 来传递未登录用户限制状态
 interface GuestLimitContextType {
@@ -37,6 +40,9 @@ export function GuestLimitGuard({
 }: GuestLimitGuardProps) {
   const { user } = useAuth()
   const router = useRouter()
+  const pathname = usePathname()
+  const { locale } = detectLocaleFromPath(pathname)
+  const t = useTranslations('Auth')
   const [limitStatus, setLimitStatus] = useState<GuestLimitStatus | null>(null)
 
   // 检查限制状态
@@ -70,11 +76,11 @@ export function GuestLimitGuard({
 
   // 处理注册跳转
   const handleSignUp = () => {
-    router.push('/auth/signup?redirect=' + encodeURIComponent(window.location.pathname))
+    router.push(`/${locale}/auth/signup?redirect=` + encodeURIComponent(window.location.pathname))
   }
 
   const handleSignIn = () => {
-    router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname))
+    router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
   }
 
   // Context 值
@@ -115,10 +121,10 @@ export function GuestLimitGuard({
             <div className="flex flex-col sm:flex-row gap-3">
               <Button onClick={handleSignUp} className="flex-1">
                 <UserPlus className="h-4 w-4 mr-2" />
-                立即注册
+                {t('SignUpForm.submit_button')}
               </Button>
               <Button variant="outline" onClick={handleSignIn} className="flex-1">
-                已有账户？登录
+                {t('SignInForm.submit_button')}
               </Button>
             </div>
           </CardContent>
@@ -169,10 +175,10 @@ export function GuestLimitGuard({
             <Clock className="h-4 w-4" />
             <AlertDescription className="flex items-center justify-between">
               <span>
-                今日还可以翻译 <Badge variant="outline">{limitStatus.remainingTranslations}</Badge> 次
+                {t('GuestLimit.remaining_translations', { count: limitStatus.remainingTranslations })}
               </span>
               <Button variant="link" size="sm" onClick={handleSignUp}>
-                注册获得无限制
+                {t('GuestLimit.register_for_unlimited')}
               </Button>
             </AlertDescription>
           </Alert>

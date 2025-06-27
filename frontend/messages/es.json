@@ -375,6 +375,10 @@
       "google_signin_button": "Iniciar sesión con Google (próximamente)",
       "signup_bonus_prompt_1": "Regístrate para obtener una nueva cuenta y consigue",
       "signup_bonus_prompt_2": "500 créditos de bonificación"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Hoy puedes traducir {count} veces más",
+      "register_for_unlimited": "Regístrate para obtener acceso ilimitado"
     }
   },
   "AboutPage": {

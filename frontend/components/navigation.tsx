@@ -38,7 +38,8 @@ const navIcons: { [key: string]: React.ElementType } = {
 export function Navigation() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const t = useTranslations()
+  const tNav = useTranslations('Navigation')
+  const tLayout = useTranslations('Layout')
 
   const { locale: currentLocale } = detectLocaleFromPath(pathname)
 
@@ -72,7 +73,7 @@ export function Navigation() {
                     )}
                   >
                     {Icon && <Icon className="h-4 w-4" />}
-                    <span>{t(item.translationKey)}</span>
+                    <span>{tNav(item.translationKey.replace('Navigation.', ''))}</span>
                   </Button>
                 </Link>
               )
@@ -136,7 +137,7 @@ export function Navigation() {
                       )}
                     >
                       {Icon && <Icon className="h-5 w-5" />}
-                      <span>{t(item.translationKey)}</span>
+                      <span>{tNav(item.translationKey.replace('Navigation.', ''))}</span>
                     </Link>
                   )
                 })}
@@ -264,7 +265,7 @@ export function Footer() {
                   href="/contact"
                   className="hover:text-foreground transition-colors"
                 >
-                  {t('Layout.Footer.contact_support')}
+                  {tLayout('Footer.contact_support')}
                 </Link>
               </li>
               <li>

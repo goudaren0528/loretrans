@@ -611,5 +611,125 @@
       "signup_bonus_prompt_1": "Sign up for a new account and get",
       "signup_bonus_prompt_2": "500 bonus credits"
     }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing Plans - Transly AI Translation",
+      "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
+    },
+    "title": "Choose Your Credit Package",
+    "subtitle": "Flexible credit system, pay as you go, no monthly subscriptions",
+    "current_balance": "Current Credit Balance:",
+    "free_tier": {
+      "title": "Free Tier",
+      "subtitle": "Perfect for light usage",
+      "completely_free": "✅ Completely Free:",
+      "credit_based": "💰 Credit-based:",
+      "features": {
+        "free_text": "Text under 500 characters",
+        "all_languages": "All language pairs supported",
+        "unlimited_use": "Unlimited usage",
+        "large_text": "Text over 500 characters",
+        "document_translation": "Large document translation",
+        "rate": "0.1 credits/character (for excess)"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Starter Package",
+        "description": "Perfect for occasional users",
+        "features": {
+          "credits": "1,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "7-day validity period"
+        }
+      },
+      "basic": {
+        "name": "Basic Package", 
+        "description": "Most popular choice",
+        "features": {
+          "credits": "5,000 translation credits",
+          "languages": "All language pairs supported", 
+          "documents": "Document translation feature",
+          "validity": "30-day validity period",
+          "support": "Priority customer support"
+        }
+      },
+      "pro": {
+        "name": "Professional Package",
+        "description": "Perfect for heavy users",
+        "features": {
+          "credits": "10,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature", 
+          "validity": "60-day validity period",
+          "support": "Priority customer support",
+          "batch": "Batch translation feature"
+        }
+      },
+      "business": {
+        "name": "Business Package",
+        "description": "Perfect for teams and enterprises",
+        "features": {
+          "credits": "25,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "90-day validity period", 
+          "support": "Priority customer support",
+          "batch": "Batch translation feature",
+          "api": "API access"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise Package",
+        "description": "Large enterprise solution",
+        "features": {
+          "credits": "50,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "180-day validity period",
+          "support": "Dedicated customer support", 
+          "batch": "Batch translation feature",
+          "api": "API access",
+          "integration": "Custom integration"
+        }
+      }
+    },
+    "popular": "Most Popular",
+    "save": "Save",
+    "credits": "credits",
+    "purchase_button": "Purchase Now",
+    "processing": "Processing...",
+    "new_user_bonus": {
+      "title": "New User Exclusive Offer",
+      "description": "🎉 Sign up and get 500 credits + 20% extra credits on first purchase",
+      "note": "Bonus will be automatically applied to your account after payment"
+    },
+    "register_prompt": {
+      "title": "Register Now for More Benefits",
+      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase",
+      "register_button": "Register Now",
+      "signin_button": "Already Have Account"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "credit_calculation": {
+        "question": "How are credits calculated?",
+        "answer": "Under 500 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 50 credits."
+      },
+      "expiration": {
+        "question": "Do credits expire?",
+        "answer": "Credit validity depends on the package purchased, ranging from 7 to 180 days. We'll notify you before expiration."
+      },
+      "payment_methods": {
+        "question": "What payment methods are supported?",
+        "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
+      },
+      "refund": {
+        "question": "Can I get a refund?",
+        "answer": "Within 7 days of purchase, if you're not satisfied with the service, you can apply for a full refund. Unused credits will be reclaimed."
+      }
+    }
   }
 } 

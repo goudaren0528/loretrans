@@ -31,10 +31,28 @@ export default function TestButtonPage() {
           <Link href="/pricing">查看定价</Link>
         </Button>
         
-        <h2 className="text-lg font-semibold">asChild + Loading (应该正常工作)</h2>
-        <Button asChild loading>
-          <Link href="/test">测试链接</Link>
-        </Button>
+        <h2 className="text-lg font-semibold">不同变体的按钮</h2>
+        <div className="flex gap-2 flex-wrap">
+          <Button variant="default">Default</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+          <Button variant="success">Success</Button>
+          <Button variant="warning">Warning</Button>
+        </div>
+        
+        <h2 className="text-lg font-semibold">不同尺寸的按钮</h2>
+        <div className="flex gap-2 items-center">
+          <Button size="sm">Small</Button>
+          <Button size="default">Default</Button>
+          <Button size="lg">Large</Button>
+          <Button size="xl">Extra Large</Button>
+          <Button size="icon">
+            <Home className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </div>
   )

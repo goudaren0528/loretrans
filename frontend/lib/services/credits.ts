@@ -252,6 +252,36 @@ export class CreditService {
     }
   }
 
+  /**
+   * 退还积分（用于翻译失败等情况）
+   */
+  async refundCredits(
+    userId: string,
+    amount: number,
+    description: string,
+    metadata?: Record<string, any>
+  ): Promise<boolean> {
+    try {
+      const { data, error } = await this.supabase
+        .rpc('reward_credits', {
+          p_user_id: userId,
+          p_amount: amount,
+          p_description: description,
+          p_metadata: metadata || {}
+        })
+
+      if (error) {
+        console.error('退还积分失败:', error)
+        return false
+      }
+
+      return data === true
+    } catch (error) {
+      console.error('退还积分失败:', error)
+      return false
+    }
+  }
+
   // ===============================
   // 积分交易记录
   // ===============================

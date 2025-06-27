@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { Upload, FileText, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Language, AVAILABLE_LANGUAGES } from '../../../../config/app.config';
+import { DocumentTranslator } from '@/components/document-translator';
+import { GuestLimitGuard } from '@/components/guest-limit-guard';
 import Link from 'next/link';
 
 export async function generateMetadata({
@@ -65,45 +67,47 @@ export default async function DocumentTranslatePage({
             <p className="text-muted-foreground">{t('steps.step3.description')}</p>
           </div>
         </div>
-        <div className="text-center mt-8">
-          <Button size="lg">{t('upload_button')}</Button>
-        </div>
       </div>
 
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-center mb-6">{t('supported_formats.title')}</h2>
-        <div className="flex justify-center gap-4">
-          <div className="bg-background border rounded-lg p-4 flex items-center gap-3">
-            <FileText className="h-6 w-6 text-red-500" />
-            <span>PDF</span>
-          </div>
-          <div className="bg-background border rounded-lg p-4 flex items-center gap-3">
-            <FileText className="h-6 w-6 text-blue-500" />
-            <span>DOCX</span>
-          </div>
-          <div className="bg-background border rounded-lg p-4 flex items-center gap-3">
-            <FileText className="h-6 w-6 text-orange-500" />
-            <span>PPTX</span>
-          </div>
-        </div>
-      </div>
+      {/* 文档翻译器组件 - 包含未登录用户限制 */}
+      <GuestLimitGuard showStatus={false}>
+        <DocumentTranslator />
+      </GuestLimitGuard>
 
-      <div>
-        <h2 className="text-2xl font-bold text-center mb-6">{t('supported_languages.title')}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* 支持的语言 */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold text-center mb-8">{t('languages.title')}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {AVAILABLE_LANGUAGES.map((lang: Language) => (
-            <Link href={`/${lang.slug}-to-english`} key={lang.code} className="group">
-              <div className="p-4 border rounded-lg hover:bg-muted/50 transition-colors flex justify-between items-center">
-                <div>
-                  <div className="font-medium">{lang.name}</div>
-                  <div className="text-sm text-muted-foreground">{lang.nativeName}</div>
-                </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
+            <div key={lang.code} className="text-center p-4 rounded-lg border hover:bg-muted/50 transition-colors">
+              <div className="text-2xl mb-2">{lang.flag}</div>
+              <div className="font-medium text-sm">{lang.name}</div>
+              <div className="text-xs text-muted-foreground">{lang.nativeName}</div>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* CTA Section */}
+      <div className="mt-16 text-center bg-primary/5 rounded-lg p-8">
+        <h2 className="text-2xl font-bold mb-4">{t('cta.title')}</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          {t('cta.description')}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg">
+            <Link href={`/${locale}/text-translate`} className="flex items-center gap-2">
+              {t('cta.try_text_translation')}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button variant="outline" size="lg" asChild>
+            <Link href={`/${locale}/pricing`}>
+              {t('cta.view_pricing')}
+            </Link>
+          </Button>
+        </div>
+      </div>
     </div>
-  )
-} 
+  );
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import { TranslatorWidget } from '@/components/translator-widget'
 import { LanguageGrid } from '@/components/language-grid'
+import { GuestLimitGuard } from '@/components/guest-limit-guard'
 
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
@@ -143,11 +144,13 @@ export default function CreoleToEnglishPage() {
 
           {/* Translation Widget */}
           <div className="max-w-4xl mx-auto">
-            <TranslatorWidget 
-              defaultSourceLang="ht"
-              defaultTargetLang="en"
-              placeholder="Type your Haitian Creole text here... (Ekri teks Kreyòl ou a isit la...)"
-            />
+            <GuestLimitGuard>
+              <TranslatorWidget 
+                defaultSourceLang="ht"
+                defaultTargetLang="en"
+                placeholder="Type your Haitian Creole text here... (Ekri teks Kreyòl ou a isit la...)"
+              />
+            </GuestLimitGuard>
           </div>
         </div>
       </section>

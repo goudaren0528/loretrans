@@ -209,6 +209,57 @@
       "powered_by": "Impulsado por la Tecnología IA de Meta NLLB"
     }
   },
+  "PricingPage": {
+    "meta": {
+      "title": "Precios - Elige Tu Paquete de Créditos de Traducción | Transly",
+      "description": "Elige un paquete de créditos que se adapte a tus necesidades de traducción. Precios flexibles para individuos, profesionales y empresas."
+    },
+    "hero": {
+      "title": "Precios Flexibles para Todos",
+      "description": "Elige el paquete de créditos que se adapte a tus necesidades. Obtén más créditos por un precio menor."
+    },
+    "plans": {
+      "starter": {
+        "name": "Paquete Inicial",
+        "description": "Perfecto para uso personal ocasional",
+        "discount": ""
+      },
+      "professional": {
+        "name": "Paquete Profesional", 
+        "description": "Diseñado para profesionales y equipos pequeños que necesitan mayor volumen de traducción",
+        "discount": "Ahorra 10%"
+      },
+      "business": {
+        "name": "Paquete Empresarial",
+        "description": "Satisface las necesidades a nivel empresarial con el mejor precio unitario", 
+        "discount": "Ahorra 20%"
+      }
+    },
+    "features": {
+      "title": "Todos los Planes Incluyen",
+      "unlimited_text": "Traducciones de texto ilimitadas",
+      "document_support": "Soporte para traducción de documentos",
+      "tts_support": "Funcionalidad de texto a voz",
+      "api_access": "Acceso a API",
+      "priority_support": "Soporte prioritario al cliente",
+      "no_expiry": "Los créditos nunca expiran"
+    },
+    "buttons": {
+      "purchase": "Comprar",
+      "processing": "Procesando...",
+      "get_started": "Comenzar"
+    },
+    "alert": {
+      "canceled_title": "Pago Cancelado",
+      "canceled_description": "Tu compra fue cancelada. No se te ha cobrado. Siéntete libre de seleccionar un plan e intentar de nuevo."
+    },
+    "loading": "Cargando...",
+    "cta": {
+      "title": "¿Listo para Comenzar?",
+      "description": "Únete a miles de usuarios que confían en Transly para sus necesidades de traducción",
+      "try_now": "Probar Ahora - Es Gratis"
+    }
+  },
   "DocumentTranslatePage": {
     "hero": {
       "title": "Traducción de Documentos",

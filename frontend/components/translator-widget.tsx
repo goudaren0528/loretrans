@@ -9,6 +9,7 @@ import { Copy, Volume2, ArrowUpDown, Loader2, AlertTriangle, Coins } from 'lucid
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
 import { APP_CONFIG } from '../../config/app.config'
 import { useAuth, useCredits } from '@/lib/hooks/useAuth'
+import { useGuestLimit } from '@/components/guest-limit-guard'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-balance'
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -37,6 +38,7 @@ export function TranslatorWidget({
 }: TranslatorWidgetProps = {}) {
   const { user } = useAuth()
   const { credits, hasEnoughCredits, estimateCredits } = useCredits()
+  const { limitStatus, recordTranslation, canTranslate, isLimitReached } = useGuestLimit()
   const router = useRouter()
   
   const [state, setState] = useState<TranslationState>({
@@ -60,6 +62,17 @@ export function TranslatorWidget({
   const handleTranslate = useCallback(async () => {
     if (!state.sourceText.trim() || isOverLimit) return
 
+    // 检查未登录用户限制
+    if (!user && !canTranslate) {
+      toast({
+        title: "翻译次数已用完",
+        description: "免费用户每天最多翻译10次，注册账户获得无限制翻译",
+        variant: "destructive",
+      })
+      router.push('/auth/signup?redirect=' + encodeURIComponent(window.location.pathname))
+      return
+    }
+
     // 检查用户登录状态和积分
     if (needsCredits && !user) {
       toast({
@@ -77,8 +90,21 @@ export function TranslatorWidget({
         description: `需要 ${estimatedCredits} 积分，当前余额 ${credits} 积分`,
         variant: "destructive",
       })
-      router.push('/credits/purchase')
+      router.push('/pricing')
       return
+    }
+
+    // 记录未登录用户翻译次数
+    if (!user) {
+      const recorded = recordTranslation()
+      if (!recorded) {
+        toast({
+          title: "翻译次数已用完",
+          description: "今日免费翻译次数已达上限",
+          variant: "destructive",
+        })
+        return
+      }
     }
 
     setState(prev => ({ ...prev, isLoading: true, error: null }))

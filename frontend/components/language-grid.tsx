@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { APP_CONFIG } from '../config/app.config'
+import { APP_CONFIG } from '../../config/app.config'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 

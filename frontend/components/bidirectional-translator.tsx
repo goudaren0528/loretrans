@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Label } from '@/components/ui/label'
 import { Copy, Volume2, Loader2, AlertCircle } from 'lucide-react'
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
-import { APP_CONFIG } from '../config/app.config'
+import { APP_CONFIG } from '../../config/app.config'
 import { getTargetLanguageOptions } from '@/lib/language-utils'
 import { LanguageSwitch, useLanguageSwitch } from './language-switch'
 import { LanguageDetection } from './language-detection'

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { APP_CONFIG } from '../../config/app.config'
+import { locales } from '@/lib/navigation'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://transly.app'

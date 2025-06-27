@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Check, X, Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { APP_CONFIG } from '../config/app.config'
+import { APP_CONFIG } from '../../config/app.config'
 
 interface LanguageDetectionResult {
   language: string

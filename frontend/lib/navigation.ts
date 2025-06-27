@@ -1,4 +1,4 @@
-import { LANG_TO_ENGLISH_PAGES } from 'frontend/config/app.config';
+import { LANG_TO_ENGLISH_PAGES } from '../../config/app.config';
 import { createLocalizedPathnamesNavigation, Pathnames } from 'next-intl/navigation';
 
 // 支持的语言代码

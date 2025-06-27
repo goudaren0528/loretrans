@@ -10,8 +10,8 @@ import {
   TranslationRequest,
   TranslationResult,
   CheckoutSession,
-} from '../../shared/types'
-import { APP_CONFIG } from '../../config/app.config'
+} from '../../../shared/types'
+import { APP_CONFIG } from '../../../config/app.config'
 import { getTranslationCacheKey, withCache } from './cache'
 
 class MockCreem {

@@ -1,9 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { CheckCircle, Globe, Zap, Shield, Heart, Users, ArrowRight } from 'lucide-react';
+import { CheckCircle, Globe, Zap, Shield, Heart, Users, ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { APP_CONFIG } from '../../../../config/app.config';
+import { LanguageGrid } from '@/components/language-grid';
 
 export async function generateMetadata({
   params: { locale },

@@ -1,5 +1,5 @@
-import { APP_CONFIG } from '../../config/app.config'
-import { TranslationRequest } from '../../shared/types'
+import { APP_CONFIG } from '../../../config/app.config'
+import { TranslationRequest } from '../../../shared/types'
 
 interface TranslationResponse {
   translatedText: string

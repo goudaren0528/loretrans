@@ -7,8 +7,8 @@ import { createClient } from '@vercel/kv'
 import {
   TranslationCache,
   TranslationCacheRepository,
-} from '../../shared/types'
-import { APP_CONFIG } from '../../config/app.config'
+} from '../../../shared/types'
+import { APP_CONFIG } from '../../../config/app.config'
 
 interface CacheItem<T = any> {
   value: T

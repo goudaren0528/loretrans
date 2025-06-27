@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Label } from '@/components/ui/label'
 import { Copy, Volume2, ArrowUpDown, Loader2, AlertTriangle, Coins } from 'lucide-react'
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
-import { APP_CONFIG } from '../config/app.config'
+import { APP_CONFIG } from '../../config/app.config'
 import { useAuth, useCredits } from '@/lib/hooks/useAuth'
 import { useGuestLimit } from '@/components/guest-limit-guard'
 import { ConditionalRender } from '@/components/auth/auth-guard'

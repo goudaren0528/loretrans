@@ -104,7 +104,7 @@ export class RLSValidator {
           details: userError
         })
       } else {
-        const hasOtherUsers = userData?.some(user => user.id !== this.currentUserId)
+        const hasOtherUsers = userData?.some((user: any) => user.id !== this.currentUserId)
         results.push({
           testName: '用户数据查询权限',
           passed: !hasOtherUsers,
@@ -126,7 +126,7 @@ export class RLSValidator {
           details: profileError
         })
       } else {
-        const hasOtherProfiles = profileData?.some(profile => profile.user_id !== this.currentUserId)
+        const hasOtherProfiles = profileData?.some((profile: any) => profile.user_id !== this.currentUserId)
         results.push({
           testName: '用户资料查询权限',
           passed: !hasOtherProfiles,
@@ -167,7 +167,7 @@ export class RLSValidator {
           details: transactionError
         })
       } else {
-        const hasOtherTransactions = transactionData?.some(tx => tx.user_id !== this.currentUserId)
+        const hasOtherTransactions = transactionData?.some((tx: any) => tx.user_id !== this.currentUserId)
         results.push({
           testName: '积分交易查询权限',
           passed: !hasOtherTransactions,
@@ -225,7 +225,7 @@ export class RLSValidator {
           details: paymentError
         })
       } else {
-        const hasOtherPayments = paymentData?.some(payment => payment.user_id !== this.currentUserId)
+        const hasOtherPayments = paymentData?.some((payment: any) => payment.user_id !== this.currentUserId)
         results.push({
           testName: '支付记录查询权限',
           passed: !hasOtherPayments,

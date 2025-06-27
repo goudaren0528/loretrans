@@ -12,6 +12,11 @@ const nextConfig = {
     NLLB_LOCAL_URL: process.env.NLLB_LOCAL_URL || 'http://localhost:8081',
     NLLB_LOCAL_FALLBACK: 'true',
     NLLB_LOCAL_TIMEOUT: '30000',
+
+    // 为构建过程提供占位符
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key',
+    SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key',
   },
   images: {
     domains: ['cdn.transly.app'],

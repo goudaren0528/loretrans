@@ -131,6 +131,7 @@ export type Database = {
           email: string
           email_verified: boolean
           credits: number
+          role: 'admin' | 'pro_user' | 'free_user'
           created_at: string
           updated_at: string
         }
@@ -139,6 +140,7 @@ export type Database = {
           email: string
           email_verified?: boolean
           credits?: number
+          role?: 'admin' | 'pro_user' | 'free_user'
           created_at?: string
           updated_at?: string
         }
@@ -147,6 +149,7 @@ export type Database = {
           email?: string
           email_verified?: boolean
           credits?: number
+          role?: 'admin' | 'pro_user' | 'free_user'
           created_at?: string
           updated_at?: string
         }

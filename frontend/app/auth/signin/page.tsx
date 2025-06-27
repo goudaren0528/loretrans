@@ -1,11 +1,11 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { SignInForm } from '@/components/auth/signin-form'
 import { useAuth } from '@/lib/hooks/useAuth'
 
-export default function SignInPage() {
+function SignInComponent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { user, loading } = useAuth()
@@ -48,5 +48,13 @@ export default function SignInPage() {
         />
       </div>
     </div>
+  )
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SignInComponent />
+    </Suspense>
   )
 } 

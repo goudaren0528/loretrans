@@ -1,4 +1,4 @@
-import { createSupabaseBrowserClient, createSupabaseServerClient } from '../supabase'
+import { createSupabaseBrowserClient } from '../supabase'
 import type { 
   User, 
   UserProfile, 
@@ -7,7 +7,6 @@ import type {
   NotificationPreferences,
   UserStats 
 } from '../../../shared/types'
-import type { SupabaseClient } from '@supabase/supabase-js'
 
 const ENCRYPTION_KEY_ID = process.env.NEXT_PUBLIC_SUPABASE_ENCRYPTION_KEY_ID
 
@@ -313,6 +312,9 @@ export class UserService {
         targetUserId = authUser.user.id
       }
 
+      // Ensure targetUserId is not undefined
+      if (!targetUserId) return null
+
       // 并行获取用户信息和资料
       const [user, profile] = await Promise.all([
         this.getUserById(targetUserId),
@@ -372,7 +374,7 @@ export class UserService {
         schema: 'public',
         table: 'users',
         filter: `id=eq.${userId}`
-      }, (payload) => {
+      }, (payload: any) => {
         if (payload.new) {
           callback(payload.new as User)
         }
@@ -391,7 +393,7 @@ export class UserService {
         schema: 'public',
         table: 'user_profiles',
         filter: `user_id=eq.${userId}`
-      }, (payload) => {
+      }, (payload: any) => {
         if (payload.new) {
           callback(payload.new as UserProfile)
         }

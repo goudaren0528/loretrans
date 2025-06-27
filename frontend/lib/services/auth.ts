@@ -12,6 +12,7 @@ export interface AuthUser {
   name: string
   emailVerified: boolean
   credits: number
+  role: 'admin' | 'pro_user' | 'free_user' | 'guest'
   profile?: UserProfile
 }
 
@@ -270,7 +271,7 @@ class AuthService {
    * 监听身份验证状态变化
    */
   onAuthStateChange(callback: (user: AuthUser | null) => void) {
-    return this.supabase.auth.onAuthStateChange(async (event, session) => {
+    return this.supabase.auth.onAuthStateChange(async (event: any, session: any) => {
       if (session?.user) {
         const userData = await this.getUserData(session.user.id)
         callback(userData)
@@ -310,18 +311,28 @@ class AuthService {
    */
   private async getUserData(userId: string): Promise<AuthUser | null> {
     try {
-      const user = await userService.getUserById(userId);
-      if (!user) return null;
+      // Fetch user data directly from Supabase to get the role
+      const { data: userData, error: userError } = await this.supabase
+        .from('users')
+        .select('id, email, email_verified, credits, role')
+        .eq('id', userId)
+        .single()
+
+      if (userError || !userData) {
+        console.error('Failed to fetch user data:', userError)
+        return null
+      }
 
       const profile = await userService.getUserProfile(userId);
       if (!profile) return null;
 
       return {
-        id: user.id,
-        email: user.email,
+        id: userData.id,
+        email: userData.email,
         name: profile.name || 'User',
-        emailVerified: user.email_verified,
-        credits: user.credits,
+        emailVerified: userData.email_verified,
+        credits: userData.credits,
+        role: userData.role as 'admin' | 'pro_user' | 'free_user' | 'guest',
         profile: {
           ...profile,
           language: profile.language || 'en',
@@ -382,6 +393,7 @@ export async function verifyServerAuth(userId?: string) {
       email: user.email,
       emailVerified: user.email_verified,
       credits: user.credits,
+      role: user.role as 'admin' | 'pro_user' | 'free_user' | 'guest',
       profile: user.user_profiles?.[0] || undefined,
     } as AuthUser
   } catch (error) {

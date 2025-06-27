@@ -24,6 +24,13 @@ export class GuestLimitService {
   private static readonly IP_STORAGE_KEY = 'transly_guest_ip_hash'
 
   /**
+   * Get the daily limit value
+   */
+  static get dailyLimit(): number {
+    return this.DAILY_LIMIT
+  }
+
+  /**
    * 检查未登录用户翻译限制状态
    */
   static checkGuestLimit(): GuestLimitStatus {
@@ -201,7 +208,7 @@ export async function verifyGuestLimitOnServer(ip: string): Promise<{
     // 暂时返回允许状态
     return {
       allowed: true,
-      remaining: GuestLimitService.DAILY_LIMIT,
+      remaining: GuestLimitService.dailyLimit,
       resetTime: new Date(Date.now() + 24 * 60 * 60 * 1000)
     }
   } catch (error) {
@@ -209,7 +216,7 @@ export async function verifyGuestLimitOnServer(ip: string): Promise<{
     // 验证失败时允许翻译，避免影响用户体验
     return {
       allowed: true,
-      remaining: GuestLimitService.DAILY_LIMIT,
+      remaining: GuestLimitService.dailyLimit,
       resetTime: new Date(Date.now() + 24 * 60 * 60 * 1000)
     }
   }

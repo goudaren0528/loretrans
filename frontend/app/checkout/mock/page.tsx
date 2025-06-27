@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -8,11 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { CheckCircle, CreditCard, Loader2, AlertCircle } from 'lucide-react'
 
-/**
- * 模拟支付页面（开发测试用）
- * 在实际生产环境中，这个页面会被Creem的托管支付页面替代
- */
-export default function MockCheckoutPage() {
+function MockCheckoutComponent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [processing, setProcessing] = useState(false)
@@ -209,5 +205,17 @@ export default function MockCheckoutPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+/**
+ * 模拟支付页面（开发测试用）
+ * 在实际生产环境中，这个页面会被Creem的托管支付页面替代
+ */
+export default function MockCheckoutPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MockCheckoutComponent />
+    </Suspense>
   )
 }

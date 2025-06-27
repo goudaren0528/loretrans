@@ -419,7 +419,7 @@ export class CreditService {
         schema: 'public',
         table: 'users',
         filter: `id=eq.${userId}`
-      }, (payload) => {
+      }, (payload: any) => {
         if (payload.new && 'credits' in payload.new) {
           callback((payload.new as User).credits)
         }
@@ -438,7 +438,7 @@ export class CreditService {
         schema: 'public',
         table: 'credit_transactions',
         filter: `user_id=eq.${userId}`
-      }, (payload) => {
+      }, (payload: any) => {
         if (payload.new) {
           callback(payload.new as CreditTransaction)
         }

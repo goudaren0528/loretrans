@@ -236,7 +236,7 @@ export class CreditTransactionQueryBuilder {
         return { data: null, error }
       }
 
-      const total_consumed = data?.reduce((sum, transaction) => sum + Math.abs(transaction.amount), 0) || 0
+      const total_consumed = data?.reduce((sum: number, transaction: Database['public']['Tables']['credit_transactions']['Row']) => sum + Math.abs(transaction.amount), 0) || 0
       const transaction_count = data?.length || 0
 
       return {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -10,11 +10,7 @@ import { useAuth } from '@/lib/hooks/useAuth'
 import { CreditBalance } from '@/components/credits/credit-balance'
 import Link from 'next/link'
 
-/**
- * 支付成功页面
- * 显示支付完成信息和积分到账情况
- */
-export default function CheckoutSuccessPage() {
+function CheckoutSuccessComponent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { user, refreshUser } = useAuth()
@@ -200,5 +196,18 @@ export default function CheckoutSuccessPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+
+/**
+ * 支付成功页面
+ * 显示支付完成信息和积分到账情况
+ */
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CheckoutSuccessComponent />
+    </Suspense>
   )
 }

@@ -395,5 +395,121 @@
     "supported_languages": {
       "request_cta_description": "Vous ne voyez pas votre langue ? Nous élargissons constamment notre prise en charge linguistique."
     }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Plans Tarifaires - Traduction IA Transly",
+      "description": "Choisissez un forfait de crédits qui correspond à vos besoins de traduction. Tarification flexible pour particuliers, professionnels et entreprises."
+    },
+    "title": "Choisissez Votre Forfait de Crédits",
+    "subtitle": "Système de crédits flexible, payez à l'usage, sans abonnements mensuels",
+    "current_balance": "Solde Actuel de Crédits:",
+    "free_tier": {
+      "title": "Niveau Gratuit",
+      "subtitle": "Parfait pour un usage léger",
+      "completely_free": "✅ Complètement Gratuit:",
+      "credit_based": "💰 Basé sur les Crédits:",
+      "features": {
+        "free_text": "Texte de moins de 500 caractères",
+        "all_languages": "Toutes les paires de langues supportées",
+        "unlimited_use": "Usage illimité",
+        "large_text": "Texte de plus de 500 caractères",
+        "document_translation": "Traduction de gros documents",
+        "rate": "0.1 crédits/caractère (pour l'excédent)"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Forfait Débutant",
+        "description": "Parfait pour les utilisateurs occasionnels",
+        "features": {
+          "credits": "1,000 crédits de traduction",
+          "languages": "Toutes les paires de langues supportées",
+          "documents": "Fonction de traduction de documents",
+          "validity": "Période de validité de 7 jours"
+        }
+      },
+      "basic": {
+        "name": "Forfait Basique", 
+        "description": "Le choix le plus populaire",
+        "features": {
+          "credits": "5,000 crédits de traduction",
+          "languages": "Toutes les paires de langues supportées", 
+          "documents": "Fonction de traduction de documents",
+          "validity": "Période de validité de 30 jours",
+          "support": "Support client prioritaire"
+        }
+      },
+      "pro": {
+        "name": "Forfait Professionnel",
+        "description": "Parfait pour les utilisateurs intensifs",
+        "features": {
+          "credits": "10,000 crédits de traduction",
+          "languages": "Toutes les paires de langues supportées",
+          "documents": "Fonction de traduction de documents", 
+          "validity": "Période de validité de 60 jours",
+          "support": "Support client prioritaire",
+          "batch": "Fonction de traduction par lots"
+        }
+      },
+      "business": {
+        "name": "Forfait Entreprise",
+        "description": "Parfait pour les équipes et entreprises",
+        "features": {
+          "credits": "25,000 crédits de traduction",
+          "languages": "Toutes les paires de langues supportées",
+          "documents": "Fonction de traduction de documents",
+          "validity": "Période de validité de 90 jours", 
+          "support": "Support client prioritaire",
+          "batch": "Fonction de traduction par lots",
+          "api": "Accès API"
+        }
+      },
+      "enterprise": {
+        "name": "Forfait Entreprise",
+        "description": "Solution pour grandes entreprises",
+        "features": {
+          "credits": "50,000 crédits de traduction",
+          "languages": "Toutes les paires de langues supportées",
+          "documents": "Fonction de traduction de documents",
+          "validity": "Période de validité de 180 jours",
+          "support": "Support client dédié", 
+          "batch": "Fonction de traduction par lots",
+          "api": "Accès API",
+          "integration": "Intégration personnalisée"
+        }
+      }
+    },
+    "popular": "Recommandé",
+    "save": "Économisez",
+    "credits": "crédits",
+    "purchase_button": "Acheter Maintenant",
+    "processing": "Traitement...",
+    "new_user_bonus": {
+      "title": "Offre Exclusive pour Nouveaux Utilisateurs",
+      "description": "🎉 Inscrivez-vous et obtenez 500 crédits + 20% de crédits supplémentaires au premier achat",
+      "note": "Le bonus sera automatiquement appliqué à votre compte après le paiement"
+    },
+    "register_prompt": {
+      "title": "Inscrivez-vous Maintenant pour Plus d'Avantages",
+      "description": "Les utilisateurs enregistrés bénéficient de 500 crédits de bienvenue + 20% de récompense supplémentaire au premier rechargement",
+      "register_button": "S'inscrire Maintenant",
+      "signin_button": "J'ai Déjà un Compte"
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "credit_calculation": {
+        "question": "Comment les crédits sont-ils calculés?",
+        "answer": "Moins de 500 caractères est complètement gratuit, l'excédent est facturé à 0.1 crédits/caractère. Par exemple: traduire 1000 caractères nécessite 50 crédits."
+      },
+      "expiration": {
+        "question": "Les crédits expirent-ils?",
+        "answer": "La validité des crédits dépend du forfait acheté, de 7 à 180 jours. Nous vous préviendrons avant l'expiration."
+      },
+      "payment_methods": {
+        "question": "Quels modes de paiement sont supportés?",
+        "answer": "Nous supportons les cartes de crédit, cartes de débit et portefeuilles numériques. Tous les paiements sont traités via la plateforme sécurisée Creem."
+      }
+    }
   }
 } 

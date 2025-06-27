@@ -696,7 +696,7 @@
         }
       }
     },
-    "popular": "Most Popular",
+    "popular": "Recommend",
     "save": "Save",
     "credits": "credits",
     "purchase_button": "Purchase Now",
@@ -725,10 +725,6 @@
       "payment_methods": {
         "question": "What payment methods are supported?",
         "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
-      },
-      "refund": {
-        "question": "Can I get a refund?",
-        "answer": "Within 7 days of purchase, if you're not satisfied with the service, you can apply for a full refund. Unused credits will be reclaimed."
       }
     }
   }

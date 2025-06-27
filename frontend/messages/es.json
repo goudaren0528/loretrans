@@ -395,5 +395,121 @@
     "supported_languages": {
       "request_cta_description": "¿No ves tu idioma? Estamos expandiendo constantemente nuestro soporte de idiomas."
     }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Planes de Precios - Traducción AI Transly",
+      "description": "Elige un paquete de créditos que se adapte a tus necesidades de traducción. Precios flexibles para individuos, profesionales y empresas."
+    },
+    "title": "Elige Tu Paquete de Créditos",
+    "subtitle": "Sistema de créditos flexible, paga según uses, sin suscripciones mensuales",
+    "current_balance": "Saldo Actual de Créditos:",
+    "free_tier": {
+      "title": "Nivel Gratuito",
+      "subtitle": "Perfecto para uso ligero",
+      "completely_free": "✅ Completamente Gratis:",
+      "credit_based": "💰 Basado en Créditos:",
+      "features": {
+        "free_text": "Texto de menos de 500 caracteres",
+        "all_languages": "Todos los pares de idiomas soportados",
+        "unlimited_use": "Uso ilimitado",
+        "large_text": "Texto de más de 500 caracteres",
+        "document_translation": "Traducción de documentos grandes",
+        "rate": "0.1 créditos/carácter (por exceso)"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Paquete Inicial",
+        "description": "Perfecto para usuarios ocasionales",
+        "features": {
+          "credits": "1,000 créditos de traducción",
+          "languages": "Todos los pares de idiomas soportados",
+          "documents": "Función de traducción de documentos",
+          "validity": "Período de validez de 7 días"
+        }
+      },
+      "basic": {
+        "name": "Paquete Básico", 
+        "description": "La opción más popular",
+        "features": {
+          "credits": "5,000 créditos de traducción",
+          "languages": "Todos los pares de idiomas soportados", 
+          "documents": "Función de traducción de documentos",
+          "validity": "Período de validez de 30 días",
+          "support": "Soporte prioritario al cliente"
+        }
+      },
+      "pro": {
+        "name": "Paquete Profesional",
+        "description": "Perfecto para usuarios intensivos",
+        "features": {
+          "credits": "10,000 créditos de traducción",
+          "languages": "Todos los pares de idiomas soportados",
+          "documents": "Función de traducción de documentos", 
+          "validity": "Período de validez de 60 días",
+          "support": "Soporte prioritario al cliente",
+          "batch": "Función de traducción por lotes"
+        }
+      },
+      "business": {
+        "name": "Paquete Empresarial",
+        "description": "Perfecto para equipos y empresas",
+        "features": {
+          "credits": "25,000 créditos de traducción",
+          "languages": "Todos los pares de idiomas soportados",
+          "documents": "Función de traducción de documentos",
+          "validity": "Período de validez de 90 días", 
+          "support": "Soporte prioritario al cliente",
+          "batch": "Función de traducción por lotes",
+          "api": "Acceso a API"
+        }
+      },
+      "enterprise": {
+        "name": "Paquete Empresarial",
+        "description": "Solución para grandes empresas",
+        "features": {
+          "credits": "50,000 créditos de traducción",
+          "languages": "Todos los pares de idiomas soportados",
+          "documents": "Función de traducción de documentos",
+          "validity": "Período de validez de 180 días",
+          "support": "Soporte dedicado al cliente", 
+          "batch": "Función de traducción por lotes",
+          "api": "Acceso a API",
+          "integration": "Integración personalizada"
+        }
+      }
+    },
+    "popular": "Recomendado",
+    "save": "Ahorra",
+    "credits": "créditos",
+    "purchase_button": "Comprar Ahora",
+    "processing": "Procesando...",
+    "new_user_bonus": {
+      "title": "Oferta Exclusiva para Nuevos Usuarios",
+      "description": "🎉 Regístrate y obtén 500 créditos + 20% de créditos extra en la primera compra",
+      "note": "La bonificación se aplicará automáticamente a tu cuenta después del pago"
+    },
+    "register_prompt": {
+      "title": "Regístrate Ahora para Más Beneficios",
+      "description": "Los usuarios registrados disfrutan de 500 créditos de bienvenida + 20% de recompensa extra en la primera recarga",
+      "register_button": "Registrarse Ahora",
+      "signin_button": "Ya Tengo Cuenta"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "credit_calculation": {
+        "question": "¿Cómo se calculan los créditos?",
+        "answer": "Menos de 500 caracteres es completamente gratis, el exceso se cobra a 0.1 créditos/carácter. Por ejemplo: traducir 1000 caracteres requiere 50 créditos."
+      },
+      "expiration": {
+        "question": "¿Los créditos expiran?",
+        "answer": "La validez de los créditos depende del paquete comprado, desde 7 hasta 180 días. Te notificaremos antes de la expiración."
+      },
+      "payment_methods": {
+        "question": "¿Qué métodos de pago se soportan?",
+        "answer": "Soportamos tarjetas de crédito, tarjetas de débito y billeteras digitales. Todos los pagos se procesan a través de la plataforma segura Creem."
+      }
+    }
   }
 } 

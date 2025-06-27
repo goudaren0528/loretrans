@@ -119,7 +119,7 @@ export function PricingPage() {
                   <Button size="lg" variant="secondary" asChild>
                     <a href="/auth/signup">{t('register_prompt.register_button')}</a>
                   </Button>
-                  <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600" asChild>
+                  <Button size="lg" variant="outline" className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-blue-600 backdrop-blur-sm" asChild>
                     <a href="/auth/signin">{t('register_prompt.signin_button')}</a>
                   </Button>
                 </div>
@@ -379,15 +379,6 @@ export function PricingPage() {
                 <h3 className="font-semibold mb-2">{t('faq.payment_methods.question')}</h3>
                 <p className="text-sm text-gray-600">
                   {t('faq.payment_methods.answer')}
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">{t('faq.refund.question')}</h3>
-                <p className="text-sm text-gray-600">
-                  {t('faq.refund.answer')}
                 </p>
               </CardContent>
             </Card>

@@ -6,7 +6,6 @@ import { Language, AVAILABLE_LANGUAGES } from '../../../../config/app.config';
 import { DocumentTranslator } from '@/components/document-translator';
 import { GuestLimitGuard } from '@/components/guest-limit-guard';
 import Link from 'next/link';
-import { DocumentUpload } from '@/components/document-upload';
 
 export async function generateMetadata({
   params: { locale },

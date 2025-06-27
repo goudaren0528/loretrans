@@ -6,92 +6,117 @@ export const locales = ['en', 'zh', 'es', 'pt', 'fr', 'ar'] as const;
 export type Locale = typeof locales[number];
 
 // 页面路径的国际化映射
-export const PAGE_TRANSLATIONS = {
-  en: {
-    '/': '/',
-    '/about': '/about',
-    '/contact': '/contact',
-    '/pricing': '/pricing',
-    '/text-translate': '/text-translate',
-    '/document-translate': '/document-translate',
-    '/help': '/help',
-    '/privacy': '/privacy',
-    '/terms': '/terms',
-    '/compliance': '/compliance',
-    '/api-docs': '/api-docs',
-    // 语言特定页面
-    '/creole-to-english': '/creole-to-english',
-    '/lao-to-english': '/lao-to-english', 
-    '/swahili-to-english': '/swahili-to-english',
-    '/burmese-to-english': '/burmese-to-english',
-    '/telugu-to-english': '/telugu-to-english',
-    '/english-to-creole': '/english-to-creole',
-    '/english-to-lao': '/english-to-lao',
-    '/english-to-swahili': '/english-to-swahili',
-    '/english-to-burmese': '/english-to-burmese',
-    '/english-to-telugu': '/english-to-telugu',
+export const PAGE_TRANSLATIONS: Pathnames<typeof locales> = {
+  '/': '/',
+  '/about': {
+    en: '/about',
+    es: '/acerca-de',
+    fr: '/a-propos',
+    zh: '/about',
+    pt: '/about',
+    ar: '/about',
   },
-  es: {
-    '/': '/',
-    '/about': '/acerca-de',
-    '/contact': '/contacto',
-    '/pricing': '/precios',
-    '/text-translate': '/traducir-texto',
-    '/document-translate': '/traducir-documentos',
-    '/help': '/ayuda',
-    '/privacy': '/privacidad',
-    '/terms': '/terminos',
-    '/compliance': '/cumplimiento',
-    '/api-docs': '/documentacion-api',
-    // 语言特定页面保持英文（更好的SEO）
-    '/creole-to-english': '/creole-to-english',
-    '/lao-to-english': '/lao-to-english',
-    '/swahili-to-english': '/swahili-to-english',
-    '/burmese-to-english': '/burmese-to-english',
-    '/telugu-to-english': '/telugu-to-english',
-    '/english-to-creole': '/english-to-creole',
-    '/english-to-lao': '/english-to-lao',
-    '/english-to-swahili': '/english-to-swahili',
-    '/english-to-burmese': '/english-to-burmese',
-    '/english-to-telugu': '/english-to-telugu',
+  '/contact': {
+    en: '/contact',
+    es: '/contacto',
+    fr: '/contact',
+    zh: '/contact',
+    pt: '/contact',
+    ar: '/contact',
   },
-  fr: {
-    '/': '/',
-    '/about': '/a-propos',
-    '/contact': '/contact',
-    '/pricing': '/tarifs',
-    '/text-translate': '/traduire-texte',
-    '/document-translate': '/traduire-documents',
-    '/help': '/aide',
-    '/privacy': '/confidentialite',
-    '/terms': '/conditions',
-    '/compliance': '/conformite',
-    '/api-docs': '/documentation-api',
-    // 语言特定页面保持英文（更好的SEO）
-    '/creole-to-english': '/creole-to-english',
-    '/lao-to-english': '/lao-to-english',
-    '/swahili-to-english': '/swahili-to-english',
-    '/burmese-to-english': '/burmese-to-english',
-    '/telugu-to-english': '/telugu-to-english',
-    '/english-to-creole': '/english-to-creole',
-    '/english-to-lao': '/english-to-lao',
-    '/english-to-swahili': '/english-to-swahili',
-    '/english-to-burmese': '/english-to-burmese',
-    '/english-to-telugu': '/english-to-telugu',
+  '/pricing': {
+    en: '/pricing',
+    es: '/precios',
+    fr: '/tarifs',
+    zh: '/pricing',
+    pt: '/pricing',
+    ar: '/pricing',
   },
-} as const;
+  '/text-translate': {
+    en: '/text-translate',
+    es: '/traducir-texto',
+    fr: '/traduire-texte',
+    zh: '/text-translate',
+    pt: '/text-translate',
+    ar: '/text-translate',
+  },
+  '/document-translate': {
+    en: '/document-translate',
+    es: '/traducir-documentos',
+    fr: '/traduire-documents',
+    zh: '/document-translate',
+    pt: '/document-translate',
+    ar: '/document-translate',
+  },
+  '/help': {
+    en: '/help',
+    es: '/ayuda',
+    fr: '/aide',
+    zh: '/help',
+    pt: '/help',
+    ar: '/help',
+  },
+  '/privacy': {
+    en: '/privacy',
+    es: '/privacidad',
+    fr: '/confidentialite',
+    zh: '/privacy',
+    pt: '/privacy',
+    ar: '/privacy',
+  },
+  '/terms': {
+    en: '/terms',
+    es: '/terminos',
+    fr: '/conditions',
+    zh: '/terms',
+    pt: '/terms',
+    ar: '/terms',
+  },
+  '/compliance': {
+    en: '/compliance',
+    es: '/cumplimiento',
+    fr: '/conformite',
+    zh: '/compliance',
+    pt: '/compliance',
+    ar: '/compliance',
+  },
+  '/api-docs': {
+    en: '/api-docs',
+    es: '/documentacion-api',
+    fr: '/documentation-api',
+    zh: '/api-docs',
+    pt: '/api-docs',
+    ar: '/api-docs',
+  },
+  // ... 其他语言特定页面
+};
+
 
 // 获取给定locale的页面路径
 export function getLocalizedPath(locale: Locale, path: string): string {
-  const localizedPath = PAGE_TRANSLATIONS[locale][path as keyof typeof PAGE_TRANSLATIONS[typeof locale]];
-  return localizedPath || path;
+  const pathConfig = PAGE_TRANSLATIONS[path as keyof typeof PAGE_TRANSLATIONS];
+  if (typeof pathConfig === 'string') {
+    return pathConfig;
+  }
+  if (pathConfig && typeof pathConfig === 'object' && pathConfig[locale]) {
+    return pathConfig[locale]!;
+  }
+  return path;
 }
 
 // 获取英文原始路径
 export function getOriginalPath(locale: Locale, localizedPath: string): string {
-  const translations = PAGE_TRANSLATIONS[locale];
-  const entry = Object.entries(translations).find(([, translated]) => translated === localizedPath);
-  return entry ? entry[0] : localizedPath;
+  for (const [originalPath, pathConfig] of Object.entries(PAGE_TRANSLATIONS)) {
+    if (typeof pathConfig === 'object') {
+      const entry = Object.entries(pathConfig).find(([, translated]) => translated === localizedPath);
+      if (entry) {
+        return originalPath;
+      }
+    } else if (pathConfig === localizedPath) {
+      return pathConfig;
+    }
+  }
+  return localizedPath;
 }
 
 // 为给定路径生成所有语言版本的URL
@@ -194,4 +219,4 @@ export const navigationItems = [
 ] as const;
 
 export const { Link, redirect, usePathname, useRouter } =
-  createLocalizedPathnamesNavigation({ locales }); 
+  createLocalizedPathnamesNavigation({ locales, pathnames: PAGE_TRANSLATIONS }); 

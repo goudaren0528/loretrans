@@ -23,8 +23,8 @@ interface BidirectionalTranslatorProps {
   showLanguageDetection?: boolean
   enableBidirectionalMode?: boolean
   className?: string
-  sourceLanguage: any
-  targetLanguage: any
+  sourceLanguage?: any
+  targetLanguage?: any
 }
 
 export function BidirectionalTranslator({

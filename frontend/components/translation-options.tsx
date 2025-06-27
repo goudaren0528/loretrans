@@ -1,68 +1,43 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, FileText, Image, Type } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
+import { detectLocaleFromPath } from '@/lib/navigation'
 
 type TranslationOption = 'text' | 'document' | 'image'
 
-const optionDetails: Record<
-  TranslationOption,
-  {
-    icon: React.ReactNode
-    href: string
-    available: boolean
-    title: string
-    description: string
-    features: string[]
-    button: string
-  }
-> = {
-  text: {
-    icon: <Type className="h-8 w-8" />,
-    href: '/text-translate',
-    available: true,
-    title: 'Text Translation',
-    description:
-      'Translate text between 20+ low-resource languages and English instantly.',
-    features: [
-      'Up to 1000 characters',
-      'Instant results',
-      'Voice playback',
-      'Copy to clipboard',
-    ],
-    button: 'Start Translating',
-  },
-  document: {
-    icon: <FileText className="h-8 w-8" />,
-    href: '/document-translate',
-    available: true,
-    title: 'Document Translation',
-    description: 'Upload and translate PDF, Word, and PowerPoint documents.',
-    features: [
-      'PDF, Word, PPT support',
-      'Preserves formatting',
-      'Download results',
-      'Batch processing',
-    ],
-    button: 'Start Translating',
-  },
-  image: {
-    icon: <Image className="h-8 w-8" />,
-    href: '/image-translate',
-    available: false,
-    title: 'Image Translation',
-    description: 'Extract and translate text from images using OCR technology.',
-    features: [
-      'OCR text extraction',
-      'Multiple image formats',
-      'Preserve layout',
-      'Coming soon',
-    ],
-    button: 'Coming Soon',
-  },
-}
-
 export function TranslationOptions() {
-  const options: TranslationOption[] = ['text', 'document', 'image']
+  const t = useTranslations('IndexPage.translation_options')
+  const pathname = usePathname()
+  const { locale } = detectLocaleFromPath(pathname)
+
+  const optionDetails: Record<
+    TranslationOption,
+    {
+      icon: React.ReactNode
+      href: string
+      available: boolean
+    }
+  > = {
+    text: {
+      icon: <Type className="h-8 w-8" />,
+      href: `/${locale}/text-translate`,
+      available: true,
+    },
+    document: {
+      icon: <FileText className="h-8 w-8" />,
+      href: `/${locale}/document-translate`,
+      available: true,
+    },
+    image: {
+      icon: <Image className="h-8 w-8" />,
+      href: '#',
+      available: false,
+    },
+  }
 
   return (
     <section className="relative py-16">
@@ -70,94 +45,85 @@ export function TranslationOptions() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Choose Your Translation Method
+              {t('title')}
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Select the best option for your translation needs
+              {t('description')}
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {options.map((option) => {
-              const details = optionDetails[option]
+            {(Object.keys(optionDetails) as TranslationOption[]).map((key) => {
+              const option = optionDetails[key]
+              const isAvailable = option.available
+
               return (
                 <div
-                  key={option}
+                  key={key}
                   className={`relative rounded-lg border p-6 shadow-sm transition-all hover:shadow-md ${
-                    details.available
+                    isAvailable
                       ? 'bg-white border-gray-200 hover:border-primary/50'
                       : 'bg-gray-50 border-gray-200'
                   }`}
                 >
-                  {!details.available && (
+                  {!isAvailable && (
                     <div className="absolute top-4 right-4">
                       <span className="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
-                        Coming Soon
+                        {t('coming_soon')}
                       </span>
                     </div>
                   )}
-
                   <div className="mb-4">
                     <div
                       className={`inline-flex h-12 w-12 items-center justify-center rounded-lg ${
-                        details.available
+                        isAvailable
                           ? 'bg-primary text-white'
                           : 'bg-gray-300 text-gray-500'
                       }`}
                     >
-                      {details.icon}
+                      {option.icon}
                     </div>
                   </div>
-
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {details.title}
+                    {t(`options.${key}.title`)}
                   </h3>
-
-                  <p className="text-gray-600 mb-4">{details.description}</p>
-
+                  <p className="text-gray-600 mb-4">
+                    {t(`options.${key}.description`)}
+                  </p>
                   <ul className="space-y-2 mb-6">
-                    {details.features.map((feature, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center text-sm text-gray-600"
-                      >
-                        <div
-                          className={`mr-2 h-1.5 w-1.5 rounded-full ${
-                            details.available
-                              ? 'bg-green-500'
-                              : 'bg-gray-400'
-                          }`}
-                        />
-                        {feature}
+                    {[0, 1, 2, 3].map((index) => (
+                      <li key={index} className="flex items-center text-sm text-gray-600">
+                        <div className={`mr-2 h-1.5 w-1.5 rounded-full ${
+                          isAvailable ? 'bg-green-500' : 'bg-gray-400'
+                        }`} />
+                        {t(`options.${key}.features.${index}`)}
                       </li>
                     ))}
                   </ul>
-
-                  {details.available ? (
-                    <Link href={details.href as any}>
-                      <Button className="w-full group">
-                        {details.button}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {isAvailable ? (
+                    <Link href={option.href}>
+                      <Button className="w-full group" disabled={false}>
+                        {false}
+                        {[t(`options.${key}.button`), <ArrowRight key="arrow" className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />]}
                       </Button>
                     </Link>
                   ) : (
-                    <Button disabled className="w-full">
-                      Coming Soon
+                    <Button className="w-full" disabled={true}>
+                      {false}
+                      {t(`options.${key}.button`)}
                     </Button>
                   )}
                 </div>
               )
             })}
           </div>
-
-          {/* Quick Start Section */}
           <div className="mt-12 text-center">
             <p className="text-sm text-gray-600 mb-4">
-              Not sure which option to choose? Start with text translation
+              {t('quick_start.title')}
             </p>
-            <Link href="/text-translate">
-              <Button variant="outline" size="lg">
-                Try Text Translation Now
+            <Link href={`/${locale}/text-translate`}>
+              <Button variant="outline" className="h-11 rounded-md px-8">
+                {false}
+                {t('quick_start.button')}
               </Button>
             </Link>
           </div>
@@ -165,4 +131,4 @@ export function TranslationOptions() {
       </div>
     </section>
   )
-} 
+}

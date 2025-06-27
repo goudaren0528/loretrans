@@ -714,6 +714,7 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about our pricing",
       "credit_calculation": {
         "question": "How are credits calculated?",
         "answer": "Under 500 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 50 credits."
@@ -725,7 +726,24 @@
       "payment_methods": {
         "question": "What payment methods are supported?",
         "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
-      }
+      },
+      "bulk_discount": {
+        "question": "Do you offer bulk discounts?",
+        "answer": "Yes! Our larger packages offer significant savings - up to 40% off with the Enterprise package. The more credits you purchase, the better the value."
+      },
+      "unused_credits": {
+        "question": "What happens to unused credits?",
+        "answer": "Unused credits remain in your account until their expiration date. You can check your credit balance and expiration dates in your account dashboard."
+      },
+      "business_invoicing": {
+        "question": "Do you provide invoices for business purchases?",
+        "answer": "Yes, we provide detailed invoices for all purchases. Business customers can access invoices through their account dashboard or contact support for assistance."
+      },
+      "api_pricing": {
+        "question": "How does API pricing work?",
+        "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 500."
+      },
+      "contact_support": "Have more questions? Contact our support team"
     }
   }
 } 

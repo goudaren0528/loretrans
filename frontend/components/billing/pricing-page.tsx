@@ -352,36 +352,64 @@ export function PricingPage() {
           </div>
         </ConditionalRender>
 
-        {/* FAQ部分 */}
+        {/* FAQ部分 - 使用与首页一致的样式 */}
         <div className="max-w-4xl mx-auto mt-16">
-          <h2 className="text-2xl font-bold text-center mb-8">{t('faq.title')}</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">{t('faq.credit_calculation.question')}</h3>
-                <p className="text-sm text-gray-600">
-                  {t('faq.credit_calculation.answer')}
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">{t('faq.expiration.question')}</h3>
-                <p className="text-sm text-gray-600">
-                  {t('faq.expiration.answer')}
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-2">{t('faq.payment_methods.question')}</h3>
-                <p className="text-sm text-gray-600">
-                  {t('faq.payment_methods.answer')}
-                </p>
-              </CardContent>
-            </Card>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              {t('faq.title')}
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              {t('faq.subtitle')}
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              'credit_calculation',
+              'expiration', 
+              'payment_methods',
+              'bulk_discount',
+              'unused_credits',
+              'business_invoicing',
+              'api_pricing'
+            ].map((faqKey) => (
+              <details
+                key={faqKey}
+                className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md"
+              >
+                <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
+                  {t(`faq.${faqKey}.question`)}
+                  <svg
+                    className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </summary>
+                <div className="mt-4 text-gray-600 leading-7">
+                  {t(`faq.${faqKey}.answer`)}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600">
+              {t('faq.contact_support')}{' '}
+              <a
+                href="mailto:support@transly.app"
+                className="font-medium text-primary hover:text-primary/80"
+              >
+                support@transly.app
+              </a>
+            </p>
           </div>
         </div>
       </div>

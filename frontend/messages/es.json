@@ -498,6 +498,7 @@
     },
     "faq": {
       "title": "Preguntas Frecuentes",
+      "subtitle": "Todo lo que necesitas saber sobre nuestros precios",
       "credit_calculation": {
         "question": "¿Cómo se calculan los créditos?",
         "answer": "Menos de 500 caracteres es completamente gratis, el exceso se cobra a 0.1 créditos/carácter. Por ejemplo: traducir 1000 caracteres requiere 50 créditos."
@@ -509,7 +510,24 @@
       "payment_methods": {
         "question": "¿Qué métodos de pago se soportan?",
         "answer": "Soportamos tarjetas de crédito, tarjetas de débito y billeteras digitales. Todos los pagos se procesan a través de la plataforma segura Creem."
-      }
+      },
+      "bulk_discount": {
+        "question": "¿Ofrecen descuentos por volumen?",
+        "answer": "¡Sí! Nuestros paquetes más grandes ofrecen ahorros significativos - hasta 40% de descuento con el paquete Empresarial. Cuantos más créditos compres, mejor será el valor."
+      },
+      "unused_credits": {
+        "question": "¿Qué pasa con los créditos no utilizados?",
+        "answer": "Los créditos no utilizados permanecen en tu cuenta hasta su fecha de expiración. Puedes verificar tu saldo de créditos y fechas de expiración en tu panel de cuenta."
+      },
+      "business_invoicing": {
+        "question": "¿Proporcionan facturas para compras empresariales?",
+        "answer": "Sí, proporcionamos facturas detalladas para todas las compras. Los clientes empresariales pueden acceder a las facturas a través de su panel de cuenta o contactar al soporte para asistencia."
+      },
+      "api_pricing": {
+        "question": "¿Cómo funciona el precio de la API?",
+        "answer": "El acceso a la API está incluido con los paquetes Empresarial y Corporativo. El uso de la API consume créditos a la misma tasa que las traducciones web - 0.1 créditos por carácter sobre 500."
+      },
+      "contact_support": "¿Tienes más preguntas? Contacta a nuestro equipo de soporte"
     }
   }
 } 

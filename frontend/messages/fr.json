@@ -498,6 +498,7 @@
     },
     "faq": {
       "title": "Questions Fréquemment Posées",
+      "subtitle": "Tout ce que vous devez savoir sur nos tarifs",
       "credit_calculation": {
         "question": "Comment les crédits sont-ils calculés?",
         "answer": "Moins de 500 caractères est complètement gratuit, l'excédent est facturé à 0.1 crédits/caractère. Par exemple: traduire 1000 caractères nécessite 50 crédits."
@@ -509,7 +510,24 @@
       "payment_methods": {
         "question": "Quels modes de paiement sont supportés?",
         "answer": "Nous supportons les cartes de crédit, cartes de débit et portefeuilles numériques. Tous les paiements sont traités via la plateforme sécurisée Creem."
-      }
+      },
+      "bulk_discount": {
+        "question": "Offrez-vous des remises en volume?",
+        "answer": "Oui! Nos forfaits plus importants offrent des économies significatives - jusqu'à 40% de réduction avec le forfait Entreprise. Plus vous achetez de crédits, meilleure est la valeur."
+      },
+      "unused_credits": {
+        "question": "Que se passe-t-il avec les crédits non utilisés?",
+        "answer": "Les crédits non utilisés restent dans votre compte jusqu'à leur date d'expiration. Vous pouvez vérifier votre solde de crédits et les dates d'expiration dans votre tableau de bord."
+      },
+      "business_invoicing": {
+        "question": "Fournissez-vous des factures pour les achats d'entreprise?",
+        "answer": "Oui, nous fournissons des factures détaillées pour tous les achats. Les clients d'entreprise peuvent accéder aux factures via leur tableau de bord ou contacter le support pour assistance."
+      },
+      "api_pricing": {
+        "question": "Comment fonctionne la tarification API?",
+        "answer": "L'accès API est inclus avec les forfaits Entreprise et Corporate. L'utilisation de l'API consomme des crédits au même taux que les traductions web - 0.1 crédits par caractère au-dessus de 500."
+      },
+      "contact_support": "Vous avez d'autres questions? Contactez notre équipe de support"
     }
   }
 } 

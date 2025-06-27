@@ -3,7 +3,12 @@
  * 支持Vercel KV/Upstash Redis和本地内存缓存
  */
 
-import { APP_CONFIG } from '../../../config/app.config'
+import { createClient } from '@vercel/kv'
+import {
+  TranslationCache,
+  TranslationCacheRepository,
+} from '../../shared/types'
+import { APP_CONFIG } from '../../config/app.config'
 
 interface CacheItem<T = any> {
   value: T

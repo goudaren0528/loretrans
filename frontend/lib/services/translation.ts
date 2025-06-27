@@ -1,10 +1,5 @@
-import { APP_CONFIG } from '../../../config/app.config'
-
-interface TranslationRequest {
-  text: string
-  sourceLanguage: string
-  targetLanguage: string
-}
+import { APP_CONFIG } from '../../config/app.config'
+import { TranslationRequest } from '../../shared/types'
 
 interface TranslationResponse {
   translatedText: string
@@ -393,29 +388,27 @@ export async function translateBatch(
   sourceLanguage: string,
   targetLanguage: string
 ): Promise<TranslationResponse[]> {
-  const results: TranslationResponse[] = []
-  
-  for (const text of texts) {
-    try {
-      const result = await translateText({
-        text,
-        sourceLanguage,
-        targetLanguage,
-      })
-      results.push(result)
-    } catch (error) {
-      // 为失败的翻译添加错误信息
-      results.push({
-        translatedText: `[ERROR] ${error instanceof Error ? error.message : 'Translation failed'}`,
-        sourceLanguage,
-        targetLanguage,
-        processingTime: 0,
-        method: 'fallback',
-      })
-    }
-  }
-  
-  return results
+  const translations = await Promise.all(
+    texts.map(async (text) => {
+      try {
+        const response = await translateText({ text, sourceLanguage, targetLanguage });
+        return response;
+      } catch (error) {
+        console.error(`Batch translation error for text: "${text}"`, error);
+        // For batch operations, we might want to return a partial success
+        // with an error message instead of throwing.
+        return {
+          translatedText: '',
+          sourceLanguage: sourceLanguage,
+          targetLanguage: targetLanguage,
+          processingTime: 0,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        } as TranslationResponse;
+      }
+    })
+  );
+
+  return translations;
 }
 
 /**

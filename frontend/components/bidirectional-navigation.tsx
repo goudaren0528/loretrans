@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ArrowRight, ArrowLeft, Globe, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { APP_CONFIG } from '../../config/app.config'
+import { APP_CONFIG } from '../config/app.config'
 
 interface BidirectionalNavigationProps {
   currentSourceLang: string

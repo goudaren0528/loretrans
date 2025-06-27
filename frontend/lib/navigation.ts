@@ -1,8 +1,8 @@
-import { createNavigation } from 'next-intl/navigation';
-import { LANG_TO_ENGLISH_PAGES } from '../../config/app.config';
+import { LANG_TO_ENGLISH_PAGES } from 'frontend/config/app.config';
+import { createLocalizedPathnamesNavigation, Pathnames } from 'next-intl/navigation';
 
 // 支持的语言代码
-export const locales = ['en', 'es', 'fr'] as const;
+export const locales = ['en', 'zh', 'es', 'pt', 'fr', 'ar'] as const;
 export type Locale = typeof locales[number];
 
 // 页面路径的国际化映射
@@ -194,4 +194,4 @@ export const navigationItems = [
 ] as const;
 
 export const { Link, redirect, usePathname, useRouter } =
-  createNavigation({ locales }); 
+  createLocalizedPathnamesNavigation({ locales }); 

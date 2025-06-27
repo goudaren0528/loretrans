@@ -23,6 +23,8 @@ interface BidirectionalTranslatorProps {
   showLanguageDetection?: boolean
   enableBidirectionalMode?: boolean
   className?: string
+  sourceLanguage: any
+  targetLanguage: any
 }
 
 export function BidirectionalTranslator({
@@ -32,13 +34,13 @@ export function BidirectionalTranslator({
   showNavigation = true,
   showLanguageDetection = true,
   enableBidirectionalMode = true,
-  className
+  className,
+  sourceLanguage,
+  targetLanguage
 }: BidirectionalTranslatorProps) {
   
   // 使用自定义Hook管理语言切换状态
   const {
-    sourceLanguage,
-    targetLanguage,
     sourceText,
     targetText,
     switchLanguages,
@@ -174,9 +176,9 @@ export function BidirectionalTranslator({
                     </div>
                   </SelectItem>
                   {APP_CONFIG.languages.supported
-                    .filter((lang: { available: any; }) => lang.available)
-                    .map((lang: { code: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; nativeName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }) => (
-                    <SelectItem key={lang.code} value={lang.code}>
+                    .filter((lang) => lang.available)
+                    .map((lang) => (
+                    <SelectItem key={lang.code} value={lang.code as string}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>
                         <span className="text-muted-foreground text-xs">({lang.nativeName})</span>
@@ -209,8 +211,8 @@ export function BidirectionalTranslator({
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
-                  {targetLanguageOptions.map((lang: { code: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; nativeName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }) => (
-                    <SelectItem key={lang.code} value={lang.code}>
+                  {targetLanguageOptions.map((lang) => (
+                    <SelectItem key={lang.code} value={lang.code as string}>
                       <div className="flex items-center gap-2">
                         <span>{lang.name}</span>
                         <span className="text-muted-foreground text-xs">({lang.nativeName})</span>

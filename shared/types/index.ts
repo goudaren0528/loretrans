@@ -6,7 +6,7 @@ export type bytea = string;
 /**
  * 用户角色枚举
  */
-export type UserRole = 'admin' | 'pro_user' | 'free_user';
+export type UserRole = 'admin' | 'pro_user' | 'free_user' | 'guest';
 
 /**
  * 用户核心数据模型

@@ -4,8 +4,8 @@ import { locales, defaultLocale } from './i18n/settings';
 
 export default createMiddleware({
   locales,
-  defaultLocale: 'en', // 明确设置默认语言为英语
-  localeDetection: true,
+  defaultLocale: 'en', // 强制默认语言为英语
+  localeDetection: false, // 禁用浏览器语言检测，强制使用默认语言
   localePrefix: 'always',
   pathnames: {
     '/': '/',

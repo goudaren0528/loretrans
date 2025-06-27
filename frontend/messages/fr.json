@@ -378,7 +378,58 @@
     }
   },
   "AboutPage": {
+    "meta": {
+      "title": "À propos de Transly - Traduction Professionnelle pour les Langues à Faibles Ressources",
+      "description": "Découvrez Transly, la plateforme de traduction leader pour les petites langues vers l'anglais. Alimenté par le modèle NLLB de Meta avec plus de 20 langues supportées."
+    },
+    "hero": {
+      "title": "À propos de Transly",
+      "description": "Plateforme de traduction professionnelle dédiée à connecter les langues à faibles ressources avec le monde grâce à une traduction précise vers l'anglais."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "p1": "Nous croyons que chaque langue mérite d'être entendue. Transly comble le fossé de communication pour les locuteurs de langues à faibles ressources, en fournissant des services de traduction précis et accessibles vers l'anglais.",
+      "p2": "Alimenté par le modèle NLLB (No Language Left Behind) de pointe de Meta, nous supportons plus de 20 langues qui sont souvent négligées par les services de traduction grand public.",
+      "cta": "Essayer la Traduction de Documents"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Accessibilité Mondiale",
+        "description": "Rendre la traduction accessible aux locuteurs de langues avec des ressources numériques limitées."
+      },
+      "accuracy": {
+        "title": "Rapide et Précis",
+        "description": "La technologie IA avancée offre des traductions de haute qualité en quelques secondes."
+      },
+      "privacy": {
+        "title": "Confidentialité d'Abord",
+        "description": "Vos traductions ne sont pas stockées. Nous respectons votre vie privée et la sécurité de vos données."
+      }
+    },
+    "supported_languages": {
+      "title": "Langues Supportées",
+      "description": "Nous supportons {count} langues à faibles ressources avec plus ajoutées régulièrement.",
+      "request_cta": "Demander une Langue",
+      "request_cta_description": "Vous ne voyez pas votre langue ? Nous élargissons constamment notre prise en charge linguistique."
+    },
+    "technology": {
+      "title": "Alimenté par l'IA Avancée",
+      "description": "Transly utilise le modèle NLLB (No Language Left Behind) de Meta, spécialement conçu pour fournir une traduction de haute qualité pour les langues à faibles ressources avec lesquelles les systèmes traditionnels ont des difficultés.",
+      "cultural_preservation": {
+        "title": "Préservation Culturelle",
+        "description": "Soutenir la diversité linguistique et aider à préserver le patrimoine culturel grâce à la technologie."
+      },
+      "community_driven": {
+        "title": "Piloté par la Communauté",
+        "description": "Construit avec les retours de locuteurs natifs et de communautés linguistiques du monde entier."
+      },
+      "continuous_improvement": {
+        "title": "Amélioration Continue",
+        "description": "Mises à jour régulières du modèle et améliorations pour fournir une meilleure qualité de traduction."
+      }
+    },
     "faq": {
+      "title": "Questions Fréquemment Posées",
       "q1_title": "Qu'est-ce qui différencie Transly des autres services de traduction ?",
       "q1_answer": "Transly se spécialise dans les langues à faibles ressources qui sont souvent mal prises en charge par les services de traduction grand public. Nous utilisons le modèle NLLB de Meta, qui est spécialement conçu pour ces langues, garantissant une meilleure précision et un meilleur contexte culturel.",
       "q2_title": "Mes données sont-elles sécurisées et privées ?",
@@ -392,8 +443,11 @@
       "q6_title": "Proposez-vous un accès API pour les développeurs ?",
       "q6_answer": "Nous développons actuellement un accès API pour les développeurs et les entreprises. Si vous souhaitez intégrer nos capacités de traduction dans votre application, veuillez nous contacter pour obtenir des informations sur l'accès anticipé."
     },
-    "supported_languages": {
-      "request_cta_description": "Vous ne voyez pas votre langue ? Nous élargissons constamment notre prise en charge linguistique."
+    "cta_section": {
+      "title": "Prêt à Commencer ?",
+      "description": "Découvrez une traduction précise pour votre langue aujourd'hui. Qu'il s'agisse d'un texte rapide ou d'un document complet, Transly est là pour vous aider à communiquer avec le monde.",
+      "cta_text": "Essayer la Traduction de Texte",
+      "cta_docs": "Télécharger un Document"
     }
   },
   "pricing": {

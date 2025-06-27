@@ -583,5 +583,69 @@
       },
       "contact_support": "¿Tienes más preguntas? Contacta a nuestro equipo de soporte"
     }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Traductor de Texto - Herramienta de Traducción IA Gratuita | Transly",
+      "description": "Traductor de texto en línea gratuito para más de 20 idiomas de bajos recursos. Traduzca Criollo, Lao, Swahili, Birmano y más al inglés al instante con IA."
+    },
+    "hero": {
+      "title": "Traductor de Texto Gratuito",
+      "description": "Traduzca texto entre más de 20 idiomas de bajos recursos e inglés usando IA avanzada. Rápido, preciso y completamente gratuito para hasta 500 caracteres.",
+      "status_free": "500 caracteres gratis",
+      "status_ai": "Con IA",
+      "status_instant": "Resultados Instantáneos"
+    },
+    "other_languages": {
+      "title": "Probar Otros Idiomas",
+      "description": "Explore la traducción para otros idiomas de bajos recursos"
+    },
+    "faq": {
+      "title": "FAQ de Traducción de Texto",
+      "description": "Todo lo que necesita saber sobre nuestro servicio de traducción de texto",
+      "q1_title": "¿Cuánto cuesta la traducción de texto?",
+      "q1_answer": "La traducción de texto es completamente gratuita para hasta 500 caracteres por solicitud. Para textos más largos (más de 500 caracteres), cobramos 0.1 créditos por carácter. Por ejemplo, un texto de 1000 caracteres costaría 50 créditos (500 gratis + 500×0.1 = 50 créditos).",
+      "q2_title": "¿Qué idiomas soportan?",
+      "q2_answer": "Nos especializamos en idiomas de bajos recursos que a menudo son mal soportados por los servicios de traducción convencionales. Actualmente soportamos Criollo Haitiano, Lao, Swahili, Birmano, Telugu, Chino y más. Todos los idiomas soportan traducción bidireccional con inglés.",
+      "q3_title": "¿Qué tan precisas son las traducciones?",
+      "q3_answer": "Nuestras traducciones están impulsadas por el modelo NLLB (No Language Left Behind) de Meta, que está específicamente diseñado para idiomas de bajos recursos. Aunque ninguna traducción automatizada es perfecta, NLLB proporciona una precisión significativamente mejor para idiomas pequeños comparado con los servicios de traducción tradicionales.",
+      "q4_title": "¿Necesito crear una cuenta?",
+      "q4_answer": "No se requiere cuenta para traducciones gratuitas (hasta 500 caracteres). Sin embargo, crear una cuenta gratuita te da 500 créditos de bonificación y te permite comprar créditos adicionales para traducciones más largas. También obtendrás acceso al historial de traducciones y otras características premium.",
+      "q5_title": "¿Puedo traducir del inglés a otros idiomas?",
+      "q5_answer": "¡Sí! Todos nuestros idiomas soportados funcionan bidireccionalmente. Puedes traducir del inglés a cualquier idioma soportado, o de cualquier idioma soportado al inglés. Solo usa el selector de idioma para elegir tu dirección de traducción deseada.",
+      "q6_title": "¿Cuál es el límite de caracteres?",
+      "q6_answer": "Los usuarios gratuitos pueden traducir hasta 500 caracteres por solicitud sin ningún costo. Para textos más largos, puedes dividirlos en fragmentos más pequeños o comprar créditos. Los usuarios registrados obtienen 500 créditos de bonificación para empezar, lo que permite traducciones más largas.",
+      "contact_text": "¿Tiene más preguntas?",
+      "contact_link": "Contacte a nuestro equipo de soporte"
+    },
+    "cta": {
+      "title": "¿Necesita Más Poder de Traducción?",
+      "description": "Traduzca textos más largos y documentos con nuestras características premium",
+      "try_document": "Probar Traducción de Documentos",
+      "view_pricing": "Ver Planes de Precios"
+    },
+    "features": {
+      "title": "¿Por Qué Elegir Nuestro Traductor de Texto?",
+      "fast_title": "Velocidad Asombrosa",
+      "fast_desc": "Obtenga traducciones instantáneas impulsadas por modelos de IA avanzados. Sin esperas, sin retrasos.",
+      "accurate_title": "Alta Precisión",
+      "accurate_desc": "Impulsado por el modelo NLLB de Meta, asegurando traducciones de alta calidad para todos los idiomas soportados.",
+      "free_title": "Siempre Gratis",
+      "free_desc": "Sin tarifas ocultas, sin límites, sin registro requerido. Traduzca tanto como necesite."
+    },
+    "how_to": {
+      "title": "Cómo Usar el Traductor de Texto",
+      "step1_title": "Seleccionar Idiomas",
+      "step1_desc": "Elija su idioma de origen e idioma de destino (inglés) de los menús desplegables.",
+      "step2_title": "Ingresar Texto",
+      "step2_desc": "Escriba o pegue su texto en el cuadro de entrada. Se soportan hasta 1000 caracteres.",
+      "step3_title": "Obtener Traducción",
+      "step3_desc": "Haga clic en traducir y obtenga instantáneamente su resultado. Copie o escuche la traducción."
+    },
+    "supported_languages": {
+      "title": "Idiomas Soportados",
+      "description": "Soportamos la traducción de estos idiomas al inglés:",
+      "more": "Y muchos más idiomas de bajos recursos..."
+    }
   }
 } 

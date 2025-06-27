@@ -583,5 +583,69 @@
       },
       "contact_support": "Vous avez d'autres questions? Contactez notre équipe de support"
     }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Traducteur de Texte - Outil de Traduction IA Gratuit | Transly",
+      "description": "Traducteur de texte en ligne gratuit pour plus de 20 langues à faibles ressources. Traduisez Créole, Lao, Swahili, Birman et plus vers l'anglais instantanément avec l'IA."
+    },
+    "hero": {
+      "title": "Traducteur de Texte Gratuit",
+      "description": "Traduisez du texte entre plus de 20 langues à faibles ressources et l'anglais en utilisant une IA avancée. Rapide, précis et entièrement gratuit pour jusqu'à 500 caractères.",
+      "status_free": "500 caractères gratuits",
+      "status_ai": "Alimenté par l'IA",
+      "status_instant": "Résultats Instantanés"
+    },
+    "other_languages": {
+      "title": "Essayer D'autres Langues",
+      "description": "Explorez la traduction pour d'autres langues à faibles ressources"
+    },
+    "faq": {
+      "title": "FAQ Traduction de Texte",
+      "description": "Tout ce que vous devez savoir sur notre service de traduction de texte",
+      "q1_title": "Combien coûte la traduction de texte?",
+      "q1_answer": "La traduction de texte est entièrement gratuite pour jusqu'à 500 caractères par demande. Pour des textes plus longs (plus de 500 caractères), nous facturons 0.1 crédits par caractère. Par exemple, un texte de 1000 caractères coûterait 50 crédits (500 gratuits + 500×0.1 = 50 crédits).",
+      "q2_title": "Quelles langues supportez-vous?",
+      "q2_answer": "Nous nous spécialisons dans les langues à faibles ressources qui sont souvent mal supportées par les services de traduction grand public. Nous supportons actuellement le Créole Haïtien, le Lao, le Swahili, le Birman, le Telugu, le Chinois et plus. Toutes les langues supportent la traduction bidirectionnelle avec l'anglais.",
+      "q3_title": "À quel point les traductions sont-elles précises?",
+      "q3_answer": "Nos traductions sont alimentées par le modèle NLLB (No Language Left Behind) de Meta, qui est spécifiquement conçu pour les langues à faibles ressources. Bien qu'aucune traduction automatisée ne soit parfaite, NLLB fournit une précision significativement meilleure pour les petites langues comparé aux services de traduction traditionnels.",
+      "q4_title": "Dois-je créer un compte?",
+      "q4_answer": "Aucun compte n'est requis pour les traductions gratuites (jusqu'à 500 caractères). Cependant, créer un compte gratuit vous donne 500 crédits bonus et vous permet d'acheter des crédits supplémentaires pour des traductions plus longues. Vous aurez également accès à l'historique des traductions et autres fonctionnalités premium.",
+      "q5_title": "Puis-je traduire de l'anglais vers d'autres langues?",
+      "q5_answer": "Oui! Toutes nos langues supportées fonctionnent de manière bidirectionnelle. Vous pouvez traduire de l'anglais vers n'importe quelle langue supportée, ou de n'importe quelle langue supportée vers l'anglais. Utilisez simplement le sélecteur de langue pour choisir votre direction de traduction désirée.",
+      "q6_title": "Quelle est la limite de caractères?",
+      "q6_answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 500 caractères par demande sans aucun coût. Pour des textes plus longs, vous pouvez soit les diviser en plus petits morceaux ou acheter des crédits. Les utilisateurs enregistrés obtiennent 500 crédits bonus pour commencer, ce qui permet des traductions plus longues.",
+      "contact_text": "Vous avez plus de questions?",
+      "contact_link": "Contactez notre équipe de support"
+    },
+    "cta": {
+      "title": "Besoin de Plus de Puissance de Traduction?",
+      "description": "Traduisez des textes plus longs et des documents avec nos fonctionnalités premium",
+      "try_document": "Essayer la Traduction de Documents",
+      "view_pricing": "Voir les Plans de Prix"
+    },
+    "features": {
+      "title": "Pourquoi Choisir Notre Traducteur de Texte?",
+      "fast_title": "Vitesse Foudre",
+      "fast_desc": "Obtenez des traductions instantanées alimentées par des modèles d'IA avancés. Pas d'attente, pas de délais.",
+      "accurate_title": "Haute Précision",
+      "accurate_desc": "Alimenté par le modèle NLLB de Meta, assurant des traductions de haute qualité pour toutes les langues supportées.",
+      "free_title": "Toujours Gratuit",
+      "free_desc": "Pas de frais cachés, pas de limites, pas d'inscription requise. Traduisez autant que vous en avez besoin."
+    },
+    "how_to": {
+      "title": "Comment Utiliser le Traducteur de Texte",
+      "step1_title": "Sélectionner les Langues",
+      "step1_desc": "Choisissez votre langue source et langue cible (anglais) dans les menus déroulants.",
+      "step2_title": "Saisir le Texte",
+      "step2_desc": "Tapez ou collez votre texte dans la boîte de saisie. Jusqu'à 1000 caractères supportés.",
+      "step3_title": "Obtenir la Traduction",
+      "step3_desc": "Cliquez sur traduire et obtenez instantanément votre résultat. Copiez ou écoutez la traduction."
+    },
+    "supported_languages": {
+      "title": "Langues Supportées",
+      "description": "Nous supportons la traduction de ces langues vers l'anglais:",
+      "more": "Et beaucoup plus de langues à faibles ressources..."
+    }
   }
 } 

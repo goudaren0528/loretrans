@@ -133,10 +133,10 @@ export function PricingTable() {
                     </p>
                   </div>
                   
-                  {plan.discount > 0 && (
+                  {(plan.discount ?? 0) > 0 && (
                     <div className="mt-3">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                        Save {plan.discount}%
+                        Save {plan.discount ?? 0}%
                       </span>
                       <p className="text-xs text-gray-500 mt-1">
                         Regular price: ${plan.originalValue?.toFixed(2)}
@@ -220,9 +220,9 @@ export function PricingTable() {
                     <div className="mt-3">
                       <span className="text-2xl font-bold text-gray-900">${plan.priceUSD}</span>
                       <span className="text-gray-600 ml-2">/ {plan.credits.toLocaleString()} credits</span>
-                      {plan.discount > 0 && (
+                      {(plan.discount ?? 0) > 0 && (
                         <span className="ml-2 text-sm text-green-600 font-medium">
-                          Save {plan.discount}%
+                          Save {plan.discount ?? 0}%
                         </span>
                       )}
                     </div>

@@ -199,13 +199,13 @@ export function useGuestLimit() {
   const { user } = useAuth()
   const [limitStatus, setLimitStatus] = useState<GuestLimitStatus | null>(null)
 
-  // 如果在 GuestLimitGuard 内部，使用 Context
-  if (context) {
-    return context
-  }
-
-  // 如果不在 GuestLimitGuard 内部，独立使用
+  // 总是调用 useEffect，但在内部处理条件逻辑
   useEffect(() => {
+    // 如果在 GuestLimitGuard 内部，不需要独立管理状态
+    if (context) {
+      return
+    }
+
     if (user) {
       setLimitStatus(null)
       return
@@ -213,7 +213,12 @@ export function useGuestLimit() {
 
     const status = GuestLimitService.checkGuestLimit()
     setLimitStatus(status)
-  }, [user])
+  }, [user, context])
+
+  // 如果在 GuestLimitGuard 内部，使用 Context
+  if (context) {
+    return context
+  }
 
   const recordTranslation = () => {
     if (user) return true

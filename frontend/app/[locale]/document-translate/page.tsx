@@ -80,7 +80,6 @@ export default async function DocumentTranslatePage({
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {AVAILABLE_LANGUAGES.map((lang: Language) => (
             <div key={lang.code} className="text-center p-4 rounded-lg border hover:bg-muted/50 transition-colors">
-              <div className="text-2xl mb-2">{lang.flag}</div>
               <div className="font-medium text-sm">{lang.name}</div>
               <div className="text-xs text-muted-foreground">{lang.nativeName}</div>
             </div>

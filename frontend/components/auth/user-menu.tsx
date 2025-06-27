@@ -23,6 +23,7 @@ import {
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 /**
  * 用户菜单组件
@@ -31,6 +32,7 @@ import Link from 'next/link'
 export function UserMenu() {
   const { user, signOut, loading } = useAuth()
   const router = useRouter()
+  const t = useTranslations('UserMenu')
 
   const handleSignOut = async () => {
     await signOut()
@@ -69,13 +71,13 @@ export function UserMenu() {
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-medium leading-none">
-                  {user?.name || '用户'}
+                  {user?.name || t('user')}
                 </p>
                 <p className="text-xs leading-none text-muted-foreground">
                   {user?.email}
                 </p>
                 <p className="text-xs leading-none text-blue-600 font-medium">
-                  {user?.credits || 0} 积分
+                  {user?.credits || 0} {t('credits')}
                 </p>
               </div>
             </DropdownMenuLabel>
@@ -85,28 +87,28 @@ export function UserMenu() {
             <DropdownMenuItem asChild>
               <Link href="/profile" className="flex items-center">
                 <User className="mr-2 h-4 w-4" />
-                <span>个人资料</span>
+                <span>{t('profile')}</span>
               </Link>
             </DropdownMenuItem>
             
             <DropdownMenuItem asChild>
               <Link href="/dashboard" className="flex items-center">
                 <BarChart3 className="mr-2 h-4 w-4" />
-                <span>控制台</span>
+                <span>{t('dashboard')}</span>
               </Link>
             </DropdownMenuItem>
             
             <DropdownMenuItem asChild>
               <Link href="/credits/purchase" className="flex items-center">
                 <CreditCard className="mr-2 h-4 w-4" />
-                <span>购买积分</span>
+                <span>{t('purchase_credits')}</span>
               </Link>
             </DropdownMenuItem>
             
             <DropdownMenuItem asChild>
               <Link href="/settings" className="flex items-center">
                 <Settings className="mr-2 h-4 w-4" />
-                <span>设置</span>
+                <span>{t('settings')}</span>
               </Link>
             </DropdownMenuItem>
             
@@ -117,7 +119,7 @@ export function UserMenu() {
               onClick={handleSignOut}
             >
               <LogOut className="mr-2 h-4 w-4" />
-              <span>退出登录</span>
+              <span>{t('sign_out')}</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -129,14 +131,14 @@ export function UserMenu() {
           <Button variant="ghost" size="sm" asChild>
             <Link href="/auth/signin" className="flex items-center gap-1">
               <LogIn className="h-4 w-4" />
-              <span className="hidden sm:inline">登录</span>
+              <span className="hidden sm:inline">{t('sign_in')}</span>
             </Link>
           </Button>
           
           <Button size="sm" asChild>
             <Link href="/auth/signup" className="flex items-center gap-1">
               <UserPlus className="h-4 w-4" />
-              <span className="hidden sm:inline">注册</span>
+              <span className="hidden sm:inline">{t('sign_up')}</span>
             </Link>
           </Button>
         </div>
@@ -156,6 +158,7 @@ export function UserMenu() {
 export function UserMenuMobile() {
   const { user, signOut } = useAuth()
   const router = useRouter()
+  const t = useTranslations('UserMenu')
 
   const handleSignOut = async () => {
     await signOut()
@@ -167,10 +170,10 @@ export function UserMenuMobile() {
       <ConditionalRender when="authenticated">
         <div className="space-y-2">
           <div className="px-4 py-2 border-b">
-            <p className="font-medium">{user?.name || '用户'}</p>
+            <p className="font-medium">{user?.name || t('user')}</p>
             <p className="text-sm text-muted-foreground">{user?.email}</p>
             <p className="text-sm text-blue-600 font-medium">
-              {user?.credits || 0} 积分
+              {user?.credits || 0} {t('credits')}
             </p>
           </div>
           
@@ -178,21 +181,21 @@ export function UserMenuMobile() {
             <Button variant="ghost" className="w-full justify-start" asChild>
               <Link href="/profile">
                 <User className="mr-2 h-4 w-4" />
-                个人资料
+                {t('profile')}
               </Link>
             </Button>
             
             <Button variant="ghost" className="w-full justify-start" asChild>
               <Link href="/dashboard">
                 <BarChart3 className="mr-2 h-4 w-4" />
-                控制台
+                {t('dashboard')}
               </Link>
             </Button>
             
             <Button variant="ghost" className="w-full justify-start" asChild>
               <Link href="/credits/purchase">
                 <CreditCard className="mr-2 h-4 w-4" />
-                购买积分
+                {t('purchase_credits')}
               </Link>
             </Button>
             
@@ -202,7 +205,7 @@ export function UserMenuMobile() {
               onClick={handleSignOut}
             >
               <LogOut className="mr-2 h-4 w-4" />
-              退出登录
+              {t('sign_out')}
             </Button>
           </div>
         </div>
@@ -213,14 +216,14 @@ export function UserMenuMobile() {
           <Button variant="ghost" className="w-full justify-start" asChild>
             <Link href="/auth/signin">
               <LogIn className="mr-2 h-4 w-4" />
-              登录
+              {t('sign_in')}
             </Link>
           </Button>
           
           <Button className="w-full justify-start" asChild>
             <Link href="/auth/signup">
               <UserPlus className="mr-2 h-4 w-4" />
-              注册
+              {t('sign_up')}
             </Link>
           </Button>
         </div>

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createSupabaseServerClient } from '@/lib/supabase-server'
+import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { cookies } from 'next/headers'
 
 // Creem配置（开发阶段使用模拟数据）
@@ -53,8 +53,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 获取用户信息
-    const cookieStore = cookies()
-    const supabase = createSupabaseServerClient(cookieStore)
+    const supabase = createServerSupabaseClient()
     
     const { data: { user }, error: authError } = await supabase.auth.getUser()
     

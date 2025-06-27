@@ -5,6 +5,17 @@
     "pricing": "Precios",
     "contact": "Contacto"
   },
+  "UserMenu": {
+    "sign_in": "Iniciar Sesión",
+    "sign_up": "Registrarse",
+    "sign_out": "Cerrar Sesión",
+    "user": "Usuario",
+    "credits": "Créditos",
+    "profile": "Perfil",
+    "dashboard": "Panel",
+    "purchase_credits": "Comprar Créditos",
+    "settings": "Configuración"
+  },
   "HomePage": {
     "meta": {
       "title": "Transly - Traductor IA para Idiomas de Bajos Recursos",
@@ -261,6 +272,35 @@
     }
   },
   "DocumentTranslatePage": {
+    "meta": {
+      "title": "Traducción de Documentos - Traducir PDF, Word, PowerPoint | Transly",
+      "description": "Suba y traduzca documentos al inglés. Soporte para archivos PDF, Word, PowerPoint con traducción IA para idiomas de bajos recursos."
+    },
+    "title": "Traducción de Documentos",
+    "description": "Suba documentos y tradúzcalos al inglés con alta precisión. Soporte para archivos PDF, Word, PowerPoint y texto.",
+    "steps": {
+      "step1": {
+        "title": "Subir Documento",
+        "description": "Elija su archivo PDF, Word o PowerPoint para traducir"
+      },
+      "step2": {
+        "title": "Procesamiento IA",
+        "description": "Nuestra IA extrae y analiza el contenido de su documento"
+      },
+      "step3": {
+        "title": "Descargar Resultado",
+        "description": "Obtenga su documento traducido en el mismo formato"
+      }
+    },
+    "languages": {
+      "title": "Idiomas Soportados"
+    },
+    "cta": {
+      "title": "¿Necesita Traducción de Texto Rápida?",
+      "description": "Para textos más cortos o traducciones rápidas, pruebe nuestro traductor de texto para resultados instantáneos.",
+      "try_text_translation": "Probar Traducción de Texto",
+      "view_pricing": "Ver Precios"
+    },
     "hero": {
       "title": "Traducción de Documentos",
       "description": "Suba documentos y tradúzcalos al inglés con alta precisión"
@@ -289,6 +329,48 @@
       },
       "error_message": "Error",
       "download_button": "Descargar"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Inicio de Sesión Requerido",
+      "description": "La traducción de documentos requiere una cuenta con sesión iniciada.",
+      "login_button": "Iniciar Sesión Ahora"
+    },
+    "upload": {
+      "title": "Subir Documento",
+      "description": "Soporte PDF, Word, PowerPoint y archivos de texto, máx {maxSize}",
+      "uploading": "Subiendo...",
+      "click_to_select": "Haga clic para seleccionar archivo",
+      "drag_drop": "o arrastre y suelte el archivo aquí",
+      "upload_success": "Archivo subido exitosamente",
+      "extracted_characters": "{count} caracteres extraídos",
+      "upload_failed": "Fallo en la subida"
+    },
+    "analysis": {
+      "title": "Resultado del Análisis del Archivo",
+      "filename": "Nombre del archivo",
+      "filesize": "Tamaño del archivo",
+      "text_preview": "Vista previa del texto extraído",
+      "character_count": "Conteo de caracteres",
+      "characters": "caracteres",
+      "credit_consumption": "Consumo de créditos",
+      "credits": "créditos",
+      "free": "Gratis",
+      "insufficient_credits": "¡Créditos insuficientes! Necesita {required} créditos, saldo actual {current} créditos.",
+      "recharge_now": "Recargar ahora",
+      "start_translation": "Iniciar Traducción",
+      "reupload": "Re-subir"
+    },
+    "translation": {
+      "title": "Progreso de Traducción",
+      "progress": "Progreso del procesamiento",
+      "estimated_time": "Estimado {seconds} segundos restantes",
+      "completed": "¡Traducción completada!",
+      "download_result": "Descargar Resultado de la Traducción",
+      "translation_started": "Traducción iniciada",
+      "credits_consumed": "{credits} créditos consumidos",
+      "translation_failed": "Traducción falló"
     }
   },
   "Errors": {
@@ -403,7 +485,19 @@
     "buttons": {
       "translating": "Traduciendo...",
       "translate_with_credits": "Traducir ({credits} créditos)",
-      "free_translate": "Traducción Gratuita"
+      "free_translate": "Traducir"
+    },
+    "credits": {
+      "balance": "Créditos",
+      "recharge": "Recargar",
+      "free_translation": "Traducción Gratuita",
+      "estimated_cost": "Costo estimado {credits} créditos",
+      "insufficient_credits": "(Créditos insuficientes)",
+      "free_quota_usage": "Uso de cuota gratuita",
+      "characters": "caracteres",
+      "over_limit": "Excede la cuota gratuita en {excess} caracteres, consumirá créditos",
+      "insufficient_balance": "¡Créditos insuficientes! Necesita {required} créditos, saldo actual {current} créditos.",
+      "recharge_now": "Recargar ahora"
     }
   },
   "ContactPage": {
@@ -457,20 +551,43 @@
         "title": "Problemas Comunes",
         "translation_not_working": {
           "title": "La traducción no funciona",
-          "description": "Verifique su conexión a internet y intente de nuevo"
-        },
-        "poor_translation_quality": {
-          "title": "Calidad de traducción deficiente",
-          "description": "Reporte problemas específicos de traducción para mejoras"
+          "description": "Intente actualizar la página o verifique su conexión a internet. Para problemas persistentes, contacte al soporte."
         },
         "language_not_supported": {
           "title": "Idioma no soportado",
-          "description": "Solicite soporte para nuevos idiomas"
+          "description": "Constantemente agregamos nuevos idiomas. Envíe una solicitud y la consideraremos para futuras actualizaciones."
         },
-        "account_issues": {
-          "title": "Problemas de cuenta",
-          "description": "Ayuda con inicio de sesión, registro y configuración de cuenta"
+        "file_upload_issues": {
+          "title": "Problemas de carga de archivos",
+          "description": "Asegúrese de que su archivo sea menor a 50MB y esté en formato soportado (PDF, DOCX, PPTX)."
+        },
+        "audio_playback_not_working": {
+          "title": "La reproducción de audio no funciona",
+          "description": "Verifique la configuración de audio de su navegador y asegúrese de tener una conexión a internet estable."
         }
+      },
+      "self_help": {
+        "title": "Recursos de Autoayuda",
+        "how_it_works": "→ Cómo funciona Transly",
+        "try_text": "→ Probar traducción de texto",
+        "try_docs": "→ Guía de traducción de documentos",
+        "privacy": "→ Política de privacidad",
+        "terms": "→ Términos de servicio"
+      }
+    },
+    "what_to_expect": {
+      "title": "Qué Esperar",
+      "quick_response": {
+        "title": "Respuesta Rápida",
+        "description": "Típicamente respondemos a todas las consultas dentro de 24 horas durante días hábiles."
+      },
+      "personal_support": {
+        "title": "Soporte Personal",
+        "description": "Cada mensaje es leído por nuestro equipo. Sin bots, solo personas reales que se preocupan por ayudarle."
+      },
+      "follow_up": {
+        "title": "Seguimiento",
+        "description": "Seguiremos trabajando con usted hasta que su problema esté completamente resuelto."
       }
     }
   },

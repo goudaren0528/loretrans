@@ -103,7 +103,7 @@ export default async function AboutPage({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {APP_CONFIG.languages.supported
+          {[...APP_CONFIG.languages.supported]
             .sort((a, b) => {
               // 启用的语言排在前面
               if (a.available && !b.available) return -1

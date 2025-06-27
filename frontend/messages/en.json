@@ -5,6 +5,17 @@
     "pricing": "Pricing",
     "contact": "Contact"
   },
+  "UserMenu": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "sign_out": "Sign Out",
+    "user": "User",
+    "credits": "Credits",
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "purchase_credits": "Purchase Credits",
+    "settings": "Settings"
+  },
   "HomePage": {
     "meta": {
       "title": "Transly - AI Translator for Low-Resource Languages",
@@ -496,6 +507,35 @@
     }
   },
   "DocumentTranslatePage": {
+    "meta": {
+      "title": "Document Translation - Translate PDF, Word, PowerPoint | Transly",
+      "description": "Upload and translate documents to English. Support for PDF, Word, PowerPoint files with AI-powered translation for low-resource languages."
+    },
+    "title": "Document Translation",
+    "description": "Upload documents and translate them to English with high accuracy. Support for PDF, Word, PowerPoint, and text files.",
+    "steps": {
+      "step1": {
+        "title": "Upload Document",
+        "description": "Choose your PDF, Word, or PowerPoint file to translate"
+      },
+      "step2": {
+        "title": "AI Processing",
+        "description": "Our AI extracts and analyzes your document content"
+      },
+      "step3": {
+        "title": "Download Result",
+        "description": "Get your translated document in the same format"
+      }
+    },
+    "languages": {
+      "title": "Supported Languages"
+    },
+    "cta": {
+      "title": "Need Quick Text Translation?",
+      "description": "For shorter texts or quick translations, try our text translator for instant results.",
+      "try_text_translation": "Try Text Translation",
+      "view_pricing": "View Pricing"
+    },
     "hero": {
       "title": "Document Translation",
       "description": "Upload documents and translate them to English with high accuracy"
@@ -524,6 +564,48 @@
       },
       "error_message": "Error",
       "download_button": "Download"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Login Required",
+      "description": "Document translation requires a logged-in account.",
+      "login_button": "Login Now"
+    },
+    "upload": {
+      "title": "Upload Document",
+      "description": "Support PDF, Word, PowerPoint and text files, max {maxSize}",
+      "uploading": "Uploading...",
+      "click_to_select": "Click to select file",
+      "drag_drop": "or drag and drop file here",
+      "upload_success": "File uploaded successfully",
+      "extracted_characters": "Extracted {count} characters",
+      "upload_failed": "Upload failed"
+    },
+    "analysis": {
+      "title": "File Analysis Result",
+      "filename": "File name",
+      "filesize": "File size",
+      "text_preview": "Extracted text preview",
+      "character_count": "Character count",
+      "characters": "characters",
+      "credit_consumption": "Credit consumption",
+      "credits": "credits",
+      "free": "Free",
+      "insufficient_credits": "Insufficient credits! Need {required} credits, current balance {current} credits.",
+      "recharge_now": "Recharge now",
+      "start_translation": "Start Translation",
+      "reupload": "Re-upload"
+    },
+    "translation": {
+      "title": "Translation Progress",
+      "progress": "Processing progress",
+      "estimated_time": "Estimated {seconds} seconds remaining",
+      "completed": "Translation completed!",
+      "download_result": "Download Translation Result",
+      "translation_started": "Translation started",
+      "credits_consumed": "Consumed {credits} credits",
+      "translation_failed": "Translation failed"
     }
   },
   "Errors": {
@@ -638,7 +720,19 @@
     "buttons": {
       "translating": "Translating...",
       "translate_with_credits": "Translate ({credits} credits)",
-      "free_translate": "Free Translate"
+      "free_translate": "Translate"
+    },
+    "credits": {
+      "balance": "Credits",
+      "recharge": "Recharge",
+      "free_translation": "Free Translation",
+      "estimated_cost": "Estimated cost {credits} credits",
+      "insufficient_credits": "(Insufficient credits)",
+      "free_quota_usage": "Free quota usage",
+      "characters": "characters",
+      "over_limit": "Exceeds free quota by {excess} characters, will consume credits",
+      "insufficient_balance": "Insufficient credits! Need {required} credits, current balance {current} credits.",
+      "recharge_now": "Recharge now"
     }
   },
   "pricing": {

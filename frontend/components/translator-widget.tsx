@@ -92,8 +92,8 @@ export function TranslatorWidget({
 
     if (needsCredits && !canAfford) {
       toast({
-        title: "积分不足",
-        description: `需要 ${estimatedCredits} 积分，当前余额 ${credits} 积分`,
+        title: t('credits.insufficient_balance', { required: estimatedCredits, current: credits }),
+        description: t('credits.recharge_now'),
         variant: "destructive",
       })
       router.push('/pricing')
@@ -217,6 +217,12 @@ export function TranslatorWidget({
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="en">
+                    <div className="flex items-center gap-2">
+                      <span>English</span>
+                      <span className="text-muted-foreground text-xs">(English)</span>
+                    </div>
+                  </SelectItem>
                   {APP_CONFIG.languages.supported
                     .filter(lang => lang.available)
                     .map((lang) => (
@@ -316,9 +322,9 @@ export function TranslatorWidget({
                 <Alert className="mt-2">
                   <AlertTriangle className="h-4 w-4" />
                   <AlertDescription>
-                    积分不足！需要 {estimatedCredits} 积分，当前余额 {credits} 积分。
+                    {t('credits.insufficient_balance', { required: estimatedCredits, current: credits })}
                     <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/credits/purchase')}>
-                      立即充值
+                      {t('credits.recharge_now')}
                     </Button>
                   </AlertDescription>
                 </Alert>

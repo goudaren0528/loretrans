@@ -161,6 +161,8 @@ export function Navigation() {
 }
 
 export function Footer() {
+  const tLayout = useTranslations('Layout')
+  
   return (
     <footer className="border-t bg-muted/30">
       <div className="container mx-auto px-4 py-8">

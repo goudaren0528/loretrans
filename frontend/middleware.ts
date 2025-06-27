@@ -4,8 +4,8 @@ import { locales, defaultLocale } from './i18n/settings';
 
 export default createMiddleware({
   locales,
-  defaultLocale: 'en', // 强制默认语言为英语
-  localeDetection: false, // 禁用浏览器语言检测，强制使用默认语言
+  defaultLocale: 'en',
+  localeDetection: false,
   localePrefix: 'always',
   pathnames: {
     '/': '/',
@@ -38,5 +38,6 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)']
+  // 排除auth路由、API路由和静态文件
+  matcher: ['/((?!api|auth|_next|_vercel|.*\\..*).*)']
 };

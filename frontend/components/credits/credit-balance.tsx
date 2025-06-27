@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Coins, Plus } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 
 interface CreditBalanceProps {
   className?: string
@@ -25,6 +26,7 @@ export function CreditBalance({
 }: CreditBalanceProps) {
   const { credits, refreshCredits } = useCredits()
   const router = useRouter()
+  const t = useTranslations('TranslatorWidget.credits')
 
   const handlePurchaseClick = () => {
     router.push('/credits/purchase')
@@ -56,7 +58,7 @@ export function CreditBalance({
         >
           <Coins className={iconSizes[size]} />
           <span>{credits.toLocaleString()}</span>
-          <span className="text-xs opacity-75">积分</span>
+          <span className="text-xs opacity-75">{t('balance')}</span>
         </Badge>
 
         {/* 快速充值按钮 */}
@@ -68,7 +70,7 @@ export function CreditBalance({
             className="flex items-center gap-1"
           >
             <Plus className={iconSizes[size]} />
-            <span className="hidden sm:inline">充值</span>
+            <span className="hidden sm:inline">{t('recharge')}</span>
           </Button>
         )}
       </div>
@@ -87,6 +89,7 @@ interface CreditEstimateProps {
 
 export function CreditEstimate({ textLength, className }: CreditEstimateProps) {
   const { estimateCredits, hasEnoughCredits } = useCredits()
+  const t = useTranslations('TranslatorWidget.credits')
   const estimatedCost = estimateCredits(textLength)
   const canAfford = hasEnoughCredits(estimatedCost)
 
@@ -95,7 +98,7 @@ export function CreditEstimate({ textLength, className }: CreditEstimateProps) {
       <div className={cn('text-sm text-green-600', className)}>
         <span className="flex items-center gap-1">
           <Coins className="h-3 w-3" />
-          免费翻译
+          {t('free_translation')}
         </span>
       </div>
     )
@@ -109,9 +112,9 @@ export function CreditEstimate({ textLength, className }: CreditEstimateProps) {
         className
       )}>
         <Coins className="h-3 w-3" />
-        <span>预计消耗 {estimatedCost} 积分</span>
+        <span>{t('estimated_cost', { credits: estimatedCost })}</span>
         {!canAfford && (
-          <span className="text-red-500 font-medium">(积分不足)</span>
+          <span className="text-red-500 font-medium">{t('insufficient_credits')}</span>
         )}
       </div>
     </ConditionalRender>
@@ -128,6 +131,7 @@ interface FreeQuotaProgressProps {
 }
 
 export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgressProps) {
+  const t = useTranslations('TranslatorWidget.credits')
   const freeLimit = 500
   const progress = Math.min((currentLength / freeLimit) * 100, 100)
   const isOverLimit = currentLength > freeLimit
@@ -135,9 +139,9 @@ export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgres
   return (
     <div className={cn('space-y-2', className)}>
       <div className="flex justify-between text-xs text-muted-foreground">
-        <span>免费额度使用情况</span>
+        <span>{t('free_quota_usage')}</span>
         <span>
-          {currentLength.toLocaleString()} / {freeLimit.toLocaleString()} 字符
+          {currentLength.toLocaleString()} / {freeLimit.toLocaleString()} {t('characters')}
         </span>
       </div>
       
@@ -153,7 +157,7 @@ export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgres
       
       {isOverLimit && (
         <p className="text-xs text-red-600">
-          超出免费额度 {(currentLength - freeLimit).toLocaleString()} 字符，将消耗积分
+          {t('over_limit', { excess: (currentLength - freeLimit).toLocaleString() })}
         </p>
       )}
     </div>

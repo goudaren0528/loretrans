@@ -38,6 +38,7 @@ const supabaseOptions = {
 
 // 单例模式的浏览器客户端 - 使用全局变量避免多实例
 declare global {
+  // eslint-disable-next-line no-var
   var __supabase_browser_client: ReturnType<typeof createBrowserClient> | undefined
 }
 

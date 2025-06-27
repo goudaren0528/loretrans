@@ -21,6 +21,7 @@ import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-balance'
 import { useRouter } from 'next/navigation'
 import { toast } from '@/lib/hooks/use-toast'
+import { useTranslations } from 'next-intl'
 
 interface DocumentTranslatorProps {
   className?: string
@@ -55,6 +56,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
   const { user } = useAuth()
   const { credits, refreshCredits } = useCredits()
   const router = useRouter()
+  const t = useTranslations('DocumentTranslator')
 
   const [uploadState, setUploadState] = useState<{
     isUploading: boolean
@@ -84,8 +86,8 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
 
     if (!user) {
       toast({
-        title: "需要登录",
-        description: "文档翻译功能需要登录账户",
+        title: t('auth_required.title'),
+        description: t('auth_required.description'),
         variant: "destructive",
       })
       router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname))
@@ -110,7 +112,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || '文件上传失败')
+        throw new Error(data.error || t('upload.upload_failed'))
       }
 
       setUploadState({
@@ -120,8 +122,8 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       })
 
       toast({
-        title: "文件上传成功",
-        description: `提取了 ${data.characterCount} 个字符`,
+        title: t('upload.upload_success'),
+        description: t('upload.extracted_characters', { count: data.characterCount }),
       })
 
     } catch (error: any) {
@@ -132,12 +134,12 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       })
 
       toast({
-        title: "上传失败",
+        title: t('upload.upload_failed'),
         description: error.message,
         variant: "destructive",
       })
     }
-  }, [user, router])
+  }, [user, router, t])
 
   const handleTranslate = useCallback(async (sourceLanguage: string, targetLanguage: string) => {
     if (!uploadState.uploadResult || !user) return
@@ -146,8 +148,11 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
 
     if (!uploadState.uploadResult.canProceed) {
       toast({
-        title: "积分不足",
-        description: `需要 ${creditCalculation.credits_required} 积分，当前余额 ${credits} 积分`,
+        title: t('analysis.insufficient_credits', { 
+          required: creditCalculation.credits_required, 
+          current: credits 
+        }),
+        description: t('analysis.recharge_now'),
         variant: "destructive",
       })
       router.push('/pricing')
@@ -178,7 +183,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || '翻译失败')
+        throw new Error(data.error || t('translation.translation_failed'))
       }
 
       setTranslationState({
@@ -206,8 +211,8 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       await refreshCredits()
 
       toast({
-        title: "翻译开始",
-        description: `消耗了 ${data.creditsConsumed} 积分`,
+        title: t('translation.translation_started'),
+        description: t('translation.credits_consumed', { credits: data.creditsConsumed }),
       })
 
     } catch (error: any) {
@@ -219,12 +224,12 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       })
 
       toast({
-        title: "翻译失败",
+        title: t('translation.translation_failed'),
         description: error.message,
         variant: "destructive",
       })
     }
-  }, [uploadState.uploadResult, user, credits, router, refreshCredits])
+  }, [uploadState.uploadResult, user, credits, router, refreshCredits, t])
 
   const resetUpload = useCallback(() => {
     setUploadState({
@@ -240,6 +245,8 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
     })
   }, [])
 
+  const maxSize = user?.role === 'free_user' ? '5MB' : '50MB'
+
   return (
     <div className={className}>
       {/* 未登录用户提示 */}
@@ -247,9 +254,9 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
         <Alert className="mb-6">
           <Shield className="h-4 w-4" />
           <AlertDescription>
-            文档翻译功能需要登录账户。
+            {t('auth_required.description')}
             <Button variant="link" className="p-0 h-auto ml-2" asChild>
-              <a href="/auth/signin">立即登录</a>
+              <a href="/auth/signin">{t('auth_required.login_button')}</a>
             </Button>
           </AlertDescription>
         </Alert>
@@ -263,10 +270,10 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Upload className="h-5 w-5" />
-                  上传文档
+                  {t('upload.title')}
                 </CardTitle>
                 <CardDescription>
-                  支持 PDF、Word、PowerPoint 和文本文件，最大 {user?.role === 'free_user' ? '5MB' : '50MB'}
+                  {t('upload.description', { maxSize })}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -288,10 +295,10 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     </div>
                     <div>
                       <p className="text-lg font-medium">
-                        {uploadState.isUploading ? '上传中...' : '点击选择文件'}
+                        {uploadState.isUploading ? t('upload.uploading') : t('upload.click_to_select')}
                       </p>
                       <p className="text-sm text-gray-500 mt-1">
-                        或拖拽文件到此处
+                        {t('upload.drag_drop')}
                       </p>
                     </div>
                   </label>
@@ -313,17 +320,17 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <FileText className="h-5 w-5" />
-                  文件分析结果
+                  {t('analysis.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-sm text-gray-600">文件名</p>
+                    <p className="text-sm text-gray-600">{t('analysis.filename')}</p>
                     <p className="font-medium">{uploadState.uploadResult.fileName}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">文件大小</p>
+                    <p className="text-sm text-gray-600">{t('analysis.filesize')}</p>
                     <p className="font-medium">
                       {(uploadState.uploadResult.fileSize / 1024 / 1024).toFixed(2)} MB
                     </p>
@@ -331,7 +338,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">提取的文本预览</p>
+                  <p className="text-sm text-gray-600 mb-2">{t('analysis.text_preview')}</p>
                   <div className="bg-gray-50 p-3 rounded text-sm max-h-32 overflow-y-auto">
                     {uploadState.uploadResult.extractedText}
                   </div>
@@ -339,23 +346,23 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">字符数统计</span>
+                    <span className="text-sm text-gray-600">{t('analysis.character_count')}</span>
                     <Badge variant="outline">
-                      {uploadState.uploadResult.characterCount.toLocaleString()} 字符
+                      {uploadState.uploadResult.characterCount.toLocaleString()} {t('analysis.characters')}
                     </Badge>
                   </div>
 
                   <FreeQuotaProgress currentLength={uploadState.uploadResult.characterCount} />
 
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">积分消耗</span>
+                    <span className="text-sm text-gray-600">{t('analysis.credit_consumption')}</span>
                     <div className="flex items-center gap-2">
                       <Coins className="h-4 w-4 text-blue-600" />
                       <span className="font-medium">
-                        {uploadState.uploadResult.creditCalculation.credits_required} 积分
+                        {uploadState.uploadResult.creditCalculation.credits_required} {t('analysis.credits')}
                       </span>
                       {uploadState.uploadResult.creditCalculation.credits_required === 0 && (
-                        <Badge variant="secondary">免费</Badge>
+                        <Badge variant="secondary">{t('analysis.free')}</Badge>
                       )}
                     </div>
                   </div>
@@ -364,10 +371,12 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     <Alert variant="destructive">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
-                        积分不足！需要 {uploadState.uploadResult.creditCalculation.credits_required} 积分，
-                        当前余额 {uploadState.uploadResult.userCredits} 积分。
+                        {t('analysis.insufficient_credits', { 
+                          required: uploadState.uploadResult.creditCalculation.credits_required,
+                          current: uploadState.uploadResult.userCredits
+                        })}
                         <Button variant="link" className="p-0 h-auto ml-2" asChild>
-                          <a href="/pricing">立即充值</a>
+                          <a href="/pricing">{t('analysis.recharge_now')}</a>
                         </Button>
                       </AlertDescription>
                     </Alert>
@@ -380,10 +389,10 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     disabled={!uploadState.uploadResult.canProceed}
                     className="flex-1"
                   >
-                    开始翻译
+                    {t('analysis.start_translation')}
                   </Button>
                   <Button variant="outline" onClick={resetUpload}>
-                    重新上传
+                    {t('analysis.reupload')}
                   </Button>
                 </div>
               </CardContent>
@@ -396,30 +405,32 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Clock className="h-5 w-5" />
-                  翻译进度
+                  {t('translation.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span>处理进度</span>
+                    <span>{t('translation.progress')}</span>
                     <span>{translationState.progress}%</span>
                   </div>
                   <Progress value={translationState.progress} />
                 </div>
 
                 <div className="text-center text-sm text-gray-600">
-                  预计还需 {Math.max(0, translationState.result.estimatedTime - Math.floor(translationState.progress / 10))} 秒
+                  {t('translation.estimated_time', { 
+                    seconds: Math.max(0, translationState.result.estimatedTime - Math.floor(translationState.progress / 10))
+                  })}
                 </div>
 
                 {translationState.result.status === 'completed' && (
                   <div className="text-center">
                     <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                    <p className="text-lg font-medium mb-4">翻译完成！</p>
+                    <p className="text-lg font-medium mb-4">{t('translation.completed')}</p>
                     <Button asChild>
                       <a href={translationState.result.downloadUrl} download>
                         <Download className="h-4 w-4 mr-2" />
-                        下载翻译结果
+                        {t('translation.download_result')}
                       </a>
                     </Button>
                   </div>

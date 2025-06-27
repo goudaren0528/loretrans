@@ -264,7 +264,7 @@ export function Footer() {
                   href="/contact"
                   className="hover:text-foreground transition-colors"
                 >
-                  Contact Support
+                  {t('Layout.Footer.contact_support')}
                 </Link>
               </li>
               <li>

@@ -616,6 +616,31 @@
       "register_for_unlimited": "Register for unlimited access"
     }
   },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Translation limit reached",
+      "limit_reached_description": "Free users can translate up to 10 times per day. Register for unlimited translations",
+      "login_required_title": "Login required",
+      "login_required_description": "Long text translation requires a logged-in account",
+      "daily_limit_title": "Translation limit reached",
+      "daily_limit_description": "Daily free translation limit has been reached"
+    },
+    "success": {
+      "translation_complete": "Translation complete",
+      "credits_consumed": "Consumed {credits} credits"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Long text translation requires a logged-in account.",
+      "login_now": "Login now",
+      "or": " or ",
+      "register_account": "Register account"
+    },
+    "buttons": {
+      "translating": "Translating...",
+      "translate_with_credits": "Translate ({credits} credits)",
+      "free_translate": "Free Translate"
+    }
+  },
   "pricing": {
     "meta": {
       "title": "Pricing Plans - Transly AI Translation",

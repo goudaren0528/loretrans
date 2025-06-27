@@ -15,6 +15,9 @@ import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-b
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { useRouter } from 'next/navigation'
 import { toast } from '@/lib/hooks/use-toast'
+import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
+import { detectLocaleFromPath } from '@/lib/navigation'
 
 interface TranslationState {
   sourceText: string
@@ -40,6 +43,9 @@ export function TranslatorWidget({
   const { credits, hasEnoughCredits, estimateCredits } = useCredits()
   const { limitStatus, recordTranslation, canTranslate, isLimitReached } = useGuestLimit()
   const router = useRouter()
+  const pathname = usePathname()
+  const { locale } = detectLocaleFromPath(pathname)
+  const t = useTranslations('TranslatorWidget')
   
   const [state, setState] = useState<TranslationState>({
     sourceText: '',
@@ -65,22 +71,22 @@ export function TranslatorWidget({
     // 检查未登录用户限制
     if (!user && !canTranslate) {
       toast({
-        title: "翻译次数已用完",
-        description: "免费用户每天最多翻译10次，注册账户获得无限制翻译",
+        title: t('errors.limit_reached_title'),
+        description: t('errors.limit_reached_description'),
         variant: "destructive",
       })
-      router.push('/auth/signup?redirect=' + encodeURIComponent(window.location.pathname))
+      router.push(`/${locale}/auth/signup?redirect=` + encodeURIComponent(window.location.pathname))
       return
     }
 
     // 检查用户登录状态和积分
     if (needsCredits && !user) {
       toast({
-        title: "需要登录",
-        description: "长文本翻译需要登录账户",
+        title: t('errors.login_required_title'),
+        description: t('errors.login_required_description'),
         variant: "destructive",
       })
-      router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname))
+      router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
       return
     }
 
@@ -99,8 +105,8 @@ export function TranslatorWidget({
       const recorded = recordTranslation()
       if (!recorded) {
         toast({
-          title: "翻译次数已用完",
-          description: "今日免费翻译次数已达上限",
+          title: t('errors.daily_limit_title'),
+          description: t('errors.daily_limit_description'),
           variant: "destructive",
         })
         return
@@ -137,8 +143,8 @@ export function TranslatorWidget({
       // 显示积分消耗提示
       if (needsCredits) {
         toast({
-          title: "翻译完成",
-          description: `消耗了 ${estimatedCredits} 积分`,
+          title: t('success.translation_complete'),
+          description: t('success.credits_consumed', { credits: estimatedCredits }),
         })
       }
     } catch (error) {
@@ -324,13 +330,13 @@ export function TranslatorWidget({
                   <Alert className="mt-2">
                     <Coins className="h-4 w-4" />
                     <AlertDescription>
-                      长文本翻译需要登录账户。
-                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/auth/signin')}>
-                        立即登录
+                      {t('alerts.login_required_for_long_text')}
+                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push(`/${locale}/auth/signin`)}>
+                        {t('alerts.login_now')}
                       </Button>
-                      或
-                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/auth/signup')}>
-                        注册账户
+                      {t('alerts.or')}
+                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push(`/${locale}/auth/signup`)}>
+                        {t('alerts.register_account')}
                       </Button>
                     </AlertDescription>
                   </Alert>
@@ -392,15 +398,15 @@ export function TranslatorWidget({
               {state.isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  翻译中...
+                  {t('buttons.translating')}
                 </>
               ) : needsCredits ? (
                 <>
                   <Coins className="mr-2 h-4 w-4" />
-                  翻译 ({estimatedCredits} 积分)
+                  {t('buttons.translate_with_credits', { credits: estimatedCredits })}
                 </>
               ) : (
-                '免费翻译'
+                t('buttons.free_translate')
               )}
             </Button>
           </div>

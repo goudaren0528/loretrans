@@ -381,6 +381,99 @@
       "register_for_unlimited": "S'inscrire pour un accès illimité"
     }
   },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Limite de traduction atteinte",
+      "limit_reached_description": "Les utilisateurs gratuits peuvent traduire jusqu'à 10 fois par jour. Inscrivez-vous pour des traductions illimitées",
+      "login_required_title": "Connexion requise",
+      "login_required_description": "La traduction de texte long nécessite un compte connecté",
+      "daily_limit_title": "Limite de traduction atteinte",
+      "daily_limit_description": "La limite quotidienne de traduction gratuite a été atteinte"
+    },
+    "success": {
+      "translation_complete": "Traduction terminée",
+      "credits_consumed": "{credits} crédits consommés"
+    },
+    "alerts": {
+      "login_required_for_long_text": "La traduction de texte long nécessite un compte connecté.",
+      "login_now": "Se connecter maintenant",
+      "or": " ou ",
+      "register_account": "Créer un compte"
+    },
+    "buttons": {
+      "translating": "Traduction en cours...",
+      "translate_with_credits": "Traduire ({credits} crédits)",
+      "free_translate": "Traduction Gratuite"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contacter le Support - Obtenir de l'Aide avec Transly",
+      "description": "Besoin d'aide avec la traduction ? Contactez notre équipe de support pour obtenir de l'assistance avec les services de traduction Transly, les problèmes techniques ou les demandes générales."
+    },
+    "hero": {
+      "title": "Contacter le Support",
+      "description": "Vous avez des questions sur nos services de traduction ? Besoin d'un support technique ? Nous sommes là pour vous aider à tirer le meilleur parti de Transly."
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "firstName": "Prénom *",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastName": "Nom de famille *",
+      "lastNamePlaceholder": "Votre nom de famille",
+      "email": "Adresse E-mail *",
+      "emailPlaceholder": "votre.email@exemple.com",
+      "subject": "Sujet *",
+      "subjectPlaceholder": "Sélectionnez un sujet",
+      "subjects": {
+        "translation_issue": "Problème de Traduction",
+        "technical_support": "Support Technique",
+        "feature_request": "Demande de Fonctionnalité",
+        "language_request": "Demande de Nouvelle Langue",
+        "business_inquiry": "Demande Commerciale",
+        "feedback": "Commentaires Généraux",
+        "other": "Autre"
+      },
+      "relatedLanguage": "Langue Associée (si applicable)",
+      "relatedLanguagePlaceholder": "ex., Swahili, Lao, Créole",
+      "message": "Message *",
+      "messagePlaceholder": "Veuillez décrire votre problème ou question en détail...",
+      "submit": "Envoyer le Message"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Contact Rapide",
+        "email_support": "Support par E-mail",
+        "email_address": "support@transly.app",
+        "response_time": "Réponse sous 24 heures",
+        "live_chat": "Chat en Direct",
+        "live_chat_status": "Disponible bientôt",
+        "live_chat_eta": "Disponible au Q2 2024",
+        "support_hours_title": "Heures de Support",
+        "support_hours_days": "Lundi - Vendredi",
+        "support_hours_time": "9:00 AM - 6:00 PM UTC"
+      },
+      "common_issues": {
+        "title": "Problèmes Courants",
+        "translation_not_working": {
+          "title": "La traduction ne fonctionne pas",
+          "description": "Vérifiez votre connexion internet et réessayez"
+        },
+        "poor_translation_quality": {
+          "title": "Qualité de traduction médiocre",
+          "description": "Signalez des problèmes de traduction spécifiques pour des améliorations"
+        },
+        "language_not_supported": {
+          "title": "Langue non supportée",
+          "description": "Demandez le support pour de nouvelles langues"
+        },
+        "account_issues": {
+          "title": "Problèmes de compte",
+          "description": "Aide avec la connexion, l'inscription et la configuration du compte"
+        }
+      }
+    }
+  },
   "AboutPage": {
     "meta": {
       "title": "À propos de Transly - Traduction Professionnelle pour les Langues à Faibles Ressources",

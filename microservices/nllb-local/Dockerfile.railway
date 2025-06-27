@@ -1,0 +1,44 @@
+# Railway优化的NLLB服务Dockerfile
+FROM node:18-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 安装系统依赖
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# 复制package文件
+COPY package*.json ./
+
+# 安装Node.js依赖
+RUN npm ci --only=production
+
+# 创建必要的目录
+RUN mkdir -p models downloads temp logs
+
+# 复制源代码
+COPY src/ ./src/
+COPY scripts/ ./scripts/
+
+# 设置环境变量
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV LOG_LEVEL=info
+
+# Railway会自动设置PORT变量
+ENV PORT=${PORT:-8080}
+
+# 暴露端口
+EXPOSE $PORT
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
+  CMD curl -f http://localhost:$PORT/health || exit 1
+
+# 启动服务
+CMD ["npm", "start"] 

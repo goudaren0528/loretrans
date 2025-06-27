@@ -4,11 +4,12 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 环境变量配置 - 确保NLLB本地服务配置正确生效
+  // 环境变量配置 - 根据环境动态设置
   env: {
-    USE_MOCK_TRANSLATION: 'false',
-    NLLB_LOCAL_ENABLED: 'true',
-    NLLB_LOCAL_URL: 'http://localhost:8081',
+    // 生产环境禁用本地NLLB，开发环境可以启用
+    USE_MOCK_TRANSLATION: process.env.NODE_ENV === 'production' ? 'false' : process.env.USE_MOCK_TRANSLATION || 'false',
+    NLLB_LOCAL_ENABLED: process.env.NODE_ENV === 'production' ? 'false' : process.env.NLLB_LOCAL_ENABLED || 'true',
+    NLLB_LOCAL_URL: process.env.NLLB_LOCAL_URL || 'http://localhost:8081',
     NLLB_LOCAL_FALLBACK: 'true',
     NLLB_LOCAL_TIMEOUT: '30000',
   },

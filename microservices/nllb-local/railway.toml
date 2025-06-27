@@ -1,0 +1,16 @@
+[build]
+buildCommand = "npm ci"
+
+[deploy]
+startCommand = "npm start"
+restartPolicyType = "ON_FAILURE"
+
+[variables]
+NODE_ENV = "production"
+PORT = "8080"
+HOST = "0.0.0.0"
+LOG_LEVEL = "info"
+DEVICE = "cpu"
+DTYPE = "fp32"
+BATCH_SIZE = "4"
+MODEL_PATH = "/app/models/nllb-600m" 

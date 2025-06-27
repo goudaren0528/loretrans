@@ -6,9 +6,37 @@ export default createMiddleware({
   locales,
   defaultLocale,
   localeDetection: true,
-  localePrefix: 'always'
+  localePrefix: 'always',
+  pathnames: {
+    '/': '/',
+    '/about': {
+      en: '/about',
+      es: '/acerca-de', 
+      fr: '/a-propos'
+    },
+    '/contact': {
+      en: '/contact',
+      es: '/contacto',
+      fr: '/contact'
+    },
+    '/pricing': {
+      en: '/pricing',
+      es: '/precios',
+      fr: '/tarifs'
+    },
+    '/text-translate': {
+      en: '/text-translate',
+      es: '/traducir-texto',
+      fr: '/traduire-texte'
+    },
+    '/document-translate': {
+      en: '/document-translate',
+      es: '/traducir-documentos',
+      fr: '/traduire-documents'
+    }
+  }
 });
 
 export const config = {
   matcher: ['/((?!api|_next|.*\\..*).*)']
-}; 
+};

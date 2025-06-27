@@ -36,8 +36,10 @@ const supabaseOptions = {
   }
 }
 
-// 单例模式的浏览器客户端
-let browserClient: ReturnType<typeof createBrowserClient> | null = null
+// 单例模式的浏览器客户端 - 使用全局变量避免多实例
+declare global {
+  var __supabase_browser_client: ReturnType<typeof createBrowserClient> | undefined
+}
 
 // 浏览器端客户端（用于客户端组件）- 使用单例模式
 export const createSupabaseBrowserClient = () => {
@@ -46,11 +48,11 @@ export const createSupabaseBrowserClient = () => {
     return createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
   }
   
-  if (!browserClient) {
-    browserClient = createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+  if (!globalThis.__supabase_browser_client) {
+    globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
   }
   
-  return browserClient
+  return globalThis.__supabase_browser_client
 }
 
 // 服务器端客户端（用于服务器组件和API路由）

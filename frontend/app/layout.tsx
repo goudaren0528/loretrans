@@ -89,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
+    <html lang="en" className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -98,7 +98,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
+          content="width=device-width, initial-scale=1"
         />
       </head>
       <body

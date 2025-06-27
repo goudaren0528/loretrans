@@ -48,8 +48,15 @@ export const createSupabaseBrowserClient = () => {
     return createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
   }
   
+  // 使用全局变量确保真正的单例
   if (!globalThis.__supabase_browser_client) {
-    globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+    globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+      ...supabaseOptions,
+      auth: {
+        ...supabaseOptions.auth,
+        storageKey: 'transly-auth', // 使用唯一的存储键
+      }
+    })
   }
   
   return globalThis.__supabase_browser_client

@@ -142,7 +142,8 @@ export function detectLocaleFromPath(path: string): { locale: Locale | null; cle
 export function buildLocalizedUrl(locale: Locale, path: string, baseUrl?: string): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const localizedPath = getLocalizedPath(locale, cleanPath);
-  const fullPath = locale === 'en' ? localizedPath : `/${locale}${localizedPath}`;
+  // 由于我们使用 localePrefix: 'always'，所有语言都需要前缀
+  const fullPath = `/${locale}${localizedPath}`;
   
   if (baseUrl) {
     return new URL(fullPath, baseUrl).toString();

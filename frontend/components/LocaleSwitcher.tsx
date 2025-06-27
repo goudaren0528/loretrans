@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Languages, Check, Globe } from 'lucide-react';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import { switchLocale, detectLocaleFromPath, type Locale } from '@/lib/navigation';
 
 const locales = [
@@ -27,33 +27,48 @@ export default function LocaleSwitcher() {
   // 更新当前语言检测
   useEffect(() => {
     const { locale } = detectLocaleFromPath(pathname);
-    if (locale) {
+    if (locale && locale !== currentLocale) {
       setCurrentLocale(locale);
     }
-  }, [pathname]);
+  }, [pathname, currentLocale]);
 
-  const handleLocaleChange = async (newLocale: Locale) => {
-    if (isChanging || currentLocale === newLocale) return;
+  const handleLocaleChange = useCallback(async (newLocale: Locale) => {
+    if (isChanging || currentLocale === newLocale) {
+      console.log('Skipping locale change:', { isChanging, currentLocale, newLocale });
+      return;
+    }
     
     setIsChanging(true);
     try {
       const newPath = switchLocale(pathname, currentLocale, newLocale);
-      console.log('Switching locale:', { currentLocale, newLocale, pathname, newPath });
+      
+      // 确保新路径包含正确的locale前缀
+      const finalPath = newPath.startsWith(`/${newLocale}`) ? newPath : `/${newLocale}${newPath}`;
+      
+      console.log('Switching locale:', { 
+        currentLocale, 
+        newLocale, 
+        pathname, 
+        newPath,
+        finalPath 
+      });
       
       // 使用replace而不是push，避免历史记录堆积
-      router.replace(newPath);
+      router.replace(finalPath);
       
       // 延迟重置状态，确保路由切换完成
       setTimeout(() => {
         setIsChanging(false);
-      }, 500);
+      }, 1000);
     } catch (error) {
       console.error('Error changing locale:', error);
       setIsChanging(false);
     }
-  };
+  }, [isChanging, currentLocale, pathname, router]);
 
-  const currentLocaleInfo = locales.find(l => l.code === currentLocale) || locales[0];
+  const currentLocaleInfo = useMemo(() => {
+    return locales.find(l => l.code === currentLocale) || locales[0];
+  }, [currentLocale]);
 
   return (
     <DropdownMenu>

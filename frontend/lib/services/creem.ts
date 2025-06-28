@@ -4,15 +4,7 @@
  * The actual implementation should be done once the official Creem SDK is available.
  */
 
-import {
-  CreemTranslationRepository,
-  TranslationProvider,
-  TranslationRequest,
-  TranslationResult,
-  CheckoutSession,
-} from '../../../shared/types'
 import { APP_CONFIG } from '../../../config/app.config'
-import { getTranslationCacheKey, withCache } from './cache'
 
 class MockCreem {
   private apiKey: string;
@@ -28,7 +20,7 @@ class MockCreem {
     sessions: {
       create: async (
         params: any
-      ): Promise<CheckoutSession> => {
+      ): Promise<any> => {
         console.log('Mock Creem Checkout Session Create called with:', params);
 
         if (!params.line_items || params.line_items.length === 0) {

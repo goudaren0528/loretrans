@@ -298,7 +298,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
     }
 
     // 验证语言支持
-    if (!isSupportedLanguage(request.sourceLanguage)) {
+    if (request.sourceLanguage && !isSupportedLanguage(request.sourceLanguage)) {
       throw new Error(`Unsupported source language: ${request.sourceLanguage}`)
     }
     if (!isSupportedLanguage(request.targetLanguage)) {
@@ -321,7 +321,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
 
     // 检查是否使用mock模式
     if (shouldUseMockMode()) {
-      translatedText = mockTranslation(request.text, request.sourceLanguage, request.targetLanguage)
+      translatedText = mockTranslation(request.text, request.sourceLanguage || 'auto', request.targetLanguage)
       method = 'mock'
       console.log('Using mock translation mode')
     } else {
@@ -333,7 +333,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
         try {
           translatedText = await callLocalNLLBAPI(
             request.text,
-            request.sourceLanguage,
+            request.sourceLanguage || 'auto',
             request.targetLanguage
           )
           method = 'nllb-local'
@@ -354,7 +354,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
         try {
           translatedText = await callHuggingFaceAPI(
             request.text,
-            request.sourceLanguage,
+            request.sourceLanguage || 'auto',
             request.targetLanguage
           )
           method = 'huggingface'
@@ -362,7 +362,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
         } catch (error) {
           console.warn('Hugging Face API failed, using fallback:', error)
           // 如果API失败，使用fallback
-          translatedText = fallbackTranslation(request.text, request.sourceLanguage, request.targetLanguage)
+          translatedText = fallbackTranslation(request.text, request.sourceLanguage || 'auto', request.targetLanguage)
           method = 'fallback'
         }
       }
@@ -370,7 +370,7 @@ export async function translateText(request: TranslationRequest): Promise<Transl
 
     return {
       translatedText,
-      sourceLanguage: request.sourceLanguage,
+      sourceLanguage: request.sourceLanguage || 'auto',
       targetLanguage: request.targetLanguage,
       processingTime: Date.now() - startTime,
       method,

@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback, createContext, useContext } from 'react'
 import { authService, type AuthUser, type SignUpData, type SignInData } from '../services/auth'
 
+// 检查是否在浏览器环境
+const isBrowser = typeof window !== 'undefined'
+
 interface AuthContextType {
   user: AuthUser | null
   loading: boolean
@@ -32,6 +35,8 @@ export function useAuthState() {
 
   // 用户注册
   const signUp = useCallback(async (data: SignUpData) => {
+    if (!isBrowser) return { success: false, error: 'Not in browser environment' }
+    
     setLoading(true)
     try {
       const response = await authService.signUp(data)
@@ -61,6 +66,8 @@ export function useAuthState() {
 
   // 用户登录
   const signIn = useCallback(async (data: SignInData) => {
+    if (!isBrowser) return { success: false, error: 'Not in browser environment' }
+    
     setLoading(true)
     try {
       const response = await authService.signIn(data)
@@ -90,6 +97,8 @@ export function useAuthState() {
 
   // 用户登出
   const signOut = useCallback(async () => {
+    if (!isBrowser) return
+    
     setLoading(true)
     try {
       await authService.signOut()
@@ -103,6 +112,8 @@ export function useAuthState() {
 
   // 刷新用户信息
   const refreshUser = useCallback(async () => {
+    if (!isBrowser) return
+    
     try {
       const currentUser = await authService.getCurrentUser()
       setUser(currentUser)
@@ -114,6 +125,11 @@ export function useAuthState() {
 
   // 初始化和监听身份验证状态变化
   useEffect(() => {
+    if (!isBrowser) {
+      setLoading(false)
+      return
+    }
+
     let mounted = true
 
     // 获取初始用户状态

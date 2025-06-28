@@ -39,11 +39,12 @@ export interface AuthResponse<T = any> {
 }
 
 class AuthService {
-  private supabase: ReturnType<typeof createSupabaseBrowserClient>
+  private supabase: ReturnType<typeof createSupabaseBrowserClient> | null
   private isConfigured: boolean
 
   constructor() {
-    this.supabase = createSupabaseBrowserClient()
+    // 只在浏览器环境中初始化 Supabase 客户端
+    this.supabase = typeof window !== 'undefined' ? createSupabaseBrowserClient() : null
     this.isConfigured = this.checkSupabaseConfig()
   }
 
@@ -53,11 +54,15 @@ class AuthService {
     return !!(url && key && !url.includes('placeholder') && key !== 'placeholder-anon-key')
   }
 
+  private isReady(): boolean {
+    return !!(this.supabase && this.isConfigured)
+  }
+
   /**
    * 用户注册
    */
   async signUp({ email, password, name }: SignUpData): Promise<AuthResponse<AuthUser>> {
-    if (!this.isConfigured) {
+    if (!this.isReady()) {
       return {
         data: null,
         error: {
@@ -68,7 +73,7 @@ class AuthService {
 
     try {
       // 1. 使用 Supabase Auth 注册用户
-      const { data: authData, error: authError } = await this.supabase.auth.signUp({
+      const { data: authData, error: authError } = await this.supabase!.auth.signUp({
         email,
         password,
         options: {
@@ -122,7 +127,7 @@ class AuthService {
    * 用户登录
    */
   async signIn({ email, password, rememberMe }: SignInData): Promise<AuthResponse<AuthUser>> {
-    if (!this.isConfigured) {
+    if (!this.isReady()) {
       return {
         data: null,
         error: {
@@ -132,7 +137,7 @@ class AuthService {
     }
 
     try {
-      const { data: authData, error: authError } = await this.supabase.auth.signInWithPassword({
+      const { data: authData, error: authError } = await this.supabase!.auth.signInWithPassword({
         email,
         password,
       })
@@ -161,7 +166,7 @@ class AuthService {
 
       // 处理"记住我"功能（通过Session持久化）
       if (rememberMe) {
-        await this.supabase.auth.updateUser({
+        await this.supabase!.auth.updateUser({
           data: { remember_me: true },
         })
       }
@@ -185,8 +190,17 @@ class AuthService {
    * 用户登出
    */
   async signOut(): Promise<AuthResponse<void>> {
+    if (!this.isReady()) {
+      return {
+        data: null,
+        error: {
+          message: '身份验证服务暂未配置',
+        },
+      }
+    }
+
     try {
-      const { error } = await this.supabase.auth.signOut()
+      const { error } = await this.supabase!.auth.signOut()
 
       if (error) {
         return {
@@ -217,12 +231,12 @@ class AuthService {
    * 获取当前用户
    */
   async getCurrentUser(): Promise<AuthUser | null> {
-    if (!this.isConfigured) {
+    if (!this.isReady()) {
       return null
     }
 
     try {
-      const { data: { user } } = await this.supabase.auth.getUser()
+      const { data: { user } } = await this.supabase!.auth.getUser()
       
       if (!user) {
         return null
@@ -239,8 +253,12 @@ class AuthService {
    * 获取当前会话
    */
   async getSession() {
+    if (!this.isReady()) {
+      return null
+    }
+
     try {
-      const { data: { session } } = await this.supabase.auth.getSession()
+      const { data: { session } } = await this.supabase!.auth.getSession()
       return session
     } catch (error) {
       console.error('Get session error:', error)
@@ -252,8 +270,12 @@ class AuthService {
    * 刷新会话
    */
   async refreshSession() {
+    if (!this.isReady()) {
+      return null
+    }
+
     try {
-      const { data, error } = await this.supabase.auth.refreshSession()
+      const { data, error } = await this.supabase!.auth.refreshSession()
       
       if (error) {
         console.error('Refresh session error:', error)
@@ -271,7 +293,11 @@ class AuthService {
    * 监听身份验证状态变化
    */
   onAuthStateChange(callback: (user: AuthUser | null) => void) {
-    return this.supabase.auth.onAuthStateChange(async (event: any, session: any) => {
+    if (!this.isReady()) {
+      return { data: { subscription: { unsubscribe: () => {} } } }
+    }
+
+    return this.supabase!.auth.onAuthStateChange(async (event: any, session: any) => {
       if (session?.user) {
         const userData = await this.getUserData(session.user.id)
         callback(userData)
@@ -310,9 +336,13 @@ class AuthService {
    * 获取完整用户数据（使用新的数据服务）
    */
   private async getUserData(userId: string): Promise<AuthUser | null> {
+    if (!this.isReady()) {
+      return null
+    }
+
     try {
       // Fetch user data directly from Supabase to get the role
-      const { data: userData, error: userError } = await this.supabase
+      const { data: userData, error: userError } = await this.supabase!
         .from('users')
         .select('id, email, email_verified, credits, role')
         .eq('id', userId)

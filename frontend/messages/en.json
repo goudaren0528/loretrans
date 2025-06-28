@@ -155,47 +155,47 @@
         "free": "Free to Use",
         "characters": "Characters per Translation",
         "availability": "Available"
-      },
-      "faq_section": {
-        "title": "Frequently Asked Questions",
-        "description": "Everything you need to know about Transly",
-        "questions": [
-          {
-            "question": "Is Transly really free to use?",
-            "answer": "Yes! Transly is completely free for text translation up to 1000 characters per request. There are no hidden fees or subscription requirements."
-          },
-          {
-            "question": "How accurate are the translations?",
-            "answer": "We use Meta's NLLB (No Language Left Behind) model, which provides high-quality translations for low-resource languages. While no automated translation is perfect, NLLB is specifically designed to handle languages with limited training data."
-          },
-          {
-            "question": "Which languages do you support?",
-            "answer": "We support 20+ low-resource languages including Haitian Creole, Lao, Swahili, Burmese, Telugu, Sinhala, Amharic, Khmer, Nepali, and Malagasy. All languages can be translated to English."
-          },
-          {
-            "question": "Is my data safe and private?",
-            "answer": "Absolutely. We don't store your translation text on our servers. Your text is processed securely and deleted immediately after translation. We take privacy seriously."
-          },
-          {
-            "question": "Can I translate documents?",
-            "answer": "Yes! We support PDF, Word (.docx), and PowerPoint (.pptx) file translation. Simply upload your file and we'll extract the text, translate it, and provide you with the results."
-          },
-          {
-            "question": "How does the text-to-speech feature work?",
-            "answer": "Our text-to-speech feature supports English output with high-quality voice synthesis. Simply click the speaker icon next to any translation to hear it pronounced."
-          },
-          {
-            "question": "Is there a character limit?",
-            "answer": "Free users can translate up to 1000 characters per request. For longer texts, you can break them into smaller chunks or upload documents for processing."
-          },
-          {
-            "question": "Can I use Transly for commercial purposes?",
-            "answer": "Yes, you can use Transly for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
-          }
-        ],
-        "contact_prompt": "Have more questions?",
-        "contact_link": "Contact our support team"
       }
+    },
+    "faq_section": {
+      "title": "Frequently Asked Questions",
+      "description": "Everything you need to know about Transly",
+      "questions": [
+        {
+          "question": "Is Transly really free to use?",
+          "answer": "Yes! Transly is completely free for text translation up to 1000 characters per request. There are no hidden fees or subscription requirements."
+        },
+        {
+          "question": "How accurate are the translations?",
+          "answer": "We use Meta's NLLB (No Language Left Behind) model, which provides high-quality translations for low-resource languages. While no automated translation is perfect, NLLB is specifically designed to handle languages with limited training data."
+        },
+        {
+          "question": "Which languages do you support?",
+          "answer": "We support 20+ low-resource languages including Haitian Creole, Lao, Swahili, Burmese, Telugu, Sinhala, Amharic, Khmer, Nepali, and Malagasy. All languages can be translated to English."
+        },
+        {
+          "question": "Is my data safe and private?",
+          "answer": "Absolutely. We don't store your translation text on our servers. Your text is processed securely and deleted immediately after translation. We take privacy seriously."
+        },
+        {
+          "question": "Can I translate documents?",
+          "answer": "Yes! We support PDF, Word (.docx), and PowerPoint (.pptx) file translation. Simply upload your file and we'll extract the text, translate it, and provide you with the results."
+        },
+        {
+          "question": "How does the text-to-speech feature work?",
+          "answer": "Our text-to-speech feature supports English output with high-quality voice synthesis. Simply click the speaker icon next to any translation to hear it pronounced."
+        },
+        {
+          "question": "Is there a character limit?",
+          "answer": "Free users can translate up to 1000 characters per request. For longer texts, you can break them into smaller chunks or upload documents for processing."
+        },
+        {
+          "question": "Can I use Transly for commercial purposes?",
+          "answer": "Yes, you can use Transly for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
+        }
+      ],
+      "contact_prompt": "Have more questions?",
+      "contact_link": "Contact our support team"
     }
   },
   "AboutPage": {

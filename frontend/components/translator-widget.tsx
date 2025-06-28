@@ -19,7 +19,6 @@ import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { detectLocaleFromPath } from '@/lib/navigation'
 import { BidirectionalNavigation } from '@/components/bidirectional-navigation'
-import { LanguageTabs } from '@/components/language-tabs'
 
 interface TranslationState {
   sourceText: string

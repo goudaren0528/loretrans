@@ -1,12 +1,13 @@
 import { LANG_TO_ENGLISH_PAGES } from '../../config/app.config';
-import { createLocalizedPathnamesNavigation, Pathnames } from 'next-intl/navigation';
+import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
 // 支持的语言代码
 export const locales = ['en', 'zh', 'es', 'pt', 'fr', 'ar'] as const;
 export type Locale = typeof locales[number];
 
 // 页面路径的国际化映射
-export const PAGE_TRANSLATIONS: Pathnames<typeof locales> = {
+export const PAGE_TRANSLATIONS = {
   '/': '/',
   '/about': {
     en: '/about',
@@ -89,7 +90,14 @@ export const PAGE_TRANSLATIONS: Pathnames<typeof locales> = {
     ar: '/api-docs',
   },
   // ... 其他语言特定页面
-};
+} as const;
+
+// 定义路由配置
+export const routing = defineRouting({
+  locales,
+  defaultLocale: 'en',
+  pathnames: PAGE_TRANSLATIONS
+});
 
 
 // 获取给定locale的页面路径
@@ -218,5 +226,5 @@ export const navigationItems = [
   },
 ] as const;
 
-export const { Link, redirect, usePathname, useRouter } =
-  createLocalizedPathnamesNavigation({ locales, pathnames: PAGE_TRANSLATIONS }); 
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing); 

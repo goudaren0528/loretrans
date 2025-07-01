@@ -3,6 +3,7 @@ import { NextIntlClientProvider, createTranslator } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Providers } from '../providers';
 import { Navigation, Footer } from '@/components/navigation';
+import { Toaster } from '@/components/ui/toaster';
 
 // This metadata can be removed if you have dynamic metadata in page.tsx
 // or you can keep it as a fallback.
@@ -29,6 +30,7 @@ export default async function LocaleLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <Toaster />
       </Providers>
     </NextIntlClientProvider>
   )

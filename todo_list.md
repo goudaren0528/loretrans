@@ -134,9 +134,17 @@
 - [x] 3.3.5 Supabase数据库服务集成（用户数据存储）
     - **任务描述**: 集成Supabase PostgreSQL数据库，实现用户数据、积分记录等数据存储 ✅ 已完成
     - **产品文档出处**: product.md - 身份验证方案 - Supabase PostgreSQL
-- [x] 3.3.6 Creem支付服务集成（积分购买）
-    - **任务描述**: 集成Creem SDK和API，实现积分包购买、支付处理、Webhook等功能 ✅ 已完成（含Mock模式）
-    - **产品文档出处**: product.md - 支付方案 - Creem + Next.js
+- [ ] 3.3.6 Creem支付服务集成（需要重构）
+    - **任务描述**: 重构Creem集成，使用正确的REST API而不是SDK模式 ⚠️ 需要修正
+    - **当前问题**: 
+      - API调用方式错误（使用了类似Stripe的SDK方式）
+      - 产品配置错误（使用priceId而不是productId）
+      - 需要在Creem控制台预先创建产品
+    - **修正方案**:
+      - 使用 `POST /v1/checkouts` REST API
+      - 更新产品配置使用 `creemProductId`
+      - 修正webhook事件处理
+    - **产品文档出处**: product.md - 支付方案 - Creem REST API
 - [ ] 3.3.7 邮件服务集成（Resend，低优先级）
     - **任务描述**: 集成Resend邮件服务，实现邮箱验证、支付确认等邮件发送（后期功能）
     - **产品文档出处**: product.md - 身份验证方案 - Resend邮件发送服务
@@ -351,22 +359,25 @@
     - **任务描述**: 开发推荐码生成和奖励发放系统，推荐成功注册获得200积分
     - **产品文档出处**: product.md - 新用户激励 - 推荐奖励
 
-### 7.4 支付集成（Creem）
-- [x] 7.4.1 Creem账号设置与API密钥配置
-    - **任务描述**: 配置Creem账户，设置API密钥，集成支付功能 ✅ 已完成（含Mock模式）
-    - **产品文档出处**: product.md - 支付方案 - Creem支付
-- [x] 7.4.2 Creem SDK集成与初始化
-    - **任务描述**: 集成Creem TypeScript SDK，配置客户端和服务端实例 ✅ 已完成
-    - **产品文档出处**: product.md - 支付方案 - Creem支付
-- [x] 7.4.3 积分包产品配置（价格、描述、优惠）
-    - **任务描述**: 在Creem控制台创建积分包产品，配置价格层级和优惠折扣 ✅ 已完成
-    - **产品文档出处**: product.md - 积分制度设计 - 积分定价体系
-- [x] 7.4.4 Creem Checkout会话创建API
-    - **任务描述**: 实现创建Creem Checkout会话的API端点，处理产品选择和用户信息 ✅ 已完成
+### 7.4 支付集成（Creem - 需要重构）
+- [ ] 7.4.1 Creem产品配置（控制台创建）
+    - **任务描述**: 在Creem控制台创建积分包产品，获取正确的productId ⚠️ 需要重新配置
+    - **当前问题**: 当前使用的是假设的priceId，实际需要productId
+    - **产品文档出处**: product.md - 支付方案 - Creem产品管理
+- [ ] 7.4.2 Creem REST API集成
+    - **任务描述**: 重构支付API调用，使用正确的REST API方式 ⚠️ 需要重构
+    - **当前问题**: 当前使用类似Stripe SDK的方式，实际Creem使用简单REST API
+    - **产品文档出处**: product.md - 支付方案 - API调用示例
+- [ ] 7.4.3 支付会话创建API重构
+    - **任务描述**: 修改 `/api/checkout` 端点，使用正确的Creem API调用方式 ⚠️ 需要重构
     - **产品文档出处**: product.md - 支付流程 - 创建支付会话
-- [x] 7.4.5 支付成功回调处理（Creem Webhook）
-    - **任务描述**: 实现Creem Webhook处理器，处理支付成功事件和积分充值 ✅ 已完成（含Mock）
-    - **产品文档出处**: product.md - 支付流程 - 处理支付结果、积分入账
+- [ ] 7.4.4 Return URL处理（替代Webhook）
+    - **任务描述**: 实现Creem Return URL参数处理，作为支付成功确认方式 ⚠️ 需要新增
+    - **参数**: checkout_id, order_id, customer_id, product_id, signature
+    - **产品文档出处**: product.md - 支付流程 - Return URL处理
+- [ ] 7.4.5 支付签名验证
+    - **任务描述**: 实现Creem Return URL签名验证，确保支付安全性 ⚠️ 需要新增
+    - **产品文档出处**: product.md - 支付安全 - 签名验证
 - [x] 7.4.6 支付失败处理与重试机制
     - **任务描述**: 实现支付失败处理逻辑，用户友好的错误提示和重试机制 ✅ 已完成
     - **产品文档出处**: product.md - 支付流程 - 支付失败处理

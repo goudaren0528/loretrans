@@ -212,23 +212,53 @@
 ## 💳 支付系统集成
 
 ### 支付方案
-**技术方案：Creem + Next.js**
-- **Creem Checkout**：现代化订阅和支付解决方案
+**技术方案：Creem REST API + Next.js**
+- **Creem Checkout**：现代化支付解决方案，使用简单的REST API
 - **支持方式**：信用卡、借记卡、数字钱包
 - **多币种支持**：美元为主，支持本地货币显示
 - **安全合规**：PCI DSS合规，无需处理敏感卡信息
 - **成本优势**：仅收取交易费用，无月费
 
 ### 支付流程
-1. **选择积分包**：用户在定价页面选择积分包
-2. **创建支付会话**：服务端创建Creem Checkout会话
+1. **在Creem控制台创建产品**：预先在 https://creem.io/dashboard/products 创建积分包产品
+2. **创建支付会话**：调用 `POST /v1/checkouts` API创建支付会话
 3. **跳转支付页面**：重定向到Creem托管支付页面
-4. **处理支付结果**：Webhook接收支付成功通知
+4. **处理支付结果**：通过Return URL参数或Webhook接收支付结果
 5. **积分入账**：支付成功后立即为用户账户充值积分
 6. **发送确认**：发送购买确认邮件（后期功能）
 
+### API调用示例
+```javascript
+// 创建支付会话
+const response = await fetch('https://api.creem.io/v1/checkouts', {
+  method: 'POST',
+  headers: {
+    'x-api-key': process.env.CREEM_API_KEY,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    product_id: 'prod_6tW66i0oZM7w1qXReHJrwg', // 在Creem控制台创建的产品ID
+    customer_email: user.email,
+    success_url: `${origin}/dashboard?purchase=success`,
+    cancel_url: `${origin}/pricing?purchase=canceled`,
+    request_id: `user_${user.id}_${Date.now()}` // 用于追踪
+  })
+});
+
+const checkout = await response.json();
+// 重定向到 checkout.url
+```
+
+### Return URL处理
+支付成功后，用户会被重定向到success_url，携带以下参数：
+- `checkout_id`: 支付会话ID
+- `order_id`: 订单ID  
+- `customer_id`: 客户ID
+- `product_id`: 产品ID
+- `signature`: Creem签名（用于验证安全性）
+
 ### 支付安全
-- **Webhook验证**：验证Creem Webhook签名
+- **签名验证**：验证Creem Return URL签名
 - **幂等性处理**：防止重复充值
 - **交易记录**：完整的支付和积分变动日志
 - **争议处理**：支持支付争议管理

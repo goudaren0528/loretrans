@@ -1,53 +1,57 @@
 import { NextResponse } from 'next/server';
 import { withApiAuth, type NextRequestWithUser } from '@/lib/api-utils';
-import { creemServer } from '@/lib/services/creem';
 import { PRICING_PLANS } from '@/config/pricing.config';
-import { createServerSupabaseClient } from '@/lib/supabase-server';
 
 async function createCheckoutSession(req: NextRequestWithUser) {
-  console.log(`[POST /api/checkout] user ${req.userContext.user.id} is creating a checkout session.`);
+  console.log(`[POST /api/checkout] User ${req.userContext.user.id} is creating a checkout session.`);
+  
   try {
-    const supabase = createServerSupabaseClient();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    if (!user) {
-      console.warn('Checkout attempt by unauthenticated user.');
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
     const { planId } = await req.json();
     const plan = PRICING_PLANS.find(p => p.id === planId);
 
     if (!plan) {
-      console.error(`Checkout attempt for invalid planId: ${planId} by user ${user.id}.`);
+      console.error(`Checkout attempt for invalid planId: ${planId} by user ${req.userContext.user.id}.`);
       return NextResponse.json({ error: 'Plan not found' }, { status: 404 });
     }
     
-    console.log(`User ${user.id} is creating a checkout session for plan: ${plan.name} (${planId}).`);
+    console.log(`User ${req.userContext.user.id} is creating a checkout session for plan: ${plan.name} (${planId}).`);
 
-    const origin = req.nextUrl.origin;
-    const success_url = `${origin}/dashboard?purchase=success&session_id={CHECKOUT_SESSION_ID}`;
-    const cancel_url = `${origin}/pricing?purchase=canceled`;
+    // 如果商品有直接的payment URL，构建带回调参数的URL
+    if (plan.creemPaymentUrl) {
+      const origin = req.nextUrl.origin;
+      const success_url = `${origin}/api/payment/success?plan=${planId}`;
+      const cancel_url = `${origin}/pricing?purchase=canceled`;
+      const request_id = `${req.userContext.user.id}_${planId}_${Date.now()}`;
+      
+      // 构建带参数的支付URL
+      const paymentUrl = new URL(plan.creemPaymentUrl);
+      paymentUrl.searchParams.set('success_url', success_url);
+      paymentUrl.searchParams.set('cancel_url', cancel_url);
+      paymentUrl.searchParams.set('customer_email', req.userContext.user.email);
+      paymentUrl.searchParams.set('request_id', request_id);
+      
+      console.log(`Using direct payment URL for plan ${planId}: ${paymentUrl.toString()}`);
+      return NextResponse.json({ 
+        url: paymentUrl.toString(),
+        checkout_id: `direct_${planId}_${Date.now()}`,
+        request_id: request_id
+      });
+    }
 
-    const session = await creemServer.checkout.sessions.create({
-      customer_email: user.email,
-      line_items: [
-        {
-          price: plan.creemPriceId,
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
-      success_url,
-      cancel_url,
-      metadata: {
-        userId: user.id,
-        planId: plan.id,
-      },
-    });
+    // 如果没有直接的payment URL，返回错误或使用fallback
+    if (!plan.creemPaymentUrl && plan.id !== 'free') {
+      console.error(`No payment URL configured for plan: ${planId}`);
+      return NextResponse.json({ 
+        error: 'Payment URL not configured for this plan. Please contact support.' 
+      }, { status: 500 });
+    }
 
-    console.log(`Successfully created checkout session ${session.id} for user ${user.id}.`);
-    return NextResponse.json({ url: session.url });
+    // 免费计划不需要支付
+    if (plan.id === 'free') {
+      return NextResponse.json({ 
+        error: 'Free plan does not require payment' 
+      }, { status: 400 });
+    }
 
   } catch (error: any) {
     console.error('Error creating checkout session:', error);

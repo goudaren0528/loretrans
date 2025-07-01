@@ -412,7 +412,8 @@ export interface PricingPlan {
   description: string;
   credits: number;
   priceUSD: number;
-  creemPriceId: string; // The actual ID from the Creem dashboard
+  creemPriceId: string; // 实际上是 Creem 产品ID，需要在 Creem 控制台创建
+  creemPaymentUrl?: string; // Creem 为此商品生成的直接支付URL
   originalValue?: number; // 原价，用于计算折扣
   discount?: number; // 折扣百分比
   popular?: boolean; // 是否为推荐套餐

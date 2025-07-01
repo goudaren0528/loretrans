@@ -1,16 +1,15 @@
 'use client'
 
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import Link from 'next/link'
-import { Eye, EyeOff, Mail, User, Lock, CheckCircle, XCircle, Loader2, AlertCircle } from 'lucide-react'
+import { Eye, EyeOff, Mail, User, Lock, CheckCircle, XCircle, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/lib/hooks/useAuth'
-import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { 
   checkPasswordStrength, 
   getPasswordRequirements,
@@ -39,8 +38,6 @@ const translations = {
     signUp: 'Sign Up',
     signingUp: 'Creating Account...',
     signingUpProgress: 'Please wait, creating your account...',
-    signUpSuccess: 'Registration Successful!',
-    signUpSuccessMessage: 'Your account has been created successfully. Redirecting...',
     haveAccount: 'Already have an account?',
     signIn: 'Sign in',
     namePlaceholder: 'John Doe',
@@ -49,10 +46,6 @@ const translations = {
     confirmPasswordPlaceholder: '••••••••',
     passwordStrength: 'Password Strength',
     passwordRequirements: 'Password Requirements',
-    emailChecking: 'Checking email availability...',
-    emailAvailable: 'Email is available',
-    emailTaken: 'This email is already registered',
-    emailInvalid: 'Please enter a valid email address',
     passwordTips: {
       excellent: 'Excellent! Your password is very strong.',
       good: 'Good password strength.',
@@ -61,38 +54,58 @@ const translations = {
       veryWeak: 'Please create a stronger password.'
     }
   },
-  zh: {
-    title: '创建账户',
-    subtitle: '输入您的信息来创建账户',
-    name: '姓名',
-    email: '邮箱',
-    password: '密码',
-    confirmPassword: '确认密码',
-    signUp: '注册',
-    signingUp: '正在创建账户...',
-    signingUpProgress: '请稍候，正在创建您的账户...',
-    signUpSuccess: '注册成功！',
-    signUpSuccessMessage: '您的账户已成功创建，正在跳转...',
-    haveAccount: '已有账户？',
-    signIn: '登录',
-    namePlaceholder: '张三',
-    emailPlaceholder: 'name@example.com',
+  es: {
+    title: 'Crear Cuenta',
+    subtitle: 'Ingresa tu información para crear tu cuenta',
+    name: 'Nombre Completo',
+    email: 'Correo Electrónico',
+    password: 'Contraseña',
+    confirmPassword: 'Confirmar Contraseña',
+    signUp: 'Registrarse',
+    signingUp: 'Creando Cuenta...',
+    signingUpProgress: 'Por favor espera, creando tu cuenta...',
+    haveAccount: '¿Ya tienes una cuenta?',
+    signIn: 'Iniciar sesión',
+    namePlaceholder: 'Juan Pérez',
+    emailPlaceholder: 'nombre@ejemplo.com',
     passwordPlaceholder: '••••••••',
     confirmPasswordPlaceholder: '••••••••',
-    passwordStrength: '密码强度',
-    passwordRequirements: '密码要求',
-    emailChecking: '正在检查邮箱可用性...',
-    emailAvailable: '邮箱可以使用',
-    emailTaken: '该邮箱已被注册',
-    emailInvalid: '请输入有效的邮箱地址',
+    passwordStrength: 'Fortaleza de la Contraseña',
+    passwordRequirements: 'Requisitos de la Contraseña',
     passwordTips: {
-      excellent: '优秀！您的密码非常强。',
-      good: '密码强度良好。',
-      fair: '考虑让您的密码更强一些。',
-      weak: '您的密码可以更强一些。',
-      veryWeak: '请创建一个更强的密码。'
+      excellent: 'Excelente! Tu contraseña es muy fuerte.',
+      good: 'Buena fortaleza de contraseña.',
+      fair: 'Considera hacer tu contraseña más fuerte.',
+      weak: 'Tu contraseña podría ser más fuerte.',
+      veryWeak: 'Por favor crea una contraseña más fuerte.'
     }
-  }
+  },
+  fr: {
+    title: 'Créer un Compte',
+    subtitle: 'Entrez vos informations pour créer votre compte',
+    name: 'Nom Complet',
+    email: 'Email',
+    password: 'Mot de Passe',
+    confirmPassword: 'Confirmer le Mot de Passe',
+    signUp: "S'inscrire",
+    signingUp: 'Création du Compte...',
+    signingUpProgress: 'Veuillez patienter, création de votre compte...',
+    haveAccount: 'Vous avez déjà un compte?',
+    signIn: 'Se connecter',
+    namePlaceholder: 'Jean Dupont',
+    emailPlaceholder: 'nom@exemple.com',
+    passwordPlaceholder: '••••••••',
+    confirmPasswordPlaceholder: '••••••••',
+    passwordStrength: 'Force du Mot de Passe',
+    passwordRequirements: 'Exigences du Mot de Passe',
+    passwordTips: {
+      excellent: 'Excellent! Votre mot de passe est très fort.',
+      good: 'Bonne force de mot de passe.',
+      fair: 'Considérez renforcer votre mot de passe.',
+      weak: 'Votre mot de passe pourrait être plus fort.',
+      veryWeak: 'Veuillez créer un mot de passe plus fort.'
+    }
+  },
 }
 
 const signUpSchema = z
@@ -102,7 +115,7 @@ const signUpSchema = z
       .min(1, 'Name is required')
       .min(2, 'Name must be at least 2 characters')
       .max(50, 'Name must be less than 50 characters')
-      .regex(/^[a-zA-Z\u4e00-\u9fa5\s]+$/, 'Name can only contain letters and spaces'),
+      .regex(/^[a-zA-Z\s]+$/, 'Name can only contain letters and spaces'),
     email: z
       .string()
       .min(1, 'Email is required')
@@ -119,19 +132,12 @@ const signUpSchema = z
     path: ['confirmPassword'],
   })
 
-// 邮箱验证状态
-type EmailValidationState = 'idle' | 'checking' | 'available' | 'taken' | 'invalid'
-
 export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [emailValidation, setEmailValidation] = useState<EmailValidationState>('idle')
-  const [emailCheckTimeout, setEmailCheckTimeout] = useState<NodeJS.Timeout | null>(null)
   const { signUp } = useAuth()
-  const { showSignUpSuccess, showSignUpError } = useToastMessages()
 
   const t = translations[locale as keyof typeof translations] || translations.en
 
@@ -140,15 +146,12 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
     handleSubmit,
     watch,
     formState: { errors, isValid },
-    setError,
-    clearErrors,
   } = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     mode: 'onChange',
   })
 
   const password = watch('password', '')
-  const email = watch('email', '')
   
   // 获取密码强度和要求
   const passwordStrength = useMemo(() => {
@@ -161,111 +164,7 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
     return getPasswordRequirements(password, locale)
   }, [password, locale])
 
-  // 邮箱唯一性检查
-  const checkEmailAvailability = useCallback(async (emailToCheck: string) => {
-    if (!emailToCheck || !emailToCheck.includes('@')) {
-      setEmailValidation('idle')
-      return
-    }
-
-    // 基本邮箱格式验证
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(emailToCheck)) {
-      setEmailValidation('invalid')
-      return
-    }
-
-    setEmailValidation('checking')
-
-    try {
-      const response = await fetch('/api/auth/check-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: emailToCheck }),
-      })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        if (result.available) {
-          setEmailValidation('available')
-          clearErrors('email')
-        } else {
-          setEmailValidation('taken')
-          setError('email', {
-            type: 'manual',
-            message: result.message || t.emailTaken
-          })
-        }
-      } else {
-        setEmailValidation('invalid')
-        setError('email', {
-          type: 'manual',
-          message: result.message || t.emailInvalid
-        })
-      }
-    } catch (error) {
-      console.error('Email check error:', error)
-      setEmailValidation('idle')
-    }
-  }, [setError, clearErrors, t])
-
-  // 监听邮箱输入变化，实现防抖检查
-  useEffect(() => {
-    if (emailCheckTimeout) {
-      clearTimeout(emailCheckTimeout)
-    }
-
-    if (email && email.length > 0) {
-      const timeout = setTimeout(() => {
-        checkEmailAvailability(email)
-      }, 800) // 800ms 防抖
-
-      setEmailCheckTimeout(timeout)
-    } else {
-      setEmailValidation('idle')
-    }
-
-    return () => {
-      if (emailCheckTimeout) {
-        clearTimeout(emailCheckTimeout)
-      }
-    }
-  }, [email, checkEmailAvailability])
-
-  // 获取邮箱验证图标和样式
-  const getEmailValidationIcon = () => {
-    switch (emailValidation) {
-      case 'checking':
-        return <Loader2 className="h-4 w-4 animate-spin text-blue-500" />
-      case 'available':
-        return <CheckCircle className="h-4 w-4 text-green-500" />
-      case 'taken':
-      case 'invalid':
-        return <XCircle className="h-4 w-4 text-red-500" />
-      default:
-        return null
-    }
-  }
-
-  const getEmailValidationMessage = () => {
-    switch (emailValidation) {
-      case 'checking':
-        return <span className="text-blue-600 text-xs">{t.emailChecking}</span>
-      case 'available':
-        return <span className="text-green-600 text-xs">{t.emailAvailable}</span>
-      case 'taken':
-        return <span className="text-red-600 text-xs">{t.emailTaken}</span>
-      case 'invalid':
-        return <span className="text-red-600 text-xs">{t.emailInvalid}</span>
-      default:
-        return null
-    }
-  }
-
-  // 获取简化的密码提示
+  // 获取简化的密码提示（不重复要求列表）
   const getPasswordTip = (strength: PasswordStrengthResult | null) => {
     if (!strength) return null
     
@@ -286,21 +185,11 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
   }
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
-    // 检查邮箱是否可用
-    if (emailValidation === 'taken') {
-      setAuthError(t.emailTaken)
-      return
-    }
-
-    if (emailValidation === 'checking') {
-      setAuthError('Please wait for email validation to complete')
-      return
-    }
-
     setIsLoading(true)
     setAuthError(null)
 
     try {
+      // 修复：传递正确的对象格式给signUp函数
       const result = await signUp({
         email: data.email,
         password: data.password,
@@ -309,26 +198,16 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
       
       if (result.error) {
         setAuthError(result.error)
-        showSignUpError(result.error)
       } else if (result.success) {
-        setIsSuccess(true)
-        showSignUpSuccess()
-        setTimeout(() => {
-          onSuccess?.()
-        }, 2000) // 2秒后跳转，让用户看到成功消息
+        onSuccess?.()
       }
     } catch (error) {
       console.error('Signup form error:', error)
-      const errorMessage = 'An unexpected error occurred. Please try again.'
-      setAuthError(errorMessage)
-      showSignUpError(errorMessage)
+      setAuthError('An unexpected error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
   }
-
-  // 检查表单是否可以提交
-  const canSubmit = isValid && emailValidation === 'available' && !isLoading
 
   return (
     <div className="w-full max-w-md space-y-6">
@@ -365,21 +244,13 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
               id="email"
               type="email"
               placeholder={t.emailPlaceholder}
-              className={cn(
-                "pl-10 pr-10",
-                emailValidation === 'available' && "border-green-500",
-                emailValidation === 'taken' && "border-red-500"
-              )}
+              className="pl-10"
               {...register('email')}
             />
-            <div className="absolute right-3 top-3">
-              {getEmailValidationIcon()}
-            </div>
           </div>
           {errors.email && (
             <p className="text-sm text-red-600">{errors.email.message}</p>
           )}
-          {getEmailValidationMessage()}
         </div>
 
         <div className="space-y-2">
@@ -404,50 +275,6 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
           </div>
           {errors.password && (
             <p className="text-sm text-red-600">{errors.password.message}</p>
-          )}
-
-          {/* 密码强度指示器 */}
-          {password && passwordStrength && (
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{t.passwordStrength}</span>
-                <span className={cn("text-xs font-medium", getStrengthColor(passwordStrength.strength))}>
-                  {getStrengthText(passwordStrength.strength, locale)}
-                </span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  className={cn("h-2 rounded-full transition-all duration-300", getStrengthProgressColor(passwordStrength.strength))}
-                  style={{ width: `${passwordStrength.score * 20}%` }}
-                />
-              </div>
-              {getPasswordTip(passwordStrength) && (
-                <p className={cn("text-xs", getStrengthColor(passwordStrength.strength))}>
-                  {getPasswordTip(passwordStrength)}
-                </p>
-              )}
-            </div>
-          )}
-
-          {/* 密码要求列表 */}
-          {password && requirements.length > 0 && (
-            <div className="space-y-1">
-              <p className="text-xs text-muted-foreground">{t.passwordRequirements}:</p>
-              <ul className="space-y-1">
-                {requirements.map((req, index) => (
-                  <li key={index} className="flex items-center space-x-2 text-xs">
-                    {req.met ? (
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                    ) : (
-                      <XCircle className="h-3 w-3 text-red-500" />
-                    )}
-                    <span className={req.met ? 'text-green-600' : 'text-red-600'}>
-                      {req.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           )}
         </div>
 
@@ -476,27 +303,70 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
           )}
         </div>
 
-        {authError && (
-          <div className="flex items-center space-x-2 rounded-md bg-red-50 p-4">
-            <AlertCircle className="h-4 w-4 text-red-600" />
-            <p className="text-sm text-red-600">{authError}</p>
+        {/* Password Strength Indicator */}
+        {password && passwordStrength && (
+          <div className="space-y-3">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{t.passwordStrength}</span>
+                <span className={cn("text-xs font-medium", getStrengthColor(passwordStrength.score))}>
+                  {getStrengthText(passwordStrength.score, locale)}
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    getStrengthProgressColor(passwordStrength.score)
+                  )}
+                  style={{ width: `${(passwordStrength.score / 4) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {requirements.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-gray-700">{t.passwordRequirements}</p>
+                <div className="grid grid-cols-1 gap-1">
+                  {requirements.map((requirement, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      {requirement.met ? (
+                        <CheckCircle className="h-3 w-3 text-green-500" />
+                      ) : (
+                        <XCircle className="h-3 w-3 text-gray-400" />
+                      )}
+                      <span className={cn(
+                        "text-xs",
+                        requirement.met ? "text-green-600" : "text-gray-500"
+                      )}>
+                        {requirement.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 简化的密码提示，不重复要求 */}
+            {passwordStrength.score >= 3 && (
+              <div className="p-3 bg-green-50 rounded-md">
+                <p className="text-xs text-green-700">{getPasswordTip(passwordStrength)}</p>
+              </div>
+            )}
           </div>
         )}
 
-        {isSuccess && (
-          <div className="flex items-center space-x-2 rounded-md bg-green-50 p-4">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <div>
-              <p className="text-sm font-medium text-green-800">{t.signUpSuccess}</p>
-              <p className="text-xs text-green-600">{t.signUpSuccessMessage}</p>
-            </div>
+        {authError && (
+          <div className="flex items-center space-x-2 rounded-md bg-red-50 p-4">
+            <XCircle className="h-4 w-4 text-red-600" />
+            <p className="text-sm text-red-600">{authError}</p>
           </div>
         )}
 
         <Button
           type="submit"
           className="w-full"
-          disabled={!canSubmit || isSuccess}
+          disabled={isLoading || !isValid}
         >
           {isLoading ? (
             <div className="flex items-center justify-center space-x-2">

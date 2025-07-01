@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/lib/hooks/useAuth'
-import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { 
   checkPasswordStrength, 
   getPasswordRequirements,
@@ -39,8 +38,6 @@ const translations = {
     signUp: 'Sign Up',
     signingUp: 'Creating Account...',
     signingUpProgress: 'Please wait, creating your account...',
-    signUpSuccess: 'Registration Successful!',
-    signUpSuccessMessage: 'Your account has been created successfully. Redirecting...',
     haveAccount: 'Already have an account?',
     signIn: 'Sign in',
     namePlaceholder: 'John Doe',
@@ -71,8 +68,6 @@ const translations = {
     signUp: '注册',
     signingUp: '正在创建账户...',
     signingUpProgress: '请稍候，正在创建您的账户...',
-    signUpSuccess: '注册成功！',
-    signUpSuccessMessage: '您的账户已成功创建，正在跳转...',
     haveAccount: '已有账户？',
     signIn: '登录',
     namePlaceholder: '张三',
@@ -122,16 +117,14 @@ const signUpSchema = z
 // 邮箱验证状态
 type EmailValidationState = 'idle' | 'checking' | 'available' | 'taken' | 'invalid'
 
-export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
+export function SignUpFormEnhanced({ onSuccess, locale = 'en' }: SignUpFormProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
   const [emailValidation, setEmailValidation] = useState<EmailValidationState>('idle')
   const [emailCheckTimeout, setEmailCheckTimeout] = useState<NodeJS.Timeout | null>(null)
   const { signUp } = useAuth()
-  const { showSignUpSuccess, showSignUpError } = useToastMessages()
 
   const t = translations[locale as keyof typeof translations] || translations.en
 
@@ -309,19 +302,12 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
       
       if (result.error) {
         setAuthError(result.error)
-        showSignUpError(result.error)
       } else if (result.success) {
-        setIsSuccess(true)
-        showSignUpSuccess()
-        setTimeout(() => {
-          onSuccess?.()
-        }, 2000) // 2秒后跳转，让用户看到成功消息
+        onSuccess?.()
       }
     } catch (error) {
       console.error('Signup form error:', error)
-      const errorMessage = 'An unexpected error occurred. Please try again.'
-      setAuthError(errorMessage)
-      showSignUpError(errorMessage)
+      setAuthError('An unexpected error occurred. Please try again.')
     } finally {
       setIsLoading(false)
     }
@@ -483,20 +469,10 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
           </div>
         )}
 
-        {isSuccess && (
-          <div className="flex items-center space-x-2 rounded-md bg-green-50 p-4">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <div>
-              <p className="text-sm font-medium text-green-800">{t.signUpSuccess}</p>
-              <p className="text-xs text-green-600">{t.signUpSuccessMessage}</p>
-            </div>
-          </div>
-        )}
-
         <Button
           type="submit"
           className="w-full"
-          disabled={!canSubmit || isSuccess}
+          disabled={!canSubmit}
         >
           {isLoading ? (
             <div className="flex items-center justify-center space-x-2">

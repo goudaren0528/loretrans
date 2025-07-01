@@ -63,6 +63,9 @@ export const createSupabaseBrowserClient = () => {
   return globalThis.__supabase_browser_client
 }
 
+// 导出共享的客户端实例
+export const supabaseBrowserClient = createSupabaseBrowserClient()
+
 // 服务器端客户端（用于服务器组件和API路由）
 export const createSupabaseServerClient = (cookieStore?: any) => {
   if (!cookieStore) {
@@ -118,8 +121,8 @@ export const createSupabaseServiceClient = () => {
   })
 }
 
-// 通用客户端（用于非React环境）
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, supabaseOptions)
+// 通用客户端（用于非React环境）- 使用相同的单例
+export const supabase = createSupabaseBrowserClient()
 
 // 数据库类型定义
 export type Database = {

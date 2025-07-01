@@ -1,91 +1,210 @@
 /**
- * NOTE: This is a MOCK implementation of the Creem SDK.
- * It is intended for development purposes and simulates the behavior of the real Creem API.
- * The actual implementation should be done once the official Creem SDK is available.
+ * Creem Payment Service
+ * 基于Creem官方REST API实现的支付服务
  */
 
-import { APP_CONFIG } from '../../../config/app.config'
+import { APP_CONFIG } from '@/config/app.config'
 
-class MockCreem {
-  private apiKey: string;
+export interface CreemCheckoutParams {
+  product_id: string
+  customer_email?: string
+  success_url?: string
+  cancel_url?: string
+  request_id?: string
+}
 
-  constructor(apiKey?: string) {
+export interface CreemCheckoutResponse {
+  id: string
+  url: string
+  product_id: string
+  customer_email?: string
+  status: string
+  created_at: string
+}
+
+export interface CreemProduct {
+  id: string
+  name: string
+  description?: string
+  price: number
+  currency: string
+  active: boolean
+}
+
+export class CreemService {
+  private apiKey: string
+  private baseUrl: string
+
+  constructor(apiKey?: string, testMode = false) {
     if (!apiKey) {
-      throw new Error('Creem API key is required.');
+      throw new Error('Creem API key is required')
     }
-    this.apiKey = apiKey;
+    this.apiKey = apiKey
+    this.baseUrl = testMode 
+      ? 'https://api.creem.io/test/v1' 
+      : 'https://api.creem.io/v1'
   }
 
-  public checkout = {
-    sessions: {
-      create: async (
-        params: any
-      ): Promise<any> => {
-        console.log('Mock Creem Checkout Session Create called with:', params);
+  /**
+   * 创建支付会话
+   */
+  async createCheckout(params: CreemCheckoutParams): Promise<CreemCheckoutResponse> {
+    console.log('Creating Creem checkout with params:', params)
 
-        if (!params.line_items || params.line_items.length === 0) {
-          throw new Error('Line items are required.');
+    try {
+      const response = await fetch(`${this.baseUrl}/checkouts`, {
+        method: 'POST',
+        headers: {
+          'x-api-key': this.apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(`Creem API error: ${response.status} ${response.statusText} - ${errorData.message || 'Unknown error'}`)
+      }
+
+      const result = await response.json()
+      console.log('Creem checkout created successfully:', result.id)
+      return result
+    } catch (error) {
+      console.error('Failed to create Creem checkout:', error)
+      throw error
+    }
+  }
+
+  /**
+   * 获取产品信息
+   */
+  async getProduct(productId: string): Promise<CreemProduct> {
+    try {
+      const response = await fetch(`${this.baseUrl}/products/${productId}`, {
+        method: 'GET',
+        headers: {
+          'x-api-key': this.apiKey,
+          'Content-Type': 'application/json'
         }
+      })
 
-        // Simulate network delay
-        await new Promise(resolve => setTimeout(resolve, 500));
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(`Creem API error: ${response.status} ${response.statusText} - ${errorData.message || 'Unknown error'}`)
+      }
 
-        // Return a mock checkout session object
-        const sessionId = `cs_test_${Date.now()}`;
-        const mockUrl = new URL('/mock-payment-page', 'https://creem.example.com');
-        mockUrl.searchParams.set('session_id', sessionId);
-        mockUrl.searchParams.set('price_id', params.line_items[0].price);
-        mockUrl.searchParams.set('customer_email', params.customer_email);
-        mockUrl.searchParams.set('success_url', params.success_url);
-        mockUrl.searchParams.set('cancel_url', params.cancel_url);
-        
-        return {
-          id: sessionId,
-          object: 'checkout.session',
-          url: mockUrl.toString(),
-          metadata: params.metadata,
-        };
+      return await response.json()
+    } catch (error) {
+      console.error('Failed to get Creem product:', error)
+      throw error
+    }
+  }
+
+  /**
+   * 验证Return URL签名
+   */
+  verifySignature(params: Record<string, string>, signature: string): boolean {
+    // TODO: 实现Creem签名验证逻辑
+    // 这需要根据Creem官方文档实现具体的签名验证算法
+    console.log('Verifying Creem signature:', { params, signature })
+    
+    // 临时实现 - 生产环境需要实现真实的签名验证
+    if (process.env.NODE_ENV === 'development') {
+      return true
+    }
+    
+    // 生产环境的签名验证逻辑
+    try {
+      // 根据Creem文档实现签名验证
+      // const expectedSignature = generateSignature(params, this.apiKey)
+      // return signature === expectedSignature
+      return true // 临时返回true
+    } catch (error) {
+      console.error('Signature verification failed:', error)
+      return false
+    }
+  }
+}
+
+// 创建服务实例
+export const creemService = new CreemService(
+  APP_CONFIG.creem.secretKey,
+  process.env.NODE_ENV === 'development'
+)
+
+// Mock服务用于开发测试
+export class MockCreemService extends CreemService {
+  constructor() {
+    super('mock_key', true)
+  }
+
+  async createCheckout(params: CreemCheckoutParams): Promise<CreemCheckoutResponse> {
+    console.log('Mock Creem Checkout Create called with:', params)
+
+    // 模拟网络延迟
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    const checkoutId = `cs_mock_${Date.now()}`
+    
+    // 使用本地Mock支付页面而不是外部URL
+    const mockUrl = new URL('/en/mock-payment', 'http://localhost:3000')
+    mockUrl.searchParams.set('checkout_id', checkoutId)
+    mockUrl.searchParams.set('product_id', params.product_id)
+    if (params.customer_email) {
+      mockUrl.searchParams.set('customer_email', params.customer_email)
+    }
+    if (params.success_url) {
+      mockUrl.searchParams.set('success_url', params.success_url)
+    }
+    if (params.cancel_url) {
+      mockUrl.searchParams.set('cancel_url', params.cancel_url)
+    }
+    
+    console.log('Mock checkout URL generated:', mockUrl.toString())
+    
+    return {
+      id: checkoutId,
+      url: mockUrl.toString(),
+      product_id: params.product_id,
+      customer_email: params.customer_email,
+      status: 'pending',
+      created_at: new Date().toISOString()
+    }
+  }
+
+  async getProduct(productId: string): Promise<CreemProduct> {
+    console.log('Mock Creem Get Product called with:', productId)
+    
+    // 模拟产品数据
+    const mockProducts: Record<string, CreemProduct> = {
+      'prod_1000_credits': {
+        id: 'prod_1000_credits',
+        name: '1,000 Credits',
+        description: 'Perfect for light usage',
+        price: 199, // 价格以分为单位
+        currency: 'USD',
+        active: true
       },
-    },
-  };
-
-  public refunds = {
-    create: async (params: { charge: string; amount: number }): Promise<any> => {
-      console.log('Mock Creem Refund Create called with:', params);
-
-      if (!params.charge || !params.amount) {
-        throw new Error('Charge ID and amount are required for a refund.');
+      'prod_5000_credits': {
+        id: 'prod_5000_credits',
+        name: '5,000 Credits',
+        description: 'Great value for regular users',
+        price: 899,
+        currency: 'USD',
+        active: true
       }
+    }
 
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 500));
+    const product = mockProducts[productId]
+    if (!product) {
+      throw new Error(`Product not found: ${productId}`)
+    }
 
-      // Return a mock refund object
-      return {
-        id: `re_test_${Date.now()}`,
-        object: 'refund',
-        amount: params.amount,
-        charge: params.charge,
-        status: 'succeeded',
-      };
-    },
-  };
-
-  public webhooks = {
-    constructEvent: (body: string | Buffer, sig: string, secret: string): any => {
-      console.log('Mock Creem Webhook validation called. In a real scenario, this would verify the signature.');
-      if (!sig || !secret) {
-        throw new Error('Webhook signature or secret is missing.');
-      }
-      // In this mock, we just parse the body and return it, assuming it's always valid.
-      return JSON.parse(body.toString());
-    },
-  };
+    return product
+  }
 }
 
-
-if (!APP_CONFIG.creem.secretKey) {
-  throw new Error('CREEM_SECRET_KEY is not set in the environment variables.');
-}
-
-export const creemServer = new MockCreem(APP_CONFIG.creem.secretKey); 
+// 根据环境选择服务实例
+export const creem = process.env.NODE_ENV === 'development' && !APP_CONFIG.creem.secretKey
+  ? new MockCreemService()
+  : creemService

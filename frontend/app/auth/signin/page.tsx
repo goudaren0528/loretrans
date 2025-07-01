@@ -1,14 +1,26 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, Suspense } from 'react'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
+import { useEffect, Suspense, useState } from 'react'
 import { SignInForm } from '@/components/auth/signin-form'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { detectLocaleFromPath } from '@/lib/navigation'
+import LocaleSwitcher from '@/components/LocaleSwitcher'
 
 function SignInComponent() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const pathname = usePathname()
   const { user, loading } = useAuth()
+  const [locale, setLocale] = useState('en')
+
+  // 从URL路径获取locale
+  useEffect(() => {
+    const { locale: detectedLocale } = detectLocaleFromPath(pathname)
+    if (detectedLocale) {
+      setLocale(detectedLocale)
+    }
+  }, [pathname])
 
   // 获取重定向URL
   const redirectTo = searchParams.get('redirect') || '/'
@@ -41,10 +53,16 @@ function SignInComponent() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      {/* 语言切换器 */}
+      <div className="absolute top-4 right-4">
+        <LocaleSwitcher />
+      </div>
+      
       <div className="w-full max-w-md space-y-8">
         <SignInForm 
           onSuccess={handleSignInSuccess} 
           redirectTo={redirectTo}
+          locale={locale}
         />
       </div>
     </div>

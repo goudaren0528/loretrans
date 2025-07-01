@@ -78,6 +78,8 @@
   },
   "homepage": "https://github.com/yourusername/transly#readme",
   "dependencies": {
-    "creem": "^0.3.37"
+    "@supabase/supabase-js": "^2.50.2",
+    "creem": "^0.3.37",
+    "dotenv": "^17.0.0"
   }
 }

@@ -56,7 +56,7 @@ export class UserService {
         .from('users')
         .select('*')
         .eq('id', userId)
-        .single()
+        .maybeSingle() // 使用 maybeSingle 而不是 single
 
       if (error) {
         console.error('获取用户信息失败:', error)
@@ -117,7 +117,7 @@ export class UserService {
         .from('user_profiles')
         .select('*')
         .eq('user_id', targetUserId)
-        .single()
+        .maybeSingle() // 使用 maybeSingle
 
       if (error) {
         console.error('获取用户资料失败:', error)

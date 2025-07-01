@@ -1,7 +1,6 @@
 'use client'
 
 import { useAuth } from '@/lib/hooks/useAuth'
-import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { Button } from '@/components/ui/button'
 import {
@@ -37,15 +36,19 @@ import { cn } from '@/lib/utils'
  */
 export function UserMenuEnhanced() {
   const { user, signOut, loading, refreshUser } = useAuth()
-  const { showSignOutSuccess } = useToastMessages()
   const router = useRouter()
   const t = useTranslations('UserMenu')
+  const [debugMode, setDebugMode] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
+
+  // 开发环境下启用调试模式
+  useEffect(() => {
+    setDebugMode(process.env.NODE_ENV === 'development')
+  }, [])
 
   const handleSignOut = async () => {
     try {
       await signOut()
-      showSignOutSuccess()
       router.push('/')
     } catch (error) {
       console.error('Sign out error:', error)
@@ -92,7 +95,29 @@ export function UserMenuEnhanced() {
   }
 
   // 调试信息组件
-  const DebugInfo = () => null // 移除debug信息显示
+  const DebugInfo = () => {
+    if (!debugMode) return null
+
+    return (
+      <>
+        <DropdownMenuSeparator />
+        <DropdownMenuLabel className="font-normal">
+          <div className="text-xs text-muted-foreground space-y-1">
+            <div>Debug Info:</div>
+            <div>Loading: {loading ? 'Yes' : 'No'}</div>
+            <div>User ID: {user?.id || 'None'}</div>
+            <div>Has Profile: {user?.profile ? 'Yes' : 'No'}</div>
+            <div>Email Verified: {user?.emailVerified ? 'Yes' : 'No'}</div>
+            <div>Role: {user?.role || 'None'}</div>
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuItem onClick={handleRefreshUser} disabled={refreshing}>
+          <RefreshCw className={cn("mr-2 h-4 w-4", refreshing && "animate-spin")} />
+          <span>Refresh User Data</span>
+        </DropdownMenuItem>
+      </>
+    )
+  }
 
   return (
     <>
@@ -158,9 +183,30 @@ export function UserMenuEnhanced() {
             
             {/* 主要功能菜单项 */}
             <DropdownMenuItem asChild>
+              <Link href="/profile" className="flex items-center">
+                <User className="mr-2 h-4 w-4" />
+                <span>{t('profile')}</span>
+              </Link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem asChild>
+              <Link href="/dashboard" className="flex items-center">
+                <BarChart3 className="mr-2 h-4 w-4" />
+                <span>{t('dashboard')}</span>
+              </Link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem asChild>
               <Link href="/credits/purchase" className="flex items-center">
                 <CreditCard className="mr-2 h-4 w-4" />
                 <span>{t('purchase_credits')}</span>
+              </Link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem asChild>
+              <Link href="/settings" className="flex items-center">
+                <Settings className="mr-2 h-4 w-4" />
+                <span>{t('settings')}</span>
               </Link>
             </DropdownMenuItem>
             
@@ -199,9 +245,16 @@ export function UserMenuEnhanced() {
         </div>
       </ConditionalRender>
 
+      {/* 加载状态 */}
       <ConditionalRender when="loading">
         <div className="flex items-center space-x-2">
           <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse" />
+          {debugMode && (
+            <div className="flex items-center space-x-1">
+              <Loader2 className="h-3 w-3 animate-spin" />
+              <span className="text-xs text-muted-foreground">Loading...</span>
+            </div>
+          )}
         </div>
       </ConditionalRender>
     </>
@@ -213,7 +266,6 @@ export function UserMenuEnhanced() {
  */
 export function UserMenuMobileEnhanced() {
   const { user, signOut, refreshUser } = useAuth()
-  const { showSignOutSuccess } = useToastMessages()
   const router = useRouter()
   const t = useTranslations('UserMenu')
   const [refreshing, setRefreshing] = useState(false)
@@ -221,7 +273,6 @@ export function UserMenuMobileEnhanced() {
   const handleSignOut = async () => {
     try {
       await signOut()
-      showSignOutSuccess()
       router.push('/')
     } catch (error) {
       console.error('Sign out error:', error)
@@ -263,7 +314,15 @@ export function UserMenuMobileEnhanced() {
                 </p>
               </div>
               
-              {/* 刷新按钮 - 移除debug模式下的显示 */}
+              {/* 刷新按钮 */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleRefreshUser}
+                disabled={refreshing}
+              >
+                <RefreshCw className={cn("h-4 w-4", refreshing && "animate-spin")} />
+              </Button>
             </div>
             
             {/* 状态指示器 */}
@@ -283,6 +342,20 @@ export function UserMenuMobileEnhanced() {
           </div>
           
           <div className="space-y-1 px-2">
+            <Button variant="ghost" className="w-full justify-start" asChild>
+              <Link href="/profile">
+                <User className="mr-2 h-4 w-4" />
+                {t('profile')}
+              </Link>
+            </Button>
+            
+            <Button variant="ghost" className="w-full justify-start" asChild>
+              <Link href="/dashboard">
+                <BarChart3 className="mr-2 h-4 w-4" />
+                {t('dashboard')}
+              </Link>
+            </Button>
+            
             <Button variant="ghost" className="w-full justify-start" asChild>
               <Link href="/credits/purchase">
                 <CreditCard className="mr-2 h-4 w-4" />
@@ -322,7 +395,3 @@ export function UserMenuMobileEnhanced() {
     </>
   )
 }
-
-// 为了向后兼容，导出别名
-export const UserMenu = UserMenuEnhanced
-export const UserMenuMobile = UserMenuMobileEnhanced

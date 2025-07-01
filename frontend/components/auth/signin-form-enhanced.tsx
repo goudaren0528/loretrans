@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/lib/hooks/useAuth'
-import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { cn } from '@/lib/utils'
 
 const signInSchema = z.object({
@@ -88,7 +87,7 @@ interface ErrorAnalysis {
   canRetry: boolean
 }
 
-export function SignInForm({ onSuccess, redirectTo, locale = 'en' }: SignInFormProps) {
+export function SignInFormEnhanced({ onSuccess, redirectTo, locale = 'en' }: SignInFormProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [authError, setAuthError] = useState<string | null>(null)
   const [errorAnalysis, setErrorAnalysis] = useState<ErrorAnalysis | null>(null)
@@ -96,7 +95,6 @@ export function SignInForm({ onSuccess, redirectTo, locale = 'en' }: SignInFormP
   const [retryCount, setRetryCount] = useState(0)
   const [showTroubleshooting, setShowTroubleshooting] = useState(false)
   const { signIn } = useAuth()
-  const { showSignInSuccess, showSignInError } = useToastMessages()
 
   const t = translations[locale as keyof typeof translations] || translations.en
 
@@ -218,7 +216,6 @@ export function SignInForm({ onSuccess, redirectTo, locale = 'en' }: SignInFormP
       if (result.error) {
         console.error('❌ 登录错误:', result.error)
         setAuthError(result.error)
-        showSignInError(result.error)
         setErrorAnalysis(analyzeError(result.error))
         setRetryCount(prev => prev + 1)
         
@@ -229,14 +226,12 @@ export function SignInForm({ onSuccess, redirectTo, locale = 'en' }: SignInFormP
       } else if (result.success) {
         console.log('✅ 登录成功')
         setRetryCount(0)
-        showSignInSuccess()
         onSuccess?.()
       }
     } catch (error) {
       console.error('💥 登录异常:', error)
       const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred'
       setAuthError(errorMessage)
-      showSignInError(errorMessage)
       setErrorAnalysis(analyzeError(errorMessage))
       setRetryCount(prev => prev + 1)
     } finally {

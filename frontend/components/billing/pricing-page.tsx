@@ -11,89 +11,103 @@ import { Check, Coins, Zap, Star, Gift } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditBalance } from '@/components/credits/credit-balance'
-
-// 积分包配置（基于产品文档）
-const creditPackages = [
-  {
-    id: 'starter',
-    credits: 1000,
-    price: 1.99,
-    originalPrice: 1.99,
-    discount: 0,
-    popular: false,
-  },
-  {
-    id: 'basic',
-    credits: 5000,
-    price: 8.99,
-    originalPrice: 9.95,
-    discount: 10,
-    popular: true,
-  },
-  {
-    id: 'pro',
-    credits: 10000,
-    price: 15.99,
-    originalPrice: 19.90,
-    discount: 20,
-    popular: false,
-  },
-  {
-    id: 'business',
-    credits: 25000,
-    price: 34.99,
-    originalPrice: 49.75,
-    discount: 30,
-    popular: false,
-  },
-  {
-    id: 'enterprise',
-    credits: 50000,
-    price: 59.99,
-    originalPrice: 99.50,
-    discount: 40,
-    popular: false,
-  },
-]
+import { PRICING_PLANS } from '@/config/pricing.config'
+import { authService } from '@/lib/services/auth'
 
 export function PricingPage() {
   const t = useTranslations('pricing')
-  const { user } = useAuth()
+  const { user, loading: authLoading } = useAuth()
   const router = useRouter()
   const [loading, setLoading] = useState<string | null>(null)
 
+  // 过滤出付费商品（排除免费计划）
+  const creditPackages = PRICING_PLANS.filter(plan => plan.id !== 'free')
+
   const handlePurchase = async (packageId: string) => {
+    console.log('🛒 Purchase button clicked for package:', packageId)
+    console.log('👤 Current user:', user ? user.email : 'Not logged in')
+    console.log('🔄 Auth loading:', authLoading)
+    
+    // 如果认证状态还在加载中，等待一下
+    if (authLoading) {
+      console.log('⏳ Auth still loading, waiting...')
+      return
+    }
+    
     if (!user) {
+      console.log('🔒 User not logged in, redirecting to signin')
       router.push('/auth/signin?redirect=/pricing')
       return
     }
 
+    console.log('⏳ Setting loading state for package:', packageId)
     setLoading(packageId)
     
     try {
+      // 获取认证token
+      console.log('🔑 Getting authentication token...')
+      const session = await authService.getSession()
+      
+      if (!session?.access_token) {
+        throw new Error('No authentication token available')
+      }
+      
+      console.log('✅ Got authentication token')
+      console.log('📡 Sending checkout request to API...')
+      
       // 创建Creem checkout会话
-      const response = await fetch('/api/checkout/create', {
+      const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`, // 添加认证头
         },
         body: JSON.stringify({
-          packageId,
+          planId: packageId,
         }),
       })
 
+      console.log('📊 API Response status:', response.status)
+
       if (!response.ok) {
-        throw new Error('Failed to create checkout session')
+        const errorData = await response.json()
+        console.error('❌ API Error:', errorData)
+        throw new Error(errorData.error || 'Failed to create checkout session')
       }
 
-      const { checkoutUrl } = await response.json()
+      const responseData = await response.json()
+      console.log('✅ API Response data:', responseData)
       
-      // 重定向到Creem支付页面
-      window.location.href = checkoutUrl
+      const { url } = responseData
+      
+      if (!url) {
+        throw new Error('No checkout URL returned from server')
+      }
+      
+      console.log('🔗 Opening payment URL in new window:', url)
+      // 在新窗口打开Creem支付页面
+      const paymentWindow = window.open(url, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes')
+      
+      if (!paymentWindow) {
+        // 如果弹窗被阻止，提示用户并fallback到当前窗口
+        alert('请允许弹窗以打开支付页面，或者我们将在当前页面打开支付')
+        window.location.href = url
+      } else {
+        // 监听支付窗口关闭事件
+        const checkClosed = setInterval(() => {
+          if (paymentWindow.closed) {
+            clearInterval(checkClosed)
+            console.log('💳 Payment window closed, refreshing user data...')
+            // 支付窗口关闭后刷新用户数据
+            window.location.reload()
+          }
+        }, 1000)
+      }
     } catch (error) {
-      console.error('Purchase error:', error)
+      console.error('💥 Purchase error:', error)
       // TODO: 显示错误提示
     } finally {
+      console.log('🏁 Clearing loading state')
       setLoading(null)
     }
   }
@@ -152,7 +166,7 @@ export function PricingPage() {
 
         {/* 免费额度说明 - 统一样式 */}
         <div className="max-w-7xl mx-auto mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {/* 免费额度卡片 */}
             <Card className="bg-green-50 border-green-200 relative">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -278,12 +292,12 @@ export function PricingPage() {
                     
                     <div className="text-center">
                       <span className="text-3xl font-bold text-gray-900">
-                        ${pkg.price}
+                        ${pkg.priceUSD}
                       </span>
                       {pkg.discount > 0 && (
                         <div className="flex items-center justify-center gap-2 mt-1">
                           <span className="text-sm text-gray-500 line-through">
-                            ${pkg.originalPrice}
+                            ${(pkg.priceUSD / (1 - pkg.discount / 100)).toFixed(2)}
                           </span>
                           <Badge variant="destructive" className="text-xs">
                             {t('save')} {pkg.discount}%
@@ -310,12 +324,17 @@ export function PricingPage() {
                     className="w-full"
                     variant={pkg.popular ? 'default' : 'outline'}
                     onClick={() => handlePurchase(pkg.id)}
-                    disabled={loading === pkg.id}
+                    disabled={loading === pkg.id || authLoading}
                   >
                     {loading === pkg.id ? (
                       <div className="flex items-center gap-2">
                         <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                         {t('processing')}
+                      </div>
+                    ) : authLoading ? (
+                      <div className="flex items-center gap-2">
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                        Loading...
                       </div>
                     ) : (
                       <div className="flex items-center gap-2">

@@ -180,10 +180,13 @@ export const APP_CONFIG = {
 
   // Creem支付配置
   creem: {
-    secretKey: process.env.CREEM_SECRET_KEY || 'placeholder-secret-key',
-    publicKey: process.env.CREEM_PUBLIC_KEY || 'placeholder-public-key',
-    apiKey: process.env.CREEM_API_KEY || '',
-    webhookSecret: process.env.CREEM_WEBHOOK_SECRET || 'placeholder-webhook-secret',
+    // 主要API密钥 - 用于所有API调用
+    apiKey: process.env.CREEM_SECRET_KEY || process.env.CREEM_API_KEY || '',
+    // 兼容旧配置
+    secretKey: process.env.CREEM_SECRET_KEY || '',
+    publicKey: process.env.NEXT_PUBLIC_CREEM_PUBLISHABLE_KEY || '',
+    // Webhook验证密钥
+    webhookSecret: process.env.CREEM_WEBHOOK_SECRET || '',
   },
 
   // SEO配置

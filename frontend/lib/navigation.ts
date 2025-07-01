@@ -2,8 +2,8 @@ import { LANG_TO_ENGLISH_PAGES } from '../../config/app.config';
 import { createNavigation } from 'next-intl/navigation';
 import { defineRouting } from 'next-intl/routing';
 
-// 支持的语言代码
-export const locales = ['en', 'zh', 'es', 'pt', 'fr', 'ar'] as const;
+// 支持的语言代码 - 移除中文，只保留英语、西班牙语、法语
+export const locales = ['en', 'es', 'fr'] as const;
 export type Locale = typeof locales[number];
 
 // 页面路径的国际化映射
@@ -13,81 +13,69 @@ export const PAGE_TRANSLATIONS = {
     en: '/about',
     es: '/acerca-de',
     fr: '/a-propos',
-    zh: '/about',
-    pt: '/about',
-    ar: '/about',
   },
   '/contact': {
     en: '/contact',
     es: '/contacto',
     fr: '/contact',
-    zh: '/contact',
-    pt: '/contact',
-    ar: '/contact',
   },
   '/pricing': {
     en: '/pricing',
     es: '/precios',
     fr: '/tarifs',
-    zh: '/pricing',
-    pt: '/pricing',
-    ar: '/pricing',
   },
   '/text-translate': {
     en: '/text-translate',
     es: '/traducir-texto',
     fr: '/traduire-texte',
-    zh: '/text-translate',
-    pt: '/text-translate',
-    ar: '/text-translate',
   },
   '/document-translate': {
     en: '/document-translate',
     es: '/traducir-documentos',
     fr: '/traduire-documents',
-    zh: '/document-translate',
-    pt: '/document-translate',
-    ar: '/document-translate',
+    
+    
+    
   },
   '/help': {
     en: '/help',
     es: '/ayuda',
     fr: '/aide',
-    zh: '/help',
-    pt: '/help',
-    ar: '/help',
+    
+    
+    
   },
   '/privacy': {
     en: '/privacy',
     es: '/privacidad',
     fr: '/confidentialite',
-    zh: '/privacy',
-    pt: '/privacy',
-    ar: '/privacy',
+    
+    
+    
   },
   '/terms': {
     en: '/terms',
     es: '/terminos',
     fr: '/conditions',
-    zh: '/terms',
-    pt: '/terms',
-    ar: '/terms',
+    
+    
+    
   },
   '/compliance': {
     en: '/compliance',
     es: '/cumplimiento',
     fr: '/conformite',
-    zh: '/compliance',
-    pt: '/compliance',
-    ar: '/compliance',
+    
+    
+    
   },
   '/api-docs': {
     en: '/api-docs',
     es: '/documentacion-api',
     fr: '/documentation-api',
-    zh: '/api-docs',
-    pt: '/api-docs',
-    ar: '/api-docs',
+    
+    
+    
   },
   // ... 其他语言特定页面
 } as const;

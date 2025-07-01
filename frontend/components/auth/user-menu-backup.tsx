@@ -1,7 +1,6 @@
 'use client'
 
 import { useAuth } from '@/lib/hooks/useAuth'
-import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { Button } from '@/components/ui/button'
 import {
@@ -20,51 +19,27 @@ import {
   LogOut, 
   BarChart3,
   UserPlus,
-  LogIn,
-  AlertCircle,
-  RefreshCw,
-  Loader2
+  LogIn
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
 
 /**
- * 增强版用户菜单组件
- * 包含调试信息和错误处理
+ * 用户菜单组件
+ * 显示用户头像和下拉菜单，包含个人资料、控制台、退出等选项
  */
-export function UserMenuEnhanced() {
-  const { user, signOut, loading, refreshUser } = useAuth()
-  const { showSignOutSuccess } = useToastMessages()
+export function UserMenu() {
+  const { user, signOut, loading } = useAuth()
   const router = useRouter()
   const t = useTranslations('UserMenu')
-  const [refreshing, setRefreshing] = useState(false)
 
   const handleSignOut = async () => {
-    try {
-      await signOut()
-      showSignOutSuccess()
-      router.push('/')
-    } catch (error) {
-      console.error('Sign out error:', error)
-    }
-  }
-
-  const handleRefreshUser = async () => {
-    setRefreshing(true)
-    try {
-      await refreshUser()
-    } catch (error) {
-      console.error('Refresh user error:', error)
-    } finally {
-      setRefreshing(false)
-    }
+    await signOut()
+    router.push('/')
   }
 
   const getUserInitials = (name: string) => {
-    if (!name) return 'U'
     return name
       .split(' ')
       .map(word => word.charAt(0))
@@ -72,27 +47,6 @@ export function UserMenuEnhanced() {
       .toUpperCase()
       .slice(0, 2)
   }
-
-  const getUserDisplayName = () => {
-    if (user?.name && user.name !== 'User') {
-      return user.name
-    }
-    if (user?.profile?.name && user.profile.name !== 'User') {
-      return user.profile.name
-    }
-    return user?.email?.split('@')[0] || 'User'
-  }
-
-  const getUserEmail = () => {
-    return user?.email || 'No email'
-  }
-
-  const getUserCredits = () => {
-    return user?.credits ?? 0
-  }
-
-  // 调试信息组件
-  const DebugInfo = () => null // 移除debug信息显示
 
   return (
     <>
@@ -104,10 +58,10 @@ export function UserMenuEnhanced() {
               <Avatar className="h-8 w-8">
                 <AvatarImage 
                   src={user?.profile?.avatar_url || undefined} 
-                  alt={getUserDisplayName()} 
+                  alt={user?.name || 'User'} 
                 />
                 <AvatarFallback className="text-xs">
-                  {getUserInitials(getUserDisplayName())}
+                  {user?.name ? getUserInitials(user.name) : 'U'}
                 </AvatarFallback>
               </Avatar>
             </Button>
@@ -117,46 +71,35 @@ export function UserMenuEnhanced() {
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-medium leading-none">
-                  {getUserDisplayName()}
+                  {user?.name || t('user')}
                 </p>
                 <p className="text-xs leading-none text-muted-foreground">
-                  {getUserEmail()}
+                  {user?.email}
                 </p>
                 <p className="text-xs leading-none text-blue-600 font-medium">
-                  {getUserCredits()} {t('credits')}
+                  {user?.credits || 0} {t('credits')}
                 </p>
-                
-                {/* 用户状态指示器 */}
-                <div className="flex items-center space-x-1 mt-1">
-                  {user?.emailVerified ? (
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-xs text-green-600">Verified</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <span className="text-xs text-yellow-600">Unverified</span>
-                    </div>
-                  )}
-                </div>
               </div>
             </DropdownMenuLabel>
             
             <DropdownMenuSeparator />
             
-            {/* 如果用户数据不完整，显示警告 */}
-            {(!user?.name || user.name === 'User') && (
-              <>
-                <DropdownMenuItem className="text-yellow-600" disabled>
-                  <AlertCircle className="mr-2 h-4 w-4" />
-                  <span className="text-xs">Profile incomplete</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-              </>
-            )}
+            {/* 暂时隐藏这些功能，专注于核心翻译功能 */}
+            {/* 
+            <DropdownMenuItem asChild>
+              <Link href="/profile" className="flex items-center">
+                <User className="mr-2 h-4 w-4" />
+                <span>{t('profile')}</span>
+              </Link>
+            </DropdownMenuItem>
             
-            {/* 主要功能菜单项 */}
+            <DropdownMenuItem asChild>
+              <Link href="/dashboard" className="flex items-center">
+                <BarChart3 className="mr-2 h-4 w-4" />
+                <span>{t('dashboard')}</span>
+              </Link>
+            </DropdownMenuItem>
+            
             <DropdownMenuItem asChild>
               <Link href="/credits/purchase" className="flex items-center">
                 <CreditCard className="mr-2 h-4 w-4" />
@@ -164,10 +107,15 @@ export function UserMenuEnhanced() {
               </Link>
             </DropdownMenuItem>
             
-            {/* 调试信息 */}
-            <DebugInfo />
+            <DropdownMenuItem asChild>
+              <Link href="/settings" className="flex items-center">
+                <Settings className="mr-2 h-4 w-4" />
+                <span>{t('settings')}</span>
+              </Link>
+            </DropdownMenuItem>
             
             <DropdownMenuSeparator />
+            */}
             
             <DropdownMenuItem 
               className="text-red-600 focus:text-red-600"
@@ -199,10 +147,9 @@ export function UserMenuEnhanced() {
         </div>
       </ConditionalRender>
 
+      {/* 加载状态 */}
       <ConditionalRender when="loading">
-        <div className="flex items-center space-x-2">
-          <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse" />
-        </div>
+        <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse" />
       </ConditionalRender>
     </>
   )
@@ -211,42 +158,14 @@ export function UserMenuEnhanced() {
 /**
  * 简化版用户菜单（用于移动端）
  */
-export function UserMenuMobileEnhanced() {
-  const { user, signOut, refreshUser } = useAuth()
-  const { showSignOutSuccess } = useToastMessages()
+export function UserMenuMobile() {
+  const { user, signOut } = useAuth()
   const router = useRouter()
   const t = useTranslations('UserMenu')
-  const [refreshing, setRefreshing] = useState(false)
 
   const handleSignOut = async () => {
-    try {
-      await signOut()
-      showSignOutSuccess()
-      router.push('/')
-    } catch (error) {
-      console.error('Sign out error:', error)
-    }
-  }
-
-  const handleRefreshUser = async () => {
-    setRefreshing(true)
-    try {
-      await refreshUser()
-    } catch (error) {
-      console.error('Refresh user error:', error)
-    } finally {
-      setRefreshing(false)
-    }
-  }
-
-  const getUserDisplayName = () => {
-    if (user?.name && user.name !== 'User') {
-      return user.name
-    }
-    if (user?.profile?.name && user.profile.name !== 'User') {
-      return user.profile.name
-    }
-    return user?.email?.split('@')[0] || 'User'
+    await signOut()
+    router.push('/')
   }
 
   return (
@@ -254,35 +173,28 @@ export function UserMenuMobileEnhanced() {
       <ConditionalRender when="authenticated">
         <div className="space-y-2">
           <div className="px-4 py-2 border-b">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-medium">{getUserDisplayName()}</p>
-                <p className="text-sm text-muted-foreground">{user?.email}</p>
-                <p className="text-sm text-blue-600 font-medium">
-                  {user?.credits || 0} {t('credits')}
-                </p>
-              </div>
-              
-              {/* 刷新按钮 - 移除debug模式下的显示 */}
-            </div>
-            
-            {/* 状态指示器 */}
-            <div className="flex items-center space-x-1 mt-2">
-              {user?.emailVerified ? (
-                <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-xs text-green-600">已验证</span>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <span className="text-xs text-yellow-600">未验证</span>
-                </div>
-              )}
-            </div>
+            <p className="font-medium">{user?.name || t('user')}</p>
+            <p className="text-sm text-muted-foreground">{user?.email}</p>
+            <p className="text-sm text-blue-600 font-medium">
+              {user?.credits || 0} {t('credits')}
+            </p>
           </div>
           
           <div className="space-y-1 px-2">
+            <Button variant="ghost" className="w-full justify-start" asChild>
+              <Link href="/profile">
+                <User className="mr-2 h-4 w-4" />
+                {t('profile')}
+              </Link>
+            </Button>
+            
+            <Button variant="ghost" className="w-full justify-start" asChild>
+              <Link href="/dashboard">
+                <BarChart3 className="mr-2 h-4 w-4" />
+                {t('dashboard')}
+              </Link>
+            </Button>
+            
             <Button variant="ghost" className="w-full justify-start" asChild>
               <Link href="/credits/purchase">
                 <CreditCard className="mr-2 h-4 w-4" />
@@ -322,7 +234,3 @@ export function UserMenuMobileEnhanced() {
     </>
   )
 }
-
-// 为了向后兼容，导出别名
-export const UserMenu = UserMenuEnhanced
-export const UserMenuMobile = UserMenuMobileEnhanced

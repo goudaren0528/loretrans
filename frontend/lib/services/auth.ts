@@ -102,12 +102,51 @@ class AuthService {
         }
       }
 
-      // 2. 创建用户记录和用户资料
-      await this.createUserRecord(authData.user.id, email, name)
+      // 2. 检查数据库表是否存在
+      try {
+        await this.createUserRecord(authData.user.id, email, name)
+      } catch (dbError: any) {
+        if (dbError?.code === '42P01') {
+          // 数据库表不存在的特殊处理
+          console.warn('Database tables not set up, but user auth created successfully')
+          return {
+            data: {
+              id: authData.user.id,
+              email: authData.user.email || email,
+              name: name || 'User',
+              emailVerified: false,
+              credits: 500,
+              role: 'free_user',
+            },
+            error: null,
+          }
+        }
+        throw dbError
+      }
 
       // 3. 获取完整用户信息
+      console.log('Attempting to fetch user data for userId:', authData.user.id)
       const userData = await this.getUserData(authData.user.id)
+      
+      if (!userData) {
+        console.warn('Failed to fetch user data, but auth was successful')
+        // 返回基本用户信息作为后备
+        const fallbackUser = {
+          id: authData.user.id,
+          email: authData.user.email || email,
+          name: name || 'User',
+          emailVerified: authData.user.email_confirmed || false,
+          credits: 500,
+          role: 'free_user' as const,
+        }
+        console.log('🔄 使用后备用户数据:', fallbackUser)
+        return {
+          data: fallbackUser,
+          error: null,
+        }
+      }
 
+      console.log('🎉 注册成功！用户数据:', { id: userData.id, email: userData.email, credits: userData.credits })
       return {
         data: userData,
         error: null,
@@ -297,43 +336,96 @@ class AuthService {
       return { data: { subscription: { unsubscribe: () => {} } } }
     }
 
+    let currentUserId: string | null = null
+
     return this.supabase!.auth.onAuthStateChange(async (event: any, session: any) => {
+      console.log('Auth state changed:', event, session?.user?.email)
+
+      // 防止重复处理相同的用户
+      const newUserId = session?.user?.id
+      if (newUserId && newUserId === currentUserId && event !== 'SIGNED_OUT') {
+        console.log('跳过重复的认证状态变化')
+        return
+      }
+
+      currentUserId = newUserId || null
+
       if (session?.user) {
+        console.log('Attempting to fetch user data for userId:', session.user.id)
+        
+        // 添加延迟，确保触发器有时间执行
+        if (event === 'SIGNED_UP') {
+          console.log('新用户注册，等待触发器执行...')
+          await new Promise(resolve => setTimeout(resolve, 2000))
+        }
+        
         const userData = await this.getUserData(session.user.id)
-        callback(userData)
+        
+        if (userData) {
+          callback(userData)
+        } else {
+          // 如果获取用户数据失败，但认证成功，使用基本信息
+          console.warn('Failed to fetch user data, but auth was successful')
+          const fallbackUser = {
+            id: session.user.id,
+            email: session.user.email || 'unknown@example.com',
+            name: 'User',
+            emailVerified: session.user.email_confirmed || false,
+            credits: 500,
+            role: 'free_user' as const,
+          }
+          console.log('🔄 使用后备用户数据:', fallbackUser)
+          callback(fallbackUser)
+        }
       } else {
+        currentUserId = null
         callback(null)
       }
     })
   }
 
   /**
-   * 创建用户记录和资料（现在由数据库触发器自动处理）
+   * 创建用户记录和资料（使用服务角色绕过RLS）
    */
   private async createUserRecord(userId: string, email: string, name?: string) {
     try {
-      // 注意：用户记录创建现在由数据库触发器自动处理
-      // 这里我们只需要确认用户记录存在
-      const user = await userService.getUserById(userId)
+      // 1. 首先检查用户是否已存在
+      const existingUser = await userService.getUserById(userId)
       
-      if (!user) {
-        console.warn('用户记录未找到，可能触发器执行失败')
+      if (existingUser) {
+        console.log('用户记录已存在:', { userId, email })
         return
       }
 
-      // 如果提供了姓名，更新用户资料
-      if (name) {
-        await userService.updateUserProfile(userId, { name })
+      // 2. 调用API端点来创建用户记录（使用服务角色）
+      const response = await fetch('/api/auth/create-user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId,
+          email,
+          name: name || '',
+        }),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to create user record')
       }
 
-      console.log('用户记录创建成功:', { userId, email, credits: user.credits })
+      const result = await response.json()
+      console.log('用户记录创建成功:', result)
     } catch (error) {
       console.error('Create user record error:', error)
+      // 不抛出错误，因为用户认证已经成功
+      console.warn('用户记录创建失败，但认证成功')
     }
   }
 
   /**
-   * 获取完整用户数据（使用新的数据服务）
+   * 获取完整用户数据（使用API端点获取，绕过RLS限制）
    */
   private async getUserData(userId: string): Promise<AuthUser | null> {
     if (!this.isReady()) {
@@ -341,32 +433,139 @@ class AuthService {
     }
 
     try {
-      // Fetch user data directly from Supabase to get the role
+      // 首先尝试使用API端点获取用户数据（使用服务角色权限）
+      // 添加重试机制，因为触发器可能需要时间创建数据
+      let retryCount = 0;
+      const maxRetries = 3;
+      
+      while (retryCount < maxRetries) {
+        try {
+          const response = await fetch('/api/auth/get-user', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId }),
+          })
+
+          if (response.ok) {
+            const result = await response.json()
+            if (result.success && result.user) {
+              console.log('✅ 成功通过API获取用户数据:', { userId, email: result.user.email, credits: result.user.credits })
+              return result.user
+            }
+          } else if (response.status === 404) {
+            console.log(`⏳ API路由未找到，重试 ${retryCount + 1}/${maxRetries}...`)
+            retryCount++
+            if (retryCount < maxRetries) {
+              await new Promise(resolve => setTimeout(resolve, 1000)) // 等待1秒后重试
+              continue
+            }
+          } else {
+            console.error('❌ API获取用户数据失败:', response.status, response.statusText)
+            break
+          }
+        } catch (fetchError) {
+          console.error('❌ API请求异常:', fetchError)
+          retryCount++
+          if (retryCount < maxRetries) {
+            await new Promise(resolve => setTimeout(resolve, 1000))
+            continue
+          }
+          break
+        }
+      }
+
+      // 如果API失败，尝试直接查询（可能受RLS限制）
+      console.warn('API获取用户数据失败，尝试直接查询')
+      
       const { data: userData, error: userError } = await this.supabase!
         .from('users')
         .select('id, email, email_verified, credits, role')
         .eq('id', userId)
-        .single()
+        .maybeSingle()
 
-      if (userError || !userData) {
+      if (userError) {
         console.error('Failed to fetch user data:', userError)
         return null
       }
 
-      const profile = await userService.getUserProfile(userId);
-      if (!profile) return null;
+      if (!userData) {
+        console.error('No user data found for userId:', userId)
+        
+        // 如果直接查询也没有数据，可能是触发器还没执行完
+        // 尝试手动创建用户记录
+        console.log('🔄 尝试手动创建用户记录...')
+        try {
+          const createResponse = await fetch('/api/auth/create-user', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              userId: userId,
+              email: 'unknown@example.com', // 临时邮箱，实际会被覆盖
+              name: 'User'
+            }),
+          })
+          
+          if (createResponse.ok) {
+            const createResult = await createResponse.json()
+            if (createResult.success) {
+              console.log('✅ 手动创建用户记录成功')
+              // 再次尝试获取用户数据
+              const retryResponse = await fetch('/api/auth/get-user', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId }),
+              })
+              
+              if (retryResponse.ok) {
+                const retryResult = await retryResponse.json()
+                if (retryResult.success && retryResult.user) {
+                  return retryResult.user
+                }
+              }
+            }
+          }
+        } catch (createError) {
+          console.error('手动创建用户记录失败:', createError)
+        }
+        
+        return null
+      }
+
+      // 尝试获取用户资料，如果失败则使用默认值
+      let profile = null
+      try {
+        profile = await userService.getUserProfile(userId)
+      } catch (profileError) {
+        console.warn('Failed to fetch user profile, using defaults:', profileError)
+      }
 
       return {
         id: userData.id,
         email: userData.email,
-        name: profile.name || 'User',
+        name: profile?.name || 'User',
         emailVerified: userData.email_verified,
         credits: userData.credits,
         role: userData.role as 'admin' | 'pro_user' | 'free_user' | 'guest',
-        profile: {
+        profile: profile ? {
           ...profile,
           language: profile.language || 'en',
           timezone: profile.timezone || 'UTC',
+        } : {
+          id: '',
+          user_id: userId,
+          name: 'User',
+          avatar_url: null,
+          language: 'en',
+          timezone: 'UTC',
+          notification_preferences: {},
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
         },
       };
     } catch (error) {

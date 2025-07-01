@@ -11,18 +11,143 @@ export interface PasswordRequirement {
   met: boolean
 }
 
+// 多语言支持
+interface PasswordStrengthTranslations {
+  requirements: {
+    minLength: string
+    uppercase: string
+    lowercase: string
+    number: string
+    special: string
+  }
+  strength: {
+    'very-weak': string
+    'weak': string
+    'fair': string
+    'good': string
+    'strong': string
+  }
+  feedback: {
+    enterPassword: string
+    tooShort: string
+    avoidCommonPatterns: string
+    avoidRepeating: string
+    excellent: string
+    good: string
+  }
+}
+
+const translations: Record<string, PasswordStrengthTranslations> = {
+  en: {
+    requirements: {
+      minLength: 'At least 8 characters',
+      uppercase: 'Contains uppercase letter',
+      lowercase: 'Contains lowercase letter',
+      number: 'Contains number',
+      special: 'Contains special character',
+    },
+    strength: {
+      'very-weak': 'Very Weak',
+      'weak': 'Weak',
+      'fair': 'Fair',
+      'good': 'Good',
+      'strong': 'Strong',
+    },
+    feedback: {
+      enterPassword: 'Please enter a password',
+      tooShort: 'Password is too short, recommend at least 8 characters',
+      avoidCommonPatterns: 'Avoid common patterns (like 123456, qwerty, etc.)',
+      avoidRepeating: 'Avoid repeating characters (like aaa, 111, etc.)',
+      excellent: 'Password strength is excellent!',
+      good: 'Password strength is good',
+    },
+  },
+  zh: {
+    requirements: {
+      minLength: '至少8个字符',
+      uppercase: '包含大写字母',
+      lowercase: '包含小写字母',
+      number: '包含数字',
+      special: '包含特殊字符',
+    },
+    strength: {
+      'very-weak': '非常弱',
+      'weak': '弱',
+      'fair': '一般',
+      'good': '良好',
+      'strong': '强',
+    },
+    feedback: {
+      enterPassword: '请输入密码',
+      tooShort: '密码太短，建议至少8个字符',
+      avoidCommonPatterns: '避免使用常见模式（如123456、qwerty等）',
+      avoidRepeating: '避免重复字符（如aaa、111等）',
+      excellent: '密码强度很好！',
+      good: '密码强度良好',
+    },
+  },
+  es: {
+    requirements: {
+      minLength: 'Al menos 8 caracteres',
+      uppercase: 'Contiene letra mayúscula',
+      lowercase: 'Contiene letra minúscula',
+      number: 'Contiene número',
+      special: 'Contiene carácter especial',
+    },
+    strength: {
+      'very-weak': 'Muy Débil',
+      'weak': 'Débil',
+      'fair': 'Regular',
+      'good': 'Buena',
+      'strong': 'Fuerte',
+    },
+    feedback: {
+      enterPassword: 'Por favor ingrese una contraseña',
+      tooShort: 'La contraseña es muy corta, se recomienda al menos 8 caracteres',
+      avoidCommonPatterns: 'Evite patrones comunes (como 123456, qwerty, etc.)',
+      avoidRepeating: 'Evite caracteres repetidos (como aaa, 111, etc.)',
+      excellent: '¡La fortaleza de la contraseña es excelente!',
+      good: 'La fortaleza de la contraseña es buena',
+    },
+  },
+  fr: {
+    requirements: {
+      minLength: 'Au moins 8 caractères',
+      uppercase: 'Contient une lettre majuscule',
+      lowercase: 'Contient une lettre minuscule',
+      number: 'Contient un chiffre',
+      special: 'Contient un caractère spécial',
+    },
+    strength: {
+      'very-weak': 'Très Faible',
+      'weak': 'Faible',
+      'fair': 'Correct',
+      'good': 'Bon',
+      'strong': 'Fort',
+    },
+    feedback: {
+      enterPassword: 'Veuillez saisir un mot de passe',
+      tooShort: 'Le mot de passe est trop court, recommandé au moins 8 caractères',
+      avoidCommonPatterns: 'Évitez les modèles courants (comme 123456, qwerty, etc.)',
+      avoidRepeating: 'Évitez les caractères répétés (comme aaa, 111, etc.)',
+      excellent: 'La force du mot de passe est excellente !',
+      good: 'La force du mot de passe est bonne',
+    },
+  },
+}
+
 /**
  * 检查密码强度
  */
-export function checkPasswordStrength(password: string): PasswordStrengthResult {
-  const requirements = getPasswordRequirements(password)
+export function checkPasswordStrength(password: string, locale: string = 'en'): PasswordStrengthResult {
+  const requirements = getPasswordRequirements(password, locale)
   const metCount = requirements.filter(req => req.met).length
   const score = calculateScore(password, metCount)
   const strength = getStrengthLevel(score)
   
   return {
     score,
-    feedback: generateFeedback(requirements, password),
+    feedback: generateFeedback(requirements, password, locale),
     isValid: isPasswordValid(password, requirements),
     strength,
   }
@@ -31,30 +156,32 @@ export function checkPasswordStrength(password: string): PasswordStrengthResult 
 /**
  * 获取密码要求列表
  */
-export function getPasswordRequirements(password: string): PasswordRequirement[] {
+export function getPasswordRequirements(password: string, locale: string = 'en'): PasswordRequirement[] {
+  const t = translations[locale] || translations.en
+  
   return [
     {
-      label: '至少8个字符',
+      label: t.requirements.minLength,
       regex: /.{8,}/,
       met: /.{8,}/.test(password),
     },
     {
-      label: '包含大写字母',
+      label: t.requirements.uppercase,
       regex: /[A-Z]/,
       met: /[A-Z]/.test(password),
     },
     {
-      label: '包含小写字母',
+      label: t.requirements.lowercase,
       regex: /[a-z]/,
       met: /[a-z]/.test(password),
     },
     {
-      label: '包含数字',
+      label: t.requirements.number,
       regex: /[0-9]/,
       met: /[0-9]/.test(password),
     },
     {
-      label: '包含特殊字符',
+      label: t.requirements.special,
       regex: /[^A-Za-z0-9]/,
       met: /[^A-Za-z0-9]/.test(password),
     },
@@ -110,11 +237,12 @@ function getStrengthLevel(score: number): PasswordStrengthResult['strength'] {
 /**
  * 生成反馈信息
  */
-function generateFeedback(requirements: PasswordRequirement[], password: string): string[] {
+function generateFeedback(requirements: PasswordRequirement[], password: string, locale: string = 'en'): string[] {
   const feedback: string[] = []
+  const t = translations[locale] || translations.en
   
   if (password.length === 0) {
-    return ['请输入密码']
+    return [t.feedback.enterPassword]
   }
   
   // 未满足的要求
@@ -125,23 +253,23 @@ function generateFeedback(requirements: PasswordRequirement[], password: string)
   
   // 额外建议
   if (password.length >= 6 && password.length < 8) {
-    feedback.push('密码太短，建议至少8个字符')
+    feedback.push(t.feedback.tooShort)
   }
   
   if (hasCommonPatterns(password)) {
-    feedback.push('避免使用常见模式（如123456、qwerty等）')
+    feedback.push(t.feedback.avoidCommonPatterns)
   }
   
   if (hasRepeatingCharacters(password)) {
-    feedback.push('避免重复字符（如aaa、111等）')
+    feedback.push(t.feedback.avoidRepeating)
   }
   
   if (feedback.length === 0) {
     const score = calculateScore(password, requirements.filter(r => r.met).length)
     if (score >= 4) {
-      feedback.push('密码强度很好！')
+      feedback.push(t.feedback.excellent)
     } else if (score >= 3) {
-      feedback.push('密码强度良好')
+      feedback.push(t.feedback.good)
     }
   }
   
@@ -153,10 +281,10 @@ function generateFeedback(requirements: PasswordRequirement[], password: string)
  */
 function isPasswordValid(password: string, requirements: PasswordRequirement[]): boolean {
   // 最低要求：至少8个字符，包含字母和数字
-  const minRequirements = requirements.filter(req => 
-    req.label === '至少8个字符' || 
-    req.label === '包含小写字母' || 
-    req.label === '包含数字'
+  const minRequirements = requirements.filter((req, index) => 
+    index === 0 || // 至少8个字符
+    index === 2 || // 包含小写字母
+    index === 3    // 包含数字
   )
   
   return minRequirements.every(req => req.met)
@@ -233,19 +361,7 @@ export function getStrengthProgressColor(strength: PasswordStrengthResult['stren
 /**
  * 获取强度文本
  */
-export function getStrengthText(strength: PasswordStrengthResult['strength']): string {
-  switch (strength) {
-    case 'very-weak':
-      return '非常弱'
-    case 'weak':
-      return '弱'
-    case 'fair':
-      return '一般'
-    case 'good':
-      return '良好'
-    case 'strong':
-      return '强'
-    default:
-      return '未知'
-  }
-} 
+export function getStrengthText(strength: PasswordStrengthResult['strength'], locale: string = 'en'): string {
+  const t = translations[locale] || translations.en
+  return t.strength[strength] || t.strength['very-weak']
+}

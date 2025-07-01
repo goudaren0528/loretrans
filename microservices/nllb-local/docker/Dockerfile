@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y \
 # 复制package文件
 COPY package*.json ./
 
-# 安装Node.js依赖
-RUN npm ci --only=production
+# 安装Node.js依赖（使用 npm install 而不是 npm ci，因为没有 package-lock.json）
+RUN npm install --only=production
 
 # 创建必要的目录
 RUN mkdir -p models downloads temp logs

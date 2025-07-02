@@ -2,20 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { CheckCircle, CreditCard, Gift } from 'lucide-react';
+import { CheckCircle, CreditCard, Gift, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTranslations } from 'next-intl';
+import { useAuth } from '@/components/auth/auth-provider';
 import Link from 'next/link';
 
 export function PaymentSuccess() {
   const searchParams = useSearchParams();
   const t = useTranslations('PaymentSuccess');
+  const { refreshUser, user } = useAuth();
   const [paymentDetails, setPaymentDetails] = useState<{
     plan?: string;
     credits?: string;
     amount?: string;
   }>({});
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
     const plan = searchParams.get('plan');
@@ -27,7 +30,51 @@ export function PaymentSuccess() {
       credits: credits || undefined,
       amount: amount || undefined
     });
-  }, [searchParams]);
+
+    // 🔧 关键修复：支付成功后立即刷新用户数据
+    const refreshUserData = async () => {
+      console.log('💰 支付成功，刷新用户积分数据...');
+      setIsRefreshing(true);
+      
+      try {
+        // 等待一小段时间确保webhook处理完成
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // 刷新用户数据
+        await refreshUser();
+        console.log('✅ 用户数据刷新完成');
+        
+        // 再次刷新以确保获取最新数据
+        setTimeout(async () => {
+          await refreshUser();
+          console.log('✅ 二次刷新完成，确保数据最新');
+        }, 3000);
+        
+      } catch (error) {
+        console.error('❌ 刷新用户数据失败:', error);
+      } finally {
+        setIsRefreshing(false);
+      }
+    };
+
+    // 只有在支付成功页面才刷新
+    if (plan || credits || amount) {
+      refreshUserData();
+    }
+  }, [searchParams, refreshUser]);
+
+  // 手动刷新积分
+  const handleManualRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      await refreshUser();
+      console.log('✅ 手动刷新用户数据完成');
+    } catch (error) {
+      console.error('❌ 手动刷新失败:', error);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
@@ -45,6 +92,43 @@ export function PaymentSuccess() {
         </CardHeader>
 
         <CardContent className="space-y-6">
+          {/* 用户积分显示 */}
+          {user && (
+            <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Gift className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <span className="font-medium text-blue-900 dark:text-blue-100">
+                  Current Credits
+                </span>
+                {isRefreshing && (
+                  <RefreshCw className="h-4 w-4 text-blue-600 animate-spin" />
+                )}
+              </div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                {user.credits?.toLocaleString() || '0'}
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleManualRefresh}
+                disabled={isRefreshing}
+                className="mt-2"
+              >
+                {isRefreshing ? (
+                  <>
+                    <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                    Refreshing...
+                  </>
+                ) : (
+                  <>
+                    <RefreshCw className="h-4 w-4 mr-2" />
+                    Refresh Credits
+                  </>
+                )}
+              </Button>
+            </div>
+          )}
+
           {/* Payment Details */}
           {paymentDetails.credits && (
             <div className="rounded-lg bg-gray-50 dark:bg-gray-800/50 p-4">

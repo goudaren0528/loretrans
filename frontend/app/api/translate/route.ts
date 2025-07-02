@@ -96,23 +96,38 @@ async function translateHandler(req: NextRequestWithUser) {
     }
 
     try {
-      // Step 3: Perform translation
-      console.log('Proceeding to call translation service.');
-      const translationResponse = await translateText({ 
-        text, 
-        sourceLanguage: sourceLang, 
-        targetLanguage: targetLang 
-      });
+      // Step 3: Perform translation - Force use NLLB service
+      console.log('Proceeding to call NLLB translation service directly.');
       
-      if (!translationResponse || !translationResponse.translatedText) {
-        throw new Error(t('translation_invalid_response'));
+      // Direct call to NLLB service
+      const nllbResponse = await fetch('http://localhost:8081/translate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text,
+          sourceLanguage: sourceLang,
+          targetLanguage: targetLang,
+        }),
+      });
+
+      if (!nllbResponse.ok) {
+        throw new Error(`NLLB service error: ${nllbResponse.status}`);
+      }
+
+      const nllbData = await nllbResponse.json();
+      
+      if (!nllbData.translatedText) {
+        throw new Error('No translation returned from NLLB service');
       }
       
-      console.log(`Translation successful for user ${userId}. Method: ${translationResponse.method}`);
+      console.log(`NLLB translation successful for user ${userId}. Method: nllb-local`);
       return NextResponse.json({ 
-        translatedText: translationResponse.translatedText,
+        translatedText: nllbData.translatedText,
         calculation: calculation,
-        method: translationResponse.method
+        method: 'nllb-local',
+        processingTime: nllbData.processingTime
       });
 
     } catch (translationError: any) {

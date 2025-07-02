@@ -29,7 +29,7 @@ export function CreditBalance({
   const t = useTranslations('TranslatorWidget.credits')
 
   const handlePurchaseClick = () => {
-    router.push('/credits/purchase')
+    router.push('/pricing')
   }
 
   const sizeClasses = {

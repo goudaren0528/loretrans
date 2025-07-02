@@ -61,7 +61,7 @@ export function AuthGuard({
       <div className="text-center py-8 space-y-4">
         <p className="text-muted-foreground">积分不足，需要 {requireCredits} 积分</p>
         <button 
-          onClick={() => router.push('/credits/purchase')}
+          onClick={() => router.push('/pricing')}
           className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
         >
           购买积分

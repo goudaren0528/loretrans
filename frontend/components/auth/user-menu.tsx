@@ -158,7 +158,7 @@ export function UserMenuEnhanced() {
             
             {/* 主要功能菜单项 */}
             <DropdownMenuItem asChild>
-              <Link href="/credits/purchase" className="flex items-center">
+              <Link href="/pricing" className="flex items-center">
                 <CreditCard className="mr-2 h-4 w-4" />
                 <span>{t('purchase_credits')}</span>
               </Link>
@@ -284,7 +284,7 @@ export function UserMenuMobileEnhanced() {
           
           <div className="space-y-1 px-2">
             <Button variant="ghost" className="w-full justify-start" asChild>
-              <Link href="/credits/purchase">
+              <Link href="/pricing">
                 <CreditCard className="mr-2 h-4 w-4" />
                 {t('purchase_credits')}
               </Link>

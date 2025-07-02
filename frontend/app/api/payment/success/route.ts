@@ -86,8 +86,9 @@ export async function GET(request: NextRequest) {
 
     console.log(`Successfully added ${pricingPlan.credits} credits to user ${userId}`);
 
-    // 重定向到成功页面
-    const successUrl = new URL('/payment-success', request.url);
+    // 重定向到成功页面 - 使用ngrok URL
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://33bb-38-98-190-191.ngrok-free.app';
+    const successUrl = new URL('/payment-success', baseUrl);
     successUrl.searchParams.set('purchase', 'success');
     successUrl.searchParams.set('plan', planId);
     successUrl.searchParams.set('credits', pricingPlan.credits.toString());
@@ -97,8 +98,9 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Error processing payment success:', error);
     
-    // 重定向到错误页面
-    const errorUrl = new URL('/pricing', request.url);
+    // 重定向到错误页面 - 使用ngrok URL
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://33bb-38-98-190-191.ngrok-free.app';
+    const errorUrl = new URL('/pricing', baseUrl);
     errorUrl.searchParams.set('purchase', 'error');
     errorUrl.searchParams.set('message', 'Payment processing failed');
 

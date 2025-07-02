@@ -178,15 +178,14 @@ export const APP_CONFIG = {
     from: process.env.EMAIL_FROM || 'noreply@transly.app',
   },
 
-  // Creem支付配置
+  // Creem支付配置 - 简化为单一API密钥模式
   creem: {
-    // 主要API密钥 - 用于所有API调用
-    apiKey: process.env.CREEM_SECRET_KEY || process.env.CREEM_API_KEY || '',
-    // 兼容旧配置
-    secretKey: process.env.CREEM_SECRET_KEY || '',
-    publicKey: process.env.NEXT_PUBLIC_CREEM_PUBLISHABLE_KEY || '',
+    // 单一API密钥，仅在后端使用
+    apiKey: process.env.CREEM_API_KEY || '',
     // Webhook验证密钥
     webhookSecret: process.env.CREEM_WEBHOOK_SECRET || '',
+    // 测试模式标识
+    testMode: process.env.NODE_ENV === 'development',
   },
 
   // SEO配置

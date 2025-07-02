@@ -13,7 +13,8 @@ async function registerPlugins() {
 
 // 注册路由
 async function registerRoutes() {
-  const translationService = require('./translation-service')
+  // 使用简化的翻译服务进行测试
+  const translationService = require('./translation-service-simple')
   await translationService.initialize()
 
   // 健康检查
@@ -21,9 +22,10 @@ async function registerRoutes() {
     return { 
       status: 'ok', 
       timestamp: new Date().toISOString(),
-      service: 'nllb-local',
+      service: 'nllb-local-simple',
       version: process.env.npm_package_version || '1.0.0',
-      model_loaded: translationService.isModelLoaded()
+      model_loaded: translationService.isModelLoaded(),
+      mode: 'testing'
     }
   })
 
@@ -49,12 +51,16 @@ async function registerRoutes() {
       const result = await translationService.translateText(text, sourceLanguage, targetLanguage)
       const processingTime = Date.now() - startTime
 
+      // 获取翻译统计信息
+      const stats = translationService.getTranslationStats(text, sourceLanguage, targetLanguage)
+
       return {
         translatedText: result,
         sourceLanguage,
         targetLanguage,
         processingTime,
-        method: 'nllb-local'
+        method: 'nllb-local-simple',
+        stats
       }
     } catch (error) {
       fastify.log.error('Translation error:', error)
@@ -89,7 +95,7 @@ async function registerRoutes() {
       return {
         results,
         processingTime,
-        method: 'nllb-local'
+        method: 'nllb-local-simple'
       }
     } catch (error) {
       fastify.log.error('Batch translation error:', error)
@@ -111,10 +117,33 @@ async function registerRoutes() {
   // 模型信息
   fastify.get('/model/info', async (request, reply) => {
     return {
-      model: 'facebook/nllb-200-distilled-600M',
-      version: '1.0',
+      model: 'facebook/nllb-200-distilled-600M (Simple Test Version)',
+      version: '1.0-test',
       loaded: translationService.isModelLoaded(),
-      supportedLanguages: Object.keys(translationService.getSupportedLanguages()).length
+      supportedLanguages: Object.keys(translationService.getSupportedLanguages()).length,
+      mode: 'testing'
+    }
+  })
+
+  // 翻译统计接口
+  fastify.post('/translate/stats', async (request, reply) => {
+    const { text, sourceLanguage, targetLanguage } = request.body
+
+    if (!text || !sourceLanguage || !targetLanguage) {
+      return reply.code(400).send({
+        error: 'Missing required fields: text, sourceLanguage, targetLanguage'
+      })
+    }
+
+    try {
+      const stats = translationService.getTranslationStats(text, sourceLanguage, targetLanguage)
+      return stats
+    } catch (error) {
+      fastify.log.error('Stats calculation error:', error)
+      return reply.code(500).send({
+        error: 'Failed to calculate stats',
+        message: error.message
+      })
     }
   })
 }
@@ -136,6 +165,7 @@ async function start() {
     fastify.log.info('  POST /translate/batch - Batch text translation')
     fastify.log.info('  GET  /languages - Supported languages')
     fastify.log.info('  GET  /model/info - Model information')
+    fastify.log.info('  POST /translate/stats - Translation statistics')
     
   } catch (err) {
     fastify.log.error(err)
@@ -167,4 +197,4 @@ process.on('unhandledRejection', (reason, promise) => {
   process.exit(1)
 })
 
-start() 
+start()

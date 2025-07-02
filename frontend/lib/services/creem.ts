@@ -1,9 +1,13 @@
 /**
  * Creem Payment Service
  * 基于Creem官方REST API实现的支付服务
+ * 包含网络连接修复功能
  */
 
 import { APP_CONFIG } from '@/config/app.config'
+
+// 导入网络修复工具
+const { enhancedFetch, initializeCreemNetworkFix } = require('../../lib/creem-network-fix.js');
 
 export interface CreemCheckoutParams {
   product_id: string
@@ -11,15 +15,20 @@ export interface CreemCheckoutParams {
   success_url?: string
   cancel_url?: string
   request_id?: string
+  metadata?: Record<string, string>
+  customer?: {
+    email: string
+  }
 }
 
 export interface CreemCheckoutResponse {
   id: string
-  url: string
+  checkout_url: string
   product_id: string
   customer_email?: string
   status: string
   created_at: string
+  request_id?: string
 }
 
 export interface CreemProduct {
@@ -35,14 +44,17 @@ export class CreemService {
   private apiKey: string
   private baseUrl: string
 
-  constructor(apiKey?: string, testMode = false) {
+  constructor(apiKey?: string) {
     if (!apiKey) {
       throw new Error('Creem API key is required')
     }
     this.apiKey = apiKey
-    this.baseUrl = testMode 
-      ? 'https://api.creem.io/test/v1' 
-      : 'https://api.creem.io/v1'
+    this.baseUrl = 'https://api.creem.io/v1'
+    
+    // 初始化网络修复
+    if (typeof window === 'undefined') { // 只在服务端初始化
+      initializeCreemNetworkFix();
+    }
   }
 
   /**
@@ -52,18 +64,46 @@ export class CreemService {
     console.log('Creating Creem checkout with params:', params)
 
     try {
-      const response = await fetch(`${this.baseUrl}/checkouts`, {
+      // 使用增强的fetch函数，自动处理网络问题
+      const fetchFunction = typeof window === 'undefined' ? enhancedFetch : fetch;
+      
+      const response = await fetchFunction(`${this.baseUrl}/checkouts`, {
         method: 'POST',
         headers: {
           'x-api-key': this.apiKey,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(params)
+        body: JSON.stringify(params),
+        timeout: 15000
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(`Creem API error: ${response.status} ${response.statusText} - ${errorData.message || 'Unknown error'}`)
+        const errorText = await response.text()
+        let errorData: any = {}
+        try {
+          errorData = JSON.parse(errorText)
+        } catch {
+          errorData = { message: errorText }
+        }
+        
+        console.error('Creem API error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorData
+        })
+        
+        // 提供更详细的错误信息
+        let errorMessage = `Creem API error: ${response.status} ${response.statusText}`
+        
+        if (response.status === 403) {
+          errorMessage = 'API key permissions insufficient. Please check your CREEM dashboard.'
+        } else if (response.status === 404) {
+          errorMessage = 'Product not found. Please verify your product configuration.'
+        } else if (errorData.message) {
+          errorMessage = errorData.message
+        }
+        
+        throw new Error(errorMessage)
       }
 
       const result = await response.json()
@@ -71,6 +111,12 @@ export class CreemService {
       return result
     } catch (error) {
       console.error('Failed to create Creem checkout:', error)
+      
+      // 如果是网络错误，提供更友好的错误信息
+      if (error.code === 'EAI_AGAIN' || error.code === 'ENOTFOUND') {
+        throw new Error('Network connectivity issue. Please check your internet connection and try again.')
+      }
+      
       throw error
     }
   }
@@ -80,17 +126,32 @@ export class CreemService {
    */
   async getProduct(productId: string): Promise<CreemProduct> {
     try {
-      const response = await fetch(`${this.baseUrl}/products/${productId}`, {
+      const fetchFunction = typeof window === 'undefined' ? enhancedFetch : fetch;
+      
+      const response = await fetchFunction(`${this.baseUrl}/products/${productId}`, {
         method: 'GET',
         headers: {
           'x-api-key': this.apiKey,
           'Content-Type': 'application/json'
-        }
+        },
+        timeout: 10000
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(`Creem API error: ${response.status} ${response.statusText} - ${errorData.message || 'Unknown error'}`)
+        const errorText = await response.text()
+        let errorData: any = {}
+        try {
+          errorData = JSON.parse(errorText)
+        } catch {
+          errorData = { message: errorText }
+        }
+        
+        let errorMessage = `Creem API error: ${response.status} ${response.statusText}`
+        if (errorData.message) {
+          errorMessage = errorData.message
+        }
+        
+        throw new Error(errorMessage)
       }
 
       return await response.json()
@@ -101,41 +162,36 @@ export class CreemService {
   }
 
   /**
-   * 验证Return URL签名
+   * 验证Webhook签名
    */
-  verifySignature(params: Record<string, string>, signature: string): boolean {
-    // TODO: 实现Creem签名验证逻辑
-    // 这需要根据Creem官方文档实现具体的签名验证算法
-    console.log('Verifying Creem signature:', { params, signature })
+  verifyWebhookSignature(payload: string, signature: string, secret: string): boolean {
+    // TODO: 实现Creem Webhook签名验证逻辑
+    console.log('Verifying Creem webhook signature')
     
     // 临时实现 - 生产环境需要实现真实的签名验证
     if (process.env.NODE_ENV === 'development') {
       return true
     }
     
-    // 生产环境的签名验证逻辑
     try {
       // 根据Creem文档实现签名验证
-      // const expectedSignature = generateSignature(params, this.apiKey)
-      // return signature === expectedSignature
       return true // 临时返回true
     } catch (error) {
-      console.error('Signature verification failed:', error)
+      console.error('Webhook signature verification failed:', error)
       return false
     }
   }
 }
 
-// 创建服务实例
-export const creemService = new CreemService(
-  APP_CONFIG.creem.secretKey,
-  process.env.NODE_ENV === 'development'
-)
+// 创建服务实例 - 仅在服务端使用
+export const creemService = APP_CONFIG.creem.apiKey 
+  ? new CreemService(APP_CONFIG.creem.apiKey)
+  : null
 
 // Mock服务用于开发测试
 export class MockCreemService extends CreemService {
   constructor() {
-    super('mock_key', true)
+    super('mock_api_key')
   }
 
   async createCheckout(params: CreemCheckoutParams): Promise<CreemCheckoutResponse> {
@@ -146,12 +202,12 @@ export class MockCreemService extends CreemService {
 
     const checkoutId = `cs_mock_${Date.now()}`
     
-    // 使用本地Mock支付页面而不是外部URL
-    const mockUrl = new URL('/en/mock-payment', 'http://localhost:3000')
+    // 使用本地Mock支付页面
+    const mockUrl = new URL('/checkout/mock', process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000')
     mockUrl.searchParams.set('checkout_id', checkoutId)
     mockUrl.searchParams.set('product_id', params.product_id)
-    if (params.customer_email) {
-      mockUrl.searchParams.set('customer_email', params.customer_email)
+    if (params.customer?.email) {
+      mockUrl.searchParams.set('customer_email', params.customer.email)
     }
     if (params.success_url) {
       mockUrl.searchParams.set('success_url', params.success_url)
@@ -164,11 +220,12 @@ export class MockCreemService extends CreemService {
     
     return {
       id: checkoutId,
-      url: mockUrl.toString(),
+      checkout_url: mockUrl.toString(),
       product_id: params.product_id,
-      customer_email: params.customer_email,
+      customer_email: params.customer?.email,
       status: 'pending',
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
+      request_id: params.request_id
     }
   }
 
@@ -204,7 +261,20 @@ export class MockCreemService extends CreemService {
   }
 }
 
-// 根据环境选择服务实例
-export const creem = process.env.NODE_ENV === 'development' && !APP_CONFIG.creem.secretKey
-  ? new MockCreemService()
-  : creemService
+// 根据环境和配置选择服务实例
+export const creem = (() => {
+  // 如果没有配置API密钥，使用Mock服务
+  if (!APP_CONFIG.creem.apiKey) {
+    console.log('Using Mock Creem Service (no API key configured)')
+    return new MockCreemService()
+  }
+  
+  // 如果是开发环境且明确要求使用Mock
+  if (process.env.NODE_ENV === 'development' && process.env.USE_MOCK_CREEM === 'true') {
+    console.log('Using Mock Creem Service (development mode)')
+    return new MockCreemService()
+  }
+  
+  // 使用真实服务
+  return creemService
+})()

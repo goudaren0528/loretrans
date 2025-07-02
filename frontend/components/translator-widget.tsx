@@ -324,7 +324,7 @@ export function TranslatorWidget({
                   <AlertTriangle className="h-4 w-4" />
                   <AlertDescription>
                     {t('credits.insufficient_balance', { required: estimatedCredits, current: credits })}
-                    <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/credits/purchase')}>
+                    <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push('/pricing')}>
                       {t('credits.recharge_now')}
                     </Button>
                   </AlertDescription>

@@ -94,37 +94,9 @@ function mockTranslation(text: string, sourceLanguage: string, targetLanguage: s
  * 检查是否应该使用mock模式
  */
 function shouldUseMockMode(): boolean {
-  // 调试信息 - 检查环境变量和配置
-  console.log('DEBUG: shouldUseMockMode checks:')
-  console.log('  USE_MOCK_TRANSLATION:', process.env.USE_MOCK_TRANSLATION)
-  console.log('  NLLB_LOCAL_ENABLED:', process.env.NLLB_LOCAL_ENABLED)
-  console.log('  localConfig.enabled:', APP_CONFIG.nllb.localService.enabled)
-  console.log('  localConfig.url:', APP_CONFIG.nllb.localService.url)
-  console.log('  HF API Key exists:', !!process.env.HUGGINGFACE_API_KEY)
-  
-  // 如果明确设置了使用mock模式，则使用mock
-  if (process.env.USE_MOCK_TRANSLATION === 'true') {
-    console.log('DEBUG: Using mock mode (explicitly enabled)')
-    return true
-  }
-  
-  // 如果启用了本地NLLB服务，不使用mock模式
-  const localConfig = APP_CONFIG.nllb.localService
-  if (localConfig.enabled) {
-    console.log('DEBUG: Using NLLB local service mode')
-    return false
-  }
-  
-  // 如果有HuggingFace API key，不使用mock模式
-  const apiKey = process.env.HUGGINGFACE_API_KEY
-  if (apiKey) {
-    console.log('DEBUG: Using HuggingFace API mode')
-    return false
-  }
-  
-  // 其他情况使用mock模式
-  console.log('DEBUG: Falling back to mock mode')
-  return true
+  // 强制禁用MOCK模式 - 始终使用真实翻译
+  console.log('DEBUG: Mock mode forcibly disabled - using real translation')
+  return false
 }
 
 /**
@@ -145,6 +117,13 @@ async function callLocalNLLBAPI(
   const timeoutId = setTimeout(() => controller.abort(), localConfig.timeout)
 
   try {
+    console.log('DEBUG: Calling NLLB service with:', {
+      url: `${localConfig.url}/translate`,
+      text,
+      sourceLanguage,
+      targetLanguage
+    })
+
     const response = await fetch(`${localConfig.url}/translate`, {
       method: 'POST',
       headers: {
@@ -158,14 +137,16 @@ async function callLocalNLLBAPI(
       signal: controller.signal,
     })
 
-    clearTimeout(timeoutId)
+    console.log('DEBUG: NLLB response status:', response.status)
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      throw new Error(`Local NLLB API error: ${response.status} ${errorData.error || response.statusText}`)
+      const errorText = await response.text().catch(() => 'Unknown error')
+      console.error('DEBUG: NLLB error response:', errorText)
+      throw new Error(`Local NLLB API error: ${response.status} ${errorText}`)
     }
 
     const data = await response.json()
+    console.log('DEBUG: NLLB response data:', data)
     
     if (!data.translatedText) {
       throw new Error('No translation returned from local service')
@@ -173,6 +154,9 @@ async function callLocalNLLBAPI(
 
     return data.translatedText
 
+  } catch (error) {
+    console.error('DEBUG: NLLB call failed:', error)
+    throw error
   } finally {
     clearTimeout(timeoutId)
   }
@@ -331,15 +315,20 @@ export async function translateText(request: TranslationRequest): Promise<Transl
 
       if (useLocalService) {
         try {
+          console.log('DEBUG: Attempting to call local NLLB service...')
+          console.log('DEBUG: URL:', localConfig.url)
+          console.log('DEBUG: Request:', { text: request.text, sourceLanguage: request.sourceLanguage || 'auto', targetLanguage: request.targetLanguage })
+          
           translatedText = await callLocalNLLBAPI(
             request.text,
             request.sourceLanguage || 'auto',
             request.targetLanguage
           )
           method = 'nllb-local'
-          console.log('Using local NLLB service')
+          console.log('DEBUG: Local NLLB service success:', translatedText)
         } catch (error) {
-          console.warn('Local NLLB service failed:', error)
+          console.error('DEBUG: Local NLLB service failed:', error)
+          console.error('DEBUG: Error details:', error.message)
           useLocalService = false
           
           // 如果不允许fallback到HuggingFace，直接抛出错误

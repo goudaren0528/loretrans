@@ -13,8 +13,8 @@ async function registerPlugins() {
 
 // 注册路由
 async function registerRoutes() {
-  // 使用简化的翻译服务进行测试
-  const translationService = require('./translation-service-simple')
+  // 临时使用现有的翻译服务
+  const translationService = require('./translation-service')
   await translationService.initialize()
 
   // 健康检查

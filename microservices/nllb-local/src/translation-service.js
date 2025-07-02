@@ -589,6 +589,26 @@ if __name__ == "__main__":
       })
     })
   }
+
+  // 翻译统计信息方法
+  getTranslationStats(text, sourceLanguage, targetLanguage) {
+    const charCount = text.length
+    const wordCount = text.trim().split(/\s+/).length
+    const estimatedCredits = Math.ceil(charCount * 0.1) // 0.1积分/字符
+    
+    return {
+      characterCount: charCount,
+      wordCount: wordCount,
+      estimatedCredits: estimatedCredits,
+      sourceLanguage: sourceLanguage,
+      targetLanguage: targetLanguage,
+      supportedPair: this.isLanguagePairSupported(sourceLanguage, targetLanguage)
+    }
+  }
+
+  isLanguagePairSupported(sourceLanguage, targetLanguage) {
+    return this.languageMap[sourceLanguage] && this.languageMap[targetLanguage]
+  }
 }
 
 module.exports = new NLLBTranslationService() 

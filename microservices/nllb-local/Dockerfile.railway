@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# 安装Python依赖
+RUN pip3 install transformers torch sentencepiece
+
 # 复制package文件
 COPY package*.json ./
 
@@ -21,9 +24,12 @@ RUN npm install --only=production
 # 创建必要的目录
 RUN mkdir -p models downloads temp logs
 
-# 复制源代码
+# 复制源代码和脚本
 COPY src/ ./src/
 COPY scripts/ ./scripts/
+
+# 下载NLLB模型
+RUN python3 scripts/download_model.py download
 
 # 设置环境变量
 ENV NODE_ENV=production

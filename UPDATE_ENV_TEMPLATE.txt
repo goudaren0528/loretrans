@@ -1,0 +1,15 @@
+# 请将以下内容更新到您的 .env.local 文件中
+
+# 前端公开密钥 (保持不变)
+NEXT_PUBLIC_CREEM_PUBLISHABLE_KEY=creem_test_1DJqKl2eRnF3FTlYNW09u8
+
+# 后端私密密钥 (需要替换为从Creem控制台获取的真实Secret Key)
+CREEM_SECRET_KEY=creem_sk_test_YOUR_ACTUAL_SECRET_KEY_HERE
+
+# Webhook密钥 (保持不变)
+CREEM_WEBHOOK_SECRET=whsec_65jSbiU6yfhC9NDVdbAIpf
+
+# 注意：
+# - Secret Key应该以 creem_sk_test_ 开头
+# - 不要使用和Publishable Key相同的值
+# - 从Creem控制台的API Keys页面获取正确的Secret Key

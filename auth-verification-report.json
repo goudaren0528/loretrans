@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-06-30T10:02:50.517Z",
+  "fixes": [
+    {
+      "name": "用户菜单显示问题",
+      "completedComponents": 3,
+      "totalComponents": 3,
+      "percentage": 100
+    },
+    {
+      "name": "登录400错误问题",
+      "completedComponents": 3,
+      "totalComponents": 3,
+      "percentage": 100
+    },
+    {
+      "name": "邮箱唯一性验证问题",
+      "completedComponents": 3,
+      "totalComponents": 3,
+      "percentage": 100
+    }
+  ],
+  "overallStatus": "success"
+}

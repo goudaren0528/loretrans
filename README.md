@@ -1,33 +1,156 @@
-# Transly - Translate Low-Resource Languages to English
+# 🚀 Transly - 小语种翻译平台
 
-## 🎯 项目介绍
-Transly 是一个专为全球小语种用户设计的"翻译成英文"工具，覆盖 20+ 低竞争语言，基于 Meta NLLB 模型，提供专业的在线翻译体验。
+## 📋 项目概览
+- **定位**: 专注小语种翻译的AI平台，覆盖Google翻译不支持的语言
+- **团队**: 5人小团队（前端2人 + 后端2人 + 全栈1人）
+- **技术**: Next.js + Supabase + NLLB + Creem + Vercel
+- **周期**: 3个月（MVP 2周 + 完善4周 + 扩展8周）
 
 ## ✨ 核心功能
-- 🌍 支持20+小语种与英文互译
-- 📄 文件翻译（PDF/Word/PPT/图片）
+- 🌍 支持20+小语种与英文双向翻译
+- 📄 文档翻译（PDF/Word/PPT）
 - 🔊 语音播放（TTS）
-- 🎨 现代化UI设计
-- 📱 响应式Web界面
-- 🌐 多语言界面支持（i18n）
-- 📑 完整的语言落地页系统
-- 💰 免费/付费分层服务
+- 💰 积分制付费系统
+- 📱 完美移动端适配
+- 🎯 SEO优化的语言落地页
 
-## 🛠️ 技术栈
-- **前端**: Next.js 14+ (React, TypeScript, Tailwind CSS)
-- **核心后端**: Next.js API Routes (TypeScript)
-- **文件处理**: Node.js + Fastify 微服务
-- **AI模型**: Meta NLLB (Hugging Face Inference API)
-- **缓存**: Vercel KV / Upstash Redis
-- **数据库**: MongoDB Atlas (可选)
-- **TTS服务**: Edge Speech / Google TTS
-- **支付**: Creem
-- **部署**: Vercel (前端+核心API) + Railway (文件微服务)
+## 🛠️ 技术栈（简化版）
+```
+前端: Next.js 14 + TypeScript + Tailwind CSS
+后端: Next.js API Routes + Supabase
+翻译: Meta NLLB + Hugging Face API
+支付: Creem
+部署: Vercel
+监控: 简单日志 + 基础告警
+```
 
-## 🚀 快速开始
+## 📋 开发指南
 
-### 1. 环境准备
+### 🎯 核心文档（只需关注这些）
+- **[📋 统一开发清单](./todo_list.md)** - 包含所有任务、分工、时间线、风险管理
+- **[📖 产品文档](./product.md)** - 完整的产品规格和商业化策略
+- **[🚀 快速上线指南](./QUICK-LAUNCH-GUIDE.md)** - 上线前检查清单
+
+### 🏃‍♂️ 快速开始
 ```bash
+# 1. 克隆项目
+git clone <repository-url>
+cd translation-low-source
+
+# 2. 安装依赖
+npm install
+
+# 3. 配置环境变量
+cp .env.example .env.local
+# 编辑 .env.local 填入必要的API密钥
+
+# 4. 启动开发服务器
+npm run dev
+
+# 5. 访问应用
+open http://localhost:3000
+```
+
+### 📊 当前进度
+```
+✅ 已完成:
+- 基础项目架构
+- 5个核心语言页面
+- 设计系统基础
+- 产品文档完善
+
+🔄 进行中:
+- MVP核心功能开发
+- 数据库设计
+- 翻译服务集成
+- 支付系统集成
+
+📋 待开始:
+- 用户系统完善
+- 移动端优化
+- 性能优化
+- 上线部署
+```
+
+## 👥 团队协作
+
+### 每日工作流程
+1. **9:30 每日站会** (15分钟) - 同步进度和问题
+2. **开发工作** - 按照todo_list.md中的任务分工
+3. **代码审查** - 每个PR必须经过审查
+4. **周五回顾** - 总结本周进展，规划下周任务
+
+### 沟通渠道
+- **即时沟通**: 微信群/Slack
+- **代码协作**: GitHub PR + Issues
+- **任务管理**: GitHub Projects
+- **文档共享**: 当前仓库
+
+## 🎯 里程碑目标
+
+### Week 2: MVP上线
+- 核心翻译功能可用
+- 用户注册登录系统
+- 基础支付流程
+- 5个语言页面集成
+
+### Week 6: 产品完善
+- 用户体验优化
+- 性能稳定性提升
+- 商业化功能完善
+- 数据分析系统
+
+### Week 12: 规模化准备
+- 高级功能开发
+- 技术架构优化
+- 运营体系建立
+- 收入目标达成
+
+## 🔧 开发规范
+
+### 代码规范
+- **TypeScript**: 严格类型检查
+- **ESLint + Prettier**: 代码格式统一
+- **Git提交**: 使用conventional commits
+- **分支策略**: feature/* → develop → main
+
+### 测试策略
+- **单元测试**: 核心功能必须覆盖
+- **集成测试**: API接口完整测试
+- **端到端测试**: 关键用户流程
+- **性能测试**: 定期执行
+
+## 📈 监控指标
+
+### 技术指标
+- 系统可用性: >99%
+- API响应时间: <2秒
+- 页面加载速度: <3秒
+- 错误率: <1%
+
+### 业务指标
+- 日活用户: 目标1000+
+- 注册转化率: 目标15%+
+- 付费转化率: 目标8%+
+- 月收入: 目标$5000+
+
+## 🆘 问题和支持
+
+### 常见问题
+1. **环境配置问题** → 查看 .env.example
+2. **API集成问题** → 查看 product.md 技术架构部分
+3. **部署问题** → 查看 QUICK-LAUNCH-GUIDE.md
+
+### 获取帮助
+- **技术问题**: 在GitHub Issues中提问
+- **紧急问题**: 联系技术负责人
+- **产品问题**: 查看product.md文档
+
+---
+
+**项目状态**: 🚀 MVP开发中  
+**最后更新**: 2025-01-03  
+**维护者**: 技术负责人
 # 克隆项目
 git clone <repository-url>
 cd low-source-translate

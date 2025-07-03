@@ -114,9 +114,9 @@ export const APP_CONFIG = {
     timeout: parseInt(process.env.NLLB_TIMEOUT || '30000'),
     // 本地服务配置
     localService: {
-      enabled: process.env.NLLB_LOCAL_ENABLED === 'true',
+      enabled: process.env.NODE_ENV === 'development' && process.env.NLLB_LOCAL_ENABLED === 'true',
       url: process.env.NLLB_LOCAL_URL || 'http://localhost:8081',
-      fallbackToHuggingFace: process.env.NLLB_LOCAL_FALLBACK === 'true',
+      fallbackToHuggingFace: process.env.NLLB_LOCAL_FALLBACK !== 'false', // 默认启用fallback
       timeout: parseInt(process.env.NLLB_LOCAL_TIMEOUT || '30000'),
     },
   },

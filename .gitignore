@@ -76,7 +76,7 @@ Thumbs.db
 *.swo
 
 # Logs
-logs
+logs/
 *.log
 
 # Temporary folders
@@ -109,3 +109,71 @@ microservices/file-processor/temp/
 
 # NLLB Service Temporary Files
 microservices/nllb-local/temp/
+
+# 临时文件和调试文件
+test-*.js
+test-*.ps1
+test-*.html
+debug-*.js
+debug-*.ps1
+check-*.js
+diagnose-*.js
+monitor-*.js
+fix-*.js
+fix-*.sql
+apply-*.js
+manual-*.js
+process-*.js
+complete-*.js
+implement-*.js
+verify-*.js
+user-*.js
+simple-*.js
+quick-*.js
+payment-*.js
+payment-*.log
+cleanup-*.js
+cleanup-*.sql
+setup-*.sql
+disable-*.sql
+*.ps1
+
+# 临时文档
+*-FIXED.md
+*-COMPLETE.md
+*-SOLUTION.md
+*-REPORT.md
+*-STATUS.md
+*-SUMMARY.md
+*-CHECKLIST.md
+*-GUIDE.md
+*-SETUP.md
+CREEM-*.md
+PAYMENT-*.md
+NGROK-*.md
+FIXES-*.md
+CRITICAL-*.md
+FINAL-*.md
+DEVELOPMENT-*.md
+MISSING-*.md
+CORE-*.md
+TOAST-*.md
+REQUEST_*.md
+UPDATE_*.txt
+auth-*.md
+auth-*.json
+chinese-*.md
+chinese-*.txt
+
+# 备份文件
+*_backup.*
+*.bak
+*.backup
+
+# 大文件
+ngrok
+ngrok-*.tgz
+microservices/ngrok.exe
+
+# PID文件
+.*.pid

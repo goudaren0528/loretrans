@@ -1,20 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { translateText } from '@/lib/services/translation'
-import { getTranslationCacheKey, withCache } from '@/lib/services/cache'
 import { 
-  apiResponse, 
-  apiError, 
-  validateMethod, 
-  parseRequestBody, 
-  validateRequiredFields,
-  validateTextLength,
-  sanitizeText,
-  getClientIP,
-  ApiErrorCodes,
   withApiAuth,
   type NextRequestWithUser
 } from '@/lib/api-utils'
-import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { createServerCreditService } from '@/lib/services/credits'
 import { getLocale, getTranslations } from 'next-intl/server'
 
@@ -22,16 +10,14 @@ interface TranslateRequest {
   text: string
   sourceLanguage: string
   targetLanguage: string
-  // 双向翻译增强参数
   mode?: 'single' | 'bidirectional' | 'batch' | 'auto-direction'
   options?: {
     enableCache?: boolean
     enableFallback?: boolean
     priority?: 'speed' | 'quality'
     format?: 'text' | 'structured'
-    autoDetectDirection?: boolean // 智能检测翻译方向
+    autoDetectDirection?: boolean
   }
-  // 批量翻译支持
   texts?: string[]
 }
 
@@ -96,39 +82,70 @@ async function translateHandler(req: NextRequestWithUser) {
     }
 
     try {
-      // Step 3: Perform translation - Force use NLLB service
-      console.log('Proceeding to call NLLB translation service directly.');
+      // Step 3: Perform translation using Hugging Face Space NLLB 1.3B
+      console.log('Calling Hugging Face Space NLLB 1.3B service...');
       
-      // Direct call to NLLB service
-      const nllbResponse = await fetch('http://localhost:8081/translate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text,
-          sourceLanguage: sourceLang,
-          targetLanguage: targetLang,
-        }),
-      });
+      const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
+      const timeout = parseInt(process.env.NLLB_SERVICE_TIMEOUT || '60000');
+      
+      // Create AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
+      
+      try {
+        const nllbResponse = await fetch(nllbServiceUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            text: text,
+            source_language: sourceLang,
+            target_language: targetLang,
+          }),
+          signal: controller.signal
+        });
 
-      if (!nllbResponse.ok) {
-        throw new Error(`NLLB service error: ${nllbResponse.status}`);
-      }
+        clearTimeout(timeoutId);
 
-      const nllbData = await nllbResponse.json();
-      
-      if (!nllbData.translatedText) {
-        throw new Error('No translation returned from NLLB service');
+        if (!nllbResponse.ok) {
+          const errorText = await nllbResponse.text();
+          throw new Error(`Hugging Face NLLB service error: ${nllbResponse.status} - ${errorText}`);
+        }
+
+        const nllbData = await nllbResponse.json();
+        
+        // Handle different response formats from HF Space
+        let translatedText = '';
+        if (nllbData.translated_text) {
+          translatedText = nllbData.translated_text;
+        } else if (nllbData.translation) {
+          translatedText = nllbData.translation;
+        } else if (typeof nllbData === 'string') {
+          translatedText = nllbData;
+        } else {
+          throw new Error('No translation returned from Hugging Face NLLB service');
+        }
+        
+        console.log(`Hugging Face NLLB translation successful for user ${userId}. Method: hf-nllb-1.3b`);
+        return NextResponse.json({ 
+          translatedText: translatedText,
+          calculation: calculation,
+          method: 'hf-nllb-1.3b',
+          processingTime: nllbData.processing_time || null,
+          model: 'NLLB-1.3B',
+          provider: 'Hugging Face Space'
+        });
+
+      } catch (fetchError: any) {
+        clearTimeout(timeoutId);
+        
+        if (fetchError.name === 'AbortError') {
+          throw new Error(`Hugging Face NLLB service timeout after ${timeout}ms`);
+        }
+        throw fetchError;
       }
-      
-      console.log(`NLLB translation successful for user ${userId}. Method: nllb-local`);
-      return NextResponse.json({ 
-        translatedText: nllbData.translatedText,
-        calculation: calculation,
-        method: 'nllb-local',
-        processingTime: nllbData.processingTime
-      });
 
     } catch (translationError: any) {
       console.error(`Translation failed for user ${userId}. Attempting to refund credits.`, translationError);
@@ -145,7 +162,8 @@ async function translateHandler(req: NextRequestWithUser) {
               source_language: sourceLang,
               target_language: targetLang
             },
-            error_message: translationError.message
+            error_message: translationError.message,
+            service: 'hugging-face-nllb'
           }
         );
 
@@ -184,4 +202,17 @@ export async function OPTIONS(request: NextRequest) {
       'Access-Control-Max-Age': '86400',
     },
   })
-} 
+}
+
+// 不支持的方法
+export async function GET() {
+  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+}
+
+export async function PUT() {
+  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+}
+
+export async function DELETE() {
+  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+}

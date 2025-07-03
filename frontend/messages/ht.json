@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "Lakay",
+    "about": "Konsènan",
+    "pricing": "Pri yo",
+    "contact": "Kontak"
+  },
+  "UserMenu": {
+    "sign_in": "Konekte",
+    "sign_up": "Enskri",
+    "sign_out": "Dekonekte",
+    "user": "Itilizatè",
+    "credits": "Kredi yo",
+    "profile": "Pwofil",
+    "dashboard": "Tablo Kòmand",
+    "purchase_credits": "Achte Kredi",
+    "settings": "Paramèt yo"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - Tradiktè AI pou Lang ki pa gen Anpil Resous",
+      "description": "Tradiksyon gratis ak AI pou 20+ lang ki pa gen anpil resous tankou Kreyòl, Lao, ak Swahili. Tradwi tèks ak dokiman yo nan Anglè imedyatman."
+    },
+    "hero": {
+      "title": "Tradiksyon ak AI pou Lang ki pa gen Anpil Resous",
+      "description": "Kase baryè lang yo ak AI ki pi avanse. Platfòm nou an bay tradiksyon ki gen bon kalite pou lang yo ki souvan pa gen sèvis yo merite. Kòmanse gratis.",
+      "features": {
+        "free": "100% Gratis",
+        "ai_powered": "Ak Pouvwa AI",
+        "languages": "20+ Lang"
+      },
+      "cta": {
+        "start_translating": "Kòmanse Tradwi",
+        "upload_document": "Telechaje Dokiman"
+      }
+    },
+    "languages": {
+      "title": "Lang ki Sipòte yo",
+      "description": "Tradwi nan lang ki pa gen anpil resous sa yo nan Anglè"
+    },
+    "cta": {
+      "title": "Kòmanse Tradwi Jodi a",
+      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan Transly pou bezwen tradiksyon yo",
+      "try_now": "Eseye Kounye a - Li Gratis",
+      "translate_documents": "Tradwi Dokiman yo"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "title": "Gen pou tradwi",
+    "description": "Gen pou tradwi",
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "status": {
+        "free": "Gen pou tradwi",
+        "ai_powered": "Gen pou tradwi",
+        "multi_language": "Gen pou tradwi"
+      },
+      "cta_start": "Gen pou tradwi",
+      "cta_upload": "Gen pou tradwi"
+    },
+    "supported_languages": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "cta_section": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "cta_try": "Gen pou tradwi",
+      "cta_docs": "Gen pou tradwi"
+    },
+    "translation_options": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "options": {
+        "text": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi",
+          "features": "Gen pou tradwi",
+          "button": "Gen pou tradwi"
+        },
+        "document": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi",
+          "features": "Gen pou tradwi",
+          "button": "Gen pou tradwi"
+        },
+        "image": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi",
+          "features": "Gen pou tradwi",
+          "button": "Gen pou tradwi"
+        }
+      },
+      "quick_start": {
+        "title": "Gen pou tradwi",
+        "button": "Gen pou tradwi"
+      },
+      "coming_soon": "Gen pou tradwi"
+    },
+    "language_grid": {
+      "coming_soon": "Gen pou tradwi",
+      "try_language": "Gen pou tradwi"
+    },
+    "feature_section": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "features": {
+        "ai_powered": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "fast": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "privacy": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "languages": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "tts": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "documents": {
+          "name": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        }
+      },
+      "stats": {
+        "languages": "Gen pou tradwi",
+        "free": "Gen pou tradwi",
+        "characters": "Gen pou tradwi",
+        "availability": "Gen pou tradwi"
+      }
+    },
+    "faq_section": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "questions": "Gen pou tradwi",
+      "contact_prompt": "Gen pou tradwi",
+      "contact_link": "Gen pou tradwi"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "mission": {
+      "title": "Gen pou tradwi",
+      "p1": "Gen pou tradwi",
+      "p2": "Gen pou tradwi",
+      "cta": "Gen pou tradwi"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "accuracy": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "privacy": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      }
+    },
+    "supported_languages": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "request_cta": "Gen pou tradwi",
+      "request_cta_description": "Gen pou tradwi"
+    },
+    "technology": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "cultural_preservation": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "community_driven": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "continuous_improvement": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      }
+    },
+    "faq": {
+      "title": "Gen pou tradwi",
+      "q1_title": "Gen pou tradwi",
+      "q1_answer": "Gen pou tradwi",
+      "q2_title": "Gen pou tradwi",
+      "q2_answer": "Gen pou tradwi",
+      "q3_title": "Gen pou tradwi",
+      "q3_answer": "Gen pou tradwi",
+      "q4_title": "Gen pou tradwi",
+      "q4_answer": "Gen pou tradwi",
+      "q5_title": "Gen pou tradwi",
+      "q5_answer": "Gen pou tradwi",
+      "q6_title": "Gen pou tradwi",
+      "q6_answer": "Gen pou tradwi"
+    },
+    "cta_section": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "cta_text": "Gen pou tradwi",
+      "cta_docs": "Gen pou tradwi"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "form": {
+      "title": "Gen pou tradwi",
+      "firstName": "Gen pou tradwi",
+      "firstNamePlaceholder": "Gen pou tradwi",
+      "lastName": "Gen pou tradwi",
+      "lastNamePlaceholder": "Gen pou tradwi",
+      "email": "Gen pou tradwi",
+      "emailPlaceholder": "Gen pou tradwi",
+      "subject": "Gen pou tradwi",
+      "subjectPlaceholder": "Gen pou tradwi",
+      "subjects": {
+        "translation_issue": "Gen pou tradwi",
+        "technical_support": "Gen pou tradwi",
+        "feature_request": "Gen pou tradwi",
+        "language_request": "Gen pou tradwi",
+        "business_inquiry": "Gen pou tradwi",
+        "feedback": "Gen pou tradwi",
+        "other": "Gen pou tradwi"
+      },
+      "relatedLanguage": "Gen pou tradwi",
+      "relatedLanguagePlaceholder": "Gen pou tradwi",
+      "message": "Gen pou tradwi",
+      "messagePlaceholder": "Gen pou tradwi",
+      "submit": "Gen pou tradwi"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Gen pou tradwi",
+        "email_support": "Gen pou tradwi",
+        "email_address": "Gen pou tradwi",
+        "response_time": "Gen pou tradwi",
+        "live_chat": "Gen pou tradwi",
+        "live_chat_status": "Gen pou tradwi",
+        "live_chat_eta": "Gen pou tradwi",
+        "support_hours_title": "Gen pou tradwi",
+        "support_hours_days": "Gen pou tradwi",
+        "support_hours_time": "Gen pou tradwi"
+      },
+      "common_issues": {
+        "title": "Gen pou tradwi",
+        "translation_not_working": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "language_not_supported": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "file_upload_issues": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        },
+        "audio_playback_not_working": {
+          "title": "Gen pou tradwi",
+          "description": "Gen pou tradwi"
+        }
+      },
+      "self_help": {
+        "title": "Gen pou tradwi",
+        "how_it_works": "Gen pou tradwi",
+        "try_text": "Gen pou tradwi",
+        "try_docs": "Gen pou tradwi",
+        "privacy": "Gen pou tradwi",
+        "terms": "Gen pou tradwi"
+      }
+    },
+    "what_to_expect": {
+      "title": "Gen pou tradwi",
+      "quick_response": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "personal_support": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "follow_up": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | Transly",
+      "description": "Plan ki baze sou senayo yo ak rekòmandasyon entelijan. Kòmanse ak $5 pou etidyan yo, $10 pou itilizatè pèsonèl yo, $25 pou pwofesyonèl yo."
+    },
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "plans": {
+      "starter": {
+        "name": "Kòmansè",
+        "description": "Bon pou etidyan ak itilizatè ki pa itilize anpil",
+        "discount": "Gen pou tradwi"
+      },
+      "professional": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "discount": "Gen pou tradwi"
+      },
+      "business": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "discount": "Gen pou tradwi"
+      }
+    },
+    "features": {
+      "title": "Gen pou tradwi",
+      "unlimited_text": "Gen pou tradwi",
+      "document_support": "Gen pou tradwi",
+      "tts_support": "Gen pou tradwi",
+      "api_access": "Gen pou tradwi",
+      "priority_support": "Gen pou tradwi",
+      "no_expiry": "Gen pou tradwi"
+    },
+    "buttons": {
+      "purchase": "Gen pou tradwi",
+      "processing": "Gen pou tradwi",
+      "get_started": "Gen pou tradwi"
+    },
+    "alert": {
+      "canceled_title": "Gen pou tradwi",
+      "canceled_description": "Gen pou tradwi"
+    },
+    "loading": "Gen pou tradwi",
+    "cta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "free_trial": "Gen pou tradwi",
+      "contact_sales": "Gen pou tradwi"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "status_free": "Gen pou tradwi",
+      "status_ai": "Gen pou tradwi",
+      "status_instant": "Gen pou tradwi"
+    },
+    "other_languages": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "faq": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "q1_title": "Gen pou tradwi",
+      "q1_answer": "Gen pou tradwi",
+      "q2_title": "Gen pou tradwi",
+      "q2_answer": "Gen pou tradwi",
+      "q3_title": "Gen pou tradwi",
+      "q3_answer": "Gen pou tradwi",
+      "q4_title": "Gen pou tradwi",
+      "q4_answer": "Gen pou tradwi",
+      "q5_title": "Gen pou tradwi",
+      "q5_answer": "Gen pou tradwi",
+      "q6_title": "Gen pou tradwi",
+      "q6_answer": "Gen pou tradwi",
+      "contact_text": "Gen pou tradwi",
+      "contact_link": "Gen pou tradwi"
+    },
+    "cta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "try_document": "Gen pou tradwi",
+      "view_pricing": "Gen pou tradwi"
+    },
+    "features": {
+      "title": "Gen pou tradwi",
+      "fast_title": "Gen pou tradwi",
+      "fast_desc": "Gen pou tradwi",
+      "accurate_title": "Gen pou tradwi",
+      "accurate_desc": "Gen pou tradwi",
+      "free_title": "Gen pou tradwi",
+      "free_desc": "Gen pou tradwi"
+    },
+    "how_to": {
+      "title": "Gen pou tradwi",
+      "step1_title": "Gen pou tradwi",
+      "step1_desc": "Gen pou tradwi",
+      "step2_title": "Gen pou tradwi",
+      "step2_desc": "Gen pou tradwi",
+      "step3_title": "Gen pou tradwi",
+      "step3_desc": "Gen pou tradwi"
+    },
+    "supported_languages": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "more": "Gen pou tradwi"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Gen pou tradwi",
+      "text_translation_desc": "Gen pou tradwi",
+      "document_translation": "Gen pou tradwi",
+      "document_translation_desc": "Gen pou tradwi",
+      "about": "Gen pou tradwi",
+      "about_desc": "Gen pou tradwi"
+    },
+    "Footer": {
+      "tagline": "Gen pou tradwi",
+      "product": "Gen pou tradwi",
+      "text_translation": "Gen pou tradwi",
+      "document_translation": "Gen pou tradwi",
+      "supported_languages": "Gen pou tradwi",
+      "company": "Gen pou tradwi",
+      "about_us": "Gen pou tradwi",
+      "privacy_policy": "Gen pou tradwi",
+      "terms_of_service": "Gen pou tradwi",
+      "compliance": "Gen pou tradwi",
+      "resources": "Gen pou tradwi",
+      "faq": "Gen pou tradwi",
+      "contact_support": "Gen pou tradwi",
+      "api_docs": "Gen pou tradwi",
+      "copyright": "Gen pou tradwi",
+      "powered_by": "Gen pou tradwi"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "title": "Gen pou tradwi",
+    "description": "Gen pou tradwi",
+    "steps": {
+      "step1": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "step2": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      },
+      "step3": {
+        "title": "Gen pou tradwi",
+        "description": "Gen pou tradwi"
+      }
+    },
+    "languages": {
+      "title": "Gen pou tradwi"
+    },
+    "cta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "try_text_translation": "Gen pou tradwi",
+      "view_pricing": "Gen pou tradwi"
+    },
+    "hero": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "upload_section": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "settings_section": {
+      "title": "Gen pou tradwi",
+      "source_language_label": "Gen pou tradwi",
+      "source_language_placeholder": "Gen pou tradwi",
+      "target_language_label": "Gen pou tradwi",
+      "target_language_placeholder": "Gen pou tradwi",
+      "translate_button": "Gen pou tradwi",
+      "translating_button": "Gen pou tradwi"
+    },
+    "jobs_section": {
+      "title": "Gen pou tradwi",
+      "no_jobs": "Gen pou tradwi",
+      "status": {
+        "pending": "Gen pou tradwi",
+        "processing": "Gen pou tradwi",
+        "completed": "Gen pou tradwi",
+        "failed": "Gen pou tradwi"
+      },
+      "error_message": "Gen pou tradwi",
+      "download_button": "Gen pou tradwi"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "login_button": "Gen pou tradwi"
+    },
+    "upload": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "uploading": "Gen pou tradwi",
+      "click_to_select": "Gen pou tradwi",
+      "drag_drop": "Gen pou tradwi",
+      "upload_success": "Gen pou tradwi",
+      "extracted_characters": "Gen pou tradwi",
+      "upload_failed": "Gen pou tradwi"
+    },
+    "analysis": {
+      "title": "Gen pou tradwi",
+      "filename": "Gen pou tradwi",
+      "filesize": "Gen pou tradwi",
+      "text_preview": "Gen pou tradwi",
+      "character_count": "Gen pou tradwi",
+      "characters": "Gen pou tradwi",
+      "credit_consumption": "Gen pou tradwi",
+      "credits": "Gen pou tradwi",
+      "free": "Gen pou tradwi",
+      "insufficient_credits": "Gen pou tradwi",
+      "recharge_now": "Gen pou tradwi",
+      "start_translation": "Gen pou tradwi",
+      "reupload": "Gen pou tradwi"
+    },
+    "translation": {
+      "title": "Gen pou tradwi",
+      "progress": "Gen pou tradwi",
+      "estimated_time": "Gen pou tradwi",
+      "completed": "Gen pou tradwi",
+      "download_result": "Gen pou tradwi",
+      "translation_started": "Gen pou tradwi",
+      "credits_consumed": "Gen pou tradwi",
+      "translation_failed": "Gen pou tradwi"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "Gen pou tradwi",
+    "missing_parameters": "Gen pou tradwi",
+    "insufficient_credits": "Gen pou tradwi",
+    "credit_error": "Gen pou tradwi",
+    "translation_invalid_response": "Gen pou tradwi",
+    "translation_failed_refund_failed": "Gen pou tradwi",
+    "translation_failed": "Gen pou tradwi",
+    "unexpected_error": "Gen pou tradwi",
+    "method_not_allowed": "Gen pou tradwi",
+    "invalid_json": "Gen pou tradwi",
+    "missing_fields": "Gen pou tradwi",
+    "empty_text": "Gen pou tradwi",
+    "text_too_long": "Gen pou tradwi",
+    "unexpected_detection_error": "Gen pou tradwi",
+    "invalid_lang_code": "Gen pou tradwi",
+    "invalid_speech_rate": "Gen pou tradwi",
+    "invalid_speech_pitch": "Gen pou tradwi",
+    "invalid_voice": "Gen pou tradwi",
+    "tts_unavailable": "Gen pou tradwi",
+    "tts_failed": "Gen pou tradwi",
+    "unexpected_tts_error": "Gen pou tradwi",
+    "failed_to_get_voices": "Gen pou tradwi"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "info": "Gen pou tradwi",
+      "contact_support": "Gen pou tradwi"
+    },
+    "SignUpForm": {
+      "title": "Gen pou tradwi",
+      "subtitle": "Gen pou tradwi",
+      "name_label": "Gen pou tradwi",
+      "name_placeholder": "Gen pou tradwi",
+      "name_required": "Gen pou tradwi",
+      "name_max_length": "Gen pou tradwi",
+      "email_label": "Gen pou tradwi",
+      "email_placeholder": "Gen pou tradwi",
+      "email_required": "Gen pou tradwi",
+      "email_invalid": "Gen pou tradwi",
+      "email_max_length": "Gen pou tradwi",
+      "password_label": "Gen pou tradwi",
+      "password_placeholder": "Gen pou tradwi",
+      "password_min_length": "Gen pou tradwi",
+      "password_max_length": "Gen pou tradwi",
+      "confirm_password_label": "Gen pou tradwi",
+      "confirm_password_placeholder": "Gen pou tradwi",
+      "confirm_password_required": "Gen pou tradwi",
+      "password_mismatch": "Gen pou tradwi",
+      "password_strength_label": "Gen pou tradwi",
+      "password_strength_feedback": "Gen pou tradwi",
+      "submit_button": "Gen pou tradwi",
+      "submit_loading_button": "Gen pou tradwi",
+      "signup_failed": "Gen pou tradwi",
+      "signup_error": "Gen pou tradwi",
+      "signin_prompt": "Gen pou tradwi",
+      "signin_link": "Gen pou tradwi"
+    },
+    "SignInForm": {
+      "title": "Gen pou tradwi",
+      "subtitle": "Gen pou tradwi",
+      "email_label": "Gen pou tradwi",
+      "email_placeholder": "Gen pou tradwi",
+      "email_required": "Gen pou tradwi",
+      "email_invalid": "Gen pou tradwi",
+      "email_max_length": "Gen pou tradwi",
+      "password_label": "Gen pou tradwi",
+      "password_placeholder": "Gen pou tradwi",
+      "password_required": "Gen pou tradwi",
+      "password_max_length": "Gen pou tradwi",
+      "forgot_password_link": "Gen pou tradwi",
+      "remember_me_label": "Gen pou tradwi",
+      "submit_button": "Gen pou tradwi",
+      "submit_loading_button": "Gen pou tradwi",
+      "signin_failed": "Gen pou tradwi",
+      "signin_error": "Gen pou tradwi",
+      "signup_prompt": "Gen pou tradwi",
+      "signup_link": "Gen pou tradwi",
+      "social_divider": "Gen pou tradwi",
+      "google_signin_button": "Gen pou tradwi",
+      "signup_bonus_prompt_1": "Gen pou tradwi",
+      "signup_bonus_prompt_2": "Gen pou tradwi"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Gen pou tradwi",
+      "register_for_unlimited": "Gen pou tradwi"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Gen pou tradwi",
+      "limit_reached_description": "Gen pou tradwi",
+      "login_required_title": "Gen pou tradwi",
+      "login_required_description": "Gen pou tradwi",
+      "daily_limit_title": "Gen pou tradwi",
+      "daily_limit_description": "Gen pou tradwi"
+    },
+    "success": {
+      "translation_complete": "Gen pou tradwi",
+      "credits_consumed": "Gen pou tradwi"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Gen pou tradwi",
+      "login_now": "Gen pou tradwi",
+      "or": "Gen pou tradwi",
+      "register_account": "Gen pou tradwi"
+    },
+    "buttons": {
+      "translating": "Gen pou tradwi",
+      "translate_with_credits": "Gen pou tradwi",
+      "free_translate": "Gen pou tradwi"
+    },
+    "credits": {
+      "balance": "Gen pou tradwi",
+      "recharge": "Gen pou tradwi",
+      "free_translation": "Gen pou tradwi",
+      "estimated_cost": "Gen pou tradwi",
+      "insufficient_credits": "Gen pou tradwi",
+      "free_quota_usage": "Gen pou tradwi",
+      "characters": "Gen pou tradwi",
+      "over_limit": "Gen pou tradwi",
+      "insufficient_balance": "Gen pou tradwi",
+      "recharge_now": "Gen pou tradwi"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi"
+    },
+    "title": "Gen pou tradwi",
+    "subtitle": "Gen pou tradwi",
+    "current_balance": "Gen pou tradwi",
+    "free_tier": {
+      "title": "Gen pou tradwi",
+      "subtitle": "Gen pou tradwi",
+      "completely_free": "Gen pou tradwi",
+      "credit_based": "Gen pou tradwi",
+      "features": {
+        "free_text": "Gen pou tradwi",
+        "all_languages": "Gen pou tradwi",
+        "unlimited_use": "Gen pou tradwi",
+        "large_text": "Gen pou tradwi",
+        "document_translation": "Gen pou tradwi",
+        "rate": "Gen pou tradwi"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "features": {
+          "credits": "Gen pou tradwi",
+          "languages": "Gen pou tradwi",
+          "documents": "Gen pou tradwi",
+          "validity": "Gen pou tradwi"
+        }
+      },
+      "basic": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "features": {
+          "credits": "Gen pou tradwi",
+          "languages": "Gen pou tradwi",
+          "documents": "Gen pou tradwi",
+          "validity": "Gen pou tradwi",
+          "support": "Gen pou tradwi"
+        }
+      },
+      "pro": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "features": {
+          "credits": "Gen pou tradwi",
+          "languages": "Gen pou tradwi",
+          "documents": "Gen pou tradwi",
+          "validity": "Gen pou tradwi",
+          "support": "Gen pou tradwi",
+          "batch": "Gen pou tradwi"
+        }
+      },
+      "business": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "features": {
+          "credits": "Gen pou tradwi",
+          "languages": "Gen pou tradwi",
+          "documents": "Gen pou tradwi",
+          "validity": "Gen pou tradwi",
+          "support": "Gen pou tradwi",
+          "batch": "Gen pou tradwi",
+          "api": "Gen pou tradwi"
+        }
+      },
+      "enterprise": {
+        "name": "Gen pou tradwi",
+        "description": "Gen pou tradwi",
+        "features": {
+          "credits": "Gen pou tradwi",
+          "languages": "Gen pou tradwi",
+          "documents": "Gen pou tradwi",
+          "validity": "Gen pou tradwi",
+          "support": "Gen pou tradwi",
+          "batch": "Gen pou tradwi",
+          "api": "Gen pou tradwi",
+          "integration": "Gen pou tradwi"
+        }
+      }
+    },
+    "popular": "Gen pou tradwi",
+    "save": "Gen pou tradwi",
+    "credits": "Gen pou tradwi",
+    "purchase_button": "Gen pou tradwi",
+    "processing": "Gen pou tradwi",
+    "new_user_bonus": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "note": "Gen pou tradwi"
+    },
+    "register_prompt": {
+      "title": "Gen pou tradwi",
+      "description": "Gen pou tradwi",
+      "register_button": "Gen pou tradwi",
+      "signin_button": "Gen pou tradwi"
+    },
+    "faq": {
+      "title": "Gen pou tradwi",
+      "subtitle": "Gen pou tradwi",
+      "credit_calculation": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "expiration": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "payment_methods": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "bulk_discount": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "unused_credits": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "business_invoicing": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "api_pricing": {
+        "question": "Gen pou tradwi",
+        "answer": "Gen pou tradwi"
+      },
+      "contact_support": "Gen pou tradwi"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "Gen pou tradwi",
+    "translation_complete": "Gen pou tradwi",
+    "translation_failed": "Gen pou tradwi",
+    "translating": "Gen pou tradwi",
+    "preparing_engine": "Gen pou tradwi",
+    "about_to_start": "Gen pou tradwi",
+    "processing": "Gen pou tradwi",
+    "engine_running": "Gen pou tradwi",
+    "optimizing_quality": "Gen pou tradwi",
+    "translation_paused": "Gen pou tradwi",
+    "resume_translation": "Gen pou tradwi",
+    "translation_error": "Gen pou tradwi",
+    "service_unavailable": "Gen pou tradwi",
+    "input_placeholder": "Gen pou tradwi",
+    "result_placeholder": "Gen pou tradwi",
+    "from_language": "Gen pou tradwi",
+    "to_language": "Gen pou tradwi",
+    "partial_complete": "Gen pou tradwi",
+    "partial_description": "Gen pou tradwi",
+    "task_resubmitted": "Gen pou tradwi"
+  },
+  "task": {
+    "task_management": "Gen pou tradwi",
+    "manage_description": "Gen pou tradwi",
+    "new_translation": "Gen pou tradwi",
+    "refresh_tasks": "Gen pou tradwi",
+    "task_list_updated": "Gen pou tradwi",
+    "refresh_failed": "Gen pou tradwi",
+    "operation_success": "Gen pou tradwi",
+    "operation_failed": "Gen pou tradwi",
+    "select_tasks_first": "Gen pou tradwi",
+    "no_tasks": "Gen pou tradwi",
+    "no_matching_tasks": "Gen pou tradwi",
+    "create_first_task": "Gen pou tradwi",
+    "search_placeholder": "Gen pou tradwi",
+    "queue_created": "Gen pou tradwi",
+    "can_leave_page": "Gen pou tradwi",
+    "check_in_tasks": "Gen pou tradwi",
+    "view_in_tasks": "Gen pou tradwi",
+    "batch_operation_success": "Gen pou tradwi"
+  },
+  "progress": {
+    "preparing": "Gen pou tradwi",
+    "processing": "Gen pou tradwi",
+    "finalizing": "Gen pou tradwi",
+    "completed": "Gen pou tradwi",
+    "paused": "Gen pou tradwi",
+    "failed": "Gen pou tradwi",
+    "cancelled": "Gen pou tradwi",
+    "partial_success": "Gen pou tradwi",
+    "progress": "Gen pou tradwi",
+    "understanding_text": "Gen pou tradwi",
+    "analyzing_language": "Gen pou tradwi",
+    "processing_content": "Gen pou tradwi",
+    "checking_grammar": "Gen pou tradwi",
+    "final_polish": "Gen pou tradwi",
+    "presenting_results": "Gen pou tradwi",
+    "results_ready": "Gen pou tradwi",
+    "thank_you_waiting": "Gen pou tradwi",
+    "progress_saved": "Gen pou tradwi",
+    "processing_time_long": "Gen pou tradwi",
+    "instant_processing": "Gen pou tradwi",
+    "background_processing": "Gen pou tradwi",
+    "smart_processing": "Gen pou tradwi"
+  },
+  "time": {
+    "time_estimate": "Gen pou tradwi",
+    "estimated_time": "Gen pou tradwi",
+    "can_leave": "Gen pou tradwi",
+    "accurate_estimate": "Gen pou tradwi",
+    "rough_estimate": "Gen pou tradwi",
+    "approximate_estimate": "Gen pou tradwi",
+    "fast_queue": "Gen pou tradwi",
+    "creation_time": "Gen pou tradwi"
+  },
+  "error": {
+    "error_recovery": "Gen pou tradwi",
+    "retry_failed": "Gen pou tradwi",
+    "unknown_error": "Gen pou tradwi",
+    "partial_results": "Gen pou tradwi",
+    "retry_failed_parts": "Gen pou tradwi",
+    "download_partial": "Gen pou tradwi",
+    "segment_retry": "Gen pou tradwi",
+    "encountered_problem": "Gen pou tradwi",
+    "trying_to_resolve": "Gen pou tradwi",
+    "contact_support": "Gen pou tradwi",
+    "please_retry_later": "Gen pou tradwi"
+  },
+  "success": {
+    "completed": "Gen pou tradwi",
+    "operation_success": "Gen pou tradwi",
+    "partial_success": "Gen pou tradwi",
+    "almost_done": "Gen pou tradwi",
+    "results_shown_below": "Gen pou tradwi",
+    "half_completed": "Gen pou tradwi"
+  },
+  "credits": {
+    "estimated_consumption": "Gen pou tradwi",
+    "credits_consumed": "Gen pou tradwi",
+    "credits_processing": "Gen pou tradwi",
+    "consumed_credits": "Gen pou tradwi",
+    "refunded_credits": "Gen pou tradwi",
+    "retry_only_failed": "Gen pou tradwi"
+  },
+  "language": {
+    "source_language": "Gen pou tradwi",
+    "target_language": "Gen pou tradwi",
+    "select_source": "Gen pou tradwi",
+    "select_target": "Gen pou tradwi"
+  },
+  "ui": {
+    "start": "Gen pou tradwi",
+    "pause": "Gen pou tradwi",
+    "resume": "Gen pou tradwi",
+    "continue": "Gen pou tradwi",
+    "cancel": "Gen pou tradwi",
+    "retry": "Gen pou tradwi",
+    "download": "Gen pou tradwi",
+    "delete": "Gen pou tradwi",
+    "refresh": "Gen pou tradwi",
+    "all": "Gen pou tradwi",
+    "status": "Gen pou tradwi",
+    "priority": "Gen pou tradwi",
+    "sort": "Gen pou tradwi",
+    "normal": "Gen pou tradwi",
+    "high": "Gen pou tradwi",
+    "urgent": "Gen pou tradwi",
+    "low": "Gen pou tradwi",
+    "waiting": "Gen pou tradwi",
+    "active": "Gen pou tradwi",
+    "needs_attention": "Gen pou tradwi",
+    "submitting": "Gen pou tradwi",
+    "downloading": "Gen pou tradwi",
+    "retrying": "Gen pou tradwi",
+    "copied": "Gen pou tradwi",
+    "text_copied": "Gen pou tradwi",
+    "input_text": "Gen pou tradwi",
+    "translation_result": "Gen pou tradwi",
+    "characters": "Gen pou tradwi",
+    "total_tasks": "Gen pou tradwi",
+    "select_all": "Gen pou tradwi",
+    "batch_operations": "Gen pou tradwi",
+    "set_priority": "Gen pou tradwi"
+  }
+}

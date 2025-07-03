@@ -2,59 +2,134 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    console.log('Testing NLLB service connectivity...')
+    console.log('Testing Hugging Face Space NLLB 1.3B service...')
     
-    // 测试NLLB服务连接
-    const response = await fetch('http://localhost:8081/health', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
+    const nllbUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator'
+    
+    // 测试服务可用性
+    console.log(`Checking service availability at: ${nllbUrl}`)
+    
+    const testCases = [
+      {
+        text: 'Hello, how are you?',
+        source_language: 'en',
+        target_language: 'zh',
+        description: 'English to Chinese'
       },
-      timeout: 5000
-    })
+      {
+        text: 'Bonjour, comment allez-vous?',
+        source_language: 'fr', 
+        target_language: 'en',
+        description: 'French to English'
+      },
+      {
+        text: 'Hola, ¿cómo estás?',
+        source_language: 'es',
+        target_language: 'en', 
+        description: 'Spanish to English'
+      }
+    ]
 
-    if (!response.ok) {
-      throw new Error(`NLLB health check failed: ${response.status}`)
+    const results = []
+    
+    for (const testCase of testCases) {
+      try {
+        console.log(`Testing: ${testCase.description}`)
+        const startTime = Date.now()
+        
+        const response = await fetch(nllbUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            text: testCase.text,
+            source_language: testCase.source_language,
+            target_language: testCase.target_language,
+          }),
+        })
+
+        const endTime = Date.now()
+        const responseTime = endTime - startTime
+
+        if (response.ok) {
+          const data = await response.json()
+          
+          // Handle different response formats
+          let translatedText = ''
+          if (data.translated_text) {
+            translatedText = data.translated_text
+          } else if (data.translation) {
+            translatedText = data.translation
+          } else if (typeof data === 'string') {
+            translatedText = data
+          }
+
+          results.push({
+            ...testCase,
+            success: true,
+            translatedText,
+            responseTime,
+            status: response.status
+          })
+          
+          console.log(`✅ ${testCase.description}: "${testCase.text}" -> "${translatedText}" (${responseTime}ms)`)
+        } else {
+          const errorText = await response.text()
+          results.push({
+            ...testCase,
+            success: false,
+            error: `HTTP ${response.status}: ${errorText}`,
+            responseTime,
+            status: response.status
+          })
+          
+          console.log(`❌ ${testCase.description}: HTTP ${response.status} - ${errorText}`)
+        }
+      } catch (error: any) {
+        results.push({
+          ...testCase,
+          success: false,
+          error: error.message,
+          responseTime: 0
+        })
+        
+        console.log(`❌ ${testCase.description}: ${error.message}`)
+      }
     }
 
-    const healthData = await response.json()
-    console.log('NLLB health check success:', healthData)
+    const successCount = results.filter(r => r.success).length
+    const totalTests = results.length
+    const avgResponseTime = results
+      .filter(r => r.success)
+      .reduce((sum, r) => sum + r.responseTime, 0) / successCount || 0
 
-    // 测试翻译请求
-    const translateResponse = await fetch('http://localhost:8081/translate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: 'Hello',
-        sourceLanguage: 'en',
-        targetLanguage: 'ht'
-      }),
-      timeout: 10000
-    })
-
-    if (!translateResponse.ok) {
-      throw new Error(`NLLB translate failed: ${translateResponse.status}`)
+    const summary = {
+      service: 'Hugging Face Space NLLB 1.3B',
+      url: nllbUrl,
+      timestamp: new Date().toISOString(),
+      overall_status: successCount === totalTests ? 'healthy' : successCount > 0 ? 'degraded' : 'unhealthy',
+      success_rate: `${successCount}/${totalTests}`,
+      average_response_time: `${Math.round(avgResponseTime)}ms`,
+      results
     }
 
-    const translateData = await translateResponse.json()
-    console.log('NLLB translate success:', translateData)
+    console.log(`Test completed: ${successCount}/${totalTests} successful, avg response time: ${Math.round(avgResponseTime)}ms`)
 
-    return NextResponse.json({
-      success: true,
-      health: healthData,
-      translate: translateData,
-      message: 'NLLB service is accessible from frontend'
+    return NextResponse.json(summary, { 
+      status: successCount > 0 ? 200 : 503 
     })
 
-  } catch (error) {
-    console.error('NLLB connectivity test failed:', error)
+  } catch (error: any) {
+    console.error('NLLB service test failed:', error)
     
     return NextResponse.json({
-      success: false,
+      service: 'Hugging Face Space NLLB 1.3B',
+      url: process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator',
+      timestamp: new Date().toISOString(),
+      overall_status: 'unhealthy',
       error: error.message,
-      message: 'NLLB service is not accessible from frontend'
-    }, { status: 500 })
+      success_rate: '0/0'
+    }, { status: 503 })
   }
 }

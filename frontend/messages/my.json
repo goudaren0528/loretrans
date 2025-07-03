@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "ပင်မ",
+    "about": "အကြောင်း",
+    "pricing": "စျေးနှုန်း",
+    "contact": "ဆက်သွယ်ရန်"
+  },
+  "UserMenu": {
+    "sign_in": "ဝင်ရောက်ရန်",
+    "sign_up": "စာရင်းသွင်းရန်",
+    "sign_out": "ထွက်ရန်",
+    "user": "အသုံးပြုသူ",
+    "credits": "ခရက်ဒစ်များ",
+    "profile": "ပရိုဖိုင်",
+    "dashboard": "ဒက်ရှ်ဘုတ်",
+    "purchase_credits": "ခရက်ဒစ်ဝယ်ယူရန်",
+    "settings": "ဆက်တင်များ"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - အရင်းအမြစ်နည်းသောဘာသာစကားများအတွက် AI ဘာသာပြန်စက်",
+      "description": "Creole၊ Lao နှင့် Swahili ကဲ့သို့သော အရင်းအမြစ်နည်းသောဘာသာစကား 20+ အတွက် AI ဖြင့် အခမဲ့ဘာသာပြန်ခြင်း။ စာသားနှင့်စာရွက်စာတမ်းများကို အင်္ဂလိပ်ဘာသာသို့ ချက်ချင်းဘာသာပြန်ပါ။"
+    },
+    "hero": {
+      "title": "အရင်းအမြစ်နည်းသောဘာသာစကားများအတွက် AI ဘာသာပြန်ခြင်း",
+      "description": "ခေတ်မီ AI ဖြင့် ဘာသာစကားအတားအဆီးများကို ဖြိုဖျက်ပါ။ ကျွန်ုပ်တို့၏ပလပ်ဖောင်းသည် အဓိကဝန်ဆောင်မှုများမှ မကြာခဏ မလုံလောက်သောဝန်ဆောင်မှုများရရှိသော ဘာသာစကားများအတွက် အရည်အသွေးမြင့်ဘာသာပြန်ခြင်းကို ပေးဆောင်သည်။ အခမဲ့စတင်ပါ။",
+      "features": {
+        "free": "100% အခမဲ့",
+        "ai_powered": "AI ဖြင့်စွမ်းအား",
+        "languages": "20+ ဘာသာစကား"
+      },
+      "cta": {
+        "start_translating": "ဘာသာပြန်စတင်ရန်",
+        "upload_document": "စာရွက်စာတမ်းတင်ရန်"
+      }
+    },
+    "languages": {
+      "title": "ပံ့ပိုးထားသောဘာသာစကားများ",
+      "description": "ဤအရင်းအမြစ်နည်းသောဘာသာစကားများမှ အင်္ဂလိပ်သို့ ဘာသာပြန်ပါ"
+    },
+    "cta": {
+      "title": "ယနေ့ဘာသာပြန်စတင်ပါ",
+      "description": "သူတို့၏ဘာသာပြန်လိုအပ်ချက်များအတွက် Transly ကို ယုံကြည်သော အသုံးပြုသူထောင်ပေါင်းများစွာနှင့် ပူးပေါင်းပါ",
+      "try_now": "ယခုစမ်းကြည့်ပါ - အခမဲ့ဖြစ်သည်",
+      "translate_documents": "စာရွက်စာတမ်းများဘာသာပြန်ရန်"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "status": {
+        "free": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "ai_powered": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "multi_language": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "cta_start": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta_upload": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "supported_languages": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "cta_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta_try": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta_docs": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "translation_options": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "options": {
+        "text": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "features": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "document": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "features": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "image": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "features": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "quick_start": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "coming_soon": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "language_grid": {
+      "coming_soon": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "try_language": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "feature_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "features": {
+        "ai_powered": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "fast": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "privacy": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "languages": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "tts": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "documents": {
+          "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "stats": {
+        "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "free": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "characters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "availability": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "faq_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "questions": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_prompt": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_link": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "mission": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "p1": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "p2": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "features": {
+      "accessibility": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "accuracy": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "privacy": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "supported_languages": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "request_cta": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "request_cta_description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "technology": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cultural_preservation": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "community_driven": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "continuous_improvement": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "faq": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q1_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q1_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q2_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q2_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q3_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q3_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q4_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q4_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q5_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q5_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q6_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q6_answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "cta_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "cta_docs": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "form": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "firstName": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "firstNamePlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "lastName": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "lastNamePlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "emailPlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subject": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subjectPlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subjects": {
+        "translation_issue": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "technical_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "feature_request": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "language_request": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "business_inquiry": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "feedback": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "other": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "relatedLanguage": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "relatedLanguagePlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "message": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "messagePlaceholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "submit": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "email_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "email_address": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "response_time": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "live_chat": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "live_chat_status": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "live_chat_eta": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "support_hours_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "support_hours_days": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "support_hours_time": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "common_issues": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "translation_not_working": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "language_not_supported": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "file_upload_issues": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        },
+        "audio_playback_not_working": {
+          "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "self_help": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "how_it_works": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "try_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "try_docs": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "privacy": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "terms": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "what_to_expect": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "quick_response": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "personal_support": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "follow_up": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "စျေးနှုန်း - သင့်အတွက် သင့်လျော်သောအစီအစဉ်ကို ရွေးချယ်ပါ | Transly",
+      "description": "အခြေအနေအပေါ်အခြေခံသော ဉာဏ်ရည်ထက်မြက်သော အကြံပြုချက်များ။ ကျောင်းသားများအတွက�� $5၊ ကိုယ်ပိုင်အသုံးပြုသူများအတွက် $5၊ ပရော်ဖက်ရှင်နယ်များအတွက် $25 ဖြင့် စတင်ပါ။"
+    },
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "plans": {
+      "starter": {
+        "name": "စတင်သူ",
+        "description": "ကျောင်းသားများနှင့် အနည်းငယ်အသုံးပြုသူများအတွက် သင့်လျော်သည်",
+        "discount": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "professional": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "discount": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "business": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "discount": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "features": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "unlimited_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "document_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "tts_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "api_access": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "priority_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "no_expiry": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "buttons": {
+      "purchase": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "get_started": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "alert": {
+      "canceled_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "canceled_description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "loading": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "cta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_trial": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_sales": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "status_free": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "status_ai": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "status_instant": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "other_languages": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "faq": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q1_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q1_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q2_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q2_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q3_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q3_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q4_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q4_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q5_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q5_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q6_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "q6_answer": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_link": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "cta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "try_document": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "view_pricing": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "features": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "fast_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "fast_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "accurate_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "accurate_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_desc": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "how_to": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step1_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step1_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step2_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step2_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step3_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "step3_desc": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "supported_languages": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "more": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "text_translation_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "document_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "document_translation_desc": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "about": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "about_desc": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "Footer": {
+      "tagline": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "product": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "text_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "document_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "supported_languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "company": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "about_us": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "privacy_policy": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "terms_of_service": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "compliance": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "resources": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "faq": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "api_docs": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "copyright": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "powered_by": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "steps": {
+      "step1": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "step2": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "step3": {
+        "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "languages": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "cta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "try_text_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "view_pricing": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "hero": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "upload_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "settings_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "source_language_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "source_language_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "target_language_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "target_language_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "translate_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "translating_button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "jobs_section": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "no_jobs": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "status": {
+        "pending": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "completed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "failed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "error_message": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "download_button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "login_button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "upload": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "uploading": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "click_to_select": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "drag_drop": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "upload_success": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "extracted_characters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "upload_failed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "analysis": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "filename": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "filesize": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "text_preview": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "character_count": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "characters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credit_consumption": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "insufficient_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "recharge_now": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "start_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "reupload": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "translation": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "progress": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "estimated_time": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "completed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "download_result": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "translation_started": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credits_consumed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "translation_failed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "missing_parameters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "insufficient_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "credit_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_invalid_response": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_failed_refund_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "unexpected_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "method_not_allowed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "invalid_json": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "missing_fields": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "empty_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "text_too_long": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "unexpected_detection_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "invalid_lang_code": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "invalid_speech_rate": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "invalid_speech_pitch": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "invalid_voice": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "tts_unavailable": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "tts_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "unexpected_tts_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "failed_to_get_voices": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "info": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "contact_support": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "SignUpForm": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subtitle": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "name_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "name_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "name_required": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "name_max_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_required": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_invalid": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_max_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_min_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_max_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "confirm_password_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "confirm_password_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "confirm_password_required": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_mismatch": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_strength_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_strength_feedback": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "submit_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "submit_loading_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signin_prompt": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signin_link": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "SignInForm": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subtitle": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_required": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_invalid": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "email_max_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_required": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "password_max_length": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "forgot_password_link": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "remember_me_label": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "submit_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "submit_loading_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signin_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signin_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_prompt": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_link": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "social_divider": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "google_signin_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_bonus_prompt_1": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signup_bonus_prompt_2": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "GuestLimit": {
+      "remaining_translations": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "register_for_unlimited": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "limit_reached_description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "login_required_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "login_required_description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "daily_limit_title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "daily_limit_description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "success": {
+      "translation_complete": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credits_consumed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "alerts": {
+      "login_required_for_long_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "login_now": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "or": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "register_account": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "buttons": {
+      "translating": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "translate_with_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_translate": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "credits": {
+      "balance": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "recharge": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "estimated_cost": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "insufficient_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "free_quota_usage": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "characters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "over_limit": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "insufficient_balance": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "recharge_now": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "subtitle": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "current_balance": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "free_tier": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subtitle": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "completely_free": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credit_based": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "features": {
+        "free_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "all_languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "unlimited_use": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "large_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "document_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "rate": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "features": {
+          "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "documents": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "validity": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "basic": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "features": {
+          "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "documents": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "validity": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "support": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "pro": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "features": {
+          "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "documents": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "validity": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "batch": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "business": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "features": {
+          "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "documents": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "validity": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "batch": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "api": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      },
+      "enterprise": {
+        "name": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "features": {
+          "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "languages": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "documents": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "validity": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "batch": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "api": "ဘာသာပြန်ရန်လိုအပ်သည်",
+          "integration": "ဘာသာပြန်ရန်လိုအပ်သည်"
+        }
+      }
+    },
+    "popular": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "save": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "purchase_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "new_user_bonus": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "note": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "register_prompt": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "register_button": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "signin_button": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "faq": {
+      "title": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "subtitle": "ဘာသာပြန်ရန်လိုအပ်သည်",
+      "credit_calculation": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "expiration": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "payment_methods": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "bulk_discount": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "unused_credits": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "business_invoicing": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "api_pricing": {
+        "question": "ဘာသာပြန်ရန်လိုအပ်သည်",
+        "answer": "ဘာသာပြန်ရန်လိုအပ်သည်"
+      },
+      "contact_support": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_complete": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translating": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "preparing_engine": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "about_to_start": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "engine_running": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "optimizing_quality": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_paused": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "resume_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "service_unavailable": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "input_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "result_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "from_language": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "to_language": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "partial_complete": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "partial_description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "task_resubmitted": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "task": {
+    "task_management": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "manage_description": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "new_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "refresh_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "task_list_updated": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "refresh_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "operation_success": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "operation_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "select_tasks_first": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "no_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "no_matching_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "create_first_task": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "search_placeholder": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "queue_created": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "can_leave_page": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "check_in_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "view_in_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "batch_operation_success": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "progress": {
+    "preparing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "finalizing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "completed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "paused": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "cancelled": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "partial_success": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "progress": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "understanding_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "analyzing_language": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "processing_content": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "checking_grammar": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "final_polish": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "presenting_results": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "results_ready": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "thank_you_waiting": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "progress_saved": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "processing_time_long": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "instant_processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "background_processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "smart_processing": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "time": {
+    "time_estimate": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "estimated_time": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "can_leave": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "accurate_estimate": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "rough_estimate": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "approximate_estimate": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "fast_queue": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "creation_time": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "error": {
+    "error_recovery": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "retry_failed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "unknown_error": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "partial_results": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "retry_failed_parts": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "download_partial": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "segment_retry": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "encountered_problem": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "trying_to_resolve": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "contact_support": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "please_retry_later": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "success": {
+    "completed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "operation_success": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "partial_success": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "almost_done": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "results_shown_below": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "half_completed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "credits": {
+    "estimated_consumption": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "credits_consumed": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "credits_processing": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "consumed_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "refunded_credits": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "retry_only_failed": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "language": {
+    "source_language": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "target_language": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "select_source": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "select_target": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  },
+  "ui": {
+    "start": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "pause": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "resume": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "continue": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "cancel": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "retry": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "download": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "delete": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "refresh": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "all": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "status": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "priority": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "sort": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "normal": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "high": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "urgent": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "low": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "waiting": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "active": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "needs_attention": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "submitting": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "downloading": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "retrying": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "copied": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "text_copied": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "input_text": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "translation_result": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "characters": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "total_tasks": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "select_all": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "batch_operations": "ဘာသာပြန်ရန်လိုအပ်သည်",
+    "set_priority": "ဘာသာပြန်ရန်လိုအပ်သည်"
+  }
+}

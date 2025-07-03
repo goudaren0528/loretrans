@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -43,7 +44,7 @@ const translations = {
     signIn: 'Sign In',
     signingIn: 'Signing In...',
     signingInProgress: 'Please wait, signing you in...',
-    noAccount: "Don't have an account?",
+    noAccount: "t('Auth.SignInForm.signup_prompt')",
     signUp: 'Sign up',
     emailPlaceholder: 'name@example.com',
     passwordPlaceholder: '••••••••',

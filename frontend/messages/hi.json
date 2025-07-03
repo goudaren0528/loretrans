@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "होम",
+    "about": "के बारे में",
+    "pricing": "मूल्य निर्धारण",
+    "contact": "संपर्क करें"
+  },
+  "UserMenu": {
+    "sign_in": "साइन इन",
+    "sign_up": "साइन अप",
+    "sign_out": "साइन आउट",
+    "user": "उपयोगकर्ता",
+    "credits": "क्रेडिट",
+    "profile": "प्रोफ़ाइल",
+    "dashboard": "डैशबोर्ड",
+    "purchase_credits": "क्रेडिट खरीदें",
+    "settings": "सेटिंग्स"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - कम संसाधन वाली भाषाओं के लिए AI अनुवादक",
+      "description": "क्रियोल, लाओ और स्वाहिली जैसी 20+ कम संसाधन वाली भाषाओं के लिए AI के साथ मुफ्त अनुवाद। पाठ और दस्तावेजों को तुरंत अंग्रेजी में अनुवाद करें।"
+    },
+    "hero": {
+      "title": "कम संसाधन वाली भाषाओं के लिए AI-संचालित अनुवाद",
+      "description": "अत्याधुनिक AI के साथ भाषा की बाधाओं को तोड़ें। हमारा प्लेटफॉर्म उन भाषाओं के लिए उच्च गुणवत्ता वाले अनुवाद प्रदान करता है जिन्हें अक्सर मुख्यधारा की सेवाओं द्वारा कम सेवा मिलती है। मुफ्त में शुरू करें।",
+      "features": {
+        "free": "100% मुफ्त",
+        "ai_powered": "AI-संचालित",
+        "languages": "20+ भाषाएं"
+      },
+      "cta": {
+        "start_translating": "अनुवाद शुरू करें",
+        "upload_document": "दस्तावेज़ अपलोड करें"
+      }
+    },
+    "languages": {
+      "title": "समर्थित भाषाएं",
+      "description": "इन कम संसाधन वाली भाषाओं से अंग्रेजी में अनुवाद करें"
+    },
+    "cta": {
+      "title": "आज ही अनुवाद शुरू करें",
+      "description": "हजारों उपयोगकर्ताओं के साथ जुड़ें जो अपनी अनुवाद आवश्यकताओं के लिए Transly पर भरोसा करते हैं",
+      "try_now": "अभी आज़माएं - यह मुफ्त है",
+      "translate_documents": "दस्तावेज़ अनुवाद करें"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "title": "अनुवाद की आवश्यकता",
+    "description": "अनुवाद की आवश्यकता",
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "status": {
+        "free": "अनुवाद की आवश्यकता",
+        "ai_powered": "अनुवाद की आवश्यकता",
+        "multi_language": "अनुवाद की आवश्यकता"
+      },
+      "cta_start": "अनुवाद की आवश्यकता",
+      "cta_upload": "अनुवाद की आवश्यकता"
+    },
+    "supported_languages": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "cta_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "cta_try": "अनुवाद की आवश्यकता",
+      "cta_docs": "अनुवाद की आवश्यकता"
+    },
+    "translation_options": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "options": {
+        "text": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता",
+          "features": "अनुवाद की आवश्यकता",
+          "button": "अनुवाद की आवश्यकता"
+        },
+        "document": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता",
+          "features": "अनुवाद की आवश्यकता",
+          "button": "अनुवाद की आवश्यकता"
+        },
+        "image": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता",
+          "features": "अनुवाद की आवश्यकता",
+          "button": "अनुवाद की आवश्यकता"
+        }
+      },
+      "quick_start": {
+        "title": "अनुवाद की आवश्यकता",
+        "button": "अनुवाद की आवश्यकता"
+      },
+      "coming_soon": "अनुवाद की आवश्यकता"
+    },
+    "language_grid": {
+      "coming_soon": "अनुवाद की आवश्यकता",
+      "try_language": "अनुवाद की आवश्यकता"
+    },
+    "feature_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "features": {
+        "ai_powered": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "fast": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "privacy": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "languages": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "tts": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "documents": {
+          "name": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        }
+      },
+      "stats": {
+        "languages": "अनुवाद की आवश्यकता",
+        "free": "अनुवाद की आवश्यकता",
+        "characters": "अनुवाद की आवश्यकता",
+        "availability": "अनुवाद की आवश्यकता"
+      }
+    },
+    "faq_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "questions": "अनुवाद की आवश्यकता",
+      "contact_prompt": "अनुवाद की आवश्यकता",
+      "contact_link": "अनुवाद की आवश्यकता"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "mission": {
+      "title": "अनुवाद की आवश्यकता",
+      "p1": "अनुवाद की आवश्यकता",
+      "p2": "अनुवाद की आवश्यकता",
+      "cta": "अनुवाद की आवश्यकता"
+    },
+    "features": {
+      "accessibility": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "accuracy": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "privacy": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      }
+    },
+    "supported_languages": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "request_cta": "अनुवाद की आवश्यकता",
+      "request_cta_description": "अनुवाद की आवश्यकता"
+    },
+    "technology": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "cultural_preservation": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "community_driven": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "continuous_improvement": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      }
+    },
+    "faq": {
+      "title": "अनुवाद की आवश्यकता",
+      "q1_title": "अनुवाद की आवश्यकता",
+      "q1_answer": "अनुवाद की आवश्यकता",
+      "q2_title": "अनुवाद की आवश्यकता",
+      "q2_answer": "अनुवाद की आवश्यकता",
+      "q3_title": "अनुवाद की आवश्यकता",
+      "q3_answer": "अनुवाद की आवश्यकता",
+      "q4_title": "अनुवाद की आवश्यकता",
+      "q4_answer": "अनुवाद की आवश्यकता",
+      "q5_title": "अनुवाद की आवश्यकता",
+      "q5_answer": "अनुवाद की आवश्यकता",
+      "q6_title": "अनुवाद की आवश्यकता",
+      "q6_answer": "अनुवाद की आवश्यकता"
+    },
+    "cta_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "cta_text": "अनुवाद की आवश्यकता",
+      "cta_docs": "अनुवाद की आवश्यकता"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "form": {
+      "title": "अनुवाद की आवश्यकता",
+      "firstName": "अनुवाद की आवश्यकता",
+      "firstNamePlaceholder": "अनुवाद की आवश्यकता",
+      "lastName": "अनुवाद की आवश्यकता",
+      "lastNamePlaceholder": "अनुवाद की आवश्यकता",
+      "email": "अनुवाद की आवश्यकता",
+      "emailPlaceholder": "अनुवाद की आवश्यकता",
+      "subject": "अनुवाद की आवश्यकता",
+      "subjectPlaceholder": "अनुवाद की आवश्यकता",
+      "subjects": {
+        "translation_issue": "अनुवाद की आवश्यकता",
+        "technical_support": "अनुवाद की आवश्यकता",
+        "feature_request": "अनुवाद की आवश्यकता",
+        "language_request": "अनुवाद की आवश्यकता",
+        "business_inquiry": "अनुवाद की आवश्यकता",
+        "feedback": "अनुवाद की आवश्यकता",
+        "other": "अनुवाद की आवश्यकता"
+      },
+      "relatedLanguage": "अनुवाद की आवश्यकता",
+      "relatedLanguagePlaceholder": "अनुवाद की आवश्यकता",
+      "message": "अनुवाद की आवश्यकता",
+      "messagePlaceholder": "अनुवाद की आवश्यकता",
+      "submit": "अनुवाद की आवश्यकता"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "अनुवाद की आवश्यकता",
+        "email_support": "अनुवाद की आवश्यकता",
+        "email_address": "अनुवाद की आवश्यकता",
+        "response_time": "अनुवाद की आवश्यकता",
+        "live_chat": "अनुवाद की आवश्यकता",
+        "live_chat_status": "अनुवाद की आवश्यकता",
+        "live_chat_eta": "अनुवाद की आवश्यकता",
+        "support_hours_title": "अनुवाद की आवश्यकता",
+        "support_hours_days": "अनुवाद की आवश्यकता",
+        "support_hours_time": "अनुवाद की आवश्यकता"
+      },
+      "common_issues": {
+        "title": "अनुवाद की आवश्यकता",
+        "translation_not_working": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "language_not_supported": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "file_upload_issues": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        },
+        "audio_playback_not_working": {
+          "title": "अनुवाद की आवश्यकता",
+          "description": "अनुवाद की आवश्यकता"
+        }
+      },
+      "self_help": {
+        "title": "अनुवाद की आवश्यकता",
+        "how_it_works": "अनुवाद की आवश्यकता",
+        "try_text": "अनुवाद की आवश्यकता",
+        "try_docs": "अनुवाद की आवश्यकता",
+        "privacy": "अनुवाद की आवश्यकता",
+        "terms": "अनुवाद की आवश्यकता"
+      }
+    },
+    "what_to_expect": {
+      "title": "अनुवाद की आवश्यकता",
+      "quick_response": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "personal_support": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "follow_up": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "मूल्य निर्धारण - अपने लिए सही योजना चुनें | Transly",
+      "description": "परिदृश्य-आधारित बुद्धिमान सिफारिशें। छात्रों के लिए $5, व्यक्तिगत उपयोगकर्ताओं के लिए $10, पेशेवरों के लिए $25 से शुरू करें।"
+    },
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "plans": {
+      "starter": {
+        "name": "स्टार्टर",
+        "description": "छात्रों और हल्के उपयोगकर्ताओं के लिए उपयुक्त",
+        "discount": "अनुवाद की आवश्यकता"
+      },
+      "professional": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "discount": "अनुवाद की आवश्यकता"
+      },
+      "business": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "discount": "अनुवाद की आवश्यकता"
+      }
+    },
+    "features": {
+      "title": "अनुवाद की आवश्यकता",
+      "unlimited_text": "अनुवाद की आवश्यकता",
+      "document_support": "अनुवाद की आवश्यकता",
+      "tts_support": "अनुवाद की आवश्यकता",
+      "api_access": "अनुवाद की आवश्यकता",
+      "priority_support": "अनुवाद की आवश्यकता",
+      "no_expiry": "अनुवाद की आवश्यकता"
+    },
+    "buttons": {
+      "purchase": "अनुवाद की आवश्यकता",
+      "processing": "अनुवाद की आवश्यकता",
+      "get_started": "अनुवाद की आवश्यकता"
+    },
+    "alert": {
+      "canceled_title": "अनुवाद की आवश्यकता",
+      "canceled_description": "अनुवाद की आवश्यकता"
+    },
+    "loading": "अनुवाद की आवश्यकता",
+    "cta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "free_trial": "अनुवाद की आवश्यकता",
+      "contact_sales": "अनुवाद की आवश्यकता"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "status_free": "अनुवाद की आवश्यकता",
+      "status_ai": "अनुवाद की आवश्यकता",
+      "status_instant": "अनुवाद की आवश्यकता"
+    },
+    "other_languages": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "faq": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "q1_title": "अनुवाद की आवश्यकता",
+      "q1_answer": "अनुवाद की आवश्यकता",
+      "q2_title": "अनुवाद की आवश्यकता",
+      "q2_answer": "अनुवाद की आवश्यकता",
+      "q3_title": "अनुवाद की आवश्यकता",
+      "q3_answer": "अनुवाद की आवश्यकता",
+      "q4_title": "अनुवाद की आवश्यकता",
+      "q4_answer": "अनुवाद की आवश्यकता",
+      "q5_title": "अनुवाद की आवश्यकता",
+      "q5_answer": "अनुवाद की आवश्यकता",
+      "q6_title": "अनुवाद की आवश्यकता",
+      "q6_answer": "अनुवाद की आवश्यकता",
+      "contact_text": "अनुवाद की आवश्यकता",
+      "contact_link": "अनुवाद की आवश्यकता"
+    },
+    "cta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "try_document": "अनुवाद की आवश्यकता",
+      "view_pricing": "अनुवाद की आवश्यकता"
+    },
+    "features": {
+      "title": "अनुवाद की आवश्यकता",
+      "fast_title": "अनुवाद की आवश्यकता",
+      "fast_desc": "अनुवाद की आवश्यकता",
+      "accurate_title": "अनुवाद की आवश्यकता",
+      "accurate_desc": "अनुवाद की आवश्यकता",
+      "free_title": "अनुवाद की आवश्यकता",
+      "free_desc": "अनुवाद की आवश्यकता"
+    },
+    "how_to": {
+      "title": "अनुवाद की आवश्यकता",
+      "step1_title": "अनुवाद की आवश्यकता",
+      "step1_desc": "अनुवाद की आवश्यकता",
+      "step2_title": "अनुवाद की आवश्यकता",
+      "step2_desc": "अनुवाद की आवश्यकता",
+      "step3_title": "अनुवाद की आवश्यकता",
+      "step3_desc": "अनुवाद की आवश्यकता"
+    },
+    "supported_languages": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "more": "अनुवाद की आवश्यकता"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "अनुवाद की आवश्यकता",
+      "text_translation_desc": "अनुवाद की आवश्यकता",
+      "document_translation": "अनुवाद की आवश्यकता",
+      "document_translation_desc": "अनुवाद की आवश्यकता",
+      "about": "अनुवाद की आवश्यकता",
+      "about_desc": "अनुवाद की आवश्यकता"
+    },
+    "Footer": {
+      "tagline": "अनुवाद की आवश्यकता",
+      "product": "अनुवाद की आवश्यकता",
+      "text_translation": "अनुवाद की आवश्यकता",
+      "document_translation": "अनुवाद की आवश्यकता",
+      "supported_languages": "अनुवाद की आवश्यकता",
+      "company": "अनुवाद की आवश्यकता",
+      "about_us": "अनुवाद की आवश्यकता",
+      "privacy_policy": "अनुवाद की आवश्यकता",
+      "terms_of_service": "अनुवाद की आवश्यकता",
+      "compliance": "अनुवाद की आवश्यकता",
+      "resources": "अनुवाद की आवश्यकता",
+      "faq": "अनुवाद की आवश्यकता",
+      "contact_support": "अनुवाद की आवश्यकता",
+      "api_docs": "अनुवाद की आवश्यकता",
+      "copyright": "अनुवाद की आवश्यकता",
+      "powered_by": "अनुवाद की आवश्यकता"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "title": "अनुवाद की आवश्यकता",
+    "description": "अनुवाद की आवश्यकता",
+    "steps": {
+      "step1": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "step2": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      },
+      "step3": {
+        "title": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता"
+      }
+    },
+    "languages": {
+      "title": "अनुवाद की आवश्यकता"
+    },
+    "cta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "try_text_translation": "अनुवाद की आवश्यकता",
+      "view_pricing": "अनुवाद की आवश्यकता"
+    },
+    "hero": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "upload_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "settings_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "source_language_label": "अनुवाद की आवश्यकता",
+      "source_language_placeholder": "अनुवाद की आवश्यकता",
+      "target_language_label": "अनुवाद की आवश्यकता",
+      "target_language_placeholder": "अनुवाद की आवश्यकता",
+      "translate_button": "अनुवाद की आवश्यकता",
+      "translating_button": "अनुवाद की आवश्यकता"
+    },
+    "jobs_section": {
+      "title": "अनुवाद की आवश्यकता",
+      "no_jobs": "अनुवाद की आवश्यकता",
+      "status": {
+        "pending": "अनुवाद की आवश्यकता",
+        "processing": "अनुवाद की आवश्यकता",
+        "completed": "अनुवाद की आवश्यकता",
+        "failed": "अनुवाद की आवश्यकता"
+      },
+      "error_message": "अनुवाद की आवश्यकता",
+      "download_button": "अनुवाद की आवश्यकता"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "login_button": "अनुवाद की आवश्यकता"
+    },
+    "upload": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "uploading": "अनुवाद की आवश्यकता",
+      "click_to_select": "अनुवाद की आवश्यकता",
+      "drag_drop": "अनुवाद की आवश्यकता",
+      "upload_success": "अनुवाद की आवश्यकता",
+      "extracted_characters": "अनुवाद की आवश्यकता",
+      "upload_failed": "अनुवाद की आवश्यकता"
+    },
+    "analysis": {
+      "title": "अनुवाद की आवश्यकता",
+      "filename": "अनुवाद की आवश्यकता",
+      "filesize": "अनुवाद की आवश्यकता",
+      "text_preview": "अनुवाद की आवश्यकता",
+      "character_count": "अनुवाद की आवश्यकता",
+      "characters": "अनुवाद की आवश्यकता",
+      "credit_consumption": "अनुवाद की आवश्यकता",
+      "credits": "अनुवाद की आवश्यकता",
+      "free": "अनुवाद की आवश्यकता",
+      "insufficient_credits": "अनुवाद की आवश्यकता",
+      "recharge_now": "अनुवाद की आवश्यकता",
+      "start_translation": "अनुवाद की आवश्यकता",
+      "reupload": "अनुवाद की आवश्यकता"
+    },
+    "translation": {
+      "title": "अनुवाद की आवश्यकता",
+      "progress": "अनुवाद की आवश्यकता",
+      "estimated_time": "अनुवाद की आवश्यकता",
+      "completed": "अनुवाद की आवश्यकता",
+      "download_result": "अनुवाद की आवश्यकता",
+      "translation_started": "अनुवाद की आवश्यकता",
+      "credits_consumed": "अनुवाद की आवश्यकता",
+      "translation_failed": "अनुवाद की आवश्यकता"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "अनुवाद की आवश्यकता",
+    "missing_parameters": "अनुवाद की आवश्यकता",
+    "insufficient_credits": "अनुवाद की आवश्यकता",
+    "credit_error": "अनुवाद की आवश्यकता",
+    "translation_invalid_response": "अनुवाद की आवश्यकता",
+    "translation_failed_refund_failed": "अनुवाद की आवश्यकता",
+    "translation_failed": "अनुवाद की आवश्यकता",
+    "unexpected_error": "अनुवाद की आवश्यकता",
+    "method_not_allowed": "अनुवाद की आवश्यकता",
+    "invalid_json": "अनुवाद की आवश्यकता",
+    "missing_fields": "अनुवाद की आवश्यकता",
+    "empty_text": "अनुवाद की आवश्यकता",
+    "text_too_long": "अनुवाद की आवश्यकता",
+    "unexpected_detection_error": "अनुवाद की आवश्यकता",
+    "invalid_lang_code": "अनुवाद की आवश्यकता",
+    "invalid_speech_rate": "अनुवाद की आवश्यकता",
+    "invalid_speech_pitch": "अनुवाद की आवश्यकता",
+    "invalid_voice": "अनुवाद की आवश्यकता",
+    "tts_unavailable": "अनुवाद की आवश्यकता",
+    "tts_failed": "अनुवाद की आवश्यकता",
+    "unexpected_tts_error": "अनुवाद की आवश्यकता",
+    "failed_to_get_voices": "अनुवाद की आवश्यकता"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "info": "अनुवाद की आवश्यकता",
+      "contact_support": "अनुवाद की आवश्यकता"
+    },
+    "SignUpForm": {
+      "title": "अनुवाद की आवश्यकता",
+      "subtitle": "अनुवाद की आवश्यकता",
+      "name_label": "अनुवाद की आवश्यकता",
+      "name_placeholder": "अनुवाद की आवश्यकता",
+      "name_required": "अनुवाद की आवश्यकता",
+      "name_max_length": "अनुवाद की आवश्यकता",
+      "email_label": "अनुवाद की आवश्यकता",
+      "email_placeholder": "अनुवाद की आवश्यकता",
+      "email_required": "अनुवाद की आवश्यकता",
+      "email_invalid": "अनुवाद की आवश्यकता",
+      "email_max_length": "अनुवाद की आवश्यकता",
+      "password_label": "अनुवाद की आवश्यकता",
+      "password_placeholder": "अनुवाद की आवश्यकता",
+      "password_min_length": "अनुवाद की आवश्यकता",
+      "password_max_length": "अनुवाद की आवश्यकता",
+      "confirm_password_label": "अनुवाद की आवश्यकता",
+      "confirm_password_placeholder": "अनुवाद की आवश्यकता",
+      "confirm_password_required": "अनुवाद की आवश्यकता",
+      "password_mismatch": "अनुवाद की आवश्यकता",
+      "password_strength_label": "अनुवाद की आवश्यकता",
+      "password_strength_feedback": "अनुवाद की आवश्यकता",
+      "submit_button": "अनुवाद की आवश्यकता",
+      "submit_loading_button": "अनुवाद की आवश्यकता",
+      "signup_failed": "अनुवाद की आवश्यकता",
+      "signup_error": "अनुवाद की आवश्यकता",
+      "signin_prompt": "अनुवाद की आवश्यकता",
+      "signin_link": "अनुवाद की आवश्यकता"
+    },
+    "SignInForm": {
+      "title": "अनुवाद की आवश्यकता",
+      "subtitle": "अनुवाद की आवश्यकता",
+      "email_label": "अनुवाद की आवश्यकता",
+      "email_placeholder": "अनुवाद की आवश्यकता",
+      "email_required": "अनुवाद की आवश्यकता",
+      "email_invalid": "अनुवाद की आवश्यकता",
+      "email_max_length": "अनुवाद की आवश्यकता",
+      "password_label": "अनुवाद की आवश्यकता",
+      "password_placeholder": "अनुवाद की आवश्यकता",
+      "password_required": "अनुवाद की आवश्यकता",
+      "password_max_length": "अनुवाद की आवश्यकता",
+      "forgot_password_link": "अनुवाद की आवश्यकता",
+      "remember_me_label": "अनुवाद की आवश्यकता",
+      "submit_button": "अनुवाद की आवश्यकता",
+      "submit_loading_button": "अनुवाद की आवश्यकता",
+      "signin_failed": "अनुवाद की आवश्यकता",
+      "signin_error": "अनुवाद की आवश्यकता",
+      "signup_prompt": "अनुवाद की आवश्यकता",
+      "signup_link": "अनुवाद की आवश्यकता",
+      "social_divider": "अनुवाद की आवश्यकता",
+      "google_signin_button": "अनुवाद की आवश्यकता",
+      "signup_bonus_prompt_1": "अनुवाद की आवश्यकता",
+      "signup_bonus_prompt_2": "अनुवाद की आवश्यकता"
+    },
+    "GuestLimit": {
+      "remaining_translations": "अनुवाद की आवश्यकता",
+      "register_for_unlimited": "अनुवाद की आवश्यकता"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "अनुवाद की आवश्यकता",
+      "limit_reached_description": "अनुवाद की आवश्यकता",
+      "login_required_title": "अनुवाद की आवश्यकता",
+      "login_required_description": "अनुवाद की आवश्यकता",
+      "daily_limit_title": "अनुवाद की आवश्यकता",
+      "daily_limit_description": "अनुवाद की आवश्यकता"
+    },
+    "success": {
+      "translation_complete": "अनुवाद की आवश्यकता",
+      "credits_consumed": "अनुवाद की आवश्यकता"
+    },
+    "alerts": {
+      "login_required_for_long_text": "अनुवाद की आवश्यकता",
+      "login_now": "अनुवाद की आवश्यकता",
+      "or": "अनुवाद की आवश्यकता",
+      "register_account": "अनुवाद की आवश्यकता"
+    },
+    "buttons": {
+      "translating": "अनुवाद की आवश्यकता",
+      "translate_with_credits": "अनुवाद की आवश्यकता",
+      "free_translate": "अनुवाद की आवश्यकता"
+    },
+    "credits": {
+      "balance": "अनुवाद की आवश्यकता",
+      "recharge": "अनुवाद की आवश्यकता",
+      "free_translation": "अनुवाद की आवश्यकता",
+      "estimated_cost": "अनुवाद की आवश्यकता",
+      "insufficient_credits": "अनुवाद की आवश्यकता",
+      "free_quota_usage": "अनुवाद की आवश्यकता",
+      "characters": "अनुवाद की आवश्यकता",
+      "over_limit": "अनुवाद की आवश्यकता",
+      "insufficient_balance": "अनुवाद की आवश्यकता",
+      "recharge_now": "अनुवाद की आवश्यकता"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता"
+    },
+    "title": "अनुवाद की आवश्यकता",
+    "subtitle": "अनुवाद की आवश्यकता",
+    "current_balance": "अनुवाद की आवश्यकता",
+    "free_tier": {
+      "title": "अनुवाद की आवश्यकता",
+      "subtitle": "अनुवाद की आवश्यकता",
+      "completely_free": "अनुवाद की आवश्यकता",
+      "credit_based": "अनुवाद की आवश्यकता",
+      "features": {
+        "free_text": "अनुवाद की आवश्यकता",
+        "all_languages": "अनुवाद की आवश्यकता",
+        "unlimited_use": "अनुवाद की आवश्यकता",
+        "large_text": "अनुवाद की आवश्यकता",
+        "document_translation": "अनुवाद की आवश्यकता",
+        "rate": "अनुवाद की आवश्यकता"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "features": {
+          "credits": "अनुवाद की आवश्यकता",
+          "languages": "अनुवाद की आवश्यकता",
+          "documents": "अनुवाद की आवश्यकता",
+          "validity": "अनुवाद की आवश्यकता"
+        }
+      },
+      "basic": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "features": {
+          "credits": "अनुवाद की आवश्यकता",
+          "languages": "अनुवाद की आवश्यकता",
+          "documents": "अनुवाद की आवश्यकता",
+          "validity": "अनुवाद की आवश्यकता",
+          "support": "अनुवाद की आवश्यकता"
+        }
+      },
+      "pro": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "features": {
+          "credits": "अनुवाद की आवश्यकता",
+          "languages": "अनुवाद की आवश्यकता",
+          "documents": "अनुवाद की आवश्यकता",
+          "validity": "अनुवाद की आवश्यकता",
+          "support": "अनुवाद की आवश्यकता",
+          "batch": "अनुवाद की आवश्यकता"
+        }
+      },
+      "business": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "features": {
+          "credits": "अनुवाद की आवश्यकता",
+          "languages": "अनुवाद की आवश्यकता",
+          "documents": "अनुवाद की आवश्यकता",
+          "validity": "अनुवाद की आवश्यकता",
+          "support": "अनुवाद की आवश्यकता",
+          "batch": "अनुवाद की आवश्यकता",
+          "api": "अनुवाद की आवश्यकता"
+        }
+      },
+      "enterprise": {
+        "name": "अनुवाद की आवश्यकता",
+        "description": "अनुवाद की आवश्यकता",
+        "features": {
+          "credits": "अनुवाद की आवश्यकता",
+          "languages": "अनुवाद की आवश्यकता",
+          "documents": "अनुवाद की आवश्यकता",
+          "validity": "अनुवाद की आवश्यकता",
+          "support": "अनुवाद की आवश्यकता",
+          "batch": "अनुवाद की आवश्यकता",
+          "api": "अनुवाद की आवश्यकता",
+          "integration": "अनुवाद की आवश्यकता"
+        }
+      }
+    },
+    "popular": "अनुवाद की आवश्यकता",
+    "save": "अनुवाद की आवश्यकता",
+    "credits": "अनुवाद की आवश्यकता",
+    "purchase_button": "अनुवाद की आवश्यकता",
+    "processing": "अनुवाद की आवश्यकता",
+    "new_user_bonus": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "note": "अनुवाद की आवश्यकता"
+    },
+    "register_prompt": {
+      "title": "अनुवाद की आवश्यकता",
+      "description": "अनुवाद की आवश्यकता",
+      "register_button": "अनुवाद की आवश्यकता",
+      "signin_button": "अनुवाद की आवश्यकता"
+    },
+    "faq": {
+      "title": "अनुवाद की आवश्यकता",
+      "subtitle": "अनुवाद की आवश्यकता",
+      "credit_calculation": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "expiration": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "payment_methods": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "bulk_discount": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "unused_credits": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "business_invoicing": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "api_pricing": {
+        "question": "अनुवाद की आवश्यकता",
+        "answer": "अनुवाद की आवश्यकता"
+      },
+      "contact_support": "अनुवाद की आवश्यकता"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "अनुवाद की आवश्यकता",
+    "translation_complete": "अनुवाद की आवश्यकता",
+    "translation_failed": "अनुवाद की आवश्यकता",
+    "translating": "अनुवाद की आवश्यकता",
+    "preparing_engine": "अनुवाद की आवश्यकता",
+    "about_to_start": "अनुवाद की आवश्यकता",
+    "processing": "अनुवाद की आवश्यकता",
+    "engine_running": "अनुवाद की आवश्यकता",
+    "optimizing_quality": "अनुवाद की आवश्यकता",
+    "translation_paused": "अनुवाद की आवश्यकता",
+    "resume_translation": "अनुवाद की आवश्यकता",
+    "translation_error": "अनुवाद की आवश्यकता",
+    "service_unavailable": "अनुवाद की आवश्यकता",
+    "input_placeholder": "अनुवाद की आवश्यकता",
+    "result_placeholder": "अनुवाद की आवश्यकता",
+    "from_language": "अनुवाद की आवश्यकता",
+    "to_language": "अनुवाद की आवश्यकता",
+    "partial_complete": "अनुवाद की आवश्यकता",
+    "partial_description": "अनुवाद की आवश्यकता",
+    "task_resubmitted": "अनुवाद की आवश्यकता"
+  },
+  "task": {
+    "task_management": "अनुवाद की आवश्यकता",
+    "manage_description": "अनुवाद की आवश्यकता",
+    "new_translation": "अनुवाद की आवश्यकता",
+    "refresh_tasks": "अनुवाद की आवश्यकता",
+    "task_list_updated": "अनुवाद की आवश्यकता",
+    "refresh_failed": "अनुवाद की आवश्यकता",
+    "operation_success": "अनुवाद की आवश्यकता",
+    "operation_failed": "अनुवाद की आवश्यकता",
+    "select_tasks_first": "अनुवाद की आवश्यकता",
+    "no_tasks": "अनुवाद की आवश्यकता",
+    "no_matching_tasks": "अनुवाद की आवश्यकता",
+    "create_first_task": "अनुवाद की आवश्यकता",
+    "search_placeholder": "अनुवाद की आवश्यकता",
+    "queue_created": "अनुवाद की आवश्यकता",
+    "can_leave_page": "अनुवाद की आवश्यकता",
+    "check_in_tasks": "अनुवाद की आवश्यकता",
+    "view_in_tasks": "अनुवाद की आवश्यकता",
+    "batch_operation_success": "अनुवाद की आवश्यकता"
+  },
+  "progress": {
+    "preparing": "अनुवाद की आवश्यकता",
+    "processing": "अनुवाद की आवश्यकता",
+    "finalizing": "अनुवाद की आवश्यकता",
+    "completed": "अनुवाद की आवश्यकता",
+    "paused": "अनुवाद की आवश्यकता",
+    "failed": "अनुवाद की आवश्यकता",
+    "cancelled": "अनुवाद की आवश्यकता",
+    "partial_success": "अनुवाद की आवश्यकता",
+    "progress": "अनुवाद की आवश्यकता",
+    "understanding_text": "अनुवाद की आवश्यकता",
+    "analyzing_language": "अनुवाद की आवश्यकता",
+    "processing_content": "अनुवाद की आवश्यकता",
+    "checking_grammar": "अनुवाद की आवश्यकता",
+    "final_polish": "अनुवाद की आवश्यकता",
+    "presenting_results": "अनुवाद की आवश्यकता",
+    "results_ready": "अनुवाद की आवश्यकता",
+    "thank_you_waiting": "अनुवाद की आवश्यकता",
+    "progress_saved": "अनुवाद की आवश्यकता",
+    "processing_time_long": "अनुवाद की आवश्यकता",
+    "instant_processing": "अनुवाद की आवश्यकता",
+    "background_processing": "अनुवाद की आवश्यकता",
+    "smart_processing": "अनुवाद की आवश्यकता"
+  },
+  "time": {
+    "time_estimate": "अनुवाद की आवश्यकता",
+    "estimated_time": "अनुवाद की आवश्यकता",
+    "can_leave": "अनुवाद की आवश्यकता",
+    "accurate_estimate": "अनुवाद की आवश्यकता",
+    "rough_estimate": "अनुवाद की आवश्यकता",
+    "approximate_estimate": "अनुवाद की आवश्यकता",
+    "fast_queue": "अनुवाद की आवश्यकता",
+    "creation_time": "अनुवाद की आवश्यकता"
+  },
+  "error": {
+    "error_recovery": "अनुवाद की आवश्यकता",
+    "retry_failed": "अनुवाद की आवश्यकता",
+    "unknown_error": "अनुवाद की आवश्यकता",
+    "partial_results": "अनुवाद की आवश्यकता",
+    "retry_failed_parts": "अनुवाद की आवश्यकता",
+    "download_partial": "अनुवाद की आवश्यकता",
+    "segment_retry": "अनुवाद की आवश्यकता",
+    "encountered_problem": "अनुवाद की आवश्यकता",
+    "trying_to_resolve": "अनुवाद की आवश्यकता",
+    "contact_support": "अनुवाद की आवश्यकता",
+    "please_retry_later": "अनुवाद की आवश्यकता"
+  },
+  "success": {
+    "completed": "अनुवाद की आवश्यकता",
+    "operation_success": "अनुवाद की आवश्यकता",
+    "partial_success": "अनुवाद की आवश्यकता",
+    "almost_done": "अनुवाद की आवश्यकता",
+    "results_shown_below": "अनुवाद की आवश्यकता",
+    "half_completed": "अनुवाद की आवश्यकता"
+  },
+  "credits": {
+    "estimated_consumption": "अनुवाद की आवश्यकता",
+    "credits_consumed": "अनुवाद की आवश्यकता",
+    "credits_processing": "अनुवाद की आवश्यकता",
+    "consumed_credits": "अनुवाद की आवश्यकता",
+    "refunded_credits": "अनुवाद की आवश्यकता",
+    "retry_only_failed": "अनुवाद की आवश्यकता"
+  },
+  "language": {
+    "source_language": "अनुवाद की आवश्यकता",
+    "target_language": "अनुवाद की आवश्यकता",
+    "select_source": "अनुवाद की आवश्यकता",
+    "select_target": "अनुवाद की आवश्यकता"
+  },
+  "ui": {
+    "start": "अनुवाद की आवश्यकता",
+    "pause": "अनुवाद की आवश्यकता",
+    "resume": "अनुवाद की आवश्यकता",
+    "continue": "अनुवाद की आवश्यकता",
+    "cancel": "अनुवाद की आवश्यकता",
+    "retry": "अनुवाद की आवश्यकता",
+    "download": "अनुवाद की आवश्यकता",
+    "delete": "अनुवाद की आवश्यकता",
+    "refresh": "अनुवाद की आवश्यकता",
+    "all": "अनुवाद की आवश्यकता",
+    "status": "अनुवाद की आवश्यकता",
+    "priority": "अनुवाद की आवश्यकता",
+    "sort": "अनुवाद की आवश्यकता",
+    "normal": "अनुवाद की आवश्यकता",
+    "high": "अनुवाद की आवश्यकता",
+    "urgent": "अनुवाद की आवश्यकता",
+    "low": "अनुवाद की आवश्यकता",
+    "waiting": "अनुवाद की आवश्यकता",
+    "active": "अनुवाद की आवश्यकता",
+    "needs_attention": "अनुवाद की आवश्यकता",
+    "submitting": "अनुवाद की आवश्यकता",
+    "downloading": "अनुवाद की आवश्यकता",
+    "retrying": "अनुवाद की आवश्यकता",
+    "copied": "अनुवाद की आवश्यकता",
+    "text_copied": "अनुवाद की आवश्यकता",
+    "input_text": "अनुवाद की आवश्यकता",
+    "translation_result": "अनुवाद की आवश्यकता",
+    "characters": "अनुवाद की आवश्यकता",
+    "total_tasks": "अनुवाद की आवश्यकता",
+    "select_all": "अनुवाद की आवश्यकता",
+    "batch_operations": "अनुवाद की आवश्यकता",
+    "set_priority": "अनुवाद की आवश्यकता"
+  }
+}

@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "హోమ్",
+    "about": "గురించి",
+    "pricing": "ధరలు",
+    "contact": "సంప్రదించండి"
+  },
+  "UserMenu": {
+    "sign_in": "సైన్ ఇన్",
+    "sign_up": "సైన్ అప్",
+    "sign_out": "సైన్ అవుట్",
+    "user": "వినియోగదారు",
+    "credits": "క్రెడిట్లు",
+    "profile": "ప్రొఫైల్",
+    "dashboard": "డ్యాష్‌బోర్డ్",
+    "purchase_credits": "క్రెడిట్లు కొనుగోలు",
+    "settings": "సెట్టింగ్‌లు"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - తక్కువ వనరుల భాషలకు AI అనువాదకం",
+      "description": "క్రియోల్, లావో మరియు స్వాహిలి వంటి తక్కువ వనరుల భాషలు 20+ కోసం AI తో ఉచిత అనువాదం. వచనం మరియు పత్రాలను ఆంగ్లంలోకి తక్షణమే అనువదించండి."
+    },
+    "hero": {
+      "title": "తక్కువ వనరుల భాషలకు AI-శక్తితో అనువాదం",
+      "description": "అత్యాధునిక AI తో భాషా అవరోధాలను విచ్ఛిన్నం చేయండి. మా ప్లాట్‌ఫారమ్ ప్రధాన సేవలచే తరచుగా తక్కువ సేవలు అందించబడే భాషలకు అధిక నాణ్యత అనువాదాలను అందిస్తుంది. ఉచితంగా ప్రారంభించండి.",
+      "features": {
+        "free": "100% ఉచితం",
+        "ai_powered": "AI-శక్తితో",
+        "languages": "20+ భాషలు"
+      },
+      "cta": {
+        "start_translating": "అనువాదం ప్రారంభించండి",
+        "upload_document": "పత్రం అప్‌లోడ్ చేయండి"
+      }
+    },
+    "languages": {
+      "title": "మద్దతు ఉన్న భాషలు",
+      "description": "ఈ తక్కువ వనరుల భాషల నుండి ఆంగ్లంలోకి అనువదించండి"
+    },
+    "cta": {
+      "title": "ఈరోజే అనువాదం ప్రారంభించండి",
+      "description": "వారి అనువాద అవసరాలకు Transly ని విశ్వసించే వేలాది వినియోగదారులతో చేరండి",
+      "try_now": "ఇప్పుడే ప్రయత్నించండి - ఇది ఉచితం",
+      "translate_documents": "పత్రాలను అనువదించండి"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "title": "అనువాదం అవసరం",
+    "description": "అనువాదం అవసరం",
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "status": {
+        "free": "అనువాదం అవసరం",
+        "ai_powered": "అనువాదం అవసరం",
+        "multi_language": "అనువాదం అవసరం"
+      },
+      "cta_start": "అనువాదం అవసరం",
+      "cta_upload": "అనువాదం అవసరం"
+    },
+    "supported_languages": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "cta_section": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "cta_try": "అనువాదం అవసరం",
+      "cta_docs": "అనువాదం అవసరం"
+    },
+    "translation_options": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "options": {
+        "text": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం",
+          "features": "అనువాదం అవసరం",
+          "button": "అనువాదం అవసరం"
+        },
+        "document": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం",
+          "features": "అనువాదం అవసరం",
+          "button": "అనువాదం అవసరం"
+        },
+        "image": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం",
+          "features": "అనువాదం అవసరం",
+          "button": "అనువాదం అవసరం"
+        }
+      },
+      "quick_start": {
+        "title": "అనువాదం అవసరం",
+        "button": "అనువాదం అవసరం"
+      },
+      "coming_soon": "అనువాదం అవసరం"
+    },
+    "language_grid": {
+      "coming_soon": "అనువాదం అవసరం",
+      "try_language": "అనువాదం అవసరం"
+    },
+    "feature_section": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "features": {
+        "ai_powered": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "fast": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "privacy": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "languages": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "tts": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "documents": {
+          "name": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        }
+      },
+      "stats": {
+        "languages": "అనువాదం అవసరం",
+        "free": "అనువాదం అవసరం",
+        "characters": "అనువాదం అవసరం",
+        "availability": "అనువాదం అవసరం"
+      }
+    },
+    "faq_section": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "questions": "అనువాదం అవసరం",
+      "contact_prompt": "అనువాదం అవసరం",
+      "contact_link": "అనువాదం అవసరం"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "mission": {
+      "title": "అనువాదం అవసరం",
+      "p1": "అనువాదం అవసరం",
+      "p2": "అనువాదం అవసరం",
+      "cta": "అనువాదం అవసరం"
+    },
+    "features": {
+      "accessibility": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "accuracy": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "privacy": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      }
+    },
+    "supported_languages": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "request_cta": "అనువాదం అవసరం",
+      "request_cta_description": "అనువాదం అవసరం"
+    },
+    "technology": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "cultural_preservation": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "community_driven": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "continuous_improvement": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      }
+    },
+    "faq": {
+      "title": "అనువాదం అవసరం",
+      "q1_title": "అనువాదం అవసరం",
+      "q1_answer": "అనువాదం అవసరం",
+      "q2_title": "అనువాదం అవసరం",
+      "q2_answer": "అనువాదం అవసరం",
+      "q3_title": "అనువాదం అవసరం",
+      "q3_answer": "అనువాదం అవసరం",
+      "q4_title": "అనువాదం అవసరం",
+      "q4_answer": "అనువాదం అవసరం",
+      "q5_title": "అనువాదం అవసరం",
+      "q5_answer": "అనువాదం అవసరం",
+      "q6_title": "అనువాదం అవసరం",
+      "q6_answer": "అనువాదం అవసరం"
+    },
+    "cta_section": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "cta_text": "అనువాదం అవసరం",
+      "cta_docs": "అనువాదం అవసరం"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "form": {
+      "title": "అనువాదం అవసరం",
+      "firstName": "అనువాదం అవసరం",
+      "firstNamePlaceholder": "అనువాదం అవసరం",
+      "lastName": "అనువాదం అవసరం",
+      "lastNamePlaceholder": "అనువాదం అవసరం",
+      "email": "అనువాదం అవసరం",
+      "emailPlaceholder": "అనువాదం అవసరం",
+      "subject": "అనువాదం అవసరం",
+      "subjectPlaceholder": "అనువాదం అవసరం",
+      "subjects": {
+        "translation_issue": "అనువాదం అవసరం",
+        "technical_support": "అనువాదం అవసరం",
+        "feature_request": "అనువాదం అవసరం",
+        "language_request": "అనువాదం అవసరం",
+        "business_inquiry": "అనువాదం అవసరం",
+        "feedback": "అనువాదం అవసరం",
+        "other": "అనువాదం అవసరం"
+      },
+      "relatedLanguage": "అనువాదం అవసరం",
+      "relatedLanguagePlaceholder": "అనువాదం అవసరం",
+      "message": "అనువాదం అవసరం",
+      "messagePlaceholder": "అనువాదం అవసరం",
+      "submit": "అనువాదం అవసరం"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "అనువాదం అవసరం",
+        "email_support": "అనువాదం అవసరం",
+        "email_address": "అనువాదం అవసరం",
+        "response_time": "అనువాదం అవసరం",
+        "live_chat": "అనువాదం అవసరం",
+        "live_chat_status": "అనువాదం అవసరం",
+        "live_chat_eta": "అనువాదం అవసరం",
+        "support_hours_title": "అనువాదం అవసరం",
+        "support_hours_days": "అనువాదం అవసరం",
+        "support_hours_time": "అనువాదం అవసరం"
+      },
+      "common_issues": {
+        "title": "అనువాదం అవసరం",
+        "translation_not_working": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "language_not_supported": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "file_upload_issues": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        },
+        "audio_playback_not_working": {
+          "title": "అనువాదం అవసరం",
+          "description": "అనువాదం అవసరం"
+        }
+      },
+      "self_help": {
+        "title": "అనువాదం అవసరం",
+        "how_it_works": "అనువాదం అవసరం",
+        "try_text": "అనువాదం అవసరం",
+        "try_docs": "అనువాదం అవసరం",
+        "privacy": "అనువాదం అవసరం",
+        "terms": "అనువాదం అవసరం"
+      }
+    },
+    "what_to_expect": {
+      "title": "అనువాదం అవసరం",
+      "quick_response": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "personal_support": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "follow_up": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "ధరలు - మీకు సరిపోయే ప్లాన్‌ను ఎంచుకోండి | Transly",
+      "description": "దృశ్యం ఆధారిత తెలివైన సిఫార్సులు. విద్యార్థులకు $5, వ్యక్తిగత వినియోగదారులకు $10, నిపుణులకు $25 తో ప్రారంభించండి."
+    },
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "plans": {
+      "starter": {
+        "name": "స్టార్టర్",
+        "description": "విద్యార్థులు మరియు తక్కువ వినియోగదారులకు సరిపోతుంది",
+        "discount": "అనువాదం అవసరం"
+      },
+      "professional": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "discount": "అనువాదం అవసరం"
+      },
+      "business": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "discount": "అనువాదం అవసరం"
+      }
+    },
+    "features": {
+      "title": "అనువాదం అవసరం",
+      "unlimited_text": "అనువాదం అవసరం",
+      "document_support": "అనువాదం అవసరం",
+      "tts_support": "అనువాదం అవసరం",
+      "api_access": "అనువాదం అవసరం",
+      "priority_support": "అనువాదం అవసరం",
+      "no_expiry": "అనువాదం అవసరం"
+    },
+    "buttons": {
+      "purchase": "అనువాదం అవసరం",
+      "processing": "అనువాదం అవసరం",
+      "get_started": "అనువాదం అవసరం"
+    },
+    "alert": {
+      "canceled_title": "అనువాదం అవసరం",
+      "canceled_description": "అనువాదం అవసరం"
+    },
+    "loading": "అనువాదం అవసరం",
+    "cta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "free_trial": "అనువాదం అవసరం",
+      "contact_sales": "అనువాదం అవసరం"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "status_free": "అనువాదం అవసరం",
+      "status_ai": "అనువాదం అవసరం",
+      "status_instant": "అనువాదం అవసరం"
+    },
+    "other_languages": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "faq": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "q1_title": "అనువాదం అవసరం",
+      "q1_answer": "అనువాదం అవసరం",
+      "q2_title": "అనువాదం అవసరం",
+      "q2_answer": "అనువాదం అవసరం",
+      "q3_title": "అనువాదం అవసరం",
+      "q3_answer": "అనువాదం అవసరం",
+      "q4_title": "అనువాదం అవసరం",
+      "q4_answer": "అనువాదం అవసరం",
+      "q5_title": "అనువాదం అవసరం",
+      "q5_answer": "అనువాదం అవసరం",
+      "q6_title": "అనువాదం అవసరం",
+      "q6_answer": "అనువాదం అవసరం",
+      "contact_text": "అనువాదం అవసరం",
+      "contact_link": "అనువాదం అవసరం"
+    },
+    "cta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "try_document": "అనువాదం అవసరం",
+      "view_pricing": "అనువాదం అవసరం"
+    },
+    "features": {
+      "title": "అనువాదం అవసరం",
+      "fast_title": "అనువాదం అవసరం",
+      "fast_desc": "అనువాదం అవసరం",
+      "accurate_title": "అనువాదం అవసరం",
+      "accurate_desc": "అనువాదం అవసరం",
+      "free_title": "అనువాదం అవసరం",
+      "free_desc": "అనువాదం అవసరం"
+    },
+    "how_to": {
+      "title": "అనువాదం అవసరం",
+      "step1_title": "అనువాదం అవసరం",
+      "step1_desc": "అనువాదం అవసరం",
+      "step2_title": "అనువాదం అవసరం",
+      "step2_desc": "అనువాదం అవసరం",
+      "step3_title": "అనువాదం అవసరం",
+      "step3_desc": "అనువాదం అవసరం"
+    },
+    "supported_languages": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "more": "అనువాదం అవసరం"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "అనువాదం అవసరం",
+      "text_translation_desc": "అనువాదం అవసరం",
+      "document_translation": "అనువాదం అవసరం",
+      "document_translation_desc": "అనువాదం అవసరం",
+      "about": "అనువాదం అవసరం",
+      "about_desc": "అనువాదం అవసరం"
+    },
+    "Footer": {
+      "tagline": "అనువాదం అవసరం",
+      "product": "అనువాదం అవసరం",
+      "text_translation": "అనువాదం అవసరం",
+      "document_translation": "అనువాదం అవసరం",
+      "supported_languages": "అనువాదం అవసరం",
+      "company": "అనువాదం అవసరం",
+      "about_us": "అనువాదం అవసరం",
+      "privacy_policy": "అనువాదం అవసరం",
+      "terms_of_service": "అనువాదం అవసరం",
+      "compliance": "అనువాదం అవసరం",
+      "resources": "అనువాదం అవసరం",
+      "faq": "అనువాదం అవసరం",
+      "contact_support": "అనువాదం అవసరం",
+      "api_docs": "అనువాదం అవసరం",
+      "copyright": "అనువాదం అవసరం",
+      "powered_by": "అనువాదం అవసరం"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "title": "అనువాదం అవసరం",
+    "description": "అనువాదం అవసరం",
+    "steps": {
+      "step1": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "step2": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      },
+      "step3": {
+        "title": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం"
+      }
+    },
+    "languages": {
+      "title": "అనువాదం అవసరం"
+    },
+    "cta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "try_text_translation": "అనువాదం అవసరం",
+      "view_pricing": "అనువాదం అవసరం"
+    },
+    "hero": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "upload_section": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "settings_section": {
+      "title": "అనువాదం అవసరం",
+      "source_language_label": "అనువాదం అవసరం",
+      "source_language_placeholder": "అనువాదం అవసరం",
+      "target_language_label": "అనువాదం అవసరం",
+      "target_language_placeholder": "అనువాదం అవసరం",
+      "translate_button": "అనువాదం అవసరం",
+      "translating_button": "అనువాదం అవసరం"
+    },
+    "jobs_section": {
+      "title": "అనువాదం అవసరం",
+      "no_jobs": "అనువాదం అవసరం",
+      "status": {
+        "pending": "అనువాదం అవసరం",
+        "processing": "అనువాదం అవసరం",
+        "completed": "అనువాదం అవసరం",
+        "failed": "అనువాదం అవసరం"
+      },
+      "error_message": "అనువాదం అవసరం",
+      "download_button": "అనువాదం అవసరం"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "login_button": "అనువాదం అవసరం"
+    },
+    "upload": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "uploading": "అనువాదం అవసరం",
+      "click_to_select": "అనువాదం అవసరం",
+      "drag_drop": "అనువాదం అవసరం",
+      "upload_success": "అనువాదం అవసరం",
+      "extracted_characters": "అనువాదం అవసరం",
+      "upload_failed": "అనువాదం అవసరం"
+    },
+    "analysis": {
+      "title": "అనువాదం అవసరం",
+      "filename": "అనువాదం అవసరం",
+      "filesize": "అనువాదం అవసరం",
+      "text_preview": "అనువాదం అవసరం",
+      "character_count": "అనువాదం అవసరం",
+      "characters": "అనువాదం అవసరం",
+      "credit_consumption": "అనువాదం అవసరం",
+      "credits": "అనువాదం అవసరం",
+      "free": "అనువాదం అవసరం",
+      "insufficient_credits": "అనువాదం అవసరం",
+      "recharge_now": "అనువాదం అవసరం",
+      "start_translation": "అనువాదం అవసరం",
+      "reupload": "అనువాదం అవసరం"
+    },
+    "translation": {
+      "title": "అనువాదం అవసరం",
+      "progress": "అనువాదం అవసరం",
+      "estimated_time": "అనువాదం అవసరం",
+      "completed": "అనువాదం అవసరం",
+      "download_result": "అనువాదం అవసరం",
+      "translation_started": "అనువాదం అవసరం",
+      "credits_consumed": "అనువాదం అవసరం",
+      "translation_failed": "అనువాదం అవసరం"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "అనువాదం అవసరం",
+    "missing_parameters": "అనువాదం అవసరం",
+    "insufficient_credits": "అనువాదం అవసరం",
+    "credit_error": "అనువాదం అవసరం",
+    "translation_invalid_response": "అనువాదం అవసరం",
+    "translation_failed_refund_failed": "అనువాదం అవసరం",
+    "translation_failed": "అనువాదం అవసరం",
+    "unexpected_error": "అనువాదం అవసరం",
+    "method_not_allowed": "అనువాదం అవసరం",
+    "invalid_json": "అనువాదం అవసరం",
+    "missing_fields": "అనువాదం అవసరం",
+    "empty_text": "అనువాదం అవసరం",
+    "text_too_long": "అనువాదం అవసరం",
+    "unexpected_detection_error": "అనువాదం అవసరం",
+    "invalid_lang_code": "అనువాదం అవసరం",
+    "invalid_speech_rate": "అనువాదం అవసరం",
+    "invalid_speech_pitch": "అనువాదం అవసరం",
+    "invalid_voice": "అనువాదం అవసరం",
+    "tts_unavailable": "అనువాదం అవసరం",
+    "tts_failed": "అనువాదం అవసరం",
+    "unexpected_tts_error": "అనువాదం అవసరం",
+    "failed_to_get_voices": "అనువాదం అవసరం"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "info": "అనువాదం అవసరం",
+      "contact_support": "అనువాదం అవసరం"
+    },
+    "SignUpForm": {
+      "title": "అనువాదం అవసరం",
+      "subtitle": "అనువాదం అవసరం",
+      "name_label": "అనువాదం అవసరం",
+      "name_placeholder": "అనువాదం అవసరం",
+      "name_required": "అనువాదం అవసరం",
+      "name_max_length": "అనువాదం అవసరం",
+      "email_label": "అనువాదం అవసరం",
+      "email_placeholder": "అనువాదం అవసరం",
+      "email_required": "అనువాదం అవసరం",
+      "email_invalid": "అనువాదం అవసరం",
+      "email_max_length": "అనువాదం అవసరం",
+      "password_label": "అనువాదం అవసరం",
+      "password_placeholder": "అనువాదం అవసరం",
+      "password_min_length": "అనువాదం అవసరం",
+      "password_max_length": "అనువాదం అవసరం",
+      "confirm_password_label": "అనువాదం అవసరం",
+      "confirm_password_placeholder": "అనువాదం అవసరం",
+      "confirm_password_required": "అనువాదం అవసరం",
+      "password_mismatch": "అనువాదం అవసరం",
+      "password_strength_label": "అనువాదం అవసరం",
+      "password_strength_feedback": "అనువాదం అవసరం",
+      "submit_button": "అనువాదం అవసరం",
+      "submit_loading_button": "అనువాదం అవసరం",
+      "signup_failed": "అనువాదం అవసరం",
+      "signup_error": "అనువాదం అవసరం",
+      "signin_prompt": "అనువాదం అవసరం",
+      "signin_link": "అనువాదం అవసరం"
+    },
+    "SignInForm": {
+      "title": "అనువాదం అవసరం",
+      "subtitle": "అనువాదం అవసరం",
+      "email_label": "అనువాదం అవసరం",
+      "email_placeholder": "అనువాదం అవసరం",
+      "email_required": "అనువాదం అవసరం",
+      "email_invalid": "అనువాదం అవసరం",
+      "email_max_length": "అనువాదం అవసరం",
+      "password_label": "అనువాదం అవసరం",
+      "password_placeholder": "అనువాదం అవసరం",
+      "password_required": "అనువాదం అవసరం",
+      "password_max_length": "అనువాదం అవసరం",
+      "forgot_password_link": "అనువాదం అవసరం",
+      "remember_me_label": "అనువాదం అవసరం",
+      "submit_button": "అనువాదం అవసరం",
+      "submit_loading_button": "అనువాదం అవసరం",
+      "signin_failed": "అనువాదం అవసరం",
+      "signin_error": "అనువాదం అవసరం",
+      "signup_prompt": "అనువాదం అవసరం",
+      "signup_link": "అనువాదం అవసరం",
+      "social_divider": "అనువాదం అవసరం",
+      "google_signin_button": "అనువాదం అవసరం",
+      "signup_bonus_prompt_1": "అనువాదం అవసరం",
+      "signup_bonus_prompt_2": "అనువాదం అవసరం"
+    },
+    "GuestLimit": {
+      "remaining_translations": "అనువాదం అవసరం",
+      "register_for_unlimited": "అనువాదం అవసరం"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "అనువాదం అవసరం",
+      "limit_reached_description": "అనువాదం అవసరం",
+      "login_required_title": "అనువాదం అవసరం",
+      "login_required_description": "అనువాదం అవసరం",
+      "daily_limit_title": "అనువాదం అవసరం",
+      "daily_limit_description": "అనువాదం అవసరం"
+    },
+    "success": {
+      "translation_complete": "అనువాదం అవసరం",
+      "credits_consumed": "అనువాదం అవసరం"
+    },
+    "alerts": {
+      "login_required_for_long_text": "అనువాదం అవసరం",
+      "login_now": "అనువాదం అవసరం",
+      "or": "అనువాదం అవసరం",
+      "register_account": "అనువాదం అవసరం"
+    },
+    "buttons": {
+      "translating": "అనువాదం అవసరం",
+      "translate_with_credits": "అనువాదం అవసరం",
+      "free_translate": "అనువాదం అవసరం"
+    },
+    "credits": {
+      "balance": "అనువాదం అవసరం",
+      "recharge": "అనువాదం అవసరం",
+      "free_translation": "అనువాదం అవసరం",
+      "estimated_cost": "అనువాదం అవసరం",
+      "insufficient_credits": "అనువాదం అవసరం",
+      "free_quota_usage": "అనువాదం అవసరం",
+      "characters": "అనువాదం అవసరం",
+      "over_limit": "అనువాదం అవసరం",
+      "insufficient_balance": "అనువాదం అవసరం",
+      "recharge_now": "అనువాదం అవసరం"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం"
+    },
+    "title": "అనువాదం అవసరం",
+    "subtitle": "అనువాదం అవసరం",
+    "current_balance": "అనువాదం అవసరం",
+    "free_tier": {
+      "title": "అనువాదం అవసరం",
+      "subtitle": "అనువాదం అవసరం",
+      "completely_free": "అనువాదం అవసరం",
+      "credit_based": "అనువాదం అవసరం",
+      "features": {
+        "free_text": "అనువాదం అవసరం",
+        "all_languages": "అనువాదం అవసరం",
+        "unlimited_use": "అనువాదం అవసరం",
+        "large_text": "అనువాదం అవసరం",
+        "document_translation": "అనువాదం అవసరం",
+        "rate": "అనువాదం అవసరం"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "features": {
+          "credits": "అనువాదం అవసరం",
+          "languages": "అనువాదం అవసరం",
+          "documents": "అనువాదం అవసరం",
+          "validity": "అనువాదం అవసరం"
+        }
+      },
+      "basic": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "features": {
+          "credits": "అనువాదం అవసరం",
+          "languages": "అనువాదం అవసరం",
+          "documents": "అనువాదం అవసరం",
+          "validity": "అనువాదం అవసరం",
+          "support": "అనువాదం అవసరం"
+        }
+      },
+      "pro": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "features": {
+          "credits": "అనువాదం అవసరం",
+          "languages": "అనువాదం అవసరం",
+          "documents": "అనువాదం అవసరం",
+          "validity": "అనువాదం అవసరం",
+          "support": "అనువాదం అవసరం",
+          "batch": "అనువాదం అవసరం"
+        }
+      },
+      "business": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "features": {
+          "credits": "అనువాదం అవసరం",
+          "languages": "అనువాదం అవసరం",
+          "documents": "అనువాదం అవసరం",
+          "validity": "అనువాదం అవసరం",
+          "support": "అనువాదం అవసరం",
+          "batch": "అనువాదం అవసరం",
+          "api": "అనువాదం అవసరం"
+        }
+      },
+      "enterprise": {
+        "name": "అనువాదం అవసరం",
+        "description": "అనువాదం అవసరం",
+        "features": {
+          "credits": "అనువాదం అవసరం",
+          "languages": "అనువాదం అవసరం",
+          "documents": "అనువాదం అవసరం",
+          "validity": "అనువాదం అవసరం",
+          "support": "అనువాదం అవసరం",
+          "batch": "అనువాదం అవసరం",
+          "api": "అనువాదం అవసరం",
+          "integration": "అనువాదం అవసరం"
+        }
+      }
+    },
+    "popular": "అనువాదం అవసరం",
+    "save": "అనువాదం అవసరం",
+    "credits": "అనువాదం అవసరం",
+    "purchase_button": "అనువాదం అవసరం",
+    "processing": "అనువాదం అవసరం",
+    "new_user_bonus": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "note": "అనువాదం అవసరం"
+    },
+    "register_prompt": {
+      "title": "అనువాదం అవసరం",
+      "description": "అనువాదం అవసరం",
+      "register_button": "అనువాదం అవసరం",
+      "signin_button": "అనువాదం అవసరం"
+    },
+    "faq": {
+      "title": "అనువాదం అవసరం",
+      "subtitle": "అనువాదం అవసరం",
+      "credit_calculation": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "expiration": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "payment_methods": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "bulk_discount": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "unused_credits": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "business_invoicing": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "api_pricing": {
+        "question": "అనువాదం అవసరం",
+        "answer": "అనువాదం అవసరం"
+      },
+      "contact_support": "అనువాదం అవసరం"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "అనువాదం అవసరం",
+    "translation_complete": "అనువాదం అవసరం",
+    "translation_failed": "అనువాదం అవసరం",
+    "translating": "అనువాదం అవసరం",
+    "preparing_engine": "అనువాదం అవసరం",
+    "about_to_start": "అనువాదం అవసరం",
+    "processing": "అనువాదం అవసరం",
+    "engine_running": "అనువాదం అవసరం",
+    "optimizing_quality": "అనువాదం అవసరం",
+    "translation_paused": "అనువాదం అవసరం",
+    "resume_translation": "అనువాదం అవసరం",
+    "translation_error": "అనువాదం అవసరం",
+    "service_unavailable": "అనువాదం అవసరం",
+    "input_placeholder": "అనువాదం అవసరం",
+    "result_placeholder": "అనువాదం అవసరం",
+    "from_language": "అనువాదం అవసరం",
+    "to_language": "అనువాదం అవసరం",
+    "partial_complete": "అనువాదం అవసరం",
+    "partial_description": "అనువాదం అవసరం",
+    "task_resubmitted": "అనువాదం అవసరం"
+  },
+  "task": {
+    "task_management": "అనువాదం అవసరం",
+    "manage_description": "అనువాదం అవసరం",
+    "new_translation": "అనువాదం అవసరం",
+    "refresh_tasks": "అనువాదం అవసరం",
+    "task_list_updated": "అనువాదం అవసరం",
+    "refresh_failed": "అనువాదం అవసరం",
+    "operation_success": "అనువాదం అవసరం",
+    "operation_failed": "అనువాదం అవసరం",
+    "select_tasks_first": "అనువాదం అవసరం",
+    "no_tasks": "అనువాదం అవసరం",
+    "no_matching_tasks": "అనువాదం అవసరం",
+    "create_first_task": "అనువాదం అవసరం",
+    "search_placeholder": "అనువాదం అవసరం",
+    "queue_created": "అనువాదం అవసరం",
+    "can_leave_page": "అనువాదం అవసరం",
+    "check_in_tasks": "అనువాదం అవసరం",
+    "view_in_tasks": "అనువాదం అవసరం",
+    "batch_operation_success": "అనువాదం అవసరం"
+  },
+  "progress": {
+    "preparing": "అనువాదం అవసరం",
+    "processing": "అనువాదం అవసరం",
+    "finalizing": "అనువాదం అవసరం",
+    "completed": "అనువాదం అవసరం",
+    "paused": "అనువాదం అవసరం",
+    "failed": "అనువాదం అవసరం",
+    "cancelled": "అనువాదం అవసరం",
+    "partial_success": "అనువాదం అవసరం",
+    "progress": "అనువాదం అవసరం",
+    "understanding_text": "అనువాదం అవసరం",
+    "analyzing_language": "అనువాదం అవసరం",
+    "processing_content": "అనువాదం అవసరం",
+    "checking_grammar": "అనువాదం అవసరం",
+    "final_polish": "అనువాదం అవసరం",
+    "presenting_results": "అనువాదం అవసరం",
+    "results_ready": "అనువాదం అవసరం",
+    "thank_you_waiting": "అనువాదం అవసరం",
+    "progress_saved": "అనువాదం అవసరం",
+    "processing_time_long": "అనువాదం అవసరం",
+    "instant_processing": "అనువాదం అవసరం",
+    "background_processing": "అనువాదం అవసరం",
+    "smart_processing": "అనువాదం అవసరం"
+  },
+  "time": {
+    "time_estimate": "అనువాదం అవసరం",
+    "estimated_time": "అనువాదం అవసరం",
+    "can_leave": "అనువాదం అవసరం",
+    "accurate_estimate": "అనువాదం అవసరం",
+    "rough_estimate": "అనువాదం అవసరం",
+    "approximate_estimate": "అనువాదం అవసరం",
+    "fast_queue": "అనువాదం అవసరం",
+    "creation_time": "అనువాదం అవసరం"
+  },
+  "error": {
+    "error_recovery": "అనువాదం అవసరం",
+    "retry_failed": "అనువాదం అవసరం",
+    "unknown_error": "అనువాదం అవసరం",
+    "partial_results": "అనువాదం అవసరం",
+    "retry_failed_parts": "అనువాదం అవసరం",
+    "download_partial": "అనువాదం అవసరం",
+    "segment_retry": "అనువాదం అవసరం",
+    "encountered_problem": "అనువాదం అవసరం",
+    "trying_to_resolve": "అనువాదం అవసరం",
+    "contact_support": "అనువాదం అవసరం",
+    "please_retry_later": "అనువాదం అవసరం"
+  },
+  "success": {
+    "completed": "అనువాదం అవసరం",
+    "operation_success": "అనువాదం అవసరం",
+    "partial_success": "అనువాదం అవసరం",
+    "almost_done": "అనువాదం అవసరం",
+    "results_shown_below": "అనువాదం అవసరం",
+    "half_completed": "అనువాదం అవసరం"
+  },
+  "credits": {
+    "estimated_consumption": "అనువాదం అవసరం",
+    "credits_consumed": "అనువాదం అవసరం",
+    "credits_processing": "అనువాదం అవసరం",
+    "consumed_credits": "అనువాదం అవసరం",
+    "refunded_credits": "అనువాదం అవసరం",
+    "retry_only_failed": "అనువాదం అవసరం"
+  },
+  "language": {
+    "source_language": "అనువాదం అవసరం",
+    "target_language": "అనువాదం అవసరం",
+    "select_source": "అనువాదం అవసరం",
+    "select_target": "అనువాదం అవసరం"
+  },
+  "ui": {
+    "start": "అనువాదం అవసరం",
+    "pause": "అనువాదం అవసరం",
+    "resume": "అనువాదం అవసరం",
+    "continue": "అనువాదం అవసరం",
+    "cancel": "అనువాదం అవసరం",
+    "retry": "అనువాదం అవసరం",
+    "download": "అనువాదం అవసరం",
+    "delete": "అనువాదం అవసరం",
+    "refresh": "అనువాదం అవసరం",
+    "all": "అనువాదం అవసరం",
+    "status": "అనువాదం అవసరం",
+    "priority": "అనువాదం అవసరం",
+    "sort": "అనువాదం అవసరం",
+    "normal": "అనువాదం అవసరం",
+    "high": "అనువాదం అవసరం",
+    "urgent": "అనువాదం అవసరం",
+    "low": "అనువాదం అవసరం",
+    "waiting": "అనువాదం అవసరం",
+    "active": "అనువాదం అవసరం",
+    "needs_attention": "అనువాదం అవసరం",
+    "submitting": "అనువాదం అవసరం",
+    "downloading": "అనువాదం అవసరం",
+    "retrying": "అనువాదం అవసరం",
+    "copied": "అనువాదం అవసరం",
+    "text_copied": "అనువాదం అవసరం",
+    "input_text": "అనువాదం అవసరం",
+    "translation_result": "అనువాదం అవసరం",
+    "characters": "అనువాదం అవసరం",
+    "total_tasks": "అనువాదం అవసరం",
+    "select_all": "అనువాదం అవసరం",
+    "batch_operations": "అనువాదం అవసరం",
+    "set_priority": "అనువాదం అవసరం"
+  }
+}

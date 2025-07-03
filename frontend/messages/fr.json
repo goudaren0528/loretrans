@@ -190,6 +190,12 @@
       "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
       "cta_try": "Essayez Maintenant - C'est Gratuit",
       "cta_docs": "Traduire des Documents"
+    },
+    "title": "Traduire les Langues à Faibles Ressources",
+    "description": "Traduction alimentée par l'IA pour les langues aux ressources limitées.",
+    "language_grid": {
+      "coming_soon": "Bientôt Disponible",
+      "try_language": "Essayer la Langue"
     }
   },
   "Layout": {
@@ -236,13 +242,13 @@
         "discount": ""
       },
       "professional": {
-        "name": "Pack Professionnel", 
+        "name": "Pack Professionnel",
         "description": "Conçu pour les professionnels et petites équipes qui ont besoin d'un volume de traduction plus élevé",
         "discount": "Économisez 10%"
       },
       "business": {
         "name": "Pack Entreprise",
-        "description": "Répond aux besoins de niveau entreprise avec le meilleur prix unitaire", 
+        "description": "Répond aux besoins de niveau entreprise avec le meilleur prix unitaire",
         "discount": "Économisez 20%"
       }
     },
@@ -268,7 +274,9 @@
     "cta": {
       "title": "Prêt à Commencer?",
       "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
-      "try_now": "Essayer Maintenant - C'est Gratuit"
+      "try_now": "Essayer Maintenant - C'est Gratuit",
+      "free_trial": "Essai Gratuit",
+      "contact_sales": "Contacter les Ventes"
     }
   },
   "DocumentTranslatePage": {
@@ -698,11 +706,11 @@
         }
       },
       "basic": {
-        "name": "Forfait Basique", 
+        "name": "Forfait Basique",
         "description": "Le choix le plus populaire",
         "features": {
           "credits": "5,000 crédits de traduction",
-          "languages": "Toutes les paires de langues supportées", 
+          "languages": "Toutes les paires de langues supportées",
           "documents": "Fonction de traduction de documents",
           "validity": "Période de validité de 30 jours",
           "support": "Support client prioritaire"
@@ -714,7 +722,7 @@
         "features": {
           "credits": "10,000 crédits de traduction",
           "languages": "Toutes les paires de langues supportées",
-          "documents": "Fonction de traduction de documents", 
+          "documents": "Fonction de traduction de documents",
           "validity": "Période de validité de 60 jours",
           "support": "Support client prioritaire",
           "batch": "Fonction de traduction par lots"
@@ -727,7 +735,7 @@
           "credits": "25,000 crédits de traduction",
           "languages": "Toutes les paires de langues supportées",
           "documents": "Fonction de traduction de documents",
-          "validity": "Période de validité de 90 jours", 
+          "validity": "Période de validité de 90 jours",
           "support": "Support client prioritaire",
           "batch": "Fonction de traduction par lots",
           "api": "Accès API"
@@ -741,7 +749,7 @@
           "languages": "Toutes les paires de langues supportées",
           "documents": "Fonction de traduction de documents",
           "validity": "Période de validité de 180 jours",
-          "support": "Support client dédié", 
+          "support": "Support client dédié",
           "batch": "Fonction de traduction par lots",
           "api": "Accès API",
           "integration": "Intégration personnalisée"
@@ -861,5 +869,170 @@
       "description": "Nous supportons la traduction de ces langues vers l'anglais:",
       "more": "Et beaucoup plus de langues à faibles ressources..."
     }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "Commencer la traduction",
+    "translation_complete": "Traduction terminée",
+    "translation_failed": "Traduction échouée",
+    "translating": "Traduction en cours...",
+    "preparing_engine": "Préparation du moteur de traduction...",
+    "about_to_start": "Sur le point de commencer la traduction...",
+    "processing": "Traduction en cours, veuillez patienter...",
+    "engine_running": "Moteur de traduction fonctionnant à pleine capacité...",
+    "optimizing_quality": "Optimisation de la qualité de traduction...",
+    "translation_paused": "Traduction en pause",
+    "resume_translation": "Cliquez sur continuer pour reprendre la traduction",
+    "translation_error": "Un problème a été rencontré pendant la traduction",
+    "service_unavailable": "Service de traduction temporairement indisponible, veuillez réessayer plus tard",
+    "input_placeholder": "Saisissez le texte à traduire...",
+    "result_placeholder": "Les résultats de traduction s'afficheront ici...",
+    "from_language": "traduire de",
+    "to_language": "traduire vers",
+    "partial_complete": "Traduction partiellement terminée",
+    "partial_description": "Quelques problèmes ont été rencontrés pendant la traduction, mais nous avons sauvegardé les résultats partiels pour vous",
+    "task_resubmitted": "La tâche de traduction a été resoumise pour traitement"
+  },
+  "task": {
+    "task_management": "Gestion des tâches de traduction",
+    "manage_description": "Gérez vos tâches de traduction, consultez les progrès et les résultats",
+    "new_translation": "Nouvelle traduction",
+    "refresh_tasks": "Actualiser",
+    "task_list_updated": "Liste des tâches mise à jour",
+    "refresh_failed": "Échec de l'actualisation",
+    "operation_success": "Opération réussie",
+    "operation_failed": "Opération échouée",
+    "select_tasks_first": "Veuillez d'abord sélectionner les tâches",
+    "no_tasks": "Aucune tâche",
+    "no_matching_tasks": "Aucune tâche correspondante",
+    "create_first_task": "Pas encore de tâches de traduction, créez-en une !",
+    "search_placeholder": "Rechercher des tâches...",
+    "queue_created": "Tâche de traduction créée",
+    "can_leave_page": "Vous pouvez quitter cette page, consultez les résultats plus tard dans \"Mes tâches\"",
+    "check_in_tasks": "Vous pouvez vérifier les progrès dans la gestion des tâches",
+    "view_in_tasks": "Veuillez aller à la page \"Mes tâches\" pour voir les progrès de traduction",
+    "batch_operation_success": "{action} a été exécuté sur {count} tâches"
+  },
+  "progress": {
+    "preparing": "Préparation",
+    "processing": "Traitement",
+    "finalizing": "Finalisation",
+    "completed": "Terminé",
+    "paused": "En pause",
+    "failed": "Échoué",
+    "cancelled": "Annulé",
+    "partial_success": "Succès partiel",
+    "progress": "Progrès",
+    "understanding_text": "Compréhension de votre texte...",
+    "analyzing_language": "Analyse des caractéristiques linguistiques...",
+    "processing_content": "Traitement de votre contenu...",
+    "checking_grammar": "Vérification de la grammaire et de la fluidité...",
+    "final_polish": "Polissage final...",
+    "presenting_results": "Sur le point de présenter les résultats...",
+    "results_ready": "Résultats prêts",
+    "thank_you_waiting": "Merci pour votre patience",
+    "progress_saved": "Vos progrès ont été sauvegardés",
+    "processing_time_long": "Temps de traitement long",
+    "instant_processing": "Traitement instantané",
+    "background_processing": "Traitement en arrière-plan",
+    "smart_processing": "Traitement intelligent"
+  },
+  "time": {
+    "time_estimate": "Estimation du temps",
+    "estimated_time": "Temps restant estimé",
+    "can_leave": "Peut quitter la page",
+    "accurate_estimate": "Estimation précise",
+    "rough_estimate": "Estimation approximative",
+    "approximate_estimate": "Estimation approximative",
+    "fast_queue": "File rapide",
+    "creation_time": "Temps de création"
+  },
+  "error": {
+    "error_recovery": "Récupération d'erreur",
+    "retry_failed": "Nouvelle tentative échouée",
+    "unknown_error": "Erreur inconnue",
+    "partial_results": "Résultats partiels",
+    "retry_failed_parts": "Réessayer les parties échouées",
+    "download_partial": "Télécharger les résultats partiels",
+    "segment_retry": "Nouvelle tentative segmentée",
+    "encountered_problem": "Problème rencontré",
+    "trying_to_resolve": "Nous essayons de résoudre",
+    "contact_support": "Veuillez patienter ou contacter le support",
+    "please_retry_later": "Veuillez réessayer plus tard"
+  },
+  "success": {
+    "completed": "Terminé",
+    "operation_success": "Opération réussie",
+    "partial_success": "Succès partiel",
+    "almost_done": "Presque terminé !",
+    "results_shown_below": "Résultats affichés ci-dessous",
+    "half_completed": "Plus de la moitié terminé, continuez !"
+  },
+  "credits": {
+    "estimated_consumption": "Consommation estimée",
+    "credits_consumed": "Crédits consommés",
+    "credits_processing": "Explication du traitement des crédits",
+    "consumed_credits": "Crédits consommés",
+    "refunded_credits": "Crédits remboursés",
+    "retry_only_failed": "Ne payez que les crédits pour les parties échouées lors de la nouvelle tentative"
+  },
+  "language": {
+    "source_language": "Langue source",
+    "target_language": "Langue cible",
+    "select_source": "Sélectionner la langue source",
+    "select_target": "Sélectionner la langue cible"
+  },
+  "ui": {
+    "start": "Commencer",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "continue": "Continuer",
+    "cancel": "Annuler",
+    "retry": "Réessayer",
+    "download": "Télécharger",
+    "delete": "Supprimer",
+    "refresh": "Actualiser",
+    "all": "Tout",
+    "status": "Statut",
+    "priority": "Priorité",
+    "sort": "Trier",
+    "normal": "Normal",
+    "high": "Élevé",
+    "urgent": "Urgent",
+    "low": "Faible",
+    "waiting": "En attente",
+    "active": "Actif",
+    "needs_attention": "Nécessite attention",
+    "submitting": "Soumission...",
+    "downloading": "Téléchargement commencé",
+    "retrying": "Nouvelle tentative commencée",
+    "copied": "Copié",
+    "text_copied": "Texte copié dans le presse-papiers",
+    "input_text": "Texte d'entrée",
+    "translation_result": "Résultat de traduction",
+    "characters": "caractères",
+    "total_tasks": "Total des tâches",
+    "select_all": "Tout sélectionner",
+    "batch_operations": "Opérations par lots",
+    "set_priority": "Définir la priorité"
   }
-} 
+}

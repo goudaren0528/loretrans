@@ -378,13 +378,13 @@
         "discount": ""
       },
       "professional": {
-        "name": "Professional Pack", 
+        "name": "Professional Pack",
         "description": "Designed for professionals and small teams who need higher translation volume",
         "discount": "Save 10%"
       },
       "business": {
         "name": "Business Pack",
-        "description": "Meet enterprise-level needs with the best unit price", 
+        "description": "Meet enterprise-level needs with the best unit price",
         "discount": "Save 20%"
       }
     },
@@ -769,11 +769,11 @@
         }
       },
       "basic": {
-        "name": "Basic Package", 
+        "name": "Basic Package",
         "description": "Most popular choice",
         "features": {
           "credits": "5,000 translation credits",
-          "languages": "All language pairs supported", 
+          "languages": "All language pairs supported",
           "documents": "Document translation feature",
           "validity": "30-day validity period",
           "support": "Priority customer support"
@@ -785,7 +785,7 @@
         "features": {
           "credits": "10,000 translation credits",
           "languages": "All language pairs supported",
-          "documents": "Document translation feature", 
+          "documents": "Document translation feature",
           "validity": "60-day validity period",
           "support": "Priority customer support",
           "batch": "Batch translation feature"
@@ -798,7 +798,7 @@
           "credits": "25,000 translation credits",
           "languages": "All language pairs supported",
           "documents": "Document translation feature",
-          "validity": "90-day validity period", 
+          "validity": "90-day validity period",
           "support": "Priority customer support",
           "batch": "Batch translation feature",
           "api": "API access"
@@ -812,7 +812,7 @@
           "languages": "All language pairs supported",
           "documents": "Document translation feature",
           "validity": "180-day validity period",
-          "support": "Dedicated customer support", 
+          "support": "Dedicated customer support",
           "batch": "Batch translation feature",
           "api": "API access",
           "integration": "Custom integration"
@@ -868,5 +868,170 @@
       },
       "contact_support": "Have more questions? Contact our support team"
     }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "开始翻译",
+    "translation_complete": "翻译完成",
+    "translation_failed": "翻译失败",
+    "translating": "翻译中...",
+    "preparing_engine": "准备翻译引擎...",
+    "about_to_start": "即将开始翻译...",
+    "processing": "翻译进行中，请稍候...",
+    "engine_running": "翻译引擎全力运转中...",
+    "optimizing_quality": "正在优化翻译质量...",
+    "translation_paused": "翻译已暂停",
+    "resume_translation": "点击继续按钮恢复翻译",
+    "translation_error": "翻译过程中遇到了问题",
+    "service_unavailable": "翻译服务暂时不可用，请稍后重试",
+    "input_placeholder": "输入要翻译的文本...",
+    "result_placeholder": "翻译结果将显示在这里...",
+    "from_language": "翻译的",
+    "to_language": "翻译成的",
+    "partial_complete": "翻译部分完成",
+    "partial_description": "翻译过程中遇到了一些问题，但我们已为您保存了部分结果",
+    "task_resubmitted": "翻译任务已重新提交处理"
+  },
+  "task": {
+    "task_management": "翻译任务管理",
+    "manage_description": "管理您的翻译任务，查看进度和结果",
+    "new_translation": "新建翻译",
+    "refresh_tasks": "刷新",
+    "task_list_updated": "任务列表已更新",
+    "refresh_failed": "刷新失败",
+    "operation_success": "操作成功",
+    "operation_failed": "操作失败",
+    "select_tasks_first": "请先选择要操作的任务",
+    "no_tasks": "暂无任务",
+    "no_matching_tasks": "没有符合条件的任务",
+    "create_first_task": "还没有翻译任务，去创建一个吧！",
+    "search_placeholder": "搜索任务...",
+    "queue_created": "翻译任务已创建",
+    "can_leave_page": "您可以离开此页面，稍后在\"我的任务\"中查看结果",
+    "check_in_tasks": "可在任务管理中查看进度",
+    "view_in_tasks": "请到\"我的任务\"页面查看翻译进度",
+    "batch_operation_success": "已对 {count} 个任务执行{action}"
+  },
+  "progress": {
+    "preparing": "准备中",
+    "processing": "处理中",
+    "finalizing": "完善中",
+    "completed": "完成",
+    "paused": "已暂停",
+    "failed": "失败",
+    "cancelled": "已取消",
+    "partial_success": "部分成功",
+    "progress": "进度",
+    "understanding_text": "正在理解您的文本...",
+    "analyzing_language": "分析语言特征中...",
+    "processing_content": "正在处理您的内容...",
+    "checking_grammar": "检查语法和流畅度...",
+    "final_polish": "最后的润色中...",
+    "presenting_results": "即将为您呈现结果...",
+    "results_ready": "结果已准备就绪",
+    "thank_you_waiting": "感谢您的耐心等待",
+    "progress_saved": "您的进度已保存",
+    "processing_time_long": "处理时间较长",
+    "instant_processing": "即时处理",
+    "background_processing": "后台处理",
+    "smart_processing": "智能处理"
+  },
+  "time": {
+    "time_estimate": "时间预估",
+    "estimated_time": "预计剩余时间",
+    "can_leave": "可离开页面",
+    "accurate_estimate": "预估准确",
+    "rough_estimate": "大致预估",
+    "approximate_estimate": "粗略预估",
+    "fast_queue": "快速队列",
+    "creation_time": "创建时间"
+  },
+  "error": {
+    "error_recovery": "错误恢复",
+    "retry_failed": "重试失败",
+    "unknown_error": "未知错误",
+    "partial_results": "部分结果",
+    "retry_failed_parts": "重试失败部分",
+    "download_partial": "下载部分结果",
+    "segment_retry": "分段重试",
+    "encountered_problem": "遇到的问题",
+    "trying_to_resolve": "我们正在尝试解决",
+    "contact_support": "请稍候或联系客服",
+    "please_retry_later": "请稍后重试"
+  },
+  "success": {
+    "completed": "已完成",
+    "operation_success": "操作成功",
+    "partial_success": "部分成功",
+    "almost_done": "马上就要完成了！",
+    "results_shown_below": "结果已显示在下方",
+    "half_completed": "已完成一半以上，继续加油！"
+  },
+  "credits": {
+    "estimated_consumption": "预计消耗",
+    "credits_consumed": "消耗 {credits} 积分",
+    "credits_processing": "积分处理说明",
+    "consumed_credits": "已消耗积分",
+    "refunded_credits": "已退还积分",
+    "retry_only_failed": "重试时只需为失败部分支付积分"
+  },
+  "language": {
+    "source_language": "源语言",
+    "target_language": "目标语言",
+    "select_source": "选择源语言",
+    "select_target": "选择目标语言"
+  },
+  "ui": {
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "恢复",
+    "continue": "继续",
+    "cancel": "取消",
+    "retry": "重试",
+    "download": "下载",
+    "delete": "删除",
+    "refresh": "刷新",
+    "all": "全部",
+    "status": "状态",
+    "priority": "优先级",
+    "sort": "排序",
+    "normal": "普通",
+    "high": "高",
+    "urgent": "紧急",
+    "low": "低",
+    "waiting": "等待中",
+    "active": "进行中",
+    "needs_attention": "需处理",
+    "submitting": "提交中...",
+    "downloading": "下载已开始",
+    "retrying": "重试已开始",
+    "copied": "已复制",
+    "text_copied": "文本已复制到剪贴板",
+    "input_text": "输入文本",
+    "translation_result": "翻译结果",
+    "characters": "字符",
+    "total_tasks": "总任务",
+    "select_all": "全选",
+    "batch_operations": "批量操作",
+    "set_priority": "设置优先级"
   }
-} 
+}

@@ -1,5 +1,6 @@
 import { APP_CONFIG } from '../../../config/app.config'
 import { TranslationRequest } from '../../../shared/types'
+import { translateWithResilience, getTranslationServiceStatus } from './translation-resilience'
 
 interface TranslationResponse {
   translatedText: string
@@ -8,6 +9,8 @@ interface TranslationResponse {
   confidence?: number
   processingTime: number
   method?: 'nllb-local' | 'huggingface' | 'mock' | 'fallback'
+  fallbackUsed?: boolean
+  retryCount?: number
 }
 
 interface HuggingFaceResponse {
@@ -38,27 +41,6 @@ const NLLB_LANGUAGE_MAP: Record<string, string> = {
 }
 
 /**
- * Mock翻译数据（用于开发和演示）
- */
-const MOCK_TRANSLATIONS: Record<string, Record<string, string>> = {
-  'ht': {
-    'en': 'English translation of Haitian Creole text'
-  },
-  'sw': {
-    'en': 'English translation of Swahili text'
-  },
-  'lo': {
-    'en': 'English translation of Lao text'
-  },
-  'my': {
-    'en': 'English translation of Burmese text'
-  },
-  'zh': {
-    'en': 'English translation of Chinese text'
-  }
-}
-
-/**
  * 获取NLLB格式的语言代码
  */
 function getNLLBLanguageCode(language: string): string {
@@ -77,26 +59,219 @@ export function isSupportedLanguage(language: string): boolean {
 }
 
 /**
- * Mock翻译函数（用于开发和测试）
- */
-function mockTranslation(text: string, sourceLanguage: string, targetLanguage: string): string {
-  // 如果有预定义的mock翻译，使用它
-  const mockText = MOCK_TRANSLATIONS[sourceLanguage]?.[targetLanguage]
-  if (mockText) {
-    return `${mockText}: "${text}"`
-  }
-
-  // 否则生成通用的mock翻译
-  return `[MOCK TRANSLATION] ${sourceLanguage} → ${targetLanguage}: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`
-}
-
-/**
  * 检查是否应该使用mock模式
  */
 function shouldUseMockMode(): boolean {
   // 强制禁用MOCK模式 - 始终使用真实翻译
-  console.log('DEBUG: Mock mode forcibly disabled - using real translation')
+  console.log('DEBUG: Mock mode forcibly disabled - using real translation with resilience')
   return false
+}
+
+/**
+ * 主要翻译函数 - 使用容错机制
+ */
+export async function translateText(
+  text: string,
+  sourceLanguage: string,
+  targetLanguage: string,
+  options?: {
+    priority?: 'speed' | 'quality'
+    timeout?: number
+    retries?: number
+    enableCache?: boolean
+  }
+): Promise<TranslationResponse> {
+  console.log(`[translateText] Starting translation: ${sourceLanguage} → ${targetLanguage}, ${text.length} chars`)
+  
+  // 验证输入参数
+  if (!text || text.trim().length === 0) {
+    throw new Error('Text cannot be empty')
+  }
+
+  if (!isSupportedLanguage(sourceLanguage)) {
+    throw new Error(`Unsupported source language: ${sourceLanguage}`)
+  }
+
+  if (!isSupportedLanguage(targetLanguage)) {
+    throw new Error(`Unsupported target language: ${targetLanguage}`)
+  }
+
+  // 检查文本长度限制
+  if (text.length > APP_CONFIG.nllb.maxLength) {
+    throw new Error(`Text too long. Maximum ${APP_CONFIG.nllb.maxLength} characters allowed, got ${text.length}`)
+  }
+
+  try {
+    // 使用容错翻译服务
+    console.log('[translateText] Using resilient translation service')
+    
+    const result = await translateWithResilience(
+      text,
+      sourceLanguage,
+      targetLanguage,
+      {
+        priority: options?.priority || 'quality',
+        timeout: options?.timeout || 30000,
+        retries: options?.retries || 3
+      }
+    )
+
+    console.log(`[translateText] Translation completed: method=${result.method}, time=${result.processingTime}ms, fallback=${result.fallbackUsed}`)
+
+    return {
+      translatedText: result.translatedText,
+      sourceLanguage: result.sourceLanguage,
+      targetLanguage: result.targetLanguage,
+      confidence: result.confidence,
+      processingTime: result.processingTime,
+      method: result.method,
+      fallbackUsed: result.fallbackUsed,
+      retryCount: result.retryCount
+    }
+
+  } catch (error) {
+    console.error('[translateText] Translation failed:', error)
+    
+    // 记录翻译失败的详细信息
+    const errorDetails = {
+      sourceLanguage,
+      targetLanguage,
+      textLength: text.length,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    }
+    
+    console.error('[translateText] Error details:', errorDetails)
+    
+    throw new Error(`Translation failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+  }
+}
+
+/**
+ * 批量翻译函数
+ */
+export async function translateBatch(
+  texts: string[],
+  sourceLanguage: string,
+  targetLanguage: string,
+  options?: {
+    priority?: 'speed' | 'quality'
+    timeout?: number
+    retries?: number
+    concurrency?: number
+  }
+): Promise<TranslationResponse[]> {
+  console.log(`[translateBatch] Starting batch translation: ${texts.length} texts`)
+  
+  if (!texts || texts.length === 0) {
+    return []
+  }
+
+  const concurrency = options?.concurrency || 3
+  const results: TranslationResponse[] = []
+  
+  // 分批处理以控制并发
+  for (let i = 0; i < texts.length; i += concurrency) {
+    const batch = texts.slice(i, i + concurrency)
+    
+    const batchPromises = batch.map(text => 
+      translateText(text, sourceLanguage, targetLanguage, options)
+    )
+    
+    try {
+      const batchResults = await Promise.all(batchPromises)
+      results.push(...batchResults)
+    } catch (error) {
+      console.error(`[translateBatch] Batch ${i}-${i + batch.length} failed:`, error)
+      throw error
+    }
+  }
+  
+  console.log(`[translateBatch] Batch translation completed: ${results.length} results`)
+  return results
+}
+
+/**
+ * 获取翻译服务状态
+ */
+export function getTranslationStatus() {
+  return getTranslationServiceStatus()
+}
+
+/**
+ * 语言检测函数（简化版）
+ */
+export async function detectLanguage(text: string): Promise<string> {
+  // 简单的语言检测逻辑
+  // 在实际应用中，这里应该调用专门的语言检测服务
+  
+  if (!text || text.trim().length === 0) {
+    return 'en' // 默认英语
+  }
+
+  // 基于字符集的简单检测
+  if (/[\u4e00-\u9fff]/.test(text)) {
+    return 'zh' // 中文
+  } else if (/[\u0600-\u06ff]/.test(text)) {
+    return 'ar' // 阿拉伯语
+  } else if (/[\u1000-\u109f]/.test(text)) {
+    return 'my' // 缅甸语
+  } else if (/[\u0e80-\u0eff]/.test(text)) {
+    return 'lo' // 老挝语
+  } else if (/[\u0c00-\u0c7f]/.test(text)) {
+    return 'te' // 泰卢固语
+  }
+  
+  // 默认返回英语
+  return 'en'
+}
+
+/**
+ * 翻译质量评估（简化版）
+ */
+export function assessTranslationQuality(
+  originalText: string,
+  translatedText: string,
+  sourceLanguage: string,
+  targetLanguage: string
+): {
+  score: number
+  issues: string[]
+  suggestions: string[]
+} {
+  const issues: string[] = []
+  const suggestions: string[] = []
+  let score = 1.0
+
+  // 基本质量检查
+  if (!translatedText || translatedText.trim().length === 0) {
+    issues.push('Empty translation result')
+    score = 0
+  } else if (translatedText === originalText) {
+    issues.push('Translation identical to source')
+    score = 0.3
+  } else if (translatedText.includes('[FALLBACK TRANSLATION]')) {
+    issues.push('Fallback translation used')
+    score = 0.5
+    suggestions.push('Consider retrying with primary service')
+  } else if (translatedText.includes('[MOCK TRANSLATION]')) {
+    issues.push('Mock translation used')
+    score = 0.2
+    suggestions.push('Check translation service availability')
+  }
+
+  // 长度检查
+  const lengthRatio = translatedText.length / originalText.length
+  if (lengthRatio < 0.3 || lengthRatio > 3) {
+    issues.push('Unusual length ratio between source and target')
+    score *= 0.8
+  }
+
+  return {
+    score: Math.max(0, Math.min(1, score)),
+    issues,
+    suggestions
+  }
 }
 
 /**

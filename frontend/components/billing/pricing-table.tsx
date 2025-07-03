@@ -230,9 +230,10 @@ export function PricingTable() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
+export default function PricingTable() {
   return (
     <div className="space-y-16">
       {error && (
@@ -451,5 +452,5 @@ export function PricingTable() {
         </div>
       </div>
     </div>
-  );
-} 
+  )
+}

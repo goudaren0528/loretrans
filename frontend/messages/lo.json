@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "ໜ້າຫຼັກ",
+    "about": "ກ່ຽວກັບ",
+    "pricing": "ລາຄາ",
+    "contact": "ຕິດຕໍ່"
+  },
+  "UserMenu": {
+    "sign_in": "ເຂົ້າສູ່ລະບົບ",
+    "sign_up": "ລົງທະບຽນ",
+    "sign_out": "ອອກຈາກລະບົບ",
+    "user": "ຜູ້ໃຊ້",
+    "credits": "ເຄຣດິດ",
+    "profile": "ໂປຣໄຟລ໌",
+    "dashboard": "ແຜງຄວບຄຸມ",
+    "purchase_credits": "ຊື້ເຄຣດິດ",
+    "settings": "ການຕັ້ງຄ່າ"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - ເຄື່ອງແປພາສາ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຈໍາກັດ",
+      "description": "ການແປພາສາຟຣີດ້ວຍ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຈໍາກັດ 20+ ພາສາ ເຊັ່ນ: ຄຣີໂອລ, ລາວ, ແລະ ສະວາຮີລີ. ແປຂໍ້ຄວາມແລະເອກະສານເປັນພາສາອັງກິດທັນທີ."
+    },
+    "hero": {
+      "title": "ການແປພາສາດ້ວຍ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຈໍາກັດ",
+      "description": "ທໍາລາຍອຸປະສັກທາງພາສາດ້ວຍ AI ທີ່ທັນສະໄໝ. ແພລດຟອມຂອງພວກເຮົາໃຫ້ການແປທີ່ມີຄຸນນະພາບສູງສໍາລັບພາສາທີ່ມັກຈະບໍ່ໄດ້ຮັບການບໍລິການທີ່ດີຈາກບໍລິການຫຼັກ. ເລີ່ມຕົ້ນຟຣີ.",
+      "features": {
+        "free": "100% ຟຣີ",
+        "ai_powered": "ຂັບເຄື່ອນດ້ວຍ AI",
+        "languages": "20+ ພາສາ"
+      },
+      "cta": {
+        "start_translating": "ເລີ່ມແປ",
+        "upload_document": "ອັບໂຫລດເອກະສານ"
+      }
+    },
+    "languages": {
+      "title": "ພາສາທີ່ຮອງຮັບ",
+      "description": "ແປຈາກພາສາທີ່ມີຊັບພະຍາກອນຈໍາກັດເຫຼົ່ານີ້ເປັນພາສາອັງກິດ"
+    },
+    "cta": {
+      "title": "ເລີ່ມແປວັນນີ້",
+      "description": "ເຂົ້າຮ່ວມກັບຜູ້ໃຊ້ຫຼາຍພັນຄົນທີ່ໄວ້ວາງໃຈ Transly ສໍາລັບຄວາມຕ້ອງການການແປຂອງພວກເຂົາ",
+      "try_now": "ລອງດຽວນີ້ - ມັນຟຣີ",
+      "translate_documents": "ແປເອກະສານ"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Transly - AI Translator for Low-Resource Languages",
+      "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
+    },
+    "title": "Translate Low-Resource Languages",
+    "description": "AI-powered translation for languages with limited resources.",
+    "hero": {
+      "title": "AI-Powered Translation for Low-Resource Languages",
+      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for languages often underserved by mainstream services. Get started for free.",
+      "status": {
+        "free": "100% Free",
+        "ai_powered": "AI-Powered",
+        "multi_language": "20+ Languages"
+      },
+      "cta_start": "Start Translating",
+      "cta_upload": "Upload Document"
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "Translate from these low-resource languages to English"
+    },
+    "cta_section": {
+      "title": "Start Translating Today",
+      "description": "Join thousands of users who trust Transly for their translation needs",
+      "cta_try": "Try Now - It's Free",
+      "cta_docs": "Translate Documents"
+    },
+    "translation_options": {
+      "title": "Choose Your Translation Method",
+      "description": "Select the best option for your translation needs",
+      "options": {
+        "text": {
+          "title": "Text Translation",
+          "description": "Translate text between 20+ low-resource languages and English instantly.",
+          "features": "• Instant translation • Character limit: 5000 • Free for basic use",
+          "button": "Start Translating"
+        },
+        "document": {
+          "title": "Document Translation",
+          "description": "Upload and translate PDF, Word, and PowerPoint documents.",
+          "features": "• PDF, Word, PowerPoint • Preserves formatting • Batch processing",
+          "button": "Start Translating"
+        },
+        "image": {
+          "title": "Image Translation",
+          "description": "Extract and translate text from images using OCR technology.",
+          "features": "• OCR text extraction • Multiple image formats • Coming soon",
+          "button": "Coming Soon"
+        }
+      },
+      "quick_start": {
+        "title": "Not sure which option to choose? Start with text translation",
+        "button": "Try Text Translation Now"
+      },
+      "coming_soon": "Coming Soon"
+    },
+    "language_grid": {
+      "coming_soon": "Coming Soon",
+      "try_language": "Try {language}"
+    },
+    "feature_section": {
+      "title": "Why Choose Transly?",
+      "description": "Professional-grade translation tools designed for low-resource languages",
+      "features": {
+        "ai_powered": {
+          "name": "AI-Powered Translation",
+          "description": "Powered by Meta's NLLB model for accurate low-resource language translation."
+        },
+        "fast": {
+          "name": "Lightning Fast",
+          "description": "Get instant translations with our optimized AI infrastructure."
+        },
+        "privacy": {
+          "name": "Privacy First",
+          "description": "Your text is processed securely and never stored on our servers."
+        },
+        "languages": {
+          "name": "20+ Languages",
+          "description": "Support for Creole, Lao, Swahili, Burmese, and many more low-resource languages."
+        },
+        "tts": {
+          "name": "Text-to-Speech",
+          "description": "Listen to translations with our high-quality text-to-speech feature."
+        },
+        "documents": {
+          "name": "Document Translation",
+          "description": "Upload and translate PDF, Word, and PowerPoint files seamlessly."
+        }
+      },
+      "stats": {
+        "languages": "Languages Supported",
+        "free": "Free to Use",
+        "characters": "Characters per Translation",
+        "availability": "Available"
+      }
+    },
+    "faq_section": {
+      "title": "Frequently Asked Questions",
+      "description": "Everything you need to know about Transly",
+      "questions": "Common questions about our translation service",
+      "contact_prompt": "Have more questions?",
+      "contact_link": "Contact our support team"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "About Transly - Professional Translation for Low-Resource Languages",
+      "description": "Learn about Transly, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
+    },
+    "hero": {
+      "title": "About Transly",
+      "description": "Professional translation platform dedicated to connecting low-resource languages with the world through accurate English translation."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "p1": "We believe every language deserves to be heard. Transly bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
+      "p2": "Powered by Meta's state-of-the-art NLLB (No Language Left Behind) model, we support over 20 languages that are often overlooked by mainstream translation services.",
+      "cta": "Try Document Translation"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Global Accessibility",
+        "description": "Making translation accessible for speakers of languages with limited digital resources."
+      },
+      "accuracy": {
+        "title": "Fast & Accurate",
+        "description": "Advanced AI technology delivers high-quality translations in seconds."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your translations are not stored. We respect your privacy and data security."
+      }
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "We support {count} low-resource languages with more being added regularly.",
+      "request_cta": "Request a Language",
+      "request_cta_description": "Don't see your language? We're constantly expanding our language support."
+    },
+    "technology": {
+      "title": "Powered by Advanced AI",
+      "description": "Transly uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
+      "cultural_preservation": {
+        "title": "Cultural Preservation",
+        "description": "Supporting linguistic diversity and helping preserve cultural heritage through technology."
+      },
+      "community_driven": {
+        "title": "Community Driven",
+        "description": "Built with feedback from native speakers and language communities worldwide."
+      },
+      "continuous_improvement": {
+        "title": "Continuous Improvement",
+        "description": "Regular model updates and improvements to provide better translation quality."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1_title": "What makes Transly different from other translation services?",
+      "q1_answer": "Transly specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
+      "q2_title": "Is my data safe and private?",
+      "q2_answer": "Yes, we prioritize your privacy. We don't store your translations or personal data. All translations are processed securely and deleted immediately after delivery. For document translations, files are automatically removed after download.",
+      "q3_title": "What file formats do you support for document translation?",
+      "q3_answer": "We currently support PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx), and plain text (.txt) files. We're working on adding support for more formats based on user feedback.",
+      "q4_title": "How accurate are the translations?",
+      "q4_answer": "Our translations are powered by Meta's state-of-the-art NLLB model, which has been trained specifically on low-resource languages. While no automated translation is perfect, our system provides significantly better results for small languages compared to traditional services.",
+      "q5_title": "Can I translate from English to my language?",
+      "q5_answer": "Yes! While our primary focus is translating from low-resource languages to English, we also support reverse translation from English to supported languages. Just use the language selector to choose your desired translation direction.",
+      "q6_title": "Do you offer API access for developers?",
+      "q6_answer": "We're currently developing API access for developers and businesses. If you're interested in integrating our translation capabilities into your application, please contact us for early access information."
+    },
+    "cta_section": {
+      "title": "Ready to Get Started?",
+      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Transly is here to help you communicate with the world.",
+      "cta_text": "Try Text Translation",
+      "cta_docs": "Upload Document"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contact Support - Get Help with Transly",
+      "description": "Need help with translation? Contact our support team for assistance with Transly translation services, technical issues, or general inquiries."
+    },
+    "hero": {
+      "title": "Contact Support",
+      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Transly."
+    },
+    "form": {
+      "title": "Send us a message",
+      "firstName": "First Name *",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name *",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject *",
+      "subjectPlaceholder": "Select a topic",
+      "subjects": {
+        "translation_issue": "Translation Issue",
+        "technical_support": "Technical Support",
+        "feature_request": "Feature Request",
+        "language_request": "New Language Request",
+        "business_inquiry": "Business Inquiry",
+        "feedback": "General Feedback",
+        "other": "Other"
+      },
+      "relatedLanguage": "Related Language (if applicable)",
+      "relatedLanguagePlaceholder": "e.g., Swahili, Lao, Creole",
+      "message": "Message *",
+      "messagePlaceholder": "Please describe your issue or question in detail...",
+      "submit": "Send Message"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Quick Contact",
+        "email_support": "Email Support",
+        "email_address": "support@transly.app",
+        "response_time": "Response within 24 hours",
+        "live_chat": "Live Chat",
+        "live_chat_status": "Available soon",
+        "live_chat_eta": "Coming in Q2 2024",
+        "support_hours_title": "Support Hours",
+        "support_hours_days": "Monday - Friday",
+        "support_hours_time": "9:00 AM - 6:00 PM UTC"
+      },
+      "common_issues": {
+        "title": "Common Issues",
+        "translation_not_working": {
+          "title": "Translation not working",
+          "description": "Try refreshing the page or check your internet connection. For persistent issues, contact support."
+        },
+        "language_not_supported": {
+          "title": "Language not supported",
+          "description": "We're constantly adding new languages. Submit a request and we'll consider it for future updates."
+        },
+        "file_upload_issues": {
+          "title": "File upload issues",
+          "description": "Ensure your file is under 50MB and in supported format (PDF, DOCX, PPTX)."
+        },
+        "audio_playback_not_working": {
+          "title": "Audio playback not working",
+          "description": "Check your browser's audio settings and ensure you have a stable internet connection."
+        }
+      },
+      "self_help": {
+        "title": "Self-Help Resources",
+        "how_it_works": "→ How Transly works",
+        "try_text": "→ Try text translation",
+        "try_docs": "→ Document translation guide",
+        "privacy": "→ Privacy policy",
+        "terms": "→ Terms of service"
+      }
+    },
+    "what_to_expect": {
+      "title": "What to Expect",
+      "quick_response": {
+        "title": "Quick Response",
+        "description": "We typically respond to all inquiries within 24 hours during business days."
+      },
+      "personal_support": {
+        "title": "Personal Support",
+        "description": "Every message is read by our team. No bots, just real people who care about helping you."
+      },
+      "follow_up": {
+        "title": "Follow-up",
+        "description": "We'll keep working with you until your issue is completely resolved."
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "ລາຄາ - ເລືອກແຜນທີ່ເໝາະສົມກັບທ່ານ | Transly",
+      "description": "ການແນະນໍາອັດສະລິຍະທີ່ອີງໃສ່ສະຖານະການ. ເລີ່ມຕົ້ນ $5 ສໍາລັບນັກຮຽນ, $10 ສໍາລັບຜູ້ໃຊ້ສ່ວນບຸກຄົນ, $25 ສໍາລັບມືອາຊີບ."
+    },
+    "hero": {
+      "title": "Flexible Pricing for Everyone",
+      "description": "Choose the credit package that fits your needs. Get more credits for a lower price."
+    },
+    "plans": {
+      "starter": {
+        "name": "ເລີ່ມຕົ້ນ",
+        "description": "ເໝາະສໍາລັບນັກຮຽນແລະຜູ້ໃຊ້ທີ່ໃຊ້ໜ້ອຍ",
+        "discount": "Best for beginners"
+      },
+      "professional": {
+        "name": "Professional Pack",
+        "description": "Designed for professionals and small teams who need higher translation volume",
+        "discount": "Save 10%"
+      },
+      "business": {
+        "name": "Business Pack",
+        "description": "Meet enterprise-level needs with the best unit price",
+        "discount": "Save 20%"
+      }
+    },
+    "features": {
+      "title": "All Plans Include",
+      "unlimited_text": "Unlimited text translations",
+      "document_support": "Document translation support",
+      "tts_support": "Text-to-speech functionality",
+      "api_access": "API access",
+      "priority_support": "Priority customer support",
+      "no_expiry": "Credits never expire"
+    },
+    "buttons": {
+      "purchase": "Purchase",
+      "processing": "Processing...",
+      "get_started": "Get Started"
+    },
+    "alert": {
+      "canceled_title": "Payment Canceled",
+      "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
+    },
+    "loading": "Loading...",
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of users who trust Transly for their translation needs. Start translating today!",
+      "free_trial": "Try Free Translation",
+      "contact_sales": "Contact Sales"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Text Translator - Free AI Translation Tool | Transly",
+      "description": "Free online text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly with AI."
+    },
+    "hero": {
+      "title": "Free Text Translator",
+      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free for up to 500 characters.",
+      "status_free": "500 chars free",
+      "status_ai": "AI-Powered",
+      "status_instant": "Instant Results"
+    },
+    "other_languages": {
+      "title": "Try Other Languages",
+      "description": "Explore translation for other low-resource languages"
+    },
+    "faq": {
+      "title": "Text Translation FAQ",
+      "description": "Everything you need to know about our text translation service",
+      "q1_title": "How much does text translation cost?",
+      "q1_answer": "Text translation is completely free for up to 500 characters per request. For longer texts (over 500 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 50 credits (500 free + 500×0.1 = 50 credits).",
+      "q2_title": "Which languages do you support?",
+      "q2_answer": "We specialize in low-resource languages that are often poorly supported by mainstream translation services. We currently support Haitian Creole, Lao, Swahili, Burmese, Telugu, Chinese, and more. All languages support bidirectional translation with English.",
+      "q3_title": "How accurate are the translations?",
+      "q3_answer": "Our translations are powered by Meta's NLLB (No Language Left Behind) model, which is specifically designed for low-resource languages. While no automated translation is perfect, NLLB provides significantly better accuracy for small languages compared to traditional translation services.",
+      "q4_title": "Do I need to create an account?",
+      "q4_answer": "No account is required for free translations (up to 500 characters). However, creating a free account gives you 500 bonus credits and allows you to purchase additional credits for longer translations. You'll also get access to translation history and other premium features.",
+      "q5_title": "Can I translate from English to other languages?",
+      "q5_answer": "Yes! All our supported languages work bidirectionally. You can translate from English to any supported language, or from any supported language to English. Just use the language selector to choose your desired translation direction.",
+      "q6_title": "What's the character limit?",
+      "q6_answer": "Free users can translate up to 500 characters per request without any cost. For longer texts, you can either break them into smaller chunks or purchase credits. Registered users get 500 bonus credits to start with, which allows for longer translations.",
+      "contact_text": "Have more questions?",
+      "contact_link": "Contact our support team"
+    },
+    "cta": {
+      "title": "Need More Translation Power?",
+      "description": "Translate longer texts and documents with our premium features",
+      "try_document": "Try Document Translation",
+      "view_pricing": "View Pricing Plans"
+    },
+    "features": {
+      "title": "Why Choose Our Text Translator?",
+      "fast_title": "Lightning Fast",
+      "fast_desc": "Get instant translations powered by advanced AI models. No waiting, no delays.",
+      "accurate_title": "High Accuracy",
+      "accurate_desc": "Powered by Meta's NLLB model, ensuring high-quality translations for all supported languages.",
+      "free_title": "Always Free",
+      "free_desc": "No hidden fees, no limits, no registration required. Translate as much as you need."
+    },
+    "how_to": {
+      "title": "How to Use the Text Translator",
+      "step1_title": "Select Languages",
+      "step1_desc": "Choose your source language and target language (English) from the dropdown menus.",
+      "step2_title": "Enter Text",
+      "step2_desc": "Type or paste your text in the input box. Up to 1000 characters supported.",
+      "step3_title": "Get Translation",
+      "step3_desc": "Click translate and instantly get your result. Copy or listen to the translation."
+    },
+    "supported_languages": {
+      "title": "Supported Languages",
+      "description": "We support translation from these languages to English:",
+      "more": "And many more low-resource languages..."
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Text Translation",
+      "text_translation_desc": "Translate text between languages",
+      "document_translation": "Document Translation",
+      "document_translation_desc": "Upload and translate documents",
+      "about": "About",
+      "about_desc": "Learn about Transly"
+    },
+    "Footer": {
+      "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
+      "product": "Product",
+      "text_translation": "Text Translation",
+      "document_translation": "Document Translation",
+      "supported_languages": "Supported Languages",
+      "company": "Company",
+      "about_us": "About Us",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_service": "Terms of Service",
+      "compliance": "Compliance",
+      "resources": "Resources",
+      "faq": "FAQ",
+      "contact_support": "Contact Support",
+      "api_docs": "API Documentation",
+      "copyright": "© 2024 Transly. All rights reserved.",
+      "powered_by": "Powered by Meta NLLB AI Technology"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "Document Translation - Translate PDF, Word, PowerPoint | Transly",
+      "description": "Upload and translate documents to English. Support for PDF, Word, PowerPoint files with AI-powered translation for low-resource languages."
+    },
+    "title": "Document Translation",
+    "description": "Upload documents and translate them to English with high accuracy. Support for PDF, Word, PowerPoint, and text files.",
+    "steps": {
+      "step1": {
+        "title": "Upload Document",
+        "description": "Choose your PDF, Word, or PowerPoint file to translate"
+      },
+      "step2": {
+        "title": "AI Processing",
+        "description": "Our AI extracts and analyzes your document content"
+      },
+      "step3": {
+        "title": "Download Result",
+        "description": "Get your translated document in the same format"
+      }
+    },
+    "languages": {
+      "title": "Supported Languages"
+    },
+    "cta": {
+      "title": "Need Quick Text Translation?",
+      "description": "For shorter texts or quick translations, try our text translator for instant results.",
+      "try_text_translation": "Try Text Translation",
+      "view_pricing": "View Pricing"
+    },
+    "hero": {
+      "title": "Document Translation",
+      "description": "Upload documents and translate them to English with high accuracy"
+    },
+    "upload_section": {
+      "title": "Upload Your Document",
+      "description": "Choose a file to translate. Supported formats: PDF, Word, PowerPoint, Text. Max size: 50MB."
+    },
+    "settings_section": {
+      "title": "Translation Settings",
+      "source_language_label": "Source Language",
+      "source_language_placeholder": "Auto-Detect",
+      "target_language_label": "Target Language",
+      "target_language_placeholder": "Select target",
+      "translate_button": "Translate File",
+      "translating_button": "Translating..."
+    },
+    "jobs_section": {
+      "title": "Translation History",
+      "no_jobs": "Your translated documents will appear here.",
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "completed": "Completed",
+        "failed": "Failed"
+      },
+      "error_message": "Error",
+      "download_button": "Download"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Login Required",
+      "description": "Document translation requires a logged-in account.",
+      "login_button": "Login Now"
+    },
+    "upload": {
+      "title": "Upload Document",
+      "description": "Support PDF, Word, PowerPoint and text files, max {maxSize}",
+      "uploading": "Uploading...",
+      "click_to_select": "Click to select file",
+      "drag_drop": "or drag and drop file here",
+      "upload_success": "File uploaded successfully",
+      "extracted_characters": "Extracted {count} characters",
+      "upload_failed": "Upload failed"
+    },
+    "analysis": {
+      "title": "File Analysis Result",
+      "filename": "File name",
+      "filesize": "File size",
+      "text_preview": "Extracted text preview",
+      "character_count": "Character count",
+      "characters": "characters",
+      "credit_consumption": "Credit consumption",
+      "credits": "credits",
+      "free": "Free",
+      "insufficient_credits": "Insufficient credits! Need {required} credits, current balance {current} credits.",
+      "recharge_now": "Recharge now",
+      "start_translation": "Start Translation",
+      "reupload": "Re-upload"
+    },
+    "translation": {
+      "title": "Translation Progress",
+      "progress": "Processing progress",
+      "estimated_time": "Estimated {seconds} seconds remaining",
+      "completed": "Translation completed!",
+      "download_result": "Download Translation Result",
+      "translation_started": "Translation started",
+      "credits_consumed": "Consumed {credits} credits",
+      "translation_failed": "Translation failed"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "User not authenticated",
+    "missing_parameters": "Missing required parameters",
+    "insufficient_credits": "Insufficient credits. Please purchase more to continue.",
+    "credit_error": "Credit error: {error}",
+    "translation_invalid_response": "Translation service returned an invalid response.",
+    "translation_failed_refund_failed": "Translation failed, and we could not refund your credits. Please contact support. Error: {error}",
+    "translation_failed": "Translation failed: {error}",
+    "unexpected_error": "An unexpected error occurred: {error}",
+    "method_not_allowed": "Method not allowed",
+    "invalid_json": "Invalid JSON in request body",
+    "missing_fields": "Missing required fields: {fields}",
+    "empty_text": "Text cannot be empty",
+    "text_too_long": "Text is too long. Maximum {maxLength} characters allowed, got {actualLength}",
+    "unexpected_detection_error": "An unexpected error occurred during language detection",
+    "invalid_lang_code": "Invalid language code format",
+    "invalid_speech_rate": "Speech rate must be between 0.5 and 2.0",
+    "invalid_speech_pitch": "Speech pitch must be between 0.5 and 2.0",
+    "invalid_voice": "Invalid voice for language {language}",
+    "tts_unavailable": "Text-to-speech service is temporarily unavailable. Please try again later.",
+    "tts_failed": "Failed to generate speech audio. Please try again.",
+    "unexpected_tts_error": "An unexpected error occurred during speech generation",
+    "failed_to_get_voices": "Failed to retrieve voice options"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Reset Password",
+      "description": "Password reset feature is under development",
+      "info": "This feature will be available in a future release. If you have forgotten your password, please contact customer support for assistance.",
+      "contact_support": "Contact Support"
+    },
+    "SignUpForm": {
+      "title": "Create a Transly Account",
+      "subtitle": "Create an account to get 500 bonus credits",
+      "name_label": "Name",
+      "name_placeholder": "Enter your name",
+      "name_required": "Please enter your name",
+      "name_max_length": "Name cannot exceed 50 characters",
+      "email_label": "Email",
+      "email_placeholder": "Enter your email",
+      "email_required": "Please enter your email",
+      "email_invalid": "Invalid email format",
+      "email_max_length": "Email cannot exceed 100 characters",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "password_min_length": "Password must be at least 8 characters",
+      "password_max_length": "Password cannot exceed 128 characters",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Enter your password again",
+      "confirm_password_required": "Please confirm your password",
+      "password_mismatch": "Passwords do not match",
+      "password_strength_label": "Password Strength",
+      "password_strength_feedback": "Password strength does not meet requirements, please improve your password",
+      "submit_button": "Sign Up",
+      "submit_loading_button": "Signing Up...",
+      "signup_failed": "Sign up failed, please try again",
+      "signup_error": "An error occurred during sign up, please try again",
+      "signin_prompt": "Already have an account?",
+      "signin_link": "Sign In"
+    },
+    "SignInForm": {
+      "title": "Sign In to Transly",
+      "subtitle": "Welcome back! Please sign in to your account",
+      "email_label": "Email",
+      "email_placeholder": "Enter your email",
+      "email_required": "Please enter your email",
+      "email_invalid": "Invalid email format",
+      "email_max_length": "Email cannot exceed 100 characters",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "password_required": "Please enter your password",
+      "password_max_length": "Password cannot exceed 128 characters",
+      "forgot_password_link": "Forgot password?",
+      "remember_me_label": "Remember me for 30 days",
+      "submit_button": "Sign In",
+      "submit_loading_button": "Signing In...",
+      "signin_failed": "Sign in failed, please try again",
+      "signin_error": "An error occurred during sign in, please try again",
+      "signup_prompt": "Don't have an account yet?",
+      "signup_link": "Sign Up Now",
+      "social_divider": "OR",
+      "google_signin_button": "Sign in with Google (coming soon)",
+      "signup_bonus_prompt_1": "Sign up for a new account and get",
+      "signup_bonus_prompt_2": "500 bonus credits"
+    },
+    "GuestLimit": {
+      "remaining_translations": "You can translate {count} more times today",
+      "register_for_unlimited": "Register for unlimited access"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Translation limit reached",
+      "limit_reached_description": "Free users can translate up to 10 times per day. Register for unlimited translations",
+      "login_required_title": "Login required",
+      "login_required_description": "Long text translation requires a logged-in account",
+      "daily_limit_title": "Translation limit reached",
+      "daily_limit_description": "Daily free translation limit has been reached"
+    },
+    "success": {
+      "translation_complete": "Translation complete",
+      "credits_consumed": "Consumed {credits} credits"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Long text translation requires a logged-in account.",
+      "login_now": "Login now",
+      "or": " or ",
+      "register_account": "Register account"
+    },
+    "buttons": {
+      "translating": "Translating...",
+      "translate_with_credits": "Translate ({credits} credits)",
+      "free_translate": "Translate"
+    },
+    "credits": {
+      "balance": "Credits",
+      "recharge": "Recharge",
+      "free_translation": "Free Translation",
+      "estimated_cost": "Estimated cost {credits} credits",
+      "insufficient_credits": "(Insufficient credits)",
+      "free_quota_usage": "Free quota usage",
+      "characters": "characters",
+      "over_limit": "Exceeds free quota by {excess} characters, will consume credits",
+      "insufficient_balance": "Insufficient credits! Need {required} credits, current balance {current} credits.",
+      "recharge_now": "Recharge now"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing Plans - Transly AI Translation",
+      "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
+    },
+    "title": "Choose Your Credit Package",
+    "subtitle": "Flexible credit system, pay as you go, no monthly subscriptions",
+    "current_balance": "Current Credit Balance:",
+    "free_tier": {
+      "title": "Free Tier",
+      "subtitle": "Perfect for light usage",
+      "completely_free": "✅ Completely Free:",
+      "credit_based": "💰 Credit-based:",
+      "features": {
+        "free_text": "Text under 500 characters",
+        "all_languages": "All language pairs supported",
+        "unlimited_use": "Unlimited usage",
+        "large_text": "Text over 500 characters",
+        "document_translation": "Large document translation",
+        "rate": "0.1 credits/character (for excess)"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Starter Package",
+        "description": "Perfect for occasional users",
+        "features": {
+          "credits": "1,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "7-day validity period"
+        }
+      },
+      "basic": {
+        "name": "Basic Package",
+        "description": "Most popular choice",
+        "features": {
+          "credits": "5,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "30-day validity period",
+          "support": "Priority customer support"
+        }
+      },
+      "pro": {
+        "name": "Professional Package",
+        "description": "Perfect for heavy users",
+        "features": {
+          "credits": "10,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "60-day validity period",
+          "support": "Priority customer support",
+          "batch": "Batch translation feature"
+        }
+      },
+      "business": {
+        "name": "Business Package",
+        "description": "Perfect for teams and enterprises",
+        "features": {
+          "credits": "25,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "90-day validity period",
+          "support": "Priority customer support",
+          "batch": "Batch translation feature",
+          "api": "API access"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise Package",
+        "description": "Large enterprise solution",
+        "features": {
+          "credits": "50,000 translation credits",
+          "languages": "All language pairs supported",
+          "documents": "Document translation feature",
+          "validity": "180-day validity period",
+          "support": "Dedicated customer support",
+          "batch": "Batch translation feature",
+          "api": "API access",
+          "integration": "Custom integration"
+        }
+      }
+    },
+    "popular": "Recommend",
+    "save": "Save",
+    "credits": "credits",
+    "purchase_button": "Purchase Now",
+    "processing": "Processing...",
+    "new_user_bonus": {
+      "title": "New User Exclusive Offer",
+      "description": "🎉 Sign up and get 500 credits + 20% extra credits on first purchase",
+      "note": "Bonus will be automatically applied to your account after payment"
+    },
+    "register_prompt": {
+      "title": "Register Now for More Benefits",
+      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase",
+      "register_button": "Register Now",
+      "signin_button": "Already Have Account"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about our pricing",
+      "credit_calculation": {
+        "question": "How are credits calculated?",
+        "answer": "Under 500 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 50 credits."
+      },
+      "expiration": {
+        "question": "Do credits expire?",
+        "answer": "Credit validity depends on the package purchased, ranging from 7 to 180 days. We'll notify you before expiration."
+      },
+      "payment_methods": {
+        "question": "What payment methods are supported?",
+        "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
+      },
+      "bulk_discount": {
+        "question": "Do you offer bulk discounts?",
+        "answer": "Yes! Our larger packages offer significant savings - up to 40% off with the Enterprise package. The more credits you purchase, the better the value."
+      },
+      "unused_credits": {
+        "question": "What happens to unused credits?",
+        "answer": "Unused credits remain in your account until their expiration date. You can check your credit balance and expiration dates in your account dashboard."
+      },
+      "business_invoicing": {
+        "question": "Do you provide invoices for business purchases?",
+        "answer": "Yes, we provide detailed invoices for all purchases. Business customers can access invoices through their account dashboard or contact support for assistance."
+      },
+      "api_pricing": {
+        "question": "How does API pricing work?",
+        "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 500."
+      },
+      "contact_support": "Have more questions? Contact our support team"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "ຕ້ອງການແປ",
+    "translation_complete": "ຕ້ອງການແປ",
+    "translation_failed": "ຕ້ອງການແປ",
+    "translating": "ຕ້ອງການແປ",
+    "preparing_engine": "ຕ້ອງການແປ",
+    "about_to_start": "ຕ້ອງການແປ",
+    "processing": "ຕ້ອງການແປ",
+    "engine_running": "ຕ້ອງການແປ",
+    "optimizing_quality": "ຕ້ອງການແປ",
+    "translation_paused": "ຕ້ອງການແປ",
+    "resume_translation": "ຕ້ອງການແປ",
+    "translation_error": "ຕ້ອງການແປ",
+    "service_unavailable": "ຕ້ອງການແປ",
+    "input_placeholder": "ຕ້ອງການແປ",
+    "result_placeholder": "ຕ້ອງການແປ",
+    "from_language": "ຕ້ອງການແປ",
+    "to_language": "ຕ້ອງການແປ",
+    "partial_complete": "ຕ້ອງການແປ",
+    "partial_description": "ຕ້ອງການແປ",
+    "task_resubmitted": "ຕ້ອງການແປ"
+  },
+  "task": {
+    "task_management": "ຕ້ອງການແປ",
+    "manage_description": "ຕ້ອງການແປ",
+    "new_translation": "ຕ້ອງການແປ",
+    "refresh_tasks": "ຕ້ອງການແປ",
+    "task_list_updated": "ຕ້ອງການແປ",
+    "refresh_failed": "ຕ້ອງການແປ",
+    "operation_success": "ຕ້ອງການແປ",
+    "operation_failed": "ຕ້ອງການແປ",
+    "select_tasks_first": "ຕ້ອງການແປ",
+    "no_tasks": "ຕ້ອງການແປ",
+    "no_matching_tasks": "ຕ້ອງການແປ",
+    "create_first_task": "ຕ້ອງການແປ",
+    "search_placeholder": "ຕ້ອງການແປ",
+    "queue_created": "ຕ້ອງການແປ",
+    "can_leave_page": "ຕ້ອງການແປ",
+    "check_in_tasks": "ຕ້ອງການແປ",
+    "view_in_tasks": "ຕ້ອງການແປ",
+    "batch_operation_success": "ຕ້ອງການແປ"
+  },
+  "progress": {
+    "preparing": "ຕ້ອງການແປ",
+    "processing": "ຕ້ອງການແປ",
+    "finalizing": "ຕ້ອງການແປ",
+    "completed": "ຕ້ອງການແປ",
+    "paused": "ຕ້ອງການແປ",
+    "failed": "ຕ້ອງການແປ",
+    "cancelled": "ຕ້ອງການແປ",
+    "partial_success": "ຕ້ອງການແປ",
+    "progress": "ຕ້ອງການແປ",
+    "understanding_text": "ຕ້ອງການແປ",
+    "analyzing_language": "ຕ້ອງການແປ",
+    "processing_content": "ຕ້ອງການແປ",
+    "checking_grammar": "ຕ້ອງການແປ",
+    "final_polish": "ຕ້ອງການແປ",
+    "presenting_results": "ຕ້ອງການແປ",
+    "results_ready": "ຕ້ອງການແປ",
+    "thank_you_waiting": "ຕ້ອງການແປ",
+    "progress_saved": "ຕ້ອງການແປ",
+    "processing_time_long": "ຕ້ອງການແປ",
+    "instant_processing": "ຕ້ອງການແປ",
+    "background_processing": "ຕ້ອງການແປ",
+    "smart_processing": "ຕ້ອງການແປ"
+  },
+  "time": {
+    "time_estimate": "ຕ້ອງການແປ",
+    "estimated_time": "ຕ້ອງການແປ",
+    "can_leave": "ຕ້ອງການແປ",
+    "accurate_estimate": "ຕ້ອງການແປ",
+    "rough_estimate": "ຕ້ອງການແປ",
+    "approximate_estimate": "ຕ້ອງການແປ",
+    "fast_queue": "ຕ້ອງການແປ",
+    "creation_time": "ຕ້ອງການແປ"
+  },
+  "error": {
+    "error_recovery": "ຕ້ອງການແປ",
+    "retry_failed": "ຕ້ອງການແປ",
+    "unknown_error": "ຕ້ອງການແປ",
+    "partial_results": "ຕ້ອງການແປ",
+    "retry_failed_parts": "ຕ້ອງການແປ",
+    "download_partial": "ຕ້ອງການແປ",
+    "segment_retry": "ຕ້ອງການແປ",
+    "encountered_problem": "ຕ້ອງການແປ",
+    "trying_to_resolve": "ຕ້ອງການແປ",
+    "contact_support": "ຕ້ອງການແປ",
+    "please_retry_later": "ຕ້ອງການແປ"
+  },
+  "success": {
+    "completed": "ຕ້ອງການແປ",
+    "operation_success": "ຕ້ອງການແປ",
+    "partial_success": "ຕ້ອງການແປ",
+    "almost_done": "ຕ້ອງການແປ",
+    "results_shown_below": "ຕ້ອງການແປ",
+    "half_completed": "ຕ້ອງການແປ"
+  },
+  "credits": {
+    "estimated_consumption": "ຕ້ອງການແປ",
+    "credits_consumed": "ຕ້ອງການແປ",
+    "credits_processing": "ຕ້ອງການແປ",
+    "consumed_credits": "ຕ້ອງການແປ",
+    "refunded_credits": "ຕ້ອງການແປ",
+    "retry_only_failed": "ຕ້ອງການແປ"
+  },
+  "language": {
+    "source_language": "ຕ້ອງການແປ",
+    "target_language": "ຕ້ອງການແປ",
+    "select_source": "ຕ້ອງການແປ",
+    "select_target": "ຕ້ອງການແປ"
+  },
+  "ui": {
+    "start": "ຕ້ອງການແປ",
+    "pause": "ຕ້ອງການແປ",
+    "resume": "ຕ້ອງການແປ",
+    "continue": "ຕ້ອງການແປ",
+    "cancel": "ຕ້ອງການແປ",
+    "retry": "ຕ້ອງການແປ",
+    "download": "ຕ້ອງການແປ",
+    "delete": "ຕ້ອງການແປ",
+    "refresh": "ຕ້ອງການແປ",
+    "all": "ຕ້ອງການແປ",
+    "status": "ຕ້ອງການແປ",
+    "priority": "ຕ້ອງການແປ",
+    "sort": "ຕ້ອງການແປ",
+    "normal": "ຕ້ອງການແປ",
+    "high": "ຕ້ອງການແປ",
+    "urgent": "ຕ້ອງການແປ",
+    "low": "ຕ້ອງການແປ",
+    "waiting": "ຕ້ອງການແປ",
+    "active": "ຕ້ອງການແປ",
+    "needs_attention": "ຕ້ອງການແປ",
+    "submitting": "ຕ້ອງການແປ",
+    "downloading": "ຕ້ອງການແປ",
+    "retrying": "ຕ້ອງການແປ",
+    "copied": "ຕ້ອງການແປ",
+    "text_copied": "ຕ້ອງການແປ",
+    "input_text": "ຕ້ອງການແປ",
+    "translation_result": "ຕ້ອງການແປ",
+    "characters": "ຕ້ອງການແປ",
+    "total_tasks": "ຕ້ອງການແປ",
+    "select_all": "ຕ້ອງການແປ",
+    "batch_operations": "ຕ້ອງການແປ",
+    "set_priority": "ຕ້ອງການແປ"
+  }
+}

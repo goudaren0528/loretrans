@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { Eye, EyeOff, Mail, Lock, AlertCircle, Loader2, CheckCircle, Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -29,39 +30,233 @@ const signInSchema = z.object({
 interface SignInFormProps {
   onSuccess?: () => void
   redirectTo?: string
-  locale?: string
 }
 
-// 多语言文本
+export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
+  const t = useTranslations('AuthPage.signin')
+  const tCommon = useTranslations('Common')
+  const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState(false)
+  
+  const { signIn } = useAuth()
+  const { showToast } = useToastMessages()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+      rememberMe: false,
+    },
+  })
+
+  const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setIsLoading(true)
+    setError(null)
+    setSuccess(false)
+
+    try {
+      const result = await signIn(data.email, data.password)
+      
+      if (result.error) {
+        setError(result.error.message)
+        showToast({
+          title: tCommon('error'),
+          description: result.error.message,
+          variant: 'destructive',
+        })
+      } else {
+        setSuccess(true)
+        showToast({
+          title: tCommon('success'),
+          description: '登录成功！',
+          variant: 'default',
+        })
+        
+        // 重置表单
+        reset()
+        
+        // 调用成功回调
+        if (onSuccess) {
+          onSuccess()
+        }
+        
+        // 重定向
+        if (redirectTo) {
+          window.location.href = redirectTo
+        }
+      }
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : '登录失败，请重试'
+      setError(errorMessage)
+      showToast({
+        title: tCommon('error'),
+        description: errorMessage,
+        variant: 'destructive',
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="space-y-2 text-center">
+        <h1 className="text-2xl font-semibold tracking-tight">
+          {t('title')}
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          输入您的凭据以访问您的账户
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* 邮箱字段 */}
+        <div className="space-y-2">
+          <Label htmlFor="email" className="text-sm font-medium">
+            {t('email')}
+          </Label>
+          <div className="relative">
+            <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Input
+              id="email"
+              type="email"
+              placeholder="name@example.com"
+              className={cn(
+                "pl-10",
+                errors.email && "border-red-500 focus-visible:ring-red-500"
+              )}
+              {...register('email')}
+              disabled={isLoading}
+            />
+          </div>
+          {errors.email && (
+            <div className="flex items-center gap-2 text-sm text-red-600">
+              <AlertCircle className="h-4 w-4" />
+              <span>{errors.email.message}</span>
+            </div>
+          )}
+        </div>
+
+        {/* 密码字段 */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <Label htmlFor="password" className="text-sm font-medium">
+              {t('password')}
+            </Label>
+            <Link
+              href="/auth/forgot-password"
+              className="text-sm text-primary hover:underline"
+            >
+              {t('forgot_password')}
+            </Link>
+          </div>
+          <div className="relative">
+            <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="••••••••"
+              className={cn(
+                "pl-10 pr-10",
+                errors.password && "border-red-500 focus-visible:ring-red-500"
+              )}
+              {...register('password')}
+              disabled={isLoading}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+              disabled={isLoading}
+            >
+              {showPassword ? (
+                <EyeOff className="h-4 w-4" />
+              ) : (
+                <Eye className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+          {errors.password && (
+            <div className="flex items-center gap-2 text-sm text-red-600">
+              <AlertCircle className="h-4 w-4" />
+              <span>{errors.password.message}</span>
+            </div>
+          )}
+        </div>
+
+        {/* 记住我 */}
+        <div className="flex items-center space-x-2">
+          <input
+            id="rememberMe"
+            type="checkbox"
+            className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+            {...register('rememberMe')}
+            disabled={isLoading}
+          />
+          <Label htmlFor="rememberMe" className="text-sm">
+            记住我
+          </Label>
+        </div>
+
+        {/* 错误信息 */}
+        {error && (
+          <div className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md">
+            <AlertCircle className="h-4 w-4 flex-shrink-0" />
+            <span>{error}</span>
+          </div>
+        )}
+
+        {/* 成功信息 */}
+        {success && (
+          <div className="flex items-center gap-2 p-3 text-sm text-green-600 bg-green-50 border border-green-200 rounded-md">
+            <CheckCircle className="h-4 w-4 flex-shrink-0" />
+            <span>登录成功！正在跳转...</span>
+          </div>
+        )}
+
+        {/* 提交按钮 */}
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={isLoading || isSubmitting}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              {t('signin_button')}中...
+            </>
+          ) : (
+            t('signin_button')
+          )}
+        </Button>
+      </form>
+
+      {/* 注册链接 */}
+      <div className="text-center text-sm">
+        <span className="text-muted-foreground">
+          {t('signup_link').split('?')[0]}?{' '}
+        </span>
+        <Link
+          href="/auth/signup"
+          className="text-primary hover:underline font-medium"
+        >
+          注册
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 const translations = {
-  en: {
-    title: 'Sign In',
-    subtitle: 'Enter your credentials to access your account',
-    email: 'Email',
-    password: 'Password',
-    forgotPassword: 'Forgot your password?',
-    rememberMe: 'Remember me',
-    signIn: 'Sign In',
-    signingIn: 'Signing In...',
-    signingInProgress: 'Please wait, signing you in...',
-    noAccount: "Don't have an account?",
-    signUp: 'Sign up',
-    emailPlaceholder: 'name@example.com',
-    passwordPlaceholder: '••••••••',
-    troubleshooting: 'Having trouble signing in?',
-    commonIssues: 'Common issues:',
-    checkEmail: 'Check your email spelling',
-    checkPassword: 'Verify your password',
-    accountNotFound: 'Account not found - try signing up',
-    serverError: 'Server connection issue - please try again',
-  },
   zh: {
-    title: '登录',
-    subtitle: '输入您的凭据以访问您的账户',
-    email: '邮箱',
-    password: '密码',
-    forgotPassword: '忘记密码？',
-    rememberMe: '记住我',
     signIn: '登录',
     signingIn: '正在登录...',
     signingInProgress: '请稍候，正在为您登录...',

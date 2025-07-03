@@ -1,4 +1,5 @@
 import { ArrowRight, Clock, Mail, Bell } from 'lucide-react'
+import { useTranslations } from 'next-intl';
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -77,7 +78,7 @@ export function ComingSoonTemplate({
                 <div className="flex gap-2 max-w-md mx-auto">
                   <Input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="t('Common.email_placeholder')"
                     className="flex-1"
                   />
                   <Button>

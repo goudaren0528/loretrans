@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "首页",
+    "about": "关于",
+    "pricing": "定价",
+    "contact": "联系"
+  },
+  "UserMenu": {
+    "sign_in": "登录",
+    "sign_up": "注册",
+    "sign_out": "退出",
+    "user": "用户",
+    "credits": "积分",
+    "profile": "个人资料",
+    "dashboard": "控制台",
+    "purchase_credits": "购买积分",
+    "settings": "设置"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - 小语种AI翻译工具",
+      "description": "为海地克里奥尔语、老挝语、斯瓦希里语等20+小语种提供免费AI翻译服务。即时翻译文本和文档至英语。"
+    },
+    "hero": {
+      "title": "专业小语种AI翻译服务",
+      "description": "用先进的AI技术打破语言障碍。我们的平台为主流服务覆盖不足的小语种提供高质量翻译。免费开始使用。",
+      "features": {
+        "free": "100% 免费",
+        "ai_powered": "AI驱动",
+        "languages": "20+ 语种"
+      },
+      "cta": {
+        "start_translating": "开始翻译",
+        "upload_document": "上传文档"
+      }
+    },
+    "languages": {
+      "title": "支持的语言",
+      "description": "将这些小语种翻译成英语"
+    },
+    "cta": {
+      "title": "今天就开始翻译",
+      "description": "加入数千名信任Transly满足翻译需求的用户",
+      "try_now": "立即试用 - 完全免费",
+      "translate_documents": "翻译文档"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "title": "待翻译",
+    "description": "待翻译",
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "status": {
+        "free": "待翻译",
+        "ai_powered": "待翻译",
+        "multi_language": "待翻译"
+      },
+      "cta_start": "待翻译",
+      "cta_upload": "待翻译"
+    },
+    "supported_languages": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "cta_section": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "cta_try": "待翻译",
+      "cta_docs": "待翻译"
+    },
+    "translation_options": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "options": {
+        "text": {
+          "title": "待翻译",
+          "description": "待翻译",
+          "features": "待翻译",
+          "button": "待翻译"
+        },
+        "document": {
+          "title": "待翻译",
+          "description": "待翻译",
+          "features": "待翻译",
+          "button": "待翻译"
+        },
+        "image": {
+          "title": "待翻译",
+          "description": "待翻译",
+          "features": "待翻译",
+          "button": "待翻译"
+        }
+      },
+      "quick_start": {
+        "title": "待翻译",
+        "button": "待翻译"
+      },
+      "coming_soon": "待翻译"
+    },
+    "language_grid": {
+      "coming_soon": "待翻译",
+      "try_language": "待翻译"
+    },
+    "feature_section": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "features": {
+        "ai_powered": {
+          "name": "待翻译",
+          "description": "待翻译"
+        },
+        "fast": {
+          "name": "待翻译",
+          "description": "待翻译"
+        },
+        "privacy": {
+          "name": "待翻译",
+          "description": "待翻译"
+        },
+        "languages": {
+          "name": "待翻译",
+          "description": "待翻译"
+        },
+        "tts": {
+          "name": "待翻译",
+          "description": "待翻译"
+        },
+        "documents": {
+          "name": "待翻译",
+          "description": "待翻译"
+        }
+      },
+      "stats": {
+        "languages": "待翻译",
+        "free": "待翻译",
+        "characters": "待翻译",
+        "availability": "待翻译"
+      }
+    },
+    "faq_section": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "questions": "待翻译",
+      "contact_prompt": "待翻译",
+      "contact_link": "待翻译"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "mission": {
+      "title": "待翻译",
+      "p1": "待翻译",
+      "p2": "待翻译",
+      "cta": "待翻译"
+    },
+    "features": {
+      "accessibility": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "accuracy": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "privacy": {
+        "title": "待翻译",
+        "description": "待翻译"
+      }
+    },
+    "supported_languages": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "request_cta": "待翻译",
+      "request_cta_description": "待翻译"
+    },
+    "technology": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "cultural_preservation": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "community_driven": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "continuous_improvement": {
+        "title": "待翻译",
+        "description": "待翻译"
+      }
+    },
+    "faq": {
+      "title": "待翻译",
+      "q1_title": "待翻译",
+      "q1_answer": "待翻译",
+      "q2_title": "待翻译",
+      "q2_answer": "待翻译",
+      "q3_title": "待翻译",
+      "q3_answer": "待翻译",
+      "q4_title": "待翻译",
+      "q4_answer": "待翻译",
+      "q5_title": "待翻译",
+      "q5_answer": "待翻译",
+      "q6_title": "待翻译",
+      "q6_answer": "待翻译"
+    },
+    "cta_section": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "cta_text": "待翻译",
+      "cta_docs": "待翻译"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "form": {
+      "title": "待翻译",
+      "firstName": "待翻译",
+      "firstNamePlaceholder": "待翻译",
+      "lastName": "待翻译",
+      "lastNamePlaceholder": "待翻译",
+      "email": "待翻译",
+      "emailPlaceholder": "待翻译",
+      "subject": "待翻译",
+      "subjectPlaceholder": "待翻译",
+      "subjects": {
+        "translation_issue": "待翻译",
+        "technical_support": "待翻译",
+        "feature_request": "待翻译",
+        "language_request": "待翻译",
+        "business_inquiry": "待翻译",
+        "feedback": "待翻译",
+        "other": "待翻译"
+      },
+      "relatedLanguage": "待翻译",
+      "relatedLanguagePlaceholder": "待翻译",
+      "message": "待翻译",
+      "messagePlaceholder": "待翻译",
+      "submit": "待翻译"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "待翻译",
+        "email_support": "待翻译",
+        "email_address": "待翻译",
+        "response_time": "待翻译",
+        "live_chat": "待翻译",
+        "live_chat_status": "待翻译",
+        "live_chat_eta": "待翻译",
+        "support_hours_title": "待翻译",
+        "support_hours_days": "待翻译",
+        "support_hours_time": "待翻译"
+      },
+      "common_issues": {
+        "title": "待翻译",
+        "translation_not_working": {
+          "title": "待翻译",
+          "description": "待翻译"
+        },
+        "language_not_supported": {
+          "title": "待翻译",
+          "description": "待翻译"
+        },
+        "file_upload_issues": {
+          "title": "待翻译",
+          "description": "待翻译"
+        },
+        "audio_playback_not_working": {
+          "title": "待翻译",
+          "description": "待翻译"
+        }
+      },
+      "self_help": {
+        "title": "待翻译",
+        "how_it_works": "待翻译",
+        "try_text": "待翻译",
+        "try_docs": "待翻译",
+        "privacy": "待翻译",
+        "terms": "待翻译"
+      }
+    },
+    "what_to_expect": {
+      "title": "待翻译",
+      "quick_response": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "personal_support": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "follow_up": {
+        "title": "待翻译",
+        "description": "待翻译"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "定价 - 选择适合您的套餐 | Transly",
+      "description": "基于场景的智能推荐。学生$5起，个人用户$10，专业用户$25。"
+    },
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "plans": {
+      "starter": {
+        "name": "入门版",
+        "description": "适合学生和轻度使用用户",
+        "discount": "待翻译"
+      },
+      "professional": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "discount": "待翻译"
+      },
+      "business": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "discount": "待翻译"
+      }
+    },
+    "features": {
+      "title": "待翻译",
+      "unlimited_text": "待翻译",
+      "document_support": "待翻译",
+      "tts_support": "待翻译",
+      "api_access": "待翻译",
+      "priority_support": "待翻译",
+      "no_expiry": "待翻译"
+    },
+    "buttons": {
+      "purchase": "待翻译",
+      "processing": "待翻译",
+      "get_started": "待翻译"
+    },
+    "alert": {
+      "canceled_title": "待翻译",
+      "canceled_description": "待翻译"
+    },
+    "loading": "待翻译",
+    "cta": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "free_trial": "待翻译",
+      "contact_sales": "待翻译"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "status_free": "待翻译",
+      "status_ai": "待翻译",
+      "status_instant": "待翻译"
+    },
+    "other_languages": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "faq": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "q1_title": "待翻译",
+      "q1_answer": "待翻译",
+      "q2_title": "待翻译",
+      "q2_answer": "待翻译",
+      "q3_title": "待翻译",
+      "q3_answer": "待翻译",
+      "q4_title": "待翻译",
+      "q4_answer": "待翻译",
+      "q5_title": "待翻译",
+      "q5_answer": "待翻译",
+      "q6_title": "待翻译",
+      "q6_answer": "待翻译",
+      "contact_text": "待翻译",
+      "contact_link": "待翻译"
+    },
+    "cta": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "try_document": "待翻译",
+      "view_pricing": "待翻译"
+    },
+    "features": {
+      "title": "待翻译",
+      "fast_title": "待翻译",
+      "fast_desc": "待翻译",
+      "accurate_title": "待翻译",
+      "accurate_desc": "待翻译",
+      "free_title": "待翻译",
+      "free_desc": "待翻译"
+    },
+    "how_to": {
+      "title": "待翻译",
+      "step1_title": "待翻译",
+      "step1_desc": "待翻译",
+      "step2_title": "待翻译",
+      "step2_desc": "待翻译",
+      "step3_title": "待翻译",
+      "step3_desc": "待翻译"
+    },
+    "supported_languages": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "more": "待翻译"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "待翻译",
+      "text_translation_desc": "待翻译",
+      "document_translation": "待翻译",
+      "document_translation_desc": "待翻译",
+      "about": "待翻译",
+      "about_desc": "待翻译"
+    },
+    "Footer": {
+      "tagline": "待翻译",
+      "product": "待翻译",
+      "text_translation": "待翻译",
+      "document_translation": "待翻译",
+      "supported_languages": "待翻译",
+      "company": "待翻译",
+      "about_us": "待翻译",
+      "privacy_policy": "待翻译",
+      "terms_of_service": "待翻译",
+      "compliance": "待翻译",
+      "resources": "待翻译",
+      "faq": "待翻译",
+      "contact_support": "待翻译",
+      "api_docs": "待翻译",
+      "copyright": "待翻译",
+      "powered_by": "待翻译"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "title": "待翻译",
+    "description": "待翻译",
+    "steps": {
+      "step1": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "step2": {
+        "title": "待翻译",
+        "description": "待翻译"
+      },
+      "step3": {
+        "title": "待翻译",
+        "description": "待翻译"
+      }
+    },
+    "languages": {
+      "title": "待翻译"
+    },
+    "cta": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "try_text_translation": "待翻译",
+      "view_pricing": "待翻译"
+    },
+    "hero": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "upload_section": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "settings_section": {
+      "title": "待翻译",
+      "source_language_label": "待翻译",
+      "source_language_placeholder": "待翻译",
+      "target_language_label": "待翻译",
+      "target_language_placeholder": "待翻译",
+      "translate_button": "待翻译",
+      "translating_button": "待翻译"
+    },
+    "jobs_section": {
+      "title": "待翻译",
+      "no_jobs": "待翻译",
+      "status": {
+        "pending": "待翻译",
+        "processing": "待翻译",
+        "completed": "待翻译",
+        "failed": "待翻译"
+      },
+      "error_message": "待翻译",
+      "download_button": "待翻译"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "login_button": "待翻译"
+    },
+    "upload": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "uploading": "待翻译",
+      "click_to_select": "待翻译",
+      "drag_drop": "待翻译",
+      "upload_success": "待翻译",
+      "extracted_characters": "待翻译",
+      "upload_failed": "待翻译"
+    },
+    "analysis": {
+      "title": "待翻译",
+      "filename": "待翻译",
+      "filesize": "待翻译",
+      "text_preview": "待翻译",
+      "character_count": "待翻译",
+      "characters": "待翻译",
+      "credit_consumption": "待翻译",
+      "credits": "待翻译",
+      "free": "待翻译",
+      "insufficient_credits": "待翻译",
+      "recharge_now": "待翻译",
+      "start_translation": "待翻译",
+      "reupload": "待翻译"
+    },
+    "translation": {
+      "title": "待翻译",
+      "progress": "待翻译",
+      "estimated_time": "待翻译",
+      "completed": "待翻译",
+      "download_result": "待翻译",
+      "translation_started": "待翻译",
+      "credits_consumed": "待翻译",
+      "translation_failed": "待翻译"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "待翻译",
+    "missing_parameters": "待翻译",
+    "insufficient_credits": "待翻译",
+    "credit_error": "待翻译",
+    "translation_invalid_response": "待翻译",
+    "translation_failed_refund_failed": "待翻译",
+    "translation_failed": "待翻译",
+    "unexpected_error": "待翻译",
+    "method_not_allowed": "待翻译",
+    "invalid_json": "待翻译",
+    "missing_fields": "待翻译",
+    "empty_text": "待翻译",
+    "text_too_long": "待翻译",
+    "unexpected_detection_error": "待翻译",
+    "invalid_lang_code": "待翻译",
+    "invalid_speech_rate": "待翻译",
+    "invalid_speech_pitch": "待翻译",
+    "invalid_voice": "待翻译",
+    "tts_unavailable": "待翻译",
+    "tts_failed": "待翻译",
+    "unexpected_tts_error": "待翻译",
+    "failed_to_get_voices": "待翻译"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "info": "待翻译",
+      "contact_support": "待翻译"
+    },
+    "SignUpForm": {
+      "title": "待翻译",
+      "subtitle": "待翻译",
+      "name_label": "待翻译",
+      "name_placeholder": "待翻译",
+      "name_required": "待翻译",
+      "name_max_length": "待翻译",
+      "email_label": "待翻译",
+      "email_placeholder": "待翻译",
+      "email_required": "待翻译",
+      "email_invalid": "待翻译",
+      "email_max_length": "待翻译",
+      "password_label": "待翻译",
+      "password_placeholder": "待翻译",
+      "password_min_length": "待翻译",
+      "password_max_length": "待翻译",
+      "confirm_password_label": "待翻译",
+      "confirm_password_placeholder": "待翻译",
+      "confirm_password_required": "待翻译",
+      "password_mismatch": "待翻译",
+      "password_strength_label": "待翻译",
+      "password_strength_feedback": "待翻译",
+      "submit_button": "待翻译",
+      "submit_loading_button": "待翻译",
+      "signup_failed": "待翻译",
+      "signup_error": "待翻译",
+      "signin_prompt": "待翻译",
+      "signin_link": "待翻译"
+    },
+    "SignInForm": {
+      "title": "待翻译",
+      "subtitle": "待翻译",
+      "email_label": "待翻译",
+      "email_placeholder": "待翻译",
+      "email_required": "待翻译",
+      "email_invalid": "待翻译",
+      "email_max_length": "待翻译",
+      "password_label": "待翻译",
+      "password_placeholder": "待翻译",
+      "password_required": "待翻译",
+      "password_max_length": "待翻译",
+      "forgot_password_link": "待翻译",
+      "remember_me_label": "待翻译",
+      "submit_button": "待翻译",
+      "submit_loading_button": "待翻译",
+      "signin_failed": "待翻译",
+      "signin_error": "待翻译",
+      "signup_prompt": "待翻译",
+      "signup_link": "待翻译",
+      "social_divider": "待翻译",
+      "google_signin_button": "待翻译",
+      "signup_bonus_prompt_1": "待翻译",
+      "signup_bonus_prompt_2": "待翻译"
+    },
+    "GuestLimit": {
+      "remaining_translations": "待翻译",
+      "register_for_unlimited": "待翻译"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "待翻译",
+      "limit_reached_description": "待翻译",
+      "login_required_title": "待翻译",
+      "login_required_description": "待翻译",
+      "daily_limit_title": "待翻译",
+      "daily_limit_description": "待翻译"
+    },
+    "success": {
+      "translation_complete": "待翻译",
+      "credits_consumed": "待翻译"
+    },
+    "alerts": {
+      "login_required_for_long_text": "待翻译",
+      "login_now": "待翻译",
+      "or": "待翻译",
+      "register_account": "待翻译"
+    },
+    "buttons": {
+      "translating": "待翻译",
+      "translate_with_credits": "待翻译",
+      "free_translate": "待翻译"
+    },
+    "credits": {
+      "balance": "待翻译",
+      "recharge": "待翻译",
+      "free_translation": "待翻译",
+      "estimated_cost": "待翻译",
+      "insufficient_credits": "待翻译",
+      "free_quota_usage": "待翻译",
+      "characters": "待翻译",
+      "over_limit": "待翻译",
+      "insufficient_balance": "待翻译",
+      "recharge_now": "待翻译"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "待翻译",
+      "description": "待翻译"
+    },
+    "title": "待翻译",
+    "subtitle": "待翻译",
+    "current_balance": "待翻译",
+    "free_tier": {
+      "title": "待翻译",
+      "subtitle": "待翻译",
+      "completely_free": "待翻译",
+      "credit_based": "待翻译",
+      "features": {
+        "free_text": "待翻译",
+        "all_languages": "待翻译",
+        "unlimited_use": "待翻译",
+        "large_text": "待翻译",
+        "document_translation": "待翻译",
+        "rate": "待翻译"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "features": {
+          "credits": "待翻译",
+          "languages": "待翻译",
+          "documents": "待翻译",
+          "validity": "待翻译"
+        }
+      },
+      "basic": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "features": {
+          "credits": "待翻译",
+          "languages": "待翻译",
+          "documents": "待翻译",
+          "validity": "待翻译",
+          "support": "待翻译"
+        }
+      },
+      "pro": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "features": {
+          "credits": "待翻译",
+          "languages": "待翻译",
+          "documents": "待翻译",
+          "validity": "待翻译",
+          "support": "待翻译",
+          "batch": "待翻译"
+        }
+      },
+      "business": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "features": {
+          "credits": "待翻译",
+          "languages": "待翻译",
+          "documents": "待翻译",
+          "validity": "待翻译",
+          "support": "待翻译",
+          "batch": "待翻译",
+          "api": "待翻译"
+        }
+      },
+      "enterprise": {
+        "name": "待翻译",
+        "description": "待翻译",
+        "features": {
+          "credits": "待翻译",
+          "languages": "待翻译",
+          "documents": "待翻译",
+          "validity": "待翻译",
+          "support": "待翻译",
+          "batch": "待翻译",
+          "api": "待翻译",
+          "integration": "待翻译"
+        }
+      }
+    },
+    "popular": "待翻译",
+    "save": "待翻译",
+    "credits": "待翻译",
+    "purchase_button": "待翻译",
+    "processing": "待翻译",
+    "new_user_bonus": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "note": "待翻译"
+    },
+    "register_prompt": {
+      "title": "待翻译",
+      "description": "待翻译",
+      "register_button": "待翻译",
+      "signin_button": "待翻译"
+    },
+    "faq": {
+      "title": "待翻译",
+      "subtitle": "待翻译",
+      "credit_calculation": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "expiration": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "payment_methods": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "bulk_discount": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "unused_credits": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "business_invoicing": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "api_pricing": {
+        "question": "待翻译",
+        "answer": "待翻译"
+      },
+      "contact_support": "待翻译"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "待翻译",
+    "translation_complete": "待翻译",
+    "translation_failed": "待翻译",
+    "translating": "待翻译",
+    "preparing_engine": "待翻译",
+    "about_to_start": "待翻译",
+    "processing": "待翻译",
+    "engine_running": "待翻译",
+    "optimizing_quality": "待翻译",
+    "translation_paused": "待翻译",
+    "resume_translation": "待翻译",
+    "translation_error": "待翻译",
+    "service_unavailable": "待翻译",
+    "input_placeholder": "待翻译",
+    "result_placeholder": "待翻译",
+    "from_language": "待翻译",
+    "to_language": "待翻译",
+    "partial_complete": "待翻译",
+    "partial_description": "待翻译",
+    "task_resubmitted": "待翻译"
+  },
+  "task": {
+    "task_management": "待翻译",
+    "manage_description": "待翻译",
+    "new_translation": "待翻译",
+    "refresh_tasks": "待翻译",
+    "task_list_updated": "待翻译",
+    "refresh_failed": "待翻译",
+    "operation_success": "待翻译",
+    "operation_failed": "待翻译",
+    "select_tasks_first": "待翻译",
+    "no_tasks": "待翻译",
+    "no_matching_tasks": "待翻译",
+    "create_first_task": "待翻译",
+    "search_placeholder": "待翻译",
+    "queue_created": "待翻译",
+    "can_leave_page": "待翻译",
+    "check_in_tasks": "待翻译",
+    "view_in_tasks": "待翻译",
+    "batch_operation_success": "待翻译"
+  },
+  "progress": {
+    "preparing": "待翻译",
+    "processing": "待翻译",
+    "finalizing": "待翻译",
+    "completed": "待翻译",
+    "paused": "待翻译",
+    "failed": "待翻译",
+    "cancelled": "待翻译",
+    "partial_success": "待翻译",
+    "progress": "待翻译",
+    "understanding_text": "待翻译",
+    "analyzing_language": "待翻译",
+    "processing_content": "待翻译",
+    "checking_grammar": "待翻译",
+    "final_polish": "待翻译",
+    "presenting_results": "待翻译",
+    "results_ready": "待翻译",
+    "thank_you_waiting": "待翻译",
+    "progress_saved": "待翻译",
+    "processing_time_long": "待翻译",
+    "instant_processing": "待翻译",
+    "background_processing": "待翻译",
+    "smart_processing": "待翻译"
+  },
+  "time": {
+    "time_estimate": "待翻译",
+    "estimated_time": "待翻译",
+    "can_leave": "待翻译",
+    "accurate_estimate": "待翻译",
+    "rough_estimate": "待翻译",
+    "approximate_estimate": "待翻译",
+    "fast_queue": "待翻译",
+    "creation_time": "待翻译"
+  },
+  "error": {
+    "error_recovery": "待翻译",
+    "retry_failed": "待翻译",
+    "unknown_error": "待翻译",
+    "partial_results": "待翻译",
+    "retry_failed_parts": "待翻译",
+    "download_partial": "待翻译",
+    "segment_retry": "待翻译",
+    "encountered_problem": "待翻译",
+    "trying_to_resolve": "待翻译",
+    "contact_support": "待翻译",
+    "please_retry_later": "待翻译"
+  },
+  "success": {
+    "completed": "待翻译",
+    "operation_success": "待翻译",
+    "partial_success": "待翻译",
+    "almost_done": "待翻译",
+    "results_shown_below": "待翻译",
+    "half_completed": "待翻译"
+  },
+  "credits": {
+    "estimated_consumption": "待翻译",
+    "credits_consumed": "待翻译",
+    "credits_processing": "待翻译",
+    "consumed_credits": "待翻译",
+    "refunded_credits": "待翻译",
+    "retry_only_failed": "待翻译"
+  },
+  "language": {
+    "source_language": "待翻译",
+    "target_language": "待翻译",
+    "select_source": "待翻译",
+    "select_target": "待翻译"
+  },
+  "ui": {
+    "start": "待翻译",
+    "pause": "待翻译",
+    "resume": "待翻译",
+    "continue": "待翻译",
+    "cancel": "待翻译",
+    "retry": "待翻译",
+    "download": "待翻译",
+    "delete": "待翻译",
+    "refresh": "待翻译",
+    "all": "待翻译",
+    "status": "待翻译",
+    "priority": "待翻译",
+    "sort": "待翻译",
+    "normal": "待翻译",
+    "high": "待翻译",
+    "urgent": "待翻译",
+    "low": "待翻译",
+    "waiting": "待翻译",
+    "active": "待翻译",
+    "needs_attention": "待翻译",
+    "submitting": "待翻译",
+    "downloading": "待翻译",
+    "retrying": "待翻译",
+    "copied": "待翻译",
+    "text_copied": "待翻译",
+    "input_text": "待翻译",
+    "translation_result": "待翻译",
+    "characters": "待翻译",
+    "total_tasks": "待翻译",
+    "select_all": "待翻译",
+    "batch_operations": "待翻译",
+    "set_priority": "待翻译"
+  }
+}

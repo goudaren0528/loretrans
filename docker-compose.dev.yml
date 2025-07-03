@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      target: development
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+
+  nllb-service:
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - ./microservices/nllb-local:/app
+    command: python app.py --debug
+
+  file-processor:
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - ./microservices/file-processor:/app
+    command: python app.py --debug
+
+  # 开发工具
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - transly-network
+    profiles:
+      - dev-tools
+
+  # 日志聚合
+  logspout:
+    image: gliderlabs/logspout
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: syslog://logs:514
+    networks:
+      - transly-network
+    profiles:
+      - dev-tools

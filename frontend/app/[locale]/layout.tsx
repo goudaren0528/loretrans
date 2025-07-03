@@ -4,6 +4,8 @@ import { getMessages } from 'next-intl/server';
 import { Providers } from '../providers';
 import { Navigation, Footer } from '@/components/navigation';
 import { Toaster } from '@/components/ui/toaster';
+import { UserOnboarding } from '@/components/onboarding/user-onboarding';
+import { FloatingFeedback } from '@/components/feedback/feedback-widget';
 
 // This metadata can be removed if you have dynamic metadata in page.tsx
 // or you can keep it as a fallback.
@@ -31,6 +33,8 @@ export default async function LocaleLayout({
           <Footer />
         </div>
         <Toaster />
+        <UserOnboarding />
+        <FloatingFeedback />
       </Providers>
     </NextIntlClientProvider>
   )

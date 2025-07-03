@@ -15,6 +15,7 @@ import {
   DollarSign,
 } from 'lucide-react'
 import LocaleSwitcher from './LocaleSwitcher'
+import { LanguageSwitcher } from './i18n/language-switcher'
 import { UserMenu, UserMenuMobile } from './auth/user-menu'
 import { CreditBalance } from './credits/credit-balance'
 import {
@@ -48,122 +49,208 @@ export function Navigation() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="rounded-lg bg-primary p-2">
-              <Languages className="h-6 w-6 text-primary-foreground" />
-            </div>
+            <Languages className="h-6 w-6 text-blue-600" />
             <span className="text-xl font-bold">Transly</span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navigationItems.map((item) => {
-              const Icon = navIcons[item.key]
-              const localeAwareHref = buildLocalizedUrl(
-                currentLocale || 'en',
-                item.href as string
-              )
-              const isActive = pathname === localeAwareHref
-              return (
-                <Link key={item.href.toString()} href={localeAwareHref}>
-                  <Button
-                    variant={isActive ? 'default' : 'ghost'}
-                    className={cn(
-                      'flex items-center space-x-2',
-                      isActive && 'bg-primary text-primary-foreground'
-                    )}
-                  >
-                    {Icon && <Icon className="h-4 w-4" />}
-                    <span>{tNav(item.translationKey.replace('Navigation.', ''))}</span>
-                  </Button>
-                </Link>
-              )
-            })}
-          </div>
         </div>
 
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-6">
+          {navigationItems.map((item) => {
+            const Icon = navIcons[item.key] || Home
+            const href = buildLocalizedUrl(item.href, currentLocale)
+            const isActive = pathname === href || 
+              (item.href !== '/' && pathname.startsWith(href))
+
+            return (
+              <Link
+                key={item.key}
+                href={href}
+                className={cn(
+                  "flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary",
+                  isActive ? "text-primary" : "text-muted-foreground"
+                )}
+              >
+                <Icon className="h-4 w-4" />
+                <span>{tNav(item.key)}</span>
+              </Link>
+            )
+          })}
+        </div>
+
+        {/* Right side items */}
         <div className="flex items-center space-x-4">
-          {/* Language Switcher */}
-          <LocaleSwitcher />
-          
-          {/* Credit Balance (Desktop) */}
-          <div className="hidden md:flex">
-            <CreditBalance size="sm" />
+          {/* Credit Balance - only show for authenticated users */}
+          <div className="hidden md:block">
+            <CreditBalance />
           </div>
-          
-          {/* Desktop Auth */}
-          <div className="hidden md:flex">
+
+          {/* Language Switcher */}
+          <LanguageSwitcher variant="icon-only" />
+
+          {/* User Menu */}
+          <div className="hidden md:block">
             <UserMenu />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </Button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 z-50 border-t bg-background p-4 shadow-lg md:hidden">
-            <div className="space-y-4">
-              <div className="space-y-2">
-                {navigationItems.map((item) => {
-                  const Icon = navIcons[item.key]
-                  const localeAwareHref = buildLocalizedUrl(
-                    currentLocale || 'en',
-                    item.href as string
-                  )
-                  const isActive = pathname === localeAwareHref
-                  return (
-                    <Link
-                      key={item.href.toString()}
-                      href={localeAwareHref}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        'flex items-center space-x-3 rounded-md px-3 py-2 text-base font-medium',
-                        isActive
-                          ? 'bg-primary text-primary-foreground'
-                          : 'text-muted-foreground hover:bg-accent'
-                      )}
-                    >
-                      {Icon && <Icon className="h-5 w-5" />}
-                      <span>{tNav(item.translationKey.replace('Navigation.', ''))}</span>
-                    </Link>
-                  )
-                })}
-              </div>
-              
-              {/* Mobile Credit Balance */}
-              <div className="px-4 py-2 border-t">
-                <CreditBalance size="sm" />
-              </div>
-              
-              {/* Mobile Auth */}
-              <div className="border-t pt-4">
-                <UserMenuMobile />
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t bg-background">
+          <div className="container mx-auto px-4 py-4 space-y-4">
+            {/* Mobile Credit Balance */}
+            <CreditBalance />
+
+            {/* Mobile Navigation Items */}
+            <div className="space-y-2">
+              {navigationItems.map((item) => {
+                const Icon = navIcons[item.key] || Home
+                const href = buildLocalizedUrl(item.href, currentLocale)
+                const isActive = pathname === href || 
+                  (item.href !== '/' && pathname.startsWith(href))
+
+                return (
+                  <Link
+                    key={item.key}
+                    href={href}
+                    className={cn(
+                      "flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                      isActive 
+                        ? "bg-primary/10 text-primary" 
+                        : "text-muted-foreground hover:text-primary hover:bg-muted"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span>{tNav(item.key)}</span>
+                  </Link>
+                )
+              })}
+            </div>
+
+            {/* Mobile Language Switcher */}
+            <div className="pt-4 border-t">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-muted-foreground">界面语言</span>
+                <LanguageSwitcher variant="compact" />
               </div>
             </div>
+
+            {/* Mobile User Menu */}
+            <div className="pt-4 border-t">
+              <UserMenuMobile />
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
 }
 
 export function Footer() {
   const tLayout = useTranslations('Layout')
-  
+  const pathname = usePathname()
+  const { locale: currentLocale } = detectLocaleFromPath(pathname)
+
+  const footerLinks = [
+    { key: 'about', href: '/about' },
+    { key: 'pricing', href: '/pricing' },
+    { key: 'contact', href: '/contact' },
+    { key: 'privacy', href: '/privacy' },
+    { key: 'terms', href: '/terms' },
+  ]
+
   return (
+    <footer className="border-t bg-muted/50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Languages className="h-6 w-6 text-blue-600" />
+              <span className="text-xl font-bold">Transly</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              专业小语种AI翻译服务，让每种语言都能被理解。
+            </p>
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-muted-foreground">界面语言:</span>
+              <LanguageSwitcher variant="compact" />
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">快速链接</h3>
+            <div className="space-y-2">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={buildLocalizedUrl(link.href, currentLocale)}
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {tLayout(`footer.${link.key}`)}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Supported Languages */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">支持的语言</h3>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div>海地克里奥尔语</div>
+              <div>老挝语</div>
+              <div>斯瓦希里语</div>
+              <div>缅甸语</div>
+              <div>泰卢固语</div>
+              <Link 
+                href="/about#languages" 
+                className="text-primary hover:underline"
+              >
+                查看全部 →
+              </Link>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">联系我们</h3>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div>support@transly.app</div>
+              <div>24/7 在线支持</div>
+              <Link 
+                href="/contact" 
+                className="text-primary hover:underline"
+              >
+                联系表单 →
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
+          <p>&copy; 2024 Transly. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
     <footer className="border-t bg-muted/30">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -287,4 +374,4 @@ export function Footer() {
       </div>
     </footer>
   )
-} 
+}

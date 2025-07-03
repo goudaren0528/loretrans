@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "pricing": "الأسعار",
+    "contact": "اتصل بنا"
+  },
+  "UserMenu": {
+    "sign_in": "تسجيل الدخول",
+    "sign_up": "إنشاء حساب",
+    "sign_out": "تسجيل الخروج",
+    "user": "المستخدم",
+    "credits": "النقاط",
+    "profile": "الملف الشخصي",
+    "dashboard": "لوحة التحكم",
+    "purchase_credits": "شراء النقاط",
+    "settings": "الإعدادات"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - مترجم الذكي للغات قليلة الموارد",
+      "description": "ترجمة مجانية بالذكاء الاصطناعي لأكثر من 20 لغة قليلة الموارد مثل الكريولية واللاوية والسواحيلية. ترجم النصوص والوثائق إلى الإنجليزية فوراً."
+    },
+    "hero": {
+      "title": "الترجمة بالذكاء الاصطناعي للغات قليلة الموارد",
+      "description": "اكسر حواجز اللغة بالذكاء الاصطناعي المتطور. منصتنا توفر ترجمات عالية الجودة للغات التي غالباً ما تكون محرومة من الخدمات الرئيسية. ابدأ مجاناً.",
+      "features": {
+        "free": "100% مجاني",
+        "ai_powered": "مدعوم بالذكاء الاصطناعي",
+        "languages": "20+ لغة"
+      },
+      "cta": {
+        "start_translating": "ابدأ الترجمة",
+        "upload_document": "رفع وثيقة"
+      }
+    },
+    "languages": {
+      "title": "اللغات المدعومة",
+      "description": "ترجم من هذه اللغات قليلة الموارد إلى الإنجليزية"
+    },
+    "cta": {
+      "title": "ابدأ الترجمة اليوم",
+      "description": "انضم إلى آلاف المستخدمين الذين يثقون في Transly لاحتياجات الترجمة",
+      "try_now": "جرب الآن - مجاني",
+      "translate_documents": "ترجمة الوثائق"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "title": "يحتاج ترجمة",
+    "description": "يحتاج ترجمة",
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "status": {
+        "free": "يحتاج ترجمة",
+        "ai_powered": "يحتاج ترجمة",
+        "multi_language": "يحتاج ترجمة"
+      },
+      "cta_start": "يحتاج ترجمة",
+      "cta_upload": "يحتاج ترجمة"
+    },
+    "supported_languages": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "cta_section": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "cta_try": "يحتاج ترجمة",
+      "cta_docs": "يحتاج ترجمة"
+    },
+    "translation_options": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "options": {
+        "text": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة",
+          "features": "يحتاج ترجمة",
+          "button": "يحتاج ترجمة"
+        },
+        "document": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة",
+          "features": "يحتاج ترجمة",
+          "button": "يحتاج ترجمة"
+        },
+        "image": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة",
+          "features": "يحتاج ترجمة",
+          "button": "يحتاج ترجمة"
+        }
+      },
+      "quick_start": {
+        "title": "يحتاج ترجمة",
+        "button": "يحتاج ترجمة"
+      },
+      "coming_soon": "يحتاج ترجمة"
+    },
+    "language_grid": {
+      "coming_soon": "يحتاج ترجمة",
+      "try_language": "يحتاج ترجمة"
+    },
+    "feature_section": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "features": {
+        "ai_powered": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "fast": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "privacy": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "languages": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "tts": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "documents": {
+          "name": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        }
+      },
+      "stats": {
+        "languages": "يحتاج ترجمة",
+        "free": "يحتاج ترجمة",
+        "characters": "يحتاج ترجمة",
+        "availability": "يحتاج ترجمة"
+      }
+    },
+    "faq_section": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "questions": "يحتاج ترجمة",
+      "contact_prompt": "يحتاج ترجمة",
+      "contact_link": "يحتاج ترجمة"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "mission": {
+      "title": "يحتاج ترجمة",
+      "p1": "يحتاج ترجمة",
+      "p2": "يحتاج ترجمة",
+      "cta": "يحتاج ترجمة"
+    },
+    "features": {
+      "accessibility": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "accuracy": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "privacy": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      }
+    },
+    "supported_languages": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "request_cta": "يحتاج ترجمة",
+      "request_cta_description": "يحتاج ترجمة"
+    },
+    "technology": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "cultural_preservation": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "community_driven": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "continuous_improvement": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      }
+    },
+    "faq": {
+      "title": "يحتاج ترجمة",
+      "q1_title": "يحتاج ترجمة",
+      "q1_answer": "يحتاج ترجمة",
+      "q2_title": "يحتاج ترجمة",
+      "q2_answer": "يحتاج ترجمة",
+      "q3_title": "يحتاج ترجمة",
+      "q3_answer": "يحتاج ترجمة",
+      "q4_title": "يحتاج ترجمة",
+      "q4_answer": "يحتاج ترجمة",
+      "q5_title": "يحتاج ترجمة",
+      "q5_answer": "يحتاج ترجمة",
+      "q6_title": "يحتاج ترجمة",
+      "q6_answer": "يحتاج ترجمة"
+    },
+    "cta_section": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "cta_text": "يحتاج ترجمة",
+      "cta_docs": "يحتاج ترجمة"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "form": {
+      "title": "يحتاج ترجمة",
+      "firstName": "يحتاج ترجمة",
+      "firstNamePlaceholder": "يحتاج ترجمة",
+      "lastName": "يحتاج ترجمة",
+      "lastNamePlaceholder": "يحتاج ترجمة",
+      "email": "يحتاج ترجمة",
+      "emailPlaceholder": "يحتاج ترجمة",
+      "subject": "يحتاج ترجمة",
+      "subjectPlaceholder": "يحتاج ترجمة",
+      "subjects": {
+        "translation_issue": "يحتاج ترجمة",
+        "technical_support": "يحتاج ترجمة",
+        "feature_request": "يحتاج ترجمة",
+        "language_request": "يحتاج ترجمة",
+        "business_inquiry": "يحتاج ترجمة",
+        "feedback": "يحتاج ترجمة",
+        "other": "يحتاج ترجمة"
+      },
+      "relatedLanguage": "يحتاج ترجمة",
+      "relatedLanguagePlaceholder": "يحتاج ترجمة",
+      "message": "يحتاج ترجمة",
+      "messagePlaceholder": "يحتاج ترجمة",
+      "submit": "يحتاج ترجمة"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "يحتاج ترجمة",
+        "email_support": "يحتاج ترجمة",
+        "email_address": "يحتاج ترجمة",
+        "response_time": "يحتاج ترجمة",
+        "live_chat": "يحتاج ترجمة",
+        "live_chat_status": "يحتاج ترجمة",
+        "live_chat_eta": "يحتاج ترجمة",
+        "support_hours_title": "يحتاج ترجمة",
+        "support_hours_days": "يحتاج ترجمة",
+        "support_hours_time": "يحتاج ترجمة"
+      },
+      "common_issues": {
+        "title": "يحتاج ترجمة",
+        "translation_not_working": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "language_not_supported": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "file_upload_issues": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        },
+        "audio_playback_not_working": {
+          "title": "يحتاج ترجمة",
+          "description": "يحتاج ترجمة"
+        }
+      },
+      "self_help": {
+        "title": "يحتاج ترجمة",
+        "how_it_works": "يحتاج ترجمة",
+        "try_text": "يحتاج ترجمة",
+        "try_docs": "يحتاج ترجمة",
+        "privacy": "يحتاج ترجمة",
+        "terms": "يحتاج ترجمة"
+      }
+    },
+    "what_to_expect": {
+      "title": "يحتاج ترجمة",
+      "quick_response": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "personal_support": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "follow_up": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "الأسعار - اختر الخطة المناسبة لك | Transly",
+      "description": "توصيات ذكية قائمة على السيناريو. ابدأ بـ 5$ للطلاب، 10$ للمستخدمين الشخصيين، 25$ للمحترفين."
+    },
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "plans": {
+      "starter": {
+        "name": "المبتدئ",
+        "description": "مناسب للطلاب والمستخدمين الخفيفين",
+        "discount": "يحتاج ترجمة"
+      },
+      "professional": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "discount": "يحتاج ترجمة"
+      },
+      "business": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "discount": "يحتاج ترجمة"
+      }
+    },
+    "features": {
+      "title": "يحتاج ترجمة",
+      "unlimited_text": "يحتاج ترجمة",
+      "document_support": "يحتاج ترجمة",
+      "tts_support": "يحتاج ترجمة",
+      "api_access": "يحتاج ترجمة",
+      "priority_support": "يحتاج ترجمة",
+      "no_expiry": "يحتاج ترجمة"
+    },
+    "buttons": {
+      "purchase": "يحتاج ترجمة",
+      "processing": "يحتاج ترجمة",
+      "get_started": "يحتاج ترجمة"
+    },
+    "alert": {
+      "canceled_title": "يحتاج ترجمة",
+      "canceled_description": "يحتاج ترجمة"
+    },
+    "loading": "يحتاج ترجمة",
+    "cta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "free_trial": "يحتاج ترجمة",
+      "contact_sales": "يحتاج ترجمة"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "status_free": "يحتاج ترجمة",
+      "status_ai": "يحتاج ترجمة",
+      "status_instant": "يحتاج ترجمة"
+    },
+    "other_languages": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "faq": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "q1_title": "يحتاج ترجمة",
+      "q1_answer": "يحتاج ترجمة",
+      "q2_title": "يحتاج ترجمة",
+      "q2_answer": "يحتاج ترجمة",
+      "q3_title": "يحتاج ترجمة",
+      "q3_answer": "يحتاج ترجمة",
+      "q4_title": "يحتاج ترجمة",
+      "q4_answer": "يحتاج ترجمة",
+      "q5_title": "يحتاج ترجمة",
+      "q5_answer": "يحتاج ترجمة",
+      "q6_title": "يحتاج ترجمة",
+      "q6_answer": "يحتاج ترجمة",
+      "contact_text": "يحتاج ترجمة",
+      "contact_link": "يحتاج ترجمة"
+    },
+    "cta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "try_document": "يحتاج ترجمة",
+      "view_pricing": "يحتاج ترجمة"
+    },
+    "features": {
+      "title": "يحتاج ترجمة",
+      "fast_title": "يحتاج ترجمة",
+      "fast_desc": "يحتاج ترجمة",
+      "accurate_title": "يحتاج ترجمة",
+      "accurate_desc": "يحتاج ترجمة",
+      "free_title": "يحتاج ترجمة",
+      "free_desc": "يحتاج ترجمة"
+    },
+    "how_to": {
+      "title": "يحتاج ترجمة",
+      "step1_title": "يحتاج ترجمة",
+      "step1_desc": "يحتاج ترجمة",
+      "step2_title": "يحتاج ترجمة",
+      "step2_desc": "يحتاج ترجمة",
+      "step3_title": "يحتاج ترجمة",
+      "step3_desc": "يحتاج ترجمة"
+    },
+    "supported_languages": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "more": "يحتاج ترجمة"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "يحتاج ترجمة",
+      "text_translation_desc": "يحتاج ترجمة",
+      "document_translation": "يحتاج ترجمة",
+      "document_translation_desc": "يحتاج ترجمة",
+      "about": "يحتاج ترجمة",
+      "about_desc": "يحتاج ترجمة"
+    },
+    "Footer": {
+      "tagline": "يحتاج ترجمة",
+      "product": "يحتاج ترجمة",
+      "text_translation": "يحتاج ترجمة",
+      "document_translation": "يحتاج ترجمة",
+      "supported_languages": "يحتاج ترجمة",
+      "company": "يحتاج ترجمة",
+      "about_us": "يحتاج ترجمة",
+      "privacy_policy": "يحتاج ترجمة",
+      "terms_of_service": "يحتاج ترجمة",
+      "compliance": "يحتاج ترجمة",
+      "resources": "يحتاج ترجمة",
+      "faq": "يحتاج ترجمة",
+      "contact_support": "يحتاج ترجمة",
+      "api_docs": "يحتاج ترجمة",
+      "copyright": "يحتاج ترجمة",
+      "powered_by": "يحتاج ترجمة"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "title": "يحتاج ترجمة",
+    "description": "يحتاج ترجمة",
+    "steps": {
+      "step1": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "step2": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      },
+      "step3": {
+        "title": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة"
+      }
+    },
+    "languages": {
+      "title": "يحتاج ترجمة"
+    },
+    "cta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "try_text_translation": "يحتاج ترجمة",
+      "view_pricing": "يحتاج ترجمة"
+    },
+    "hero": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "upload_section": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "settings_section": {
+      "title": "يحتاج ترجمة",
+      "source_language_label": "يحتاج ترجمة",
+      "source_language_placeholder": "يحتاج ترجمة",
+      "target_language_label": "يحتاج ترجمة",
+      "target_language_placeholder": "يحتاج ترجمة",
+      "translate_button": "يحتاج ترجمة",
+      "translating_button": "يحتاج ترجمة"
+    },
+    "jobs_section": {
+      "title": "يحتاج ترجمة",
+      "no_jobs": "يحتاج ترجمة",
+      "status": {
+        "pending": "يحتاج ترجمة",
+        "processing": "يحتاج ترجمة",
+        "completed": "يحتاج ترجمة",
+        "failed": "يحتاج ترجمة"
+      },
+      "error_message": "يحتاج ترجمة",
+      "download_button": "يحتاج ترجمة"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "login_button": "يحتاج ترجمة"
+    },
+    "upload": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "uploading": "يحتاج ترجمة",
+      "click_to_select": "يحتاج ترجمة",
+      "drag_drop": "يحتاج ترجمة",
+      "upload_success": "يحتاج ترجمة",
+      "extracted_characters": "يحتاج ترجمة",
+      "upload_failed": "يحتاج ترجمة"
+    },
+    "analysis": {
+      "title": "يحتاج ترجمة",
+      "filename": "يحتاج ترجمة",
+      "filesize": "يحتاج ترجمة",
+      "text_preview": "يحتاج ترجمة",
+      "character_count": "يحتاج ترجمة",
+      "characters": "يحتاج ترجمة",
+      "credit_consumption": "يحتاج ترجمة",
+      "credits": "يحتاج ترجمة",
+      "free": "يحتاج ترجمة",
+      "insufficient_credits": "يحتاج ترجمة",
+      "recharge_now": "يحتاج ترجمة",
+      "start_translation": "يحتاج ترجمة",
+      "reupload": "يحتاج ترجمة"
+    },
+    "translation": {
+      "title": "يحتاج ترجمة",
+      "progress": "يحتاج ترجمة",
+      "estimated_time": "يحتاج ترجمة",
+      "completed": "يحتاج ترجمة",
+      "download_result": "يحتاج ترجمة",
+      "translation_started": "يحتاج ترجمة",
+      "credits_consumed": "يحتاج ترجمة",
+      "translation_failed": "يحتاج ترجمة"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "يحتاج ترجمة",
+    "missing_parameters": "يحتاج ترجمة",
+    "insufficient_credits": "يحتاج ترجمة",
+    "credit_error": "يحتاج ترجمة",
+    "translation_invalid_response": "يحتاج ترجمة",
+    "translation_failed_refund_failed": "يحتاج ترجمة",
+    "translation_failed": "يحتاج ترجمة",
+    "unexpected_error": "يحتاج ترجمة",
+    "method_not_allowed": "يحتاج ترجمة",
+    "invalid_json": "يحتاج ترجمة",
+    "missing_fields": "يحتاج ترجمة",
+    "empty_text": "يحتاج ترجمة",
+    "text_too_long": "يحتاج ترجمة",
+    "unexpected_detection_error": "يحتاج ترجمة",
+    "invalid_lang_code": "يحتاج ترجمة",
+    "invalid_speech_rate": "يحتاج ترجمة",
+    "invalid_speech_pitch": "يحتاج ترجمة",
+    "invalid_voice": "يحتاج ترجمة",
+    "tts_unavailable": "يحتاج ترجمة",
+    "tts_failed": "يحتاج ترجمة",
+    "unexpected_tts_error": "يحتاج ترجمة",
+    "failed_to_get_voices": "يحتاج ترجمة"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "info": "يحتاج ترجمة",
+      "contact_support": "يحتاج ترجمة"
+    },
+    "SignUpForm": {
+      "title": "يحتاج ترجمة",
+      "subtitle": "يحتاج ترجمة",
+      "name_label": "يحتاج ترجمة",
+      "name_placeholder": "يحتاج ترجمة",
+      "name_required": "يحتاج ترجمة",
+      "name_max_length": "يحتاج ترجمة",
+      "email_label": "يحتاج ترجمة",
+      "email_placeholder": "يحتاج ترجمة",
+      "email_required": "يحتاج ترجمة",
+      "email_invalid": "يحتاج ترجمة",
+      "email_max_length": "يحتاج ترجمة",
+      "password_label": "يحتاج ترجمة",
+      "password_placeholder": "يحتاج ترجمة",
+      "password_min_length": "يحتاج ترجمة",
+      "password_max_length": "يحتاج ترجمة",
+      "confirm_password_label": "يحتاج ترجمة",
+      "confirm_password_placeholder": "يحتاج ترجمة",
+      "confirm_password_required": "يحتاج ترجمة",
+      "password_mismatch": "يحتاج ترجمة",
+      "password_strength_label": "يحتاج ترجمة",
+      "password_strength_feedback": "يحتاج ترجمة",
+      "submit_button": "يحتاج ترجمة",
+      "submit_loading_button": "يحتاج ترجمة",
+      "signup_failed": "يحتاج ترجمة",
+      "signup_error": "يحتاج ترجمة",
+      "signin_prompt": "يحتاج ترجمة",
+      "signin_link": "يحتاج ترجمة"
+    },
+    "SignInForm": {
+      "title": "يحتاج ترجمة",
+      "subtitle": "يحتاج ترجمة",
+      "email_label": "يحتاج ترجمة",
+      "email_placeholder": "يحتاج ترجمة",
+      "email_required": "يحتاج ترجمة",
+      "email_invalid": "يحتاج ترجمة",
+      "email_max_length": "يحتاج ترجمة",
+      "password_label": "يحتاج ترجمة",
+      "password_placeholder": "يحتاج ترجمة",
+      "password_required": "يحتاج ترجمة",
+      "password_max_length": "يحتاج ترجمة",
+      "forgot_password_link": "يحتاج ترجمة",
+      "remember_me_label": "يحتاج ترجمة",
+      "submit_button": "يحتاج ترجمة",
+      "submit_loading_button": "يحتاج ترجمة",
+      "signin_failed": "يحتاج ترجمة",
+      "signin_error": "يحتاج ترجمة",
+      "signup_prompt": "يحتاج ترجمة",
+      "signup_link": "يحتاج ترجمة",
+      "social_divider": "يحتاج ترجمة",
+      "google_signin_button": "يحتاج ترجمة",
+      "signup_bonus_prompt_1": "يحتاج ترجمة",
+      "signup_bonus_prompt_2": "يحتاج ترجمة"
+    },
+    "GuestLimit": {
+      "remaining_translations": "يحتاج ترجمة",
+      "register_for_unlimited": "يحتاج ترجمة"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "يحتاج ترجمة",
+      "limit_reached_description": "يحتاج ترجمة",
+      "login_required_title": "يحتاج ترجمة",
+      "login_required_description": "يحتاج ترجمة",
+      "daily_limit_title": "يحتاج ترجمة",
+      "daily_limit_description": "يحتاج ترجمة"
+    },
+    "success": {
+      "translation_complete": "يحتاج ترجمة",
+      "credits_consumed": "يحتاج ترجمة"
+    },
+    "alerts": {
+      "login_required_for_long_text": "يحتاج ترجمة",
+      "login_now": "يحتاج ترجمة",
+      "or": "يحتاج ترجمة",
+      "register_account": "يحتاج ترجمة"
+    },
+    "buttons": {
+      "translating": "يحتاج ترجمة",
+      "translate_with_credits": "يحتاج ترجمة",
+      "free_translate": "يحتاج ترجمة"
+    },
+    "credits": {
+      "balance": "يحتاج ترجمة",
+      "recharge": "يحتاج ترجمة",
+      "free_translation": "يحتاج ترجمة",
+      "estimated_cost": "يحتاج ترجمة",
+      "insufficient_credits": "يحتاج ترجمة",
+      "free_quota_usage": "يحتاج ترجمة",
+      "characters": "يحتاج ترجمة",
+      "over_limit": "يحتاج ترجمة",
+      "insufficient_balance": "يحتاج ترجمة",
+      "recharge_now": "يحتاج ترجمة"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة"
+    },
+    "title": "يحتاج ترجمة",
+    "subtitle": "يحتاج ترجمة",
+    "current_balance": "يحتاج ترجمة",
+    "free_tier": {
+      "title": "يحتاج ترجمة",
+      "subtitle": "يحتاج ترجمة",
+      "completely_free": "يحتاج ترجمة",
+      "credit_based": "يحتاج ترجمة",
+      "features": {
+        "free_text": "يحتاج ترجمة",
+        "all_languages": "يحتاج ترجمة",
+        "unlimited_use": "يحتاج ترجمة",
+        "large_text": "يحتاج ترجمة",
+        "document_translation": "يحتاج ترجمة",
+        "rate": "يحتاج ترجمة"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "features": {
+          "credits": "يحتاج ترجمة",
+          "languages": "يحتاج ترجمة",
+          "documents": "يحتاج ترجمة",
+          "validity": "يحتاج ترجمة"
+        }
+      },
+      "basic": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "features": {
+          "credits": "يحتاج ترجمة",
+          "languages": "يحتاج ترجمة",
+          "documents": "يحتاج ترجمة",
+          "validity": "يحتاج ترجمة",
+          "support": "يحتاج ترجمة"
+        }
+      },
+      "pro": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "features": {
+          "credits": "يحتاج ترجمة",
+          "languages": "يحتاج ترجمة",
+          "documents": "يحتاج ترجمة",
+          "validity": "يحتاج ترجمة",
+          "support": "يحتاج ترجمة",
+          "batch": "يحتاج ترجمة"
+        }
+      },
+      "business": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "features": {
+          "credits": "يحتاج ترجمة",
+          "languages": "يحتاج ترجمة",
+          "documents": "يحتاج ترجمة",
+          "validity": "يحتاج ترجمة",
+          "support": "يحتاج ترجمة",
+          "batch": "يحتاج ترجمة",
+          "api": "يحتاج ترجمة"
+        }
+      },
+      "enterprise": {
+        "name": "يحتاج ترجمة",
+        "description": "يحتاج ترجمة",
+        "features": {
+          "credits": "يحتاج ترجمة",
+          "languages": "يحتاج ترجمة",
+          "documents": "يحتاج ترجمة",
+          "validity": "يحتاج ترجمة",
+          "support": "يحتاج ترجمة",
+          "batch": "يحتاج ترجمة",
+          "api": "يحتاج ترجمة",
+          "integration": "يحتاج ترجمة"
+        }
+      }
+    },
+    "popular": "يحتاج ترجمة",
+    "save": "يحتاج ترجمة",
+    "credits": "يحتاج ترجمة",
+    "purchase_button": "يحتاج ترجمة",
+    "processing": "يحتاج ترجمة",
+    "new_user_bonus": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "note": "يحتاج ترجمة"
+    },
+    "register_prompt": {
+      "title": "يحتاج ترجمة",
+      "description": "يحتاج ترجمة",
+      "register_button": "يحتاج ترجمة",
+      "signin_button": "يحتاج ترجمة"
+    },
+    "faq": {
+      "title": "يحتاج ترجمة",
+      "subtitle": "يحتاج ترجمة",
+      "credit_calculation": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "expiration": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "payment_methods": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "bulk_discount": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "unused_credits": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "business_invoicing": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "api_pricing": {
+        "question": "يحتاج ترجمة",
+        "answer": "يحتاج ترجمة"
+      },
+      "contact_support": "يحتاج ترجمة"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "يحتاج ترجمة",
+    "translation_complete": "يحتاج ترجمة",
+    "translation_failed": "يحتاج ترجمة",
+    "translating": "يحتاج ترجمة",
+    "preparing_engine": "يحتاج ترجمة",
+    "about_to_start": "يحتاج ترجمة",
+    "processing": "يحتاج ترجمة",
+    "engine_running": "يحتاج ترجمة",
+    "optimizing_quality": "يحتاج ترجمة",
+    "translation_paused": "يحتاج ترجمة",
+    "resume_translation": "يحتاج ترجمة",
+    "translation_error": "يحتاج ترجمة",
+    "service_unavailable": "يحتاج ترجمة",
+    "input_placeholder": "يحتاج ترجمة",
+    "result_placeholder": "يحتاج ترجمة",
+    "from_language": "يحتاج ترجمة",
+    "to_language": "يحتاج ترجمة",
+    "partial_complete": "يحتاج ترجمة",
+    "partial_description": "يحتاج ترجمة",
+    "task_resubmitted": "يحتاج ترجمة"
+  },
+  "task": {
+    "task_management": "يحتاج ترجمة",
+    "manage_description": "يحتاج ترجمة",
+    "new_translation": "يحتاج ترجمة",
+    "refresh_tasks": "يحتاج ترجمة",
+    "task_list_updated": "يحتاج ترجمة",
+    "refresh_failed": "يحتاج ترجمة",
+    "operation_success": "يحتاج ترجمة",
+    "operation_failed": "يحتاج ترجمة",
+    "select_tasks_first": "يحتاج ترجمة",
+    "no_tasks": "يحتاج ترجمة",
+    "no_matching_tasks": "يحتاج ترجمة",
+    "create_first_task": "يحتاج ترجمة",
+    "search_placeholder": "يحتاج ترجمة",
+    "queue_created": "يحتاج ترجمة",
+    "can_leave_page": "يحتاج ترجمة",
+    "check_in_tasks": "يحتاج ترجمة",
+    "view_in_tasks": "يحتاج ترجمة",
+    "batch_operation_success": "يحتاج ترجمة"
+  },
+  "progress": {
+    "preparing": "يحتاج ترجمة",
+    "processing": "يحتاج ترجمة",
+    "finalizing": "يحتاج ترجمة",
+    "completed": "يحتاج ترجمة",
+    "paused": "يحتاج ترجمة",
+    "failed": "يحتاج ترجمة",
+    "cancelled": "يحتاج ترجمة",
+    "partial_success": "يحتاج ترجمة",
+    "progress": "يحتاج ترجمة",
+    "understanding_text": "يحتاج ترجمة",
+    "analyzing_language": "يحتاج ترجمة",
+    "processing_content": "يحتاج ترجمة",
+    "checking_grammar": "يحتاج ترجمة",
+    "final_polish": "يحتاج ترجمة",
+    "presenting_results": "يحتاج ترجمة",
+    "results_ready": "يحتاج ترجمة",
+    "thank_you_waiting": "يحتاج ترجمة",
+    "progress_saved": "يحتاج ترجمة",
+    "processing_time_long": "يحتاج ترجمة",
+    "instant_processing": "يحتاج ترجمة",
+    "background_processing": "يحتاج ترجمة",
+    "smart_processing": "يحتاج ترجمة"
+  },
+  "time": {
+    "time_estimate": "يحتاج ترجمة",
+    "estimated_time": "يحتاج ترجمة",
+    "can_leave": "يحتاج ترجمة",
+    "accurate_estimate": "يحتاج ترجمة",
+    "rough_estimate": "يحتاج ترجمة",
+    "approximate_estimate": "يحتاج ترجمة",
+    "fast_queue": "يحتاج ترجمة",
+    "creation_time": "يحتاج ترجمة"
+  },
+  "error": {
+    "error_recovery": "يحتاج ترجمة",
+    "retry_failed": "يحتاج ترجمة",
+    "unknown_error": "يحتاج ترجمة",
+    "partial_results": "يحتاج ترجمة",
+    "retry_failed_parts": "يحتاج ترجمة",
+    "download_partial": "يحتاج ترجمة",
+    "segment_retry": "يحتاج ترجمة",
+    "encountered_problem": "يحتاج ترجمة",
+    "trying_to_resolve": "يحتاج ترجمة",
+    "contact_support": "يحتاج ترجمة",
+    "please_retry_later": "يحتاج ترجمة"
+  },
+  "success": {
+    "completed": "يحتاج ترجمة",
+    "operation_success": "يحتاج ترجمة",
+    "partial_success": "يحتاج ترجمة",
+    "almost_done": "يحتاج ترجمة",
+    "results_shown_below": "يحتاج ترجمة",
+    "half_completed": "يحتاج ترجمة"
+  },
+  "credits": {
+    "estimated_consumption": "يحتاج ترجمة",
+    "credits_consumed": "يحتاج ترجمة",
+    "credits_processing": "يحتاج ترجمة",
+    "consumed_credits": "يحتاج ترجمة",
+    "refunded_credits": "يحتاج ترجمة",
+    "retry_only_failed": "يحتاج ترجمة"
+  },
+  "language": {
+    "source_language": "يحتاج ترجمة",
+    "target_language": "يحتاج ترجمة",
+    "select_source": "يحتاج ترجمة",
+    "select_target": "يحتاج ترجمة"
+  },
+  "ui": {
+    "start": "يحتاج ترجمة",
+    "pause": "يحتاج ترجمة",
+    "resume": "يحتاج ترجمة",
+    "continue": "يحتاج ترجمة",
+    "cancel": "يحتاج ترجمة",
+    "retry": "يحتاج ترجمة",
+    "download": "يحتاج ترجمة",
+    "delete": "يحتاج ترجمة",
+    "refresh": "يحتاج ترجمة",
+    "all": "يحتاج ترجمة",
+    "status": "يحتاج ترجمة",
+    "priority": "يحتاج ترجمة",
+    "sort": "يحتاج ترجمة",
+    "normal": "يحتاج ترجمة",
+    "high": "يحتاج ترجمة",
+    "urgent": "يحتاج ترجمة",
+    "low": "يحتاج ترجمة",
+    "waiting": "يحتاج ترجمة",
+    "active": "يحتاج ترجمة",
+    "needs_attention": "يحتاج ترجمة",
+    "submitting": "يحتاج ترجمة",
+    "downloading": "يحتاج ترجمة",
+    "retrying": "يحتاج ترجمة",
+    "copied": "يحتاج ترجمة",
+    "text_copied": "يحتاج ترجمة",
+    "input_text": "يحتاج ترجمة",
+    "translation_result": "يحتاج ترجمة",
+    "characters": "يحتاج ترجمة",
+    "total_tasks": "يحتاج ترجمة",
+    "select_all": "يحتاج ترجمة",
+    "batch_operations": "يحتاج ترجمة",
+    "set_priority": "يحتاج ترجمة"
+  }
+}

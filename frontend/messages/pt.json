@@ -1,0 +1,989 @@
+{
+  "Navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "pricing": "Preços",
+    "contact": "Contato"
+  },
+  "UserMenu": {
+    "sign_in": "Entrar",
+    "sign_up": "Cadastrar",
+    "sign_out": "Sair",
+    "user": "Usuário",
+    "credits": "Créditos",
+    "profile": "Perfil",
+    "dashboard": "Painel",
+    "purchase_credits": "Comprar Créditos",
+    "settings": "Configurações"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Transly - Tradutor IA para Idiomas de Poucos Recursos",
+      "description": "Tradução gratuita com IA para mais de 20 idiomas de poucos recursos como Crioulo, Lao e Suaíli. Traduza textos e documentos para o inglês instantaneamente."
+    },
+    "hero": {
+      "title": "Tradução Alimentada por IA para Idiomas de Poucos Recursos",
+      "description": "Quebre as barreiras linguísticas com IA de ponta. Nossa plataforma oferece traduções de alta qualidade para idiomas frequentemente negligenciados pelos serviços principais. Comece gratuitamente.",
+      "features": {
+        "free": "100% Grátis",
+        "ai_powered": "Alimentado por IA",
+        "languages": "20+ Idiomas"
+      },
+      "cta": {
+        "start_translating": "Começar a Traduzir",
+        "upload_document": "Enviar Documento"
+      }
+    },
+    "languages": {
+      "title": "Idiomas Suportados",
+      "description": "Traduza destes idiomas de poucos recursos para o inglês"
+    },
+    "cta": {
+      "title": "Comece a Traduzir Hoje",
+      "description": "Junte-se a milhares de usuários que confiam no Transly para suas necessidades de tradução",
+      "try_now": "Experimente Agora - É Grátis",
+      "translate_documents": "Traduzir Documentos"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "title": "Tradução necessária",
+    "description": "Tradução necessária",
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "status": {
+        "free": "Tradução necessária",
+        "ai_powered": "Tradução necessária",
+        "multi_language": "Tradução necessária"
+      },
+      "cta_start": "Tradução necessária",
+      "cta_upload": "Tradução necessária"
+    },
+    "supported_languages": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "cta_section": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "cta_try": "Tradução necessária",
+      "cta_docs": "Tradução necessária"
+    },
+    "translation_options": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "options": {
+        "text": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária",
+          "features": "Tradução necessária",
+          "button": "Tradução necessária"
+        },
+        "document": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária",
+          "features": "Tradução necessária",
+          "button": "Tradução necessária"
+        },
+        "image": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária",
+          "features": "Tradução necessária",
+          "button": "Tradução necessária"
+        }
+      },
+      "quick_start": {
+        "title": "Tradução necessária",
+        "button": "Tradução necessária"
+      },
+      "coming_soon": "Tradução necessária"
+    },
+    "language_grid": {
+      "coming_soon": "Tradução necessária",
+      "try_language": "Tradução necessária"
+    },
+    "feature_section": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "features": {
+        "ai_powered": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "fast": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "privacy": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "languages": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "tts": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "documents": {
+          "name": "Tradução necessária",
+          "description": "Tradução necessária"
+        }
+      },
+      "stats": {
+        "languages": "Tradução necessária",
+        "free": "Tradução necessária",
+        "characters": "Tradução necessária",
+        "availability": "Tradução necessária"
+      }
+    },
+    "faq_section": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "questions": "Tradução necessária",
+      "contact_prompt": "Tradução necessária",
+      "contact_link": "Tradução necessária"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "mission": {
+      "title": "Tradução necessária",
+      "p1": "Tradução necessária",
+      "p2": "Tradução necessária",
+      "cta": "Tradução necessária"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "accuracy": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "privacy": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      }
+    },
+    "supported_languages": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "request_cta": "Tradução necessária",
+      "request_cta_description": "Tradução necessária"
+    },
+    "technology": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "cultural_preservation": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "community_driven": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "continuous_improvement": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      }
+    },
+    "faq": {
+      "title": "Tradução necessária",
+      "q1_title": "Tradução necessária",
+      "q1_answer": "Tradução necessária",
+      "q2_title": "Tradução necessária",
+      "q2_answer": "Tradução necessária",
+      "q3_title": "Tradução necessária",
+      "q3_answer": "Tradução necessária",
+      "q4_title": "Tradução necessária",
+      "q4_answer": "Tradução necessária",
+      "q5_title": "Tradução necessária",
+      "q5_answer": "Tradução necessária",
+      "q6_title": "Tradução necessária",
+      "q6_answer": "Tradução necessária"
+    },
+    "cta_section": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "cta_text": "Tradução necessária",
+      "cta_docs": "Tradução necessária"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "form": {
+      "title": "Tradução necessária",
+      "firstName": "Tradução necessária",
+      "firstNamePlaceholder": "Tradução necessária",
+      "lastName": "Tradução necessária",
+      "lastNamePlaceholder": "Tradução necessária",
+      "email": "Tradução necessária",
+      "emailPlaceholder": "Tradução necessária",
+      "subject": "Tradução necessária",
+      "subjectPlaceholder": "Tradução necessária",
+      "subjects": {
+        "translation_issue": "Tradução necessária",
+        "technical_support": "Tradução necessária",
+        "feature_request": "Tradução necessária",
+        "language_request": "Tradução necessária",
+        "business_inquiry": "Tradução necessária",
+        "feedback": "Tradução necessária",
+        "other": "Tradução necessária"
+      },
+      "relatedLanguage": "Tradução necessária",
+      "relatedLanguagePlaceholder": "Tradução necessária",
+      "message": "Tradução necessária",
+      "messagePlaceholder": "Tradução necessária",
+      "submit": "Tradução necessária"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Tradução necessária",
+        "email_support": "Tradução necessária",
+        "email_address": "Tradução necessária",
+        "response_time": "Tradução necessária",
+        "live_chat": "Tradução necessária",
+        "live_chat_status": "Tradução necessária",
+        "live_chat_eta": "Tradução necessária",
+        "support_hours_title": "Tradução necessária",
+        "support_hours_days": "Tradução necessária",
+        "support_hours_time": "Tradução necessária"
+      },
+      "common_issues": {
+        "title": "Tradução necessária",
+        "translation_not_working": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "language_not_supported": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "file_upload_issues": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária"
+        },
+        "audio_playback_not_working": {
+          "title": "Tradução necessária",
+          "description": "Tradução necessária"
+        }
+      },
+      "self_help": {
+        "title": "Tradução necessária",
+        "how_it_works": "Tradução necessária",
+        "try_text": "Tradução necessária",
+        "try_docs": "Tradução necessária",
+        "privacy": "Tradução necessária",
+        "terms": "Tradução necessária"
+      }
+    },
+    "what_to_expect": {
+      "title": "Tradução necessária",
+      "quick_response": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "personal_support": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "follow_up": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "Preços - Escolha o Plano Certo para Você | Transly",
+      "description": "Recomendações inteligentes baseadas em cenários. Comece com $5 para estudantes, $10 para usuários pessoais, $25 para profissionais."
+    },
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "plans": {
+      "starter": {
+        "name": "Iniciante",
+        "description": "Adequado para estudantes e usuários leves",
+        "discount": "Tradução necessária"
+      },
+      "professional": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "discount": "Tradução necessária"
+      },
+      "business": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "discount": "Tradução necessária"
+      }
+    },
+    "features": {
+      "title": "Tradução necessária",
+      "unlimited_text": "Tradução necessária",
+      "document_support": "Tradução necessária",
+      "tts_support": "Tradução necessária",
+      "api_access": "Tradução necessária",
+      "priority_support": "Tradução necessária",
+      "no_expiry": "Tradução necessária"
+    },
+    "buttons": {
+      "purchase": "Tradução necessária",
+      "processing": "Tradução necessária",
+      "get_started": "Tradução necessária"
+    },
+    "alert": {
+      "canceled_title": "Tradução necessária",
+      "canceled_description": "Tradução necessária"
+    },
+    "loading": "Tradução necessária",
+    "cta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "free_trial": "Tradução necessária",
+      "contact_sales": "Tradução necessária"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "status_free": "Tradução necessária",
+      "status_ai": "Tradução necessária",
+      "status_instant": "Tradução necessária"
+    },
+    "other_languages": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "faq": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "q1_title": "Tradução necessária",
+      "q1_answer": "Tradução necessária",
+      "q2_title": "Tradução necessária",
+      "q2_answer": "Tradução necessária",
+      "q3_title": "Tradução necessária",
+      "q3_answer": "Tradução necessária",
+      "q4_title": "Tradução necessária",
+      "q4_answer": "Tradução necessária",
+      "q5_title": "Tradução necessária",
+      "q5_answer": "Tradução necessária",
+      "q6_title": "Tradução necessária",
+      "q6_answer": "Tradução necessária",
+      "contact_text": "Tradução necessária",
+      "contact_link": "Tradução necessária"
+    },
+    "cta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "try_document": "Tradução necessária",
+      "view_pricing": "Tradução necessária"
+    },
+    "features": {
+      "title": "Tradução necessária",
+      "fast_title": "Tradução necessária",
+      "fast_desc": "Tradução necessária",
+      "accurate_title": "Tradução necessária",
+      "accurate_desc": "Tradução necessária",
+      "free_title": "Tradução necessária",
+      "free_desc": "Tradução necessária"
+    },
+    "how_to": {
+      "title": "Tradução necessária",
+      "step1_title": "Tradução necessária",
+      "step1_desc": "Tradução necessária",
+      "step2_title": "Tradução necessária",
+      "step2_desc": "Tradução necessária",
+      "step3_title": "Tradução necessária",
+      "step3_desc": "Tradução necessária"
+    },
+    "supported_languages": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "more": "Tradução necessária"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Tradução necessária",
+      "text_translation_desc": "Tradução necessária",
+      "document_translation": "Tradução necessária",
+      "document_translation_desc": "Tradução necessária",
+      "about": "Tradução necessária",
+      "about_desc": "Tradução necessária"
+    },
+    "Footer": {
+      "tagline": "Tradução necessária",
+      "product": "Tradução necessária",
+      "text_translation": "Tradução necessária",
+      "document_translation": "Tradução necessária",
+      "supported_languages": "Tradução necessária",
+      "company": "Tradução necessária",
+      "about_us": "Tradução necessária",
+      "privacy_policy": "Tradução necessária",
+      "terms_of_service": "Tradução necessária",
+      "compliance": "Tradução necessária",
+      "resources": "Tradução necessária",
+      "faq": "Tradução necessária",
+      "contact_support": "Tradução necessária",
+      "api_docs": "Tradução necessária",
+      "copyright": "Tradução necessária",
+      "powered_by": "Tradução necessária"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "title": "Tradução necessária",
+    "description": "Tradução necessária",
+    "steps": {
+      "step1": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "step2": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      },
+      "step3": {
+        "title": "Tradução necessária",
+        "description": "Tradução necessária"
+      }
+    },
+    "languages": {
+      "title": "Tradução necessária"
+    },
+    "cta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "try_text_translation": "Tradução necessária",
+      "view_pricing": "Tradução necessária"
+    },
+    "hero": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "upload_section": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "settings_section": {
+      "title": "Tradução necessária",
+      "source_language_label": "Tradução necessária",
+      "source_language_placeholder": "Tradução necessária",
+      "target_language_label": "Tradução necessária",
+      "target_language_placeholder": "Tradução necessária",
+      "translate_button": "Tradução necessária",
+      "translating_button": "Tradução necessária"
+    },
+    "jobs_section": {
+      "title": "Tradução necessária",
+      "no_jobs": "Tradução necessária",
+      "status": {
+        "pending": "Tradução necessária",
+        "processing": "Tradução necessária",
+        "completed": "Tradução necessária",
+        "failed": "Tradução necessária"
+      },
+      "error_message": "Tradução necessária",
+      "download_button": "Tradução necessária"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "login_button": "Tradução necessária"
+    },
+    "upload": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "uploading": "Tradução necessária",
+      "click_to_select": "Tradução necessária",
+      "drag_drop": "Tradução necessária",
+      "upload_success": "Tradução necessária",
+      "extracted_characters": "Tradução necessária",
+      "upload_failed": "Tradução necessária"
+    },
+    "analysis": {
+      "title": "Tradução necessária",
+      "filename": "Tradução necessária",
+      "filesize": "Tradução necessária",
+      "text_preview": "Tradução necessária",
+      "character_count": "Tradução necessária",
+      "characters": "Tradução necessária",
+      "credit_consumption": "Tradução necessária",
+      "credits": "Tradução necessária",
+      "free": "Tradução necessária",
+      "insufficient_credits": "Tradução necessária",
+      "recharge_now": "Tradução necessária",
+      "start_translation": "Tradução necessária",
+      "reupload": "Tradução necessária"
+    },
+    "translation": {
+      "title": "Tradução necessária",
+      "progress": "Tradução necessária",
+      "estimated_time": "Tradução necessária",
+      "completed": "Tradução necessária",
+      "download_result": "Tradução necessária",
+      "translation_started": "Tradução necessária",
+      "credits_consumed": "Tradução necessária",
+      "translation_failed": "Tradução necessária"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "Tradução necessária",
+    "missing_parameters": "Tradução necessária",
+    "insufficient_credits": "Tradução necessária",
+    "credit_error": "Tradução necessária",
+    "translation_invalid_response": "Tradução necessária",
+    "translation_failed_refund_failed": "Tradução necessária",
+    "translation_failed": "Tradução necessária",
+    "unexpected_error": "Tradução necessária",
+    "method_not_allowed": "Tradução necessária",
+    "invalid_json": "Tradução necessária",
+    "missing_fields": "Tradução necessária",
+    "empty_text": "Tradução necessária",
+    "text_too_long": "Tradução necessária",
+    "unexpected_detection_error": "Tradução necessária",
+    "invalid_lang_code": "Tradução necessária",
+    "invalid_speech_rate": "Tradução necessária",
+    "invalid_speech_pitch": "Tradução necessária",
+    "invalid_voice": "Tradução necessária",
+    "tts_unavailable": "Tradução necessária",
+    "tts_failed": "Tradução necessária",
+    "unexpected_tts_error": "Tradução necessária",
+    "failed_to_get_voices": "Tradução necessária"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "info": "Tradução necessária",
+      "contact_support": "Tradução necessária"
+    },
+    "SignUpForm": {
+      "title": "Tradução necessária",
+      "subtitle": "Tradução necessária",
+      "name_label": "Tradução necessária",
+      "name_placeholder": "Tradução necessária",
+      "name_required": "Tradução necessária",
+      "name_max_length": "Tradução necessária",
+      "email_label": "Tradução necessária",
+      "email_placeholder": "Tradução necessária",
+      "email_required": "Tradução necessária",
+      "email_invalid": "Tradução necessária",
+      "email_max_length": "Tradução necessária",
+      "password_label": "Tradução necessária",
+      "password_placeholder": "Tradução necessária",
+      "password_min_length": "Tradução necessária",
+      "password_max_length": "Tradução necessária",
+      "confirm_password_label": "Tradução necessária",
+      "confirm_password_placeholder": "Tradução necessária",
+      "confirm_password_required": "Tradução necessária",
+      "password_mismatch": "Tradução necessária",
+      "password_strength_label": "Tradução necessária",
+      "password_strength_feedback": "Tradução necessária",
+      "submit_button": "Tradução necessária",
+      "submit_loading_button": "Tradução necessária",
+      "signup_failed": "Tradução necessária",
+      "signup_error": "Tradução necessária",
+      "signin_prompt": "Tradução necessária",
+      "signin_link": "Tradução necessária"
+    },
+    "SignInForm": {
+      "title": "Tradução necessária",
+      "subtitle": "Tradução necessária",
+      "email_label": "Tradução necessária",
+      "email_placeholder": "Tradução necessária",
+      "email_required": "Tradução necessária",
+      "email_invalid": "Tradução necessária",
+      "email_max_length": "Tradução necessária",
+      "password_label": "Tradução necessária",
+      "password_placeholder": "Tradução necessária",
+      "password_required": "Tradução necessária",
+      "password_max_length": "Tradução necessária",
+      "forgot_password_link": "Tradução necessária",
+      "remember_me_label": "Tradução necessária",
+      "submit_button": "Tradução necessária",
+      "submit_loading_button": "Tradução necessária",
+      "signin_failed": "Tradução necessária",
+      "signin_error": "Tradução necessária",
+      "signup_prompt": "Tradução necessária",
+      "signup_link": "Tradução necessária",
+      "social_divider": "Tradução necessária",
+      "google_signin_button": "Tradução necessária",
+      "signup_bonus_prompt_1": "Tradução necessária",
+      "signup_bonus_prompt_2": "Tradução necessária"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Tradução necessária",
+      "register_for_unlimited": "Tradução necessária"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Tradução necessária",
+      "limit_reached_description": "Tradução necessária",
+      "login_required_title": "Tradução necessária",
+      "login_required_description": "Tradução necessária",
+      "daily_limit_title": "Tradução necessária",
+      "daily_limit_description": "Tradução necessária"
+    },
+    "success": {
+      "translation_complete": "Tradução necessária",
+      "credits_consumed": "Tradução necessária"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Tradução necessária",
+      "login_now": "Tradução necessária",
+      "or": "Tradução necessária",
+      "register_account": "Tradução necessária"
+    },
+    "buttons": {
+      "translating": "Tradução necessária",
+      "translate_with_credits": "Tradução necessária",
+      "free_translate": "Tradução necessária"
+    },
+    "credits": {
+      "balance": "Tradução necessária",
+      "recharge": "Tradução necessária",
+      "free_translation": "Tradução necessária",
+      "estimated_cost": "Tradução necessária",
+      "insufficient_credits": "Tradução necessária",
+      "free_quota_usage": "Tradução necessária",
+      "characters": "Tradução necessária",
+      "over_limit": "Tradução necessária",
+      "insufficient_balance": "Tradução necessária",
+      "recharge_now": "Tradução necessária"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária"
+    },
+    "title": "Tradução necessária",
+    "subtitle": "Tradução necessária",
+    "current_balance": "Tradução necessária",
+    "free_tier": {
+      "title": "Tradução necessária",
+      "subtitle": "Tradução necessária",
+      "completely_free": "Tradução necessária",
+      "credit_based": "Tradução necessária",
+      "features": {
+        "free_text": "Tradução necessária",
+        "all_languages": "Tradução necessária",
+        "unlimited_use": "Tradução necessária",
+        "large_text": "Tradução necessária",
+        "document_translation": "Tradução necessária",
+        "rate": "Tradução necessária"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "features": {
+          "credits": "Tradução necessária",
+          "languages": "Tradução necessária",
+          "documents": "Tradução necessária",
+          "validity": "Tradução necessária"
+        }
+      },
+      "basic": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "features": {
+          "credits": "Tradução necessária",
+          "languages": "Tradução necessária",
+          "documents": "Tradução necessária",
+          "validity": "Tradução necessária",
+          "support": "Tradução necessária"
+        }
+      },
+      "pro": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "features": {
+          "credits": "Tradução necessária",
+          "languages": "Tradução necessária",
+          "documents": "Tradução necessária",
+          "validity": "Tradução necessária",
+          "support": "Tradução necessária",
+          "batch": "Tradução necessária"
+        }
+      },
+      "business": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "features": {
+          "credits": "Tradução necessária",
+          "languages": "Tradução necessária",
+          "documents": "Tradução necessária",
+          "validity": "Tradução necessária",
+          "support": "Tradução necessária",
+          "batch": "Tradução necessária",
+          "api": "Tradução necessária"
+        }
+      },
+      "enterprise": {
+        "name": "Tradução necessária",
+        "description": "Tradução necessária",
+        "features": {
+          "credits": "Tradução necessária",
+          "languages": "Tradução necessária",
+          "documents": "Tradução necessária",
+          "validity": "Tradução necessária",
+          "support": "Tradução necessária",
+          "batch": "Tradução necessária",
+          "api": "Tradução necessária",
+          "integration": "Tradução necessária"
+        }
+      }
+    },
+    "popular": "Tradução necessária",
+    "save": "Tradução necessária",
+    "credits": "Tradução necessária",
+    "purchase_button": "Tradução necessária",
+    "processing": "Tradução necessária",
+    "new_user_bonus": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "note": "Tradução necessária"
+    },
+    "register_prompt": {
+      "title": "Tradução necessária",
+      "description": "Tradução necessária",
+      "register_button": "Tradução necessária",
+      "signin_button": "Tradução necessária"
+    },
+    "faq": {
+      "title": "Tradução necessária",
+      "subtitle": "Tradução necessária",
+      "credit_calculation": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "expiration": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "payment_methods": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "bulk_discount": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "unused_credits": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "business_invoicing": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "api_pricing": {
+        "question": "Tradução necessária",
+        "answer": "Tradução necessária"
+      },
+      "contact_support": "Tradução necessária"
+    }
+  },
+  "Common": {
+    "remember_me": "Remember me",
+    "sign_up": "Sign up",
+    "sign_in": "Sign in",
+    "hide_password": "Hide password",
+    "show_password": "Show password",
+    "no_email": "No email",
+    "translation_failed": "Translation failed",
+    "detection_failed": "Detection failed",
+    "invalid_file": "Invalid file",
+    "upload_failed": "Upload failed",
+    "document_translation": "Document translation",
+    "priority_support": "Priority support",
+    "ready_to_translate": "Ready to Translate",
+    "upload_your_document": "Upload Your Document",
+    "creole_greeting": "Creole greeting",
+    "lao_greeting": "Lao greeting",
+    "swahili_greeting": "Swahili greeting",
+    "choose_pricing_plan": "Choose a pricing plan"
+  },
+  "translation": {
+    "start_translation": "Iniciar tradução",
+    "translation_complete": "Tradução completa",
+    "translation_failed": "Tradução falhou",
+    "translating": "Traduzindo...",
+    "preparing_engine": "Preparando motor de tradução...",
+    "about_to_start": "Prestes a iniciar a tradução...",
+    "processing": "Tradução em andamento, por favor aguarde...",
+    "engine_running": "Motor de tradução funcionando a plena capacidade...",
+    "optimizing_quality": "Otimizando qualidade da tradução...",
+    "translation_paused": "Tradução pausada",
+    "resume_translation": "Clique em continuar para retomar a tradução",
+    "translation_error": "Um problema foi encontrado durante a tradução",
+    "service_unavailable": "Serviço de tradução temporariamente indisponível, tente novamente mais tarde",
+    "input_placeholder": "Digite o texto para traduzir...",
+    "result_placeholder": "Os resultados da tradução aparecerão aqui...",
+    "from_language": "traduzir de",
+    "to_language": "traduzir para",
+    "partial_complete": "Tradução parcialmente completa",
+    "partial_description": "Alguns problemas foram encontrados durante a tradução, mas salvamos os resultados parciais para você",
+    "task_resubmitted": "A tarefa de tradução foi reenviada para processamento"
+  },
+  "task": {
+    "task_management": "Gerenciamento de tarefas de tradução",
+    "manage_description": "Gerencie suas tarefas de tradução, veja o progresso e os resultados",
+    "new_translation": "Nova tradução",
+    "refresh_tasks": "Atualizar",
+    "task_list_updated": "Lista de tarefas atualizada",
+    "refresh_failed": "Falha ao atualizar",
+    "operation_success": "Operação bem-sucedida",
+    "operation_failed": "Operação falhou",
+    "select_tasks_first": "Por favor selecione as tarefas primeiro",
+    "no_tasks": "Sem tarefas",
+    "no_matching_tasks": "Nenhuma tarefa correspondente",
+    "create_first_task": "Ainda não há tarefas de tradução, crie uma!",
+    "search_placeholder": "Pesquisar tarefas...",
+    "queue_created": "Tarefa de tradução criada",
+    "can_leave_page": "Você pode sair desta página, veja os resultados mais tarde em \"Minhas tarefas\"",
+    "check_in_tasks": "Você pode verificar o progresso no gerenciamento de tarefas",
+    "view_in_tasks": "Por favor vá para a página \"Minhas tarefas\" para ver o progresso da tradução",
+    "batch_operation_success": "{action} foi executado em {count} tarefas"
+  },
+  "progress": {
+    "preparing": "Preparando",
+    "processing": "Processando",
+    "finalizing": "Finalizando",
+    "completed": "Concluído",
+    "paused": "Pausado",
+    "failed": "Falhou",
+    "cancelled": "Cancelado",
+    "partial_success": "Sucesso parcial",
+    "progress": "Progresso",
+    "understanding_text": "Entendendo seu texto...",
+    "analyzing_language": "Analisando características da linguagem...",
+    "processing_content": "Processando seu conteúdo...",
+    "checking_grammar": "Verificando gramática e fluência...",
+    "final_polish": "Polimento final...",
+    "presenting_results": "Prestes a apresentar os resultados...",
+    "results_ready": "Resultados prontos",
+    "thank_you_waiting": "Obrigado pela sua paciência",
+    "progress_saved": "Seu progresso foi salvo",
+    "processing_time_long": "Tempo de processamento longo",
+    "instant_processing": "Processamento instantâneo",
+    "background_processing": "Processamento em segundo plano",
+    "smart_processing": "Processamento inteligente"
+  },
+  "time": {
+    "time_estimate": "Estimativa de tempo",
+    "estimated_time": "Tempo restante estimado",
+    "can_leave": "Pode sair da página",
+    "accurate_estimate": "Estimativa precisa",
+    "rough_estimate": "Estimativa aproximada",
+    "approximate_estimate": "Estimativa aproximada",
+    "fast_queue": "Fila rápida",
+    "creation_time": "Tempo de criação"
+  },
+  "error": {
+    "error_recovery": "Recuperação de erro",
+    "retry_failed": "Nova tentativa falhou",
+    "unknown_error": "Erro desconhecido",
+    "partial_results": "Resultados parciais",
+    "retry_failed_parts": "Tentar novamente partes que falharam",
+    "download_partial": "Baixar resultados parciais",
+    "segment_retry": "Nova tentativa segmentada",
+    "encountered_problem": "Problema encontrado",
+    "trying_to_resolve": "Estamos tentando resolver",
+    "contact_support": "Por favor aguarde ou entre em contato com o suporte",
+    "please_retry_later": "Por favor tente novamente mais tarde"
+  },
+  "success": {
+    "completed": "Concluído",
+    "operation_success": "Operação bem-sucedida",
+    "partial_success": "Sucesso parcial",
+    "almost_done": "Quase terminado!",
+    "results_shown_below": "Resultados mostrados abaixo",
+    "half_completed": "Mais da metade concluído, continue!"
+  },
+  "credits": {
+    "estimated_consumption": "Consumo estimado",
+    "credits_consumed": "Créditos consumidos",
+    "credits_processing": "Explicação do processamento de créditos",
+    "consumed_credits": "Créditos consumidos",
+    "refunded_credits": "Créditos reembolsados",
+    "retry_only_failed": "Pague apenas créditos pelas partes que falharam ao tentar novamente"
+  },
+  "language": {
+    "source_language": "Idioma origem",
+    "target_language": "Idioma destino",
+    "select_source": "Selecionar idioma origem",
+    "select_target": "Selecionar idioma destino"
+  },
+  "ui": {
+    "start": "Iniciar",
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "continue": "Continuar",
+    "cancel": "Cancelar",
+    "retry": "Tentar novamente",
+    "download": "Baixar",
+    "delete": "Excluir",
+    "refresh": "Atualizar",
+    "all": "Todos",
+    "status": "Status",
+    "priority": "Prioridade",
+    "sort": "Ordenar",
+    "normal": "Normal",
+    "high": "Alto",
+    "urgent": "Urgente",
+    "low": "Baixo",
+    "waiting": "Aguardando",
+    "active": "Ativo",
+    "needs_attention": "Precisa de atenção",
+    "submitting": "Enviando...",
+    "downloading": "Download iniciado",
+    "retrying": "Nova tentativa iniciada",
+    "copied": "Copiado",
+    "text_copied": "Texto copiado para a área de transferência",
+    "input_text": "Texto de entrada",
+    "translation_result": "Resultado da tradução",
+    "characters": "caracteres",
+    "total_tasks": "Total de tarefas",
+    "select_all": "Selecionar todos",
+    "batch_operations": "Operações em lote",
+    "set_priority": "Definir prioridade"
+  }
+}

@@ -26,7 +26,7 @@ def check_dependencies():
         
         import subprocess
         for package in missing_packages:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "--break-system-packages", package])
         
         print("✅ All packages installed successfully!")
 

@@ -157,6 +157,42 @@
         "availability": "Available"
       }
     },
+    "user_scenarios": {
+      "academic": {
+        "title": "Academic Researchers",
+        "description": "Need to translate academic literature and research materials in low-resource languages like Haitian Creole and Lao",
+        "recommendation": "Recommended: Starter Plan ($5) • Perfect for paper translation"
+      },
+      "immigrant": {
+        "title": "Immigrant Communities",
+        "description": "Handle official documents, legal papers and other important materials with accurate translation needs",
+        "recommendation": "Recommended: Basic Plan ($10) • High accuracy guarantee"
+      },
+      "ecommerce": {
+        "title": "Cross-border E-commerce",
+        "description": "Product description localization, batch translation of product information to low-resource language markets",
+        "recommendation": "Recommended: Pro Plan ($25) • Supports batch translation"
+      }
+    },
+    "cost_comparison": {
+      "title": "Cost Comparison: Why Transly is More Cost-Effective?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not supported",
+        "title": "Google Translate",
+        "description": "Insufficient low-resource language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
+    },
     "faq_section": {
       "title": "Frequently Asked Questions",
       "description": "Everything you need to know about Transly",
@@ -407,6 +443,25 @@
       "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
     },
     "loading": "Loading...",
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
+    },
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Join thousands of users who trust Transly for their translation needs. Start translating today!",
@@ -489,12 +544,14 @@
     },
     "Footer": {
       "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
+      "interface_language": "Interface Language",
       "product": "Product",
       "text_translation": "Text Translation",
       "document_translation": "Document Translation",
       "supported_languages": "Supported Languages",
       "company": "Company",
       "about_us": "About Us",
+      "pricing": "Pricing",
       "privacy_policy": "Privacy Policy",
       "terms_of_service": "Terms of Service",
       "compliance": "Compliance",
@@ -502,6 +559,12 @@
       "faq": "FAQ",
       "contact_support": "Contact Support",
       "api_docs": "API Documentation",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu",
       "copyright": "© 2024 Transly. All rights reserved.",
       "powered_by": "Powered by Meta NLLB AI Technology"
     }
@@ -1033,5 +1096,70 @@
     "select_all": "全选",
     "batch_operations": "批量操作",
     "set_priority": "设置优先级"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for doesn't exist or has been moved.",
+    "goHome": "Go Home",
+    "contactSupport": "Contact Support"
+  },
+  "Error": {
+    "title": "Something went wrong!",
+    "description": "An unexpected error occurred. Please try again.",
+    "errorDetails": "Error Details (Development)",
+    "tryAgain": "Try Again",
+    "goHome": "Go Home",
+    "contactSupport": "Contact Support"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "description": "Manage your application settings and monitor system status."
+    }
+  },
+  "labels": {
+    "from": "From",
+    "to": "To",
+    "source_text": "Source Text",
+    "translated_text": "Translated Text"
+  },
+  "actions": {
+    "copy": "Copy",
+    "listen": "Listen",
+    "translate": "Translate"
+  },
+  "placeholders": {
+    "translating": "Translating...",
+    "translation_result": "Translation will appear here..."
+  },
+  "errors": {
+    "limit_reached_title": "Daily Limit Reached",
+    "limit_reached_description": "You've reached your daily translation limit. Please sign up for unlimited access.",
+    "login_required_title": "Login Required",
+    "login_required_description": "Please sign in to continue translating.",
+    "daily_limit_title": "Daily Limit Exceeded",
+    "daily_limit_description": "You've reached your daily translation limit.",
+    "translation_failed": "Translation Failed",
+    "text_too_long": "Text is too long. Maximum {max} characters allowed."
+  },
+  "success": {
+    "translation_complete": "Translation Complete",
+    "credits_consumed": "{credits} credits consumed",
+    "copied": "Copied!",
+    "copied_description": "Text copied to clipboard",
+    "results_shown_below": "Results shown below"
+  },
+  "credits": {
+    "insufficient_balance": "Insufficient credits. Required: {required}, Current: {current}",
+    "recharge_now": "Please recharge your account"
+  },
+  "task": {
+    "queue_created": "Translation queued",
+    "can_leave_page": "You can leave this page while processing",
+    "processing": "Processing your translation..."
+  },
+  "translation": {
+    "translation_complete": "Translation Complete",
+    "processing": "Processing..."
   }
 }

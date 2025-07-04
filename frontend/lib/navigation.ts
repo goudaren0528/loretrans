@@ -2,126 +2,83 @@ import { LANG_TO_ENGLISH_PAGES } from '../../config/app.config';
 import { createNavigation } from 'next-intl/navigation';
 import { defineRouting } from 'next-intl/routing';
 
-// 支持的语言代码 - 移除中文，只保留英语、西班牙语、法语
-export const locales = ['en', 'es', 'fr'] as const;
+// 支持的语言代码 - 包含所有支持的语言
+export const locales = ['en', 'zh', 'es', 'fr', 'ar', 'hi', 'ht', 'lo', 'my', 'pt', 'sw', 'te'] as const;
 export type Locale = typeof locales[number];
 
-// 页面路径的国际化映射
+// 页面路径配置 - 统一使用英文路径，提升SEO效果
 export const PAGE_TRANSLATIONS = {
   '/': '/',
-  '/about': {
-    en: '/about',
-    es: '/acerca-de',
-    fr: '/a-propos',
-  },
-  '/contact': {
-    en: '/contact',
-    es: '/contacto',
-    fr: '/contact',
-  },
-  '/pricing': {
-    en: '/pricing',
-    es: '/precios',
-    fr: '/tarifs',
-  },
-  '/text-translate': {
-    en: '/text-translate',
-    es: '/traducir-texto',
-    fr: '/traduire-texte',
-  },
-  '/document-translate': {
-    en: '/document-translate',
-    es: '/traducir-documentos',
-    fr: '/traduire-documents',
-    
-    
-    
-  },
-  '/help': {
-    en: '/help',
-    es: '/ayuda',
-    fr: '/aide',
-    
-    
-    
-  },
-  '/privacy': {
-    en: '/privacy',
-    es: '/privacidad',
-    fr: '/confidentialite',
-    
-    
-    
-  },
-  '/terms': {
-    en: '/terms',
-    es: '/terminos',
-    fr: '/conditions',
-    
-    
-    
-  },
-  '/compliance': {
-    en: '/compliance',
-    es: '/cumplimiento',
-    fr: '/conformite',
-    
-    
-    
-  },
-  '/api-docs': {
-    en: '/api-docs',
-    es: '/documentacion-api',
-    fr: '/documentation-api',
-    
-    
-    
-  },
-  // ... 其他语言特定页面
+  '/about': '/about',
+  '/contact': '/contact', 
+  '/pricing': '/pricing',
+  '/text-translate': '/text-translate',
+  '/document-translate': '/document-translate',
+  '/help': '/help',
+  '/privacy': '/privacy',
+  '/terms': '/terms',
+  '/compliance': '/compliance',
+  '/api-docs': '/api-docs',
+  // 语言特定翻译页面 - 保持英文路径
+  '/creole-to-english': '/creole-to-english',
+  '/lao-to-english': '/lao-to-english', 
+  '/swahili-to-english': '/swahili-to-english',
+  '/burmese-to-english': '/burmese-to-english',
+  '/telugu-to-english': '/telugu-to-english',
+  '/english-to-creole': '/english-to-creole',
+  '/english-to-lao': '/english-to-lao',
+  '/english-to-swahili': '/english-to-swahili',
+  '/english-to-burmese': '/english-to-burmese',
+  '/english-to-telugu': '/english-to-telugu',
+  // 用户相关页面
+  '/dashboard': '/dashboard',
+  '/payments': '/payments',
+  '/payment-success': '/payment-success',
+  // 管理页面
+  '/admin': '/admin',
+  // 测试页面
+  '/demo-payment': '/demo-payment',
+  '/test-payment': '/test-payment',
+  '/mock-payment': '/mock-payment'
 } as const;
 
-// 定义路由配置
+// 定义路由配置 - 使用统一英文路径
 export const routing = defineRouting({
   locales,
   defaultLocale: 'en',
+  localePrefix: 'always', // 所有语言都使用前缀，包括英文
   pathnames: PAGE_TRANSLATIONS
 });
 
 
-// 获取给定locale的页面路径
+// 获取给定locale的页面路径 - 统一返回英文路径
 export function getLocalizedPath(locale: Locale, path: string): string {
   const pathConfig = PAGE_TRANSLATIONS[path as keyof typeof PAGE_TRANSLATIONS];
-  if (typeof pathConfig === 'string') {
+  if (pathConfig) {
     return pathConfig;
-  }
-  if (pathConfig && typeof pathConfig === 'object' && pathConfig[locale]) {
-    return pathConfig[locale]!;
   }
   return path;
 }
 
-// 获取英文原始路径
+// 获取英文原始路径 - 由于统一使用英文路径，直接返回
 export function getOriginalPath(locale: Locale, localizedPath: string): string {
+  // 检查是否是已知的页面路径
   for (const [originalPath, pathConfig] of Object.entries(PAGE_TRANSLATIONS)) {
-    if (typeof pathConfig === 'object') {
-      const entry = Object.entries(pathConfig).find(([, translated]) => translated === localizedPath);
-      if (entry) {
-        return originalPath;
-      }
-    } else if (pathConfig === localizedPath) {
-      return pathConfig;
+    if (pathConfig === localizedPath) {
+      return originalPath;
     }
   }
   return localizedPath;
 }
 
-// 为给定路径生成所有语言版本的URL
+// 为给定路径生成所有语言版本的URL - SEO优化
 export function generateAlternateUrls(basePath: string, currentLocale: Locale): Record<Locale, string> {
   const alternates: Record<string, string> = {};
   
   for (const locale of locales) {
     const localizedPath = getLocalizedPath(locale, basePath);
-    alternates[locale] = locale === 'en' ? localizedPath : `/${locale}${localizedPath}`;
+    // 所有语言都使用 /{locale}{path} 格式，包括英文
+    alternates[locale] = `/${locale}${localizedPath}`;
   }
   
   return alternates as Record<Locale, string>;

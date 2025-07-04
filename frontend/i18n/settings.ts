@@ -1,17 +1,17 @@
-// 支持的界面语言 - 包含主要小语种
+// 支持的界面语言 - 与navigation.ts保持一致
 export const locales = [
   'en',    // English (默认)
+  'zh',    // Chinese (中文)
   'es',    // Spanish (西班牙语)
   'fr',    // French (法语)
-  'ht',    // Haitian Creole (海地克里奥尔语)
-  'lo',    // Lao (老挝语)
-  'sw',    // Swahili (斯瓦希里语)
-  'my',    // Burmese (缅甸语)
-  'te',    // Telugu (泰卢固语)
-  'zh',    // Chinese (中文)
   'ar',    // Arabic (阿拉伯语)
   'hi',    // Hindi (印地语)
+  'ht',    // Haitian Creole (海地克里奥尔语)
+  'lo',    // Lao (老挝语)
+  'my',    // Burmese (缅甸语)
   'pt',    // Portuguese (葡萄牙语)
+  'sw',    // Swahili (斯瓦希里语)
+  'te',    // Telugu (泰卢固语)
 ] as const;
 
 export const defaultLocale = 'en' as const;

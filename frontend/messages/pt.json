@@ -47,270 +47,382 @@
   },
   "IndexPage": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Transly - Tradutor de IA para Línguas de Baixo Recursos",
+      "description": "Tradução gratuita com IA para mais de 20 idiomas de baixo recurso como crioula, lao e suaíli. Traduza texto e documentos para inglês instantaneamente."
     },
-    "title": "Tradução necessária",
-    "description": "Tradução necessária",
+    "title": "Traduza línguas de baixo recurso",
+    "description": "Tradução com IA para idiomas com recursos limitados",
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
+      "title": "Tradução com IA para idiomas com poucos recursos",
+      "description": "Quebre barreiras linguísticas com a inteligência artificial de ponta. Nossa plataforma fornece traduções de alta qualidade para idiomas muitas vezes desatendidos pelos serviços tradicionais. Comece de graça.",
       "status": {
-        "free": "Tradução necessária",
-        "ai_powered": "Tradução necessária",
-        "multi_language": "Tradução necessária"
+        "free": "100% Grátis",
+        "ai_powered": "Alimentada por IA",
+        "multi_language": "20+ Línguas"
       },
-      "cta_start": "Tradução necessária",
-      "cta_upload": "Tradução necessária"
+      "cta_start": "Começa a traduzir",
+      "cta_upload": "Carregar documento"
     },
     "supported_languages": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Idiomas suportados",
+      "description": "Traduza destas línguas de baixo recurso para o inglês"
     },
     "cta_section": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "cta_try": "Tradução necessária",
-      "cta_docs": "Tradução necessária"
+      "title": "Comece a traduzir hoje",
+      "description": "Junte-se a milhares de usuários que confiam no Transly para suas necessidades de tradução",
+      "cta_try": "Tente agora - é grátis",
+      "cta_docs": "Traduza documentos"
     },
     "translation_options": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
+      "title": "Escolha seu método de tradução",
+      "description": "Selecione a melhor opção para as suas necessidades de tradução",
       "options": {
         "text": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária",
-          "features": "Tradução necessária",
-          "button": "Tradução necessária"
+          "title": "Tradução de texto",
+          "description": "Traduza texto entre 20+ idiomas de baixo recurso e inglês instantaneamente.",
+          "features": {
+            "0": "T",
+            "1": "r",
+            "2": "a",
+            "3": "d",
+            "4": "u",
+            "5": "ç",
+            "6": "ã",
+            "7": "o",
+            "8": " ",
+            "9": "n",
+            "10": "e",
+            "11": "c",
+            "12": "e",
+            "13": "s",
+            "14": "s",
+            "15": "á",
+            "16": "r",
+            "17": "i",
+            "18": "a"
+          },
+          "button": "Começa a traduzir"
         },
         "document": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária",
-          "features": "Tradução necessária",
-          "button": "Tradução necessária"
+          "title": "Tradução de documentos",
+          "description": "Faça upload e traduza documentos PDF, Word e PowerPoint.",
+          "features": {
+            "0": "T",
+            "1": "r",
+            "2": "a",
+            "3": "d",
+            "4": "u",
+            "5": "ç",
+            "6": "ã",
+            "7": "o",
+            "8": " ",
+            "9": "n",
+            "10": "e",
+            "11": "c",
+            "12": "e",
+            "13": "s",
+            "14": "s",
+            "15": "á",
+            "16": "r",
+            "17": "i",
+            "18": "a"
+          },
+          "button": "Começa a traduzir"
         },
         "image": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária",
-          "features": "Tradução necessária",
-          "button": "Tradução necessária"
+          "title": "Tradução da imagem",
+          "description": "Extrair e traduzir texto de imagens usando tecnologia OCR.",
+          "features": {
+            "0": "T",
+            "1": "r",
+            "2": "a",
+            "3": "d",
+            "4": "u",
+            "5": "ç",
+            "6": "ã",
+            "7": "o",
+            "8": " ",
+            "9": "n",
+            "10": "e",
+            "11": "c",
+            "12": "e",
+            "13": "s",
+            "14": "s",
+            "15": "á",
+            "16": "r",
+            "17": "i",
+            "18": "a"
+          },
+          "button": "Em breve."
         }
       },
       "quick_start": {
-        "title": "Tradução necessária",
-        "button": "Tradução necessária"
+        "title": "Não tem certeza de qual opção escolher?",
+        "button": "Tente tradução de texto agora"
       },
-      "coming_soon": "Tradução necessária"
+      "coming_soon": "Em breve."
     },
     "language_grid": {
-      "coming_soon": "Tradução necessária",
-      "try_language": "Tradução necessária"
+      "coming_soon": "Em breve.",
+      "try_language": "Tente {linguagem}"
     },
     "feature_section": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
+      "title": "Por que escolher o Transly?",
+      "description": "Ferramentas de tradução de nível profissional concebidas para línguas com poucos recursos",
       "features": {
         "ai_powered": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "Tradução com IA",
+          "description": "Alimentado pelo modelo NLLB da Meta para tradução linguística precisa de baixo recurso."
         },
         "fast": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "Rápido como um relâmpago.",
+          "description": "Obtenha traduções instantâneas com a nossa infraestrutura de IA otimizada."
         },
         "privacy": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "A privacidade em primeiro lugar",
+          "description": "O seu texto é processado de forma segura e nunca é armazenado nos nossos servidores."
         },
         "languages": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "20+ Línguas",
+          "description": "Suporte para o criol, lao, suaíli, birmanês e muitas outras línguas de baixo recurso."
         },
         "tts": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "Text-to-Speech",
+          "description": "Ouça traduções com o nosso recurso de tradução de texto para voz de alta qualidade."
         },
         "documents": {
-          "name": "Tradução necessária",
-          "description": "Tradução necessária"
+          "name": "Tradução de documentos",
+          "description": "Faça upload e traduza arquivos PDF, Word e PowerPoint sem problemas."
         }
       },
       "stats": {
-        "languages": "Tradução necessária",
-        "free": "Tradução necessária",
-        "characters": "Tradução necessária",
-        "availability": "Tradução necessária"
+        "languages": "Idiomas suportados",
+        "free": "Livre de uso",
+        "characters": "Caracteres por Tradução",
+        "availability": "Disponível"
       }
     },
     "faq_section": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "questions": "Tradução necessária",
-      "contact_prompt": "Tradução necessária",
-      "contact_link": "Tradução necessária"
+      "title": "Perguntas Frequentes",
+      "description": "Tudo o que precisas de saber sobre o Transly",
+      "questions": {
+        "0": {
+          "0": "T",
+          "question": "O Transly é mesmo livre de usar?",
+          "answer": "Sim! O Transly é completamente gratuito para tradução de texto de até 1000 caracteres por solicitação. Não há taxas ocultas ou requisitos de assinatura."
+        },
+        "1": {
+          "0": "r",
+          "question": "Quão precisas são as traduções?",
+          "answer": "Usamos o modelo NLLB (No Language Left Behind) da Meta, que fornece traduções de alta qualidade para idiomas de baixo recurso."
+        },
+        "2": {
+          "0": "a",
+          "question": "Quais idiomas você suporta?",
+          "answer": "Apoiamos mais de 20 idiomas de baixo recurso, incluindo haitiano-creole, lao, suaíli, birmanês, telugu, cingala, amárico, khmer, nepalês e malgaxe."
+        },
+        "3": {
+          "0": "d",
+          "question": "Os meus dados estão seguros e privados?",
+          "answer": "Absolutamente. Não armazenamos o seu texto de tradução nos nossos servidores. O seu texto é processado de forma segura e apagado imediatamente após a tradução. Levamos a privacidade a sério."
+        },
+        "4": {
+          "0": "u",
+          "question": "Posso traduzir documentos?",
+          "answer": "Sim! Nós suportamos PDF, Word (.docx), e PowerPoint (.pptx) tradução de arquivos. Basta fazer o upload do seu arquivo e nós iremos extrair o texto, traduzi-lo, e fornecer-lhe os resultados."
+        },
+        "5": {
+          "0": "ç",
+          "question": "Como funciona o recurso de conversão de texto para voz?",
+          "answer": "Nosso recurso de texto para fala suporta a saída em inglês com síntese de voz de alta qualidade. Basta clicar no ícone do alto-falante ao lado de qualquer tradução para ouvi-lo pronunciado."
+        },
+        "6": {
+          "0": "ã",
+          "question": "Há um limite de caracteres?",
+          "answer": "Os usuários gratuitos podem traduzir até 1000 caracteres por solicitação. Para textos mais longos, você pode dividi-los em pedaços menores ou carregar documentos para processamento."
+        },
+        "7": {
+          "0": "o",
+          "question": "Posso usar o Transly para fins comerciais? ",
+          "answer": "Sim, você pode usar o Transly para fins pessoais e comerciais."
+        },
+        "8": " ",
+        "9": "n",
+        "10": "e",
+        "11": "c",
+        "12": "e",
+        "13": "s",
+        "14": "s",
+        "15": "á",
+        "16": "r",
+        "17": "i",
+        "18": "a"
+      },
+      "contact_prompt": "Tem mais perguntas?",
+      "contact_link": "Contacte a nossa equipa de apoio"
     }
   },
   "AboutPage": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Sobre a Transly - Tradução Profissional para Línguas de Baixo Recursos",
+      "description": "Saiba mais sobre o Transly, a plataforma líder de tradução de línguas pequenas para o inglês."
     },
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Sobre o Transly",
+      "description": "Plataforma de tradução profissional dedicada a conectar idiomas de baixo recurso com o mundo através de traduções precisas para o inglês."
     },
     "mission": {
-      "title": "Tradução necessária",
-      "p1": "Tradução necessária",
-      "p2": "Tradução necessária",
-      "cta": "Tradução necessária"
+      "title": "Nossa Missão",
+      "p1": "Acreditamos que todas as línguas merecem ser ouvidas.A Transly preenche a lacuna de comunicação para falantes de língu as com poucos recursos, fornecendo serviços de tradução para o inglês, precisos e acessíveis.",
+      "p2": "Com o modelo NLLB (No Language Left Behind) de última geração da Meta, suportamos mais de 20 idiomas que são frequentemente ignorados pelos principais serviços de tradução.",
+      "cta": "Tente tradução de documentos"
     },
     "features": {
       "accessibility": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Acessibilidade global",
+        "description": "Tornar a tradução acessível para falantes de línguas com recursos digitais limitados"
       },
       "accuracy": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Rápido e preciso",
+        "description": "A tecnologia avançada de IA fornece traduções de alta qualidade em segundos."
       },
       "privacy": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "A privacidade em primeiro lugar",
+        "description": "As suas traduções não são armazenadas. Respeitamos a sua privacidade e segurança dos dados."
       }
     },
     "supported_languages": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "request_cta": "Tradução necessária",
-      "request_cta_description": "Tradução necessária"
+      "title": "Idiomas suportados",
+      "description": "Apoiamos {count} idiomas de baixo recurso com mais sendo adicionados regularmente.",
+      "request_cta": "Solicite um idioma",
+      "request_cta_description": "Não vês o teu idioma? Estamos constantemente a expandir o nosso suporte de idiomas."
     },
     "technology": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
+      "title": "Alimentado por IA Avançada",
+      "description": "O Transly usa o modelo NLLB (No Language Left Behind) do Meta, projetado especificamente para fornecer tradução de alta qualidade para idiomas de baixo recurso com os quais os sistemas tradicionais lutam.",
       "cultural_preservation": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Preservação cultural",
+        "description": "Apoiar a diversidade linguística e ajudar a preservar o património cultural através da tecnologia"
       },
       "community_driven": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Direcção comunitária",
+        "description": "Construído com feedback de falantes nativos e comunidades linguísticas em todo o mundo."
       },
       "continuous_improvement": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Melhoria contínua",
+        "description": "Atualizações e melhorias regulares do modelo para melhorar a qualidade da tradução."
       }
     },
     "faq": {
-      "title": "Tradução necessária",
-      "q1_title": "Tradução necessária",
-      "q1_answer": "Tradução necessária",
-      "q2_title": "Tradução necessária",
-      "q2_answer": "Tradução necessária",
-      "q3_title": "Tradução necessária",
-      "q3_answer": "Tradução necessária",
-      "q4_title": "Tradução necessária",
-      "q4_answer": "Tradução necessária",
-      "q5_title": "Tradução necessária",
-      "q5_answer": "Tradução necessária",
-      "q6_title": "Tradução necessária",
-      "q6_answer": "Tradução necessária"
+      "title": "Perguntas Frequentes",
+      "q1_title": "O que diferencia a Transly de outros serviços de tradução?",
+      "q1_answer": "A Transly é especializada em idiomas de baixo recurso que são frequentemente mal suportados pelos serviços de tradução convencionais.",
+      "q2_title": "Os meus dados estão seguros e privados?",
+      "q2_answer": "Sim, damos prioridade à sua privacidade. Não armazenamos suas traduções ou dados pessoais. Todas as traduções são processadas com segurança e excluídas imediatamente após a entrega. Para traduções de documentos, os arquivos são removidos automaticamente após o download.",
+      "q3_title": "Que formatos de ficheiros suporta para tradução de documentos?",
+      "q3_answer": "Atualmente, suportamos arquivos PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx) e texto simples (.txt). Estamos trabalhando para adicionar suporte para mais formatos com base no feedback do usuário.",
+      "q4_title": "Quão precisas são as traduções?",
+      "q4_answer": "As nossas traduções são executadas com o modelo NLLB de última geração da Meta, que foi treinado especificamente para línguas de baixo recurso.",
+      "q5_title": "Posso traduzir do inglês para o meu idioma?",
+      "q5_answer": "Sim! Embora nosso foco principal seja traduzir de idiomas de baixo recurso para o inglês, também apoiamos a tradução reversa do inglês para idiomas suportados. Basta usar o seletor de idioma para escolher a direção de tradução desejada.",
+      "q6_title": "Você oferece acesso à API para desenvolvedores?",
+      "q6_answer": "Estamos atualmente desenvolvendo acesso API para desenvolvedores e empresas. Se você estiver interessado em integrar nossas capacidades de tradução em seu aplicativo, por favor, entre em contato conosco para informações de acesso antecipado."
     },
     "cta_section": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "cta_text": "Tradução necessária",
-      "cta_docs": "Tradução necessária"
+      "title": "Pronto para começar?",
+      "description": "Experimente tradução precisa para o seu idioma hoje. Quer seja um texto rápido ou um documento completo, o Transly está aqui para ajudá-lo a se comunicar com o mundo.",
+      "cta_text": "Tente tradução de texto",
+      "cta_docs": "Carregar documento"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Contato de suporte - Obtenha ajuda com o Transly",
+      "description": "Se precisar de ajuda com tradução, entre em contato com a nossa equipa de apoio para obter assistência com serviços de tradução da Transly, problemas técnicos ou perguntas gerais."
     },
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Contato de apoio",
+      "description": "Tem dúvidas sobre os nossos serviços de tradução? Precisa de apoio técnico? Estamos aqui para ajudá-lo a tirar o máximo partido do Transly."
     },
     "form": {
-      "title": "Tradução necessária",
-      "firstName": "Tradução necessária",
-      "firstNamePlaceholder": "Tradução necessária",
-      "lastName": "Tradução necessária",
-      "lastNamePlaceholder": "Tradução necessária",
-      "email": "Tradução necessária",
-      "emailPlaceholder": "Tradução necessária",
-      "subject": "Tradução necessária",
-      "subjectPlaceholder": "Tradução necessária",
+      "title": "Envia-nos uma mensagem.",
+      "firstName": "Nome de família *",
+      "firstNamePlaceholder": "O teu primeiro nome?",
+      "lastName": "Sobrenome *",
+      "lastNamePlaceholder": "O seu sobrenome?",
+      "email": "Endereço de e-mail *",
+      "emailPlaceholder": "seu.email@example.com",
+      "subject": "Objecto *",
+      "subjectPlaceholder": "Escolha um tópico",
       "subjects": {
-        "translation_issue": "Tradução necessária",
-        "technical_support": "Tradução necessária",
-        "feature_request": "Tradução necessária",
-        "language_request": "Tradução necessária",
-        "business_inquiry": "Tradução necessária",
-        "feedback": "Tradução necessária",
-        "other": "Tradução necessária"
+        "translation_issue": "Edição de tradução",
+        "technical_support": "Apoio técnico",
+        "feature_request": "Pedido de recurso",
+        "language_request": "Pedido de um novo idioma",
+        "business_inquiry": "Investigação empresarial",
+        "feedback": "Feedback geral",
+        "other": "Outros"
       },
-      "relatedLanguage": "Tradução necessária",
-      "relatedLanguagePlaceholder": "Tradução necessária",
-      "message": "Tradução necessária",
-      "messagePlaceholder": "Tradução necessária",
-      "submit": "Tradução necessária"
+      "relatedLanguage": "Língua relacionada (se aplicável) ",
+      "relatedLanguagePlaceholder": "por exemplo, suaíli, lao, crioulo",
+      "message": "Mensagem *",
+      "messagePlaceholder": "Por favor, descreva o seu problema ou pergunta em detalhes...",
+      "submit": "Enviar mensagem"
     },
     "sidebar": {
       "quick_contact": {
-        "title": "Tradução necessária",
-        "email_support": "Tradução necessária",
-        "email_address": "Tradução necessária",
-        "response_time": "Tradução necessária",
-        "live_chat": "Tradução necessária",
-        "live_chat_status": "Tradução necessária",
-        "live_chat_eta": "Tradução necessária",
-        "support_hours_title": "Tradução necessária",
-        "support_hours_days": "Tradução necessária",
-        "support_hours_time": "Tradução necessária"
+        "title": "Contato rápido",
+        "email_support": "Suporte por e-mail",
+        "email_address": "support@transly.app",
+        "response_time": "Resposta dentro de 24 horas",
+        "live_chat": "- Não .",
+        "live_chat_status": "Disponível em breve",
+        "live_chat_eta": "Chega no segundo trimestre de 2024",
+        "support_hours_title": "Horas de apoio",
+        "support_hours_days": "Segunda-feira-sexta-feiras",
+        "support_hours_time": "9:00 AM - 6:00 PM UTC"
       },
       "common_issues": {
-        "title": "Tradução necessária",
+        "title": "Questões comuns",
         "translation_not_working": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária"
+          "title": "Tradução não funciona",
+          "description": "Tente atualizar a página ou verifique a sua conexão com a Internet."
         },
         "language_not_supported": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária"
+          "title": "Idioma não suportado",
+          "description": "Estamos constantemente adicionando novos idiomas. Envie um pedido e nós o consideraremos para futuras atualizações."
         },
         "file_upload_issues": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária"
+          "title": "Problemas com o upload de arquivos",
+          "description": "Certifique-se de que o seu ficheiro tem menos de 50 MB e está em formato suportado (PDF, DOCX, PPTX)."
         },
         "audio_playback_not_working": {
-          "title": "Tradução necessária",
-          "description": "Tradução necessária"
+          "title": "Reprodução de áudio não funciona",
+          "description": "Verifique as configurações de áudio do seu navegador e certifique-se de ter uma conexão estável à Internet."
         }
       },
       "self_help": {
-        "title": "Tradução necessária",
-        "how_it_works": "Tradução necessária",
-        "try_text": "Tradução necessária",
-        "try_docs": "Tradução necessária",
-        "privacy": "Tradução necessária",
-        "terms": "Tradução necessária"
+        "title": "Recursos de autoajuda",
+        "how_it_works": "→ Como funciona o Transly",
+        "try_text": "→ Tente tradução de texto",
+        "try_docs": "→ Guia de tradução de documentos",
+        "privacy": "→ Política de privacidade",
+        "terms": "→ Termos de serviço"
       }
     },
     "what_to_expect": {
-      "title": "Tradução necessária",
+      "title": "O que esperar?",
       "quick_response": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Resposta rápida",
+        "description": "Normalmente respondemos a todas as perguntas dentro de 24 horas durante os dias úteis."
       },
       "personal_support": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Apoio pessoal",
+        "description": "Todas as mensagens são lidas pela nossa equipa, sem bots, apenas pessoas reais que querem ajudar-te."
       },
       "follow_up": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Seguimento ",
+        "description": "Continuaremos a trabalhar consigo até que o seu problema seja completamente resolvido."
       }
     }
   },
@@ -320,526 +432,551 @@
       "description": "Recomendações inteligentes baseadas em cenários. Comece com $5 para estudantes, $10 para usuários pessoais, $25 para profissionais."
     },
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Preços flexíveis para todos",
+      "description": "Escolha o pacote de créditos que melhor se adapte às suas necessidades."
     },
     "plans": {
       "starter": {
         "name": "Iniciante",
         "description": "Adequado para estudantes e usuários leves",
-        "discount": "Tradução necessária"
+        "discount": "Economize 20%"
       },
       "professional": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
-        "discount": "Tradução necessária"
+        "name": "Embalagem profissional",
+        "description": "Projetado para profissionais e pequenas equipas que necessitam de um volume de tradução maior",
+        "discount": "Poupe 10%"
       },
       "business": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
-        "discount": "Tradução necessária"
+        "name": "Pacote de Negócios",
+        "description": "Atender às necessidades do nível da empresa com o melhor preço unitário",
+        "discount": "Poupe 20%"
       }
     },
     "features": {
-      "title": "Tradução necessária",
-      "unlimited_text": "Tradução necessária",
-      "document_support": "Tradução necessária",
-      "tts_support": "Tradução necessária",
-      "api_access": "Tradução necessária",
-      "priority_support": "Tradução necessária",
-      "no_expiry": "Tradução necessária"
+      "title": "Todos os planos incluem",
+      "unlimited_text": "Traduções ilimitadas de textos",
+      "document_support": "Apoio à tradução de documentos",
+      "tts_support": "Funcionalidade de texto para voz",
+      "api_access": "Acesso à API",
+      "priority_support": "Apoio ao cliente prioritário",
+      "no_expiry": "Os créditos nunca expiram."
     },
     "buttons": {
-      "purchase": "Tradução necessária",
-      "processing": "Tradução necessária",
-      "get_started": "Tradução necessária"
+      "purchase": "Compra",
+      "processing": "Processamento...",
+      "get_started": "Comecem"
     },
     "alert": {
-      "canceled_title": "Tradução necessária",
-      "canceled_description": "Tradução necessária"
+      "canceled_title": "Pagamento cancelado",
+      "canceled_description": "A sua compra foi cancelada. Não foi cobrada. Por favor, sinta-se à vontade para selecionar um plano e tentar novamente."
     },
-    "loading": "Tradução necessária",
+    "loading": "Carregando...",
     "cta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "free_trial": "Tradução necessária",
-      "contact_sales": "Tradução necessária"
+      "title": "Pronto para começar?",
+      "description": "Junte-se a milhares de usuários que confiam no Transly para suas necessidades de tradução.",
+      "free_trial": "Tente tradução livre",
+      "contact_sales": "Contacto de vendas"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
     }
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Traductor de texto - Ferramenta de tradução gratuita de IA.",
+      "description": "Tradução de texto online gratuito para mais de 20 idiomas de baixo recurso. Traduza crioula, lao, suaíli, birmanês e muito mais para inglês instantaneamente com IA."
     },
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "status_free": "Tradução necessária",
-      "status_ai": "Tradução necessária",
-      "status_instant": "Tradução necessária"
+      "title": "Traductor de texto gratuito",
+      "description": "Traduza texto entre 20+ idiomas de baixo recurso e inglês usando IA avançada. Rápido, preciso e completamente gratuito para até 500 caracteres.",
+      "status_free": "500 carros grátis",
+      "status_ai": "Alimentada por IA",
+      "status_instant": "Resultados instantâneos"
     },
     "other_languages": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Tente outros idiomas",
+      "description": "Explore tradução para outras línguas com poucos recursos"
     },
     "faq": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "q1_title": "Tradução necessária",
-      "q1_answer": "Tradução necessária",
-      "q2_title": "Tradução necessária",
-      "q2_answer": "Tradução necessária",
-      "q3_title": "Tradução necessária",
-      "q3_answer": "Tradução necessária",
-      "q4_title": "Tradução necessária",
-      "q4_answer": "Tradução necessária",
-      "q5_title": "Tradução necessária",
-      "q5_answer": "Tradução necessária",
-      "q6_title": "Tradução necessária",
-      "q6_answer": "Tradução necessária",
-      "contact_text": "Tradução necessária",
-      "contact_link": "Tradução necessária"
+      "title": "Tradução de texto FAQ",
+      "description": "Tudo o que precisa de saber sobre o nosso serviço de tradução de texto",
+      "q1_title": "Quanto custa a tradução de texto?",
+      "q1_answer": "A tradução de texto é completamente gratuita para até 500 caracteres por pedido. Para textos mais longos (mais de 500 caracteris), cobramos 0,1 créditos por caractere. Por exemplo, um texto de 1000 caracteres custaria 50 créditos (500 grátis + 500×0,1 = 50 crédito).",
+      "q2_title": "Quais idiomas você suporta?",
+      "q2_answer": "Nós somos especializados em idiomas de baixo recurso que são muitas vezes mal suportados pelos serviços de tradução convencionais.",
+      "q3_title": "Quão precisas são as traduções?",
+      "q3_answer": "As nossas traduções são baseadas no modelo NLLB (No Language Left Behind) da Meta, que foi projetado especificamente para línguas de baixo recurso.",
+      "q4_title": "Preciso criar uma conta?",
+      "q4_answer": "Não é necessária nenhuma conta para traduções gratuitas (até 500 caracteres). No entanto, criar uma conta gratuita dá-lhe 500 créditos bônus e permite-lhe comprar créditos adicionais para tradução mais longa. Você também terá acesso ao histórico de traduções e outros recursos premium.",
+      "q5_title": "Posso traduzir do inglês para outros idiomas?",
+      "q5_answer": "Sim! Todos os nossos idiomas suportados funcionam bidirecionalmente. Você pode traduzir do inglês para qualquer idioma suportado, ou de qualquer idioma apoiado para o inglês. Basta usar o seletor de idioma para escolher a direção de tradução desejada.",
+      "q6_title": "Qual é o limite de caracteres?",
+      "q6_answer": "Os usuários gratuitos podem traduzir até 500 caracteres por solicitação sem nenhum custo. Para textos mais longos, você pode quebrá-los em pedaços menores ou comprar créditos. Os usuário registrados recebem 500 créditos bônus para começar, o que permite traduções mais longas.",
+      "contact_text": "Tem mais perguntas?",
+      "contact_link": "Contacte a nossa equipa de apoio"
     },
     "cta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "try_document": "Tradução necessária",
-      "view_pricing": "Tradução necessária"
+      "title": "Precisa de mais poder de tradução?",
+      "description": "Traduza textos e documentos mais longos com as nossas funcionalidades premium",
+      "try_document": "Tente tradução de documentos",
+      "view_pricing": "Ver os planos de preços"
     },
     "features": {
-      "title": "Tradução necessária",
-      "fast_title": "Tradução necessária",
-      "fast_desc": "Tradução necessária",
-      "accurate_title": "Tradução necessária",
-      "accurate_desc": "Tradução necessária",
-      "free_title": "Tradução necessária",
-      "free_desc": "Tradução necessária"
+      "title": "Por que escolher nosso tradutor de texto?",
+      "fast_title": "Rápido como um relâmpago.",
+      "fast_desc": "Obtenha traduções instantâneas com modelos avançados de IA. Sem espera, sem atrasos.",
+      "accurate_title": "Alta precisão",
+      "accurate_desc": "Alimentado pelo modelo NLLB da Meta, garantindo traduções de alta qualidade para todos os idiomas suportados.",
+      "free_title": "Sempre livre",
+      "free_desc": "Sem taxas ocultas, sem limites, sem registo necessário."
     },
     "how_to": {
-      "title": "Tradução necessária",
-      "step1_title": "Tradução necessária",
-      "step1_desc": "Tradução necessária",
-      "step2_title": "Tradução necessária",
-      "step2_desc": "Tradução necessária",
-      "step3_title": "Tradução necessária",
-      "step3_desc": "Tradução necessária"
+      "title": "Como usar o tradutor de texto",
+      "step1_title": "Selecione idiomas",
+      "step1_desc": "Escolha o seu idioma de origem e o idioma de destino (inglês) nos menus suspensivos.",
+      "step2_title": "Digite texto",
+      "step2_desc": "Digite ou colar o seu texto na caixa de entrada. Até 1000 caracteres suportados.",
+      "step3_title": "Obter Tradução",
+      "step3_desc": "Clique em traduzir e obterá o resultado instantaneamente. Copie ou ouça a tradução."
     },
     "supported_languages": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "more": "Tradução necessária"
+      "title": "Idiomas suportados",
+      "description": "Apoiamos tradução destes idiomas para o inglês:",
+      "more": "E muitas outras línguas de baixo recurso..."
     }
   },
   "Layout": {
     "Navigation": {
-      "text_translation": "Tradução necessária",
-      "text_translation_desc": "Tradução necessária",
-      "document_translation": "Tradução necessária",
-      "document_translation_desc": "Tradução necessária",
-      "about": "Tradução necessária",
-      "about_desc": "Tradução necessária"
+      "text_translation": "Tradução de texto",
+      "text_translation_desc": "Traduzir texto entre idiomas",
+      "document_translation": "Tradução de documentos",
+      "document_translation_desc": "Fazer upload e traduzir documentos",
+      "about": "Cerca de ",
+      "about_desc": "Aprenda sobre a Transly"
     },
     "Footer": {
-      "tagline": "Tradução necessária",
-      "product": "Tradução necessária",
-      "text_translation": "Tradução necessária",
-      "document_translation": "Tradução necessária",
-      "supported_languages": "Tradução necessária",
-      "company": "Tradução necessária",
-      "about_us": "Tradução necessária",
-      "privacy_policy": "Tradução necessária",
-      "terms_of_service": "Tradução necessária",
-      "compliance": "Tradução necessária",
-      "resources": "Tradução necessária",
-      "faq": "Tradução necessária",
-      "contact_support": "Tradução necessária",
-      "api_docs": "Tradução necessária",
-      "copyright": "Tradução necessária",
-      "powered_by": "Tradução necessária"
+      "tagline": "Tradução profissional para idiomas de baixo recurso para o inglês.",
+      "product": "Produto",
+      "text_translation": "Tradução de texto",
+      "document_translation": "Tradução de documentos",
+      "supported_languages": "Idiomas suportados",
+      "company": "Empresa",
+      "about_us": "Sobre nós",
+      "privacy_policy": "Política de Privacidade",
+      "terms_of_service": "Termos de Serviço",
+      "compliance": "Conformidade",
+      "resources": "Recursos",
+      "faq": "FAQ",
+      "contact_support": "Contato de apoio",
+      "api_docs": "Documentação da API",
+      "copyright": "© 2024 Transly. Todos os direitos reservados.",
+      "powered_by": "Alimentado pela Meta NLLB AI Technology",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
     }
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Tradução de documentos - Traduza PDF, Word, PowerPoint.",
+      "description": "Suporte para arquivos PDF, Word, PowerPoint com tradução com IA para idiomas de baixo recurso."
     },
-    "title": "Tradução necessária",
-    "description": "Tradução necessária",
+    "title": "Tradução de documentos",
+    "description": "Faça upload de documentos e traduza-os para o inglês com alta precisão.",
     "steps": {
       "step1": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Carregar documento",
+        "description": "Escolha seu arquivo PDF, Word ou PowerPoint para traduzir"
       },
       "step2": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Processamento de IA",
+        "description": "A nossa IA extrai e analisa o conteúdo do seu documento"
       },
       "step3": {
-        "title": "Tradução necessária",
-        "description": "Tradução necessária"
+        "title": "Baixe o resultado",
+        "description": "Obtenha o seu documento traduzido no mesmo formato"
       }
     },
     "languages": {
-      "title": "Tradução necessária"
+      "title": "Idiomas suportados"
     },
     "cta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "try_text_translation": "Tradução necessária",
-      "view_pricing": "Tradução necessária"
+      "title": "Precisa de tradução rápida de texto?",
+      "description": "Para textos mais curtos ou traduções rápidas, tente o nosso tradutor de texto para resultados instantâneos.",
+      "try_text_translation": "Tente tradução de texto",
+      "view_pricing": "Ver Preços"
     },
     "hero": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Tradução de documentos",
+      "description": "Faça o upload de documentos e traduza-os para o inglês com alta precisão"
     },
     "upload_section": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Faça o upload do seu documento",
+      "description": "Escolha um arquivo para traduzir. Formatos suportados: PDF, Word, PowerPoint, Text. Tamanho máximo: 50MB"
     },
     "settings_section": {
-      "title": "Tradução necessária",
-      "source_language_label": "Tradução necessária",
-      "source_language_placeholder": "Tradução necessária",
-      "target_language_label": "Tradução necessária",
-      "target_language_placeholder": "Tradução necessária",
-      "translate_button": "Tradução necessária",
-      "translating_button": "Tradução necessária"
+      "title": "Configurações de tradução",
+      "source_language_label": "Língua de origem",
+      "source_language_placeholder": "Auto-detecção",
+      "target_language_label": "Língua de destino",
+      "target_language_placeholder": "Selecione o alvo",
+      "translate_button": "Traduza o ficheiro",
+      "translating_button": "Traduzindo..."
     },
     "jobs_section": {
-      "title": "Tradução necessária",
-      "no_jobs": "Tradução necessária",
+      "title": "História da tradução",
+      "no_jobs": "Os documentos traduzidos aparecerão aqui.",
       "status": {
-        "pending": "Tradução necessária",
-        "processing": "Tradução necessária",
-        "completed": "Tradução necessária",
-        "failed": "Tradução necessária"
+        "pending": "Em espera",
+        "processing": "Processamento",
+        "completed": "Completado",
+        "failed": "Falhou"
       },
-      "error_message": "Tradução necessária",
-      "download_button": "Tradução necessária"
+      "error_message": "Erro",
+      "download_button": "Baixe "
     }
   },
   "DocumentTranslator": {
     "auth_required": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "login_button": "Tradução necessária"
+      "title": "Requer login",
+      "description": "A tradução de documentos requer uma conta de login.",
+      "login_button": "Entre agora"
     },
     "upload": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "uploading": "Tradução necessária",
-      "click_to_select": "Tradução necessária",
-      "drag_drop": "Tradução necessária",
-      "upload_success": "Tradução necessária",
-      "extracted_characters": "Tradução necessária",
-      "upload_failed": "Tradução necessária"
+      "title": "Carregar documento",
+      "description": "Suporte a ficheiros PDF, Word, PowerPoint e texto, max {maxSize}",
+      "uploading": "Carregando...",
+      "click_to_select": "Clique para selecionar arquivo",
+      "drag_drop": "ou arraste e solte o arquivo aqui",
+      "upload_success": "Arquivo carregado com sucesso",
+      "extracted_characters": "Caracteres extraídos",
+      "upload_failed": "Carregamento falhado"
     },
     "analysis": {
-      "title": "Tradução necessária",
-      "filename": "Tradução necessária",
-      "filesize": "Tradução necessária",
-      "text_preview": "Tradução necessária",
-      "character_count": "Tradução necessária",
-      "characters": "Tradução necessária",
-      "credit_consumption": "Tradução necessária",
-      "credits": "Tradução necessária",
-      "free": "Tradução necessária",
-      "insufficient_credits": "Tradução necessária",
-      "recharge_now": "Tradução necessária",
-      "start_translation": "Tradução necessária",
-      "reupload": "Tradução necessária"
+      "title": "Resultado da análise do ficheiro",
+      "filename": "Nome do ficheiro",
+      "filesize": "Tamanho do arquivo",
+      "text_preview": "Análise de texto extraído",
+      "character_count": "Contagem de caracteres",
+      "characters": "caracteres",
+      "credit_consumption": "Consumo de crédito",
+      "credits": "créditos",
+      "free": "Grátis",
+      "insufficient_credits": "Não há créditos suficientes, precisamos de créditos obrigatórios, de crédito de saldo corrente.",
+      "recharge_now": "Recarregue agora",
+      "start_translation": "Começar Tradução",
+      "reupload": "Recarregar "
     },
     "translation": {
-      "title": "Tradução necessária",
-      "progress": "Tradução necessária",
-      "estimated_time": "Tradução necessária",
-      "completed": "Tradução necessária",
-      "download_result": "Tradução necessária",
-      "translation_started": "Tradução necessária",
-      "credits_consumed": "Tradução necessária",
-      "translation_failed": "Tradução necessária"
+      "title": "Progresso da tradução",
+      "progress": "Progresso do tratamento",
+      "estimated_time": "Estimado {segundos} segundos restantes",
+      "completed": "Tradução completa!",
+      "download_result": "Baixe o resultado da tradução",
+      "translation_started": "A tradução começou",
+      "credits_consumed": "Créditos consumidos",
+      "translation_failed": "Tradução falhou"
     }
   },
   "Errors": {
-    "user_not_authenticated": "Tradução necessária",
-    "missing_parameters": "Tradução necessária",
-    "insufficient_credits": "Tradução necessária",
-    "credit_error": "Tradução necessária",
-    "translation_invalid_response": "Tradução necessária",
-    "translation_failed_refund_failed": "Tradução necessária",
-    "translation_failed": "Tradução necessária",
-    "unexpected_error": "Tradução necessária",
-    "method_not_allowed": "Tradução necessária",
-    "invalid_json": "Tradução necessária",
-    "missing_fields": "Tradução necessária",
-    "empty_text": "Tradução necessária",
-    "text_too_long": "Tradução necessária",
-    "unexpected_detection_error": "Tradução necessária",
-    "invalid_lang_code": "Tradução necessária",
-    "invalid_speech_rate": "Tradução necessária",
-    "invalid_speech_pitch": "Tradução necessária",
-    "invalid_voice": "Tradução necessária",
-    "tts_unavailable": "Tradução necessária",
-    "tts_failed": "Tradução necessária",
-    "unexpected_tts_error": "Tradução necessária",
-    "failed_to_get_voices": "Tradução necessária"
+    "user_not_authenticated": "Utilizador não autenticado",
+    "missing_parameters": "Faltam parâmetros necessários",
+    "insufficient_credits": "Não há créditos suficientes.",
+    "credit_error": "Erro de crédito: {erro}",
+    "translation_invalid_response": "O serviço de tradução devolveu uma resposta inválida.",
+    "translation_failed_refund_failed": "Tradução falhou, e não podemos reembolsar os créditos.",
+    "translation_failed": "Tradução falhada: {error}",
+    "unexpected_error": "Ocorreu um erro inesperado: {error}",
+    "method_not_allowed": "Método não autorizado",
+    "invalid_json": "JSON inválido no corpo do pedido",
+    "missing_fields": "Faltando campos obrigatórios: {campos}",
+    "empty_text": "O texto não pode estar vazio",
+    "text_too_long": "Texto é muito longo. caracteres máximos {maxLength} permitidos, obteve {actualLengths}",
+    "unexpected_detection_error": "Um erro inesperado ocorreu durante a detecção de linguagem",
+    "invalid_lang_code": "Formulário de código de língua inválido",
+    "invalid_speech_rate": "A taxa de fala deve estar entre 0,5 e 2,0",
+    "invalid_speech_pitch": "O tom da fala deve estar entre 0,5 e 2,0",
+    "invalid_voice": "Voz inválida para língua {língua}",
+    "tts_unavailable": "O serviço de texto para voz está temporariamente indisponível. Tente novamente mais tarde.",
+    "tts_failed": "Não foi possível gerar o áudio de voz.",
+    "unexpected_tts_error": "Um erro inesperado ocorreu durante a geração de voz",
+    "failed_to_get_voices": "Não foi possível recuperar opções de voz"
   },
   "Auth": {
     "ForgotPassword": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "info": "Tradução necessária",
-      "contact_support": "Tradução necessária"
+      "title": "Reinicie a senha",
+      "description": "A funcionalidade de redefinição de senha está em desenvolvimento.",
+      "info": "Este recurso estará disponível em uma versão futura. Se você se esqueceu da sua senha, entre em contato com o suporte ao cliente para obter assistência.",
+      "contact_support": "Contato de apoio"
     },
     "SignUpForm": {
-      "title": "Tradução necessária",
-      "subtitle": "Tradução necessária",
-      "name_label": "Tradução necessária",
-      "name_placeholder": "Tradução necessária",
-      "name_required": "Tradução necessária",
-      "name_max_length": "Tradução necessária",
-      "email_label": "Tradução necessária",
-      "email_placeholder": "Tradução necessária",
-      "email_required": "Tradução necessária",
-      "email_invalid": "Tradução necessária",
-      "email_max_length": "Tradução necessária",
-      "password_label": "Tradução necessária",
-      "password_placeholder": "Tradução necessária",
-      "password_min_length": "Tradução necessária",
-      "password_max_length": "Tradução necessária",
-      "confirm_password_label": "Tradução necessária",
-      "confirm_password_placeholder": "Tradução necessária",
-      "confirm_password_required": "Tradução necessária",
-      "password_mismatch": "Tradução necessária",
-      "password_strength_label": "Tradução necessária",
-      "password_strength_feedback": "Tradução necessária",
-      "submit_button": "Tradução necessária",
-      "submit_loading_button": "Tradução necessária",
-      "signup_failed": "Tradução necessária",
-      "signup_error": "Tradução necessária",
-      "signin_prompt": "Tradução necessária",
-      "signin_link": "Tradução necessária"
+      "title": "Crie uma conta do Transly",
+      "subtitle": "Crie uma conta para receber 500 créditos de bônus",
+      "name_label": "Nome ",
+      "name_placeholder": "Digite o seu nome",
+      "name_required": "Por favor, digite o seu nome",
+      "name_max_length": "Nome não pode exceder 50 caracteres",
+      "email_label": "E-mail",
+      "email_placeholder": "Insira o seu e-mail",
+      "email_required": "Por favor, digite o seu e-mail",
+      "email_invalid": "Formato de e-mail inválido",
+      "email_max_length": "O e-mail não pode exceder 100 caracteres",
+      "password_label": "Senha",
+      "password_placeholder": "Digite a sua senha",
+      "password_min_length": "A senha deve ter pelo menos 8 caracteres",
+      "password_max_length": "A palavra-passe não pode exceder 128 caracteres",
+      "confirm_password_label": "Confirme a senha",
+      "confirm_password_placeholder": "Digite a sua senha novamente",
+      "confirm_password_required": "Por favor, confirme a sua senha.",
+      "password_mismatch": "As senhas não correspondem",
+      "password_strength_label": "Força da senha",
+      "password_strength_feedback": "A força da senha não atende aos requisitos, por favor melhore a sua senha",
+      "submit_button": "Inscreva-se",
+      "submit_loading_button": "Inscrever-me...",
+      "signup_failed": "Inscrição falhou, tente novamente ",
+      "signup_error": "Um erro ocorreu durante a inscrição, por favor tente novamente",
+      "signin_prompt": "Já tens uma conta?",
+      "signin_link": "Inscreva-se"
     },
     "SignInForm": {
-      "title": "Tradução necessária",
-      "subtitle": "Tradução necessária",
-      "email_label": "Tradução necessária",
-      "email_placeholder": "Tradução necessária",
-      "email_required": "Tradução necessária",
-      "email_invalid": "Tradução necessária",
-      "email_max_length": "Tradução necessária",
-      "password_label": "Tradução necessária",
-      "password_placeholder": "Tradução necessária",
-      "password_required": "Tradução necessária",
-      "password_max_length": "Tradução necessária",
-      "forgot_password_link": "Tradução necessária",
-      "remember_me_label": "Tradução necessária",
-      "submit_button": "Tradução necessária",
-      "submit_loading_button": "Tradução necessária",
-      "signin_failed": "Tradução necessária",
-      "signin_error": "Tradução necessária",
-      "signup_prompt": "Tradução necessária",
-      "signup_link": "Tradução necessária",
-      "social_divider": "Tradução necessária",
-      "google_signin_button": "Tradução necessária",
-      "signup_bonus_prompt_1": "Tradução necessária",
-      "signup_bonus_prompt_2": "Tradução necessária"
+      "title": "Inscreva-se no Transly",
+      "subtitle": "Por favor, entre na sua conta.",
+      "email_label": "E-mail",
+      "email_placeholder": "Insira o seu e-mail",
+      "email_required": "Por favor, digite o seu e-mail",
+      "email_invalid": "Formato de e-mail inválido",
+      "email_max_length": "O e-mail não pode exceder 100 caracteres",
+      "password_label": "Senha",
+      "password_placeholder": "Digite a sua senha",
+      "password_required": "Por favor, digite a sua senha",
+      "password_max_length": "A palavra-passe não pode exceder 128 caracteres",
+      "forgot_password_link": "Esqueceu a senha?",
+      "remember_me_label": "Lembra-te de mim durante 30 dias",
+      "submit_button": "Inscreva-se",
+      "submit_loading_button": "Entrando...",
+      "signin_failed": "Inscrição falhou, tente novamente",
+      "signin_error": "Um erro ocorreu durante o login, por favor tente novamente",
+      "signup_prompt": "Ainda não tens uma conta?",
+      "signup_link": "Inscreva-se agora",
+      "social_divider": "OR",
+      "google_signin_button": "Entre com o Google (em breve) ",
+      "signup_bonus_prompt_1": "Inscreva-se para uma nova conta e obtenha",
+      "signup_bonus_prompt_2": "500 créditos de bónus"
     },
     "GuestLimit": {
-      "remaining_translations": "Tradução necessária",
-      "register_for_unlimited": "Tradução necessária"
+      "remaining_translations": "Pode traduzir {count} mais vezes hoje",
+      "register_for_unlimited": "Registro para acesso ilimitado"
     }
   },
   "TranslatorWidget": {
     "errors": {
-      "limit_reached_title": "Tradução necessária",
-      "limit_reached_description": "Tradução necessária",
-      "login_required_title": "Tradução necessária",
-      "login_required_description": "Tradução necessária",
-      "daily_limit_title": "Tradução necessária",
-      "daily_limit_description": "Tradução necessária"
+      "limit_reached_title": "Limites de tradução atingidos",
+      "limit_reached_description": "Os utilizadores gratuitos podem traduzir até 10 vezes por dia. Registre-se para traduções ilimitadas",
+      "login_required_title": "Requer login",
+      "login_required_description": "Tradução de texto longo requer uma conta de login",
+      "daily_limit_title": "Limites de tradução atingidos",
+      "daily_limit_description": "O limite de tradução gratuita diária foi atingido"
     },
     "success": {
-      "translation_complete": "Tradução necessária",
-      "credits_consumed": "Tradução necessária"
+      "translation_complete": "Tradução completa",
+      "credits_consumed": "Créditos consumidos"
     },
     "alerts": {
-      "login_required_for_long_text": "Tradução necessária",
-      "login_now": "Tradução necessária",
-      "or": "Tradução necessária",
-      "register_account": "Tradução necessária"
+      "login_required_for_long_text": "Tradução de texto longo requer uma conta de login.",
+      "login_now": "Entre agora ",
+      "or": "ou ",
+      "register_account": "Conta de registo"
     },
     "buttons": {
-      "translating": "Tradução necessária",
-      "translate_with_credits": "Tradução necessária",
-      "free_translate": "Tradução necessária"
+      "translating": "Traduzindo...",
+      "translate_with_credits": "Tradução ({credits} credits) ",
+      "free_translate": "Traduza"
     },
     "credits": {
-      "balance": "Tradução necessária",
-      "recharge": "Tradução necessária",
-      "free_translation": "Tradução necessária",
-      "estimated_cost": "Tradução necessária",
-      "insufficient_credits": "Tradução necessária",
-      "free_quota_usage": "Tradução necessária",
-      "characters": "Tradução necessária",
-      "over_limit": "Tradução necessária",
-      "insufficient_balance": "Tradução necessária",
-      "recharge_now": "Tradução necessária"
+      "balance": "Créditos",
+      "recharge": "Recarregar",
+      "free_translation": "Tradução gratuita",
+      "estimated_cost": "Custo estimado (creditos)",
+      "insufficient_credits": "(Créditos insuficientes)",
+      "free_quota_usage": "Utilização livre de contingentes",
+      "characters": "caracteres",
+      "over_limit": "Excebe a quota livre em {excesso} de caracteres, consumirá créditos",
+      "insufficient_balance": "Não há créditos suficientes, precisamos de créditos obrigatórios, de crédito de saldo corrente.",
+      "recharge_now": "Recarregue agora"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária"
+      "title": "Plano de preços - Tradução de IA Transly",
+      "description": "Escolha um pacote de créditos que se adapte às suas necessidades de tradução."
     },
-    "title": "Tradução necessária",
-    "subtitle": "Tradução necessária",
-    "current_balance": "Tradução necessária",
+    "title": "Escolha o seu pacote de crédito",
+    "subtitle": "Sistema de crédito flexível, pagamento à medida, sem subscrições mensais",
+    "current_balance": "Saldo de crédito corrente: ",
     "free_tier": {
-      "title": "Tradução necessária",
-      "subtitle": "Tradução necessária",
-      "completely_free": "Tradução necessária",
-      "credit_based": "Tradução necessária",
+      "title": "Nível livre",
+      "subtitle": "Perfeito para uso leve",
+      "completely_free": "✅ Completamente Gratuito: ",
+      "credit_based": " baseado em crédito:",
       "features": {
-        "free_text": "Tradução necessária",
-        "all_languages": "Tradução necessária",
-        "unlimited_use": "Tradução necessária",
-        "large_text": "Tradução necessária",
-        "document_translation": "Tradução necessária",
-        "rate": "Tradução necessária"
+        "free_text": "Texto com menos de 500 caracteres",
+        "all_languages": "Todos os pares de idiomas suportados",
+        "unlimited_use": "Uso ilimitado",
+        "large_text": "Texto com mais de 500 caracteres",
+        "document_translation": "Tradução de documentos de grande porte",
+        "rate": "0,1 créditos/caractere (para excesso)"
       }
     },
     "packages": {
       "starter": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
+        "name": "Pacote de início",
+        "description": "Perfeito para usuários ocasionais",
         "features": {
-          "credits": "Tradução necessária",
-          "languages": "Tradução necessária",
-          "documents": "Tradução necessária",
-          "validity": "Tradução necessária"
+          "credits": "1 000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 7 dias"
         }
       },
       "basic": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
+        "name": "Pacote básico",
+        "description": "A escolha mais popular",
         "features": {
-          "credits": "Tradução necessária",
-          "languages": "Tradução necessária",
-          "documents": "Tradução necessária",
-          "validity": "Tradução necessária",
-          "support": "Tradução necessária"
+          "credits": "5.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 30 dias",
+          "support": "Apoio ao cliente prioritário"
         }
       },
       "pro": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
+        "name": "Pacote profissional",
+        "description": "Perfeito para usuários pesados",
         "features": {
-          "credits": "Tradução necessária",
-          "languages": "Tradução necessária",
-          "documents": "Tradução necessária",
-          "validity": "Tradução necessária",
-          "support": "Tradução necessária",
-          "batch": "Tradução necessária"
+          "credits": "10.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 60 dias",
+          "support": "Apoio ao cliente prioritário",
+          "batch": "Função de tradução por lotes"
         }
       },
       "business": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
+        "name": "Pacote Empresarial",
+        "description": "Perfeito para equipas e empresas",
         "features": {
-          "credits": "Tradução necessária",
-          "languages": "Tradução necessária",
-          "documents": "Tradução necessária",
-          "validity": "Tradução necessária",
-          "support": "Tradução necessária",
-          "batch": "Tradução necessária",
-          "api": "Tradução necessária"
+          "credits": "25 000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 90 dias",
+          "support": "Apoio ao cliente prioritário",
+          "batch": "Função de tradução por lotes",
+          "api": "Acesso à API"
         }
       },
       "enterprise": {
-        "name": "Tradução necessária",
-        "description": "Tradução necessária",
+        "name": "Pacote Empresarial",
+        "description": "Solução para grandes empresas",
         "features": {
-          "credits": "Tradução necessária",
-          "languages": "Tradução necessária",
-          "documents": "Tradução necessária",
-          "validity": "Tradução necessária",
-          "support": "Tradução necessária",
-          "batch": "Tradução necessária",
-          "api": "Tradução necessária",
-          "integration": "Tradução necessária"
+          "credits": "50.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 180 dias",
+          "support": "Apoio ao cliente dedicado",
+          "batch": "Função de tradução por lotes",
+          "api": "Acesso à API",
+          "integration": "Integração personalizada"
         }
       }
     },
-    "popular": "Tradução necessária",
-    "save": "Tradução necessária",
-    "credits": "Tradução necessária",
-    "purchase_button": "Tradução necessária",
-    "processing": "Tradução necessária",
+    "popular": "Recomendo",
+    "save": "Salve",
+    "credits": "créditos",
+    "purchase_button": "Compre agora",
+    "processing": "Processamento...",
     "new_user_bonus": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "note": "Tradução necessária"
+      "title": "Ofertas exclusivas para novos utilizadores",
+      "description": " Inscreva-se e obtenha 500 créditos + 20% de créditos extras na primeira compra",
+      "note": "O bónus será aplicado automaticamente na sua conta após o pagamento."
     },
     "register_prompt": {
-      "title": "Tradução necessária",
-      "description": "Tradução necessária",
-      "register_button": "Tradução necessária",
-      "signin_button": "Tradução necessária"
+      "title": "Inscreva-se agora para obter mais benefícios",
+      "description": "Os utilizadores registados beneficiam de 500 créditos de bónus de boas-vindas + 20% de recompensa extra na primeira compra",
+      "register_button": "Regista-te agora",
+      "signin_button": "Já tem conta"
     },
     "faq": {
-      "title": "Tradução necessária",
-      "subtitle": "Tradução necessária",
+      "title": "Perguntas Frequentes",
+      "subtitle": "Tudo o que precisa de saber sobre os nossos preços",
       "credit_calculation": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Como são calculados os créditos?",
+        "answer": "Para menos de 500 caracteres é totalmente gratuito, o excesso é cobrado a 0,1 créditos/caracter."
       },
       "expiration": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Os créditos expiram?",
+        "answer": "A validade do crédito depende do pacote comprado, que varia de 7 a 180 dias."
       },
       "payment_methods": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Quais os métodos de pagamento suportados?",
+        "answer": "Todos os pagamentos são processados através da plataforma segura Creem."
       },
       "bulk_discount": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Oferecem descontos em massa?",
+        "answer": "Sim! Os nossos pacotes maiores oferecem economias significativas - até 40% de desconto com o pacote Enterprise. Quanto mais créditos comprar, melhor o valor."
       },
       "unused_credits": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "O que acontece aos créditos não utilizados?",
+        "answer": "Os créditos não utilizados permanecem na sua conta até a data de expiração."
       },
       "business_invoicing": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Fornece faturas para compras de negócios?",
+        "answer": "Sim, fornecemos faturas detalhadas para todas as compras. Os clientes empresariais podem aceder às faturas através do painel da sua conta ou contactar o apoio para obter assistência."
       },
       "api_pricing": {
-        "question": "Tradução necessária",
-        "answer": "Tradução necessária"
+        "question": "Como funciona o preço da API?",
+        "answer": "O acesso à API é incluído nos pacotes Business e Enterprise."
       },
-      "contact_support": "Tradução necessária"
+      "contact_support": "Se tiver mais perguntas, entre em contacto com a nossa equipa de apoio"
     }
   },
   "Common": {
-    "remember_me": "Remember me",
-    "sign_up": "Sign up",
-    "sign_in": "Sign in",
-    "hide_password": "Hide password",
-    "show_password": "Show password",
-    "no_email": "No email",
-    "translation_failed": "Translation failed",
-    "detection_failed": "Detection failed",
-    "invalid_file": "Invalid file",
-    "upload_failed": "Upload failed",
-    "document_translation": "Document translation",
-    "priority_support": "Priority support",
-    "ready_to_translate": "Ready to Translate",
-    "upload_your_document": "Upload Your Document",
-    "creole_greeting": "Creole greeting",
-    "lao_greeting": "Lao greeting",
-    "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "remember_me": "Lembra-te de mim.",
+    "sign_up": "Inscreva-se",
+    "sign_in": "Inscreva-se",
+    "hide_password": "Esconda a senha",
+    "show_password": "Mostrar senha",
+    "no_email": "Não há e-mail.",
+    "translation_failed": "Tradução falhou",
+    "detection_failed": "Falha de detecção",
+    "invalid_file": "Ficheiro inválido",
+    "upload_failed": "Carregamento falhado",
+    "document_translation": "Tradução de documentos",
+    "priority_support": "Apoio prioritário",
+    "ready_to_translate": "Pronto para traduzir",
+    "upload_your_document": "Faça o upload do seu documento",
+    "creole_greeting": "Saudação em crioula",
+    "lao_greeting": "Saudações laóis",
+    "swahili_greeting": "Saudação em suaíli",
+    "choose_pricing_plan": "Escolha um plano de preços"
   },
   "translation": {
     "start_translation": "Iniciar tradução",
@@ -985,5 +1122,25 @@
     "select_all": "Selecionar todos",
     "batch_operations": "Operações em lote",
     "set_priority": "Definir prioridade"
+  },
+  "NotFound": {
+    "title": "Página Não Encontrada",
+    "description": "A página que você procura não existe ou foi movida.",
+    "goHome": "Vai para casa.",
+    "contactSupport": "Contatar Suporte"
+  },
+  "Error": {
+    "title": "Algo deu errado!",
+    "description": "Um erro inesperado ocorreu. Por favor tente novamente.",
+    "errorDetails": "Detalhes do erro (desenvolvimento)",
+    "tryAgain": "Tenta outra vez.",
+    "goHome": "Vai para casa.",
+    "contactSupport": "Contato de apoio"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Painel de Administração",
+      "description": "Gerencie as configurações do seu aplicativo e monitore o estado do sistema."
+    }
   }
 }

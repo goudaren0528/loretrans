@@ -1,5 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// NLLB语言代码映射
+const NLLB_LANGUAGE_MAP: Record<string, string> = {
+  'ht': 'hat_Latn', // Haitian Creole
+  'lo': 'lao_Laoo', // Lao
+  'sw': 'swh_Latn', // Swahili
+  'my': 'mya_Mymr', // Burmese
+  'te': 'tel_Telu', // Telugu
+  'si': 'sin_Sinh', // Sinhala
+  'am': 'amh_Ethi', // Amharic
+  'km': 'khm_Khmr', // Khmer
+  'ne': 'npi_Deva', // Nepali
+  'mg': 'plt_Latn', // Malagasy
+  'en': 'eng_Latn', // English
+  'zh': 'zho_Hans', // Chinese (Simplified)
+  'fr': 'fra_Latn', // French
+  'es': 'spa_Latn', // Spanish
+  'pt': 'por_Latn', // Portuguese
+  'ar': 'arb_Arab', // Arabic
+  'hi': 'hin_Deva', // Hindi
+};
+
+// 获取NLLB格式的语言代码
+function getNLLBLanguageCode(language: string): string {
+  const nllbCode = NLLB_LANGUAGE_MAP[language];
+  if (!nllbCode) {
+    throw new Error(`Unsupported language: ${language}`);
+  }
+  return nllbCode;
+}
+
 export async function GET() {
   try {
     console.log('Testing Hugging Face Space NLLB 1.3B service...')
@@ -37,6 +67,12 @@ export async function GET() {
         console.log(`Testing: ${testCase.description}`)
         const startTime = Date.now()
         
+        // Convert to NLLB language codes
+        const sourceNLLB = getNLLBLanguageCode(testCase.source_language);
+        const targetNLLB = getNLLBLanguageCode(testCase.target_language);
+        
+        console.log(`Language codes: ${testCase.source_language} -> ${sourceNLLB}, ${testCase.target_language} -> ${targetNLLB}`);
+        
         const response = await fetch(nllbUrl, {
           method: 'POST',
           headers: {
@@ -44,8 +80,8 @@ export async function GET() {
           },
           body: JSON.stringify({
             text: testCase.text,
-            source_language: testCase.source_language,
-            target_language: testCase.target_language,
+            source: sourceNLLB,
+            target: targetNLLB,
           }),
         })
 
@@ -55,9 +91,11 @@ export async function GET() {
         if (response.ok) {
           const data = await response.json()
           
-          // Handle different response formats
+          // Handle API response format
           let translatedText = ''
-          if (data.translated_text) {
+          if (data.result) {
+            translatedText = data.result
+          } else if (data.translated_text) {
             translatedText = data.translated_text
           } else if (data.translation) {
             translatedText = data.translation
@@ -70,7 +108,9 @@ export async function GET() {
             success: true,
             translatedText,
             responseTime,
-            status: response.status
+            status: response.status,
+            sourceNLLB,
+            targetNLLB
           })
           
           console.log(`✅ ${testCase.description}: "${testCase.text}" -> "${translatedText}" (${responseTime}ms)`)
@@ -81,7 +121,9 @@ export async function GET() {
             success: false,
             error: `HTTP ${response.status}: ${errorText}`,
             responseTime,
-            status: response.status
+            status: response.status,
+            sourceNLLB,
+            targetNLLB
           })
           
           console.log(`❌ ${testCase.description}: HTTP ${response.status} - ${errorText}`)
@@ -111,6 +153,7 @@ export async function GET() {
       overall_status: successCount === totalTests ? 'healthy' : successCount > 0 ? 'degraded' : 'unhealthy',
       success_rate: `${successCount}/${totalTests}`,
       average_response_time: `${Math.round(avgResponseTime)}ms`,
+      api_format: 'Updated to use correct field names (source/target) and NLLB language codes',
       results
     }
 
@@ -129,7 +172,8 @@ export async function GET() {
       timestamp: new Date().toISOString(),
       overall_status: 'unhealthy',
       error: error.message,
-      success_rate: '0/0'
+      success_rate: '0/0',
+      api_format: 'Updated to use correct field names (source/target) and NLLB language codes'
     }, { status: 503 })
   }
 }

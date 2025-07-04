@@ -161,10 +161,10 @@ export default async function HomePage({
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                为什么选择Transly？
+                {t('feature_section.title')}
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                专业解决Google翻译等主流工具无法处理的小语种翻译需求
+                {t('feature_section.description')}
               </p>
             </div>
 
@@ -174,12 +174,12 @@ export default async function HomePage({
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-2xl">👨‍🎓</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">学术研究者</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.academic.title')}</h3>
                 <p className="text-gray-600 mb-4">
-                  需要翻译海地克里奥尔语、老挝语等小语种学术文献和研究资料
+                  {t('user_scenarios.academic.description')}
                 </p>
                 <div className="text-sm text-blue-600 font-medium">
-                  推荐：Starter套餐 ($5) • 适合论文翻译
+                  {t('user_scenarios.academic.recommendation')}
                 </div>
               </div>
 
@@ -188,12 +188,12 @@ export default async function HomePage({
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-2xl">🌍</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">移民群体</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.immigrant.title')}</h3>
                 <p className="text-gray-600 mb-4">
-                  处理官方文件、法律文档等重要材料的准确翻译需求
+                  {t('user_scenarios.immigrant.description')}
                 </p>
                 <div className="text-sm text-green-600 font-medium">
-                  推荐：Basic套餐 ($10) • 高准确率保证
+                  {t('user_scenarios.immigrant.recommendation')}
                 </div>
               </div>
 
@@ -202,12 +202,12 @@ export default async function HomePage({
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-2xl">🏢</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">跨境电商</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.ecommerce.title')}</h3>
                 <p className="text-gray-600 mb-4">
-                  产品描述本地化，批量翻译商品信息到小语种市场
+                  {t('user_scenarios.ecommerce.description')}
                 </p>
                 <div className="text-sm text-purple-600 font-medium">
-                  推荐：Pro套餐 ($25) • 支持批量翻译
+                  {t('user_scenarios.ecommerce.recommendation')}
                 </div>
               </div>
             </div>
@@ -215,24 +215,24 @@ export default async function HomePage({
             {/* Cost Comparison */}
             <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border">
               <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                成本对比：为什么Transly更划算？
+                {t('cost_comparison.title')}
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center p-6 bg-red-50 rounded-xl">
-                  <div className="text-3xl font-bold text-red-600 mb-2">$120</div>
-                  <div className="text-sm text-red-800 font-medium mb-2">人工翻译</div>
-                  <div className="text-xs text-red-600">1000字符 × $0.12/字</div>
+                  <div className="text-3xl font-bold text-red-600 mb-2">{t('cost_comparison.human_translation.price')}</div>
+                  <div className="text-sm text-red-800 font-medium mb-2">{t('cost_comparison.human_translation.title')}</div>
+                  <div className="text-xs text-red-600">{t('cost_comparison.human_translation.description')}</div>
                 </div>
                 <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="text-3xl font-bold text-gray-500 mb-2">不支持</div>
-                  <div className="text-sm text-gray-700 font-medium mb-2">Google翻译</div>
-                  <div className="text-xs text-gray-500">小语种覆盖不足</div>
+                  <div className="text-3xl font-bold text-gray-500 mb-2">{t('cost_comparison.google_translate.price')}</div>
+                  <div className="text-sm text-gray-700 font-medium mb-2">{t('cost_comparison.google_translate.title')}</div>
+                  <div className="text-xs text-gray-500">{t('cost_comparison.google_translate.description')}</div>
                 </div>
                 <div className="text-center p-6 bg-green-50 rounded-xl border-2 border-green-200">
-                  <div className="text-3xl font-bold text-green-600 mb-2">$1</div>
-                  <div className="text-sm text-green-800 font-medium mb-2">Transly</div>
-                  <div className="text-xs text-green-600">1000字符 × $0.001/字</div>
-                  <div className="mt-2 text-xs font-semibold text-green-700">节省99%成本</div>
+                  <div className="text-3xl font-bold text-green-600 mb-2">{t('cost_comparison.transly.price')}</div>
+                  <div className="text-sm text-green-800 font-medium mb-2">{t('cost_comparison.transly.title')}</div>
+                  <div className="text-xs text-green-600">{t('cost_comparison.transly.description')}</div>
+                  <div className="mt-2 text-xs font-semibold text-green-700">{t('cost_comparison.transly.savings')}</div>
                 </div>
               </div>
             </div>

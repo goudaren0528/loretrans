@@ -80,19 +80,64 @@
         "text": {
           "title": "Gen pou tradwi",
           "description": "Gen pou tradwi",
-          "features": "Gen pou tradwi",
+          "features": {
+            "0": "G",
+            "1": "e",
+            "2": "n",
+            "3": " ",
+            "4": "p",
+            "5": "o",
+            "6": "u",
+            "7": " ",
+            "8": "t",
+            "9": "r",
+            "10": "a",
+            "11": "d",
+            "12": "w",
+            "13": "i"
+          },
           "button": "Gen pou tradwi"
         },
         "document": {
           "title": "Gen pou tradwi",
           "description": "Gen pou tradwi",
-          "features": "Gen pou tradwi",
+          "features": {
+            "0": "G",
+            "1": "e",
+            "2": "n",
+            "3": " ",
+            "4": "p",
+            "5": "o",
+            "6": "u",
+            "7": " ",
+            "8": "t",
+            "9": "r",
+            "10": "a",
+            "11": "d",
+            "12": "w",
+            "13": "i"
+          },
           "button": "Gen pou tradwi"
         },
         "image": {
           "title": "Gen pou tradwi",
           "description": "Gen pou tradwi",
-          "features": "Gen pou tradwi",
+          "features": {
+            "0": "G",
+            "1": "e",
+            "2": "n",
+            "3": " ",
+            "4": "p",
+            "5": "o",
+            "6": "u",
+            "7": " ",
+            "8": "t",
+            "9": "r",
+            "10": "a",
+            "11": "d",
+            "12": "w",
+            "13": "i"
+          },
           "button": "Gen pou tradwi"
         }
       },
@@ -145,7 +190,54 @@
     "faq_section": {
       "title": "Gen pou tradwi",
       "description": "Gen pou tradwi",
-      "questions": "Gen pou tradwi",
+      "questions": {
+        "0": {
+          "0": "G",
+          "question": "Èske Transly vrèman gratis pou itilize?",
+          "answer": "Wi! Transly se konplètman gratis pou tradiksyon tèks jiska 1000 karaktè pou chak demann. Pa gen okenn frè kache oswa kondisyon abònman."
+        },
+        "1": {
+          "0": "e",
+          "question": "Ki jan egzat tradiksyon yo ye?",
+          "answer": "Nou itilize modèl NLLB Meta a (Pa gen lang kite dèyè), ki bay tradiksyon-wo kalite pou lang ki gen resous ki ba. Pandan ke pa gen okenn tradiksyon otomatik se pafè, NLL B ki fèt espesyalman pou okipe lang ak done fòmasyon limite."
+        },
+        "2": {
+          "0": "n",
+          "question": "Ki lang ou sipòte?",
+          "answer": "Nou sipòte 20+ lang ki pa gen anpil resous, ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, sinhala, amharik, kmer, nepalyen, ak malgasyen."
+        },
+        "3": {
+          "0": " ",
+          "question": "Èske done mwen an an sekirite ak prive?",
+          "answer": "Absoliman. Nou pa estoke tèks tradiksyon ou sou serveurs nou yo. tèks ou a trete san danje epi efase imedyatman apre tradiksyon. Nou pran vi prive ou oserye."
+        },
+        "4": {
+          "0": "p",
+          "question": "Èske mwen ka tradui dokiman?",
+          "answer": "Wi! Nou sipòte PDF, Pawòl (.docx), ak PowerPoint (.pptx) tradiksyon dosye. Senpleman Upload dosye ou a epi nou pral ekstrè tèks la, tradui li, epi bay ou ak rezilta yo."
+        },
+        "5": {
+          "0": "o",
+          "question": "Ki jan fonksyon tèks-a-pale a travay?",
+          "answer": "Fonksyon tèks-a-pale nou an sipòte pwodiksyon angle ak sentèz vwa-wo kalite. Senpleman klike sou icon moun kap pale a akote nenpòt tradiksyon pou tande li pwononse."
+        },
+        "6": {
+          "0": "u",
+          "question": "Èske gen yon limit karaktè?",
+          "answer": "Itilizatè gratis ka tradui jiska 1000 karaktè pou chak demann. Pou tèks pi long, ou ka kraze yo nan ti moso pi piti oswa Upload dokiman pou pwosesis."
+        },
+        "7": {
+          "0": " ",
+          "question": "Èske mwen ka itilize Transly pou rezon komèsyal?",
+          "answer": "Wi, ou ka itilize Transly pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
+        },
+        "8": "t",
+        "9": "r",
+        "10": "a",
+        "11": "d",
+        "12": "w",
+        "13": "i"
+      },
       "contact_prompt": "Gen pou tradwi",
       "contact_link": "Gen pou tradwi"
     }
@@ -364,6 +456,25 @@
       "description": "Gen pou tradwi",
       "free_trial": "Gen pou tradwi",
       "contact_sales": "Gen pou tradwi"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
     }
   },
   "TextTranslatePage": {
@@ -455,7 +566,13 @@
       "contact_support": "Gen pou tradwi",
       "api_docs": "Gen pou tradwi",
       "copyright": "Gen pou tradwi",
-      "powered_by": "Gen pou tradwi"
+      "powered_by": "Gen pou tradwi",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
     }
   },
   "DocumentTranslatePage": {
@@ -822,24 +939,24 @@
     }
   },
   "Common": {
-    "remember_me": "Remember me",
-    "sign_up": "Sign up",
-    "sign_in": "Sign in",
-    "hide_password": "Hide password",
-    "show_password": "Show password",
-    "no_email": "No email",
-    "translation_failed": "Translation failed",
-    "detection_failed": "Detection failed",
-    "invalid_file": "Invalid file",
-    "upload_failed": "Upload failed",
-    "document_translation": "Document translation",
-    "priority_support": "Priority support",
-    "ready_to_translate": "Ready to Translate",
-    "upload_your_document": "Upload Your Document",
-    "creole_greeting": "Creole greeting",
-    "lao_greeting": "Lao greeting",
-    "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "remember_me": "Sonje m",
+    "sign_up": "Enskri",
+    "sign_in": "Enskri",
+    "hide_password": "Kache modpas",
+    "show_password": "Montre modpas",
+    "no_email": "Pa gen imèl",
+    "translation_failed": "Tradiksyon echwe",
+    "detection_failed": "Deteksyon echwe",
+    "invalid_file": "Dosye ki pa valab",
+    "upload_failed": "Upload echwe",
+    "document_translation": "Tradiksyon dokiman",
+    "priority_support": "Sipò priyorite",
+    "ready_to_translate": "Pare pou tradui",
+    "upload_your_document": "Upload Dokiman ou",
+    "creole_greeting": "Bonjou kreyòl",
+    "lao_greeting": "Layo salye",
+    "swahili_greeting": "Byenveni Swahili",
+    "choose_pricing_plan": "Chwazi yon plan pri"
   },
   "translation": {
     "start_translation": "Gen pou tradwi",
@@ -985,5 +1102,25 @@
     "select_all": "Gen pou tradwi",
     "batch_operations": "Gen pou tradwi",
     "set_priority": "Gen pou tradwi"
+  },
+  "NotFound": {
+    "title": "Pa jwenn paj",
+    "description": "Paj ou ap chèche a pa egziste oubyen li te deplase.",
+    "goHome": "Ale lakay",
+    "contactSupport": "Kontakte Sipò"
+  },
+  "Error": {
+    "title": "Gen yon bagay ki te mal!",
+    "description": "Yon erè inatandi te rive. Tanpri eseye ankò.",
+    "errorDetails": "Detay sou erè (Developman)",
+    "tryAgain": "Eseye ankò",
+    "goHome": "Ale lakay",
+    "contactSupport": "Kontakte Sipò"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Admin tablodbò",
+      "description": "Jere aplikasyon ou anviwònman ak kontwole sistèm estati."
+    }
   }
 }

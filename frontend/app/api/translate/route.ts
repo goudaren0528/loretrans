@@ -6,6 +6,36 @@ import {
 import { createServerCreditService } from '@/lib/services/credits'
 import { getLocale, getTranslations } from 'next-intl/server'
 
+// NLLB语言代码映射
+const NLLB_LANGUAGE_MAP: Record<string, string> = {
+  'ht': 'hat_Latn', // Haitian Creole
+  'lo': 'lao_Laoo', // Lao
+  'sw': 'swh_Latn', // Swahili
+  'my': 'mya_Mymr', // Burmese
+  'te': 'tel_Telu', // Telugu
+  'si': 'sin_Sinh', // Sinhala
+  'am': 'amh_Ethi', // Amharic
+  'km': 'khm_Khmr', // Khmer
+  'ne': 'npi_Deva', // Nepali
+  'mg': 'plt_Latn', // Malagasy
+  'en': 'eng_Latn', // English
+  'zh': 'zho_Hans', // Chinese (Simplified)
+  'fr': 'fra_Latn', // French
+  'es': 'spa_Latn', // Spanish
+  'pt': 'por_Latn', // Portuguese
+  'ar': 'arb_Arab', // Arabic
+  'hi': 'hin_Deva', // Hindi
+};
+
+// 获取NLLB格式的语言代码
+function getNLLBLanguageCode(language: string): string {
+  const nllbCode = NLLB_LANGUAGE_MAP[language];
+  if (!nllbCode) {
+    throw new Error(`Unsupported language: ${language}`);
+  }
+  return nllbCode;
+}
+
 interface TranslateRequest {
   text: string
   sourceLanguage: string
@@ -88,6 +118,12 @@ async function translateHandler(req: NextRequestWithUser) {
       const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
       const timeout = parseInt(process.env.NLLB_SERVICE_TIMEOUT || '60000');
       
+      // Convert to NLLB language codes
+      const sourceNLLB = getNLLBLanguageCode(sourceLang);
+      const targetNLLB = getNLLBLanguageCode(targetLang);
+      
+      console.log(`Converting language codes: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
+      
       // Create AbortController for timeout
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -101,8 +137,8 @@ async function translateHandler(req: NextRequestWithUser) {
           },
           body: JSON.stringify({
             text: text,
-            source_language: sourceLang,
-            target_language: targetLang,
+            source: sourceNLLB,
+            target: targetNLLB,
           }),
           signal: controller.signal
         });
@@ -116,9 +152,11 @@ async function translateHandler(req: NextRequestWithUser) {
 
         const nllbData = await nllbResponse.json();
         
-        // Handle different response formats from HF Space
+        // Handle API response format
         let translatedText = '';
-        if (nllbData.translated_text) {
+        if (nllbData.result) {
+          translatedText = nllbData.result;
+        } else if (nllbData.translated_text) {
           translatedText = nllbData.translated_text;
         } else if (nllbData.translation) {
           translatedText = nllbData.translation;

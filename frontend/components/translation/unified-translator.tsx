@@ -339,9 +339,9 @@ export function UnifiedTranslator({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {APP_CONFIG.languages.map((lang) => (
+              {APP_CONFIG.languages.supported.filter(lang => lang.available).map((lang) => (
                 <SelectItem key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
+                  {lang.nativeName} ({lang.name})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -370,9 +370,9 @@ export function UnifiedTranslator({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {APP_CONFIG.languages.map((lang) => (
+              {[APP_CONFIG.languages.target, ...APP_CONFIG.languages.supported.filter(lang => lang.available)].map((lang) => (
                 <SelectItem key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
+                  {lang.nativeName || lang.name} {lang.nativeName && lang.nativeName !== lang.name ? `(${lang.name})` : ''}
                 </SelectItem>
               ))}
             </SelectContent>

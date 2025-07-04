@@ -14,8 +14,7 @@ import { switchLocale, detectLocaleFromPath, type Locale } from '@/lib/navigatio
 
 const locales = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'zh', name: '中文', flag: '🇨🇳' },
 ];
 
 export default function LocaleSwitcher() {

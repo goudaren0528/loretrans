@@ -89,6 +89,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.50.2",
     "creem": "^0.3.37",
-    "dotenv": "^17.0.0"
+    "dotenv": "^17.0.0",
+    "node-fetch": "^3.3.2"
   }
 }

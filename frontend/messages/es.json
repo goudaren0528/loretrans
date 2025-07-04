@@ -72,34 +72,34 @@
         "text": {
           "title": "Traducción de Texto",
           "description": "Traduzca texto entre más de 20 idiomas de bajos recursos e inglés al instante.",
-          "features": [
-            "Hasta 1000 caracteres",
-            "Resultados instantáneos",
-            "Reproducción de voz",
-            "Copiar al portapapeles"
-          ],
+          "features": {
+            "0": "Hasta 1000 caracteres",
+            "1": "Resultados instantáneos",
+            "2": "Reproducción de voz",
+            "3": "Copiar al portapapeles"
+          },
           "button": "Empezar a Traducir"
         },
         "document": {
           "title": "Traducción de Documentos",
           "description": "Suba y traduzca documentos PDF, Word y PowerPoint.",
-          "features": [
-            "Soporte para PDF, Word, PPT",
-            "Conserva el formato",
-            "Descargar resultados",
-            "Procesamiento por lotes"
-          ],
+          "features": {
+            "0": "Soporte para PDF, Word, PPT",
+            "1": "Conserva el formato",
+            "2": "Descargar resultados",
+            "3": "Procesamiento por lotes"
+          },
           "button": "Empezar a Traducir"
         },
         "image": {
           "title": "Traducción de Imágenes",
           "description": "Extraiga y traduzca texto de imágenes utilizando tecnología OCR.",
-          "features": [
-            "Extracción de texto OCR",
-            "Múltiples formatos de imagen",
-            "Conserva el diseño",
-            "Próximamente"
-          ],
+          "features": {
+            "0": "Extracción de texto OCR",
+            "1": "Múltiples formatos de imagen",
+            "2": "Conserva el diseño",
+            "3": "Próximamente"
+          },
           "button": "Próximamente"
         }
       },
@@ -148,40 +148,40 @@
     "faq_section": {
       "title": "Preguntas Frecuentes",
       "description": "Todo lo que necesita saber sobre Transly",
-      "questions": [
-        {
+      "questions": {
+        "0": {
           "question": "¿Es Transly realmente gratis?",
           "answer": "¡Sí! Transly es completamente gratis para la traducción de texto de hasta 1000 caracteres por solicitud. No hay tarifas ocultas ni requisitos de suscripción."
         },
-        {
+        "1": {
           "question": "¿Qué tan precisas son las traducciones?",
           "answer": "Utilizamos el modelo NLLB (No Language Left Behind) de Meta, que proporciona traducciones de alta calidad para idiomas de bajos recursos. Aunque ninguna traducción automática es perfecta, NLLB está diseñado específicamente para manejar idiomas con datos de entrenamiento limitados."
         },
-        {
+        "2": {
           "question": "¿Qué idiomas soportan?",
           "answer": "Soportamos más de 20 idiomas de bajos recursos, incluyendo Criollo Haitiano, Lao, Swahili, Birmano, Telugu, Cingalés, Amárico, Jemer, Nepalí y Malgache. Todos los idiomas se pueden traducir al inglés."
         },
-        {
+        "3": {
           "question": "¿Mis datos están seguros y son privados?",
           "answer": "Absolutamente. No almacenamos el texto de su traducción en nuestros servidores. Su texto se procesa de forma segura y se elimina inmediatamente después de la traducción. Nos tomamos la privacidad muy en serio."
         },
-        {
+        "4": {
           "question": "¿Puedo traducir documentos?",
           "answer": "¡Sí! Soportamos la traducción de archivos PDF, Word (.docx) y PowerPoint (.pptx). Simplemente suba su archivo y nosotros extraeremos el texto, lo traduciremos y le proporcionaremos los resultados."
         },
-        {
+        "5": {
           "question": "¿Cómo funciona la función de texto a voz?",
           "answer": "Nuestra función de texto a voz admite la salida en inglés con síntesis de voz de alta calidad. Simplemente haga clic en el icono del altavoz junto a cualquier traducción para escucharla pronunciada."
         },
-        {
+        "6": {
           "question": "¿Hay un límite de caracteres?",
           "answer": "Los usuarios gratuitos pueden traducir hasta 1000 caracteres por solicitud. Para textos más largos, puede dividirlos en fragmentos más pequeños o subir documentos para su procesamiento."
         },
-        {
+        "7": {
           "question": "¿Puedo usar Transly para fines comerciales?",
           "answer": "Sí, puede usar Transly tanto para fines personales como comerciales. Para un uso comercial de gran volumen, contáctenos sobre nuestros servicios de API."
         }
-      ],
+      },
       "contact_prompt": "¿Tiene más preguntas?",
       "contact_link": "Contacte a nuestro equipo de soporte"
     },
@@ -223,7 +223,13 @@
       "contact_support": "Contactar Soporte",
       "api_docs": "Documentación de API",
       "copyright": "© 2024 Transly. Todos los derechos reservados.",
-      "powered_by": "Impulsado por la Tecnología IA de Meta NLLB"
+      "powered_by": "Impulsado por la Tecnología IA de Meta NLLB",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
     }
   },
   "PricingPage": {
@@ -277,6 +283,25 @@
       "try_now": "Probar Ahora - Es Gratis",
       "free_trial": "Prueba Gratuita",
       "contact_sales": "Contactar Ventas"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
     }
   },
   "DocumentTranslatePage": {
@@ -335,7 +360,7 @@
         "completed": "Completado",
         "failed": "Falló"
       },
-      "error_message": "Error",
+      "error_message": "Error ",
       "download_button": "Descargar"
     }
   },
@@ -493,7 +518,7 @@
     "buttons": {
       "translating": "Traduciendo...",
       "translate_with_credits": "Traducir ({credits} créditos)",
-      "free_translate": "Traducir"
+      "free_translate": "Traducido"
     },
     "credits": {
       "balance": "Créditos",
@@ -546,7 +571,7 @@
       "quick_contact": {
         "title": "Contacto Rápido",
         "email_support": "Soporte por Correo",
-        "email_address": "support@transly.app",
+        "email_address": "apoyo@transly.app",
         "response_time": "Respuesta en 24 horas",
         "live_chat": "Chat en Vivo",
         "live_chat_status": "Disponible pronto",
@@ -871,24 +896,24 @@
     }
   },
   "Common": {
-    "remember_me": "Remember me",
-    "sign_up": "Sign up",
-    "sign_in": "Sign in",
-    "hide_password": "Hide password",
-    "show_password": "Show password",
-    "no_email": "No email",
-    "translation_failed": "Translation failed",
-    "detection_failed": "Detection failed",
-    "invalid_file": "Invalid file",
-    "upload_failed": "Upload failed",
-    "document_translation": "Document translation",
-    "priority_support": "Priority support",
-    "ready_to_translate": "Ready to Translate",
-    "upload_your_document": "Upload Your Document",
-    "creole_greeting": "Creole greeting",
-    "lao_greeting": "Lao greeting",
-    "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "remember_me": "¿ Te acuerdas de mí ?",
+    "sign_up": "Regístrese",
+    "sign_in": "¿ Qué pasa?",
+    "hide_password": "Ocultar la contraseña",
+    "show_password": "Mostrar la contraseña",
+    "no_email": "No hay correo electrónico",
+    "translation_failed": "La traducción falló.",
+    "detection_failed": "No se ha detectado",
+    "invalid_file": "Archivo no válido",
+    "upload_failed": "El cargamento falló",
+    "document_translation": "Traducción de documentos",
+    "priority_support": "Apoyo prioritario",
+    "ready_to_translate": "Listo para traducir",
+    "upload_your_document": "Cargue su documento",
+    "creole_greeting": "Saludo en criollo",
+    "lao_greeting": "Saludo de Laos",
+    "swahili_greeting": "Saludo en swahili",
+    "choose_pricing_plan": "Elige un plan de precios"
   },
   "translation": {
     "start_translation": "Comenzar traducción",
@@ -1034,5 +1059,25 @@
     "select_all": "Seleccionar todo",
     "batch_operations": "Operaciones por lotes",
     "set_priority": "Establecer prioridad"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "La página que está buscando no existe o ha sido movida.",
+    "goHome": "Vete a casa",
+    "contactSupport": "Apoyo de contacto"
+  },
+  "Error": {
+    "title": "¡Algo salió mal!",
+    "description": "Se produjo un error inesperado. Por favor, intente de nuevo.",
+    "errorDetails": "Detalles del error (desarrollo)",
+    "tryAgain": "Prueba de nuevo",
+    "goHome": "Vete a casa",
+    "contactSupport": "Apoyo de contacto"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Panel de control de administración",
+      "description": "Administre la configuración de su aplicación y supervise el estado del sistema."
+    }
   }
 }

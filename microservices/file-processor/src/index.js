@@ -720,7 +720,7 @@ async function start() {
     await registerPlugins()
     
     const host = process.env.HOST || '0.0.0.0'
-    const port = process.env.PORT || 3010
+    const port = process.env.PORT || 8000
     
     await fastify.listen({ host, port })
     console.log(`📄 File Processor service running on http://${host}:${port}`)

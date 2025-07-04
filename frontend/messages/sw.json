@@ -80,19 +80,85 @@
         "text": {
           "title": "Inahitaji kutafsiriwa",
           "description": "Inahitaji kutafsiriwa",
-          "features": "Inahitaji kutafsiriwa",
+          "features": {
+            "0": "I",
+            "1": "n",
+            "2": "a",
+            "3": "h",
+            "4": "i",
+            "5": "t",
+            "6": "a",
+            "7": "j",
+            "8": "i",
+            "9": " ",
+            "10": "k",
+            "11": "u",
+            "12": "t",
+            "13": "a",
+            "14": "f",
+            "15": "s",
+            "16": "i",
+            "17": "r",
+            "18": "i",
+            "19": "w",
+            "20": "a"
+          },
           "button": "Inahitaji kutafsiriwa"
         },
         "document": {
           "title": "Inahitaji kutafsiriwa",
           "description": "Inahitaji kutafsiriwa",
-          "features": "Inahitaji kutafsiriwa",
+          "features": {
+            "0": "I",
+            "1": "n",
+            "2": "a",
+            "3": "h",
+            "4": "i",
+            "5": "t",
+            "6": "a",
+            "7": "j",
+            "8": "i",
+            "9": " ",
+            "10": "k",
+            "11": "u",
+            "12": "t",
+            "13": "a",
+            "14": "f",
+            "15": "s",
+            "16": "i",
+            "17": "r",
+            "18": "i",
+            "19": "w",
+            "20": "a"
+          },
           "button": "Inahitaji kutafsiriwa"
         },
         "image": {
           "title": "Inahitaji kutafsiriwa",
           "description": "Inahitaji kutafsiriwa",
-          "features": "Inahitaji kutafsiriwa",
+          "features": {
+            "0": "I",
+            "1": "n",
+            "2": "a",
+            "3": "h",
+            "4": "i",
+            "5": "t",
+            "6": "a",
+            "7": "j",
+            "8": "i",
+            "9": " ",
+            "10": "k",
+            "11": "u",
+            "12": "t",
+            "13": "a",
+            "14": "f",
+            "15": "s",
+            "16": "i",
+            "17": "r",
+            "18": "i",
+            "19": "w",
+            "20": "a"
+          },
           "button": "Inahitaji kutafsiriwa"
         }
       },
@@ -145,7 +211,61 @@
     "faq_section": {
       "title": "Inahitaji kutafsiriwa",
       "description": "Inahitaji kutafsiriwa",
-      "questions": "Inahitaji kutafsiriwa",
+      "questions": {
+        "0": {
+          "0": "I",
+          "question": "Je, Transly ni huru kutumia?",
+          "answer": "Ndiyo! Transly ni bure kabisa kwa ajili ya tafsiri ya maandishi hadi herufi 1000 kwa ombi. Hakuna ada siri au mahitaji ya usajili."
+        },
+        "1": {
+          "0": "n",
+          "question": "Tafsiri hizo ni sahihi kadiri gani?",
+          "answer": "Tunatumia NLLB ya Meta (Hakuna Lugha iliyoachwa nyuma) mfano, ambayo hutoa tafsiri zenye ubora wa juu kwa lugha zenye rasilimali za chini. Wakati hakuna tafsiri ya kiotomatiki ni kamili, NLL B imeundwa mahsusi kushughulikia lugha zilizo na data ndogo ya mafunzo."
+        },
+        "2": {
+          "0": "a",
+          "question": "Ni lugha gani unazounga mkono?",
+          "answer": "Tunasaidia lugha 20+ chini ya rasilimali ikiwa ni pamoja na Kihaiti Creole, Lao, Kiswahili, Burma, Telugu, Sinhala, Amharic, Khmer, Nepali, na Malagasy. lugha zote zinaweza kutafsiriwa kwa Kiingereza."
+        },
+        "3": {
+          "0": "h",
+          "question": "Je data yangu ni salama na ya kibinafsi?",
+          "answer": "Bila shaka. Hatuna kuhifadhi maandishi yako ya tafsiri kwenye seva zetu. Nakala yako ni kusindika salama na kufuta mara moja baada ya tafsirisho. Tunachukua faragha kwa umakini."
+        },
+        "4": {
+          "0": "i",
+          "question": "Je, naweza kutafsiri hati?",
+          "answer": "Ndiyo! Tunasaidia PDF, Neno (.docx), na PowerPoint (.pptx) faili tafsiri. Tu upload faili yako na sisi dondoo maandishi, kutafsiri, na kutoa na matokeo."
+        },
+        "5": {
+          "0": "t",
+          "question": "Jinsi gani toleo la maandishi kwa sauti kazi?",
+          "answer": "Maelezo yetu ya maandishi kwa sauti huduma inasaidia Kiingereza pato na high-quality sauti synthesis. Bonyeza tu juu ya icon msemaji karibu na tafsiri yoyote kusikia ni alitamka."
+        },
+        "6": {
+          "0": "a",
+          "question": "Je, kuna kikomo cha wahusika?",
+          "answer": "Watumiaji huru wanaweza kutafsiri hadi herufi 1000 kwa ombi. Kwa maandishi ya muda mrefu, unaweza kuzivunja katika vipande vidogo au kupakia hati kwa usindikaji."
+        },
+        "7": {
+          "0": "j",
+          "question": "Je, ninaweza kutumia Transly kwa ajili ya biashara?",
+          "answer": "Ndiyo, unaweza kutumia Transly kwa ajili ya matumizi ya kibinafsi na kibiashara. Kwa ajili ya kiasi kikubwa cha matumizi ya kibiashara, tafadhali wasiliana nasi kuhusu huduma zetu API."
+        },
+        "8": "i",
+        "9": " ",
+        "10": "k",
+        "11": "u",
+        "12": "t",
+        "13": "a",
+        "14": "f",
+        "15": "s",
+        "16": "i",
+        "17": "r",
+        "18": "i",
+        "19": "w",
+        "20": "a"
+      },
       "contact_prompt": "Inahitaji kutafsiriwa",
       "contact_link": "Inahitaji kutafsiriwa"
     }
@@ -364,6 +484,25 @@
       "description": "Inahitaji kutafsiriwa",
       "free_trial": "Inahitaji kutafsiriwa",
       "contact_sales": "Inahitaji kutafsiriwa"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
     }
   },
   "TextTranslatePage": {
@@ -455,7 +594,13 @@
       "contact_support": "Inahitaji kutafsiriwa",
       "api_docs": "Inahitaji kutafsiriwa",
       "copyright": "Inahitaji kutafsiriwa",
-      "powered_by": "Inahitaji kutafsiriwa"
+      "powered_by": "Inahitaji kutafsiriwa",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
     }
   },
   "DocumentTranslatePage": {
@@ -822,24 +967,24 @@
     }
   },
   "Common": {
-    "remember_me": "Remember me",
-    "sign_up": "Sign up",
-    "sign_in": "Sign in",
-    "hide_password": "Hide password",
-    "show_password": "Show password",
-    "no_email": "No email",
-    "translation_failed": "Translation failed",
-    "detection_failed": "Detection failed",
-    "invalid_file": "Invalid file",
-    "upload_failed": "Upload failed",
-    "document_translation": "Document translation",
-    "priority_support": "Priority support",
-    "ready_to_translate": "Ready to Translate",
-    "upload_your_document": "Upload Your Document",
-    "creole_greeting": "Creole greeting",
-    "lao_greeting": "Lao greeting",
-    "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "remember_me": "Kumbuka mimi",
+    "sign_up": "Jiandikishe",
+    "sign_in": "Ingia",
+    "hide_password": "Ficha nenosiri",
+    "show_password": "Onyesha password",
+    "no_email": "Hakuna barua pepe",
+    "translation_failed": "Tafsiri alishindwa",
+    "detection_failed": "Kugundua kushindwa",
+    "invalid_file": "Faili batili",
+    "upload_failed": "Upload alishindwa",
+    "document_translation": "Tafsiri ya hati",
+    "priority_support": "Msaada wa kipaumbele",
+    "ready_to_translate": "Tayari Kutafsiri",
+    "upload_your_document": "Pakia Hati Yako",
+    "creole_greeting": "Salamu ya Kikrioli",
+    "lao_greeting": "Salamu za Lao",
+    "swahili_greeting": "Salamu ya Kiswahili",
+    "choose_pricing_plan": "Chagua mpango wa bei"
   },
   "translation": {
     "start_translation": "Inahitaji kutafsiriwa",
@@ -985,5 +1130,25 @@
     "select_all": "Inahitaji kutafsiriwa",
     "batch_operations": "Inahitaji kutafsiriwa",
     "set_priority": "Inahitaji kutafsiriwa"
+  },
+  "NotFound": {
+    "title": "Ukurasa Haukupatikana",
+    "description": "Ukurasa unaotafuta haupo au umehamishwa.",
+    "goHome": "Nenda Nyumbani",
+    "contactSupport": "Wasiliana na Msaada"
+  },
+  "Error": {
+    "title": "Kitu fulani kilikwenda vibaya!",
+    "description": "Kosa lisilotarajiwa limetokea. Tafadhali jaribu tena.",
+    "errorDetails": "Makosa Maelezo (Maendeleo)",
+    "tryAgain": "Jaribu Tena",
+    "goHome": "Nenda Nyumbani",
+    "contactSupport": "Wasiliana na Msaada"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Kiwango cha admin",
+      "description": "Kusimamia mipangilio ya maombi yako na kufuatilia hali ya mfumo."
+    }
   }
 }

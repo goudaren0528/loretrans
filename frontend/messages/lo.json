@@ -47,270 +47,543 @@
   },
   "IndexPage": {
     "meta": {
-      "title": "Transly - AI Translator for Low-Resource Languages",
-      "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
+      "title": "Transly - AI Translator ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ",
+      "description": "ການແປພາສາໂດຍບໍ່ເສຍຄ່າໂດຍໃຊ້ AI ສໍາລັບ 20+ ພາສາທີ່ມີແຫຼ່ງທີ່ຕ່ໍາເຊັ່ນ: Creole, Lao, ແລະ Swahili. ແປຂໍ້ຄວາມແລະເອກະສານເປັນພາສາອັງກິດທັນທີ."
     },
-    "title": "Translate Low-Resource Languages",
-    "description": "AI-powered translation for languages with limited resources.",
+    "title": "ແປພາສາທີ່ໃຊ້ຊັບພະຍາກອນຫນ້ອຍ",
+    "description": "ການແປພາສາດ້ວຍ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຈໍາກັດ",
     "hero": {
-      "title": "AI-Powered Translation for Low-Resource Languages",
-      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for languages often underserved by mainstream services. Get started for free.",
+      "title": "ການແປພາສາດ້ວຍ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ",
+      "description": "ທໍາລາຍອຸປະສັກດ້ານພາສາດ້ວຍ AI ທີ່ທັນສະ ໄຫມ. ເວທີຂອງພວກເຮົາສະ ຫນອງ ການແປພາສາທີ່ມີຄຸນນະພາບສູງ ສໍາ ລັບພາສາທີ່ມັກບໍ່ໄດ້ຮັບການບໍລິການໂດຍບໍລິການຫຼັກ. ເລີ່ມຕົ້ນໂດຍບໍ່ເສຍຄ່າ.",
       "status": {
-        "free": "100% Free",
+        "free": "100% ຟຣີ",
         "ai_powered": "AI-Powered",
-        "multi_language": "20+ Languages"
+        "multi_language": "20+ ພາສາ"
       },
-      "cta_start": "Start Translating",
-      "cta_upload": "Upload Document"
+      "cta_start": "ເລີ່ມຕົ້ນແປພາສາ",
+      "cta_upload": "ອັບໂຫລດເອກະສານ"
     },
     "supported_languages": {
-      "title": "Supported Languages",
-      "description": "Translate from these low-resource languages to English"
+      "title": "ພາສາທີ່ສະຫນັບສະຫນູນ",
+      "description": "ແປຈາກພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍານີ້ ເປັນພາສາອັງກິດ"
     },
     "cta_section": {
-      "title": "Start Translating Today",
-      "description": "Join thousands of users who trust Transly for their translation needs",
-      "cta_try": "Try Now - It's Free",
-      "cta_docs": "Translate Documents"
+      "title": "ເລີ່ມຕົ້ນການແປພາສາໃນມື້ນີ້",
+      "description": "ເຂົ້າຮ່ວມຜູ້ໃຊ້ຫຼາຍພັນຄົນທີ່ເຊື່ອຖື Transly ສໍາລັບຄວາມຕ້ອງການການແປພາສາຂອງພວກເຂົາ",
+      "cta_try": "ພະຍາຍາມດຽວນີ້ - ມັນບໍ່ເສຍຄ່າ",
+      "cta_docs": "ແປເອກະສານ"
     },
     "translation_options": {
-      "title": "Choose Your Translation Method",
-      "description": "Select the best option for your translation needs",
+      "title": "ເລືອກ ວິທີ ແປ ພາສາ ຂອງ ທ່ານ",
+      "description": "ເລືອກຕົວເລືອກທີ່ດີທີ່ສຸດ ສໍາ ລັບຄວາມຕ້ອງການການແປພາສາຂອງທ່ານ",
       "options": {
         "text": {
-          "title": "Text Translation",
-          "description": "Translate text between 20+ low-resource languages and English instantly.",
-          "features": "• Instant translation • Character limit: 5000 • Free for basic use",
-          "button": "Start Translating"
+          "title": "ການແປຂໍ້ຄວາມ",
+          "description": "ແປຂໍ້ຄວາມລະຫວ່າງ 20+ ພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ແລະພາສາອັງກິດທັນທີ.",
+          "features": {
+            "0": "•",
+            "1": " ",
+            "2": "I",
+            "3": "n",
+            "4": "s",
+            "5": "t",
+            "6": "a",
+            "7": "n",
+            "8": "t",
+            "9": " ",
+            "10": "t",
+            "11": "r",
+            "12": "a",
+            "13": "n",
+            "14": "s",
+            "15": "l",
+            "16": "a",
+            "17": "t",
+            "18": "i",
+            "19": "o",
+            "20": "n",
+            "21": " ",
+            "22": "•",
+            "23": " ",
+            "24": "C",
+            "25": "h",
+            "26": "a",
+            "27": "r",
+            "28": "a",
+            "29": "c",
+            "30": "t",
+            "31": "e",
+            "32": "r",
+            "33": " ",
+            "34": "l",
+            "35": "i",
+            "36": "m",
+            "37": "i",
+            "38": "t",
+            "39": ":",
+            "40": " ",
+            "41": "5",
+            "42": "0",
+            "43": "0",
+            "44": "0",
+            "45": " ",
+            "46": "•",
+            "47": " ",
+            "48": "F",
+            "49": "r",
+            "50": "e",
+            "51": "e",
+            "52": " ",
+            "53": "f",
+            "54": "o",
+            "55": "r",
+            "56": " ",
+            "57": "b",
+            "58": "a",
+            "59": "s",
+            "60": "i",
+            "61": "c",
+            "62": " ",
+            "63": "u",
+            "64": "s",
+            "65": "e"
+          },
+          "button": "ເລີ່ມຕົ້ນແປພາສາ"
         },
         "document": {
-          "title": "Document Translation",
-          "description": "Upload and translate PDF, Word, and PowerPoint documents.",
-          "features": "• PDF, Word, PowerPoint • Preserves formatting • Batch processing",
-          "button": "Start Translating"
+          "title": "ການແປເອກະສານ",
+          "description": "ອັບໂຫລດ ແລະ ແປເອກະສານ PDF, Word ແລະ PowerPoint.",
+          "features": {
+            "0": "•",
+            "1": " ",
+            "2": "P",
+            "3": "D",
+            "4": "F",
+            "5": ",",
+            "6": " ",
+            "7": "W",
+            "8": "o",
+            "9": "r",
+            "10": "d",
+            "11": ",",
+            "12": " ",
+            "13": "P",
+            "14": "o",
+            "15": "w",
+            "16": "e",
+            "17": "r",
+            "18": "P",
+            "19": "o",
+            "20": "i",
+            "21": "n",
+            "22": "t",
+            "23": " ",
+            "24": "•",
+            "25": " ",
+            "26": "P",
+            "27": "r",
+            "28": "e",
+            "29": "s",
+            "30": "e",
+            "31": "r",
+            "32": "v",
+            "33": "e",
+            "34": "s",
+            "35": " ",
+            "36": "f",
+            "37": "o",
+            "38": "r",
+            "39": "m",
+            "40": "a",
+            "41": "t",
+            "42": "t",
+            "43": "i",
+            "44": "n",
+            "45": "g",
+            "46": " ",
+            "47": "•",
+            "48": " ",
+            "49": "B",
+            "50": "a",
+            "51": "t",
+            "52": "c",
+            "53": "h",
+            "54": " ",
+            "55": "p",
+            "56": "r",
+            "57": "o",
+            "58": "c",
+            "59": "e",
+            "60": "s",
+            "61": "s",
+            "62": "i",
+            "63": "n",
+            "64": "g"
+          },
+          "button": "ເລີ່ມຕົ້ນແປພາສາ"
         },
         "image": {
-          "title": "Image Translation",
-          "description": "Extract and translate text from images using OCR technology.",
-          "features": "• OCR text extraction • Multiple image formats • Coming soon",
-          "button": "Coming Soon"
+          "title": "ການແປຮູບ",
+          "description": "ການສະກັດເອົາແລະແປຂໍ້ຄວາມຈາກຮູບພາບໂດຍໃຊ້ເຕັກໂນໂລຢີ OCR.",
+          "features": {
+            "0": "•",
+            "1": " ",
+            "2": "O",
+            "3": "C",
+            "4": "R",
+            "5": " ",
+            "6": "t",
+            "7": "e",
+            "8": "x",
+            "9": "t",
+            "10": " ",
+            "11": "e",
+            "12": "x",
+            "13": "t",
+            "14": "r",
+            "15": "a",
+            "16": "c",
+            "17": "t",
+            "18": "i",
+            "19": "o",
+            "20": "n",
+            "21": " ",
+            "22": "•",
+            "23": " ",
+            "24": "M",
+            "25": "u",
+            "26": "l",
+            "27": "t",
+            "28": "i",
+            "29": "p",
+            "30": "l",
+            "31": "e",
+            "32": " ",
+            "33": "i",
+            "34": "m",
+            "35": "a",
+            "36": "g",
+            "37": "e",
+            "38": " ",
+            "39": "f",
+            "40": "o",
+            "41": "r",
+            "42": "m",
+            "43": "a",
+            "44": "t",
+            "45": "s",
+            "46": " ",
+            "47": "•",
+            "48": " ",
+            "49": "C",
+            "50": "o",
+            "51": "m",
+            "52": "i",
+            "53": "n",
+            "54": "g",
+            "55": " ",
+            "56": "s",
+            "57": "o",
+            "58": "o",
+            "59": "n"
+          },
+          "button": "ຈະມາໄວໆນີ້"
         }
       },
       "quick_start": {
-        "title": "Not sure which option to choose? Start with text translation",
-        "button": "Try Text Translation Now"
+        "title": "ບໍ່ແນ່ໃຈວ່າຈະເລືອກທາງເລືອກໃດ? ເລີ່ມຕົ້ນດ້ວຍການແປຂໍ້ຄວາມ",
+        "button": "ພະຍາຍາມແປຂໍ້ຄວາມດຽວນີ້"
       },
-      "coming_soon": "Coming Soon"
+      "coming_soon": "ຈະມາໄວໆນີ້"
     },
     "language_grid": {
-      "coming_soon": "Coming Soon",
-      "try_language": "Try {language}"
+      "coming_soon": "ຈະມາໄວໆນີ້",
+      "try_language": "ພະຍາຍາມ {ພາສາ}"
     },
     "feature_section": {
-      "title": "Why Choose Transly?",
-      "description": "Professional-grade translation tools designed for low-resource languages",
+      "title": "ເປັນຫຍັງເລືອກ Transly?",
+      "description": "ເຄື່ອງມືແປພາສາລະດັບວິຊາຊີບທີ່ຖືກອອກແບບມາ ສໍາ ລັບພາສາທີ່ມີແຫຼ່ງທີ່ ຫນ້ອຍ ",
       "features": {
         "ai_powered": {
-          "name": "AI-Powered Translation",
-          "description": "Powered by Meta's NLLB model for accurate low-resource language translation."
+          "name": "ການແປພາສາທີ່ໃຊ້ AI",
+          "description": "ໃຊ້ພະລັງງານໂດຍຮູບແບບ NLLB ຂອງ Meta ສໍາລັບການແປພາສາທີ່ຖືກຕ້ອງດ້ວຍຊັບພະຍາກອນຕ່ໍາ."
         },
         "fast": {
-          "name": "Lightning Fast",
-          "description": "Get instant translations with our optimized AI infrastructure."
+          "name": "ໄວຫຼາຍເທົ່າໄຟຟ້າ",
+          "description": "ໄດ້ຮັບການແປພາສາທັນທີ ດ້ວຍພື້ນຖານໂຄງລ່າງ AI ທີ່ຖືກປັບປຸງຂອງພວກເຮົາ."
         },
         "privacy": {
-          "name": "Privacy First",
-          "description": "Your text is processed securely and never stored on our servers."
+          "name": "ຄວາມເປັນສ່ວນຕົວກ່ອນ",
+          "description": "ຂໍ້ຄວາມຂອງທ່ານຖືກປະມວນຜົນຢ່າງປອດໄພ ແລະບໍ່ເຄີຍເກັບຮັກສາໄວ້ໃນເຊີບເວີຂອງພວກເຮົາ."
         },
         "languages": {
-          "name": "20+ Languages",
-          "description": "Support for Creole, Lao, Swahili, Burmese, and many more low-resource languages."
+          "name": "20+ ພາສາ",
+          "description": "ສະຫນັບສະຫນູນພາສາ Creole, Lao, Swahili, Burmese, ແລະຫຼາຍພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ."
         },
         "tts": {
-          "name": "Text-to-Speech",
-          "description": "Listen to translations with our high-quality text-to-speech feature."
+          "name": "ການປ່ຽນຂໍ້ຄວາມເປັນສຽງ",
+          "description": "ຟັງການແປດ້ວຍຄຸນນະພາບສູງຂອງຕົວ ຫນັງ ສືເປັນສຽງຂອງພວກເຮົາ."
         },
         "documents": {
-          "name": "Document Translation",
-          "description": "Upload and translate PDF, Word, and PowerPoint files seamlessly."
+          "name": "ການແປເອກະສານ",
+          "description": "ອັບໂຫລດແລະແປເອກະສານ PDF, Word ແລະ PowerPoint ຢ່າງບໍ່ມີບັນຫາ."
         }
       },
       "stats": {
-        "languages": "Languages Supported",
-        "free": "Free to Use",
-        "characters": "Characters per Translation",
-        "availability": "Available"
+        "languages": "ພາສາທີ່ສະຫນັບສະຫນູນ",
+        "free": "ໃຊ້ໄດ້ຟຣີ",
+        "characters": "ຕົວອັກສອນຕາມການແປ",
+        "availability": "ມີຢູ່"
       }
     },
     "faq_section": {
-      "title": "Frequently Asked Questions",
-      "description": "Everything you need to know about Transly",
-      "questions": "Common questions about our translation service",
-      "contact_prompt": "Have more questions?",
-      "contact_link": "Contact our support team"
+      "title": "ຄໍາ ຖາມ ທີ່ ມັກ ຖາມ",
+      "description": "ທຸກຢ່າງທີ່ທ່ານຕ້ອງການຮູ້ກ່ຽວກັບ Transly",
+      "questions": {
+        "0": {
+          "0": "C",
+          "question": "Transly ແມ່ນໃຊ້ໄດ້ຟຣີແທ້ບໍ?",
+          "answer": "ແມ່ນແລ້ວ! Transly ແມ່ນບໍ່ເສຍຄ່າທັງ ຫມົດ ສໍາ ລັບການແປຂໍ້ຄວາມເຖິງ 1000 ຕົວອັກສອນຕໍ່ ຄໍາ ຮ້ອງຂໍ. ບໍ່ມີຄ່າ ທໍາ ນຽມທີ່ເຊື່ອງໄວ້ຫລືຄວາມຕ້ອງການສະ ຫມັກ."
+        },
+        "1": {
+          "0": "o",
+          "question": "ການ ແປ ພາສາ ແມ່ນ ຖືກຕ້ອງ ເທົ່າ ໃດ?",
+          "answer": "ພວກເຮົາໃຊ້ຮູບແບບ NLLB ຂອງ Meta (No Language Left Behind), ເຊິ່ງສະ ຫນອງ ການແປພາສາທີ່ມີຄຸນນະພາບສູງ ສໍາ ລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ. ໃນຂະນະທີ່ບໍ່ມີການແປພາສາອັດຕະໂນມັດແມ່ນສົມບູນແບບ, NLL B ຖືກອອກແບບມາໂດຍສະເພາະເພື່ອຈັດການກັບພາສາທີ່ມີຂໍ້ມູນການຝຶກອົບຮົມ ຈໍາ ກັດ."
+        },
+        "2": {
+          "0": "m",
+          "question": "ທ່ານສະຫນັບສະຫນູນພາສາໃດ?",
+          "answer": "ພວກເຮົາສະຫນັບສະຫນູນ 20+ ພາສາທີ່ມີແຫຼ່ງທີ່ຕ່ໍາລວມທັງ Haitian Creole, Lao, Swahili, Burmese, Telugu, Sinhala, Amharic, Khmer, Nepali, ແລະ Malagasy. ພາສາທັງ ຫມົດ ສາມາດແປເປັນພາສາອັງກິດ."
+        },
+        "3": {
+          "0": "m",
+          "question": "ຂໍ້ມູນຂອງຂ້ອຍປອດໄພ ແລະ ເປັນສ່ວນຕົວບໍ?",
+          "answer": "ແນ່ນອນ. ພວກເຮົາບໍ່ເກັບຮັກສາຂໍ້ຄວາມແປຂອງທ່ານໄວ້ໃນເຊີບເວີຂອງພວກເຮົາ. ຂໍ້ຄວາມຂອງທ່ານຖືກປະມວນຜົນຢ່າງປອດໄພແລະຖືກລຶບອອກທັນທີຫຼັງຈາກການແປ. ພວກເຮົາເອົາຄວາມເປັນສ່ວນຕົວຢ່າງຈິງໃຈ."
+        },
+        "4": {
+          "0": "o",
+          "question": "ຂ້ອຍສາມາດແປເອກະສານໄດ້ບໍ?",
+          "answer": "ແມ່ນແລ້ວ! ພວກເຮົາສະຫນັບສະຫນູນການແປເອກະສານ PDF, Word (.docx), ແລະ PowerPoint (.pptx). ພຽງແຕ່ອັບໂຫລດເອກະພາບຂອງທ່ານແລະພວກເຮົາຈະສະກັດເອົາຂໍ້ຄວາມ, ແປມັນ, ແລະສະ ຫນອງ ຜົນໃຫ້ທ່ານ."
+        },
+        "5": {
+          "0": "n",
+          "question": "ຫນ້າ ທີ່ປ່ຽນຂໍ້ຄວາມເປັນສຽງເຮັດວຽກແນວໃດ?",
+          "answer": "ຄຸນສົມບັດການແປພາສາຂອງພວກເຮົາມີການສະຫນັບສະຫນູນຜົນຜະລິດພາສາອັງກິດດ້ວຍການສັງລວມສຽງທີ່ມີຄຸນນະພາບສູງ. ພຽງແຕ່ກົດປຸ່ມສັນຍາລັກຜູ້ເວົ້າຂ້າງແປພາສາໃດໆເພື່ອຟັງມັນອອກສຽງ."
+        },
+        "6": {
+          "0": " ",
+          "question": "ມີຂໍ້ຈໍາກັດຕົວອັກສອນບໍ?",
+          "answer": "ຜູ້ໃຊ້ຟຣີສາມາດແປເຖິງ 1000 ຕົວອັກສອນຕໍ່ຄໍາຮ້ອງຂໍ. ສໍາ ລັບຂໍ້ຄວາມທີ່ຍາວນານ, ທ່ານສາມາດແບ່ງມັນອອກເປັນຊິ້ນສ່ວນນ້ອຍໆຫຼືອັບໂຫລດເອກະສານເພື່ອປະມວນຜົນ."
+        },
+        "7": {
+          "0": "q",
+          "question": "ຂ້ອຍສາມາດໃຊ້ Transly ໄດ້ບໍ?",
+          "answer": "ແມ່ນແລ້ວ, ທ່ານສາມາດໃຊ້ Transly ສໍາລັບຈຸດປະສົງສ່ວນຕົວ ແລະ ການຄ້າທັງສອງ. ສໍາລັບການນໍາໃຊ້ທາງດ້ານການຄ້າທີ່ມີປະລິມານສູງ, ກະລຸນາຕິດຕໍ່ຫາພວກເຮົາກ່ຽວກັບການບໍລິການ API ຂອງພວກເຮົາ."
+        },
+        "8": "u",
+        "9": "e",
+        "10": "s",
+        "11": "t",
+        "12": "i",
+        "13": "o",
+        "14": "n",
+        "15": "s",
+        "16": " ",
+        "17": "a",
+        "18": "b",
+        "19": "o",
+        "20": "u",
+        "21": "t",
+        "22": " ",
+        "23": "o",
+        "24": "u",
+        "25": "r",
+        "26": " ",
+        "27": "t",
+        "28": "r",
+        "29": "a",
+        "30": "n",
+        "31": "s",
+        "32": "l",
+        "33": "a",
+        "34": "t",
+        "35": "i",
+        "36": "o",
+        "37": "n",
+        "38": " ",
+        "39": "s",
+        "40": "e",
+        "41": "r",
+        "42": "v",
+        "43": "i",
+        "44": "c",
+        "45": "e"
+      },
+      "contact_prompt": "ມີຄໍາຖາມເພີ່ມເຕີມບໍ?",
+      "contact_link": "ຕິດຕໍ່ທີມງານສະຫນັບສະຫນູນຂອງພວກເຮົາ"
     }
   },
   "AboutPage": {
     "meta": {
-      "title": "About Transly - Professional Translation for Low-Resource Languages",
-      "description": "Learn about Transly, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
+      "title": "ກ່ຽວກັບ Transly - ການແປພາສາມືອາຊີບສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ",
+      "description": "ຮຽນຮູ້ກ່ຽວກັບ Transly, ເວທີການແປພາສາຊັ້ນ ນໍາ ສໍາ ລັບພາສານ້ອຍໆເປັນພາສາອັງກິດ. Powered by Meta NLLB model with 20+ supported languages."
     },
     "hero": {
-      "title": "About Transly",
-      "description": "Professional translation platform dedicated to connecting low-resource languages with the world through accurate English translation."
+      "title": "ກ່ຽວກັບ Transly",
+      "description": "ເວທີແປພາສາມືອາຊີບທີ່ອຸທິດໃຫ້ການເຊື່ອມຕໍ່ພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ກັບໂລກໂດຍຜ່ານການແປພາສາອັງກິດທີ່ຖືກຕ້ອງ."
     },
     "mission": {
-      "title": "Our Mission",
-      "p1": "We believe every language deserves to be heard. Transly bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
-      "p2": "Powered by Meta's state-of-the-art NLLB (No Language Left Behind) model, we support over 20 languages that are often overlooked by mainstream translation services.",
-      "cta": "Try Document Translation"
+      "title": "ພາລະກິດຂອງພວກເຮົາ",
+      "p1": "ພວກເຮົາເຊື່ອວ່າທຸກພາສາຄວນຖືກຟັງ. Transly ສ້າງຂີດຂວາງໃນການສື່ສານ ສໍາ ລັບຜູ້ເວົ້າພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ, ໂດຍສະ ຫນອງ ການແປພາສາທີ່ຖືກຕ້ອງແລະສາມາດເຂົ້າເຖິງໄດ້ເປັນພາສາອັງກິດ.",
+      "p2": "ໂດຍໃຊ້ຮູບແບບ NLLB (No Language Left Behind) ທີ່ທັນສະໄຫມຂອງ Meta, ພວກເຮົາສະຫນັບສະຫນູນຫຼາຍກວ່າ 20 ພາສາທີ່ມັກຈະຖືກລະເລີຍໂດຍບັນດາບໍລິການແປພາສາຫຼັກ.",
+      "cta": "ພະຍາຍາມການແປເອກະສານ"
     },
     "features": {
       "accessibility": {
-        "title": "Global Accessibility",
-        "description": "Making translation accessible for speakers of languages with limited digital resources."
+        "title": "ການເຂົ້າເຖິງທົ່ວໂລກ",
+        "description": "ເຮັດໃຫ້ການແປພາສາສາມາດເຂົ້າເຖິງໄດ້ ສໍາລັບຜູ້ເວົ້າພາສາທີ່ມີຊັບພະຍາກອນດິຈິຕອນຈໍາກັດ"
       },
       "accuracy": {
-        "title": "Fast & Accurate",
-        "description": "Advanced AI technology delivers high-quality translations in seconds."
+        "title": "ໄວ ແລະ ຖືກຕ້ອງ",
+        "description": "ເຕັກໂນໂລຊີ AI ທີ່ກ້າວຫນ້າ ສາມາດໃຫ້ການແປພາສາທີ່ມີຄຸນນະພາບສູງພາຍໃນສອງວິນາທີ."
       },
       "privacy": {
-        "title": "Privacy First",
-        "description": "Your translations are not stored. We respect your privacy and data security."
+        "title": "ຄວາມເປັນສ່ວນຕົວກ່ອນ",
+        "description": "ການແປພາສາຂອງທ່ານບໍ່ໄດ້ຖືກເກັບຮັກສາໄວ້. ພວກເຮົາເຄົາລົບຄວາມເປັນສ່ວນຕົວແລະຄວາມປອດໄພຂອງຂໍ້ມູນຂອງທ່ານ."
       }
     },
     "supported_languages": {
-      "title": "Supported Languages",
-      "description": "We support {count} low-resource languages with more being added regularly.",
-      "request_cta": "Request a Language",
-      "request_cta_description": "Don't see your language? We're constantly expanding our language support."
+      "title": "ພາສາທີ່ສະຫນັບສະຫນູນ",
+      "description": "ພວກເຮົາສະຫນັບສະຫນູນ {count} ພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ ແລະເພີ່ມອີກຢ່າງເປັນປົກກະຕິ.",
+      "request_cta": "ຂໍພາສາ",
+      "request_cta_description": "ບໍ່ເຫັນພາສາຂອງທ່ານບໍ? ພວກເຮົາກໍາລັງຂະຫຍາຍການສະຫນັບສະຫນູນພາສາຂອງພວກເຮົາຢ່າງຕໍ່ເນື່ອງ."
     },
     "technology": {
       "title": "Powered by Advanced AI",
-      "description": "Transly uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
+      "description": "Transly ໃຊ້ຮູບແບບ NLLB ຂອງ Meta (No Language Left Behind), ເຊິ່ງຖືກອອກແບບມາໂດຍສະເພາະເພື່ອສະ ຫນອງ ການແປພາສາທີ່ມີຄຸນນະພາບສູງ ສໍາ ລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ທີ່ລະບົບແບບດັ້ງເດີມ ກໍາ ລັງຕໍ່ສູ້ກັບ.",
       "cultural_preservation": {
-        "title": "Cultural Preservation",
-        "description": "Supporting linguistic diversity and helping preserve cultural heritage through technology."
+        "title": "ການຮັກສາວັດທະນະທໍາ",
+        "description": "ສະຫນັບສະຫນູນຄວາມຫຼາກຫຼາຍດ້ານພາສາ ແລະ ຊ່ວຍຮັກສາມໍລະດົກວັດທະນະທໍາ ໂດຍຜ່ານເຕັກໂນໂລຊີ"
       },
       "community_driven": {
-        "title": "Community Driven",
-        "description": "Built with feedback from native speakers and language communities worldwide."
+        "title": "ຄຸ້ມຄອງໂດຍຊຸມຊົນ",
+        "description": "ສ້າງຂຶ້ນດ້ວຍການຕອບສະຫນອງຈາກຜູ້ເວົ້າພື້ນເມືອງ ແລະຊຸມຊົນພາສາທົ່ວໂລກ."
       },
       "continuous_improvement": {
-        "title": "Continuous Improvement",
-        "description": "Regular model updates and improvements to provide better translation quality."
+        "title": "ການ ປັບປຸງ ຢ່າງ ຕໍ່ ເນື່ອງ",
+        "description": "ການປັບປຸງ ແລະ ປັບປຸງແບບຢ່າງເປັນປົກກະຕິ ເພື່ອໃຫ້ຄຸນນະພາບການແປພາສາດີຂຶ້ນ."
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions",
-      "q1_title": "What makes Transly different from other translation services?",
-      "q1_answer": "Transly specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
-      "q2_title": "Is my data safe and private?",
-      "q2_answer": "Yes, we prioritize your privacy. We don't store your translations or personal data. All translations are processed securely and deleted immediately after delivery. For document translations, files are automatically removed after download.",
-      "q3_title": "What file formats do you support for document translation?",
-      "q3_answer": "We currently support PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx), and plain text (.txt) files. We're working on adding support for more formats based on user feedback.",
-      "q4_title": "How accurate are the translations?",
-      "q4_answer": "Our translations are powered by Meta's state-of-the-art NLLB model, which has been trained specifically on low-resource languages. While no automated translation is perfect, our system provides significantly better results for small languages compared to traditional services.",
-      "q5_title": "Can I translate from English to my language?",
-      "q5_answer": "Yes! While our primary focus is translating from low-resource languages to English, we also support reverse translation from English to supported languages. Just use the language selector to choose your desired translation direction.",
-      "q6_title": "Do you offer API access for developers?",
-      "q6_answer": "We're currently developing API access for developers and businesses. If you're interested in integrating our translation capabilities into your application, please contact us for early access information."
+      "title": "ຄໍາ ຖາມ ທີ່ ມັກ ຖາມ",
+      "q1_title": "ສິ່ງທີ່ເຮັດໃຫ້ Transly ແຕກຕ່າງຈາກບໍລິການແປພາສາອື່ນໆ?",
+      "q1_answer": "Transly ເປັນຜູ້ຊ່ຽວຊານດ້ານພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ເຊິ່ງມັກໄດ້ຮັບການສະ ຫນັບ ສະ ຫນູນ ຢ່າງບໍ່ດີຈາກບໍລິການແປພາສາຫຼັກ. ພວກເຮົາໃຊ້ຮູບແບບ NLLB ຂອງ Meta, ເຊິ່ງຖືກອອກແບບມາໂດຍສະເພາະ ສໍາ ລັບພາສາເຫຼົ່ານີ້, ຮັບປະກັນຄວາມຖືກຕ້ອງແລະສະພາບແວດລ້ອມວັດທະນະ ທໍາ ທີ່ດີກວ່າ.",
+      "q2_title": "ຂໍ້ມູນຂອງຂ້ອຍປອດໄພ ແລະ ເປັນສ່ວນຕົວບໍ?",
+      "q2_answer": "ແມ່ນແລ້ວ, ພວກເຮົາຍັງເອົາຄວາມເປັນສ່ວນຕົວຂອງທ່ານເປັນບູລິມະສິດ. ພວກເຮົາບໍ່ເກັບຮັກສາການແປພາສາຫຼືຂໍ້ມູນສ່ວນຕົວຂອງເຈົ້າ. ການແປພາສາທັງ ຫມົດ ຖືກປຸງແຕ່ງຢ່າງປອດໄພແລະຖືກລຶບອອກທັນທີຫຼັງຈາກການສົ່ງ. ສໍາ ລັບການແປເອກະສານ, ໄຟລ໌ຈະຖືກລ້າງອອກໂດຍອັດຕະໂນມັດຫຼັງຈາກດາວໂຫລດ.",
+      "q3_title": "ທ່ານສະຫນັບສະຫນູນຮູບແບບເອກະສານໃດສໍາລັບການແປເອກະພາບ?",
+      "q3_answer": "ພວກເຮົາສະຫນັບສະຫນູນໄຟລ໌ PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx), ແລະເອກະສານສໍານວນທໍາມະດາ (.txt). ພວກເຮົາກໍາລັງເຮັດວຽກເພື່ອເພີ່ມການສະຫນັບສະຫນູນສໍາລັບຮູບແບບເພີ່ມເຕີມໂດຍອີງໃສ່ການຕອບສະຫນອງຂອງຜູ້ໃຊ້.",
+      "q4_title": "ການ ແປ ພາສາ ແມ່ນ ຖືກຕ້ອງ ເທົ່າ ໃດ?",
+      "q4_answer": "ການແປພາສາຂອງພວກເຮົາແມ່ນຖືກຂັບເຄື່ອນໂດຍຮູບແບບ NLLB ທີ່ທັນສະ ໄຫມ ຂອງ Meta, ເຊິ່ງໄດ້ຮັບການຝຶກອົບຮົມໂດຍສະເພາະກ່ຽວກັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ. ເຖິງແມ່ນວ່າບໍ່ມີການແປພາສາອັດຕະໂນມັດແມ່ນສົມບູນແບບ, ແຕ່ລະບົບຂອງພວກເຮົາໃຫ້ຜົນໄດ້ຮັບທີ່ດີກວ່າ ສໍາ ລັບພາສານ້ອຍໆເມື່ອທຽບກັບການບໍລິການແບບດັ້ງເດີມ.",
+      "q5_title": "ຂ້ອຍສາມາດແປຈາກພາສາອັງກິດເປັນພາສາຂອງຂ້ອຍໄດ້ບໍ?",
+      "q5_answer": "ແມ່ນແລ້ວ! ໃນຂະນະທີ່ຈຸດສຸມຕົ້ນຕໍຂອງພວກເຮົາແມ່ນການແປຈາກພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ໄປເປັນພາສາອັງກິດ, ພວກເຮົາຍັງສະ ຫນັບ ສະ ຫນູນ ການແປທາງກົງກັນຂ້າມຈາກພາສາອັງ ກິດໄປສູ່ພາສາທີ່ສະ ຫນັບສະ ຫນູນ. ພຽງແຕ່ໃຊ້ຕົວເລືອກພາສາເພື່ອເລືອກທິດທາງການແປທີ່ຕ້ອງການຂອງທ່ານ.",
+      "q6_title": "ທ່ານໃຫ້ການເຂົ້າເຖິງ API ສໍາລັບນັກພັດທະນາບໍ?",
+      "q6_answer": "ພວກເຮົາກໍາລັງພັດທະນາການເຂົ້າເຖິງ API ສໍາລັບນັກພັດທະນາ ແລະທຸລະກິດ. ຖ້າທ່ານສົນໃຈໃນການເຊື່ອມໂຍງຄວາມສາມາດໃນການແປພາສາຂອງພວກເຮົາເຂົ້າໃນຄໍາຮ້ອງສະຫມັກຂອງທ່ານ, ກະລຸນາຕິດຕໍ່ຫາພວກເຮົາສໍາລັບຂໍ້ມູນການເຂົ້າໄປໄວ."
     },
     "cta_section": {
-      "title": "Ready to Get Started?",
-      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Transly is here to help you communicate with the world.",
-      "cta_text": "Try Text Translation",
-      "cta_docs": "Upload Document"
+      "title": "ພ້ອມແລ້ວທີ່ຈະເລີ່ມຕົ້ນບໍ?",
+      "description": "ປະສົບການການແປພາສາທີ່ຖືກຕ້ອງສໍາລັບພາສາຂອງທ່ານໃນມື້ນີ້ ບໍ່ວ່າຈະເປັນຂໍ້ຄວາມໄວ ຫຼືເອກະສານເຕັມ, Transly ແມ່ນຢູ່ທີ່ນີ້ເພື່ອຊ່ວຍໃຫ້ທ່ານສື່ສານກັບໂລກ.",
+      "cta_text": "ພະຍາຍາມແປຂໍ້ຄວາມ",
+      "cta_docs": "ອັບໂຫລດເອກະສານ"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Contact Support - Get Help with Transly",
-      "description": "Need help with translation? Contact our support team for assistance with Transly translation services, technical issues, or general inquiries."
+      "title": "ຕິດຕໍ່ການສະຫນັບສະຫນູນ - ໄດ້ຮັບການຊ່ວຍເຫຼືອກັບ Transly",
+      "description": "ຕ້ອງການຄວາມຊ່ວຍເຫຼືອໃນການແປພາສາ? ຕິດຕໍ່ທີມງານສະຫນັບສະຫນູນຂອງພວກເຮົາ ເພື່ອໃຫ້ຄວາມຊ່ວຍເຫລືອກັບການບໍລິການແປພາສາ Transly, ບັນຫາດ້ານວິຊາການ, ຫຼືຄໍາຖາມທົ່ວໄປ."
     },
     "hero": {
-      "title": "Contact Support",
-      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Transly."
+      "title": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ",
+      "description": "ມີຄໍາຖາມກ່ຽວກັບການບໍລິການແປພາສາຂອງພວກເຮົາ? ຕ້ອງການການສະຫນັບສະຫນູນດ້ານວິຊາການ? ພວກເຮົາຢູ່ທີ່ນີ້ເພື່ອຊ່ວຍໃຫ້ທ່ານໄດ້ຮັບຜົນປະໂຫຍດສູງສຸດຈາກ Transly."
     },
     "form": {
-      "title": "Send us a message",
-      "firstName": "First Name *",
-      "firstNamePlaceholder": "Your first name",
-      "lastName": "Last Name *",
-      "lastNamePlaceholder": "Your last name",
-      "email": "Email Address *",
+      "title": "ສົ່ງຂໍ້ຄວາມໃຫ້ພວກເຮົາ",
+      "firstName": "ຊື່ທໍາອິດ *",
+      "firstNamePlaceholder": "ຊື່ທໍາອິດຂອງທ່ານ",
+      "lastName": "ຊື່ຫຼັງ *",
+      "lastNamePlaceholder": "ຊື່ຫຼັງຂອງທ່ານ",
+      "email": "ທີ່ຢູ່ອີເມວ *",
       "emailPlaceholder": "your.email@example.com",
-      "subject": "Subject *",
-      "subjectPlaceholder": "Select a topic",
+      "subject": "ຫົວຂໍ້ *",
+      "subjectPlaceholder": "ເລືອກຫົວຂໍ້",
       "subjects": {
-        "translation_issue": "Translation Issue",
-        "technical_support": "Technical Support",
-        "feature_request": "Feature Request",
-        "language_request": "New Language Request",
-        "business_inquiry": "Business Inquiry",
-        "feedback": "General Feedback",
-        "other": "Other"
+        "translation_issue": "ບັນຫາການແປ",
+        "technical_support": "ການສະຫນັບສະຫນູນດ້ານວິຊາການ",
+        "feature_request": "ການຮ້ອງຂໍຄຸນລັກສະນະ",
+        "language_request": "ຂໍພາສາໃຫມ່",
+        "business_inquiry": "ການສອບຖາມທຸລະກິດ",
+        "feedback": "ການຕອບສະຫນອງທົ່ວໄປ",
+        "other": "ອື່ນໆ"
       },
-      "relatedLanguage": "Related Language (if applicable)",
-      "relatedLanguagePlaceholder": "e.g., Swahili, Lao, Creole",
-      "message": "Message *",
-      "messagePlaceholder": "Please describe your issue or question in detail...",
-      "submit": "Send Message"
+      "relatedLanguage": "ພາສາທີ່ກ່ຽວຂ້ອງ (ຖ້າມີ)",
+      "relatedLanguagePlaceholder": "ຕົວຢ່າງ: ພາສາ Swahili, Lao, Creole",
+      "message": "ຂໍ້ຄວາມ *",
+      "messagePlaceholder": "ກະລຸນາອະທິບາຍບັນຫາ ຫຼື ຄໍາຖາມຂອງທ່ານຢ່າງລະອຽດ...",
+      "submit": "ສົ່ງຂໍ້ຄວາມ"
     },
     "sidebar": {
       "quick_contact": {
-        "title": "Quick Contact",
-        "email_support": "Email Support",
+        "title": "ຕິດຕໍ່ຫາໄວໆ",
+        "email_support": "ການສະຫນັບສະຫນູນອີເມວ",
         "email_address": "support@transly.app",
-        "response_time": "Response within 24 hours",
-        "live_chat": "Live Chat",
-        "live_chat_status": "Available soon",
-        "live_chat_eta": "Coming in Q2 2024",
-        "support_hours_title": "Support Hours",
-        "support_hours_days": "Monday - Friday",
+        "response_time": "ຕອບພາຍໃນ 24 ຊົ່ວໂມງ",
+        "live_chat": "ສົນທະນາສົດ",
+        "live_chat_status": "ຈະມີໃນໄວໆນີ້",
+        "live_chat_eta": "ຈະມາຮອດໃນໄຕມາດທີ 2 ຂອງປີ 2024",
+        "support_hours_title": "ເວລາສະຫນັບສະຫນູນ",
+        "support_hours_days": "ວັນຈັນ - ວັນສຸກ",
         "support_hours_time": "9:00 AM - 6:00 PM UTC"
       },
       "common_issues": {
-        "title": "Common Issues",
+        "title": "ບັນຫາທົ່ວໄປ",
         "translation_not_working": {
-          "title": "Translation not working",
-          "description": "Try refreshing the page or check your internet connection. For persistent issues, contact support."
+          "title": "ການແປບໍ່ເຮັດວຽກ",
+          "description": "ພະຍາຍາມປັບປຸງຫນ້າ ຫຼື ກວດເບິ່ງການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ. ສໍາລັບບັນຫາທີ່ຄົງຕົວ, ຕິດຕໍ່ການສະຫນັບສະຫນູນ."
         },
         "language_not_supported": {
-          "title": "Language not supported",
-          "description": "We're constantly adding new languages. Submit a request and we'll consider it for future updates."
+          "title": "ພາສາບໍ່ໄດ້ຮັບການສະຫນັບສະຫນູນ",
+          "description": "ພວກເຮົາກໍາລັງເພີ່ມພາສາໃຫມ່ຢ່າງຕໍ່ເນື່ອງ. ສົ່ງຄໍາຮ້ອງຂໍ ແລະພວກເຮົາຈະພິຈາລະນາມັນສໍາລັບການອັບເດດໃນອະນາຄົດ."
         },
         "file_upload_issues": {
-          "title": "File upload issues",
-          "description": "Ensure your file is under 50MB and in supported format (PDF, DOCX, PPTX)."
+          "title": "ບັນຫາການອັບໂຫລດໄຟລ໌",
+          "description": "ໃຫ້ແນ່ໃຈວ່າເອກະສານຂອງທ່ານມີຂະ ຫນາດ ຕ່ ໍາ ກວ່າ 50MB ແລະໃນຮູບແບບທີ່ຮອງຮັບ (PDF, DOCX, PPTX)."
         },
         "audio_playback_not_working": {
-          "title": "Audio playback not working",
-          "description": "Check your browser's audio settings and ensure you have a stable internet connection."
+          "title": "ການຫຼິ້ນສຽງບໍ່ໄດ້ເຮັດວຽກ",
+          "description": "ກວດເບິ່ງການຕັ້ງຄ່າສຽງຂອງຕົວທ່ອງເວັບຂອງທ່ານ ແລະ ໃຫ້ແນ່ໃຈວ່າທ່ານມີການເຊື່ອມຕໍ່ອິນເຕີເນັດທີ່ ຫມັ້ນ ຄົງ."
         }
       },
       "self_help": {
-        "title": "Self-Help Resources",
-        "how_it_works": "→ How Transly works",
-        "try_text": "→ Try text translation",
-        "try_docs": "→ Document translation guide",
-        "privacy": "→ Privacy policy",
-        "terms": "→ Terms of service"
+        "title": "ຊັບພະຍາກອນຊ່ວຍເຫຼືອຕົນເອງ",
+        "how_it_works": "→ ວິທີການ Transly ເຮັດວຽກ",
+        "try_text": "→ ພະຍາຍາມແປຂໍ້ຄວາມ",
+        "try_docs": "→ ຄູ່ມືການແປເອກະສານ",
+        "privacy": "→ ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ",
+        "terms": "→ ຂໍ້ກໍານົດການບໍລິການ"
       }
     },
     "what_to_expect": {
-      "title": "What to Expect",
+      "title": "ຈະ ຄາດ ຫວັງ ຫຍັງ ແດ່?",
       "quick_response": {
-        "title": "Quick Response",
-        "description": "We typically respond to all inquiries within 24 hours during business days."
+        "title": "ຕອບໄວໆ",
+        "description": "ພວກເຮົາຍອມຕອບຄໍາຖາມທັງຫມົດພາຍໃນ 24 ຊົ່ວໂມງໃນມື້ເຮັດວຽກ."
       },
       "personal_support": {
-        "title": "Personal Support",
-        "description": "Every message is read by our team. No bots, just real people who care about helping you."
+        "title": "ການສະຫນັບສະຫນູນສ່ວນຕົວ",
+        "description": "ທຸກໆຂໍ້ຄວາມແມ່ນຖືກອ່ານໂດຍທີມງານຂອງພວກເຮົາ ບໍ່ມີ bots, ພຽງແຕ່ຄົນແທ້ຈິງທີ່ສົນໃຈທີ່ຈະຊ່ວຍທ່ານ."
       },
       "follow_up": {
-        "title": "Follow-up",
-        "description": "We'll keep working with you until your issue is completely resolved."
+        "title": "ການຕິດຕາມ",
+        "description": "ພວກເຮົາຈະສືບຕໍ່ເຮັດວຽກກັບທ່ານ ຈົນກວ່າບັນຫາຂອງທ່ານຈະຖືກແກ້ໄຂຢ່າງສົມບູນ."
       }
     }
   },
@@ -320,8 +593,8 @@
       "description": "ການແນະນໍາອັດສະລິຍະທີ່ອີງໃສ່ສະຖານະການ. ເລີ່ມຕົ້ນ $5 ສໍາລັບນັກຮຽນ, $10 ສໍາລັບຜູ້ໃຊ້ສ່ວນບຸກຄົນ, $25 ສໍາລັບມືອາຊີບ."
     },
     "hero": {
-      "title": "Flexible Pricing for Everyone",
-      "description": "Choose the credit package that fits your needs. Get more credits for a lower price."
+      "title": "ລາຄາທີ່ຍືດຫຍຸ່ນສໍາລັບທຸກຄົນ",
+      "description": "ເລືອກເອົາຊຸດສິນເຊື່ອທີ່ ເຫມາະ ສົມກັບຄວາມຕ້ອງການຂອງທ່ານ. ໄດ້ຮັບສິນເຊື່ອຫຼາຍຂຶ້ນໃນລາຄາຕໍ່າກວ່າ."
     },
     "plans": {
       "starter": {
@@ -330,516 +603,541 @@
         "discount": "Best for beginners"
       },
       "professional": {
-        "name": "Professional Pack",
-        "description": "Designed for professionals and small teams who need higher translation volume",
-        "discount": "Save 10%"
+        "name": "Package ມືອາຊີບ",
+        "description": "ອອກແບບສໍາລັບຜູ້ຊ່ຽວຊານ ແລະ ທີມງານນ້ອຍໆ ທີ່ຕ້ອງການການແປພາສາຫຼາຍຂຶ້ນ",
+        "discount": "ປະຢັດ 10%"
       },
       "business": {
-        "name": "Business Pack",
-        "description": "Meet enterprise-level needs with the best unit price",
-        "discount": "Save 20%"
+        "name": "ຊຸດທຸລະກິດ",
+        "description": "ຕອບສະຫນອງຄວາມຕ້ອງການລະດັບວິສາຫະກິດດ້ວຍລາຄາຫົວຫນ່ວຍທີ່ດີທີ່ສຸດ",
+        "discount": "ປະຢັດ 20%"
       }
     },
     "features": {
-      "title": "All Plans Include",
-      "unlimited_text": "Unlimited text translations",
-      "document_support": "Document translation support",
-      "tts_support": "Text-to-speech functionality",
-      "api_access": "API access",
-      "priority_support": "Priority customer support",
-      "no_expiry": "Credits never expire"
+      "title": "ແຜນການທັງຫມົດລວມທັງ",
+      "unlimited_text": "ການແປຂໍ້ຄວາມບໍ່ຈໍາກັດ",
+      "document_support": "ການສະຫນັບສະຫນູນການແປເອກະສານ",
+      "tts_support": "ຫນ້າ ທີ່ການປ່ຽນຂໍ້ຄວາມເປັນສຽງ",
+      "api_access": "ການເຂົ້າເຖິງ API",
+      "priority_support": "ການສະຫນັບສະຫນູນລູກຄ້າເປັນບູລິມະສິດ",
+      "no_expiry": "ຄຣິບເດດບໍ່ເຄີຍຫມົດອາຍຸ"
     },
     "buttons": {
-      "purchase": "Purchase",
-      "processing": "Processing...",
-      "get_started": "Get Started"
+      "purchase": "ຊື້",
+      "processing": "ການປະມວນຜົນ...",
+      "get_started": "ເລີ່ມຕົ້ນ"
     },
     "alert": {
-      "canceled_title": "Payment Canceled",
-      "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
+      "canceled_title": "ການຊໍາລະເງິນຖືກຍົກເລີກ",
+      "canceled_description": "ການຊື້ຂອງທ່ານຖືກຍົກເລີກ. ທ່ານບໍ່ໄດ້ຖືກຄິດຄ່າໃຊ້ຈ່າຍ. ກະລຸນາເລືອກແຜນການແລະພະຍາຍາມອີກຄັ້ງ."
     },
-    "loading": "Loading...",
+    "loading": "ການໂຫຼດ...",
     "cta": {
-      "title": "Ready to Get Started?",
-      "description": "Join thousands of users who trust Transly for their translation needs. Start translating today!",
-      "free_trial": "Try Free Translation",
-      "contact_sales": "Contact Sales"
+      "title": "ພ້ອມແລ້ວທີ່ຈະເລີ່ມຕົ້ນບໍ?",
+      "description": "ເຂົ້າຮ່ວມຜູ້ໃຊ້ຫຼາຍພັນຄົນທີ່ເຊື່ອຖື Transly ສໍາລັບຄວາມຕ້ອງການການແປພາສາຂອງພວກເຂົາ. ເລີ່ມຕົ້ນການແປໃນມື້ນີ້!",
+      "free_trial": "ພະຍາຍາມແປພາສາຟຣີ",
+      "contact_sales": "ຕິດຕໍ່ Sales"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "transly": {
+        "price": "$1",
+        "title": "Transly",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
     }
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Text Translator - Free AI Translation Tool | Transly",
-      "description": "Free online text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly with AI."
+      "title": "Text Translator - ເຄື່ອງມືແປພາສາ AI ຟຣີ ໆ Transly",
+      "description": "ແປພາສາອອນລາຍຟຣີສໍາລັບ 20+ ພາສາທີ່ມີແຫຼ່ງທີ່ຫນ້ອຍ. ແປພາສາ Creole, Lao, Swahili, Burmese ແລະອື່ນໆເປັນພາສາອັງກິດທັນທີດ້ວຍ AI."
     },
     "hero": {
-      "title": "Free Text Translator",
-      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free for up to 500 characters.",
-      "status_free": "500 chars free",
+      "title": "ແປພາສາແບບຟຣີ",
+      "description": "ແປຂໍ້ຄວາມລະຫວ່າງ 20+ ພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ແລະພາສາອັງກິດໂດຍໃຊ້ AI ທີ່ກ້າວ ຫນ້າ. ໄວ, ຖືກຕ້ອງ, ແລະບໍ່ເສຍຄ່າທັງ ຫມົດ ສໍາ ລັບຕົວອັກສອນ 500 ຕົວ.",
+      "status_free": "500 ກາກຣາມຟຣີ",
       "status_ai": "AI-Powered",
-      "status_instant": "Instant Results"
+      "status_instant": "ຜົນໄດ້ຮັບທັນທີ"
     },
     "other_languages": {
-      "title": "Try Other Languages",
-      "description": "Explore translation for other low-resource languages"
+      "title": "ພະຍາຍາມພາສາອື່ນໆ",
+      "description": "ຄົ້ນຄວ້າການແປພາສາສໍາລັບພາສາອື່ນໆທີ່ມີຊັບພະຍາກອນຕ່ໍາ"
     },
     "faq": {
-      "title": "Text Translation FAQ",
-      "description": "Everything you need to know about our text translation service",
-      "q1_title": "How much does text translation cost?",
-      "q1_answer": "Text translation is completely free for up to 500 characters per request. For longer texts (over 500 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 50 credits (500 free + 500×0.1 = 50 credits).",
-      "q2_title": "Which languages do you support?",
-      "q2_answer": "We specialize in low-resource languages that are often poorly supported by mainstream translation services. We currently support Haitian Creole, Lao, Swahili, Burmese, Telugu, Chinese, and more. All languages support bidirectional translation with English.",
-      "q3_title": "How accurate are the translations?",
-      "q3_answer": "Our translations are powered by Meta's NLLB (No Language Left Behind) model, which is specifically designed for low-resource languages. While no automated translation is perfect, NLLB provides significantly better accuracy for small languages compared to traditional translation services.",
-      "q4_title": "Do I need to create an account?",
-      "q4_answer": "No account is required for free translations (up to 500 characters). However, creating a free account gives you 500 bonus credits and allows you to purchase additional credits for longer translations. You'll also get access to translation history and other premium features.",
-      "q5_title": "Can I translate from English to other languages?",
-      "q5_answer": "Yes! All our supported languages work bidirectionally. You can translate from English to any supported language, or from any supported language to English. Just use the language selector to choose your desired translation direction.",
-      "q6_title": "What's the character limit?",
-      "q6_answer": "Free users can translate up to 500 characters per request without any cost. For longer texts, you can either break them into smaller chunks or purchase credits. Registered users get 500 bonus credits to start with, which allows for longer translations.",
-      "contact_text": "Have more questions?",
-      "contact_link": "Contact our support team"
+      "title": "ຄໍາແປຂໍ້ຄວາມ FAQ",
+      "description": "ທຸກຢ່າງທີ່ທ່ານຕ້ອງການຮູ້ກ່ຽວກັບການບໍລິການແປຂໍ້ຄວາມຂອງພວກເຮົາ",
+      "q1_title": "ຄ່າແປພາສາຂໍ້ຄວາມແມ່ນເທົ່າໃດ?",
+      "q1_answer": "ການແປຂໍ້ຄວາມແມ່ນບໍ່ເສຍຄ່າ ສໍາ ລັບຕົວອັກສອນສູງສຸດ 500 ຕົວອັກຄະຕໍ່ການຮ້ອງຂໍ. ສໍາ ລັບຂໍ້ຄວາມຍາວກວ່າ (ຫຼາຍກວ່າ 500 ຕົວ ຫນັງ ສື), ພວກເຮົາຄິດຄ່າ 0.1 ຄຼິດຕໍ່ຕົວອักษร. ຕົວຢ່າງ, ຂໍ້ຄວາມ 1000 ຕົວອักษຣຈະມີລາຄາ 50 ຄຼີດ (500 ຟຣີ + 500 × 0.1 = 50 ຄຣິດ).",
+      "q2_title": "ທ່ານສະຫນັບສະຫນູນພາສາໃດ?",
+      "q2_answer": "ພວກເຮົາຊ່ຽວຊານດ້ານພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ ເຊິ່ງມັກໄດ້ຮັບການສະ ຫນັບ ສະ ຫນູນ ຢ່າງບໍ່ດີຈາກບໍລິການແປພາສາຫຼັກ. ໃນປະຈຸບັນພວກເຮົາສະ ຫນັບສະ ຫນູນ ພາສາເຄຣໂອເລຍໄຮຕີ, ລາວ, ສະວາຮີລີ, ມຽນມາ, Telugu, ຈີນແລະອື່ນໆ. ພາສາທັງ ຫມົດ ສະ ຫນັບ ສະ ຫນຸນ ການແປສອງທິດກັບພາສາອັງກິດ.",
+      "q3_title": "ການ ແປ ພາສາ ແມ່ນ ຖືກຕ້ອງ ເທົ່າ ໃດ?",
+      "q3_answer": "ການແປພາສາຂອງພວກເຮົາແມ່ນຖືກຂັບເຄື່ອນໂດຍຮູບແບບ NLLB ຂອງ Meta (ບໍ່ມີພາສາທີ່ເຫຼືອ), ເຊິ່ງຖືກອອກແບບມາໂດຍສະເພາະ ສໍາ ລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ ໍາ. ເຖິງວ່າການແປພາສາອັດຕະໂນມັດບໍ່ມີຄວາມສົມບູນແບບ, ແຕ່ NLL B ໃຫ້ຄວາມຖືກຕ້ອງທີ່ດີກວ່າ ສໍາ ລັບພາສາຂະ ຫນາດ ນ້ອຍເມື່ອທຽບໃສ່ການບໍລິການແປພາສາແບບດັ້ງເດີມ.",
+      "q4_title": "ຂ້ອຍຈໍາເປັນຕ້ອງສ້າງບັນຊີບໍ?",
+      "q4_answer": "ບໍ່ ຈໍາ ເປັນຕ້ອງມີບັນຊີ ສໍາ ລັບການແປພາສາຟຣີ (ສູງສຸດ 500 ຕົວອັກສອນ). ເຖິງຢ່າງໃດກໍ່ຕາມ, ການສ້າງບັນຊີຟຣີໃຫ້ທ່ານໄດ້ຮັບເງິນໂບນັດ 500 ແລະຊ່ວຍໃຫ້ທ່ານສາມາດຊື້ເງິນເພີ່ມເຕີມ ສໍາ ລັບການ ແປພາສາທີ່ຍາວນານ. ທ່ານຍັງຈະໄດ້ຮັບການເຂົ້າເຖິງປະຫວັດການແປພາສາແລະຄຸນລັກສະນະພິເສດອື່ນໆ.",
+      "q5_title": "ຂ້ອຍສາມາດແປຈາກພາສາອັງກິດໄປພາສາອື່ນໆໄດ້ບໍ?",
+      "q5_answer": "ແມ່ນແລ້ວ! ທຸກພາສາທີ່ໄດ້ຮັບການສະ ຫນັບ ສະ ຫນູນ ຂອງພວກເຮົາເຮັດວຽກສອງທິດທາງ. ທ່ານສາມາດແປຈາກພາສາອັງກິດໄປຫາພາສາທີ່ສະ ຫນັບສະ ຫນູນ ໃດ ຫນຶ່ງ, ຫຼືຈາກພາສາທີ່ຖືກສະ ຫນັບ ສະຫນູນໃດ ຫນຶ່ງ ໄປຫາພາສາອັງກະລິກ. ພຽງແຕ່ໃຊ້ຕົວເລືອກພາສາເພື່ອເລືອກທິດທາງການແປທີ່ຕ້ອງການຂອງທ່ານ.",
+      "q6_title": "ຈໍາກັດຕົວອັກສອນແມ່ນຫຍັງ?",
+      "q6_answer": "ຜູ້ໃຊ້ຟຣີສາມາດແປເຖິງ 500 ຕົວອັກສອນຕໍ່ ຄໍາ ຮ້ອງຂໍໂດຍບໍ່ມີຄ່າໃຊ້ຈ່າຍໃດໆ. ສໍາ ລັບຂໍ້ຄວາມທີ່ຍາວນານ, ທ່ານສາມາດແບ່ງອອກໃຫ້ເປັນຊິ້ນສ່ວນນ້ອຍກວ່າຫຼືຊື້ສິນເຊື່ອ. ຜູ້ໃຊ້ທີ່ລົງທະບຽນໄດ້ຮັບ 500 ເງິນບອນເພື່ອເລີ່ມຕົ້ນ, ເຊິ່ງຊ່ວຍໃຫ້ການແປເປັນເວລາຍາວກວ່າ.",
+      "contact_text": "ມີຄໍາຖາມເພີ່ມເຕີມບໍ?",
+      "contact_link": "ຕິດຕໍ່ທີມງານສະຫນັບສະຫນູນຂອງພວກເຮົາ"
     },
     "cta": {
-      "title": "Need More Translation Power?",
-      "description": "Translate longer texts and documents with our premium features",
-      "try_document": "Try Document Translation",
-      "view_pricing": "View Pricing Plans"
+      "title": "ຕ້ອງການຄວາມສາມາດໃນການແປພາສາເພີ່ມເຕີມບໍ?",
+      "description": "ແປຂໍ້ຄວາມແລະເອກະສານທີ່ຍາວນານດ້ວຍຄຸນລັກສະນະ premium ຂອງພວກເຮົາ",
+      "try_document": "ພະຍາຍາມການແປເອກະສານ",
+      "view_pricing": "ເບິ່ງແຜນລາຄາ"
     },
     "features": {
-      "title": "Why Choose Our Text Translator?",
-      "fast_title": "Lightning Fast",
-      "fast_desc": "Get instant translations powered by advanced AI models. No waiting, no delays.",
-      "accurate_title": "High Accuracy",
-      "accurate_desc": "Powered by Meta's NLLB model, ensuring high-quality translations for all supported languages.",
-      "free_title": "Always Free",
-      "free_desc": "No hidden fees, no limits, no registration required. Translate as much as you need."
+      "title": "ເປັນຫຍັງເລືອກຜູ້ແປຂໍ້ຄວາມຂອງພວກເຮົາ?",
+      "fast_title": "ໄວຫຼາຍເທົ່າໄຟຟ້າ",
+      "fast_desc": "ຮັບການແປພາສາທັນທີ ໂດຍໃຊ້ແບບ AI ທີ່ກ້າວຫນ້າ ບໍ່ຕ້ອງລໍຖ້າ, ບໍ່ຕ້ອງຊັກຊ້າ",
+      "accurate_title": "ຄວາມຖືກຕ້ອງສູງ",
+      "accurate_desc": "ໂດຍໃຊ້ແບບ NLLB ຂອງ Meta, ຮັບປະກັນການແປທີ່ມີຄຸນນະພາບສູງ ສໍາ ລັບພາສາທັງ ຫມົດ ທີ່ຮອງຮັບ.",
+      "free_title": "ສະເຫມີມີ",
+      "free_desc": "ບໍ່ມີຄ່າທໍານຽມທີ່ເຊື່ອງໄວ້, ບໍ່ມີຂອບເຂດ, ບໍ່ມີການລົງທະບຽນທີ່ຈໍາເປັນ. ແປໃຫ້ຫຼາຍເທົ່າທີ່ທ່ານຕ້ອງການ."
     },
     "how_to": {
-      "title": "How to Use the Text Translator",
-      "step1_title": "Select Languages",
-      "step1_desc": "Choose your source language and target language (English) from the dropdown menus.",
-      "step2_title": "Enter Text",
-      "step2_desc": "Type or paste your text in the input box. Up to 1000 characters supported.",
-      "step3_title": "Get Translation",
-      "step3_desc": "Click translate and instantly get your result. Copy or listen to the translation."
+      "title": "ວິທີ ໃຊ້ ເຄື່ອງ ແປ ຂໍ້ຄວາມ",
+      "step1_title": "ເລືອກພາສາ",
+      "step1_desc": "ເລືອກພາສາທີ່ມາ ແລະ ພາສາເປົ້າຫມາຍ (ພາສາອັງກິດ) ຈາກເມນູທີ່ຫຼຸດລົງ.",
+      "step2_title": "ໃສ່ຂໍ້ຄວາມ",
+      "step2_desc": "ຂຽນ ຫຼືຕິດຂໍ້ຄວາມຂອງທ່ານໃນກ່ອງປ້ອນຂໍ້ມູນ. ເຖິງ 1000 ຕົວອັກສອນທີ່ສະຫນັບສະຫນູນ.",
+      "step3_title": "ຮັບການແປພາສາ",
+      "step3_desc": "ກົດແປພາສາ ແລະໄດ້ຮັບຜົນໃນທັນທີ. ສໍາເນົາຫຼືຟັງການແປພາສາ."
     },
     "supported_languages": {
-      "title": "Supported Languages",
-      "description": "We support translation from these languages to English:",
-      "more": "And many more low-resource languages..."
+      "title": "ພາສາທີ່ສະຫນັບສະຫນູນ",
+      "description": "ພວກເຮົາສະຫນັບສະຫນູນການແປຈາກພາສາເຫຼົ່ານີ້ເປັນພາສາອັງກິດ:",
+      "more": "ແລະຫລາຍພາສາທີ່ໃຊ້ຊັບພະຍາກອນຕ່ໍາອີກ..."
     }
   },
   "Layout": {
     "Navigation": {
-      "text_translation": "Text Translation",
-      "text_translation_desc": "Translate text between languages",
-      "document_translation": "Document Translation",
-      "document_translation_desc": "Upload and translate documents",
-      "about": "About",
-      "about_desc": "Learn about Transly"
+      "text_translation": "ການແປຂໍ້ຄວາມ",
+      "text_translation_desc": "ແປຂໍ້ຄວາມລະຫວ່າງພາສາ",
+      "document_translation": "ການແປເອກະສານ",
+      "document_translation_desc": "ອັບໂຫລດ ແລະ ແປເອກະສານ",
+      "about": "ປະມານ",
+      "about_desc": "ຮຽນຮູ້ກ່ຽວກັບ Transly"
     },
     "Footer": {
-      "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
-      "product": "Product",
-      "text_translation": "Text Translation",
-      "document_translation": "Document Translation",
-      "supported_languages": "Supported Languages",
-      "company": "Company",
-      "about_us": "About Us",
-      "privacy_policy": "Privacy Policy",
-      "terms_of_service": "Terms of Service",
-      "compliance": "Compliance",
-      "resources": "Resources",
+      "tagline": "ການແປພາສາມືອາຊີບສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາໄປເປັນພາສາອັງກິດ. Powered by Meta NLLB AI technology.",
+      "product": "ຜະລິດຕະພັນ",
+      "text_translation": "ການແປຂໍ້ຄວາມ",
+      "document_translation": "ການແປເອກະສານ",
+      "supported_languages": "ພາສາທີ່ສະຫນັບສະຫນູນ",
+      "company": "ບໍລິສັດ",
+      "about_us": "ກ່ຽວກັບພວກເຮົາ",
+      "privacy_policy": "ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ",
+      "terms_of_service": "ຂໍ້ ກໍາ ນົດການບໍລິການ",
+      "compliance": "ຄວາມສອດຄ່ອງ",
+      "resources": "ຊັບພະຍາກອນ",
       "faq": "FAQ",
-      "contact_support": "Contact Support",
-      "api_docs": "API Documentation",
-      "copyright": "© 2024 Transly. All rights reserved.",
-      "powered_by": "Powered by Meta NLLB AI Technology"
+      "contact_support": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ",
+      "api_docs": "ເອກະສານ API",
+      "copyright": "© 2024 Transly. ສິດທັງ ຫມົດ ແມ່ນສະຫງວນ.",
+      "powered_by": "Powered by Meta NLLB AI Technology",
+      "contact_us": "Contact Us",
+      "support_email": "support@transly.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
     }
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Document Translation - Translate PDF, Word, PowerPoint | Transly",
-      "description": "Upload and translate documents to English. Support for PDF, Word, PowerPoint files with AI-powered translation for low-resource languages."
+      "title": "ການແປເອກະສານ - ແປ PDF, Word, PowerPoint",
+      "description": "ອັບໂຫລດ ແລະ ແປເອກະສານເປັນພາສາອັງກິດ. ສະຫນັບສະຫນູນເອກະພາບ PDF, Word, PowerPoint ດ້ວຍການແປດ້ວຍ AI ສໍາລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ."
     },
-    "title": "Document Translation",
-    "description": "Upload documents and translate them to English with high accuracy. Support for PDF, Word, PowerPoint, and text files.",
+    "title": "ການແປເອກະສານ",
+    "description": "ອັບໂຫລດເອກະສານ ແລະ ແປໃຫ້ເປັນພາສາອັງກິດດ້ວຍຄວາມແມ່ນຍໍາສູງ. ສະຫນັບສະຫນູນເອກະພາບ PDF, Word, PowerPoint, ແລະເອກະຊົນຂໍ້ຄວາມ.",
     "steps": {
       "step1": {
-        "title": "Upload Document",
-        "description": "Choose your PDF, Word, or PowerPoint file to translate"
+        "title": "ອັບໂຫລດເອກະສານ",
+        "description": "ເລືອກເອກະສານ PDF, Word, ຫຼື PowerPoint ຂອງທ່ານເພື່ອແປ"
       },
       "step2": {
-        "title": "AI Processing",
-        "description": "Our AI extracts and analyzes your document content"
+        "title": "ການປະມວນຜົນ AI",
+        "description": "AI ຂອງພວກເຮົາຍັງສະກັດເອົາແລະວິເຄາະເນື້ອຫາເອກະສານຂອງທ່ານ"
       },
       "step3": {
-        "title": "Download Result",
-        "description": "Get your translated document in the same format"
+        "title": "ດາວໂຫລດຜົນໄດ້ຮັບ",
+        "description": "ຮັບເອກະສານແປຂອງທ່ານໃນຮູບແບບດຽວກັນ"
       }
     },
     "languages": {
-      "title": "Supported Languages"
+      "title": "ພາສາທີ່ສະຫນັບສະຫນູນ"
     },
     "cta": {
-      "title": "Need Quick Text Translation?",
-      "description": "For shorter texts or quick translations, try our text translator for instant results.",
-      "try_text_translation": "Try Text Translation",
-      "view_pricing": "View Pricing"
+      "title": "ຕ້ອງການການແປຂໍ້ຄວາມໄວບໍ?",
+      "description": "ສໍາລັບຂໍ້ຄວາມສັ້ນກວ່າຫຼືການແປພາສາໄວ, ລອງແປພາສາຂໍ້ຄວາມຂອງພວກເຮົາເພື່ອຜົນທັນທີ.",
+      "try_text_translation": "ພະຍາຍາມແປຂໍ້ຄວາມ",
+      "view_pricing": "ເບິ່ງລາຄາ"
     },
     "hero": {
-      "title": "Document Translation",
-      "description": "Upload documents and translate them to English with high accuracy"
+      "title": "ການແປເອກະສານ",
+      "description": "ອັບໂຫລດເອກະສານ ແລະ ແປໃຫ້ເປັນພາສາອັງກິດດ້ວຍຄວາມແມ່ນຍໍາສູງ"
     },
     "upload_section": {
-      "title": "Upload Your Document",
-      "description": "Choose a file to translate. Supported formats: PDF, Word, PowerPoint, Text. Max size: 50MB."
+      "title": "ອັບໂຫລດເອກະສານຂອງທ່ານ",
+      "description": "ເລືອກເອກະສານທີ່ຈະແປ. ຮູບແບບທີ່ຮອງຮັບ: PDF, Word, PowerPoint, Text. ຂະຫນາດສູງສຸດ: 50MB"
     },
     "settings_section": {
-      "title": "Translation Settings",
-      "source_language_label": "Source Language",
-      "source_language_placeholder": "Auto-Detect",
-      "target_language_label": "Target Language",
-      "target_language_placeholder": "Select target",
-      "translate_button": "Translate File",
-      "translating_button": "Translating..."
+      "title": "ການຕັ້ງຄ່າການແປ",
+      "source_language_label": "ພາສາທີ່ມາ",
+      "source_language_placeholder": "ການກວດພົບອັດຕະໂນມັດ",
+      "target_language_label": "ພາສາເປົ້າຫມາຍ",
+      "target_language_placeholder": "ເລືອກເປົ້າຫມາຍ",
+      "translate_button": "ແປ File",
+      "translating_button": "ແປວ່າ..."
     },
     "jobs_section": {
-      "title": "Translation History",
-      "no_jobs": "Your translated documents will appear here.",
+      "title": "ປະຫວັດການແປພາສາ",
+      "no_jobs": "ເອກະສານທີ່ແປຂອງທ່ານຈະປາກົດຢູ່ໃນນີ້.",
       "status": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "completed": "Completed",
-        "failed": "Failed"
+        "pending": "ຄ້າງ",
+        "processing": "ການປຸງແຕ່ງ",
+        "completed": "ສໍາເລັດແລ້ວ",
+        "failed": "ບໍ່ສໍາເລັດ"
       },
-      "error_message": "Error",
-      "download_button": "Download"
+      "error_message": "ຂໍ້ຜິດພາດ",
+      "download_button": "ດາວໂຫລດ"
     }
   },
   "DocumentTranslator": {
     "auth_required": {
-      "title": "Login Required",
-      "description": "Document translation requires a logged-in account.",
-      "login_button": "Login Now"
+      "title": "ຕ້ອງເຂົ້າສູ່ລະບົບ",
+      "description": "ການແປເອກະສານຕ້ອງການບັນຊີທີ່ເຂົ້າສູ່ລະບົບ.",
+      "login_button": "ເຂົ້າສູ່ລະບົບດຽວນີ້"
     },
     "upload": {
-      "title": "Upload Document",
-      "description": "Support PDF, Word, PowerPoint and text files, max {maxSize}",
-      "uploading": "Uploading...",
-      "click_to_select": "Click to select file",
-      "drag_drop": "or drag and drop file here",
-      "upload_success": "File uploaded successfully",
-      "extracted_characters": "Extracted {count} characters",
-      "upload_failed": "Upload failed"
+      "title": "ອັບໂຫລດເອກະສານ",
+      "description": "ສະຫນັບສະຫນູນ PDF, Word, PowerPoint ແລະເອກະສານຂໍ້ຄວາມ, max {maxSize}",
+      "uploading": "ອັບໂຫລດ...",
+      "click_to_select": "ກົດເພື່ອເລືອກໄຟລ໌",
+      "drag_drop": "ຫຼື drag and drop file ທີ່ນີ້",
+      "upload_success": "ໄຟລ໌ຖືກອັບໂຫລດຢ່າງສໍາເລັດຜົນ",
+      "extracted_characters": "ຕົວອັກສອນທີ່ຖືກສະກັດເອົາ",
+      "upload_failed": "ການອັບໂຫລດລົ້ມເຫລວ"
     },
     "analysis": {
-      "title": "File Analysis Result",
-      "filename": "File name",
-      "filesize": "File size",
-      "text_preview": "Extracted text preview",
-      "character_count": "Character count",
-      "characters": "characters",
-      "credit_consumption": "Credit consumption",
-      "credits": "credits",
-      "free": "Free",
-      "insufficient_credits": "Insufficient credits! Need {required} credits, current balance {current} credits.",
-      "recharge_now": "Recharge now",
-      "start_translation": "Start Translation",
-      "reupload": "Re-upload"
+      "title": "ຜົນການວິເຄາະເອກະສານ",
+      "filename": "ຊື່ເອກະສານ",
+      "filesize": "ຂະຫນາດເອກະສານ",
+      "text_preview": "ການເບິ່ງລ່ວງຫນ້າຂໍ້ຄວາມທີ່ຖືກສະກັດເອົາ",
+      "character_count": "ຈໍານວນຕົວອັກສອນ",
+      "characters": "ຕົວອັກສອນ",
+      "credit_consumption": "ການບໍລິໂພກສິນເຊື່ອ",
+      "credits": "ຄຣິບິດ",
+      "free": "ຟຣີ",
+      "insufficient_credits": "ຄາດຄະເນບໍ່ພຽງພໍ! ຕ້ອງການ {ຄວາມຕ້ອງການ} ຄາດຄະເນ, ການເງິນປະຈຸບັນ {ປະຈຸບັນ} ຄະແນນ.",
+      "recharge_now": "ຟື້ນຟູໄຟຟ້ານີ້",
+      "start_translation": "ເລີ່ມຕົ້ນການແປພາສາ",
+      "reupload": "ອັບໂຫລດຄືນໃຫມ່"
     },
     "translation": {
-      "title": "Translation Progress",
-      "progress": "Processing progress",
-      "estimated_time": "Estimated {seconds} seconds remaining",
-      "completed": "Translation completed!",
-      "download_result": "Download Translation Result",
-      "translation_started": "Translation started",
-      "credits_consumed": "Consumed {credits} credits",
-      "translation_failed": "Translation failed"
+      "title": "ຄວາມ ກ້າວ ຫນ້າ ໃນ ການ ແປ ພາສາ",
+      "progress": "ຄວາມຄືບຫນ້າໃນການປະມວນຜົນ",
+      "estimated_time": "ຄາດຄະເນ {ວິນາທີ} ວິນາທີ່ເຫຼືອ",
+      "completed": "ການແປ ສໍາ ເລັດແລ້ວ!",
+      "download_result": "ດາວໂຫລດຜົນການແປ",
+      "translation_started": "ການແປພາສາເລີ່ມຂຶ້ນ",
+      "credits_consumed": "{ກຣາດດ໌} ກຣາດທີ່ໃຊ້",
+      "translation_failed": "ການແປບໍ່ສໍາເລັດ"
     }
   },
   "Errors": {
-    "user_not_authenticated": "User not authenticated",
-    "missing_parameters": "Missing required parameters",
-    "insufficient_credits": "Insufficient credits. Please purchase more to continue.",
-    "credit_error": "Credit error: {error}",
-    "translation_invalid_response": "Translation service returned an invalid response.",
-    "translation_failed_refund_failed": "Translation failed, and we could not refund your credits. Please contact support. Error: {error}",
-    "translation_failed": "Translation failed: {error}",
-    "unexpected_error": "An unexpected error occurred: {error}",
-    "method_not_allowed": "Method not allowed",
-    "invalid_json": "Invalid JSON in request body",
-    "missing_fields": "Missing required fields: {fields}",
-    "empty_text": "Text cannot be empty",
-    "text_too_long": "Text is too long. Maximum {maxLength} characters allowed, got {actualLength}",
-    "unexpected_detection_error": "An unexpected error occurred during language detection",
-    "invalid_lang_code": "Invalid language code format",
-    "invalid_speech_rate": "Speech rate must be between 0.5 and 2.0",
-    "invalid_speech_pitch": "Speech pitch must be between 0.5 and 2.0",
-    "invalid_voice": "Invalid voice for language {language}",
-    "tts_unavailable": "Text-to-speech service is temporarily unavailable. Please try again later.",
-    "tts_failed": "Failed to generate speech audio. Please try again.",
-    "unexpected_tts_error": "An unexpected error occurred during speech generation",
-    "failed_to_get_voices": "Failed to retrieve voice options"
+    "user_not_authenticated": "ຜູ້ໃຊ້ບໍ່ໄດ້ຮັບການຢັ້ງຢືນ",
+    "missing_parameters": "ຂໍ້ ຈໍາ ເປັນທີ່ຂາດ",
+    "insufficient_credits": "ຄຣິບເດດບໍ່ພຽງພໍ ຂໍຊື້ເພີ່ມເຕີມເພື່ອສືບຕໍ່",
+    "credit_error": "ຂໍ້ຜິດພາດການປ່ອຍສິນເຊື່ອ: {ຂໍ້ຜິດພາດ}",
+    "translation_invalid_response": "ບໍລິການແປພາສາສົ່ງຄືນຄໍາຕອບທີ່ບໍ່ຖືກຕ້ອງ.",
+    "translation_failed_refund_failed": "ການແປລົ້ມເຫລວ, ແລະພວກເຮົາບໍ່ສາມາດຄືນເງິນຂອງທ່ານ. ກະລຸນາຕິດຕໍ່ການສະຫນັບສະຫນູນ. ຂໍ້ຜິດພາດ: {ຂໍ້ຜິດພາດ}",
+    "translation_failed": "ການແປຄວາມຜິດພາດ: {error}",
+    "unexpected_error": "ມີຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຫວັງ: {error}",
+    "method_not_allowed": "ວິທີການບໍ່ອະນຸຍາດ",
+    "invalid_json": "JSON ທີ່ບໍ່ຖືກຕ້ອງໃນຮ່າງການຮ້ອງຂໍ",
+    "missing_fields": "ຂາດ Fields ທີ່ຈໍາເປັນ: {fields}",
+    "empty_text": "ຂໍ້ຄວາມບໍ່ສາມາດເປັນຂີ້ຕົມ",
+    "text_too_long": "ຂໍ້ຄວາມຍາວເກີນໄປ. ຕົວອັກສອນສູງສຸດ {maxLength} ທີ່ອະນຸຍາດ, ໄດ້ຮັບ {actualLengths}",
+    "unexpected_detection_error": "ມີຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດໃນລະຫວ່າງການກວດພົບພາສາ",
+    "invalid_lang_code": "ຮູບແບບລະຫັດພາສາທີ່ບໍ່ຖືກຕ້ອງ",
+    "invalid_speech_rate": "ອັດຕາການເວົ້າຕ້ອງຢູ່ໃນລະຫວ່າງ 0.5 ແລະ 2.0",
+    "invalid_speech_pitch": "ຄວາມສູງໃນການເວົ້າຕ້ອງຢູ່ໃນລະຫວ່າງ 0.5 ແລະ 2.0",
+    "invalid_voice": "ສຽງທີ່ບໍ່ມີຜົນ ສໍາ ລັບພາສາ {ພາສາ}",
+    "tts_unavailable": "ບໍລິການປ່ຽນຂໍ້ຄວາມເປັນສຽງບໍ່ສາມາດໃຊ້ໄດ້ຊົ່ວຄາວ. ກະລຸນາລອງອີກຄັ້ງໃນເວລາຕໍ່ມາ",
+    "tts_failed": "ບໍ່ສາມາດສ້າງສຽງສຽງໄດ້. ກະລຸນາລອງອີກຄັ້ງ.",
+    "unexpected_tts_error": "ຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດໄດ້ເກີດຂຶ້ນໃນລະຫວ່າງການສ້າງສຽງ",
+    "failed_to_get_voices": "ບໍ່ສາມາດເກັບຕົວເລືອກສຽງໄດ້"
   },
   "Auth": {
     "ForgotPassword": {
-      "title": "Reset Password",
-      "description": "Password reset feature is under development",
-      "info": "This feature will be available in a future release. If you have forgotten your password, please contact customer support for assistance.",
-      "contact_support": "Contact Support"
+      "title": "ຕັ້ງຄ່າຄືນລະຫັດຜ່ານ",
+      "description": "ຄຸນສົມບັດການຕັ້ງຄ່າລະຫັດຜ່ານແມ່ນຢູ່ໃນໄລຍະພັດທະນາ",
+      "info": "ຄຸນສົມບັດນີ້ຈະສາມາດໃຊ້ໄດ້ໃນການປ່ອຍໃນອະນາຄົດ. ຖ້າທ່ານລືມລະຫັດຜ່ານຂອງທ່ານ, ກະລຸນາຕິດຕໍ່ການສະຫນັບສະຫນູນລູກຄ້າເພື່ອໃຫ້ໄດ້ຮັບການຊ່ວຍເຫຼືອ.",
+      "contact_support": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ"
     },
     "SignUpForm": {
-      "title": "Create a Transly Account",
-      "subtitle": "Create an account to get 500 bonus credits",
-      "name_label": "Name",
-      "name_placeholder": "Enter your name",
-      "name_required": "Please enter your name",
-      "name_max_length": "Name cannot exceed 50 characters",
-      "email_label": "Email",
-      "email_placeholder": "Enter your email",
-      "email_required": "Please enter your email",
-      "email_invalid": "Invalid email format",
-      "email_max_length": "Email cannot exceed 100 characters",
-      "password_label": "Password",
-      "password_placeholder": "Enter your password",
-      "password_min_length": "Password must be at least 8 characters",
-      "password_max_length": "Password cannot exceed 128 characters",
-      "confirm_password_label": "Confirm Password",
-      "confirm_password_placeholder": "Enter your password again",
-      "confirm_password_required": "Please confirm your password",
-      "password_mismatch": "Passwords do not match",
-      "password_strength_label": "Password Strength",
-      "password_strength_feedback": "Password strength does not meet requirements, please improve your password",
-      "submit_button": "Sign Up",
-      "submit_loading_button": "Signing Up...",
-      "signup_failed": "Sign up failed, please try again",
-      "signup_error": "An error occurred during sign up, please try again",
-      "signin_prompt": "Already have an account?",
-      "signin_link": "Sign In"
+      "title": "ສ້າງບັນຊີ Transly",
+      "subtitle": "ສ້າງບັນຊີເພື່ອໄດ້ຮັບເງິນບອນ 500 ກີບ",
+      "name_label": "ຊື່",
+      "name_placeholder": "ໃສ່ຊື່ຂອງທ່ານ",
+      "name_required": "ກະລຸນາໃສ່ຊື່ຂອງທ່ານ",
+      "name_max_length": "ຊື່ບໍ່ໃຫ້ເກີນ 50 ຕົວອັກສອນ",
+      "email_label": "ອີເມວ",
+      "email_placeholder": "ໃສ່ອີເມວຂອງທ່ານ",
+      "email_required": "ກະລຸນາໃສ່ອີເມວຂອງທ່ານ",
+      "email_invalid": "ຮູບແບບອີເມວທີ່ບໍ່ຖືກຕ້ອງ",
+      "email_max_length": "ອີເມວບໍ່ໃຫ້ເກີນ 100 ຕົວອັກສອນ",
+      "password_label": "ລະຫັດຜ່ານ",
+      "password_placeholder": "ໃສ່ລະຫັດຜ່ານຂອງທ່ານ",
+      "password_min_length": "ລະຫັດຜ່ານຕ້ອງມີຢ່າງຫນ້ອຍ 8 ຕົວອັກສອນ",
+      "password_max_length": "ລະຫັດຜ່ານບໍ່ໃຫ້ເກີນ 128 ຕົວອັກສອນ",
+      "confirm_password_label": "ຢືນຢັນລະຫັດຜ່ານ",
+      "confirm_password_placeholder": "ໃສ່ລະຫັດຜ່ານຂອງທ່ານອີກຄັ້ງ",
+      "confirm_password_required": "ກະລຸນາຢືນຢັນລະຫັດຜ່ານຂອງທ່ານ",
+      "password_mismatch": "ລະຫັດຜ່ານບໍ່ເຫມາະສົມ",
+      "password_strength_label": "ຄວາມເຂັ້ມແຂງຂອງລະຫັດຜ່ານ",
+      "password_strength_feedback": "ຄວາມເຂັ້ມແຂງຂອງລະຫັດຜ່ານບໍ່ຕອບສະ ຫນອງ ຄວາມຕ້ອງການ, ກະລຸນາປັບປຸງລະຫັດເຂົ້າສູ່ລະບົບຂອງທ່ານ",
+      "submit_button": "ລົງທະບຽນ",
+      "submit_loading_button": "ຈົດທະບຽນ...",
+      "signup_failed": "ການລົງທະບຽນລົ້ມເຫຼວ, ກະລຸນາລອງອີກຄັ້ງ",
+      "signup_error": "ມີຂໍ້ຜິດພາດໃນລະຫວ່າງການລົງທະບຽນ, ກະລຸນາລອງອີກຄັ້ງ",
+      "signin_prompt": "ມີບັນຊີແລ້ວບໍ?",
+      "signin_link": "ເຂົ້າສູ່ລະບົບ"
     },
     "SignInForm": {
-      "title": "Sign In to Transly",
-      "subtitle": "Welcome back! Please sign in to your account",
-      "email_label": "Email",
-      "email_placeholder": "Enter your email",
-      "email_required": "Please enter your email",
-      "email_invalid": "Invalid email format",
-      "email_max_length": "Email cannot exceed 100 characters",
-      "password_label": "Password",
-      "password_placeholder": "Enter your password",
-      "password_required": "Please enter your password",
-      "password_max_length": "Password cannot exceed 128 characters",
-      "forgot_password_link": "Forgot password?",
-      "remember_me_label": "Remember me for 30 days",
-      "submit_button": "Sign In",
-      "submit_loading_button": "Signing In...",
-      "signin_failed": "Sign in failed, please try again",
-      "signin_error": "An error occurred during sign in, please try again",
-      "signup_prompt": "Don't have an account yet?",
-      "signup_link": "Sign Up Now",
+      "title": "ເຂົ້າສູ່ລະບົບ Transly",
+      "subtitle": "ຍິນດີຕ້ອນຮັບກັບມາ! ກະລຸນາເຂົ້າສູ່ບັນຊີຂອງທ່ານ",
+      "email_label": "ອີເມວ",
+      "email_placeholder": "ໃສ່ອີເມວຂອງທ່ານ",
+      "email_required": "ກະລຸນາໃສ່ອີເມວຂອງທ່ານ",
+      "email_invalid": "ຮູບແບບອີເມວທີ່ບໍ່ຖືກຕ້ອງ",
+      "email_max_length": "ອີເມວບໍ່ໃຫ້ເກີນ 100 ຕົວອັກສອນ",
+      "password_label": "ລະຫັດຜ່ານ",
+      "password_placeholder": "ໃສ່ລະຫັດຜ່ານຂອງທ່ານ",
+      "password_required": "ກະລຸນາໃສ່ລະຫັດຜ່ານຂອງທ່ານ",
+      "password_max_length": "ລະຫັດຜ່ານບໍ່ໃຫ້ເກີນ 128 ຕົວອັກສອນ",
+      "forgot_password_link": "ລືມລະຫັດຜ່ານບໍ?",
+      "remember_me_label": "ຈື່ຂ້ອຍໄດ້ 30 ມື້",
+      "submit_button": "ເຂົ້າສູ່ລະບົບ",
+      "submit_loading_button": "ເຂົ້າສູ່ລະບົບ...",
+      "signin_failed": "ການເຂົ້າສູ່ລະບົບລົ້ມເຫຼວ, ກະລຸນາລອງອີກຄັ້ງ",
+      "signin_error": "ເກີດຂໍ້ຜິດພາດໃນລະຫວ່າງການເຂົ້າສູ່ລະບົບ, ກະລຸນາລອງອີກຄັ້ງ",
+      "signup_prompt": "ຍັງບໍ່ມີບັນຊີເທື່ອບໍ?",
+      "signup_link": "ຈົດທະບຽນດຽວນີ້",
       "social_divider": "OR",
-      "google_signin_button": "Sign in with Google (coming soon)",
-      "signup_bonus_prompt_1": "Sign up for a new account and get",
-      "signup_bonus_prompt_2": "500 bonus credits"
+      "google_signin_button": "ເຂົ້າສູ່ລະບົບດ້ວຍ Google (ຈະມາໃນໄວໆນີ້)",
+      "signup_bonus_prompt_1": "ລົງທະບຽນບັນຊີໃຫມ່ ແລະ ໄດ້ຮັບ",
+      "signup_bonus_prompt_2": "500 ບອນໂກ"
     },
     "GuestLimit": {
-      "remaining_translations": "You can translate {count} more times today",
-      "register_for_unlimited": "Register for unlimited access"
+      "remaining_translations": "ທ່ານສາມາດແປ {count} ຫຼາຍຄັ້ງໃນມື້ນີ້",
+      "register_for_unlimited": "ລົງທະບຽນເພື່ອເຂົ້າເຖິງບໍ່ຈໍາກັດ"
     }
   },
   "TranslatorWidget": {
     "errors": {
-      "limit_reached_title": "Translation limit reached",
-      "limit_reached_description": "Free users can translate up to 10 times per day. Register for unlimited translations",
-      "login_required_title": "Login required",
-      "login_required_description": "Long text translation requires a logged-in account",
-      "daily_limit_title": "Translation limit reached",
-      "daily_limit_description": "Daily free translation limit has been reached"
+      "limit_reached_title": "ບັນລຸຂີດ ຈໍາ ກັດການແປ",
+      "limit_reached_description": "ຜູ້ໃຊ້ຟຣີສາມາດແປໄດ້ເຖິງ 10 ຄັ້ງຕໍ່ມື້. ລົງທະບຽນເພື່ອແປບໍ່ ຈໍາ ກັດ",
+      "login_required_title": "ຕ້ອງເຂົ້າສູ່ລະບົບ",
+      "login_required_description": "ການແປຂໍ້ຄວາມຍາວໆຕ້ອງການບັນຊີທີ່ເຂົ້າສູ່ລະບົບ",
+      "daily_limit_title": "ບັນລຸຂີດ ຈໍາ ກັດການແປ",
+      "daily_limit_description": "ບັນລຸໄດ້ຂອບເຂດການແປພາສາຟຣີປະຈໍາວັນ"
     },
     "success": {
-      "translation_complete": "Translation complete",
-      "credits_consumed": "Consumed {credits} credits"
+      "translation_complete": "ການແປພາສາສໍາເລັດແລ້ວ",
+      "credits_consumed": "{ກຣາດດ໌} ກຣາດທີ່ໃຊ້"
     },
     "alerts": {
-      "login_required_for_long_text": "Long text translation requires a logged-in account.",
-      "login_now": "Login now",
-      "or": " or ",
-      "register_account": "Register account"
+      "login_required_for_long_text": "ການແປຂໍ້ຄວາມຍາວໆຕ້ອງການບັນຊີທີ່ເຂົ້າສູ່ລະບົບ.",
+      "login_now": "ເຂົ້າສູ່ລະບົບດຽວນີ້",
+      "or": "ຫຼື",
+      "register_account": "ບັນຊີທະບຽນ"
     },
     "buttons": {
-      "translating": "Translating...",
-      "translate_with_credits": "Translate ({credits} credits)",
-      "free_translate": "Translate"
+      "translating": "ແປວ່າ...",
+      "translate_with_credits": "ແປ ({credits} credits)",
+      "free_translate": "ແປວ່າ"
     },
     "credits": {
-      "balance": "Credits",
-      "recharge": "Recharge",
-      "free_translation": "Free Translation",
-      "estimated_cost": "Estimated cost {credits} credits",
-      "insufficient_credits": "(Insufficient credits)",
-      "free_quota_usage": "Free quota usage",
-      "characters": "characters",
-      "over_limit": "Exceeds free quota by {excess} characters, will consume credits",
-      "insufficient_balance": "Insufficient credits! Need {required} credits, current balance {current} credits.",
-      "recharge_now": "Recharge now"
+      "balance": "ການຮັບຮອງ",
+      "recharge": "ເກັບຄືນ",
+      "free_translation": "ການແປພາສາຟຣີ",
+      "estimated_cost": "ຄ່າໃຊ້ຈ່າຍຄາດຄະເນ {ກູ້ຢືມ} ກູ້ຢູ້",
+      "insufficient_credits": "(ບໍ່ພຽງພໍ)",
+      "free_quota_usage": "ການນໍາໃຊ້ປະລິມານຟຣີ",
+      "characters": "ຕົວອັກສອນ",
+      "over_limit": "ເກີນກ້ອນຟຣີໂດຍ {ເກີນ} ຕົວອັກສອນ, ຈະໃຊ້ເງິນກ້ອນ",
+      "insufficient_balance": "ຄາດຄະເນບໍ່ພຽງພໍ! ຕ້ອງການ {ຄວາມຕ້ອງການ} ຄາດຄະເນ, ການເງິນປະຈຸບັນ {ປະຈຸບັນ} ຄະແນນ.",
+      "recharge_now": "ຟື້ນຟູໄຟຟ້ານີ້"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Pricing Plans - Transly AI Translation",
-      "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
+      "title": "ແຜນການລາຄາ - Transly AI Translation",
+      "description": "ເລືອກເອົາຊຸດສິນເຊື່ອທີ່ ເຫມາະ ສົມກັບຄວາມຕ້ອງການການແປພາສາຂອງທ່ານ ລາຄາທີ່ຍືດຫຍຸ່ນ ສໍາ ລັບບຸກຄົນ, ຜູ້ຊ່ຽວຊານແລະທຸລະກິດ"
     },
-    "title": "Choose Your Credit Package",
-    "subtitle": "Flexible credit system, pay as you go, no monthly subscriptions",
-    "current_balance": "Current Credit Balance:",
+    "title": "ເລືອກເອົາຊຸດສິນເຊື່ອຂອງທ່ານ",
+    "subtitle": "ລະບົບສິນເຊື່ອທີ່ຍືດຫຍຸ່ນ, ຈ່າຍຕາມທີ່ທ່ານໄປ, ບໍ່ມີການສະ ຫມັກ ສະ ຫມັກ ປະ ຈໍາ ເດືອນ",
+    "current_balance": "ທຶນການປ່ອຍສິນເຊື່ອໃນປັດຈຸບັນ:",
     "free_tier": {
-      "title": "Free Tier",
-      "subtitle": "Perfect for light usage",
-      "completely_free": "✅ Completely Free:",
-      "credit_based": "💰 Credit-based:",
+      "title": "ຊັ້ນເສລີ",
+      "subtitle": "ດີເລີດສໍາລັບການນໍາໃຊ້ເບົາ",
+      "completely_free": "✅ ຟຣີຫມົດ:",
+      "credit_based": " ການປ່ອຍສິນເຊື່ອ:",
       "features": {
-        "free_text": "Text under 500 characters",
-        "all_languages": "All language pairs supported",
-        "unlimited_use": "Unlimited usage",
-        "large_text": "Text over 500 characters",
-        "document_translation": "Large document translation",
-        "rate": "0.1 credits/character (for excess)"
+        "free_text": "ຂໍ້ຄວາມທີ່ມີຕົວອັກສອນຫນ້ອຍກວ່າ 500 ຕົວອັກຄະ",
+        "all_languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+        "unlimited_use": "ການນໍາໃຊ້ບໍ່ຈໍາກັດ",
+        "large_text": "ຂໍ້ຄວາມຫຼາຍກວ່າ 500 ຕົວອັກສອນ",
+        "document_translation": "ການແປເອກະສານຂະຫນາດໃຫຍ່",
+        "rate": "0.1 ຄຣິບ / ຕົວອັກສອນ (ສໍາລັບເກີນ)"
       }
     },
     "packages": {
       "starter": {
-        "name": "Starter Package",
-        "description": "Perfect for occasional users",
+        "name": "ຊຸດເລີ່ມຕົ້ນ",
+        "description": "ດີເລີດສໍາລັບຜູ້ໃຊ້ບາງຄັ້ງ",
         "features": {
-          "credits": "1,000 translation credits",
-          "languages": "All language pairs supported",
-          "documents": "Document translation feature",
-          "validity": "7-day validity period"
+          "credits": "1,000 ຄຣິບແປພາສາ",
+          "languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+          "documents": "ຄຸນສົມບັດການແປເອກະສານ",
+          "validity": "ໄລຍະເວລາ 7 ມື້"
         }
       },
       "basic": {
-        "name": "Basic Package",
-        "description": "Most popular choice",
+        "name": "ຊຸດພື້ນຖານ",
+        "description": "ທາງເລືອກທີ່ນິຍົມທີ່ສຸດ",
         "features": {
-          "credits": "5,000 translation credits",
-          "languages": "All language pairs supported",
-          "documents": "Document translation feature",
-          "validity": "30-day validity period",
-          "support": "Priority customer support"
+          "credits": "5,000 ຄຣິບແປພາສາ",
+          "languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+          "documents": "ຄຸນສົມບັດການແປເອກະສານ",
+          "validity": "ໄລຍະເວລາ 30 ວັນ",
+          "support": "ການສະຫນັບສະຫນູນລູກຄ້າເປັນບູລິມະສິດ"
         }
       },
       "pro": {
-        "name": "Professional Package",
-        "description": "Perfect for heavy users",
+        "name": "ຊຸດມືອາຊີບ",
+        "description": "ດີເລີດສໍາລັບຜູ້ໃຊ້ທີ່ໃຊ້ຫຼາຍ",
         "features": {
-          "credits": "10,000 translation credits",
-          "languages": "All language pairs supported",
-          "documents": "Document translation feature",
-          "validity": "60-day validity period",
-          "support": "Priority customer support",
-          "batch": "Batch translation feature"
+          "credits": "10,000 ຄຣິບແປພາສາ",
+          "languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+          "documents": "ຄຸນສົມບັດການແປເອກະສານ",
+          "validity": "ໄລຍະເວລາ 60 ວັນ",
+          "support": "ການສະຫນັບສະຫນູນລູກຄ້າເປັນບູລິມະສິດ",
+          "batch": "ຄຸນສົມບັດການແປແບບແຊມ"
         }
       },
       "business": {
-        "name": "Business Package",
-        "description": "Perfect for teams and enterprises",
+        "name": "ຊຸດທຸລະກິດ",
+        "description": "ດີເລີດສໍາລັບທີມງານແລະວິສາຫະກິດ",
         "features": {
-          "credits": "25,000 translation credits",
-          "languages": "All language pairs supported",
-          "documents": "Document translation feature",
-          "validity": "90-day validity period",
-          "support": "Priority customer support",
-          "batch": "Batch translation feature",
-          "api": "API access"
+          "credits": "25,000 ຄຣິບແປພາສາ",
+          "languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+          "documents": "ຄຸນສົມບັດການແປເອກະສານ",
+          "validity": "ໄລຍະເວລາ 90 ວັນ",
+          "support": "ການສະຫນັບສະຫນູນລູກຄ້າເປັນບູລິມະສິດ",
+          "batch": "ຄຸນສົມບັດການແປແບບແຊມ",
+          "api": "ການເຂົ້າເຖິງ API"
         }
       },
       "enterprise": {
-        "name": "Enterprise Package",
-        "description": "Large enterprise solution",
+        "name": "ຊຸດວິສາຫະກິດ",
+        "description": "ການແກ້ໄຂສໍາລັບບໍລິສັດໃຫຍ່",
         "features": {
-          "credits": "50,000 translation credits",
-          "languages": "All language pairs supported",
-          "documents": "Document translation feature",
-          "validity": "180-day validity period",
-          "support": "Dedicated customer support",
-          "batch": "Batch translation feature",
-          "api": "API access",
-          "integration": "Custom integration"
+          "credits": "50,000 ຄຣິບແປພາສາ",
+          "languages": "ທຸກຄູ່ພາສາທີ່ຮອງຮັບ",
+          "documents": "ຄຸນສົມບັດການແປເອກະສານ",
+          "validity": "ໄລຍະເວລາ 180 ມື້",
+          "support": "ການສະຫນັບສະຫນູນລູກຄ້າທີ່ອຸທິດຕົນ",
+          "batch": "ຄຸນສົມບັດການແປແບບແຊມ",
+          "api": "ການເຂົ້າເຖິງ API",
+          "integration": "ການເຊື່ອມໂຍງຕາມໃຈມັກ"
         }
       }
     },
-    "popular": "Recommend",
-    "save": "Save",
-    "credits": "credits",
-    "purchase_button": "Purchase Now",
-    "processing": "Processing...",
+    "popular": "ແນະ ນໍາ",
+    "save": "ຮັກສາໄວ້",
+    "credits": "ຄຣິບິດ",
+    "purchase_button": "ຊື້ດຽວນີ້",
+    "processing": "ການປະມວນຜົນ...",
     "new_user_bonus": {
-      "title": "New User Exclusive Offer",
-      "description": "🎉 Sign up and get 500 credits + 20% extra credits on first purchase",
-      "note": "Bonus will be automatically applied to your account after payment"
+      "title": "ຂໍ້ສະເຫນີສະເພາະຜູ້ໃຊ້ໃຫມ່",
+      "description": " ລົງທະບຽນແລະໄດ້ຮັບ 500 ຄຣິບ + 20% ຄຣີບເພີ່ມເຕີມໃນການຊື້ຄັ້ງທໍາອິດ",
+      "note": "ໂບນັດຈະຖືກນໍາໃຊ້ອັດຕະໂນມັດກັບບັນຊີຂອງທ່ານຫຼັງຈາກການຊໍາລະເງິນ"
     },
     "register_prompt": {
-      "title": "Register Now for More Benefits",
-      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase",
-      "register_button": "Register Now",
-      "signin_button": "Already Have Account"
+      "title": "ລົງທະບຽນດຽວນີ້ ເພື່ອໄດ້ຮັບຜົນປະໂຫຍດເພີ່ມເຕີມ",
+      "description": "ຜູ້ໃຊ້ທີ່ລົງທະບຽນໄດ້ຮັບ 500 ບອນຊະລາການຮັບຕ້ອນ + 20% ເງິນລາງວັນເພີ່ມເຕີມໃນການຊື້ຄັ້ງທໍາອິດ",
+      "register_button": "ຈົດທະບຽນດຽວນີ້",
+      "signin_button": "ມີບັນຊີແລ້ວ"
     },
     "faq": {
-      "title": "Frequently Asked Questions",
-      "subtitle": "Everything you need to know about our pricing",
+      "title": "ຄໍາ ຖາມ ທີ່ ມັກ ຖາມ",
+      "subtitle": "ທຸກຢ່າງທີ່ທ່ານຕ້ອງການຮູ້ກ່ຽວກັບລາຄາຂອງພວກເຮົາ",
       "credit_calculation": {
-        "question": "How are credits calculated?",
-        "answer": "Under 500 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 50 credits."
+        "question": "ຄາດຄະເນແມ່ນຄິດໄລ່ແນວໃດ?",
+        "answer": "ຕໍ່າກວ່າ 500 ຕົວອັກສອນແມ່ນບໍ່ເສຍຄ່າທັງ ຫມົດ, ການເພີ່ມເຕີມແມ່ນຖືກຄິດຄ່າ 0.1 ຄຣິບ / ຕົວອักษร. ຕົວຢ່າງ: ການແປ 1000 ຕົວອະນຸກົມຕ້ອງການ 50 ຄຣິດ."
       },
       "expiration": {
-        "question": "Do credits expire?",
-        "answer": "Credit validity depends on the package purchased, ranging from 7 to 180 days. We'll notify you before expiration."
+        "question": "ຄຣິບເດດຫມົດອາຍຸບໍ?",
+        "answer": "ການນໍາໃຊ້ສິນເຊື່ອແມ່ນຂຶ້ນກັບຊຸດທີ່ຊື້, ໃນໄລຍະ 7 ຫາ 180 ມື້. ພວກເຮົາຈະແຈ້ງໃຫ້ທ່ານກ່ອນທີ່ຈະຫມົດອາຍຸ."
       },
       "payment_methods": {
-        "question": "What payment methods are supported?",
-        "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
+        "question": "ວິທີການຈ່າຍເງິນໃດທີ່ໄດ້ຮັບການສະ ຫນັບ ສະ ຫນູນ?",
+        "answer": "ພວກເຮົາສະຫນັບສະຫນູນບັດເຄຣດິດ, ບັດເດບິດ, ແລະກະເປົາເງິນດິຈິຕອນ. ການຊໍາລະເງິນທັງຫມົດແມ່ນຖືກປະມວນຜົນຜ່ານເວທີ Creem ທີ່ປອດໄພ."
       },
       "bulk_discount": {
-        "question": "Do you offer bulk discounts?",
-        "answer": "Yes! Our larger packages offer significant savings - up to 40% off with the Enterprise package. The more credits you purchase, the better the value."
+        "question": "ເຈົ້າມີສ່ວນຫຼຸດສ່ວນໃຫຍ່ບໍ?",
+        "answer": "ແມ່ນແລ້ວ!ຊຸດໃຫຍ່ຂອງພວກເຮົາສະ ເຫນີ ການປະຫຍັດທີ່ ສໍາ ຄັນ - ເຖິງ 40% ຫຼຸດລົງກັບຊຸດ Enterprise. ທ່ານຊື້ສິນເຊື່ອຫຼາຍເທົ່າໃດ, ມູນຄ່າກໍ່ດີຂື້ນ."
       },
       "unused_credits": {
-        "question": "What happens to unused credits?",
-        "answer": "Unused credits remain in your account until their expiration date. You can check your credit balance and expiration dates in your account dashboard."
+        "question": "ຈະເປັນແນວໃດກັບເງິນທີ່ບໍ່ໄດ້ໃຊ້?",
+        "answer": "ການປ່ອຍສິນເຊື່ອທີ່ບໍ່ໄດ້ໃຊ້ຍັງຢູ່ໃນບັນຊີຂອງທ່ານຈົນເຖິງວັນ ຫມົດ ອາຍຸ. ທ່ານສາມາດກວດເບິ່ງສະສົມສິນເຊື່ອແລະວັນ ຫມົດ ກໍາ ນົດໃນກະດານກວດກາບັນຊີຂອງທ່ານ."
       },
       "business_invoicing": {
-        "question": "Do you provide invoices for business purchases?",
-        "answer": "Yes, we provide detailed invoices for all purchases. Business customers can access invoices through their account dashboard or contact support for assistance."
+        "question": "ທ່ານໃຫ້ໃບເກັບເງິນ ສໍາ ລັບການຊື້ທຸລະກິດບໍ?",
+        "answer": "ແມ່ນແລ້ວ, ພວກເຮົາສະ ຫນອງ ໃບຄິດໄລ່ລະອຽດ ສໍາ ລັບການຊື້ທັງ ຫມົດ ລູກຄ້າທຸລະກິດສາມາດເຂົ້າເຖິງໃບຄິດໄລນ໌ຜ່ານກະດານກວດສອບບັນຊີຂອງພວກເຂົາຫຼືຕິດຕໍ່ຫາການສະ ຫນັບ ສະ ຫນູນ ເພື່ອໃຫ້ການຊ່ວຍເຫຼືອ."
       },
       "api_pricing": {
-        "question": "How does API pricing work?",
-        "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 500."
+        "question": "ການວາງລາຄາ API ເຮັດວຽກແນວໃດ?",
+        "answer": "ການເຂົ້າເຖິງ API ແມ່ນລວມຢູ່ໃນຊຸດທຸລະກິດແລະ Enterprise. ການໃຊ້ API ໃຊ້ເງິນຄຼິດໃນອັດຕາດຽວກັນກັບການແປເວັບ - 0.1 ຄຼິດຕໍ່ຕົວອັກສອນໃນໄລຍະ 500."
       },
-      "contact_support": "Have more questions? Contact our support team"
+      "contact_support": "ມີຄໍາຖາມເພີ່ມເຕີມ? ຕິດຕໍ່ທີມງານສະຫນັບສະຫນູນຂອງພວກເຮົາ"
     }
   },
   "Common": {
-    "remember_me": "Remember me",
-    "sign_up": "Sign up",
-    "sign_in": "Sign in",
-    "hide_password": "Hide password",
-    "show_password": "Show password",
-    "no_email": "No email",
-    "translation_failed": "Translation failed",
-    "detection_failed": "Detection failed",
-    "invalid_file": "Invalid file",
-    "upload_failed": "Upload failed",
-    "document_translation": "Document translation",
-    "priority_support": "Priority support",
-    "ready_to_translate": "Ready to Translate",
-    "upload_your_document": "Upload Your Document",
-    "creole_greeting": "Creole greeting",
-    "lao_greeting": "Lao greeting",
-    "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "remember_me": "ຈື່ຂ້ອຍໄວ້",
+    "sign_up": "ລົງທະບຽນ",
+    "sign_in": "ເຂົ້າສູ່ລະບົບ",
+    "hide_password": "ເຊື່ອງລະຫັດຜ່ານ",
+    "show_password": "ສະແດງລະຫັດຜ່ານ",
+    "no_email": "ບໍ່ມີອີເມວ",
+    "translation_failed": "ການແປບໍ່ສໍາເລັດ",
+    "detection_failed": "ການກວດພົບບໍ່ສໍາເລັດ",
+    "invalid_file": "ໄຟລ໌ທີ່ບໍ່ຖືກຕ້ອງ",
+    "upload_failed": "ການອັບໂຫລດລົ້ມເຫລວ",
+    "document_translation": "ການແປເອກະສານ",
+    "priority_support": "ການສະຫນັບສະຫນູນບູລິມະສິດ",
+    "ready_to_translate": "ພ້ອມແລ້ວທີ່ຈະແປ",
+    "upload_your_document": "ອັບໂຫລດເອກະສານຂອງທ່ານ",
+    "creole_greeting": "ການຕ້ອນຮັບພາສາ Creole",
+    "lao_greeting": "ການຕ້ອນຮັບລາວ",
+    "swahili_greeting": "ຄໍາອວຍພອນພາສາ Swahili",
+    "choose_pricing_plan": "ເລືອກແຜນລາຄາ"
   },
   "translation": {
     "start_translation": "ຕ້ອງການແປ",
@@ -985,5 +1283,25 @@
     "select_all": "ຕ້ອງການແປ",
     "batch_operations": "ຕ້ອງການແປ",
     "set_priority": "ຕ້ອງການແປ"
+  },
+  "NotFound": {
+    "title": "ຫນ້າ ບໍ່ພົບ",
+    "description": "ຫນ້າທີ່ທ່ານກໍາລັງຊອກຫາ ບໍ່ມີຢູ່ ຫຼືຖືກຍ້າຍໄປ.",
+    "goHome": "ກັບບ້ານໄປ",
+    "contactSupport": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ"
+  },
+  "Error": {
+    "title": "ມີບາງສິ່ງບາງຢ່າງທີ່ຜິດພາດ!",
+    "description": "ມີຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຫວັງ. ກະລຸນາລອງອີກຄັ້ງ.",
+    "errorDetails": "ລາຍລະອຽດຄວາມຜິດພາດ (ການພັດທະນາ)",
+    "tryAgain": "ພະຍາຍາມອີກຄັ້ງ",
+    "goHome": "ກັບບ້ານໄປ",
+    "contactSupport": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Dashboard ຂອງຜູ້ບໍລິຫານ",
+      "description": "ຄຸ້ມຄອງການຕັ້ງຄ່າຄໍາຮ້ອງສະຫມັກຂອງທ່ານ ແລະ ຕິດຕາມເບິ່ງສະຖານະການຂອງລະບົບ."
+    }
   }
 }

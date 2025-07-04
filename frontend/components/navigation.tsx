@@ -58,7 +58,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center space-x-6">
           {navigationItems.map((item) => {
             const Icon = navIcons[item.key] || Home
-            const href = buildLocalizedUrl(item.href, currentLocale)
+            const href = buildLocalizedUrl(currentLocale, item.href)
             const isActive = pathname === href || 
               (item.href !== '/' && pathname.startsWith(href))
 
@@ -120,7 +120,7 @@ export function Navigation() {
             <div className="space-y-2">
               {navigationItems.map((item) => {
                 const Icon = navIcons[item.key] || Home
-                const href = buildLocalizedUrl(item.href, currentLocale)
+                const href = buildLocalizedUrl(currentLocale, item.href)
                 const isActive = pathname === href || 
                   (item.href !== '/' && pathname.startsWith(href))
 
@@ -146,7 +146,7 @@ export function Navigation() {
             {/* Mobile Language Switcher */}
             <div className="pt-4 border-t">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-muted-foreground">界面语言</span>
+                <span className="text-sm font-medium text-muted-foreground">{tLayout('Footer.interface_language')}</span>
                 <LanguageSwitcher variant="compact" />
               </div>
             </div>
@@ -168,11 +168,11 @@ export function Footer() {
   const { locale: currentLocale } = detectLocaleFromPath(pathname)
 
   const footerLinks = [
-    { key: 'about', href: '/about' },
+    { key: 'about_us', href: '/about' },
     { key: 'pricing', href: '/pricing' },
-    { key: 'contact', href: '/contact' },
-    { key: 'privacy', href: '/privacy' },
-    { key: 'terms', href: '/terms' },
+    { key: 'contact_support', href: '/contact' },
+    { key: 'privacy_policy', href: '/privacy' },
+    { key: 'terms_of_service', href: '/terms' },
   ]
 
   return (
@@ -186,25 +186,25 @@ export function Footer() {
               <span className="text-xl font-bold">Transly</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              专业小语种AI翻译服务，让每种语言都能被理解。
+              {tLayout('Footer.tagline')}
             </p>
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-muted-foreground">界面语言:</span>
+              <span className="text-sm text-muted-foreground">{tLayout('Footer.interface_language')}:</span>
               <LanguageSwitcher variant="compact" />
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold">快速链接</h3>
+            <h3 className="text-sm font-semibold">{tLayout('Footer.company')}</h3>
             <div className="space-y-2">
               {footerLinks.map((link) => (
                 <Link
                   key={link.key}
-                  href={buildLocalizedUrl(link.href, currentLocale)}
+                  href={buildLocalizedUrl(currentLocale, link.href)}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {tLayout(`footer.${link.key}`)}
+                  {tLayout(`Footer.${link.key}`)}
                 </Link>
               ))}
             </div>
@@ -212,33 +212,33 @@ export function Footer() {
 
           {/* Supported Languages */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold">支持的语言</h3>
+            <h3 className="text-sm font-semibold">{tLayout('Footer.supported_languages')}</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <div>海地克里奥尔语</div>
-              <div>老挝语</div>
-              <div>斯瓦希里语</div>
-              <div>缅甸语</div>
-              <div>泰卢固语</div>
+              <div>Haitian Creole</div>
+              <div>Lao</div>
+              <div>Swahili</div>
+              <div>Burmese</div>
+              <div>{tLayout('Footer.telugu_language')}</div>
               <Link 
                 href="/about#languages" 
                 className="text-primary hover:underline"
               >
-                查看全部 →
+                {tLayout('Footer.view_all_languages')}
               </Link>
             </div>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold">联系我们</h3>
+            <h3 className="text-sm font-semibold">{tLayout('Footer.contact_us')}</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <div>support@transly.app</div>
-              <div>24/7 在线支持</div>
+              <div>{tLayout('Footer.support_email')}</div>
+              <div>{tLayout('Footer.support_24_7')}</div>
               <Link 
                 href="/contact" 
                 className="text-primary hover:underline"
               >
-                联系表单 →
+                {tLayout('Footer.contact_form')} →
               </Link>
             </div>
           </div>
@@ -246,130 +246,6 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
           <p>&copy; 2024 Transly. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-    <footer className="border-t bg-muted/30">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="rounded-lg bg-primary p-2">
-                <Languages className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-bold">Transly</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              AI-powered translation for low-resource languages.
-            </p>
-          </div>
-
-          {/* Product */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Product</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/text-translate"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Text Translation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/document-translate"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Document Translation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Supported Languages
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Company</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-foreground transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/compliance"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Compliance
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Resources</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href={{ pathname: '/about', hash: 'faq' }}
-                  className="hover:text-foreground transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-foreground transition-colors"
-                >
-                  {tLayout('Footer.contact_support')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/api-docs"
-                  className="hover:text-foreground transition-colors"
-                >
-                  API Docs
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Transly. All Rights Reserved.
         </div>
       </div>
     </footer>

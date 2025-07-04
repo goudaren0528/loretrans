@@ -51,6 +51,5 @@
   ],
   "exclude": [
     "node_modules"
-    // Restarting TSServer
   ]
 }

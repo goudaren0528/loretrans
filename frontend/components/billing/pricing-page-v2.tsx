@@ -175,6 +175,7 @@ const PRICING_PLANS = {
 export function PricingPageV2() {
   const { user, loading: authLoading } = useAuth()
   const router = useRouter()
+  const t = useTranslations('PricingPage')
   const [loading, setLoading] = useState<string | null>(null)
   const [selectedScenario, setSelectedScenario] = useState<string>('individual')
 
@@ -436,28 +437,25 @@ export function PricingPageV2() {
         {/* Value Comparison */}
         <div className="bg-white rounded-2xl p-8 shadow-sm border mb-16">
           <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            💰 成本对比：为什么选择Transly？
+            {t('cost_comparison.title')}
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-red-50 rounded-xl">
-              <div className="text-4xl font-bold text-red-600 mb-2">$120</div>
-              <div className="text-lg font-medium text-red-800 mb-2">人工翻译</div>
-              <div className="text-sm text-red-600">1000字符 × $0.12/字</div>
-              <div className="text-xs text-red-500 mt-2">⏰ 需要1-3天</div>
+              <div className="text-4xl font-bold text-red-600 mb-2">{t('cost_comparison.human_translation.price')}</div>
+              <div className="text-lg font-medium text-red-800 mb-2">{t('cost_comparison.human_translation.title')}</div>
+              <div className="text-sm text-red-600">{t('cost_comparison.human_translation.description')}</div>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-4xl font-bold text-gray-500 mb-2">不支持</div>
-              <div className="text-lg font-medium text-gray-700 mb-2">Google翻译</div>
-              <div className="text-sm text-gray-500">小语种覆盖不足</div>
-              <div className="text-xs text-gray-400 mt-2">❌ 质量无保证</div>
+              <div className="text-4xl font-bold text-gray-500 mb-2">{t('cost_comparison.google_translate.price')}</div>
+              <div className="text-lg font-medium text-gray-700 mb-2">{t('cost_comparison.google_translate.title')}</div>
+              <div className="text-sm text-gray-500">{t('cost_comparison.google_translate.description')}</div>
             </div>
             <div className="text-center p-6 bg-green-50 rounded-xl border-2 border-green-200">
-              <div className="text-4xl font-bold text-green-600 mb-2">$1</div>
-              <div className="text-lg font-medium text-green-800 mb-2">Transly</div>
-              <div className="text-sm text-green-600">1000字符 × $0.001/字</div>
-              <div className="text-xs text-green-700 mt-2">⚡ 即时翻译</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">{t('cost_comparison.transly.price')}</div>
+              <div className="text-lg font-medium text-green-800 mb-2">{t('cost_comparison.transly.title')}</div>
+              <div className="text-sm text-green-600">{t('cost_comparison.transly.description')}</div>
               <div className="mt-3 text-sm font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full">
-                节省99%成本
+                {t('cost_comparison.transly.savings')}
               </div>
             </div>
           </div>

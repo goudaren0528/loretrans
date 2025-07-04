@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     build-essential \
     curl \
+    && ln -s /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装Python依赖
@@ -28,8 +29,9 @@ RUN mkdir -p models downloads temp logs
 COPY src/ ./src/
 COPY scripts/ ./scripts/
 
-# 下载NLLB模型
-RUN python3 scripts/download_model.py download
+# 下载NLLB模型并备份到不会被volume覆盖的位置
+RUN python3 scripts/download_model.py download && \
+    cp -r /app/models /tmp/models_backup
 
 # 设置环境变量
 ENV NODE_ENV=production

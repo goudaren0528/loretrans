@@ -1,0 +1,235 @@
+name: Build NLLB Layered Images
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'microservices/nllb-local/**'
+      - '.github/workflows/build-nllb-layers.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'microservices/nllb-local/**'
+  workflow_dispatch:
+    inputs:
+      layer:
+        description: 'Which layer to build'
+        required: true
+        default: 'app'
+        type: choice
+        options:
+        - base
+        - model
+        - app
+        - all
+      force_rebuild:
+        description: 'Force rebuild (ignore cache)'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  ECR_REGISTRY: 034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
+  ECR_REPOSITORY: translation-low-source
+  AWS_REGION: ap-southeast-1
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      base-changed: ${{ steps.changes.outputs.base }}
+      model-changed: ${{ steps.changes.outputs.model }}
+      app-changed: ${{ steps.changes.outputs.app }}
+      build-layer: ${{ steps.determine-layer.outputs.layer }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual trigger detected"
+            echo "base=true" >> $GITHUB_OUTPUT
+            echo "model=true" >> $GITHUB_OUTPUT  
+            echo "app=true" >> $GITHUB_OUTPUT
+          else
+            # 检查基础环境变化
+            if git diff HEAD~1 --name-only | grep -E "(docker/Dockerfile\.base|package\.json)" > /dev/null; then
+              echo "base=true" >> $GITHUB_OUTPUT
+            else
+              echo "base=false" >> $GITHUB_OUTPUT
+            fi
+            
+            # 检查模型变化
+            if git diff HEAD~1 --name-only | grep -E "(docker/Dockerfile\.model|scripts/download_model\.py)" > /dev/null; then
+              echo "model=true" >> $GITHUB_OUTPUT
+            else
+              echo "model=false" >> $GITHUB_OUTPUT
+            fi
+            
+            # 检查应用变化
+            if git diff HEAD~1 --name-only | grep -E "(docker/Dockerfile\.app|src/|package\.json)" > /dev/null; then
+              echo "app=true" >> $GITHUB_OUTPUT
+            else
+              echo "app=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Determine build layer
+        id: determine-layer
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "layer=${{ github.event.inputs.layer }}" >> $GITHUB_OUTPUT
+          elif [ "${{ steps.changes.outputs.base }}" = "true" ]; then
+            echo "layer=all" >> $GITHUB_OUTPUT
+          elif [ "${{ steps.changes.outputs.model }}" = "true" ]; then
+            echo "layer=model-app" >> $GITHUB_OUTPUT
+          elif [ "${{ steps.changes.outputs.app }}" = "true" ]; then
+            echo "layer=app" >> $GITHUB_OUTPUT
+          else
+            echo "layer=none" >> $GITHUB_OUTPUT
+          fi
+
+  build-base:
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.build-layer == 'base' || needs.detect-changes.outputs.build-layer == 'all'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push base image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./microservices/nllb-local
+          file: ./microservices/nllb-local/docker/Dockerfile.base
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-base-latest
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-base-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          no-cache: ${{ github.event.inputs.force_rebuild == 'true' }}
+
+  build-model:
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-base]
+    if: |
+      always() && 
+      (needs.build-base.result == 'success' || needs.build-base.result == 'skipped') &&
+      (needs.detect-changes.outputs.build-layer == 'model' || 
+       needs.detect-changes.outputs.build-layer == 'model-app' || 
+       needs.detect-changes.outputs.build-layer == 'all')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push model image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./microservices/nllb-local
+          file: ./microservices/nllb-local/docker/Dockerfile.model
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-model-latest
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-model-${{ github.sha }}
+          build-args: |
+            ECR_REGISTRY=${{ env.ECR_REGISTRY }}
+            ECR_REPOSITORY=${{ env.ECR_REPOSITORY }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          no-cache: ${{ github.event.inputs.force_rebuild == 'true' }}
+
+  build-app:
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-model]
+    if: |
+      always() && 
+      (needs.build-model.result == 'success' || needs.build-model.result == 'skipped') &&
+      needs.detect-changes.outputs.build-layer != 'none' &&
+      needs.detect-changes.outputs.build-layer != 'base' &&
+      needs.detect-changes.outputs.build-layer != 'model'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push app image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./microservices/nllb-local
+          file: ./microservices/nllb-local/docker/Dockerfile.app
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-latest
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-${{ github.sha }}
+          build-args: |
+            ECR_REGISTRY=${{ env.ECR_REGISTRY }}
+            ECR_REPOSITORY=${{ env.ECR_REPOSITORY }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          no-cache: ${{ github.event.inputs.force_rebuild == 'true' }}
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-base, build-model, build-app]
+    if: always()
+    steps:
+      - name: Build Summary
+        run: |
+          echo "## 🏗️ NLLB 分层镜像构建结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**触发原因:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**构建层级:** ${{ needs.detect-changes.outputs.build-layer }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 层级 | 状态 | 镜像标签 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|----------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Base | ${{ needs.build-base.result || '⏭️ 跳过' }} | \`nllb-base-latest\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Model | ${{ needs.build-model.result || '⏭️ 跳过' }} | \`nllb-model-latest\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| App | ${{ needs.build-app.result || '⏭️ 跳过' }} | \`nllb-service-latest\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**下次开发时:** 只需要修改代码，CI会自动构建app层，几分钟完成！" >> $GITHUB_STEP_SUMMARY

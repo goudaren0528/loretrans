@@ -1,0 +1,33 @@
+# NLLB模型镜像
+# 基于基础环境，添加预下载的NLLB模型
+ARG ECR_REGISTRY=034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
+ARG ECR_REPOSITORY=translation-low-source
+FROM ${ECR_REGISTRY}/${ECR_REPOSITORY}:nllb-base-latest
+
+LABEL maintainer="Transly Team"
+LABEL description="NLLB Model Layer with pre-downloaded facebook/nllb-200-distilled-600M"
+
+# 复制模型下载脚本
+COPY scripts/ ./scripts/
+
+# 下载并缓存NLLB模型
+RUN echo "Downloading NLLB 600M model..." && \
+    python3 scripts/download_model.py download && \
+    echo "Model downloaded successfully!" && \
+    echo "Model size:" && \
+    du -sh models/nllb-600m/ && \
+    echo "Verifying model..." && \
+    python3 scripts/download_model.py verify
+
+# 设置模型相关环境变量
+ENV MODEL_PATH=/app/models/nllb-600m
+ENV DEVICE=cpu
+ENV DTYPE=fp32
+ENV BATCH_SIZE=4
+
+# 验证模型加载的健康检查
+HEALTHCHECK --interval=60s --timeout=30s --start-period=120s --retries=2 \
+  CMD python3 scripts/download_model.py verify || exit 1
+
+# 默认命令：显示模型信息
+CMD ["python3", "scripts/download_model.py", "info"]

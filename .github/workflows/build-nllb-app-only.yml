@@ -1,0 +1,75 @@
+name: Quick Build NLLB App
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_after_build:
+        description: '构建后是否自动部署到远程服务器'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  ECR_REGISTRY: 034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
+  ECR_REPOSITORY: translation-low-source
+  AWS_REGION: ap-southeast-1
+
+jobs:
+  quick-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: ⚡ Quick Build App Layer
+        uses: docker/build-push-action@v5
+        with:
+          context: ./microservices/nllb-local
+          file: ./microservices/nllb-local/docker/Dockerfile.app
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-latest
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-quick-${{ github.run_number }}
+          build-args: |
+            ECR_REGISTRY=${{ env.ECR_REGISTRY }}
+            ECR_REPOSITORY=${{ env.ECR_REPOSITORY }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: 🏷️ Image Info
+        run: |
+          echo "## ⚡ 快速构建完成！" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**新镜像标签:**" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-latest\`" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:nllb-service-quick-${{ github.run_number }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**部署命令:**" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "docker-compose -f docker-compose.production.yml pull nllb-service" >> $GITHUB_STEP_SUMMARY
+          echo "docker-compose -f docker-compose.production.yml up -d nllb-service" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+  auto-deploy:
+    runs-on: ubuntu-latest
+    needs: quick-build
+    if: github.event.inputs.deploy_after_build == 'true'
+    steps:
+      - name: 🚀 Auto Deploy (If Configured)
+        run: |
+          echo "自动部署功能需要配置SSH密钥和远程服务器信息"
+          echo "当前跳过自动部署，请手动运行部署命令"

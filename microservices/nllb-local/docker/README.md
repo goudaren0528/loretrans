@@ -80,7 +80,7 @@ docker build -f docker/Dockerfile.app -t nllb-service .
 
 ```bash
 # ECR镜像仓库标签
-034986963036.dkr.ecr.ap-southeast-1.amazonaws.com/translation-low-source:
+034986963036.dkr.ecr.ap-southeast-1.amazonaws.com/looplay:
 
 ├── nllb-base-latest      # 基础环境（稳定）
 ├── nllb-model-latest     # 模型层（稳定）

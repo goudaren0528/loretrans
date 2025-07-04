@@ -1,7 +1,7 @@
 # NLLB应用镜像
 # 基于模型层，添加Node.js应用代码
 ARG ECR_REGISTRY=034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
-ARG ECR_REPOSITORY=translation-low-source
+ARG ECR_REPOSITORY=looplay
 FROM ${ECR_REGISTRY}/${ECR_REPOSITORY}:nllb-model-latest
 
 LABEL maintainer="Transly Team"

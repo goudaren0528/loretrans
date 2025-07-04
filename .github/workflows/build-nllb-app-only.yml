@@ -11,7 +11,7 @@ on:
 
 env:
   ECR_REGISTRY: 034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
-  ECR_REPOSITORY: translation-low-source
+  ECR_REPOSITORY: looplay
   AWS_REGION: ap-southeast-1
 
 jobs:

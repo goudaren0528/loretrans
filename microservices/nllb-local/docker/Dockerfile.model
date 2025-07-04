@@ -1,7 +1,7 @@
 # NLLB模型镜像
 # 基于基础环境，添加预下载的NLLB模型
 ARG ECR_REGISTRY=034986963036.dkr.ecr.ap-southeast-1.amazonaws.com
-ARG ECR_REPOSITORY=translation-low-source
+ARG ECR_REPOSITORY=looplay
 FROM ${ECR_REGISTRY}/${ECR_REPOSITORY}:nllb-base-latest
 
 LABEL maintainer="Transly Team"

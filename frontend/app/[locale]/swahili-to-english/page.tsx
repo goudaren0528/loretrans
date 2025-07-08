@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: 'Swahili to English Translator - Free AI Translation Tool | Transly',
+  title: 'Swahili to English Translator - Free AI Translation Tool | Loretrans',
   description: 'Free online Swahili to English translator. Accurate AI-powered translation for Kiswahili text, documents, and phrases. Instant results with NLLB technology.',
   keywords: [
     'swahili translator',
@@ -17,10 +17,10 @@ export const metadata = {
     title: 'Swahili to English Translator - Free AI Translation',
     description: 'Professional Swahili to English translation powered by AI. Translate Kiswahili text, documents and phrases instantly.',
     type: 'website',
-    url: 'https://transly.app/swahili-to-english',
+    url: 'https://loretrans.app/swahili-to-english',
   },
   twitter: {
-    title: 'Free Swahili to English Translator | Transly',
+    title: 'Free Swahili to English Translator | Loretrans',
     description: 'Accurate AI-powered Swahili to English translation. Perfect for Kiswahili speakers.',
   }
 };

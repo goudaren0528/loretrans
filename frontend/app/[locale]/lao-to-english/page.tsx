@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: 'Lao to English Translator - Free AI Translation Tool | Transly',
+  title: 'Lao to English Translator - Free AI Translation Tool | Loretrans',
   description: 'Free online Lao to English translator. Accurate AI-powered translation for ລາວ text, documents, and phrases. Instant results with NLLB technology.',
   keywords: [
     'lao translator',
@@ -17,10 +17,10 @@ export const metadata = {
     title: 'Lao to English Translator - Free AI Translation',
     description: 'Professional Lao to English translation powered by AI. Translate ລາວ text, documents and phrases instantly.',
     type: 'website',
-    url: 'https://transly.app/lao-to-english',
+    url: 'https://loretrans.app/lao-to-english',
   },
   twitter: {
-    title: 'Free Lao to English Translator | Transly',
+    title: 'Free Lao to English Translator | Loretrans',
     description: 'Accurate AI-powered Lao to English translation. Perfect for ລາວ speakers.',
   }
 };

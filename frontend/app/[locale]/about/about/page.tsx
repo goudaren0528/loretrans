@@ -6,11 +6,11 @@ import { FAQ } from '@/components/faq'
 import { LanguageGrid } from '@/components/language-grid'
 
 export const metadata: Metadata = {
-  title: 'About Transly - AI Translation for Low-Resource Languages',
+  title: 'About Loretrans - AI Translation for Low-Resource Languages',
   description:
-    'Learn about Transly\'s mission to provide free, accurate AI translation for underserved languages like Creole, Lao, Swahili, Burmese, and Telugu.',
+    'Learn about Loretrans\'s mission to provide free, accurate AI translation for underserved languages like Creole, Lao, Swahili, Burmese, and Telugu.',
   keywords: [
-    'about transly',
+    'about loretrans',
     'AI translation',
     'low-resource languages',
     'NLLB model',
@@ -34,7 +34,7 @@ export default function AboutPage() {
   const milestones = [
     {
       year: '2024',
-      title: 'Transly Launch',
+      title: 'Loretrans Launch',
       description: 'Launched with support for 20+ low-resource languages using Meta\'s NLLB model.',
     },
     {
@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-              About Transly
+              About Loretrans
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
               We're on a mission to break down language barriers for underserved communities 
@@ -122,7 +122,7 @@ export default function AboutPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What Makes Transly Special</h2>
+            <h2 className="text-3xl font-bold mb-4">What Makes Loretrans Special</h2>
             <p className="text-lg text-muted-foreground">
               Built specifically for languages that need better translation support
             </p>

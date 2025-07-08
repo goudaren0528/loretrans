@@ -1,4 +1,5 @@
 import { ArrowRight, Clock, Mail, Bell } from 'lucide-react'
+import { useTranslations } from 'next-intl';
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -39,7 +40,7 @@ export function ComingSoonTemplate({
             )}
             
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl max-w-2xl mx-auto">
-              {description} Our AI-powered translation tool for {language} will be available soon with the same high-quality translation you expect from Transly.
+              {description} Our AI-powered translation tool for {language} will be available soon with the same high-quality translation you expect from Loretrans.
             </p>
             
             <div className="mt-8 flex items-center justify-center gap-x-6">
@@ -77,7 +78,7 @@ export function ComingSoonTemplate({
                 <div className="flex gap-2 max-w-md mx-auto">
                   <Input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="t('Common.email_placeholder')"
                     className="flex-1"
                   />
                   <Button>

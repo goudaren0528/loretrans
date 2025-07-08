@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: 'Haitian Creole to English Translator - Free AI Translation Tool | Transly',
+  title: 'Haitian Creole to English Translator - Free AI Translation Tool | Loretrans',
   description: 'Free online Haitian Creole to English translator. Accurate AI-powered translation for Kreyòl Ayisyen text, documents, and phrases. Instant results with NLLB technology.',
   keywords: [
     'haitian creole translator',
@@ -19,10 +19,10 @@ export const metadata = {
     title: 'Haitian Creole to English Translator - Free AI Translation',
     description: 'Professional Haitian Creole to English translation powered by AI. Translate Kreyòl Ayisyen text, documents and phrases instantly.',
     type: 'website',
-    url: 'https://transly.app/creole-to-english',
+    url: 'https://loretrans.app/creole-to-english',
   },
   twitter: {
-    title: 'Free Haitian Creole to English Translator | Transly',
+    title: 'Free Haitian Creole to English Translator | Loretrans',
     description: 'Accurate AI-powered Haitian Creole to English translation. Perfect for Kreyòl Ayisyen speakers.',
   }
 };

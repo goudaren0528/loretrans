@@ -126,22 +126,25 @@ export function CreditEstimate({ textLength, className }: CreditEstimateProps) {
  * 显示500字符免费额度的使用情况
  */
 interface FreeQuotaProgressProps {
-  currentLength: number
+  currentLength?: number
   className?: string
 }
 
 export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgressProps) {
   const t = useTranslations('TranslatorWidget.credits')
   const freeLimit = 500
-  const progress = Math.min((currentLength / freeLimit) * 100, 100)
-  const isOverLimit = currentLength > freeLimit
+  
+  // Add null safety for currentLength
+  const safeCurrentLength = currentLength ?? 0
+  const progress = Math.min((safeCurrentLength / freeLimit) * 100, 100)
+  const isOverLimit = safeCurrentLength > freeLimit
 
   return (
     <div className={cn('space-y-2', className)}>
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>{t('free_quota_usage')}</span>
         <span>
-          {currentLength.toLocaleString()} / {freeLimit.toLocaleString()} {t('characters')}
+          {safeCurrentLength.toLocaleString()} / {freeLimit.toLocaleString()} {t('characters')}
         </span>
       </div>
       
@@ -157,7 +160,7 @@ export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgres
       
       {isOverLimit && (
         <p className="text-xs text-red-600">
-          {t('over_limit', { excess: (currentLength - freeLimit).toLocaleString() })}
+          {t('over_limit', { excess: (safeCurrentLength - freeLimit).toLocaleString() })}
         </p>
       )}
     </div>

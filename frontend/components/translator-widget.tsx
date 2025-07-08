@@ -215,7 +215,7 @@ export function TranslatorWidget({
                 onValueChange={(value) => setState(prev => ({ ...prev, sourceLanguage: value }))}
               >
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select language" />
+                  <SelectValue placeholder="t('Common.select_language')" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">
@@ -244,7 +244,7 @@ export function TranslatorWidget({
               onClick={handleSwapLanguages}
               disabled={state.isLoading}
               className="mt-6"
-              title="Switch languages"
+              title="t('Common.switch_languages')"
             >
               <ArrowUpDown className="h-4 w-4" />
             </Button>
@@ -258,7 +258,7 @@ export function TranslatorWidget({
                 onValueChange={(value) => setState(prev => ({ ...prev, targetLanguage: value }))}
               >
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select language" />
+                  <SelectValue placeholder="t('Common.select_language')" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">
@@ -359,7 +359,7 @@ export function TranslatorWidget({
                   className="min-h-[120px] resize-y bg-muted/50"
                   value={state.translatedText}
                   readOnly
-                  placeholder="Translation will appear here..."
+                  placeholder="t('Common.translation_placeholder')"
                 />
                 <div className="absolute bottom-2 right-2 flex items-center gap-2">
                   {state.translatedText && (

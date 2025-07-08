@@ -1,0 +1,1535 @@
+{
+  "Navigation": {
+    "home": "首页",
+    "about": "关于",
+    "pricing": "定价",
+    "contact": "联系"
+  },
+  "UserMenu": {
+    "sign_in": "登录",
+    "sign_up": "注册",
+    "sign_out": "退出",
+    "user": "用户",
+    "credits": "积分",
+    "profile": "个人资料",
+    "dashboard": "控制台",
+    "purchase_credits": "购买积分",
+    "settings": "设置"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "翻译 - 小语种AI翻译工具",
+      "description": "为海地克里奥尔语、老挝语、斯瓦希里语等20+小语种提供免费AI翻译服务。即时翻译文本和文档至英语。"
+    },
+    "hero": {
+      "badge": "专业小语种翻译 • Google翻译覆盖不到的语言",
+      "title_part1": "让每种语言都能被",
+      "title_highlight": "理解",
+      "description": "通过尖端AI打破语言障碍。我们的平台为20+种主流服务不足的小语种提供高质量翻译。每次翻译300字符内免费开始。",
+      "comparison": {
+        "google": {
+          "title": "Google翻译",
+          "description": "小语种覆盖不足"
+        },
+        "loretrans": {
+          "title": "Loretrans",
+          "description": "专业支持20+小语种"
+        }
+      },
+      "features": {
+        "free": "500字符内完全免费",
+        "ai_powered": "Meta NLLB AI驱动",
+        "document_support": "支持文档翻译"
+      },
+      "cta": {
+        "start_free": "立即免费翻译",
+        "view_pricing": "查看定价"
+      },
+      "social_proof": {
+        "rating": "4.8/5",
+        "users": "已服务10,000+用户",
+        "accuracy": "翻译准确率>90%"
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "海地克里奥尔语",
+          "text": "Bonjou, kijan ou ye?"
+        },
+        "english": {
+          "language": "English",
+          "text": "Hello, how are you?"
+        }
+      },
+      "status": {
+        "free": "注册获得500积分"
+      }
+    },
+    "languages": {
+      "title": "支持的语言",
+      "description": "将这些小语种翻译成英语"
+    },
+    "cta": {
+      "title": "今天就开始翻译",
+      "description": "加入数千名信任用户",
+      "try_now": "立即试用 - 完全免费",
+      "translate_documents": "翻译文档"
+    },
+    "feature_section": {
+      "title": "为什么选择Loretrans?",
+      "description": "专业级的翻译工具，专为小语种设计"
+    },
+    "cost_comparison": {
+      "title": "成本对比：为什么Loretrans更划算？",
+      "human_translation": {
+        "price": "$120",
+        "title": "人工翻译",
+        "description": "1000字符 × $0.12/字符"
+      },
+      "google_translate": {
+        "price": "不支持",
+        "title": "Google翻译",
+        "description": "小语种覆盖不足"
+      },
+      "loretrans": {
+        "price": "$1",
+        "title": "Loretrans",
+        "description": "1000字符 × $0.001/字符 (300字符免费 + 700×0.001)",
+        "savings": "节省99%成本"
+      }
+    },
+    "user_scenarios": {
+      "academic": {
+        "title": "学术研究者",
+        "description": "需要翻译海地克里奥尔语、老挝语等小语种学术文献和研究资料",
+        "recommendation": "推荐：Starter套餐 ($5) • 适合论文翻译"
+      },
+      "immigrant": {
+        "title": "移民群体",
+        "description": "处理官方文件、法律文档等重要材料的准确翻译需求",
+        "recommendation": "推荐：Basic套餐 ($10) • 高准确率保证"
+      },
+      "ecommerce": {
+        "title": "跨境电商",
+        "description": "产品描述本地化，批量翻译商品信息到小语种市场",
+        "recommendation": "推荐：Pro套餐 ($25) • 支持批量翻译"
+      }
+    },
+    "cta_section": {
+      "cta_try": "获得500积分 - 立即注册"
+    },
+    "Footer": {
+      "pricing": "定价",
+      "interface_language": "界面语言"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "转化 - 低资源语言的人工智能翻译",
+      "description": "免费人工智能翻译20多种资源较少的语言,如克里奥尔语,老语和斯瓦希里语. 立即将文本和文档翻译成英语."
+    },
+    "title": "翻译资源较少的语言",
+    "description": "对于资源有限的语言,人工智能翻译.",
+    "hero": {
+      "title": "低资源语言的人工智能翻译",
+      "description": "通过尖端的人工智能打破语言障碍. 我们的平台为常见服务所缺少的语言提供高质量的翻译. 免费开始.",
+      "status": {
+        "free": "百分之百免费",
+        "ai_powered": "智能智能驱动",
+        "multi_language": "20多种语言"
+      },
+      "cta_start": "开始翻译",
+      "cta_upload": "文件上传"
+    },
+    "supported_languages": {
+      "title": "支持的语言",
+      "description": "翻译这些资源较少的语言到英语"
+    },
+    "cta_section": {
+      "title": "现在开始翻译",
+      "description": "加入成千上万的用户,他们信任Loretrans来满足他们的翻译需求",
+      "cta_try": "现在试试吧,这是免费的",
+      "cta_docs": "翻译文档",
+      "try_now": "注册获得500免费积分",
+      "translate_documents": "开始翻译"
+    },
+    "translation_options": {
+      "title": "选择自己的翻译方法",
+      "description": "选择适合您翻译需求的最佳选择",
+      "coming_soon": "即将开放",
+      "options": {
+        "text": {
+          "title": "文本翻译",
+          "description": "在20+种小语种和英语之间即时翻译文本。每次翻译300字符内免费。",
+          "button": "开始翻译",
+          "features": [
+            "300字符内免费",
+            "立即获得结果",
+            "语音播放",
+            "复制到剪贴板"
+          ]
+        },
+        "document": {
+          "title": "文档翻译",
+          "description": "添加和翻译PDF,Word和PowerPoint文档.",
+          "button": "开始翻译",
+          "features": [
+            "支持PDF,Word,PPT (最大10MB)",
+            "保留格式化",
+            "下载结果",
+            "最多100页"
+          ]
+        },
+        "image": {
+          "title": "图片翻译",
+          "description": "通过OCR技术从图像中提取和翻译文本.",
+          "button": "很快就会出现",
+          "features": [
+            "机器式文字提取",
+            "多个图像格式",
+            "保持布局",
+            "很快就会来"
+          ]
+        }
+      },
+      "quick_start": {
+        "title": "不确定要选择哪个选项?",
+        "button": "现在试试翻译文本"
+      }
+    },
+    "language_grid": {
+      "coming_soon": "即将开放",
+      "try_language": "试试使用{语言}"
+    },
+    "feature_section": {
+      "title": "为什么选择Loretrans?",
+      "description": "专业级的翻译工具,专为资源较少的语言设计",
+      "features": {
+        "ai_powered": {
+          "name": "基于人工智能的翻译",
+          "description": "基于Meta的NLLB模型进行精确的低资源语言翻译."
+        },
+        "fast": {
+          "name": "闪电般快速",
+          "description": "通过我们优化的AI基础设施获得即时翻译。"
+        },
+        "privacy": {
+          "name": "隐私优先",
+          "description": "您的文本经过安全处理，绝不会存储在我们的服务器上。"
+        },
+        "languages": {
+          "name": "20多种语言",
+          "description": "支持克里奥尔语,老语,斯瓦希里语,缅甸语,以及许多资源较少的语言."
+        },
+        "tts": {
+          "name": "文字转换为语音",
+          "description": "通过我们的高质量文字转语功能听译文."
+        },
+        "documents": {
+          "name": "文档翻译",
+          "description": "无地上传和翻译PDF,Word和PowerPoint文件."
+        }
+      },
+      "stats": {
+        "languages": "支持的语言",
+        "free": "免费使用",
+        "characters": "字符每一个翻译",
+        "availability": "提供"
+      }
+    },
+    "user_scenarios": {
+      "academic": {
+        "title": "学术研究者",
+        "description": "需要翻译海地克里奥尔语、老挝语等小语种学术文献和研究资料",
+        "recommendation": "推荐：Starter套餐 ($5) • 适合论文翻译"
+      },
+      "immigrant": {
+        "title": "移民群体",
+        "description": "处理官方文件、法律文档等重要材料的准确翻译需求",
+        "recommendation": "推荐：Basic套餐 ($10) • 高准确率保证"
+      },
+      "ecommerce": {
+        "title": "跨境电商",
+        "description": "产品描述本地化，批量翻译商品信息到小语种市场",
+        "recommendation": "推荐：Pro套餐 ($25) • 支持批量翻译"
+      }
+    },
+    "cost_comparison": {
+      "title": "成本对比：为什么Loretrans更划算？",
+      "human_translation": {
+        "price": "$120",
+        "title": "人工翻译",
+        "description": "1000字符 × $0.12/字"
+      },
+      "google_translate": {
+        "price": "不支持",
+        "title": "Google翻译",
+        "description": "小语种覆盖不足"
+      },
+      "loretrans": {
+        "price": "$1",
+        "title": "Loretrans",
+        "description": "1000字符 × $0.001/字",
+        "savings": "节省99%成本"
+      }
+    },
+    "faq_section": {
+      "title": "常见问题",
+      "description": "关于特朗斯利的一切",
+      "questions": {
+        "0": {
+          "0": "待",
+          "question": "Loretrans的定价如何运作？",
+          "answer": "Loretrans每次翻译提供300字符免费额度。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励。"
+        },
+        "1": {
+          "0": "翻",
+          "question": "支持哪些语言？",
+          "answer": "我们专注于20+种小语种，包括海地克里奥尔语、老挝语、斯瓦希里语、缅甸语、泰卢固语等。所有语言都支持与英语的双向翻译。"
+        },
+        "2": {
+          "0": "译",
+          "question": "有字符限制吗？",
+          "answer": "每次翻译包含300字符免费额度。更长文本可使用积分（每字符0.1积分）。注册即可获得500积分欢迎奖励用于长文本翻译。"
+        },
+        "3": {
+          "question": "支持哪些文件格式？",
+          "answer": "目前支持最大10MB的TXT文件。PDF、Word和PowerPoint支持正在根据用户反馈积极开发中。"
+        },
+        "4": {
+          "question": "可以翻译文件吗?",
+          "answer": "是的!我们支持PDF,Word (.docx),PowerPoint (.pptx) 文件翻译.只需上传文件,我们将提取文本,翻译,并为您提供结果."
+        },
+        "5": {
+          "question": "如何使用语音转换功能?",
+          "answer": "我们的文字转语功能支持英语输出,高质量的语音合成. 单单点击任何翻译旁边的扬声器图标,听到它发音."
+        },
+        "6": {
+          "question": "没有字符限制?",
+          "answer": "免费用户可以每次请求翻译1000个字符.对于较长的文本,您可以将它们分成更小的块或上传文件进行处理."
+        },
+        "7": {
+          "question": "我可以用Loretrans商业用途吗?",
+          "answer": "是的,您可以使用Loretrans用于个人和商业用途."
+        }
+      },
+      "contact_prompt": "有没有更多的问题?",
+      "contact_link": "联系我们的支持团队"
+    },
+    "faq": {
+      "q1_answer": "Loretrans每次翻译提供300字符免费额度，无需注册。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励，非常适合翻译长文档。",
+      "q3_answer": "我们目前支持PDF、Microsoft Word (.doc, .docx)、PowerPoint (.ppt, .pptx)和纯文本(.txt)文件，最大10MB，最多100页。我们正在根据用户反馈添加更多格式支持。",
+      "q4_answer": "我们的翻译由Meta最先进的NLLB模型驱动，专门针对小语种训练。我们为每次翻译的前300字符提供免费服务，超出部分按每字符0.1积分收费。例如，1000字符的文本需要70积分（300字符免费 + 700×0.1 = 70积分）。虽然没有自动翻译是完美的，但我们的系统为小语种提供了比传统服务显著更好的结果。",
+      "q1_title": "Loretrans的定价如何运作？",
+      "q2_title": "Loretrans有什么不同？",
+      "q2_answer": "我们专注于20+种主流服务支持不足的小语种。使用Meta的NLLB模型，为海地克里奥尔语、老挝语、斯瓦希里语、缅甸语等语言提供卓越的准确性。",
+      "q5_title": "需要创建账户吗？",
+      "q5_answer": "300字符翻译无需账户。但注册可获得500积分欢迎奖励、翻译历史、优先支持，以及即将推出的文档翻译等功能的访问权限。",
+      "q6_title": "积分如何运作？",
+      "q6_answer": "积分用于超过300字符的翻译，按每字符0.1积分计费。新用户获得500积分欢迎奖励（价值5000字符）。积分永不过期，可随时充值。"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "关于Loretrans - 低资源语言的专业翻译",
+      "description": "了解Loretrans,这是小型语言的英语转换平台. 基于Meta NLLB模型,支持20多种语言."
+    },
+    "hero": {
+      "title": "关于特朗斯利",
+      "description": "专业翻译平台致力于通过精确的英语翻译,"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "p1": "我们相信每个语言都应该得到倾听.Loretrans为低资源语言的使用者弥合了沟通差距,提供准确且可访问的英语翻译服务.",
+      "p2": "支持20多种通常被主流翻译服务忽视的语言.",
+      "cta": "试试文档翻译"
+    },
+    "features": {
+      "accessibility": {
+        "title": "全球可访问性",
+        "description": "让那些数字资源有限的语言使用者能够使用翻译."
+      },
+      "accuracy": {
+        "title": "快速准确的",
+        "description": "高级人工智能技术在几秒钟内提供高质量的翻译."
+      },
+      "privacy": {
+        "title": "隐私优先",
+        "description": "我们尊重您的隐私和数据安全."
+      }
+    },
+    "supported_languages": {
+      "title": "支持的语言",
+      "description": "我们支持 {count} 低资源语言,并且会定期增加更多.",
+      "request_cta": "要求一个语言",
+      "request_cta_description": "我们不断扩大我们的语言支持."
+    },
+    "technology": {
+      "title": "通过先进的AI来支持",
+      "description": "转换使用了Meta的NLLB (No Language Left Behind) 模型,专门为传统系统难以解决的资源低的语言提供高质量的翻译.",
+      "cultural_preservation": {
+        "title": "文化保护",
+        "description": "通过技术支持语言多样性,并帮助保护文化遗产."
+      },
+      "community_driven": {
+        "title": "社区驱动",
+        "description": "基于全球原生语言使用者和语言社区."
+      },
+      "continuous_improvement": {
+        "title": "持续改善",
+        "description": "定期更新和改进模型,以提供更好的翻译质量."
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1_title": "什么让Loretrans与其他翻译服务不同?",
+      "q1_answer": "转换专注于资源较低的语言,这些语言通常不受主流翻译服务的支持.我们使用Meta的NLLB模型,该模型专门为这些语言设计,确保更好的准确性和文化背景.",
+      "q2_title": "我的数据安全和私密吗?",
+      "q2_answer": "是的,我们优先考虑您的隐私.我们不存储您的翻译或个人数据.所有翻译都会安全处理并在交付后立即删除.对于文档翻译,下载后文件会自动删除",
+      "q3_title": "您支持哪些文件格式进行文档翻译?",
+      "q3_answer": "我们目前支持PDF,Microsoft Word (.doc, .docx),PowerPoint (.ppt, .pptx),以及纯文本 (.txt) 文件.我们正在根据用户反增加支持更多格式.",
+      "q4_title": "它们的翻译有多准确?",
+      "q4_answer": "我们的翻译是基于Meta的最先进的NLLB模型,该模型专门针对资源较低的语言进行了培训.虽然没有自动翻译完美,但我们的系统比传统服务在小语言中提供了显著更好的结果.",
+      "q5_title": "我可以从英语翻译成我的语言吗?",
+      "q5_answer": "是的!虽然我们的主要重点是从低资源语言翻译到英语,我们也支持从英语翻译为支持语言.只需使用语言选择器选择您想要的翻译方向.",
+      "q6_title": "您是否为开发人员提供API访问?",
+      "q6_answer": "我们目前正在为开发人员和企业开发API访问. 如果您有兴趣将我们的翻译功能集成到您的应用程序中,请联系我们以获取早期访问信息."
+    },
+    "cta_section": {
+      "title": "准备好开始吗?",
+      "description": "无论是快速文本还是完整文档,Loretrans都在帮助您与世界沟通.",
+      "cta_text": "试试翻译文本",
+      "cta_docs": "文件上传"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "联系支持 - 获取Loretrans的帮助",
+      "description": "需要翻译帮助?请联系我们的支持团队,以获得Loretrans翻译服务,技术问题或一般询问的帮助."
+    },
+    "hero": {
+      "title": "联系支持",
+      "description": "有问题需要技术支持?我们来帮助您充分利用Loretrans."
+    },
+    "form": {
+      "title": "给我们发消息",
+      "firstName": "姓名 *",
+      "firstNamePlaceholder": "你的姓氏",
+      "lastName": "姓名 *",
+      "lastNamePlaceholder": "你的姓氏",
+      "email": "电子邮件地址 *",
+      "emailPlaceholder": "您的电子邮件@example.com",
+      "subject": "问题",
+      "subjectPlaceholder": "选择一个主题",
+      "subjects": {
+        "translation_issue": "翻译问题",
+        "technical_support": "技术支持",
+        "feature_request": "功能要求",
+        "language_request": "新语言要求",
+        "business_inquiry": "商业调查",
+        "feedback": "反馈",
+        "other": "其他"
+      },
+      "relatedLanguage": "相关语言 (如果适用)",
+      "relatedLanguagePlaceholder": "语种:斯瓦希里语,老挝语,克里奥尔语",
+      "message": "信息 *",
+      "messagePlaceholder": "请详细描述您的问题或问题...",
+      "submit": "发送消息"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "快速联系",
+        "email_support": "电子邮件支持",
+        "email_address": "支持@loretrans.app",
+        "response_time": "应对24小时内",
+        "live_chat": "现场聊天",
+        "live_chat_status": "很快就会出现",
+        "live_chat_eta": "预计将于2024年第二季度推出",
+        "support_hours_title": "支持时间",
+        "support_hours_days": "月 - 星期五",
+        "support_hours_time": "时间:上午9点至下午6点"
+      },
+      "common_issues": {
+        "title": "常见问题",
+        "translation_not_working": {
+          "title": "翻译不行",
+          "description": "试着刷新页面或检查您的互联网连接.如果问题持续,请联系支持."
+        },
+        "language_not_supported": {
+          "title": "语言不支持",
+          "description": "我们不断添加新语言.请提交请求,我们将考虑未来的更新."
+        },
+        "file_upload_issues": {
+          "title": "文件上传问题",
+          "description": "确保您的文件大小小不超过50MB,并且以支持的格式 (PDF,DOCX,PPTX)."
+        },
+        "audio_playback_not_working": {
+          "title": "音频播放不行",
+          "description": "检查浏览器的音频设置,并确保您的互联网连接稳定."
+        }
+      },
+      "self_help": {
+        "title": "自助资源",
+        "how_it_works": "→ 如何使用Loretrans",
+        "try_text": "→ 试试翻译文本",
+        "try_docs": "→ 文档翻译指南",
+        "privacy": "隐私政策",
+        "terms": " 服务条款"
+      }
+    },
+    "what_to_expect": {
+      "title": "什么可以期待?",
+      "quick_response": {
+        "title": "快速反应",
+        "description": "我们通常在工作日内24小时内回复所有查询."
+      },
+      "personal_support": {
+        "title": "个人支持",
+        "description": "每个消息都由我们的团队阅读. 没有机器人,只有真正的人关心帮助你. "
+      },
+      "follow_up": {
+        "title": "后续行动",
+        "description": "我们将继续与您合作,"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "定价 - 选择适合您的套餐",
+      "description": "基于场景的智能推荐。学生$5起，个人用户$10，专业用户$25。"
+    },
+    "hero": {
+      "title": "灵活的价格",
+      "description": "选择适合您需求的积分套餐."
+    },
+    "plans": {
+      "starter": {
+        "name": "入门版",
+        "description": "适合学生和轻度使用用户",
+        "discount": "节省20%"
+      },
+      "professional": {
+        "name": "专业包装",
+        "description": "专为需要更大翻译量的专业人员和小团队而设计",
+        "discount": "节省10%"
+      },
+      "business": {
+        "name": "商业包",
+        "description": "满足企业级需求,以最佳单位价",
+        "discount": "节省20%"
+      }
+    },
+    "features": {
+      "title": "所有计划都包括",
+      "unlimited_text": "无限的文本翻译",
+      "document_support": "支持文档翻译",
+      "tts_support": "文字转语功能",
+      "api_access": "接入API",
+      "priority_support": "优先考虑客户支持",
+      "no_expiry": "积分永远不会过期"
+    },
+    "buttons": {
+      "purchase": "购买",
+      "processing": "处理...",
+      "get_started": "开始吧"
+    },
+    "alert": {
+      "canceled_title": "付款取消了",
+      "canceled_description": "您的购买已取消.您没有收取任何费用.请随时选择计划并再次尝试."
+    },
+    "loading": "装载...",
+    "cta": {
+      "title": "准备好开始吗?",
+      "description": "加入成千上万的用户,他们相信Loretrans可以满足他们的翻译需求.",
+      "free_trial": "试试免费翻译",
+      "contact_sales": "联系销售"
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "文本翻译器 - 免费人工智能翻译工具.",
+      "description": "免费在线文本翻译器为20多种资源较少的语言. 翻译克里奥语,老语,斯瓦希里语,缅甸语等到英语即时使用AI."
+    },
+    "hero": {
+      "title": "智能小语种翻译",
+      "subtitle": "AI智能判断处理模式，支持海地克里奥尔语、老挝语、缅甸语等20+种小语种专业翻译",
+      "features": {
+        "free_500_chars": "500字符内免费",
+        "smart_time_estimation": "智能时间预估",
+        "unified_experience": "统一翻译体验",
+        "error_recovery": "错误智能恢复"
+      }
+    },
+    "other_languages": {
+      "title": "试试其他语言",
+      "description": "探索其他资源较少的语言的翻译"
+    },
+    "faq": {
+      "title": "文本翻译常见问题",
+      "description": "您需要知道的关于我们的文本翻译服务",
+      "q1_title": "文本翻译费用是多少?",
+      "q1_answer": "文本翻译是完全免费的,每次请求最多500个字符.对于较长的文本 (超过500个文字),我们收取每个字母0.1个积分.例如,1000个字元的文稿将花费50个学费 (500个免费+500×0.1=50个).",
+      "q2_title": "您支持哪些语言?",
+      "q2_answer": "我们专注于资源较少的语言,通常由主流翻译服务支持不佳.我们目前支持海地克里奥尔语,老语,斯瓦希里语,缅甸语,德语,中国语等.所有语言都支持双向翻译与英语.",
+      "q3_title": "它们的翻译有多准确?",
+      "q3_answer": "我们的翻译是基于Meta的NLLB (No Language Left Behind) 模型,该模型专门针对资源较少的语言.虽然没有自动翻译完美,但NLLB在比较传统的翻文服务时,对于小语言提供了显著更好的准确性.",
+      "q4_title": "我需要创建一个帐户吗?",
+      "q4_answer": "免费翻译 (最多500个字符) 不需要帐户.但是,创建免费帐户会给你500个积分,并允许你购买更长的翻译额外的积分.你还可以访问翻译历史和其他高级功能.",
+      "q5_title": "我能从英语翻译到其他语言吗?",
+      "q5_answer": "是的! 我们所有的支持语言都是双向的.您可以从英语翻译到任何支持的语言,或者从任何支持语言翻译成英语.只需使用语言选择器来选择您想要的翻译方向.",
+      "q6_title": "字符的限制是多少?",
+      "q6_answer": "免费用户可以每次请求免费翻译500个字符.对于较长的文本,您可以将它们分成更小的块或购买积分.注册用户开始获得500个积分积分,这允许更长的翻译.",
+      "contact_text": "有没有更多的问题?",
+      "contact_link": "联系我们的支持团队"
+    },
+    "cta": {
+      "title": "需要更多的翻译能力吗?",
+      "description": "通过我们的高级功能翻译更长的文本和文档",
+      "try_document": "试试文档翻译",
+      "view_pricing": "查看价格计划"
+    },
+    "features": {
+      "title": "为什么要选择我们的文本翻译?",
+      "fast_title": "现在我们要做什么?",
+      "fast_desc": "获得先进的人工智能模型支持的即时翻译.",
+      "accurate_title": "非常准确",
+      "accurate_desc": "基于Meta的NLLB模型,确保所有支持语言的高质量翻译.",
+      "free_title": "永远是自由的",
+      "free_desc": "没有隐藏费用,没有限制,没有注册."
+    },
+    "how_to": {
+      "title": "如何使用文本翻译",
+      "step1_title": "选择语言",
+      "step1_desc": "在下拉菜单中选择源语言和目标语言 (英语).",
+      "step2_title": "输入文本",
+      "step2_desc": "输入或粘贴您的文本. 支持最多1000个字符.",
+      "step3_title": "获取翻译",
+      "step3_desc": "按翻译即可获得结果.复制或听翻译."
+    },
+    "supported_languages": {
+      "title": "支持的语言",
+      "description": "我们支持从以下语言翻译成英语:",
+      "more": "更多的资源较少的语言..."
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "探索更多小语种翻译",
+        "subtitle": "我们支持20+种小语种的专业翻译服务"
+      },
+      "faq": {
+        "title": "常见问题",
+        "subtitle": "关于小语种翻译的常见疑问解答"
+      },
+      "cta": {
+        "title": "准备开始翻译了吗？",
+        "subtitle": "立即体验专业的小语种翻译服务，500字符内完全免费",
+        "try_document": "尝试文档翻译",
+        "view_pricing": "查看定价套餐"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "支持哪些语言翻译？",
+        "answer": "我们专注于小语种翻译，支持海地克里奥尔语、老挝语、斯瓦希里语、缅甸语、泰卢固语等20+种Google翻译覆盖不足的语言。"
+      },
+      "q2": {
+        "question": "翻译准确率如何？",
+        "answer": "基于Meta NLLB模型，我们的翻译准确率超过90%。特别是在小语种翻译方面，比传统翻译工具更加专业和准确。"
+      },
+      "q3": {
+        "question": "免费额度是多少？",
+        "answer": "500字符以下完全免费，无需注册。注册用户还可获得500积分奖励，约可翻译5万字符的长文本。"
+      },
+      "q4": {
+        "question": "如何计算翻译费用？",
+        "answer": "超过500字符的部分按0.1积分/字符计费。例如翻译1000字符需要消耗50积分，成本约$0.05，比人工翻译节省99%。"
+      },
+      "q5": {
+        "question": "支持哪些文件格式？",
+        "answer": "除了文本翻译，我们还支持PDF、Word、PPT等文档格式的翻译。文档翻译会自动提取文本并保持原有格式。"
+      },
+      "q6": {
+        "question": "翻译结果可以保存吗？",
+        "answer": "注册用户的翻译历史会自动保存。Starter套餐保存7天，Basic套餐保存30天，Pro套餐保存90天，Business套餐无限保存。"
+      }
+    },
+    "contact": {
+      "more_questions": "还有其他问题？",
+      "contact_support": "联系我们的客服团队"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "文本翻译",
+      "text_translation_desc": "在语言之间翻译文本",
+      "document_translation": "文档翻译",
+      "document_translation_desc": "文件上传和翻译",
+      "about": "关于",
+      "about_desc": "了解更多关于Loretrans的信息"
+    },
+    "Footer": {
+      "tagline": "专业翻译低资源语言到英语. 支持Meta NLLB AI技术.",
+      "interface_language": "界面语言",
+      "product": "产品",
+      "text_translation": "文本翻译",
+      "document_translation": "文档翻译",
+      "supported_languages": "支持的语言",
+      "company": "公司",
+      "about_us": "关于我们",
+      "pricing": "定价",
+      "privacy_policy": "隐私政策",
+      "terms_of_service": "服务条款",
+      "compliance": "符合规定",
+      "resources": "资源",
+      "faq": "常见问题",
+      "contact_support": "联系支持",
+      "api_docs": "应用程序文件",
+      "contact_us": "联系我们",
+      "support_email": "support@loretrans.app",
+      "support_24_7": "24/7 在线支持",
+      "contact_form": "联系表单",
+      "view_all_languages": "查看全部 →",
+      "telugu_language": "泰卢固语",
+      "copyright": "© 2024 转载所有权利保留.",
+      "powered_by": "通过Meta NLLB AI技术提供支持"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "文档翻译 - 翻译PDF,Word,PowerPoint",
+      "description": "支持PDF,Word,PowerPoint文件,支持人工智能翻译,用于资源较低的语言."
+    },
+    "title": "文档翻译",
+    "description": "支持PDF,Word,PowerPoint和文本文件.",
+    "steps": {
+      "step1": {
+        "title": "文件上传",
+        "description": "选择您的PDF,Word或PowerPoint文件进行翻译"
+      },
+      "step2": {
+        "title": "处理人工智能",
+        "description": "我们的AI提取和分析您的文档内容"
+      },
+      "step3": {
+        "title": "结果下载",
+        "description": "您的翻译文档可以在同一个格式"
+      }
+    },
+    "languages": {
+      "title": "支持的语言"
+    },
+    "cta": {
+      "title": "需要快速文本翻译?",
+      "description": "对于更短的文本或快速翻译,请尝试我们的文本翻译器即时结果.",
+      "try_text_translation": "试试翻译文本",
+      "view_pricing": "查看价格"
+    },
+    "hero": {
+      "title": "文档翻译",
+      "description": "通过高精度的翻译,将文件上传到英语"
+    },
+    "upload_section": {
+      "title": "您的文件上传",
+      "description": "选择要翻译的文件. 支持格式:PDF,Word,PowerPoint,文本.最大大小:50MB"
+    },
+    "settings_section": {
+      "title": "翻译设置",
+      "source_language_label": "源语言",
+      "source_language_placeholder": "它们的自动检测",
+      "target_language_label": "目标语言",
+      "target_language_placeholder": "选择目标",
+      "translate_button": "翻译文件",
+      "translating_button": "翻译:"
+    },
+    "jobs_section": {
+      "title": "翻译历史",
+      "no_jobs": "您的翻译文件将在这里显示.",
+      "status": {
+        "pending": "待发",
+        "processing": "处理",
+        "completed": "已完成",
+        "failed": "没有成功"
+      },
+      "error_message": "错误",
+      "download_button": "现在我们可以下载"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "需要登录",
+      "description": "文件翻译需要登录帐户.",
+      "login_button": "现在登录"
+    },
+    "upload": {
+      "title": "文件上传",
+      "description": "支持PDF,Word,PowerPoint和文本文件,最大 {maxSize}",
+      "uploading": "现在我们要做些什么?",
+      "click_to_select": "点击选择文件",
+      "drag_drop": "或是把文件拖放到这里",
+      "upload_success": "文件成功上传",
+      "extracted_characters": "提取的字符数量",
+      "upload_failed": "上传失败"
+    },
+    "analysis": {
+      "title": "文件分析结果",
+      "filename": "文件名称",
+      "filesize": "文件大小",
+      "text_preview": "提取的文本预览",
+      "character_count": "字符数",
+      "characters": "字符",
+      "credit_consumption": "积分消费",
+      "credits": "积分",
+      "free": "免费",
+      "insufficient_credits": "没有足够的贷款!需要 {要求} 贷款,流动余额 {当前} 积分.",
+      "recharge_now": "现在充电",
+      "start_translation": "开始翻译",
+      "reupload": "重新上传"
+    },
+    "translation": {
+      "title": "翻译的进展",
+      "progress": "处理进展",
+      "estimated_time": "预计 {秒} 剩余的秒",
+      "completed": "翻译完成了!",
+      "download_result": "翻译结果下载",
+      "translation_started": "翻译开始",
+      "credits_consumed": "消耗的 {积分} 积分",
+      "translation_failed": "翻译失败"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "用户未进行认证",
+    "missing_parameters": "缺少所需的参数",
+    "insufficient_credits": "没有足够的积分,请购买更多.",
+    "credit_error": "积分错误: {错误}",
+    "translation_invalid_response": "翻译服务返回了一个不有效的答案.",
+    "translation_failed_refund_failed": "翻译失败,我们无法退还您的积分. 请联系支持. 错误: {错误}",
+    "translation_failed": "翻译失败:",
+    "unexpected_error": "发生了意外错误: {错误}",
+    "method_not_allowed": "方法不允许",
+    "invalid_json": "请求体中的JSON不有效",
+    "missing_fields": "缺少的必填字段: {字段}",
+    "empty_text": "文本不能是空的",
+    "text_too_long": "文字太长了.允许的最大{maxLength}字符,得到{actualLengt}",
+    "unexpected_detection_error": "在语言检测过程中发生了意外错误",
+    "invalid_lang_code": "无效的语言代码格式",
+    "invalid_speech_rate": "语音速率必须在0.5到2.0之间",
+    "invalid_speech_pitch": "语音音位必须在0.5到2.0之间",
+    "invalid_voice": "语音为语音的无效声音",
+    "tts_unavailable": "文字转语服务暂时无法使用. 请稍后再尝试.",
+    "tts_failed": "无法生成语音音频. 请再次尝试.",
+    "unexpected_tts_error": "发言生成过程中发生了意外错误",
+    "failed_to_get_voices": "无法检索语音选项"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "恢复密码",
+      "description": "密码重置功能正在开发中",
+      "info": "如果您忘记了密码,请联系客户支持.",
+      "contact_support": "联系支持"
+    },
+    "SignUpForm": {
+      "title": "创建一个Loretrans帐户",
+      "subtitle": "创建一个帐户获得500个积分",
+      "name_label": "姓名",
+      "name_placeholder": "输入您的姓名",
+      "name_required": "请输入您的姓名",
+      "name_max_length": "名称不能超过50个字符",
+      "email_label": "电子邮件",
+      "email_placeholder": "输入您的电子邮件",
+      "email_required": "请输入您的电子邮件",
+      "email_invalid": "电子邮件格式不有效",
+      "email_max_length": "电子邮件长度不得超过100个字符",
+      "password_label": "密码",
+      "password_placeholder": "输入您的密码",
+      "password_min_length": "密码必须至少有8个字符",
+      "password_max_length": "密码不能超过128个字符",
+      "confirm_password_label": "确认密码",
+      "confirm_password_placeholder": "输入您的密码",
+      "confirm_password_required": "请确认您的密码",
+      "password_mismatch": "密码不一致",
+      "password_strength_label": "密码强度",
+      "password_strength_feedback": "密码强度不符合要求,请改进密码",
+      "submit_button": "报名",
+      "submit_loading_button": "报名了",
+      "signup_failed": "登录失败,请再次尝试",
+      "signup_error": "在注册过程中发生错误,请再次尝试",
+      "signin_prompt": "已经有了账户吗?",
+      "signin_link": "登录",
+      "password_requirements": "密码要求",
+      "requirement_length": "至少8个字符",
+      "requirement_uppercase": "至少一个大写字母",
+      "requirement_lowercase": "至少一个小写字母",
+      "requirement_number": "至少一个数字",
+      "requirement_special": "至少一个特殊字符",
+      "password_strength": "密码强度",
+      "strength_very_weak": "非常弱",
+      "strength_weak": "弱",
+      "strength_fair": "一般",
+      "strength_good": "好",
+      "strength_excellent": "优秀"
+    },
+    "SignInForm": {
+      "title": "登录到Loretrans",
+      "subtitle": "欢迎重返!请登录您的帐户",
+      "email_label": "电子邮件",
+      "email_placeholder": "输入您的电子邮件",
+      "email_required": "请输入您的电子邮件",
+      "email_invalid": "电子邮件格式不有效",
+      "email_max_length": "电子邮件长度不得超过100个字符",
+      "password_label": "密码",
+      "password_placeholder": "输入您的密码",
+      "password_required": "请输入您的密码",
+      "password_max_length": "密码不能超过128个字符",
+      "forgot_password_link": "忘记了密码吗?",
+      "remember_me_label": "记住我30天",
+      "submit_button": "登录",
+      "submit_loading_button": "现在我已经登录了.",
+      "signin_failed": "登录失败,请再次尝试",
+      "signin_error": "登录过程中发生错误,请再次尝试",
+      "signup_prompt": "没有账户?",
+      "signup_link": "现在注册吧",
+      "social_divider": "其他",
+      "google_signin_button": "通过Google登录 (即将到来)",
+      "signup_bonus_prompt_1": "登录一个新帐户,并获得",
+      "signup_bonus_prompt_2": "500积分"
+    },
+    "GuestLimit": {
+      "remaining_translations": "您可以今天翻译更多次",
+      "register_for_unlimited": "登记无限制访问"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "翻译限制达到",
+      "limit_reached_description": "免费用户每天可以翻译最多10次.",
+      "login_required_title": "需要登录",
+      "login_required_description": "长文本翻译需要登录帐户",
+      "daily_limit_title": "翻译限制达到",
+      "daily_limit_description": "已达到每日免费翻译的限额",
+      "translation_failed": "翻译失败，请重试。",
+      "network_error": "网络错误，请检查连接。",
+      "invalid_input": "请输入有效的翻译文本。",
+      "text_too_long": "文本过长。最多允许{max}个字符。"
+    },
+    "success": {
+      "translation_complete": "翻译完成",
+      "credits_consumed": "消耗的 {积分} 积分"
+    },
+    "alerts": {
+      "login_required_for_long_text": "长文本翻译需要登录帐户.",
+      "login_now": "现在登录",
+      "or": "或是",
+      "register_account": "登记账户"
+    },
+    "buttons": {
+      "translating": "翻译:",
+      "submitting": "提交中...",
+      "translate_with_credits": "翻译 ({credits} 积分)",
+      "free_translate": "翻译",
+      "start_translate": "开始翻译",
+      "translate": "翻译",
+      "copy_result": "复制结果",
+      "clear_text": "清除文本"
+    },
+    "credits": {
+      "balance": "标签:",
+      "recharge": "充电",
+      "free_translation": "免费翻译",
+      "estimated_cost": "估计成本 (积分) 贷款",
+      "insufficient_credits": "(没有足够的积分)",
+      "free_quota_usage": "免费使用配额",
+      "characters": "字符",
+      "over_limit": "超过免费配额的{超}字符,将消耗积分",
+      "insufficient_balance": "没有足够的贷款!需要 {要求} 贷款,流动余额 {当前} 积分.",
+      "recharge_now": "现在充电"
+    },
+    "labels": {
+      "from": "来自",
+      "to": "为了",
+      "source_text": "源文本",
+      "target_text": "翻译",
+      "enter_text": "输入文本来翻译...",
+      "translation_result": "翻译结果",
+      "copy_translation": "复制翻译",
+      "clear_text": "清晰的文字",
+      "swap_languages": "交换语言",
+      "translated_text": "翻译文本"
+    },
+    "placeholders": {
+      "translation_result": "翻译结果将显示在这里...",
+      "translating": "翻译中...",
+      "enter_source_text": "输入要翻译的文本..."
+    },
+    "actions": {
+      "copy": "复制",
+      "listen": "朗读",
+      "play": "播放",
+      "pause": "暂停",
+      "stop": "停止",
+      "download": "下载",
+      "share": "分享",
+      "clear": "清除"
+    },
+    "estimation": {
+      "estimated_time": "预估时间",
+      "processing_time": "处理时间",
+      "time_remaining": "剩余时间",
+      "seconds": "秒",
+      "minutes": "分钟",
+      "hours": "小时",
+      "less_than_minute": "不到一分钟",
+      "about_minutes": "大约 {minutes} 分钟",
+      "about_seconds": "大约 {seconds} 秒",
+      "calculating": "计算中...",
+      "queue_position": "队列位置：第 {position} 位",
+      "estimated_completion": "预计完成时间：{time}"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "定价套餐 - 选择适合您的翻译方案 | Loretrans",
+      "description": "基于使用场景的智能定价推荐。学生$5起，个人用户$10，专业用户$25。支持海地克里奥尔语、老挝语等20+小语种翻译。"
+    },
+    "title": "选择自己的积分方案",
+    "subtitle": "灵活的积分系统,随时付款,无需月付",
+    "current_balance": "现有积分余额:",
+    "free_tier": {
+      "title": "免费级",
+      "subtitle": "适用于轻型使用",
+      "completely_free": "✅ 完全免费:",
+      "credit_based": " 基于信贷的:",
+      "features": {
+        "free_text": "500个字符以内",
+        "all_languages": "所有语言对都支持",
+        "unlimited_use": "无限制使用",
+        "large_text": "超过500个字符的文本",
+        "document_translation": "大文件翻译",
+        "rate": "超过1个字符的积分"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "开始包",
+        "description": "适合偶尔使用者",
+        "features": {
+          "credits": "翻译积分1000个",
+          "languages": "所有语言对都支持",
+          "documents": "文档翻译功能",
+          "validity": "有效期为7天"
+        }
+      },
+      "basic": {
+        "name": "基本套餐",
+        "description": "最受欢迎的选择",
+        "features": {
+          "credits": "翻译积分5,000个",
+          "languages": "所有语言对都支持",
+          "documents": "文档翻译功能",
+          "validity": "有效期为30天",
+          "support": "优先考虑客户支持"
+        }
+      },
+      "pro": {
+        "name": "专业包",
+        "description": "对于重量使用者来说是非常好的",
+        "features": {
+          "credits": "翻译积分10,000个",
+          "languages": "所有语言对都支持",
+          "documents": "文档翻译功能",
+          "validity": "有效期为60天",
+          "support": "优先考虑客户支持",
+          "batch": "批量翻译功能"
+        }
+      },
+      "business": {
+        "name": "商业包",
+        "description": "非常适合团队和企业",
+        "features": {
+          "credits": "翻译积分25,000个",
+          "languages": "所有语言对都支持",
+          "documents": "文档翻译功能",
+          "validity": "有效期为90天",
+          "support": "优先考虑客户支持",
+          "batch": "批量翻译功能",
+          "api": "接入API"
+        }
+      },
+      "enterprise": {
+        "name": "企业计划",
+        "description": "对于大型企业的解决方案",
+        "features": {
+          "credits": "翻译积分50,000个",
+          "languages": "所有语言对都支持",
+          "documents": "文档翻译功能",
+          "validity": "有效期为180天",
+          "support": "专注于客户支持",
+          "batch": "批量翻译功能",
+          "api": "接入API",
+          "integration": "定制集成"
+        }
+      }
+    },
+    "popular": "建议",
+    "save": "保存",
+    "credits": "积分",
+    "purchase_button": "现在购买",
+    "processing": "处理...",
+    "new_user_bonus": {
+      "title": "新用户独家优惠",
+      "description": " 注册,获得500个积分,",
+      "note": "积分会自动应用于您的账户后付款"
+    },
+    "register_prompt": {
+      "title": "现在注册,获得更多的好处",
+      "description": "注册用户享受500个积分奖励,",
+      "register_button": "现在注册",
+      "signin_button": "已经有账户"
+    },
+    "faq": {
+      "title": "常见问题",
+      "subtitle": "您需要知道的关于我们的价格",
+      "credit_calculation": {
+        "question": "如何计算学分?",
+        "answer": "字符数不到300字是完全免费的,额外的费用为0.1个学分/字符.例如:翻译1000个字符需要70个学点."
+      },
+      "expiration": {
+        "question": "信用卡是否会过期?",
+        "answer": "您的信用永远不会过期. 一旦购买,"
+      },
+      "payment_methods": {
+        "question": "您支持哪些支付方式?",
+        "answer": "我们通过我们的安全的Creem支付系统支持主要的信用卡和借记卡."
+      },
+      "bulk_discount": {
+        "question": "您是否提供批量折扣?",
+        "answer": "我们的更大套餐提供了显著的节省 - - 企业套餐可提供高达40%的折扣.您购买的积分越多,价值就越好."
+      },
+      "unused_credits": {
+        "question": "没有使用的积分会怎么样?",
+        "answer": "未使用的积分卡在您的账户中保留到到期日期.您可以在您账户仪表板中查看您的积分余额和到期期日."
+      },
+      "business_invoicing": {
+        "question": "您是否提供商业购买的发票?",
+        "answer": "是的,我们为所有购买提供详细的发票. 商业客户可以通过他们的帐户仪表板访问发票或联系支持提供帮助."
+      },
+      "api_pricing": {
+        "question": "如何确定API价格?",
+        "answer": "商业和企业包包含API访问.API使用费用与Web翻译相同 - 每个字符超过500个0.1个积分."
+      },
+      "contact_support": "有更多问题请联系我们的支持团队",
+      "upgrade_plan": {
+        "question": "我可以随时升级计划吗?",
+        "answer": "您可以随时购买额外的信用包,"
+      }
+    },
+    "scenarios": {
+      "student": {
+        "name": "学生用户",
+        "description": "学术论文、作业翻译",
+        "monthlyUsage": "1-5K字符",
+        "features": [
+          "学术文献翻译",
+          "作业辅助",
+          "研究资料处理"
+        ],
+        "testimonial": {
+          "text": "我用它翻译了整个学期的海地文学作品，准确率很高！",
+          "author": "张同学 - 语言学专业"
+        },
+        "usageExample": "约可翻译10-15篇学术论文"
+      },
+      "individual": {
+        "name": "个人用户",
+        "description": "博客内容、社交媒体",
+        "monthlyUsage": "5-15K字符",
+        "features": [
+          "个人博客翻译",
+          "社交媒体内容",
+          "日常沟通"
+        ],
+        "testimonial": {
+          "text": "作为移民，这个工具帮我处理了很多官方文件翻译。",
+          "author": "Maria - 海地移民"
+        },
+        "usageExample": "非常适合个人内容和文档"
+      },
+      "professional": {
+        "name": "专业人士",
+        "description": "客户文档、商务翻译",
+        "monthlyUsage": "15-50K字符",
+        "features": [
+          "商务文档翻译",
+          "客户沟通",
+          "专业资料"
+        ],
+        "testimonial": {
+          "text": "帮助我们公司成功进入了缅甸市场，翻译质量很专业。",
+          "author": "David - 跨境电商经理"
+        },
+        "usageExample": "非常适合商务沟通和文档"
+      },
+      "enterprise": {
+        "name": "企业用户",
+        "description": "大规模内容本地化",
+        "monthlyUsage": "50K+字符",
+        "features": [
+          "批量翻译",
+          "API访问",
+          "团队管理",
+          "优先支持"
+        ],
+        "testimonial": {
+          "text": "NGO工作中经常需要处理多语种文档，这个工具节省了大量时间。",
+          "author": "Sarah - 国际NGO项目经理"
+        },
+        "usageExample": "非常适合有大量需求的组织"
+      }
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "适合轻度使用的学生和个人用户",
+        "features": [
+          "2,500积分 (约2.5万字符)",
+          "支持所有小语种",
+          "文档翻译功能",
+          "7天翻译历史",
+          "邮件支持"
+        ],
+        "limitations": [
+          "不支持批量翻译",
+          "不支持API访问"
+        ],
+        "bestFor": [
+          "学生",
+          "轻度个人用户"
+        ]
+      },
+      "basic": {
+        "name": "Basic",
+        "description": "适合常规用户 - 最受欢迎",
+        "features": [
+          "6,000积分 (约6万字符)",
+          "支持所有小语种",
+          "文档翻译功能",
+          "30天翻译历史",
+          "优先邮件支持",
+          "高级翻译选项"
+        ],
+        "limitations": [
+          "不支持批量翻译",
+          "不支持API访问"
+        ],
+        "bestFor": [
+          "常规用户",
+          "小企业"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "适合专业人士和小企业",
+        "features": [
+          "20,000积分 (约20万字符)",
+          "支持所有小语种",
+          "文档翻译功能",
+          "90天翻译历史",
+          "优先支持",
+          "高级翻译选项",
+          "批量翻译 (最多10个文件)"
+        ],
+        "limitations": [
+          "不支持API访问"
+        ],
+        "bestFor": [
+          "专业人士",
+          "小企业",
+          "内容创作者"
+        ]
+      }
+    }
+  },
+  "Common": {
+    "remember_me": "记住我",
+    "sign_up": "注册",
+    "sign_in": "登录",
+    "hide_password": "隐藏密码",
+    "show_password": "显示密码",
+    "no_email": "没有电子邮件",
+    "translation_failed": "翻译失败",
+    "detection_failed": "检测失败",
+    "invalid_file": "无效的文件",
+    "upload_failed": "上传失败",
+    "document_translation": "文档翻译",
+    "priority_support": "优先支持",
+    "ready_to_translate": "准备翻译",
+    "upload_your_document": "您的文件上传",
+    "creole_greeting": "克里奥尔语问候",
+    "lao_greeting": "老挝语问候",
+    "swahili_greeting": "斯瓦希里语问候",
+    "choose_pricing_plan": "选择一个价格计划",
+    "coming_soon": "即将开放"
+  },
+  "translation": {
+    "start_translation": "开始翻译",
+    "translation_complete": "翻译完成",
+    "translation_failed": "翻译失败",
+    "translating": "翻译中...",
+    "preparing_engine": "准备翻译引擎...",
+    "about_to_start": "现在开始翻译...",
+    "processing": "翻译正在进行,请稍等...",
+    "engine_running": "翻译引擎全力运转中...",
+    "optimizing_quality": "现在正在优化翻译质量...",
+    "translation_paused": "翻译已暂停",
+    "resume_translation": "继续按恢复翻译",
+    "translation_error": "翻译过程中遇到问题",
+    "service_unavailable": "翻译服务暂时不可用,请稍后重试",
+    "input_placeholder": "输入要翻译的文字...",
+    "result_placeholder": "翻译结果将显示在这里...",
+    "from_language": "翻译的",
+    "to_language": "翻译成的",
+    "partial_complete": "翻译部分完成",
+    "partial_description": "翻译过程中遇到了一些问题,但我们已经为您保存部分结果",
+    "task_resubmitted": "翻译任务已重新提交处理"
+  },
+  "task": {
+    "task_management": "翻译任务管理",
+    "manage_description": "管理您的翻译任务,查看进度和结果",
+    "new_translation": "新建翻译",
+    "refresh_tasks": "刷新",
+    "task_list_updated": "任务列表已更新",
+    "refresh_failed": "刷新失败",
+    "operation_success": "操作成功",
+    "operation_failed": "操作失败",
+    "select_tasks_first": "请先选择要操作的任务",
+    "no_tasks": "暂无任务",
+    "no_matching_tasks": "没有符合条件的任务",
+    "create_first_task": "还没有翻译任务,去创建一个吧!",
+    "search_placeholder": "搜索任务...",
+    "queue_created": "翻译任务已创建",
+    "can_leave_page": "您可以离开这页,稍后在\"我的任务\"中查看结果",
+    "check_in_tasks": "能在任务管理中查看进度",
+    "view_in_tasks": "请到\"我的任务\"页面查看翻译进展",
+    "batch_operation_success": "已经对 {数} 个任务执行{行动}"
+  },
+  "progress": {
+    "preparing": "准备中",
+    "processing": "处理中",
+    "finalizing": "完善中",
+    "completed": "完成",
+    "paused": "已暂停",
+    "failed": "失败",
+    "cancelled": "已取消",
+    "partial_success": "部分成功",
+    "progress": "进度",
+    "understanding_text": "正在理解您的文字...",
+    "analyzing_language": "分析语言特征中...",
+    "processing_content": "现在处理你的内容...",
+    "checking_grammar": "检查语法和流度...",
+    "final_polish": "最后的色中...",
+    "presenting_results": "现在我们将向您展示结果.",
+    "results_ready": "结果已经准备好了.",
+    "thank_you_waiting": "感谢您的耐心等待",
+    "progress_saved": "您的进度已保存",
+    "processing_time_long": "处理时间较长",
+    "instant_processing": "立即处理",
+    "background_processing": "后台处理",
+    "smart_processing": "智能处理"
+  },
+  "time": {
+    "time_estimate": "时间预测",
+    "estimated_time": "预计剩余时间",
+    "can_leave": "可离开页",
+    "accurate_estimate": "预测准确",
+    "rough_estimate": "大致预测",
+    "approximate_estimate": "粗略预测",
+    "fast_queue": "快速队列",
+    "creation_time": "创建时间"
+  },
+  "error": {
+    "error_recovery": "错误恢复",
+    "retry_failed": "重试失败",
+    "unknown_error": "没有错误",
+    "partial_results": "部分结果",
+    "retry_failed_parts": "试试失败部分",
+    "download_partial": "下载部分结果",
+    "segment_retry": "分段重试",
+    "encountered_problem": "遇到的问题",
+    "trying_to_resolve": "我们正在尝试解决问题.",
+    "contact_support": "请稍微等待或联系客服",
+    "please_retry_later": "请稍后重试"
+  },
+  "success": {
+    "completed": "已经完成了",
+    "operation_success": "操作成功",
+    "partial_success": "部分成功",
+    "almost_done": "马上就要完成了!",
+    "results_shown_below": "结果已经显示在下方",
+    "half_completed": "已经完成一半以上,继续加油!",
+    "translation_complete": "翻译完成",
+    "credits_consumed": "消耗了 {credits} 积分",
+    "free_translation": "免费翻译完成"
+  },
+  "credits": {
+    "estimated_consumption": "预计消耗量",
+    "credits_consumed": "消耗 {积分} 积分",
+    "credits_processing": "积分处理说明",
+    "consumed_credits": "已消耗积分",
+    "refunded_credits": "已退还积分",
+    "retry_only_failed": "重试时只需要为失败部分付款积分",
+    "insufficient_balance": "积分不足：需要 {required}，当前 {current}",
+    "recharge_now": "请充值积分以继续。"
+  },
+  "language": {
+    "source_language": "源语言",
+    "target_language": "目标语言",
+    "select_source": "选择源语言",
+    "select_target": "选择目标语言"
+  },
+  "ui": {
+    "start": "开始",
+    "pause": "暂停",
+    "resume": "恢复",
+    "continue": "继续",
+    "cancel": "取消",
+    "retry": "试试",
+    "download": "下载",
+    "delete": "删除",
+    "refresh": "刷新",
+    "all": "没有任何东西.",
+    "status": "状态",
+    "priority": "优先级",
+    "sort": "排序",
+    "normal": "常见的",
+    "high": "高",
+    "urgent": "紧急情况",
+    "low": "低",
+    "waiting": "在等待中",
+    "active": "进行中",
+    "needs_attention": "需要处理",
+    "submitting": "提交中...",
+    "downloading": "已经开始了.",
+    "retrying": "重试已经开始",
+    "copied": "已复制",
+    "text_copied": "文本已经复制到剪贴板",
+    "input_text": "输入文本",
+    "translation_result": "翻译结果",
+    "characters": "字符",
+    "total_tasks": "总任务",
+    "select_all": "全选",
+    "batch_operations": "批量操作",
+    "set_priority": "设置优先级"
+  },
+  "NotFound": {
+    "title": "页面未找到",
+    "description": "您正在寻找的页面不存在或已被移动.",
+    "goHome": "回到首页.",
+    "contactSupport": "联系支持"
+  },
+  "Error": {
+    "title": "有什么不对!",
+    "description": "发生意外错误. 请再次尝试.",
+    "errorDetails": "错误详情 (开发)",
+    "tryAgain": "试试一次",
+    "goHome": "回到首页.",
+    "contactSupport": "联系支持"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "管理员仪表板",
+      "description": "管理应用程序设置和监控系统状态."
+    }
+  },
+  "Feedback": {
+    "feedback": "反馈",
+    "title": "您的反馈我们很重要",
+    "rating": {
+      "tab": "评级",
+      "title": "评价我们的服务",
+      "select": "请选择一个评级",
+      "very_dissatisfied": "非常不满意",
+      "dissatisfied": "没有满意.",
+      "neutral": "没有任何的.",
+      "satisfied": "满意的",
+      "very_satisfied": "非常满意",
+      "placeholder": "请告诉我们您的具体感受和建议...",
+      "submit": "提交评级"
+    },
+    "suggestion": {
+      "tab": "建议",
+      "title": "选择功能",
+      "type": "建议类型",
+      "categories": {
+        "feature": "新功能",
+        "ui": "改善UI",
+        "performance": "性能",
+        "language": "语言支持",
+        "other": "其他"
+      },
+      "placeholder": "请详细描述您的建议,我们会仔细考虑...",
+      "submit": "提出建议"
+    },
+    "bug": {
+      "tab": "错误",
+      "title": "错误报告",
+      "type": "错误类型",
+      "categories": {
+        "translation": "翻译问题",
+        "ui": "用户界面错误",
+        "payment": "支付问题",
+        "account": "账户相关",
+        "other": "其他"
+      },
+      "placeholder": "请详细描述问题,包括步骤和错误信息...",
+      "email": "联系电子邮件 (可选)",
+      "submit": "报告一个错误"
+    },
+    "compliment": {
+      "tab": "认可",
+      "title": "认可",
+      "placeholder": "感谢您的认可!请告诉我们您最喜欢的功能和体验...",
+      "submit": "给我一个like"
+    },
+    "common": {
+      "submitting": "提交中...",
+      "success": "反馈成功!",
+      "success_desc": "感谢您的宝贵反馈,我们将仔细考虑,并继续改善产品体验.",
+      "fill_required": "请填写反馈内容",
+      "submit_failed": "提交失败了",
+      "try_again": "请稍后再尝试或联系客户服务",
+      "translation_quality": "翻译质量:",
+      "thanks_feedback": "感谢您的反馈",
+      "feedback_helps": "您的反馈有助于我们提高翻译质量"
+    }
+  },
+  "TextTranslation": {
+    "faq": {
+      "q1_answer": "文本翻译在300字符内完全免费。对于更长的文本（超过300字符），我们按每字符0.1积分收费。例如，1000字符的文本需要70积分（300字符免费 + 700×0.1 = 70积分）。"
+    }
+  },
+  "auth": {
+    "register_prompt": {
+      "description": "注册用户享受500积分欢迎奖励 + 首次充值20%额外奖励。每次翻译300字符内免费。"
+    }
+  },
+  "AuthPage": {
+    "signin": {
+      "title": "登录到Loretrans",
+      "email": "邮箱",
+      "password": "密码",
+      "forgot_password": "忘记密码？",
+      "signin_button": "登录",
+      "signup_link": "还没有账户？立即注册",
+      "credentials_prompt": "输入您的凭据以访问您的账户",
+      "remember_me": "记住我",
+      "signup_text": "注册"
+    }
+  },
+  "errors": {
+    "limit_reached_title": "每日限额已达",
+    "limit_reached_description": "您已达到每日翻译限额。请明天再试或升级您的计划。",
+    "login_required_title": "需要登录",
+    "login_required_description": "请登录以继续您的翻译。",
+    "daily_limit_title": "超出每日限额",
+    "daily_limit_description": "您已超出每日翻译限额。",
+    "translation_failed": "翻译失败"
+  }
+}

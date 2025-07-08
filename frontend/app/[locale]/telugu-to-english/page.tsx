@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: 'Telugu to English Translator - Free AI Translation Tool | Transly',
+  title: 'Telugu to English Translator - Free AI Translation Tool | Loretrans',
   description: 'Free online Telugu to English translator. Accurate AI-powered translation for తెలుగు text, documents, and phrases. Instant results with NLLB technology.',
   keywords: [
     'telugu translator',
@@ -17,10 +17,10 @@ export const metadata = {
     title: 'Telugu to English Translator - Free AI Translation',
     description: 'Professional Telugu to English translation powered by AI. Translate తెలుగు text, documents and phrases instantly.',
     type: 'website',
-    url: 'https://transly.app/telugu-to-english',
+    url: 'https://loretrans.app/telugu-to-english',
   },
   twitter: {
-    title: 'Free Telugu to English Translator | Transly',
+    title: 'Free Telugu to English Translator | Loretrans',
     description: 'Accurate AI-powered Telugu to English translation. Perfect for తెలుగు speakers.',
   }
 };

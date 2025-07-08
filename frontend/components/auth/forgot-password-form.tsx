@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useTranslations } from 'next-intl';
 import Link from 'next/link'
 import { ArrowLeft, Mail, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -145,3 +146,6 @@ export default function ForgotPasswordForm({ locale = 'en' }: ForgotPasswordForm
     </div>
   )
 }
+
+// 添加命名导出
+export { ForgotPasswordForm }

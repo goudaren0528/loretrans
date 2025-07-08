@@ -14,6 +14,7 @@ module.exports = {
       moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/frontend/$1',
         '^@tests/(.*)$': '<rootDir>/tests/$1',
+        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
       },
       collectCoverageFrom: [
         'frontend/app/**/*.{js,jsx,ts,tsx}',
@@ -32,7 +33,13 @@ module.exports = {
         }],
         '^.+\\.(js|jsx)$': ['babel-jest'],
       },
+      transformIgnorePatterns: [
+        'node_modules/(?!(.*\\.mjs$|@testing-library))',
+      ],
       moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+      testEnvironmentOptions: {
+        customExportConditions: [''],
+      },
     },
     
     // Backend tests

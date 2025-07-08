@@ -1,13 +1,13 @@
 'use client'
 
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { SignUpForm } from '@/components/auth/signup-form'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { detectLocaleFromPath } from '@/lib/navigation'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
 
-export default function SignUpPage() {
+function SignUpContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -58,5 +58,17 @@ export default function SignUpPage() {
         <SignUpForm onSuccess={handleSignUpSuccess} locale={locale} />
       </div>
     </div>
+  )
+}
+
+export default function SignUpPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <SignUpContent />
+    </Suspense>
   )
 }

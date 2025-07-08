@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -166,7 +167,7 @@ export function BidirectionalTranslator({
               </Label>
               <Select value={sourceLanguage} onValueChange={setSourceLanguage}>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select language" />
+                  <SelectValue placeholder="t('Common.select_language')" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">
@@ -208,7 +209,7 @@ export function BidirectionalTranslator({
               </Label>
               <Select value={targetLanguage} onValueChange={setTargetLanguage}>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select language" />
+                  <SelectValue placeholder="t('Common.select_language')" />
                 </SelectTrigger>
                 <SelectContent>
                   {targetLanguageOptions.map((lang) => (
@@ -299,7 +300,7 @@ export function BidirectionalTranslator({
                   className="min-h-[120px] resize-y bg-muted/50"
                   value={targetText}
                   readOnly
-                  placeholder="Translation will appear here..."
+                  placeholder="t('Common.translation_placeholder')"
                 />
                 <div className="absolute bottom-2 right-2 flex items-center gap-2">
                   {targetText && (

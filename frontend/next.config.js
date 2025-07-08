@@ -4,22 +4,28 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 环境变量配置 - 根据环境动态设置
+  // 环境变量配置 - 使用Hugging Face Space NLLB服务
   env: {
-    // 生产环境禁用本地NLLB，开发环境可以启用
-    USE_MOCK_TRANSLATION: process.env.NODE_ENV === 'production' ? 'false' : process.env.USE_MOCK_TRANSLATION || 'false',
-    NLLB_LOCAL_ENABLED: process.env.NODE_ENV === 'production' ? 'false' : process.env.NLLB_LOCAL_ENABLED || 'true',
-    NLLB_LOCAL_URL: process.env.NLLB_LOCAL_URL || 'http://localhost:8081',
-    NLLB_LOCAL_FALLBACK: 'true',
-    NLLB_LOCAL_TIMEOUT: '30000',
-
+    // 生产环境使用Hugging Face Space，开发环境也可以使用
+    USE_MOCK_TRANSLATION: process.env.USE_MOCK_TRANSLATION || 'false',
+    
+    // Hugging Face Space NLLB 1.3B 配置
+    NLLB_SERVICE_ENABLED: 'true',
+    NLLB_SERVICE_URL: process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator',
+    NLLB_SERVICE_TIMEOUT: process.env.NLLB_SERVICE_TIMEOUT || '60000', // HF Space可能需要更长时间
+    NLLB_SERVICE_FALLBACK: 'true',
+    
+    // 保留本地服务配置作为备用（已弃用）
+    NLLB_LOCAL_ENABLED: 'false', // 不再使用本地服务
+    NLLB_LOCAL_URL: 'http://localhost:8081', // 保留用于向后兼容
+    
     // 为构建过程提供占位符
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key',
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key',
   },
   images: {
-    domains: ['cdn.transly.app'],
+    domains: ['cdn.loretrans.app'],
     formats: ['image/webp', 'image/avif'],
   },
   // SEO和性能优化

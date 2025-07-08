@@ -2,19 +2,19 @@ import { Metadata } from 'next'
 import { FAQStructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Help & FAQ - Transly AI Translation Tool Support',
-  description: 'Get help with Transly AI translation tool. Find answers to common questions about using our free online translator for text, document, and voice translation.',
+  title: 'Help & FAQ - Loretrans AI Translation Tool Support',
+  description: 'Get help with Loretrans AI translation tool. Find answers to common questions about using our free online translator for text, document, and voice translation.',
   keywords: 'help, FAQ, support, translation help, translator guide, AI translation questions',
   openGraph: {
-    title: 'Help & FAQ - Transly AI Translation Tool Support',
-    description: 'Get help with Transly AI translation tool. Find answers to common questions about using our free online translator.',
+    title: 'Help & FAQ - Loretrans AI Translation Tool Support',
+    description: 'Get help with Loretrans AI translation tool. Find answers to common questions about using our free online translator.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Help & FAQ - Transly AI Translation Tool Support',
-    description: 'Get help with Transly AI translation tool. Find answers to common questions about using our free online translator.',
+    title: 'Help & FAQ - Loretrans AI Translation Tool Support',
+    description: 'Get help with Loretrans AI translation tool. Find answers to common questions about using our free online translator.',
   },
   alternates: {
     canonical: '/help',
@@ -23,19 +23,19 @@ export const metadata: Metadata = {
 
 const generalFAQs = [
   {
-    question: "What is Transly?",
-    answer: "Transly is a free online AI-powered translation tool that helps you translate text from one language to another instantly. We specialize in translating low-resource languages like Haitian Creole, Lao, Swahili, Burmese, and Telugu to English."
+    question: "What is Loretrans?",
+    answer: "Loretrans is a free online AI-powered translation tool that helps you translate text from one language to another instantly. We specialize in translating low-resource languages like Haitian Creole, Lao, Swahili, Burmese, and Telugu to English."
   },
   {
-    question: "Is Transly really free?",
-    answer: "Yes, Transly is 100% free to use with no hidden charges, no subscription fees, and no limitations on the number of translations you can perform."
+    question: "Is Loretrans really free?",
+    answer: "Yes, Loretrans is 100% free to use with no hidden charges, no subscription fees, and no limitations on the number of translations you can perform."
   },
   {
     question: "Do I need to create an account?",
-    answer: "No account registration is required. You can start using Transly immediately without providing any personal information."
+    answer: "No account registration is required. You can start using Loretrans immediately without providing any personal information."
   },
   {
-    question: "What languages does Transly support?",
+    question: "What languages does Loretrans support?",
     answer: "We currently support specialized translation for Haitian Creole, Lao, Swahili, Burmese (Myanmar), and Telugu to English. We also offer a general text translator that supports over 200 languages."
   },
   {
@@ -73,20 +73,20 @@ const technicalFAQs = [
     answer: "This could be due to several reasons: 1) Check your internet connection, 2) Ensure the text is in a supported language, 3) Try refreshing the page, 4) If the issue persists, contact our support team."
   },
   {
-    question: "Can I use Transly on mobile devices?",
-    answer: "Yes, Transly is fully responsive and works on all devices including smartphones, tablets, and desktop computers through any modern web browser."
+    question: "Can I use Loretrans on mobile devices?",
+    answer: "Yes, Loretrans is fully responsive and works on all devices including smartphones, tablets, and desktop computers through any modern web browser."
   },
   {
     question: "Do you store my translations?",
     answer: "No, we do not store your translations or personal data. All translations are processed in real-time and are not saved on our servers for privacy and security."
   },
   {
-    question: "Can I use Transly offline?",
-    answer: "Currently, Transly requires an internet connection to access our AI translation models. An offline version is not available at this time."
+    question: "Can I use Loretrans offline?",
+    answer: "Currently, Loretrans requires an internet connection to access our AI translation models. An offline version is not available at this time."
   },
   {
     question: "Which browsers are supported?",
-    answer: "Transly works on all modern web browsers including Chrome, Firefox, Safari, Edge, and their mobile versions. We recommend using the latest browser version for the best experience."
+    answer: "Loretrans works on all modern web browsers including Chrome, Firefox, Safari, Edge, and their mobile versions. We recommend using the latest browser version for the best experience."
   }
 ]
 
@@ -134,7 +134,7 @@ export default function HelpPage() {
               Help & FAQ
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-              Find answers to common questions about using Transly AI translation tool. 
+              Find answers to common questions about using Loretrans AI translation tool. 
               Need more help? Contact our support team.
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function HelpPage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Quick Start</h3>
-                <p className="text-gray-600 text-sm mb-4">New to Transly? Get started in seconds with our simple interface.</p>
+                <p className="text-gray-600 text-sm mb-4">New to Loretrans? Get started in seconds with our simple interface.</p>
                 <a href="/text-translate" className="text-primary hover:text-primary/80 font-medium">
                   Start Translating →
                 </a>
@@ -198,7 +198,7 @@ export default function HelpPage() {
                 General Questions
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Learn the basics about Transly and our translation services
+                Learn the basics about Loretrans and our translation services
               </p>
             </div>
             
@@ -240,7 +240,7 @@ export default function HelpPage() {
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                How to Use Transly
+                How to Use Loretrans
               </h2>
               <p className="mt-4 text-lg text-gray-600">
                 Step-by-step guidance for using our translation features
@@ -387,7 +387,7 @@ export default function HelpPage() {
                 Contact Support
               </a>
               <a
-                href="mailto:support@transly.app"
+                href="mailto:support@loretrans.app"
                 className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
               >
                 Email Us Directly

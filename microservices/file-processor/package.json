@@ -1,7 +1,7 @@
 {
-  "name": "transly-file-processor",
+  "name": "loretrans-file-processor",
   "version": "1.0.0",
-  "description": "File processing microservice for Transly - handles document upload, text extraction, and translation",
+  "description": "File processing microservice for Loretrans - handles document upload, text extraction, and translation",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -20,7 +20,7 @@
     "pdf",
     "document"
   ],
-  "author": "Transly Team",
+  "author": "Loretrans Team",
   "license": "MIT",
   "dependencies": {
     "@fastify/cors": "^8.4.0",
@@ -58,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/transly.git",
+    "url": "https://github.com/your-org/loretrans.git",
     "directory": "microservices/file-processor"
   }
 }

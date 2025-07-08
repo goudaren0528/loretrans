@@ -9,8 +9,29 @@ const { ensureDirectories } = require('./setup')
 async function registerPlugins() {
   // CORS支持
   await fastify.register(require('@fastify/cors'), {
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'],
-    credentials: true
+    origin: (origin, callback) => {
+      // 允许测试环境和开发环境
+      const allowedOrigins = [
+        'http://localhost:3000', 
+        'http://localhost:3001', 
+        'http://localhost:3002'
+      ]
+      
+      // 在测试环境中允许所有来源
+      if (process.env.NODE_ENV === 'test' || !origin) {
+        callback(null, true)
+        return
+      }
+      
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
   })
 
   // 文件上传支持
@@ -72,6 +93,18 @@ fastify.get('/health', async (request, reply) => {
 // 文件上传路由
 fastify.post('/upload', async (request, reply) => {
   try {
+    // 检查是否为multipart请求
+    if (!request.isMultipart()) {
+      reply.code(400)
+      return {
+        success: false,
+        error: {
+          code: 'INVALID_CONTENT_TYPE',
+          message: 'Request must be multipart/form-data'
+        }
+      }
+    }
+
     const data = await request.file()
     
     if (!data) {
@@ -81,6 +114,21 @@ fastify.post('/upload', async (request, reply) => {
         error: {
           code: 'NO_FILE',
           message: 'No file uploaded'
+        }
+      }
+    }
+    
+    // 验证文件大小 (50MB限制)
+    const maxSize = 50 * 1024 * 1024 // 50MB
+    const buffer = await data.toBuffer()
+    
+    if (buffer.length > maxSize) {
+      reply.code(400)
+      return {
+        success: false,
+        error: {
+          code: 'FILE_TOO_LARGE',
+          message: `File size exceeds limit of ${maxSize / 1024 / 1024}MB`
         }
       }
     }
@@ -116,10 +164,9 @@ fastify.post('/upload', async (request, reply) => {
     
     // 保存文件
     await fs.ensureDir(path.dirname(filePath))
-    const buffer = await data.toBuffer()
     await fs.writeFile(filePath, buffer)
     
-    // 获取文件信息
+    // 获取文件统计信息
     const stats = await fs.stat(filePath)
     
     return {
@@ -269,8 +316,9 @@ async function extractPowerPointText(filePath) {
 // 文档翻译任务路由
 fastify.post('/translate', async (request, reply) => {
   try {
-    const { fileId, sourceLanguage = 'auto', targetLanguage = 'en' } = request.body
+    const { fileId, email, sourceLanguage = 'auto', targetLanguage = 'en' } = request.body
     
+    // 验证必需参数
     if (!fileId) {
       reply.code(400)
       return {
@@ -278,6 +326,30 @@ fastify.post('/translate', async (request, reply) => {
         error: {
           code: 'MISSING_FILE_ID',
           message: 'File ID is required'
+        }
+      }
+    }
+    
+    if (!email) {
+      reply.code(400)
+      return {
+        success: false,
+        error: {
+          code: 'MISSING_EMAIL',
+          message: 'Email is required'
+        }
+      }
+    }
+    
+    // 验证邮箱格式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      reply.code(400)
+      return {
+        success: false,
+        error: {
+          code: 'INVALID_EMAIL',
+          message: 'Invalid email format'
         }
       }
     }
@@ -403,6 +475,61 @@ fastify.get('/jobs', async (request, reply) => {
       error: {
         code: 'JOBS_LIST_ERROR',
         message: 'Failed to get jobs list',
+        details: error.message
+      }
+    }
+  }
+})
+
+// 任务状态查询路由
+fastify.get('/status/:jobId', async (request, reply) => {
+  try {
+    const { jobId } = request.params
+    
+    if (!jobId) {
+      reply.code(400)
+      return {
+        success: false,
+        error: {
+          code: 'MISSING_JOB_ID',
+          message: 'Job ID is required'
+        }
+      }
+    }
+    
+    const jobQueue = getJobQueue()
+    const job = await jobQueue.getJob(jobId)
+    
+    if (!job) {
+      reply.code(404)
+      return {
+        success: false,
+        error: {
+          code: 'JOB_NOT_FOUND',
+          message: 'Job not found'
+        }
+      }
+    }
+    
+    return {
+      success: true,
+      jobId: job.id,
+      status: await job.getState(),
+      progress: job.progress(),
+      data: job.data,
+      result: job.returnvalue,
+      createdAt: new Date(job.timestamp),
+      processedAt: job.processedOn ? new Date(job.processedOn) : null,
+      finishedAt: job.finishedOn ? new Date(job.finishedOn) : null
+    }
+  } catch (error) {
+    console.error('Status check error:', error)
+    reply.code(500)
+    return {
+      success: false,
+      error: {
+        code: 'STATUS_CHECK_ERROR',
+        message: 'Failed to check job status',
         details: error.message
       }
     }
@@ -572,6 +699,18 @@ async function processTranslationJob(jobId) {
   }
 }
 
+// 创建应用实例 (用于测试)
+async function createApp(options = {}) {
+  if (!options.testing) {
+    // 确保目录存在
+    await ensureDirectories()
+  }
+  
+  await registerPlugins()
+  
+  return fastify
+}
+
 // 启动服务器
 async function start() {
   try {
@@ -581,7 +720,7 @@ async function start() {
     await registerPlugins()
     
     const host = process.env.HOST || '0.0.0.0'
-    const port = process.env.PORT || 3010
+    const port = process.env.PORT || 8000
     
     await fastify.listen({ host, port })
     console.log(`📄 File Processor service running on http://${host}:${port}`)
@@ -609,4 +748,10 @@ process.on('SIGINT', async () => {
   process.exit(0)
 })
 
-start() 
+// 导出用于测试
+module.exports = { createApp, fastify }
+
+// 只在非测试环境下启动服务器
+if (require.main === module) {
+  start()
+} 

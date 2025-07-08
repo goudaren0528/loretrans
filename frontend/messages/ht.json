@@ -1,0 +1,1335 @@
+{
+  "Navigation": {
+    "home": "Lakay",
+    "about": "Konsènan",
+    "pricing": "Pri yo",
+    "contact": "Kontak"
+  },
+  "UserMenu": {
+    "sign_in": "Konekte",
+    "sign_up": "Enskri",
+    "sign_out": "Dekonekte",
+    "user": "Itilizatè",
+    "credits": "Kredi yo",
+    "profile": "Pwofil",
+    "dashboard": "Tablo Kòmand",
+    "purchase_credits": "Achte Kredi",
+    "settings": "Paramèt yo"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Loretrans - Tradiktè AI pou Lang ki pa gen Anpil Resous",
+      "description": "Tradiksyon gratis ak AI pou 20+ lang ki pa gen anpil resous tankou Kreyòl, Lao, ak Swahili. Tradwi tèks ak dokiman yo nan Anglè imedyatman."
+    },
+    "hero": {
+      "title": "Tradiksyon ak AI pou Lang ki pa gen Anpil Resous",
+      "description": "Kase baryè lang yo ak AI ki pi avanse. Platfòm nou an bay tradiksyon ki gen bon kalite pou lang yo ki souvan pa gen sèvis yo merite. Kòmanse gratis.",
+      "features": {
+        "free": "100% Gratis",
+        "ai_powered": "Ak Pouvwa AI",
+        "languages": "20+ Lang",
+        "document_support": "Sipò pou tradiksyon dokiman"
+      },
+      "cta": {
+        "start_translating": "Kòmanse Tradwi",
+        "upload_document": "Telechaje Dokiman",
+        "start_free": "Kòmanse Tradiksyon Gratis",
+        "view_pricing": "Gade Pri"
+      },
+      "badge": "Pwofesyonèl Tradiksyon Lang ki ba resous • Lang Google Translate pa kouvri",
+      "comparison": {
+        "google": {
+          "description": "Pa gen sipò pou lang ki gen ti resous",
+          "title": "Google tradui"
+        },
+        "loretrans": {
+          "description": "Sipò pwofesyonèl pou 20+ lang ki gen ti resous",
+          "title": "Loretrans"
+        }
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Kreyòl ayisyen",
+          "text": "Bonjou, kijan ou ye?"
+        },
+        "english": {
+          "language": "Angle",
+          "text": "Bonjou, ki jan ou ye?"
+        }
+      },
+      "social_proof": {
+        "accuracy": "Presizyon tradiksyon > 90%",
+        "rating": "4.8/5",
+        "users": "Sèvi 10,000+ itilizatè"
+      },
+      "title_highlight": "Konprann",
+      "title_part1": "Fè chak lang "
+    },
+    "languages": {
+      "title": "Lang ki Sipòte yo",
+      "description": "Tradwi nan lang ki pa gen anpil resous sa yo nan Anglè"
+    },
+    "cta": {
+      "title": "Kòmanse Tradwi Jodi a",
+      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan Loretrans pou bezwen tradiksyon yo",
+      "try_now": "Eseye Kounye a - Li Gratis",
+      "translate_documents": "Tradwi Dokiman yo"
+    },
+    "cost_comparison": {
+      "google_translate": {
+        "description": "Kouvèti lang ki pa gen ase resous",
+        "price": "Pa sipòte",
+        "title": "Google tradui"
+      },
+      "human_translation": {
+        "description": "1000 karaktè × $0.12/char",
+        "price": "$120",
+        "title": "Tradiksyon moun"
+      },
+      "loretrans": {
+        "description": "1000 karaktè × $0.001/char",
+        "price": "$1",
+        "savings": "Ekonomize 99% depans",
+        "title": "Loretrans"
+      },
+      "title": "Konparezon Pri: Poukisa Loretrans se pi pri-efikas?"
+    },
+    "feature_section": {
+      "description": "Zouti tradiksyon pwofesyonèl ki fèt pou lang ki gen ti resous",
+      "title": "Poukisa w chwazi Loretrans?"
+    },
+    "user_scenarios": {
+      "academic": {
+        "description": "Bezwen tradui literati akademik ak materyèl rechèch nan lang ki pa gen anpil resous tankou kreyòl ayisyen ak lao",
+        "recommendation": "Rekòmande: Plan pou kòmanse ($5) • Pafè pou tradiksyon papye",
+        "title": "Chèchè akademik"
+      },
+      "ecommerce": {
+        "description": "Lokalizasyon deskripsyon pwodwi, tradiksyon seri enfòmasyon sou pwodwi pou mache lang ki gen ti resous",
+        "recommendation": "Rekòmande: Pro Plan ($25) • Sipòte tradiksyon pakèt",
+        "title": "E-komès travès fwontyè"
+      },
+      "immigrant": {
+        "description": "Fè fas ak dokiman ofisyèl, dokiman legal ak lòt materyèl enpòtan ki bezwen yon tradiksyon egzat",
+        "recommendation": "Rekòmande: Plan debaz ($10) • Garanti presizyon segondè",
+        "title": "Kominote imigran"
+      }
+    },
+    "Footer": {
+      "pricing": "Pri yo",
+      "interface_language": "Lang entèfas"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "title": "Tit",
+    "description": "Deskripsyon",
+    "hero": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "status": {
+        "free": "Gratis",
+        "ai_powered": "Paj",
+        "multi_language": "Lang"
+      },
+      "cta_start": "Kòmanse",
+      "cta_upload": "Chaje"
+    },
+    "supported_languages": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "cta_section": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "cta_try": "Paj",
+      "cta_docs": "Paj"
+    },
+    "translation_options": {
+      "title": "Chwazi metòd tradiksyon w",
+      "description": "Chwazi opsyon ki pi bon pou bezwen tradiksyon ou yo",
+      "coming_soon": "Vini byento",
+      "options": {
+        "text": {
+          "title": "Tradiksyon tèks",
+          "description": "Tradui tèks ant 20+ lang ki gen resous ki ba ak angle imedyatman.",
+          "button": "Kòmanse tradui",
+          "features": [
+            "300 karaktè gratis",
+            "Rezilta imedya",
+            "Replay vwa",
+            "Kopye nan clipboard"
+          ]
+        },
+        "document": {
+          "title": "Tradiksyon Dokiman",
+          "description": "Upload ak tradui PDF, Pawòl, ak PowerPoint dokiman.",
+          "button": "Kòmanse tradui",
+          "features": [
+            "Sipòte PDF, Pawòl, PPT",
+            "Kenbe fòma",
+            "Rale dosye rezilta",
+            "Pwosesis seri"
+          ]
+        },
+        "image": {
+          "title": "Tradiksyon imaj",
+          "description": "Ekstrè ak tradui tèks nan imaj lè l sèvi avèk teknoloji OCR.",
+          "button": "Vini byento",
+          "features": [
+            "Ekstraksyon tèks OCR",
+            "Plizyè fòma imaj",
+            "Kenbe layout",
+            "Vini byento"
+          ]
+        }
+      },
+      "quick_start": {
+        "title": "Ou pa sèten ki opsyon pou chwazi? Kòmanse ak tradiksyon tèks",
+        "button": "Eseye tradiksyon tèks kounye a"
+      }
+    },
+    "language_grid": {
+      "coming_soon": "Vini byento",
+      "try_language": "Eseye {lang}"
+    },
+    "feature_section": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "features": {
+        "ai_powered": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        },
+        "fast": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        },
+        "privacy": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        },
+        "languages": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        },
+        "tts": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        },
+        "documents": {
+          "name": "Non",
+          "description": "Deskripsyon"
+        }
+      },
+      "stats": {
+        "languages": "Lang",
+        "free": "Gratis",
+        "characters": "Paj",
+        "availability": "Paj"
+      }
+    },
+    "faq_section": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "questions": {
+        "0": {
+          "0": "G",
+          "question": "Ki jan Loretrans pri travay?",
+          "answer": "Loretrans ofri 300 karaktè gratis pou chak tradiksyon. Pou tèks pi long, nou chaje 0.1 kredi pou chak karaktè. Nouvo itilizatè jwenn 500 kredi akeyi lè yo enskri."
+        },
+        "1": {
+          "0": "e",
+          "question": "Ki lang ou sipòte?",
+          "answer": "Nou espesyalize nan 20+ lang ki gen resous ki ba ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, ak plis ankò."
+        },
+        "2": {
+          "0": "n",
+          "question": "Èske gen yon limit karaktè?",
+          "answer": "Chak tradiksyon gen ladan 300 karaktè gratis. Pou tèks pi long, ou ka itilize kredi (0.1 kredi pou chak karaktè). Enskri pou jwenn 500 kredi akeyi."
+        },
+        "3": {
+          "0": " ",
+          "question": "Ki fòma dosye ou sipòte?",
+          "answer": "Kounye a nou sipòte fichiers TXT jiska 10MB. PDF, Pawòl, ak PowerPoint sipò ap vini byento."
+        },
+        "4": {
+          "0": "p",
+          "question": "Èske mwen ka tradui dokiman?",
+          "answer": "Wi! Nou sipòte PDF, Pawòl (.docx), ak PowerPoint (.pptx) tradiksyon dosye. Senpleman Upload dosye ou a epi nou pral ekstrè tèks la, tradui li, epi bay ou ak rezilta yo."
+        },
+        "5": {
+          "0": "o",
+          "question": "Ki jan fonksyon tèks-a-pale a travay?",
+          "answer": "Fonksyon tèks-a-pale nou an sipòte pwodiksyon angle ak sentèz vwa-wo kalite. Senpleman klike sou icon moun kap pale a akote nenpòt tradiksyon pou tande li pwononse."
+        },
+        "6": {
+          "0": "u",
+          "question": "Èske gen yon limit karaktè?",
+          "answer": "Itilizatè gratis ka tradui jiska 1000 karaktè pou chak demann. Pou tèks pi long, ou ka kraze yo nan ti moso pi piti oswa Upload dokiman pou pwosesis."
+        },
+        "7": {
+          "0": " ",
+          "question": "Èske mwen ka itilize Loretrans pou rezon komèsyal?",
+          "answer": "Wi, ou ka itilize Loretrans pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
+        },
+        "8": "t",
+        "9": "r",
+        "10": "a",
+        "11": "d",
+        "12": "w",
+        "13": "i"
+      },
+      "contact_prompt": "Kontak",
+      "contact_link": "Lyen"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "Konsèy Loretrans - Tradiksyon Pwofesyonèl pou Lang ki gen Mwens Resous",
+      "description": "Aprann sou Loretrans, platfòm tradiksyon prensipal la pou lang ti yo nan Angle. Ki gen pouvwa pa Meta NLLB modèl ak 20+ lang yo sipòte."
+    },
+    "hero": {
+      "title": "Konsèy Loretrans",
+      "description": "Platfòm tradiksyon pwofesyonèl ki dedye nan konekte lang ki gen mwens resous yo ak mond lan nan tradiksyon Angle egzak."
+    },
+    "mission": {
+      "title": "Misyon Nou an",
+      "p1": "Nan Loretrans, nou kwè chak lang gen valè e yo dwe tande. Misyon nou an se diminye distans lan ant lang ki gen mwens resous yo ak Angle, ankouraje kominikasyon ak konprann mondyal.",
+      "p2": "Lè nou konbine teknoloji AI avanse ak konesans pwofon nan kominote lang yo, nou reyisi kote sèvis tradiksyon tradisyonèl yo souvan echwe.",
+      "cta": "Kòmanse Kounye a"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Aksè",
+        "description": "Fè tradiksyon kalite segondè aksesib pou moun ki pale lang ki gen mwens resous yo nan mond lan."
+      },
+      "accuracy": {
+        "title": "Presizyòn",
+        "description": "Ki gen pouvwa pa Meta a NLLB modèl, ki fèt espesyalman pou lang ti yo."
+      },
+      "privacy": {
+        "title": "Vi Prive",
+        "description": "Done ou yo an sekirite. Nou pa konsève tradiksyon yo oswa swiv enfòmasyon pèsonèl."
+      }
+    },
+    "supported_languages": {
+      "title": "Lang yo ki Sipòte",
+      "description": "Nou sipòte {count} lang yo, ak yon konsantrasyon espesyal sou lang ki gen mwens resous yo.",
+      "request_cta": "Mande Lang",
+      "request_cta_description": "Lang ou an pa nan lis la? Fè nou konnen!"
+    },
+    "technology": {
+      "title": "Ki gen Pouvwa pa AI Avanse",
+      "description": "Loretrans sèvi ak Meta a NLLB (Pa gen Lang ki Kite Dèyè) modèl, ki fèt espesyalman pou bay tradiksyon kalite segondè pou lang ki gen mwens resous yo ke sistèm tradisyonèl yo gen difikilte ak yo.",
+      "cultural_preservation": {
+        "title": "Konsèvasyon Kiltirèl",
+        "description": "Sipòte divèsite lang ak ede konsève eritaj kiltirèl nan teknoloji."
+      },
+      "community_driven": {
+        "title": "Kominote ki Mennen",
+        "description": "Bati ak kòmantè nan moun ki pale lang natif natal yo ak kominote lang yo nan mond lan."
+      },
+      "continuous_improvement": {
+        "title": "Amelyorasyon Kontinyèl",
+        "description": "Aktyalizasyon modèl regilye ak amelyorasyon yo pou bay pi bon kalite tradiksyon."
+      }
+    },
+    "faq": {
+      "title": "Tit",
+      "q1_title": "Tit",
+      "q1_answer": "Paj",
+      "q2_title": "Tit",
+      "q2_answer": "Paj",
+      "q3_title": "Tit",
+      "q3_answer": "Paj",
+      "q4_title": "Tit",
+      "q4_answer": "Paj",
+      "q5_title": "Tit",
+      "q5_answer": "Paj",
+      "q6_title": "Tit",
+      "q6_answer": "Paj"
+    },
+    "cta_section": {
+      "title": "Pare pou Kòmanse?",
+      "description": "Fè eksperyans tradiksyon egzak pou lang ou an jodi a. Kit li se yon tèks rapid oswa yon dokiman konplè, Loretrans la pou ede ou kominike ak mond lan.",
+      "cta_text": "Eseye Tradiksyon Tèks",
+      "cta_docs": "Telechaje Dokiman"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "hero": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "form": {
+      "title": "Tit",
+      "firstName": "Non",
+      "firstNamePlaceholder": "Non",
+      "lastName": "Non",
+      "lastNamePlaceholder": "Non",
+      "email": "Imèl",
+      "emailPlaceholder": "Imèl",
+      "subject": "Paj",
+      "subjectPlaceholder": "Paj",
+      "subjects": {
+        "translation_issue": "Paj",
+        "technical_support": "Sipò",
+        "feature_request": "Paj",
+        "language_request": "Lang",
+        "business_inquiry": "Biznis",
+        "feedback": "Tounen",
+        "other": "Paj"
+      },
+      "relatedLanguage": "Lang",
+      "relatedLanguagePlaceholder": "Lang",
+      "message": "Mesaj",
+      "messagePlaceholder": "Mesaj",
+      "submit": "Soumèt"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Tit",
+        "email_support": "Sipò",
+        "email_address": "Imèl",
+        "response_time": "Paj",
+        "live_chat": "Paj",
+        "live_chat_status": "Estati",
+        "live_chat_eta": "Paj",
+        "support_hours_title": "Tit",
+        "support_hours_days": "Sipò",
+        "support_hours_time": "Sipò"
+      },
+      "common_issues": {
+        "title": "Tit",
+        "translation_not_working": {
+          "title": "Tit",
+          "description": "Deskripsyon"
+        },
+        "language_not_supported": {
+          "title": "Tit",
+          "description": "Deskripsyon"
+        },
+        "file_upload_issues": {
+          "title": "Tit",
+          "description": "Deskripsyon"
+        },
+        "audio_playback_not_working": {
+          "title": "Tit",
+          "description": "Deskripsyon"
+        }
+      },
+      "self_help": {
+        "title": "Tit",
+        "how_it_works": "Paj",
+        "try_text": "Tèks",
+        "try_docs": "Paj",
+        "privacy": "Paj",
+        "terms": "Paj"
+      }
+    },
+    "what_to_expect": {
+      "title": "Tit",
+      "quick_response": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      },
+      "personal_support": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      },
+      "follow_up": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | Loretrans",
+      "description": "Plan ki baze sou senayo yo ak rekòmandasyon entelijan. Kòmanse ak $5 pou etidyan yo, $10 pou itilizatè pèsonèl yo, $25 pou pwofesyonèl yo."
+    },
+    "hero": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "plans": {
+      "starter": {
+        "name": "Kòmansè",
+        "description": "Bon pou etidyan ak itilizatè ki pa itilize anpil",
+        "discount": "Paj"
+      },
+      "professional": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "discount": "Paj"
+      },
+      "business": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "discount": "Paj"
+      }
+    },
+    "features": {
+      "title": "Tit",
+      "unlimited_text": "Tèks",
+      "document_support": "Sipò",
+      "tts_support": "Sipò",
+      "api_access": "Paj",
+      "priority_support": "Sipò",
+      "no_expiry": "Paj"
+    },
+    "buttons": {
+      "purchase": "Paj",
+      "processing": "Paj",
+      "get_started": "Kòmanse"
+    },
+    "alert": {
+      "canceled_title": "Tit",
+      "canceled_description": "Deskripsyon"
+    },
+    "loading": "K ap chaje",
+    "cta": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "free_trial": "Gratis",
+      "contact_sales": "Kontak"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "loretrans": {
+        "price": "$1",
+        "title": "Loretrans",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "hero": {
+      "title": "Tradiksyon Smart pou lang ki pa gen anpil resous",
+      "subtitle": "AI detèmine mòd pwosesis entèlijan, sipòte tradiksyon pwofesyonèl pou 20+ lang ki gen ti resous ki gen ladan kreyòl ayisyen, Lao, Burma, ak plis ankò",
+      "features": {
+        "free_500_chars": "Gratis anba 500 karaktè",
+        "smart_time_estimation": "Smart estime tan",
+        "unified_experience": "Eksperyans tradiksyon inifye",
+        "error_recovery": "Rekiperasyon erè entelijan"
+      }
+    },
+    "other_languages": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "faq": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "q1_title": "Tit",
+      "q1_answer": "Paj",
+      "q2_title": "Tit",
+      "q2_answer": "Paj",
+      "q3_title": "Tit",
+      "q3_answer": "Paj",
+      "q4_title": "Tit",
+      "q4_answer": "Paj",
+      "q5_title": "Tit",
+      "q5_answer": "Paj",
+      "q6_title": "Tit",
+      "q6_answer": "Paj",
+      "contact_text": "Tèks",
+      "contact_link": "Lyen"
+    },
+    "cta": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "try_document": "Paj",
+      "view_pricing": "Gade"
+    },
+    "features": {
+      "title": "Tit",
+      "fast_title": "Tit",
+      "fast_desc": "Paj",
+      "accurate_title": "Tit",
+      "accurate_desc": "Paj",
+      "free_title": "Tit",
+      "free_desc": "Gratis"
+    },
+    "how_to": {
+      "title": "Tit",
+      "step1_title": "Tit",
+      "step1_desc": "Paj",
+      "step2_title": "Tit",
+      "step2_desc": "Paj",
+      "step3_title": "Tit",
+      "step3_desc": "Paj"
+    },
+    "supported_languages": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "more": "Paj"
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Eksplore plis tradiksyon lang ki pa gen anpil resous",
+        "subtitle": "Nou sipòte sèvis tradiksyon pwofesyonèl pou 20+ lang ki gen ti resous"
+      },
+      "faq": {
+        "title": "Kesyon yo poze souvan",
+        "subtitle": "Kesyon komen sou tradiksyon lang ki gen ti resous"
+      },
+      "cta": {
+        "title": "Pare pou kòmanse tradui?",
+        "subtitle": "Eksperyans pwofesyonèl sèvis tradiksyon lang ki ba resous, konplètman gratis anba 500 karaktè",
+        "try_document": "Eseye tradiksyon dokiman",
+        "view_pricing": "Gade Plan Pri"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Ki lang yo sipòte pou tradiksyon?",
+        "answer": "Nou konsantre sou tradiksyon lang ki pa gen anpil resous, sipòte plis pase 20 lang ke Google Translate pa kouvri byen, ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, ak plis ankò."
+      },
+      "q2": {
+        "question": "Ki jan egzat tradiksyon an ye?",
+        "answer": "Baze sou modèl NLLB Meta a, presizyon tradiksyon nou an depase 90%. Espesyalman pou lang ki gen ti resous, nou pi pwofesyonèl ak egzat pase zouti tradiksyon tradisyonèl yo."
+      },
+      "q3": {
+        "question": "Ki kantite lajan gratis?",
+        "answer": "Anba 500 karaktè se konplètman gratis, pa gen okenn enskripsyon ki nesesè. itilizatè ki anrejistre tou jwenn 500 kredi bonis, ki ka tradui apeprè 50,000 karaktè nan tèks long."
+      },
+      "q4": {
+        "question": "Ki jan yo kalkile frè tradiksyon?",
+        "answer": "Tèks ki gen plis pase 500 karaktè chaje nan 0.1 kredi pou chak karaktè. Pou egzanp, tradui 1000 karaktè mande pou 50 kredi, koute apeprè $ 0.05, ekonomize 99% konpare ak tradiksyon imen."
+      },
+      "q5": {
+        "question": "Ki fòma dosye yo sipòte?",
+        "answer": "Anplis tradiksyon tèks, nou tou sipòte tradiksyon fòma dokiman tankou PDF, Pawòl, PPT. Dokiman tradiksyon otomatikman ekstrè tèks pandan y ap kenbe fòma orijinal la."
+      },
+      "q6": {
+        "question": "Èske rezilta tradiksyon ka sove?",
+        "answer": "Istwa tradiksyon pou itilizatè ki anrejistre yo sove otomatikman. Plan Starter sove pou 7 jou, Plan debaz pou 30 jou, plan Pro pou 90 jou, Business plan sove pou endefini."
+      }
+    },
+    "contact": {
+      "more_questions": "Èske w gen lòt kesyon?",
+      "contact_support": "Kontakte ekip sipò nou an"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Tèks",
+      "text_translation_desc": "Tèks",
+      "document_translation": "Navigasyon",
+      "document_translation_desc": "Navigasyon",
+      "about": "Konsèy",
+      "about_desc": "Konsèy"
+    },
+    "Footer": {
+      "tagline": "Anba paj",
+      "product": "Anba paj",
+      "text_translation": "Tèks",
+      "document_translation": "Anba paj",
+      "supported_languages": "Sipò",
+      "company": "Anba paj",
+      "about_us": "Konsèy",
+      "privacy_policy": "Anba paj",
+      "terms_of_service": "Anba paj",
+      "compliance": "Anba paj",
+      "resources": "Anba paj",
+      "faq": "Anba paj",
+      "contact_support": "Sipò",
+      "api_docs": "Anba paj",
+      "copyright": "Anba paj",
+      "powered_by": "Anba paj",
+      "contact_us": "Contact Us",
+      "support_email": "support@loretrans.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "title": "Tit",
+    "description": "Deskripsyon",
+    "steps": {
+      "step1": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      },
+      "step2": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      },
+      "step3": {
+        "title": "Tit",
+        "description": "Deskripsyon"
+      }
+    },
+    "languages": {
+      "title": "Tit"
+    },
+    "cta": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "try_text_translation": "Tèks",
+      "view_pricing": "Gade"
+    },
+    "hero": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "upload_section": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "settings_section": {
+      "title": "Tit",
+      "source_language_label": "Lang",
+      "source_language_placeholder": "Lang",
+      "target_language_label": "Lang",
+      "target_language_placeholder": "Lang",
+      "translate_button": "Bouton",
+      "translating_button": "Bouton"
+    },
+    "jobs_section": {
+      "title": "Tit",
+      "no_jobs": "Paj",
+      "status": {
+        "pending": "Paj",
+        "processing": "Paj",
+        "completed": "Paj",
+        "failed": "Paj"
+      },
+      "error_message": "Mesaj",
+      "download_button": "Bouton"
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "login_button": "Bouton"
+    },
+    "upload": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "uploading": "K ap chaje",
+      "click_to_select": "Bezwen tradwi",
+      "drag_drop": "Bezwen tradwi",
+      "upload_success": "Siksè",
+      "extracted_characters": "Bezwen tradwi",
+      "upload_failed": "Chaje"
+    },
+    "analysis": {
+      "title": "Tit",
+      "filename": "Non",
+      "filesize": "Bezwen tradwi",
+      "text_preview": "Tèks",
+      "character_count": "Bezwen tradwi",
+      "characters": "Bezwen tradwi",
+      "credit_consumption": "Modifye",
+      "credits": "Modifye",
+      "free": "Gratis",
+      "insufficient_credits": "Modifye",
+      "recharge_now": "Bezwen tradwi",
+      "start_translation": "Kòmanse",
+      "reupload": "Chaje"
+    },
+    "translation": {
+      "title": "Tit",
+      "progress": "Bezwen tradwi",
+      "estimated_time": "Bezwen tradwi",
+      "completed": "Bezwen tradwi",
+      "download_result": "Telechaje",
+      "translation_started": "Kòmanse",
+      "credits_consumed": "Modifye",
+      "translation_failed": "Bezwen tradwi"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "Itilizatè",
+    "missing_parameters": "Bezwen tradwi",
+    "insufficient_credits": "Modifye",
+    "credit_error": "Erè",
+    "translation_invalid_response": "Bezwen tradwi",
+    "translation_failed_refund_failed": "Bezwen tradwi",
+    "translation_failed": "Bezwen tradwi",
+    "unexpected_error": "Erè",
+    "method_not_allowed": "Bezwen tradwi",
+    "invalid_json": "Bezwen tradwi",
+    "missing_fields": "Bezwen tradwi",
+    "empty_text": "Tèks",
+    "text_too_long": "Tèks",
+    "unexpected_detection_error": "Erè",
+    "invalid_lang_code": "Bezwen tradwi",
+    "invalid_speech_rate": "Bezwen tradwi",
+    "invalid_speech_pitch": "Bezwen tradwi",
+    "invalid_voice": "Bezwen tradwi",
+    "tts_unavailable": "Bezwen tradwi",
+    "tts_failed": "Bezwen tradwi",
+    "unexpected_tts_error": "Erè",
+    "failed_to_get_voices": "Bezwen tradwi"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "info": "Bezwen tradwi",
+      "contact_support": "Sipò"
+    },
+    "SignUpForm": {
+      "title": "Tit",
+      "subtitle": "Tit",
+      "name_label": "Non",
+      "name_placeholder": "Non",
+      "name_required": "Non",
+      "name_max_length": "Non",
+      "email_label": "Imèl",
+      "email_placeholder": "Imèl",
+      "email_required": "Imèl",
+      "email_invalid": "Imèl",
+      "email_max_length": "Imèl",
+      "password_label": "Modpas",
+      "password_placeholder": "Modpas",
+      "password_min_length": "Modpas",
+      "password_max_length": "Modpas",
+      "confirm_password_label": "Modpas",
+      "confirm_password_placeholder": "Modpas",
+      "confirm_password_required": "Modpas",
+      "password_mismatch": "Modpas",
+      "password_strength_label": "Modpas",
+      "password_strength_feedback": "Modpas",
+      "submit_button": "Bouton",
+      "submit_loading_button": "Bouton",
+      "signup_failed": "Enskri",
+      "signup_error": "Erè",
+      "signin_prompt": "Konekte",
+      "signin_link": "Lyen"
+    },
+    "SignInForm": {
+      "title": "Tit",
+      "subtitle": "Tit",
+      "email_label": "Imèl",
+      "email_placeholder": "Imèl",
+      "email_required": "Imèl",
+      "email_invalid": "Imèl",
+      "email_max_length": "Imèl",
+      "password_label": "Modpas",
+      "password_placeholder": "Modpas",
+      "password_required": "Modpas",
+      "password_max_length": "Modpas",
+      "forgot_password_link": "Lyen",
+      "remember_me_label": "Fòm",
+      "submit_button": "Bouton",
+      "submit_loading_button": "Bouton",
+      "signin_failed": "Konekte",
+      "signin_error": "Erè",
+      "signup_prompt": "Enskri",
+      "signup_link": "Lyen",
+      "social_divider": "Fòm",
+      "google_signin_button": "Bouton",
+      "signup_bonus_prompt_1": "Enskri",
+      "signup_bonus_prompt_2": "Enskri"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Bezwen tradwi",
+      "register_for_unlimited": "Enskri"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Tit",
+      "limit_reached_description": "Deskripsyon",
+      "login_required_title": "Tit",
+      "login_required_description": "Deskripsyon",
+      "daily_limit_title": "Tit",
+      "daily_limit_description": "Deskripsyon",
+      "translation_failed": "Tradiksyon echwe. Tanpri eseye ankò.",
+      "network_error": "Erè rezo. Tanpri tcheke koneksyon ou.",
+      "invalid_input": "Tanpri antre yon tèks ki valab pou tradui."
+    },
+    "success": {
+      "translation_complete": "Bezwen tradwi",
+      "credits_consumed": "Modifye"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Tèks",
+      "login_now": "Konekte",
+      "or": "Bezwen tradwi",
+      "register_account": "Enskri"
+    },
+    "buttons": {
+      "translating": "Bezwen tradwi",
+      "translate_with_credits": "Modifye",
+      "free_translate": "Gratis",
+      "start_translate": "Kòmanse tradiksyon",
+      "translate": "Tradui",
+      "copy_result": "Kopi Rezilta",
+      "clear_text": "Tèks klè"
+    },
+    "credits": {
+      "balance": "Bezwen tradwi",
+      "recharge": "Bezwen tradwi",
+      "free_translation": "Gratis",
+      "estimated_cost": "Bezwen tradwi",
+      "insufficient_credits": "Modifye",
+      "free_quota_usage": "Gratis",
+      "characters": "Bezwen tradwi",
+      "over_limit": "Bezwen tradwi",
+      "insufficient_balance": "Bezwen tradwi",
+      "recharge_now": "Bezwen tradwi"
+    },
+    "labels": {
+      "from": "Soti nan",
+      "to": "Pou",
+      "source_text": "Tèks sous",
+      "target_text": "Tradiksyon",
+      "enter_text": "Antre tèks pou tradui...",
+      "translation_result": "Rezilta tradiksyon",
+      "copy_translation": "Kopi Tradiksyon",
+      "clear_text": "Tèks klè",
+      "swap_languages": "Chanje lang",
+      "translated_text": "Tèks tradui"
+    },
+    "placeholders": {
+      "translation_result": "Tradiksyon ap parèt isit la...",
+      "translating": "Tradui...",
+      "enter_source_text": "Antre tèks pou tradui..."
+    },
+    "actions": {
+      "copy": "Koupye",
+      "listen": "Koute",
+      "play": "Jwe",
+      "pause": "Pause",
+      "stop": "Sispann",
+      "download": "Rale dosye",
+      "share": "Pataje",
+      "clear": "Li klè"
+    },
+    "estimation": {
+      "estimated_time": "Tan estime",
+      "processing_time": "Tan pwosesis",
+      "time_remaining": "Tan ki rete",
+      "seconds": "segond",
+      "minutes": "minit",
+      "hours": "èdtan",
+      "less_than_minute": "Mwens pase yon minit",
+      "about_minutes": "About {minutes} minutes",
+      "about_seconds": "About {seconds} seconds",
+      "calculating": "Kalkile...",
+      "queue_position": "Queue position: {position}",
+      "estimated_completion": "Estimated completion: {time}"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Tit",
+      "description": "Deskripsyon"
+    },
+    "title": "Tit",
+    "subtitle": "Tit",
+    "current_balance": "Bezwen tradwi",
+    "free_tier": {
+      "title": "Tit",
+      "subtitle": "Tit",
+      "completely_free": "Gratis",
+      "credit_based": "Modifye",
+      "features": {
+        "free_text": "Tèks",
+        "all_languages": "Lang",
+        "unlimited_use": "Bezwen tradwi",
+        "large_text": "Tèks",
+        "document_translation": "Bezwen tradwi",
+        "rate": "Bezwen tradwi"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "features": {
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi"
+        }
+      },
+      "basic": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "features": {
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò"
+        }
+      },
+      "pro": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "features": {
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi"
+        }
+      },
+      "business": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "features": {
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi",
+          "api": "Bezwen tradwi"
+        }
+      },
+      "enterprise": {
+        "name": "Non",
+        "description": "Deskripsyon",
+        "features": {
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi",
+          "api": "Bezwen tradwi",
+          "integration": "Bezwen tradwi"
+        }
+      }
+    },
+    "popular": "Bezwen tradwi",
+    "save": "Sove",
+    "credits": "Modifye",
+    "purchase_button": "Bouton",
+    "processing": "Bezwen tradwi",
+    "new_user_bonus": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "note": "Bezwen tradwi"
+    },
+    "register_prompt": {
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "register_button": "Bouton",
+      "signin_button": "Bouton"
+    },
+    "faq": {
+      "title": "Kesyon yo poze souvan",
+      "subtitle": "Tit",
+      "credit_calculation": {
+        "question": "Ki jan yo kalkile kredi?",
+        "answer": "Anba 300 karaktè se konplètman gratis, depase a chaje nan 0.1 kredi / karaktè."
+      },
+      "expiration": {
+        "question": "Èske kredi yo ekspire?",
+        "answer": "Non, kredi ou yo pa janm ekspire. Yon fwa yo achte yo, yo rete nan kont ou jiskaske yo itilize."
+      },
+      "payment_methods": {
+        "question": "Ki metòd peman ou sipòte?",
+        "answer": "Nou sipòte kat kredi ak kat debi atravè sistèm peman Creem nou an."
+      },
+      "bulk_discount": {
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
+      },
+      "unused_credits": {
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
+      },
+      "business_invoicing": {
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
+      },
+      "api_pricing": {
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
+      },
+      "contact_support": "Sipò",
+      "upgrade_plan": {
+        "question": "Èske m ka mete plan mwen an pi wo nenpòt lè?",
+        "answer": "Absoliman! Ou ka achte pake kredi adisyonèl nenpòt ki lè, ak kredi yo pral ajoute nan kont ou imedyatman."
+      }
+    }
+  },
+  "Common": {
+    "remember_me": "Sonje m",
+    "sign_up": "Enskri",
+    "sign_in": "Enskri",
+    "hide_password": "Kache modpas",
+    "show_password": "Montre modpas",
+    "no_email": "Pa gen imèl",
+    "translation_failed": "Tradiksyon echwe",
+    "detection_failed": "Deteksyon echwe",
+    "invalid_file": "Dosye ki pa valab",
+    "upload_failed": "Upload echwe",
+    "document_translation": "Tradiksyon dokiman",
+    "priority_support": "Sipò priyorite",
+    "ready_to_translate": "Pare pou tradui",
+    "upload_your_document": "Upload Dokiman ou",
+    "creole_greeting": "Bonjou kreyòl",
+    "lao_greeting": "Layo salye",
+    "swahili_greeting": "Byenveni Swahili",
+    "choose_pricing_plan": "Chwazi yon plan pri",
+    "coming_soon": "Vini byento"
+  },
+  "translation": {
+    "start_translation": "Kòmanse",
+    "translation_complete": "Bezwen tradwi",
+    "translation_failed": "Bezwen tradwi",
+    "translating": "Bezwen tradwi",
+    "preparing_engine": "Bezwen tradwi",
+    "about_to_start": "Konsèy",
+    "processing": "Bezwen tradwi",
+    "engine_running": "Bezwen tradwi",
+    "optimizing_quality": "Bezwen tradwi",
+    "translation_paused": "Bezwen tradwi",
+    "resume_translation": "Bezwen tradwi",
+    "translation_error": "Erè",
+    "service_unavailable": "Bezwen tradwi",
+    "input_placeholder": "Bezwen tradwi",
+    "result_placeholder": "Bezwen tradwi",
+    "from_language": "Lang",
+    "to_language": "Lang",
+    "partial_complete": "Bezwen tradwi",
+    "partial_description": "Deskripsyon",
+    "task_resubmitted": "Soumèt"
+  },
+  "task": {
+    "task_management": "Bezwen tradwi",
+    "manage_description": "Deskripsyon",
+    "new_translation": "Bezwen tradwi",
+    "refresh_tasks": "Bezwen tradwi",
+    "task_list_updated": "Aktyalize",
+    "refresh_failed": "Bezwen tradwi",
+    "operation_success": "Siksè",
+    "operation_failed": "Bezwen tradwi",
+    "select_tasks_first": "Bezwen tradwi",
+    "no_tasks": "Bezwen tradwi",
+    "no_matching_tasks": "Bezwen tradwi",
+    "create_first_task": "Kreye",
+    "search_placeholder": "Chèche",
+    "queue_created": "Kreye",
+    "can_leave_page": "Bezwen tradwi",
+    "check_in_tasks": "Bezwen tradwi",
+    "view_in_tasks": "Gade",
+    "batch_operation_success": "Siksè"
+  },
+  "progress": {
+    "preparing": "Bezwen tradwi",
+    "processing": "Bezwen tradwi",
+    "finalizing": "Bezwen tradwi",
+    "completed": "Bezwen tradwi",
+    "paused": "Bezwen tradwi",
+    "failed": "Bezwen tradwi",
+    "cancelled": "Anile",
+    "partial_success": "Siksè",
+    "progress": "Bezwen tradwi",
+    "understanding_text": "Tèks",
+    "analyzing_language": "Lang",
+    "processing_content": "Bezwen tradwi",
+    "checking_grammar": "Bezwen tradwi",
+    "final_polish": "Bezwen tradwi",
+    "presenting_results": "Bezwen tradwi",
+    "results_ready": "Bezwen tradwi",
+    "thank_you_waiting": "Bezwen tradwi",
+    "progress_saved": "Sove",
+    "processing_time_long": "Bezwen tradwi",
+    "instant_processing": "Bezwen tradwi",
+    "background_processing": "Tounen",
+    "smart_processing": "Bezwen tradwi"
+  },
+  "time": {
+    "time_estimate": "Bezwen tradwi",
+    "estimated_time": "Bezwen tradwi",
+    "can_leave": "Bezwen tradwi",
+    "accurate_estimate": "Bezwen tradwi",
+    "rough_estimate": "Bezwen tradwi",
+    "approximate_estimate": "Bezwen tradwi",
+    "fast_queue": "Bezwen tradwi",
+    "creation_time": "Bezwen tradwi"
+  },
+  "error": {
+    "error_recovery": "Erè",
+    "retry_failed": "Bezwen tradwi",
+    "unknown_error": "Erè",
+    "partial_results": "Bezwen tradwi",
+    "retry_failed_parts": "Bezwen tradwi",
+    "download_partial": "Telechaje",
+    "segment_retry": "Bezwen tradwi",
+    "encountered_problem": "Bezwen tradwi",
+    "trying_to_resolve": "Bezwen tradwi",
+    "contact_support": "Sipò",
+    "please_retry_later": "Bezwen tradwi"
+  },
+  "success": {
+    "completed": "Bezwen tradwi",
+    "operation_success": "Siksè",
+    "partial_success": "Siksè",
+    "almost_done": "Bezwen tradwi",
+    "results_shown_below": "Bezwen tradwi",
+    "half_completed": "Bezwen tradwi"
+  },
+  "credits": {
+    "estimated_consumption": "Bezwen tradwi",
+    "credits_consumed": "Modifye",
+    "credits_processing": "Modifye",
+    "consumed_credits": "Modifye",
+    "refunded_credits": "Modifye",
+    "retry_only_failed": "Bezwen tradwi"
+  },
+  "language": {
+    "source_language": "Lang",
+    "target_language": "Lang",
+    "select_source": "Bezwen tradwi",
+    "select_target": "Bezwen tradwi"
+  },
+  "ui": {
+    "start": "Kòmanse",
+    "pause": "Bezwen tradwi",
+    "resume": "Bezwen tradwi",
+    "continue": "Kontinye",
+    "cancel": "Anile",
+    "retry": "Bezwen tradwi",
+    "download": "Telechaje",
+    "delete": "Efase",
+    "refresh": "Bezwen tradwi",
+    "all": "Bezwen tradwi",
+    "status": "Estati",
+    "priority": "Bezwen tradwi",
+    "sort": "Klase",
+    "normal": "Bezwen tradwi",
+    "high": "Bezwen tradwi",
+    "urgent": "Bezwen tradwi",
+    "low": "Bezwen tradwi",
+    "waiting": "Bezwen tradwi",
+    "active": "Bezwen tradwi",
+    "needs_attention": "Bezwen tradwi",
+    "submitting": "Soumèt",
+    "downloading": "K ap chaje",
+    "retrying": "Bezwen tradwi",
+    "copied": "Bezwen tradwi",
+    "text_copied": "Tèks",
+    "input_text": "Tèks",
+    "translation_result": "Bezwen tradwi",
+    "characters": "Bezwen tradwi",
+    "total_tasks": "Bezwen tradwi",
+    "select_all": "Bezwen tradwi",
+    "batch_operations": "Bezwen tradwi",
+    "set_priority": "Bezwen tradwi"
+  },
+  "NotFound": {
+    "title": "Pa jwenn paj",
+    "description": "Paj ou ap chèche a pa egziste oubyen li te deplase.",
+    "goHome": "Ale lakay",
+    "contactSupport": "Kontakte Sipò"
+  },
+  "Error": {
+    "title": "Gen yon bagay ki te mal!",
+    "description": "Yon erè inatandi te rive. Tanpri eseye ankò.",
+    "errorDetails": "Detay sou erè (Developman)",
+    "tryAgain": "Eseye ankò",
+    "goHome": "Ale lakay",
+    "contactSupport": "Kontakte Sipò"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Admin tablodbò",
+      "description": "Jere aplikasyon ou anviwònman ak kontwole sistèm estati."
+    }
+  },
+  "Feedback": {
+    "feedback": "Feedback",
+    "title": "Feedback ou enpòtan pou nou",
+    "rating": {
+      "tab": "Rating",
+      "title": "Rate sèvis nou yo",
+      "select": "Tanpri chwazi yon evalyasyon",
+      "very_dissatisfied": "Trè ensatisfaksyon ",
+      "dissatisfied": "Ensatisfaksyon 😕",
+      "neutral": "Neytral 😐",
+      "satisfied": "Satisfaksyon 😊",
+      "very_satisfied": "Trè satisfè ",
+      "placeholder": "Tanpri di nou santiman espesifik ou ak sijesyon...",
+      "submit": "Soumèt Rating"
+    },
+    "suggestion": {
+      "tab": "Sijesyon",
+      "title": "Sijesyon karakteristik",
+      "type": "Kalite sijesyon",
+      "categories": {
+        "feature": "Nouvo karakteristik",
+        "ui": "Amelyorasyon UI",
+        "performance": "Pèfòmans",
+        "language": "Sipò pou lang",
+        "other": "Lòt"
+      },
+      "placeholder": "Tanpri dekri sijesyon w lan an detay, nou pral konsidere l ak anpil atansyon...",
+      "submit": "Soumèt yon sijesyon"
+    },
+    "bug": {
+      "tab": "Bug",
+      "title": "Rapòti Bòg",
+      "type": "Kalite ensèk",
+      "categories": {
+        "translation": "Pwoblèm tradiksyon",
+        "ui": "Erè UI",
+        "payment": "Pwoblèm peman",
+        "account": "Emisyon kont",
+        "other": "Lòt"
+      },
+      "placeholder": "Tanpri dekri pwoblèm nan an detay, ki gen ladan etap ak mesaj erè...",
+      "email": "Imèl kontak (Opsyonèl)",
+      "submit": "Rapòte yon erè"
+    },
+    "compliment": {
+      "tab": "Konpliman",
+      "title": "Konpliman ak Mèsi",
+      "placeholder": "Mèsi pou rekonesans ou! Tanpri di nou karakteristik ou pi renmen oswa eksperyans...",
+      "submit": "Voye konpliman"
+    },
+    "common": {
+      "submitting": "Mwen soumèt...",
+      "success": "Feedback soumèt avèk siksè!",
+      "success_desc": "Mèsi pou fidbak ki gen anpil valè ou, nou pral konsidere li ak anpil atansyon epi kontinye amelyore eksperyans pwodwi a.",
+      "fill_required": "Tanpri ranpli kontni fidbak",
+      "submit_failed": "Sòtman an echwe",
+      "try_again": "Tanpri eseye ankò pita oswa kontakte sèvis kliyan",
+      "translation_quality": "Kalite tradiksyon:",
+      "thanks_feedback": "Mèsi pou fidbak ou",
+      "feedback_helps": "Feedback ou ede nou amelyore kalite tradiksyon"
+    }
+  }
+}

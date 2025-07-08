@@ -78,7 +78,7 @@ RESEND_API_KEY=re_your_key_here
 EMAIL_FROM=noreply@your-domain.com
 
 # 数据库 (可选)
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/transly
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/loretrans
 ```
 
 ## 获取必需服务

@@ -153,7 +153,7 @@ powercfg /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 ```powershell
 # 配置Windows防火墙（允许端口3000和8080）
 netsh advfirewall firewall add rule name="NLLB Local Service" dir=in action=allow protocol=TCP localport=8080
-netsh advfirewall firewall add rule name="Transly Web Service" dir=in action=allow protocol=TCP localport=3000
+netsh advfirewall firewall add rule name="Loretrans Web Service" dir=in action=allow protocol=TCP localport=3000
 
 # 查看本机IP地址
 ipconfig | findstr IPv4
@@ -194,7 +194,7 @@ function Test-NLLBService {
 # 创建 start-services.ps1
 # 内容如下：
 
-Write-Host "🚀 启动Transly翻译服务..." -ForegroundColor Yellow
+Write-Host "🚀 启动Loretrans翻译服务..." -ForegroundColor Yellow
 
 # 启动NLLB服务
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd D:\git_repo\low-source-translate-new\microservices\nllb-local; npm start"

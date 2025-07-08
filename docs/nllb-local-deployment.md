@@ -1,6 +1,6 @@
 # NLLB 600M 本地化部署完整指南
 
-本指南将帮助你在Transly项目中部署NLLB 600M模型的本地推理服务，实现高性能的本地翻译功能。
+本指南将帮助你在Loretrans项目中部署NLLB 600M模型的本地推理服务，实现高性能的本地翻译功能。
 
 ## 📋 目录
 
@@ -22,7 +22,7 @@ NLLB (No Language Left Behind) 600M是Meta开发的多语言翻译模型，支�
 - ✅ **高性能**：优化的批处理和缓存机制
 - ✅ **可扩展**：支持Docker容器化部署
 - ✅ **备用机制**：自动切换到Hugging Face API
-- ✅ **多语种支持**：完整支持Transly的20+小语种
+- ✅ **多语种支持**：完整支持Loretrans的20+小语种
 
 ## 🔧 系统要求
 
@@ -157,7 +157,7 @@ docker run -d \
 
 ## 🔗 集成到主服务
 
-本地NLLB服务已自动集成到Transly主服务中。集成逻辑：
+本地NLLB服务已自动集成到Loretrans主服务中。集成逻辑：
 
 1. **优先使用本地服务**：如果启用且可用
 2. **自动回退**：本地服务故障时回退到Hugging Face API
@@ -377,7 +377,7 @@ ALLOWED_ORIGINS=https://yourdomain.com,http://localhost:3000
 
 - **v1.0.0** - 初始版本发布
 - 支持NLLB 600M模型本地推理
-- 集成到Transly主服务
+- 集成到Loretrans主服务
 - 支持Docker容器化部署
 
 ---

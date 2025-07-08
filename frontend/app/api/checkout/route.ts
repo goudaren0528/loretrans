@@ -89,7 +89,7 @@ async function createCheckoutSession(req: NextRequestWithUser) {
         }
         
       } catch (error) {
-        console.log(`⚠️ CREEM API call error, falling back to direct URL:`, error.message);
+        console.log(`⚠️ CREEM API call error, falling back to direct URL:`, error instanceof Error ? error.message : String(error));
         
         // 网络错误，回退到直接支付URL
         if (plan.creemPaymentUrl) {
@@ -159,13 +159,13 @@ function handleDirectPaymentUrl(plan: any, planId: string, req: NextRequestWithU
     // 添加必要的参数，确保使用ngrok地址
     paymentUrl.searchParams.set('success_url', success_url);
     paymentUrl.searchParams.set('cancel_url', cancel_url);
-    paymentUrl.searchParams.set('customer_email', req.userContext.user.email);
+    paymentUrl.searchParams.set('customer_email', req.userContext.user.email || '');
     paymentUrl.searchParams.set('request_id', request_id);
     
     // 添加元数据参数
     paymentUrl.searchParams.set('metadata[userId]', req.userContext.user.id);
     paymentUrl.searchParams.set('metadata[planId]', planId);
-    paymentUrl.searchParams.set('metadata[userEmail]', req.userContext.user.email);
+    paymentUrl.searchParams.set('metadata[userEmail]', req.userContext.user.email || '');
     paymentUrl.searchParams.set('metadata[planName]', plan.name);
     paymentUrl.searchParams.set('metadata[credits]', plan.credits.toString());
     

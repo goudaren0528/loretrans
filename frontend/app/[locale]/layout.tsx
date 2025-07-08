@@ -4,11 +4,55 @@ import { getMessages } from 'next-intl/server';
 import { Providers } from '../providers';
 import { Navigation, Footer } from '@/components/navigation';
 import { Toaster } from '@/components/ui/toaster';
+import { UserOnboarding } from '@/components/onboarding/user-onboarding';
+import { FloatingFeedback } from '@/components/feedback/feedback-widget-multilingual';
+import { locales, type Locale } from '@/lib/navigation';
+import { headers } from 'next/headers';
 
-// This metadata can be removed if you have dynamic metadata in page.tsx
-// or you can keep it as a fallback.
-export const metadata: Metadata = {
-  title: 'Transly International',
+// Generate metadata with proper hreflang and canonical URLs
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost:3000';
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+  const baseUrl = `${protocol}://${host}`;
+  
+  // Generate alternate language URLs
+  const alternates: Record<string, string> = {};
+  locales.forEach(loc => {
+    alternates[loc] = `${baseUrl}/${loc}`;
+  });
+
+  return {
+    title: 'Loretrans - AI Translation for Low-Resource Languages',
+    description: 'Professional AI-powered translation for 20+ low-resource languages to English. Fast, accurate, and SEO-friendly.',
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: alternates
+    },
+    openGraph: {
+      title: 'Loretrans - AI Translation Platform',
+      description: 'Professional translation for low-resource languages',
+      url: `${baseUrl}/${locale}`,
+      siteName: 'Loretrans',
+      locale: locale,
+      type: 'website',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
 }
 
 export default async function LocaleLayout({
@@ -31,6 +75,8 @@ export default async function LocaleLayout({
           <Footer />
         </div>
         <Toaster />
+        <UserOnboarding />
+        <FloatingFeedback />
       </Providers>
     </NextIntlClientProvider>
   )

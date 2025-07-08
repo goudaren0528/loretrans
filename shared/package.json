@@ -1,7 +1,7 @@
 {
-  "name": "@transly/shared",
+  "name": "@loretrans/shared",
   "version": "1.0.0",
-  "description": "Shared types and utilities for Transly project",
+  "description": "Shared types and utilities for Loretrans project",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

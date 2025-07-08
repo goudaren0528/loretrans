@@ -7,6 +7,7 @@ export interface PasswordStrengthResult {
 
 export interface PasswordRequirement {
   label: string
+  text: string // 别名，与label相同
   regex: RegExp
   met: boolean
 }
@@ -162,26 +163,31 @@ export function getPasswordRequirements(password: string, locale: string = 'en')
   return [
     {
       label: t.requirements.minLength,
+      text: t.requirements.minLength,
       regex: /.{8,}/,
       met: /.{8,}/.test(password),
     },
     {
       label: t.requirements.uppercase,
+      text: t.requirements.uppercase, // 添加text属性作为别名
       regex: /[A-Z]/,
       met: /[A-Z]/.test(password),
     },
     {
       label: t.requirements.lowercase,
+      text: t.requirements.lowercase, // 添加text属性作为别名
       regex: /[a-z]/,
       met: /[a-z]/.test(password),
     },
     {
       label: t.requirements.number,
+      text: t.requirements.number, // 添加text属性作为别名
       regex: /[0-9]/,
       met: /[0-9]/.test(password),
     },
     {
       label: t.requirements.special,
+      text: t.requirements.special, // 添加text属性作为别名
       regex: /[^A-Za-z0-9]/,
       met: /[^A-Za-z0-9]/.test(password),
     },

@@ -1,37 +1,39 @@
 'use client';
 
-import { TranslatorWidget } from '@/components/translator-widget';
+import { UnifiedTranslator } from '@/components/translation/unified-translator';
+// import { MobileTranslator } from "@/components/mobile/mobile-translator"
 import { LanguageGrid } from '@/components/language-grid';
 import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 
 // 文本翻译专用 FAQ 组件
 function TextTranslateFAQ() {
-  const t = useTranslations('TextTranslatePage.faq');
-
+  const t = useTranslations('TextTranslatePage');
+  
   const faqData = [
     {
-      question: t('q1_title'),
-      answer: t('q1_answer'),
+      question: t('faq_items.q1.question'),
+      answer: t('faq_items.q1.answer'),
     },
     {
-      question: t('q2_title'),
-      answer: t('q2_answer'),
+      question: t('faq_items.q2.question'),
+      answer: t('faq_items.q2.answer'),
     },
     {
-      question: t('q3_title'),
-      answer: t('q3_answer'),
+      question: t('faq_items.q3.question'),
+      answer: t('faq_items.q3.answer'),
     },
     {
-      question: t('q4_title'),
-      answer: t('q4_answer'),
+      question: t('faq_items.q4.question'),
+      answer: t('faq_items.q4.answer'),
     },
     {
-      question: t('q5_title'),
-      answer: t('q5_answer'),
+      question: t('faq_items.q5.question'),
+      answer: t('faq_items.q5.answer'),
     },
     {
-      question: t('q6_title'),
-      answer: t('q6_answer'),
+      question: t('faq_items.q6.question'),
+      answer: t('faq_items.q6.answer'),
     },
   ];
 
@@ -41,10 +43,10 @@ function TextTranslateFAQ() {
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              {t('title')}
+              {t('sections.faq.title')}
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              {t('description')}
+              {t('sections.faq.subtitle')}
             </p>
           </div>
 
@@ -79,12 +81,12 @@ function TextTranslateFAQ() {
 
           <div className="mt-12 text-center">
             <p className="text-gray-600">
-              {t('contact_text')}{' '}
+              {t('contact.more_questions')}{' '}
               <a
-                href="mailto:support@transly.app"
-                className="font-medium text-primary hover:text-primary/80"
+                href="mailto:support@loretrans.app"
+                className="font-medium text-blue-600 hover:text-blue-500"
               >
-                {t('contact_link')}
+                {t('contact.contact_support')}
               </a>
             </p>
           </div>
@@ -96,6 +98,17 @@ function TextTranslateFAQ() {
 
 export default function TextTranslatePage() {
   const t = useTranslations('TextTranslatePage');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -107,27 +120,43 @@ export default function TextTranslatePage() {
               {t('hero.title')}
             </h1>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              {t('hero.description')}
+              {t('hero.subtitle')}
             </p>
-            <div className="mt-6 flex items-center justify-center gap-x-6">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
-                <span>{t('hero.status_free')}</span>
+                <span>{t('hero.features.free_500_chars')}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className="flex h-2 w-2 rounded-full bg-blue-500"></div>
-                <span>{t('hero.status_ai')}</span>
+                <span>{t('hero.features.smart_time_estimation')}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className="flex h-2 w-2 rounded-full bg-purple-500"></div>
-                <span>{t('hero.status_instant')}</span>
+                <span>{t('hero.features.unified_experience')}</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex h-2 w-2 rounded-full bg-orange-500"></div>
+                <span>{t('hero.features.error_recovery')}</span>
               </div>
             </div>
           </div>
 
-          {/* 翻译器组件 - 居中显示 */}
-          <div className="max-w-5xl mx-auto">
-            <TranslatorWidget />
+          {/* 翻译器组件 - 响应式显示 */}
+          <div className="max-w-7xl mx-auto">
+            {isMobile ? (
+              <UnifiedTranslator 
+                defaultSourceLang="ht"
+                defaultTargetLang="en"
+                showTimeEstimate={true}
+              />
+            ) : (
+              <UnifiedTranslator 
+                defaultSourceLang="ht"
+                defaultTargetLang="en"
+                showTimeEstimate={true}
+              />
+            )}
           </div>
         </div>
       </section>
@@ -137,10 +166,10 @@ export default function TextTranslatePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              {t('other_languages.title')}
+              {t('sections.explore_languages.title')}
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              {t('other_languages.description')}
+              {t('sections.explore_languages.subtitle')}
             </p>
           </div>
           <LanguageGrid />
@@ -151,26 +180,26 @@ export default function TextTranslatePage() {
       <TextTranslateFAQ />
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary">
+      <section className="py-16 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            {t('cta.title')}
+            {t('sections.cta.title')}
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            {t('cta.description')}
+            {t('sections.cta.subtitle')}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="/document-translate"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-medium text-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-blue-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 shadow-lg"
             >
-              {t('cta.try_document')}
+              {t('sections.cta.try_document')}
             </a>
             <a
               href="/pricing"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-md border-2 border-white px-6 py-3 text-base font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 transition-all duration-200"
             >
-              {t('cta.view_pricing')}
+              {t('sections.cta.view_pricing')}
             </a>
           </div>
         </div>

@@ -49,49 +49,191 @@ export default async function HomePage({
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <div className="text-center lg:text-left">
+                {/* Value Proposition Badge */}
+                <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-6">
+                  <span className="mr-2">🌍</span>
+                  {t('hero.badge')}
+                </div>
+                
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                  {t('hero.title')}
+                  {t('hero.title_part1')}
+                  <span className="text-blue-600">{t('hero.title_highlight')}</span>
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
                   {t('hero.description')}
                 </p>
-                <div className="mt-8 flex items-center justify-center lg:justify-start gap-x-6">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+
+                {/* Differentiation Comparison */}
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center gap-3 p-3 bg-red-50 rounded-lg">
+                    <div className="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                      <span className="text-red-600 text-xs">✗</span>
+                    </div>
+                    <div>
+                      <div className="font-medium text-red-800">{t('hero.comparison.google.title')}</div>
+                      <div className="text-red-600">{t('hero.comparison.google.description')}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                    <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                      <span className="text-green-600 text-xs">✓</span>
+                    </div>
+                    <div>
+                      <div className="font-medium text-green-800">{t('hero.comparison.loretrans.title')}</div>
+                      <div className="text-green-600">{t('hero.comparison.loretrans.description')}</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Features */}
+                <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
                     <span>{t('hero.features.free')}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-blue-500"></div>
                     <span>{t('hero.features.ai_powered')}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-purple-500"></div>
-                    <span>{t('hero.features.languages')}</span>
+                    <span>{t('hero.features.document_support')}</span>
                   </div>
                 </div>
+
+                {/* CTA Buttons */}
                 <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                   <a
                     href={`/${locale}/text-translate`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
-                    {t('hero.cta.start_translating')}
+                    <span className="mr-2">🚀</span>
+                    {t('hero.cta.start_free')}
                   </a>
                   <a
-                    href={`/${locale}/document-translate`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    href={`/${locale}/pricing`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200"
                   >
-                    {t('hero.cta.upload_document')}
+                    {t('hero.cta.view_pricing')}
                   </a>
+                </div>
+
+                {/* Social Proof */}
+                <div className="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <span className="text-yellow-400">★★★★★</span>
+                    <span>{t('hero.social_proof.rating')}</span>
+                  </div>
+                  <div className="h-4 w-px bg-gray-300"></div>
+                  <span>{t('hero.social_proof.users')}</span>
+                  <div className="h-4 w-px bg-gray-300"></div>
+                  <span>{t('hero.social_proof.accuracy')}</span>
                 </div>
               </div>
 
               {/* Hero Illustration */}
               <div className="flex justify-center lg:justify-end">
-                <img
-                  src="/images/hero-illustration.svg"
-                  alt="AI Translation Platform Illustration"
-                  className="w-full max-w-md h-auto"
-                />
+                <div className="relative">
+                  <img
+                    src="/images/hero-illustration.svg"
+                    alt="AI Translation Platform Illustration"
+                    className="w-full max-w-md h-auto"
+                  />
+                  {/* Floating Language Cards */}
+                  <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 border">
+                    <div className="text-xs font-medium text-gray-600">{t('hero.floating_cards.creole.language')}</div>
+                    <div className="text-sm text-gray-800">{t('hero.floating_cards.creole.text')}</div>
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border">
+                    <div className="text-xs font-medium text-gray-600">{t('hero.floating_cards.english.language')}</div>
+                    <div className="text-sm text-gray-800">{t('hero.floating_cards.english.text')}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Proposition Section */}
+      <section className="relative py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                {t('feature_section.title')}
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                {t('feature_section.description')}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* User Scenario 1 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-2xl">👨‍🎓</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.academic.title')}</h3>
+                <p className="text-gray-600 mb-4">
+                  {t('user_scenarios.academic.description')}
+                </p>
+                <div className="text-sm text-blue-600 font-medium">
+                  {t('user_scenarios.academic.recommendation')}
+                </div>
+              </div>
+
+              {/* User Scenario 2 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-2xl">🌍</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.immigrant.title')}</h3>
+                <p className="text-gray-600 mb-4">
+                  {t('user_scenarios.immigrant.description')}
+                </p>
+                <div className="text-sm text-green-600 font-medium">
+                  {t('user_scenarios.immigrant.recommendation')}
+                </div>
+              </div>
+
+              {/* User Scenario 3 */}
+              <div className="bg-white rounded-xl p-6 shadow-sm border">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-2xl">🏢</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.ecommerce.title')}</h3>
+                <p className="text-gray-600 mb-4">
+                  {t('user_scenarios.ecommerce.description')}
+                </p>
+                <div className="text-sm text-purple-600 font-medium">
+                  {t('user_scenarios.ecommerce.recommendation')}
+                </div>
+              </div>
+            </div>
+
+            {/* Cost Comparison */}
+            <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border">
+              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+                {t('cost_comparison.title')}
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-red-50 rounded-xl">
+                  <div className="text-3xl font-bold text-red-600 mb-2">{t('cost_comparison.human_translation.price')}</div>
+                  <div className="text-sm text-red-800 font-medium mb-2">{t('cost_comparison.human_translation.title')}</div>
+                  <div className="text-xs text-red-600">{t('cost_comparison.human_translation.description')}</div>
+                </div>
+                <div className="text-center p-6 bg-gray-50 rounded-xl">
+                  <div className="text-3xl font-bold text-gray-500 mb-2">{t('cost_comparison.google_translate.price')}</div>
+                  <div className="text-sm text-gray-700 font-medium mb-2">{t('cost_comparison.google_translate.title')}</div>
+                  <div className="text-xs text-gray-500">{t('cost_comparison.google_translate.description')}</div>
+                </div>
+                <div className="text-center p-6 bg-green-50 rounded-xl border-2 border-green-200">
+                  <div className="text-3xl font-bold text-green-600 mb-2">{t('cost_comparison.loretrans.price')}</div>
+                  <div className="text-sm text-green-800 font-medium mb-2">{t('cost_comparison.loretrans.title')}</div>
+                  <div className="text-xs text-green-600">{t('cost_comparison.loretrans.description')}</div>
+                  <div className="mt-2 text-xs font-semibold text-green-700">{t('cost_comparison.loretrans.savings')}</div>
+                </div>
               </div>
             </div>
           </div>

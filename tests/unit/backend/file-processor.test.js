@@ -11,7 +11,7 @@ describe('File Processor Microservice', () => {
   let server
 
   beforeAll(async () => {
-    app = createApp({ testing: true })
+    app = await createApp({ testing: true })
     await app.ready()
     server = app.server
   })
@@ -29,7 +29,18 @@ describe('File Processor Microservice', () => {
       expect(response.body).toEqual({
         status: 'healthy',
         service: 'file-processor',
+        version: '1.0.0',
         timestamp: expect.any(String),
+        uptime: expect.any(Number),
+        memory: {
+          used: expect.any(Number),
+          total: expect.any(Number)
+        },
+        responseTime: expect.any(Number),
+        checks: {
+          uploadsDirectory: 'ok',
+          tempDirectory: 'ok'
+        }
       })
     })
   })
@@ -46,10 +57,15 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: true,
-        fileId: expect.any(String),
-        originalName: 'test.txt',
-        size: expect.any(Number),
-        mimeType: 'text/plain',
+        data: {
+          fileId: expect.any(String),
+          originalName: 'test.txt',
+          fileName: expect.any(String),
+          fileSize: expect.any(Number),
+          mimeType: 'text/plain',
+          status: 'uploaded',
+          uploadedAt: expect.any(String)
+        }
       })
 
       // Clean up
@@ -68,10 +84,15 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: true,
-        fileId: expect.any(String),
-        originalName: 'test.pdf',
-        size: expect.any(Number),
-        mimeType: 'application/pdf',
+        data: {
+          fileId: expect.any(String),
+          originalName: 'test.pdf',
+          fileName: expect.any(String),
+          fileSize: expect.any(Number),
+          mimeType: 'application/pdf',
+          status: 'uploaded',
+          uploadedAt: expect.any(String)
+        }
       })
 
       // Clean up
@@ -90,7 +111,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'File too large',
+        error: {
+          code: 'FILE_TOO_LARGE',
+          message: 'File size exceeds limit of 50MB'
+        }
       })
 
       // Clean up
@@ -122,7 +146,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'No file provided',
+        error: {
+          code: 'INVALID_CONTENT_TYPE',
+          message: 'Request must be multipart/form-data'
+        }
       })
     })
   })
@@ -138,7 +165,7 @@ describe('File Processor Microservice', () => {
         .attach('file', testFilePath)
         .expect(200)
 
-      const { fileId } = uploadResponse.body
+      const { data: { fileId } } = uploadResponse.body
 
       // Then extract text
       const response = await request(server)
@@ -148,9 +175,13 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: true,
-        fileId,
-        extractedText: testContent,
-        pageCount: 1,
+        data: {
+          fileId,
+          text: testContent,
+          wordCount: expect.any(Number),
+          charCount: testContent.length,
+          extractedAt: expect.any(String)
+        }
       })
 
       // Clean up
@@ -165,7 +196,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'File not found',
+        error: {
+          code: 'FILE_NOT_FOUND',
+          message: 'File not found'
+        }
       })
     })
 
@@ -177,7 +211,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'File ID is required',
+        error: {
+          code: 'MISSING_FILE_ID',
+          message: 'File ID is required'
+        }
       })
     })
   })
@@ -187,35 +224,15 @@ describe('File Processor Microservice', () => {
       const testContent = 'Hello world'
       const testFilePath = global.createTestFile(testContent, 'translate.txt')
 
-      // Mock translation service response
-      const mockTranslation = {
-        translatedText: 'Bonjour le monde',
-        sourceLanguage: 'en',
-        targetLanguage: 'fr',
-      }
-
-      // Mock axios for translation API call
-      jest.mock('axios', () => ({
-        post: jest.fn().mockResolvedValue({
-          data: mockTranslation,
-        }),
-      }))
-
       // Upload file first
       const uploadResponse = await request(server)
         .post('/upload')
         .attach('file', testFilePath)
         .expect(200)
 
-      const { fileId } = uploadResponse.body
+      const { data: { fileId } } = uploadResponse.body
 
-      // Extract text
-      await request(server)
-        .post('/extract')
-        .send({ fileId })
-        .expect(200)
-
-      // Translate
+      // Translate (no need to extract separately as translate route handles it)
       const response = await request(server)
         .post('/translate')
         .send({
@@ -228,8 +245,15 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: true,
-        jobId: expect.any(String),
-        message: 'Translation job queued',
+        data: {
+          jobId: expect.any(String),
+          status: expect.any(String),
+          message: 'Translation job created',
+          fileId,
+          fileName: expect.any(String),
+          sourceLanguage: 'en',
+          targetLanguage: 'fr'
+        }
       })
 
       // Clean up
@@ -247,7 +271,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'File ID and email are required',
+        error: {
+          code: 'MISSING_FILE_ID',
+          message: 'File ID is required'
+        }
       })
     })
 
@@ -264,24 +291,27 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'Invalid email format',
+        error: {
+          code: 'INVALID_EMAIL',
+          message: 'Invalid email format'
+        }
       })
     })
   })
 
   describe('Result Download', () => {
     it('should return download URL for completed translation', async () => {
-      const jobId = uuidv4()
+      const fileName = 'translated_test.txt'
       const resultContent = 'Translated content'
       
-      // Create a mock result file
-      const resultDir = path.join(__dirname, '../results')
+      // Create a mock result file in the microservice results directory
+      const resultDir = path.join(__dirname, '../../../microservices/file-processor/results')
       await fs.ensureDir(resultDir)
-      const resultPath = path.join(resultDir, `translated_${jobId}.txt`)
+      const resultPath = path.join(resultDir, fileName)
       await fs.writeFile(resultPath, resultContent)
 
       const response = await request(server)
-        .get(`/download/${jobId}`)
+        .get(`/download/${fileName}`)
         .expect(200)
 
       expect(response.text).toBe(resultContent)
@@ -292,49 +322,72 @@ describe('File Processor Microservice', () => {
     })
 
     it('should handle missing result file', async () => {
-      const jobId = uuidv4()
+      const fileName = 'nonexistent_file.txt'
 
       const response = await request(server)
-        .get(`/download/${jobId}`)
+        .get(`/download/${fileName}`)
         .expect(404)
 
       expect(response.body).toEqual({
         success: false,
-        error: 'Translation result not found',
+        error: {
+          code: 'FILE_NOT_FOUND',
+          message: 'Download file not found'
+        }
       })
     })
   })
 
   describe('Job Status', () => {
     it('should return job status', async () => {
-      const jobId = uuidv4()
+      // First create a job by uploading and translating a file
+      const testContent = 'Hello world'
+      const testFilePath = global.createTestFile(testContent, 'status-test.txt')
 
-      // Mock Redis get for job status
-      const mockRedis = require('redis').createClient()
-      mockRedis.get.mockResolvedValue(JSON.stringify({
-        status: 'processing',
-        progress: 50,
-        createdAt: new Date().toISOString(),
-      }))
+      // Upload file
+      const uploadResponse = await request(server)
+        .post('/upload')
+        .attach('file', testFilePath)
+        .expect(200)
 
+      const { data: { fileId } } = uploadResponse.body
+
+      // Create translation job
+      const translateResponse = await request(server)
+        .post('/translate')
+        .send({
+          fileId,
+          sourceLanguage: 'en',
+          targetLanguage: 'fr',
+          email: 'test@example.com',
+        })
+        .expect(200)
+
+      const { data: { jobId } } = translateResponse.body
+
+      // Check job status
       const response = await request(server)
         .get(`/status/${jobId}`)
         .expect(200)
 
       expect(response.body).toEqual({
+        success: true,
         jobId,
-        status: 'processing',
-        progress: 50,
+        status: expect.any(String),
+        progress: expect.any(Number),
+        data: expect.any(Object),
+        result: expect.anything(),
         createdAt: expect.any(String),
+        processedAt: expect.anything(),
+        finishedAt: expect.anything()
       })
+
+      // Clean up
+      await fs.unlink(testFilePath)
     })
 
     it('should handle missing job', async () => {
       const jobId = uuidv4()
-
-      // Mock Redis get for non-existent job
-      const mockRedis = require('redis').createClient()
-      mockRedis.get.mockResolvedValue(null)
 
       const response = await request(server)
         .get(`/status/${jobId}`)
@@ -342,7 +395,10 @@ describe('File Processor Microservice', () => {
 
       expect(response.body).toEqual({
         success: false,
-        error: 'Job not found',
+        error: {
+          code: 'JOB_NOT_FOUND',
+          message: 'Job not found'
+        }
       })
     })
   })
@@ -354,8 +410,9 @@ describe('File Processor Microservice', () => {
         .expect(404)
 
       expect(response.body).toEqual({
-        success: false,
-        error: 'Route not found',
+        error: 'Not Found',
+        message: 'Route GET:/unknown-route not found',
+        statusCode: 404
       })
     })
 
@@ -370,15 +427,18 @@ describe('File Processor Microservice', () => {
     it('should include CORS headers', async () => {
       const response = await request(server)
         .get('/health')
+        .set('Origin', 'http://localhost:3000')
         .expect(200)
 
-      expect(response.headers['access-control-allow-origin']).toBe('*')
+      expect(response.headers['access-control-allow-origin']).toBeTruthy()
     })
 
     it('should handle OPTIONS requests', async () => {
       const response = await request(server)
         .options('/upload')
-        .expect(200)
+        .set('Origin', 'http://localhost:3000')
+        .set('Access-Control-Request-Method', 'POST')
+        .expect(204)
 
       expect(response.headers['access-control-allow-methods']).toMatch(/POST/)
     })

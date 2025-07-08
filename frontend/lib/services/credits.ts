@@ -10,12 +10,24 @@ import type {
 
 // 积分计费配置
 export const CREDIT_CONFIG = {
-  FREE_CHARACTERS: 500, // 每次翻译免费字符数
+  FREE_CHARACTERS: 300, // 每次翻译免费字符数
   RATE_PER_CHARACTER: 0.1, // 超出免费额度后每字符积分数
   REGISTRATION_BONUS: 500, // 注册奖励积分
   REFERRAL_BONUS: 200, // 推荐奖励积分
   FIRST_PURCHASE_BONUS_RATE: 0.2 // 首次充值奖励比例（20%）
 } as const
+
+// 原子操作结果接口
+interface AtomicOperationResult {
+  success: boolean
+  transaction_id?: string
+  credits_consumed?: number
+  credits_remaining?: number
+  credits_refunded?: number
+  error?: string
+  error_code?: string
+  timestamp: string
+}
 
 export class CreditService {
   private supabase: ReturnType<typeof createSupabaseBrowserClient>
@@ -27,7 +39,7 @@ export class CreditService {
   }
 
   // ===============================
-  // 积分余额查询
+  // 积分余额查询（增强版）
   // ===============================
 
   /**
@@ -42,19 +54,48 @@ export class CreditService {
         targetUserId = authUser.user.id
       }
 
-      // 使用数据库函数获取积分
+      // 使用增强的积分校验函数
       const { data, error } = await this.supabase
-        .rpc('get_user_credits', { p_user_id: targetUserId })
+        .rpc('validate_credit_balance', { p_user_id: targetUserId })
 
       if (error) {
         console.error('获取用户积分失败:', error)
         return 0
       }
 
-      return data || 0
+      return data?.credits_available || 0
     } catch (error) {
       console.error('获取用户积分失败:', error)
       return 0
+    }
+  }
+
+  /**
+   * 实时校验积分余额
+   */
+  async validateCreditBalance(userId: string): Promise<{
+    credits_available: number
+    pending_transactions: number
+    is_valid: boolean
+    last_updated: string
+  }> {
+    try {
+      const { data, error } = await this.supabase
+        .rpc('validate_credit_balance', { p_user_id: userId })
+
+      if (error) {
+        throw new Error(`积分校验失败: ${error.message}`)
+      }
+
+      return data
+    } catch (error) {
+      console.error('积分余额校验失败:', error)
+      return {
+        credits_available: 0,
+        pending_transactions: 0,
+        is_valid: false,
+        last_updated: new Date().toISOString()
+      }
     }
   }
 
@@ -63,8 +104,8 @@ export class CreditService {
    */
   async hasEnoughCredits(userId: string, requiredCredits: number): Promise<boolean> {
     try {
-      const currentCredits = await this.getUserCredits(userId)
-      return currentCredits >= requiredCredits
+      const validation = await this.validateCreditBalance(userId)
+      return validation.is_valid && validation.credits_available >= requiredCredits
     } catch (error) {
       console.error('检查积分余额失败:', error)
       return false
@@ -96,9 +137,147 @@ export class CreditService {
     }
   }
 
+  // ===============================
+  // 原子性积分操作
+  // ===============================
+
   /**
-   * 预估翻译费用
+   * 原子性消耗积分（防止并发问题）
    */
+  async consumeCreditsAtomic(
+    userId: string,
+    characterCount: number,
+    sourceLanguage: string,
+    targetLanguage: string,
+    translationType: 'text' | 'document' = 'text'
+  ): Promise<AtomicOperationResult> {
+    try {
+      const calculation = this.calculateCreditsRequired(characterCount)
+      
+      // 如果不需要消耗积分，直接返回成功
+      if (calculation.credits_required === 0) {
+        return {
+          success: true,
+          credits_consumed: 0,
+          credits_remaining: await this.getUserCredits(userId),
+          timestamp: new Date().toISOString()
+        }
+      }
+
+      // 调用数据库原子操作函数
+      const { data, error } = await this.supabase
+        .rpc('consume_credits_atomic', {
+          p_user_id: userId,
+          p_credits_required: calculation.credits_required,
+          p_character_count: characterCount,
+          p_source_lang: sourceLanguage,
+          p_target_lang: targetLanguage,
+          p_translation_type: translationType
+        })
+
+      if (error) {
+        console.error('原子性积分消耗失败:', error)
+        return {
+          success: false,
+          error: error.message,
+          timestamp: new Date().toISOString()
+        }
+      }
+
+      return data as AtomicOperationResult
+    } catch (error) {
+      console.error('积分消耗操作失败:', error)
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : '未知错误',
+        timestamp: new Date().toISOString()
+      }
+    }
+  }
+
+  /**
+   * 原子性退还积分（翻译失败时使用）
+   */
+  async refundCreditsAtomic(
+    transactionId: string,
+    reason: string = 'translation_failed'
+  ): Promise<AtomicOperationResult> {
+    try {
+      const { data, error } = await this.supabase
+        .rpc('refund_credits_atomic', {
+          p_transaction_id: transactionId,
+          p_reason: reason
+        })
+
+      if (error) {
+        console.error('原子性积分退款失败:', error)
+        return {
+          success: false,
+          error: error.message,
+          timestamp: new Date().toISOString()
+        }
+      }
+
+      return data as AtomicOperationResult
+    } catch (error) {
+      console.error('积分退款操作失败:', error)
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : '未知错误',
+        timestamp: new Date().toISOString()
+      }
+    }
+  }
+
+  // ===============================
+  // 翻译积分消耗（主要接口）
+  // ===============================
+
+  /**
+   * 翻译服务积分消耗（使用原子操作）
+   */
+  async consumeTranslationCredits(
+    userId: string,
+    characterCount: number,
+    sourceLanguage: string,
+    targetLanguage: string,
+    translationType: 'text' | 'document' = 'text'
+  ): Promise<{
+    success: boolean
+    calculation: CreditCalculation
+    transaction_id?: string
+    credits_remaining?: number
+    error?: string
+  }> {
+    try {
+      const calculation = this.calculateCreditsRequired(characterCount)
+      
+      // 执行原子性积分消耗
+      const result = await this.consumeCreditsAtomic(
+        userId,
+        characterCount,
+        sourceLanguage,
+        targetLanguage,
+        translationType
+      )
+
+      return {
+        success: result.success,
+        calculation,
+        transaction_id: result.transaction_id,
+        credits_remaining: result.credits_remaining,
+        error: result.error
+      }
+    } catch (error) {
+      console.error('翻译积分消耗失败:', error)
+      return {
+        success: false,
+        calculation: this.calculateCreditsRequired(characterCount),
+        error: error instanceof Error ? error.message : '未知错误'
+      }
+    }
+  }
+  
   async estimateTranslationCost(text: string): Promise<CreditCalculation> {
     const characterCount = text.length
     return this.calculateCreditsRequired(characterCount)
@@ -133,55 +312,6 @@ export class CreditService {
     } catch (error) {
       console.error('消费积分失败:', error)
       return false
-    }
-  }
-
-  /**
-   * 消费翻译积分
-   */
-  async consumeTranslationCredits(
-    userId: string,
-    characterCount: number,
-    sourceLanguage: string,
-    targetLanguage: string,
-    translationType: 'text' | 'document' = 'text'
-  ): Promise<{
-    success: boolean;
-    calculation: CreditCalculation;
-    transaction?: CreditTransaction;
-  }> {
-    try {
-      const calculation = this.calculateCreditsRequired(characterCount)
-      
-      if (calculation.credits_required <= 0) {
-        return {
-          success: true,
-          calculation
-        }
-      }
-
-      const success = await this.consumeCredits(userId, {
-        amount: calculation.credits_required,
-        description: `翻译服务 (${sourceLanguage} → ${targetLanguage})`,
-        metadata: {
-          translation_type: translationType,
-          character_count: characterCount,
-          source_language: sourceLanguage,
-          target_language: targetLanguage,
-          rate_per_character: CREDIT_CONFIG.RATE_PER_CHARACTER
-        }
-      })
-
-      return {
-        success,
-        calculation
-      }
-    } catch (error) {
-      console.error('消费翻译积分失败:', error)
-      return {
-        success: false,
-        calculation: this.calculateCreditsRequired(characterCount)
-      }
     }
   }
 

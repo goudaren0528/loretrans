@@ -1,7 +1,7 @@
 {
   "name": "nllb-local-service",
   "version": "1.0.0",
-  "description": "Local NLLB 600M inference service for Transly",
+  "description": "Local NLLB 600M inference service for Loretrans",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -24,6 +24,6 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "author": "Transly Team",
+  "author": "Loretrans Team",
   "license": "MIT"
 } 

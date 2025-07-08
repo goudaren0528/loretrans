@@ -1,8 +1,8 @@
-# Transly 数据备份与恢复策略
+# Loretrans 数据备份与恢复策略
 
 ## 1. 概述
 
-本文件旨在为 Transly 平台提供一个全面的数据备份与恢复指南。遵循本指南将有助于确保数据的持久性和业务的连续性，即使在发生意外数据丢失或系统故障时也能从容应对。
+本文件旨在为 Loretrans 平台提供一个全面的数据备份与恢复指南。遵循本指南将有助于确保数据的持久性和业务的连续性，即使在发生意外数据丢失或系统故障时也能从容应对。
 
 ## 2. Supabase 自动备份
 
@@ -44,7 +44,7 @@ Supabase 为其托管的数据库提供强大的自动备份功能，即 **时�
 **备份命令**:
 
 ```bash
-pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" > transly_backup_$(date +%Y%m%d).sql
+pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" > loretrans_backup_$(date +%Y%m%d).sql
 ```
 
 **参数说明**:
@@ -54,12 +54,12 @@ pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" > tran
 
 **只备份数据**:
 ```bash
-pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" --data-only --file=transly_data_backup.sql
+pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" --data-only --file=loretrans_data_backup.sql
 ```
 
 **只备份结构 (Schema)**:
 ```bash
-pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" --schema-only --file=transly_schema_backup.sql
+pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" --schema-only --file=loretrans_schema_backup.sql
 ```
 
 ## 4. 数据恢复流程
@@ -80,7 +80,7 @@ pg_dump "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" --sche
 **恢复命令**:
 
 ```bash
-psql "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" < transly_backup_YYYYMMDD.sql
+psql "postgresql://postgres:[YOUR-PASSWORD]@[YOUR-HOST]:5432/postgres" < loretrans_backup_YYYYMMDD.sql
 ```
 
 **重要提示**:

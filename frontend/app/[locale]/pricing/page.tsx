@@ -14,7 +14,7 @@ export async function generateMetadata({
     description: t('meta.description'),
     keywords: [
       'translation pricing',
-      'AI translation cost',
+      'AI translation cost', 
       'credit packages',
       'translation credits',
       'low-resource languages',

@@ -3,9 +3,9 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Compliance Statement',
-  description: 'Transly Compliance Statement - Our commitment to GDPR, CCPA, and other regulatory standards for AI translation services.',
+  description: 'Loretrans Compliance Statement - Our commitment to GDPR, CCPA, and other regulatory standards for AI translation services.',
   openGraph: {
-    title: 'Compliance Statement | Transly',
+    title: 'Compliance Statement | Loretrans',
     description: 'Learn about our regulatory compliance and data protection standards.',
   },
 }
@@ -14,12 +14,12 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Compliance Statement",
-  "description": "Transly Compliance Statement and regulatory adherence",
-  "url": "https://transly.app/compliance",
+  "description": "Loretrans Compliance Statement and regulatory adherence",
+  "url": "https://loretrans.app/compliance",
   "mainEntity": {
     "@type": "Organization",
-    "name": "Transly",
-    "url": "https://transly.app",
+    "name": "Loretrans",
+    "url": "https://loretrans.app",
     "compliance": [
       "GDPR",
       "CCPA",
@@ -50,7 +50,7 @@ export default function CompliancePage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Our Commitment to Compliance</h2>
               <p className="mb-4">
-                At Transly, we are committed to maintaining the highest standards of 
+                At Loretrans, we are committed to maintaining the highest standards of 
                 compliance with applicable laws, regulations, and industry best practices. 
                 This Compliance Statement outlines our adherence to various regulatory 
                 frameworks and our ongoing efforts to ensure responsible AI development 
@@ -124,9 +124,9 @@ export default function CompliancePage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-medium">Compliance Officer</p>
-                <p>Email: compliance@transly.app</p>
-                <p>Data Protection Officer: dpo@transly.app</p>
-                <p>Website: https://transly.app</p>
+                <p>Email: compliance@loretrans.app</p>
+                <p>Data Protection Officer: dpo@loretrans.app</p>
+                <p>Website: https://loretrans.app</p>
               </div>
             </section>
           </div>

@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { APP_CONFIG } from '../../config/app.config'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { useTranslations } from 'next-intl'
 
 interface LanguageGridProps {
   currentLanguage?: string
@@ -16,6 +17,8 @@ export function LanguageGrid({
   currentLanguage,
   showComingSoon = true,
 }: LanguageGridProps = {}) {
+  const t = useTranslations('IndexPage.language_grid')
+  
   const supportedLanguages = APP_CONFIG.languages.supported
     .filter((lang) => lang.code !== currentLanguage)
     // 按启用状态排序：启用的语言排在前面
@@ -57,7 +60,7 @@ export function LanguageGrid({
                   size="sm"
                   className="mt-3 w-full opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                  Try {language.name}
+                  {t('try_language', { language: language.name })}
                 </Button>
               </div>
 
@@ -74,7 +77,7 @@ export function LanguageGrid({
                     {language.name}
                   </h3>
                   <Badge variant="secondary" className="text-xs">
-                    Coming Soon
+                    {t('coming_soon')}
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -87,7 +90,7 @@ export function LanguageGrid({
                   className="mt-3 w-full"
                   disabled
                 >
-                  Coming Soon
+                  {t('coming_soon')}
                 </Button>
               </div>
 

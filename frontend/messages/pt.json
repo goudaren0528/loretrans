@@ -1,0 +1,1377 @@
+{
+  "Navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "pricing": "Preços",
+    "contact": "Contato"
+  },
+  "UserMenu": {
+    "sign_in": "Entrar",
+    "sign_up": "Cadastrar",
+    "sign_out": "Sair",
+    "user": "Usuário",
+    "credits": "Créditos",
+    "profile": "Perfil",
+    "dashboard": "Painel",
+    "purchase_credits": "Comprar Créditos",
+    "settings": "Configurações"
+  },
+  "HomePage": {
+    "meta": {
+      "title": "Loretrans - Tradutor IA para Idiomas de Poucos Recursos",
+      "description": "Tradução gratuita com IA para mais de 20 idiomas de poucos recursos como Crioulo, Lao e Suaíli. Traduza textos e documentos para o inglês instantaneamente."
+    },
+    "hero": {
+      "title": "Tradução Alimentada por IA para Idiomas de Poucos Recursos",
+      "description": "Traduções de alta qualidade para mais de 20 idiomas com poucos recursos. 300 caracteres gratuitos por tradução.",
+      "features": {
+        "free": "100% Grátis",
+        "ai_powered": "Alimentado por IA",
+        "languages": "20+ Idiomas",
+        "document_support": "Apoio à tradução de documentos"
+      },
+      "cta": {
+        "start_translating": "Começar a Traduzir",
+        "upload_document": "Enviar Documento",
+        "start_free": "Comece a tradução gratuita",
+        "view_pricing": "Ver Preços"
+      },
+      "badge": "Tradução profissional de idiomas com poucos recursos • Idiomas que o Google Translate não cobre",
+      "comparison": {
+        "google": {
+          "description": "Não há suporte para idiomas com poucos recursos",
+          "title": "Traduzido pelo Google"
+        },
+        "loretrans": {
+          "description": "Apoio profissional para mais de 20 idiomas de baixo recurso",
+          "title": "Loretrans"
+        }
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Crioulo Haitiano",
+          "text": "Bonjou, como é que estás?"
+        },
+        "english": {
+          "language": "Inglês",
+          "text": "Olá, como estás?"
+        }
+      },
+      "social_proof": {
+        "accuracy": "Precisão de tradução > 90%",
+        "rating": "4,8/5",
+        "users": "Servido a mais de 10.000 utilizadores"
+      },
+      "title_highlight": "Entendido.",
+      "title_part1": "Faça todas as línguas"
+    },
+    "languages": {
+      "title": "Idiomas Suportados",
+      "description": "Traduza destes idiomas de poucos recursos para o inglês"
+    },
+    "cta": {
+      "title": "Comece a Traduzir Hoje",
+      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução",
+      "try_now": "Experimente Agora - É Grátis",
+      "translate_documents": "Traduzir Documentos"
+    },
+    "cost_comparison": {
+      "google_translate": {
+        "description": "Incapacidade de cobertura de línguas de baixo recurso",
+        "price": "Não suportado",
+        "title": "Traduzido pelo Google"
+      },
+      "human_translation": {
+        "description": "1000 caracteres × $ 0,12/car",
+        "price": "120 dólares.",
+        "title": "Tradução humana"
+      },
+      "loretrans": {
+        "description": "1000 caracteres × $ 0,001/car",
+        "price": "$1",
+        "savings": "Economize 99% de custo",
+        "title": "Loretrans"
+      },
+      "title": "Comparação de custos: Por que o Loretrans é mais rentável?"
+    },
+    "feature_section": {
+      "description": "Ferramentas de tradução de nível profissional concebidas para línguas com poucos recursos",
+      "title": "Por que escolher o Loretrans?"
+    },
+    "user_scenarios": {
+      "academic": {
+        "description": "Precisa traduzir literatura acadêmica e materiais de pesquisa em línguas de baixo recurso como o crioulo haitiano e o lao",
+        "recommendation": "Recomendado: Plano inicial ($5) • Perfeito para tradução em papel",
+        "title": "Investigadores académicos"
+      },
+      "ecommerce": {
+        "description": "Localização da descrição do produto, tradução por lotes de informações sobre o produto para mercados de línguas com poucos recursos",
+        "recommendation": "Recomendado: Pro Plan ($25) • Suporta tradução por lotes",
+        "title": "Comércio electrónico transfronteiriço"
+      },
+      "immigrant": {
+        "description": "Tratar de documentos oficiais, documentos jurídicos e outros materiais importantes com necessidades de tradução precisas",
+        "recommendation": "Recomendado: Plano Básico ($10) • Alta garantia de precisão",
+        "title": "Comunidades de imigrantes"
+      }
+    },
+    "Footer": {
+      "pricing": "Preços",
+      "interface_language": "Idioma da interface"
+    }
+  },
+  "IndexPage": {
+    "meta": {
+      "title": "Loretrans - Tradutor de IA para Línguas de Baixo Recursos",
+      "description": "Tradução gratuita com IA para mais de 20 idiomas de baixo recurso como crioula, lao e suaíli. Traduza texto e documentos para inglês instantaneamente."
+    },
+    "title": "Traduza línguas de baixo recurso",
+    "description": "Tradução com IA para idiomas com recursos limitados",
+    "hero": {
+      "title": "Tradução com IA para idiomas com poucos recursos",
+      "description": "Quebre barreiras linguísticas com a inteligência artificial de ponta. Nossa plataforma fornece traduções de alta qualidade para idiomas muitas vezes desatendidos pelos serviços tradicionais. Comece de graça.",
+      "status": {
+        "free": "100% Grátis",
+        "ai_powered": "Alimentada por IA",
+        "multi_language": "20+ Línguas"
+      },
+      "cta_start": "Começa a traduzir",
+      "cta_upload": "Carregar documento"
+    },
+    "supported_languages": {
+      "title": "Idiomas suportados",
+      "description": "Traduza destas línguas de baixo recurso para o inglês"
+    },
+    "cta_section": {
+      "title": "Comece a traduzir hoje",
+      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução",
+      "cta_try": "Tente agora - é grátis",
+      "cta_docs": "Traduza documentos"
+    },
+    "translation_options": {
+      "title": "Escolha seu método de tradução",
+      "description": "Selecione a melhor opção para as suas necessidades de tradução",
+      "coming_soon": "Em breve.",
+      "options": {
+        "text": {
+          "title": "Tradução de texto",
+          "description": "Traduza texto entre 20+ idiomas de baixo recurso e inglês instantaneamente.",
+          "button": "Começa a traduzir",
+          "features": [
+            "300 caracteres grátis",
+            "Resultados instantâneos",
+            "Reprodução de voz",
+            "Copie para clipboard"
+          ]
+        },
+        "document": {
+          "title": "Tradução de documentos",
+          "description": "Faça upload e traduza documentos PDF, Word e PowerPoint.",
+          "button": "Começa a traduzir",
+          "features": [
+            "TXT support (10MB max)",
+            "Preserva a formatação",
+            "Baixe os resultados",
+            "Até 100 páginas"
+          ]
+        },
+        "image": {
+          "title": "Tradução da imagem",
+          "description": "Extrair e traduzir texto de imagens usando tecnologia OCR.",
+          "button": "Em breve.",
+          "features": [
+            "Extração de texto OCR",
+            "Formato de imagem múltipla",
+            "Preservação do layout",
+            "Em breve."
+          ]
+        }
+      },
+      "quick_start": {
+        "title": "Não tem certeza de qual opção escolher?",
+        "button": "Tente tradução de texto agora"
+      }
+    },
+    "language_grid": {
+      "coming_soon": "Em breve.",
+      "try_language": "Tente {linguagem}"
+    },
+    "feature_section": {
+      "title": "Por que escolher o Loretrans?",
+      "description": "Ferramentas de tradução de nível profissional concebidas para línguas com poucos recursos",
+      "features": {
+        "ai_powered": {
+          "name": "Tradução com IA",
+          "description": "Alimentado pelo modelo NLLB da Meta para tradução linguística precisa de baixo recurso."
+        },
+        "fast": {
+          "name": "Rápido como um relâmpago.",
+          "description": "Obtenha traduções instantâneas com a nossa infraestrutura de IA otimizada."
+        },
+        "privacy": {
+          "name": "A privacidade em primeiro lugar",
+          "description": "O seu texto é processado de forma segura e nunca é armazenado nos nossos servidores."
+        },
+        "languages": {
+          "name": "20+ Línguas",
+          "description": "Suporte para o criol, lao, suaíli, birmanês e muitas outras línguas de baixo recurso."
+        },
+        "tts": {
+          "name": "Text-to-Speech",
+          "description": "Ouça traduções com o nosso recurso de tradução de texto para voz de alta qualidade."
+        },
+        "documents": {
+          "name": "Tradução de documentos",
+          "description": "Faça upload e traduza arquivos PDF, Word e PowerPoint sem problemas."
+        }
+      },
+      "stats": {
+        "languages": "Idiomas suportados",
+        "free": "Livre de uso",
+        "characters": "Caracteres por Tradução",
+        "availability": "Disponível"
+      }
+    },
+    "faq_section": {
+      "title": "Perguntas Frequentes",
+      "description": "Tudo o que precisas de saber sobre o Loretrans",
+      "questions": {
+        "0": {
+          "0": "T",
+          "question": "Como funciona o preço da Loretrans?",
+          "answer": "Loretrans oferece 300 caracteres gratuitos por tradução. Para textos mais longos, cobramos 0,1 créditos por caracter. Os novos usuários recebem 500 créditos de boas-vindas quando se registam."
+        },
+        "1": {
+          "0": "r",
+          "question": "Que idiomas você suporta?",
+          "answer": "Nós somos especializados em mais de 20 idiomas de baixo recurso, incluindo o criol haitiano, lao, suaíli, birmanês, telugu e muito mais."
+        },
+        "2": {
+          "0": "a",
+          "question": "Há um limite de caracteres?",
+          "answer": "Cada tradução inclui 300 caracteres gratuitos. Para textos mais longos, você pode usar créditos (0,1 créditos por personagem). Registre-se para obter 500 créditos de boas-vindas."
+        },
+        "3": {
+          "0": "d",
+          "question": "Que formatos de arquivo você suporta?",
+          "answer": "Atualmente, suportamos arquivos TXT de até 10MB. O suporte para PDF, Word e PowerPoint está chegando em breve."
+        },
+        "4": {
+          "0": "u",
+          "question": "Posso traduzir documentos?",
+          "answer": "Sim! Nós suportamos PDF, Word (.docx), e PowerPoint (.pptx) tradução de arquivos. Basta fazer o upload do seu arquivo e nós iremos extrair o texto, traduzi-lo, e fornecer-lhe os resultados."
+        },
+        "5": {
+          "0": "ç",
+          "question": "Como funciona o recurso de conversão de texto para voz?",
+          "answer": "Nosso recurso de texto para fala suporta a saída em inglês com síntese de voz de alta qualidade. Basta clicar no ícone do alto-falante ao lado de qualquer tradução para ouvi-lo pronunciado."
+        },
+        "6": {
+          "0": "ã",
+          "question": "Há um limite de caracteres?",
+          "answer": "Os usuários gratuitos podem traduzir até 1000 caracteres por solicitação. Para textos mais longos, você pode dividi-los em pedaços menores ou carregar documentos para processamento."
+        },
+        "7": {
+          "0": "o",
+          "question": "Posso usar o Loretrans para fins comerciais? ",
+          "answer": "Sim, você pode usar o Loretrans para fins pessoais e comerciais."
+        },
+        "8": " ",
+        "9": "n",
+        "10": "e",
+        "11": "c",
+        "12": "e",
+        "13": "s",
+        "14": "s",
+        "15": "á",
+        "16": "r",
+        "17": "i",
+        "18": "a"
+      },
+      "contact_prompt": "Tem mais perguntas?",
+      "contact_link": "Contacte a nossa equipa de apoio"
+    }
+  },
+  "AboutPage": {
+    "meta": {
+      "title": "Sobre a Loretrans - Tradução Profissional para Línguas de Baixo Recursos",
+      "description": "Saiba mais sobre o Loretrans, a plataforma líder de tradução de línguas pequenas para o inglês."
+    },
+    "hero": {
+      "title": "Sobre o Loretrans",
+      "description": "Plataforma de tradução profissional dedicada a conectar idiomas de baixo recurso com o mundo através de traduções precisas para o inglês."
+    },
+    "mission": {
+      "title": "Nossa Missão",
+      "p1": "Acreditamos que todas as línguas merecem ser ouvidas.A Loretrans preenche a lacuna de comunicação para falantes de língu as com poucos recursos, fornecendo serviços de tradução para o inglês, precisos e acessíveis.",
+      "p2": "Com o modelo NLLB (No Language Left Behind) de última geração da Meta, suportamos mais de 20 idiomas que são frequentemente ignorados pelos principais serviços de tradução.",
+      "cta": "Tente tradução de documentos"
+    },
+    "features": {
+      "accessibility": {
+        "title": "Acessibilidade global",
+        "description": "Tornar a tradução acessível para falantes de línguas com recursos digitais limitados"
+      },
+      "accuracy": {
+        "title": "Rápido e preciso",
+        "description": "A tecnologia avançada de IA fornece traduções de alta qualidade em segundos."
+      },
+      "privacy": {
+        "title": "A privacidade em primeiro lugar",
+        "description": "As suas traduções não são armazenadas. Respeitamos a sua privacidade e segurança dos dados."
+      }
+    },
+    "supported_languages": {
+      "title": "Idiomas suportados",
+      "description": "Apoiamos {count} idiomas de baixo recurso com mais sendo adicionados regularmente.",
+      "request_cta": "Solicite um idioma",
+      "request_cta_description": "Não vês o teu idioma? Estamos constantemente a expandir o nosso suporte de idiomas."
+    },
+    "technology": {
+      "title": "Alimentado por IA Avançada",
+      "description": "O Loretrans usa o modelo NLLB (No Language Left Behind) do Meta, projetado especificamente para fornecer tradução de alta qualidade para idiomas de baixo recurso com os quais os sistemas tradicionais lutam.",
+      "cultural_preservation": {
+        "title": "Preservação cultural",
+        "description": "Apoiar a diversidade linguística e ajudar a preservar o património cultural através da tecnologia"
+      },
+      "community_driven": {
+        "title": "Direcção comunitária",
+        "description": "Construído com feedback de falantes nativos e comunidades linguísticas em todo o mundo."
+      },
+      "continuous_improvement": {
+        "title": "Melhoria contínua",
+        "description": "Atualizações e melhorias regulares do modelo para melhorar a qualidade da tradução."
+      }
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "q1_title": "O que diferencia a Loretrans de outros serviços de tradução?",
+      "q1_answer": "A Loretrans é especializada em idiomas de baixo recurso que são frequentemente mal suportados pelos serviços de tradução convencionais.",
+      "q2_title": "Os meus dados estão seguros e privados?",
+      "q2_answer": "Sim, damos prioridade à sua privacidade. Não armazenamos suas traduções ou dados pessoais. Todas as traduções são processadas com segurança e excluídas imediatamente após a entrega. Para traduções de documentos, os arquivos são removidos automaticamente após o download.",
+      "q3_title": "Que formatos de ficheiros suporta para tradução de documentos?",
+      "q3_answer": "Atualmente, suportamos arquivos PDF, Microsoft Word (.doc, .docx), PowerPoint (.ppt, .pptx) e texto simples (.txt). Estamos trabalhando para adicionar suporte para mais formatos com base no feedback do usuário.",
+      "q4_title": "Quão precisas são as traduções?",
+      "q4_answer": "As nossas traduções são executadas com o modelo NLLB de última geração da Meta, que foi treinado especificamente para línguas de baixo recurso.",
+      "q5_title": "Posso traduzir do inglês para o meu idioma?",
+      "q5_answer": "Sim! Embora nosso foco principal seja traduzir de idiomas de baixo recurso para o inglês, também apoiamos a tradução reversa do inglês para idiomas suportados. Basta usar o seletor de idioma para escolher a direção de tradução desejada.",
+      "q6_title": "Você oferece acesso à API para desenvolvedores?",
+      "q6_answer": "Estamos atualmente desenvolvendo acesso API para desenvolvedores e empresas. Se você estiver interessado em integrar nossas capacidades de tradução em seu aplicativo, por favor, entre em contato conosco para informações de acesso antecipado."
+    },
+    "cta_section": {
+      "title": "Pronto para começar?",
+      "description": "Experimente tradução precisa para o seu idioma hoje. Quer seja um texto rápido ou um documento completo, o Loretrans está aqui para ajudá-lo a se comunicar com o mundo.",
+      "cta_text": "Tente tradução de texto",
+      "cta_docs": "Carregar documento"
+    }
+  },
+  "ContactPage": {
+    "meta": {
+      "title": "Contato de suporte - Obtenha ajuda com o Loretrans",
+      "description": "Se precisar de ajuda com tradução, entre em contato com a nossa equipa de apoio para obter assistência com serviços de tradução da Loretrans, problemas técnicos ou perguntas gerais."
+    },
+    "hero": {
+      "title": "Contato de apoio",
+      "description": "Tem dúvidas sobre os nossos serviços de tradução? Precisa de apoio técnico? Estamos aqui para ajudá-lo a tirar o máximo partido do Loretrans."
+    },
+    "form": {
+      "title": "Envia-nos uma mensagem.",
+      "firstName": "Nome de família *",
+      "firstNamePlaceholder": "O teu primeiro nome?",
+      "lastName": "Sobrenome *",
+      "lastNamePlaceholder": "O seu sobrenome?",
+      "email": "Endereço de e-mail *",
+      "emailPlaceholder": "seu.email@example.com",
+      "subject": "Objecto *",
+      "subjectPlaceholder": "Escolha um tópico",
+      "subjects": {
+        "translation_issue": "Edição de tradução",
+        "technical_support": "Apoio técnico",
+        "feature_request": "Pedido de recurso",
+        "language_request": "Pedido de um novo idioma",
+        "business_inquiry": "Investigação empresarial",
+        "feedback": "Feedback geral",
+        "other": "Outros"
+      },
+      "relatedLanguage": "Língua relacionada (se aplicável) ",
+      "relatedLanguagePlaceholder": "por exemplo, suaíli, lao, crioulo",
+      "message": "Mensagem *",
+      "messagePlaceholder": "Por favor, descreva o seu problema ou pergunta em detalhes...",
+      "submit": "Enviar mensagem"
+    },
+    "sidebar": {
+      "quick_contact": {
+        "title": "Contato rápido",
+        "email_support": "Suporte por e-mail",
+        "email_address": "support@loretrans.app",
+        "response_time": "Resposta dentro de 24 horas",
+        "live_chat": "- Não .",
+        "live_chat_status": "Disponível em breve",
+        "live_chat_eta": "Chega no segundo trimestre de 2024",
+        "support_hours_title": "Horas de apoio",
+        "support_hours_days": "Segunda-feira-sexta-feiras",
+        "support_hours_time": "9:00 AM - 6:00 PM UTC"
+      },
+      "common_issues": {
+        "title": "Questões comuns",
+        "translation_not_working": {
+          "title": "Tradução não funciona",
+          "description": "Tente atualizar a página ou verifique a sua conexão com a Internet."
+        },
+        "language_not_supported": {
+          "title": "Idioma não suportado",
+          "description": "Estamos constantemente adicionando novos idiomas. Envie um pedido e nós o consideraremos para futuras atualizações."
+        },
+        "file_upload_issues": {
+          "title": "Problemas com o upload de arquivos",
+          "description": "Certifique-se de que o seu ficheiro tem menos de 50 MB e está em formato suportado (PDF, DOCX, PPTX)."
+        },
+        "audio_playback_not_working": {
+          "title": "Reprodução de áudio não funciona",
+          "description": "Verifique as configurações de áudio do seu navegador e certifique-se de ter uma conexão estável à Internet."
+        }
+      },
+      "self_help": {
+        "title": "Recursos de autoajuda",
+        "how_it_works": "→ Como funciona o Loretrans",
+        "try_text": "→ Tente tradução de texto",
+        "try_docs": "→ Guia de tradução de documentos",
+        "privacy": "→ Política de privacidade",
+        "terms": "→ Termos de serviço"
+      }
+    },
+    "what_to_expect": {
+      "title": "O que esperar?",
+      "quick_response": {
+        "title": "Resposta rápida",
+        "description": "Normalmente respondemos a todas as perguntas dentro de 24 horas durante os dias úteis."
+      },
+      "personal_support": {
+        "title": "Apoio pessoal",
+        "description": "Todas as mensagens são lidas pela nossa equipa, sem bots, apenas pessoas reais que querem ajudar-te."
+      },
+      "follow_up": {
+        "title": "Seguimento ",
+        "description": "Continuaremos a trabalhar consigo até que o seu problema seja completamente resolvido."
+      }
+    }
+  },
+  "PricingPage": {
+    "meta": {
+      "title": "Preços - Escolha o Plano Certo para Você | Loretrans",
+      "description": "Recomendações inteligentes baseadas em cenários. Comece com $5 para estudantes, $10 para usuários pessoais, $25 para profissionais."
+    },
+    "hero": {
+      "title": "Preços flexíveis para todos",
+      "description": "Escolha o pacote de créditos que melhor se adapte às suas necessidades."
+    },
+    "plans": {
+      "starter": {
+        "name": "Iniciante",
+        "description": "Adequado para estudantes e usuários leves",
+        "discount": "Economize 20%"
+      },
+      "professional": {
+        "name": "Embalagem profissional",
+        "description": "Projetado para profissionais e pequenas equipas que necessitam de um volume de tradução maior",
+        "discount": "Poupe 10%"
+      },
+      "business": {
+        "name": "Pacote de Negócios",
+        "description": "Atender às necessidades do nível da empresa com o melhor preço unitário",
+        "discount": "Poupe 20%"
+      }
+    },
+    "features": {
+      "title": "Todos os planos incluem",
+      "unlimited_text": "Traduções ilimitadas de textos",
+      "document_support": "Apoio à tradução de documentos",
+      "tts_support": "Funcionalidade de texto para voz",
+      "api_access": "Acesso à API",
+      "priority_support": "Apoio ao cliente prioritário",
+      "no_expiry": "Os créditos nunca expiram."
+    },
+    "buttons": {
+      "purchase": "Compra",
+      "processing": "Processamento...",
+      "get_started": "Comecem"
+    },
+    "alert": {
+      "canceled_title": "Pagamento cancelado",
+      "canceled_description": "A sua compra foi cancelada. Não foi cobrada. Por favor, sinta-se à vontade para selecionar um plano e tentar novamente."
+    },
+    "loading": "Carregando...",
+    "cta": {
+      "title": "Pronto para começar?",
+      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução.",
+      "free_trial": "Tente tradução livre",
+      "contact_sales": "Contacto de vendas"
+    },
+    "cost_comparison": {
+      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not Supported",
+        "title": "Google Translate",
+        "description": "Limited small language coverage"
+      },
+      "loretrans": {
+        "price": "$1",
+        "title": "Loretrans",
+        "description": "1000 characters × $0.001/char",
+        "savings": "Save 99% cost"
+      }
+    }
+  },
+  "TextTranslatePage": {
+    "meta": {
+      "title": "Traductor de texto - Ferramenta de tradução gratuita de IA.",
+      "description": "Tradução de texto online gratuito para mais de 20 idiomas de baixo recurso. Traduza crioula, lao, suaíli, birmanês e muito mais para inglês instantaneamente com IA."
+    },
+    "hero": {
+      "title": "Tradução inteligente de linguagem de baixo recurso",
+      "subtitle": "A IA determina de forma inteligente o modo de processamento, suportando tradução profissional para mais de 20 idiomas de baixo recurso, incluindo o crioulo haitiano, o lao, o birmanês e muito mais",
+      "features": {
+        "free_500_chars": "Grátis com menos de 500 caracteres",
+        "smart_time_estimation": "Estimativa do tempo inteligente",
+        "unified_experience": "Experiência unificada de tradução",
+        "error_recovery": "Recuperação de erros inteligente"
+      }
+    },
+    "other_languages": {
+      "title": "Tente outros idiomas",
+      "description": "Explore tradução para outras línguas com poucos recursos"
+    },
+    "faq": {
+      "title": "Tradução de texto FAQ",
+      "description": "Tudo o que precisa de saber sobre o nosso serviço de tradução de texto",
+      "q1_title": "Quanto custa a tradução de texto?",
+      "q1_answer": "A tradução de texto é completamente gratuita para até 500 caracteres por pedido. Para textos mais longos (mais de 500 caracteris), cobramos 0,1 créditos por caractere. Por exemplo, um texto de 1000 caracteres custaria 50 créditos (500 grátis + 500×0,1 = 50 crédito).",
+      "q2_title": "Quais idiomas você suporta?",
+      "q2_answer": "Nós somos especializados em idiomas de baixo recurso que são muitas vezes mal suportados pelos serviços de tradução convencionais.",
+      "q3_title": "Quão precisas são as traduções?",
+      "q3_answer": "As nossas traduções são baseadas no modelo NLLB (No Language Left Behind) da Meta, que foi projetado especificamente para línguas de baixo recurso.",
+      "q4_title": "Preciso criar uma conta?",
+      "q4_answer": "Não é necessária nenhuma conta para traduções gratuitas (até 500 caracteres). No entanto, criar uma conta gratuita dá-lhe 500 créditos bônus e permite-lhe comprar créditos adicionais para tradução mais longa. Você também terá acesso ao histórico de traduções e outros recursos premium.",
+      "q5_title": "Posso traduzir do inglês para outros idiomas?",
+      "q5_answer": "Sim! Todos os nossos idiomas suportados funcionam bidirecionalmente. Você pode traduzir do inglês para qualquer idioma suportado, ou de qualquer idioma apoiado para o inglês. Basta usar o seletor de idioma para escolher a direção de tradução desejada.",
+      "q6_title": "Qual é o limite de caracteres?",
+      "q6_answer": "Os usuários gratuitos podem traduzir até 500 caracteres por solicitação sem nenhum custo. Para textos mais longos, você pode quebrá-los em pedaços menores ou comprar créditos. Os usuário registrados recebem 500 créditos bônus para começar, o que permite traduções mais longas.",
+      "contact_text": "Tem mais perguntas?",
+      "contact_link": "Contacte a nossa equipa de apoio"
+    },
+    "cta": {
+      "title": "Precisa de mais poder de tradução?",
+      "description": "Traduza textos e documentos mais longos com as nossas funcionalidades premium",
+      "try_document": "Tente tradução de documentos",
+      "view_pricing": "Ver os planos de preços"
+    },
+    "features": {
+      "title": "Por que escolher nosso tradutor de texto?",
+      "fast_title": "Rápido como um relâmpago.",
+      "fast_desc": "Obtenha traduções instantâneas com modelos avançados de IA. Sem espera, sem atrasos.",
+      "accurate_title": "Alta precisão",
+      "accurate_desc": "Alimentado pelo modelo NLLB da Meta, garantindo traduções de alta qualidade para todos os idiomas suportados.",
+      "free_title": "Sempre livre",
+      "free_desc": "Sem taxas ocultas, sem limites, sem registo necessário."
+    },
+    "how_to": {
+      "title": "Como usar o tradutor de texto",
+      "step1_title": "Selecione idiomas",
+      "step1_desc": "Escolha o seu idioma de origem e o idioma de destino (inglês) nos menus suspensivos.",
+      "step2_title": "Digite texto",
+      "step2_desc": "Digite ou colar o seu texto na caixa de entrada. Até 1000 caracteres suportados.",
+      "step3_title": "Obter Tradução",
+      "step3_desc": "Clique em traduzir e obterá o resultado instantaneamente. Copie ou ouça a tradução."
+    },
+    "supported_languages": {
+      "title": "Idiomas suportados",
+      "description": "Apoiamos tradução destes idiomas para o inglês:",
+      "more": "E muitas outras línguas de baixo recurso..."
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Explore traduções de idiomas com menos recursos",
+        "subtitle": "Apoiamos serviços de tradução profissional para mais de 20 idiomas de baixo recurso"
+      },
+      "faq": {
+        "title": "Perguntas Frequentes",
+        "subtitle": "Perguntas comuns sobre a tradução para línguas de baixo recurso"
+      },
+      "cta": {
+        "title": "Pronto para começar a traduzir?",
+        "subtitle": "Experimente um serviço de tradução profissional de linguagem de baixo recurso, completamente gratuito com menos de 500 caracteres",
+        "try_document": "Tente tradução de documentos",
+        "view_pricing": "Ver os planos de preços"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Quais idiomas são suportados para tradução?",
+        "answer": "Nós nos concentramos na tradução de idiomas com poucos recursos, suportando mais de 20 idiomas que o Google Translate não cobre bem, incluindo o crioulo haitiano, lao, suaíli, birmanês, telugu e muito mais."
+      },
+      "q2": {
+        "question": "Quão precisa é a tradução?",
+        "answer": "Com base no modelo NLLB da Meta, a nossa precisão de tradução excede 90%."
+      },
+      "q3": {
+        "question": "Qual é a quota gratuita?",
+        "answer": "Os usuários registrados também recebem 500 créditos bônus, que podem traduzir aproximadamente 50.000 caracteres de texto longo."
+      },
+      "q4": {
+        "question": "Como são calculadas as taxas de tradução?",
+        "answer": "O texto com mais de 500 caracteres é cobrado a 0,1 créditos por caractere. Por exemplo, traduzir 1000 caracteres requer 50 créditos, custando cerca de US$ 0,05, economizando 99% em comparação com a tradução humana."
+      },
+      "q5": {
+        "question": "Quais formatos de ficheiros são suportados?",
+        "answer": "Além da tradução de texto, também suportamos a tradução dos formatos de documento como PDF, Word, PPT. A tradução do documento extrai automaticamente o texto mantendo a formatação original."
+      },
+      "q6": {
+        "question": "Os resultados da tradução podem ser salvos?",
+        "answer": "O histórico de tradução para usuários registrados é salvo automaticamente. O plano inicial salva por 7 dias, o plano básico por 30 dias, plano profissional por 90 dias, e o plano empresarial salva indefinidamente."
+      }
+    },
+    "contact": {
+      "more_questions": "Tem mais perguntas?",
+      "contact_support": "Contacte a nossa equipa de apoio"
+    }
+  },
+  "Layout": {
+    "Navigation": {
+      "text_translation": "Tradução de texto",
+      "text_translation_desc": "Traduzir texto entre idiomas",
+      "document_translation": "Tradução de documentos",
+      "document_translation_desc": "Fazer upload e traduzir documentos",
+      "about": "Cerca de ",
+      "about_desc": "Aprenda sobre a Loretrans"
+    },
+    "Footer": {
+      "tagline": "Tradução profissional para idiomas de baixo recurso para o inglês.",
+      "product": "Produto",
+      "text_translation": "Tradução de texto",
+      "document_translation": "Tradução de documentos",
+      "supported_languages": "Idiomas suportados",
+      "company": "Empresa",
+      "about_us": "Sobre nós",
+      "privacy_policy": "Política de Privacidade",
+      "terms_of_service": "Termos de Serviço",
+      "compliance": "Conformidade",
+      "resources": "Recursos",
+      "faq": "FAQ",
+      "contact_support": "Contato de apoio",
+      "api_docs": "Documentação da API",
+      "copyright": "© 2024 Loretrans. Todos os direitos reservados.",
+      "powered_by": "Alimentado pela Meta NLLB AI Technology",
+      "contact_us": "Contact Us",
+      "support_email": "support@loretrans.app",
+      "support_24_7": "24/7 Online Support",
+      "contact_form": "Contact Form",
+      "view_all_languages": "View All →",
+      "telugu_language": "Telugu"
+    }
+  },
+  "DocumentTranslatePage": {
+    "meta": {
+      "title": "Tradução de documentos - Traduza PDF, Word, PowerPoint.",
+      "description": "Suporte para arquivos PDF, Word, PowerPoint com tradução com IA para idiomas de baixo recurso."
+    },
+    "title": "Tradução de documentos",
+    "description": "Faça upload de documentos e traduza-os para o inglês com alta precisão.",
+    "steps": {
+      "step1": {
+        "title": "Carregar documento",
+        "description": "Escolha seu arquivo PDF, Word ou PowerPoint para traduzir"
+      },
+      "step2": {
+        "title": "Processamento de IA",
+        "description": "A nossa IA extrai e analisa o conteúdo do seu documento"
+      },
+      "step3": {
+        "title": "Baixe o resultado",
+        "description": "Obtenha o seu documento traduzido no mesmo formato"
+      }
+    },
+    "languages": {
+      "title": "Idiomas suportados"
+    },
+    "cta": {
+      "title": "Precisa de tradução rápida de texto?",
+      "description": "Para textos mais curtos ou traduções rápidas, tente o nosso tradutor de texto para resultados instantâneos.",
+      "try_text_translation": "Tente tradução de texto",
+      "view_pricing": "Ver Preços"
+    },
+    "hero": {
+      "title": "Tradução de documentos",
+      "description": "Faça o upload de documentos e traduza-os para o inglês com alta precisão"
+    },
+    "upload_section": {
+      "title": "Faça o upload do seu documento",
+      "description": "Escolha um arquivo para traduzir. Formatos suportados: PDF, Word, PowerPoint, Text. Tamanho máximo: 50MB"
+    },
+    "settings_section": {
+      "title": "Configurações de tradução",
+      "source_language_label": "Língua de origem",
+      "source_language_placeholder": "Auto-detecção",
+      "target_language_label": "Língua de destino",
+      "target_language_placeholder": "Selecione o alvo",
+      "translate_button": "Traduza o ficheiro",
+      "translating_button": "Traduzindo..."
+    },
+    "jobs_section": {
+      "title": "História da tradução",
+      "no_jobs": "Os documentos traduzidos aparecerão aqui.",
+      "status": {
+        "pending": "Em espera",
+        "processing": "Processamento",
+        "completed": "Completado",
+        "failed": "Falhou"
+      },
+      "error_message": "Erro",
+      "download_button": "Baixe "
+    }
+  },
+  "DocumentTranslator": {
+    "auth_required": {
+      "title": "Requer login",
+      "description": "A tradução de documentos requer uma conta de login.",
+      "login_button": "Entre agora"
+    },
+    "upload": {
+      "title": "Carregar documento",
+      "description": "Suporte a ficheiros PDF, Word, PowerPoint e texto, max {maxSize}",
+      "uploading": "Carregando...",
+      "click_to_select": "Clique para selecionar arquivo",
+      "drag_drop": "ou arraste e solte o arquivo aqui",
+      "upload_success": "Arquivo carregado com sucesso",
+      "extracted_characters": "Caracteres extraídos",
+      "upload_failed": "Carregamento falhado"
+    },
+    "analysis": {
+      "title": "Resultado da análise do ficheiro",
+      "filename": "Nome do ficheiro",
+      "filesize": "Tamanho do arquivo",
+      "text_preview": "Análise de texto extraído",
+      "character_count": "Contagem de caracteres",
+      "characters": "caracteres",
+      "credit_consumption": "Consumo de crédito",
+      "credits": "créditos",
+      "free": "Grátis",
+      "insufficient_credits": "Não há créditos suficientes, precisamos de créditos obrigatórios, de crédito de saldo corrente.",
+      "recharge_now": "Recarregue agora",
+      "start_translation": "Começar Tradução",
+      "reupload": "Recarregar "
+    },
+    "translation": {
+      "title": "Progresso da tradução",
+      "progress": "Progresso do tratamento",
+      "estimated_time": "Estimado {segundos} segundos restantes",
+      "completed": "Tradução completa!",
+      "download_result": "Baixe o resultado da tradução",
+      "translation_started": "A tradução começou",
+      "credits_consumed": "Créditos consumidos",
+      "translation_failed": "Tradução falhou"
+    }
+  },
+  "Errors": {
+    "user_not_authenticated": "Utilizador não autenticado",
+    "missing_parameters": "Faltam parâmetros necessários",
+    "insufficient_credits": "Não há créditos suficientes.",
+    "credit_error": "Erro de crédito: {erro}",
+    "translation_invalid_response": "O serviço de tradução devolveu uma resposta inválida.",
+    "translation_failed_refund_failed": "Tradução falhou, e não podemos reembolsar os créditos.",
+    "translation_failed": "Tradução falhada: {error}",
+    "unexpected_error": "Ocorreu um erro inesperado: {error}",
+    "method_not_allowed": "Método não autorizado",
+    "invalid_json": "JSON inválido no corpo do pedido",
+    "missing_fields": "Faltando campos obrigatórios: {campos}",
+    "empty_text": "O texto não pode estar vazio",
+    "text_too_long": "Texto é muito longo. caracteres máximos {maxLength} permitidos, obteve {actualLengths}",
+    "unexpected_detection_error": "Um erro inesperado ocorreu durante a detecção de linguagem",
+    "invalid_lang_code": "Formulário de código de língua inválido",
+    "invalid_speech_rate": "A taxa de fala deve estar entre 0,5 e 2,0",
+    "invalid_speech_pitch": "O tom da fala deve estar entre 0,5 e 2,0",
+    "invalid_voice": "Voz inválida para língua {língua}",
+    "tts_unavailable": "O serviço de texto para voz está temporariamente indisponível. Tente novamente mais tarde.",
+    "tts_failed": "Não foi possível gerar o áudio de voz.",
+    "unexpected_tts_error": "Um erro inesperado ocorreu durante a geração de voz",
+    "failed_to_get_voices": "Não foi possível recuperar opções de voz"
+  },
+  "Auth": {
+    "ForgotPassword": {
+      "title": "Reinicie a senha",
+      "description": "A funcionalidade de redefinição de senha está em desenvolvimento.",
+      "info": "Este recurso estará disponível em uma versão futura. Se você se esqueceu da sua senha, entre em contato com o suporte ao cliente para obter assistência.",
+      "contact_support": "Contato de apoio"
+    },
+    "SignUpForm": {
+      "title": "Crie uma conta do Loretrans",
+      "subtitle": "Crie uma conta para receber 500 créditos de bônus",
+      "name_label": "Nome ",
+      "name_placeholder": "Digite o seu nome",
+      "name_required": "Por favor, digite o seu nome",
+      "name_max_length": "Nome não pode exceder 50 caracteres",
+      "email_label": "E-mail",
+      "email_placeholder": "Insira o seu e-mail",
+      "email_required": "Por favor, digite o seu e-mail",
+      "email_invalid": "Formato de e-mail inválido",
+      "email_max_length": "O e-mail não pode exceder 100 caracteres",
+      "password_label": "Senha",
+      "password_placeholder": "Digite a sua senha",
+      "password_min_length": "A senha deve ter pelo menos 8 caracteres",
+      "password_max_length": "A palavra-passe não pode exceder 128 caracteres",
+      "confirm_password_label": "Confirme a senha",
+      "confirm_password_placeholder": "Digite a sua senha novamente",
+      "confirm_password_required": "Por favor, confirme a sua senha.",
+      "password_mismatch": "As senhas não correspondem",
+      "password_strength_label": "Força da senha",
+      "password_strength_feedback": "A força da senha não atende aos requisitos, por favor melhore a sua senha",
+      "submit_button": "Inscreva-se",
+      "submit_loading_button": "Inscrever-me...",
+      "signup_failed": "Inscrição falhou, tente novamente ",
+      "signup_error": "Um erro ocorreu durante a inscrição, por favor tente novamente",
+      "signin_prompt": "Já tens uma conta?",
+      "signin_link": "Inscreva-se"
+    },
+    "SignInForm": {
+      "title": "Inscreva-se no Loretrans",
+      "subtitle": "Por favor, entre na sua conta.",
+      "email_label": "E-mail",
+      "email_placeholder": "Insira o seu e-mail",
+      "email_required": "Por favor, digite o seu e-mail",
+      "email_invalid": "Formato de e-mail inválido",
+      "email_max_length": "O e-mail não pode exceder 100 caracteres",
+      "password_label": "Senha",
+      "password_placeholder": "Digite a sua senha",
+      "password_required": "Por favor, digite a sua senha",
+      "password_max_length": "A palavra-passe não pode exceder 128 caracteres",
+      "forgot_password_link": "Esqueceu a senha?",
+      "remember_me_label": "Lembra-te de mim durante 30 dias",
+      "submit_button": "Inscreva-se",
+      "submit_loading_button": "Entrando...",
+      "signin_failed": "Inscrição falhou, tente novamente",
+      "signin_error": "Um erro ocorreu durante o login, por favor tente novamente",
+      "signup_prompt": "Ainda não tens uma conta?",
+      "signup_link": "Inscreva-se agora",
+      "social_divider": "OR",
+      "google_signin_button": "Entre com o Google (em breve) ",
+      "signup_bonus_prompt_1": "Inscreva-se para uma nova conta e obtenha",
+      "signup_bonus_prompt_2": "500 créditos de bónus"
+    },
+    "GuestLimit": {
+      "remaining_translations": "Pode traduzir {count} mais vezes hoje",
+      "register_for_unlimited": "Registro para acesso ilimitado"
+    }
+  },
+  "TranslatorWidget": {
+    "errors": {
+      "limit_reached_title": "Limites de tradução atingidos",
+      "limit_reached_description": "Os utilizadores gratuitos podem traduzir até 10 vezes por dia. Registre-se para traduções ilimitadas",
+      "login_required_title": "Requer login",
+      "login_required_description": "Tradução de texto longo requer uma conta de login",
+      "daily_limit_title": "Limites de tradução atingidos",
+      "daily_limit_description": "O limite de tradução gratuita diária foi atingido",
+      "translation_failed": "Tradução falhou. Por favor tente novamente.",
+      "network_error": "Erro de rede, por favor verifique a sua ligação.",
+      "invalid_input": "Insira texto válido para traduzir."
+    },
+    "success": {
+      "translation_complete": "Tradução completa",
+      "credits_consumed": "Créditos consumidos"
+    },
+    "alerts": {
+      "login_required_for_long_text": "Tradução de texto longo requer uma conta de login.",
+      "login_now": "Entre agora ",
+      "or": "ou ",
+      "register_account": "Conta de registo"
+    },
+    "buttons": {
+      "translating": "Traduzindo...",
+      "translate_with_credits": "Tradução ({credits} credits) ",
+      "free_translate": "Traduza",
+      "start_translate": "Começar Tradução",
+      "translate": "Traduza",
+      "copy_result": "Reprodução Resultado",
+      "clear_text": "Texto claro"
+    },
+    "credits": {
+      "balance": "Créditos",
+      "recharge": "Recarregar",
+      "free_translation": "Tradução gratuita",
+      "estimated_cost": "Custo estimado (creditos)",
+      "insufficient_credits": "(Créditos insuficientes)",
+      "free_quota_usage": "Utilização livre de contingentes",
+      "characters": "caracteres",
+      "over_limit": "Excebe a quota livre em {excesso} de caracteres, consumirá créditos",
+      "insufficient_balance": "Não há créditos suficientes, precisamos de créditos obrigatórios, de crédito de saldo corrente.",
+      "recharge_now": "Recarregue agora"
+    },
+    "labels": {
+      "from": "From",
+      "to": "To",
+      "source_text": "Source Text",
+      "target_text": "Translation",
+      "enter_text": "Enter text to translate...",
+      "translation_result": "Translation Result",
+      "copy_translation": "Copy Translation",
+      "clear_text": "Clear Text",
+      "swap_languages": "Swap Languages",
+      "translated_text": "Texto traduzido"
+    },
+    "placeholders": {
+      "translation_result": "A tradução aparecerá aqui...",
+      "translating": "Traduzindo...",
+      "enter_source_text": "Digite texto para traduzir..."
+    },
+    "actions": {
+      "copy": "Entendido.",
+      "listen": "Ouve.",
+      "play": "Toca",
+      "pause": "Pausa",
+      "stop": "Pára com isso.",
+      "download": "Baixe ",
+      "share": "Compartilhe",
+      "clear": "Está tudo limpo."
+    },
+    "estimation": {
+      "estimated_time": "Tempo estimado",
+      "processing_time": "Tempo de tratamento",
+      "time_remaining": "Tempo restante",
+      "seconds": "segundos",
+      "minutes": "Minutos",
+      "hours": "horas",
+      "less_than_minute": "Menos de um minuto.",
+      "about_minutes": "About {minutes} minutes",
+      "about_seconds": "About {seconds} seconds",
+      "calculating": "Calculando...",
+      "queue_position": "Queue position: {position}",
+      "estimated_completion": "Estimated completion: {time}"
+    }
+  },
+  "pricing": {
+    "meta": {
+      "title": "Plano de preços - Escolha sua solução de tradução.",
+      "description": "Recomendações de preços inteligentes baseadas em cenários de uso, a partir de 5 dólares para estudantes, 10 dólares para particulares, 25 dólares para profissionais."
+    },
+    "title": "Escolha o seu pacote de crédito",
+    "subtitle": "Sistema de crédito flexível, pagamento à medida, sem subscrições mensais",
+    "current_balance": "Saldo de crédito corrente: ",
+    "free_tier": {
+      "title": "Nível livre",
+      "subtitle": "Perfeito para uso leve",
+      "completely_free": "✅ Completamente Gratuito: ",
+      "credit_based": " baseado em crédito:",
+      "features": {
+        "free_text": "Texto com menos de 500 caracteres",
+        "all_languages": "Todos os pares de idiomas suportados",
+        "unlimited_use": "Uso ilimitado",
+        "large_text": "Texto com mais de 500 caracteres",
+        "document_translation": "Tradução de documentos de grande porte",
+        "rate": "0,1 créditos/caractere (para excesso)"
+      }
+    },
+    "packages": {
+      "starter": {
+        "name": "Pacote de início",
+        "description": "Perfeito para usuários ocasionais",
+        "features": {
+          "credits": "1 000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 7 dias"
+        }
+      },
+      "basic": {
+        "name": "Pacote básico",
+        "description": "A escolha mais popular",
+        "features": {
+          "credits": "5.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 30 dias",
+          "support": "Apoio ao cliente prioritário"
+        }
+      },
+      "pro": {
+        "name": "Pacote profissional",
+        "description": "Perfeito para usuários pesados",
+        "features": {
+          "credits": "10.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 60 dias",
+          "support": "Apoio ao cliente prioritário",
+          "batch": "Função de tradução por lotes"
+        }
+      },
+      "business": {
+        "name": "Pacote Empresarial",
+        "description": "Perfeito para equipas e empresas",
+        "features": {
+          "credits": "25 000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 90 dias",
+          "support": "Apoio ao cliente prioritário",
+          "batch": "Função de tradução por lotes",
+          "api": "Acesso à API"
+        }
+      },
+      "enterprise": {
+        "name": "Pacote Empresarial",
+        "description": "Solução para grandes empresas",
+        "features": {
+          "credits": "50.000 créditos de tradução",
+          "languages": "Todos os pares de idiomas suportados",
+          "documents": "Função de tradução de documentos",
+          "validity": "Período de validade de 180 dias",
+          "support": "Apoio ao cliente dedicado",
+          "batch": "Função de tradução por lotes",
+          "api": "Acesso à API",
+          "integration": "Integração personalizada"
+        }
+      }
+    },
+    "popular": "Recomendo",
+    "save": "Salve",
+    "credits": "créditos",
+    "purchase_button": "Compre agora",
+    "processing": "Processamento...",
+    "new_user_bonus": {
+      "title": "Ofertas exclusivas para novos utilizadores",
+      "description": " Inscreva-se e obtenha 500 créditos + 20% de créditos extras na primeira compra",
+      "note": "O bónus será aplicado automaticamente na sua conta após o pagamento."
+    },
+    "register_prompt": {
+      "title": "Inscreva-se agora para obter mais benefícios",
+      "description": "Os utilizadores registados beneficiam de 500 créditos de bónus de boas-vindas + 20% de recompensa extra na primeira compra",
+      "register_button": "Regista-te agora",
+      "signin_button": "Já tem conta"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "subtitle": "Tudo o que precisa de saber sobre os nossos preços",
+      "credit_calculation": {
+        "question": "Como são calculados os créditos?",
+        "answer": "Para menos de 300 caracteres é totalmente gratuito, o excesso é cobrado em 0,1 créditos/caracter."
+      },
+      "expiration": {
+        "question": "Os créditos expiram?",
+        "answer": "Não, os créditos nunca expiram, uma vez comprados, ficam na sua conta até serem usados."
+      },
+      "payment_methods": {
+        "question": "Quais os métodos de pagamento que você suporta?",
+        "answer": "Apoiamos os principais cartões de crédito e débito através do nosso sistema de pagamento Creem seguro."
+      },
+      "bulk_discount": {
+        "question": "Oferecem descontos em massa?",
+        "answer": "Sim! Os nossos pacotes maiores oferecem economias significativas - até 40% de desconto com o pacote Enterprise. Quanto mais créditos comprar, melhor o valor."
+      },
+      "unused_credits": {
+        "question": "O que acontece aos créditos não utilizados?",
+        "answer": "Os créditos não utilizados permanecem na sua conta até a data de expiração."
+      },
+      "business_invoicing": {
+        "question": "Fornece faturas para compras de negócios?",
+        "answer": "Sim, fornecemos faturas detalhadas para todas as compras. Os clientes empresariais podem aceder às faturas através do painel da sua conta ou contactar o apoio para obter assistência."
+      },
+      "api_pricing": {
+        "question": "Como funciona o preço da API?",
+        "answer": "O acesso à API é incluído nos pacotes Business e Enterprise."
+      },
+      "contact_support": "Se tiver mais perguntas, entre em contacto com a nossa equipa de apoio",
+      "upgrade_plan": {
+        "question": "Posso atualizar o meu plano a qualquer momento?",
+        "answer": "Pode comprar pacotes de crédito adicionais a qualquer momento e os créditos serão adicionados à sua conta imediatamente."
+      }
+    },
+    "scenarios": {
+      "student": {
+        "name": "Usuários estudantis"
+      },
+      "individual": {
+        "name": "Usuários individuais"
+      },
+      "professional": {
+        "name": "Profissionais"
+      },
+      "enterprise": {
+        "name": "Utilizadores empresariais"
+      }
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfeito para usuários de luz e estudantes",
+        "features": [
+          "2500 créditos (cerca de 25 000 caracteres) "
+        ]
+      },
+      "basic": {
+        "name": "Basic",
+        "description": "Ótimo para usuários regulares - Mais Popular",
+        "features": [
+          "6000 créditos (cerca de 60 000 caracteres)"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Ideal para profissionais e pequenas empresas",
+        "features": [
+          "20.000 créditos (cerca de 200.000 caracteres)"
+        ]
+      }
+    }
+  },
+  "Common": {
+    "remember_me": "Lembra-te de mim.",
+    "sign_up": "Inscreva-se",
+    "sign_in": "Inscreva-se",
+    "hide_password": "Esconda a senha",
+    "show_password": "Mostrar senha",
+    "no_email": "Não há e-mail.",
+    "translation_failed": "Tradução falhou",
+    "detection_failed": "Falha de detecção",
+    "invalid_file": "Ficheiro inválido",
+    "upload_failed": "Carregamento falhado",
+    "document_translation": "Tradução de documentos",
+    "priority_support": "Apoio prioritário",
+    "ready_to_translate": "Pronto para traduzir",
+    "upload_your_document": "Faça o upload do seu documento",
+    "creole_greeting": "Saudação em crioula",
+    "lao_greeting": "Saudações laóis",
+    "swahili_greeting": "Saudação em suaíli",
+    "choose_pricing_plan": "Escolha um plano de preços",
+    "coming_soon": "Em breve."
+  },
+  "translation": {
+    "start_translation": "Iniciar tradução",
+    "translation_complete": "Tradução completa",
+    "translation_failed": "Tradução falhou",
+    "translating": "Traduzindo...",
+    "preparing_engine": "Preparando motor de tradução...",
+    "about_to_start": "Prestes a iniciar a tradução...",
+    "processing": "Tradução em andamento, por favor aguarde...",
+    "engine_running": "Motor de tradução funcionando a plena capacidade...",
+    "optimizing_quality": "Otimizando qualidade da tradução...",
+    "translation_paused": "Tradução pausada",
+    "resume_translation": "Clique em continuar para retomar a tradução",
+    "translation_error": "Um problema foi encontrado durante a tradução",
+    "service_unavailable": "Serviço de tradução temporariamente indisponível, tente novamente mais tarde",
+    "input_placeholder": "Digite o texto para traduzir...",
+    "result_placeholder": "Os resultados da tradução aparecerão aqui...",
+    "from_language": "traduzir de",
+    "to_language": "traduzir para",
+    "partial_complete": "Tradução parcialmente completa",
+    "partial_description": "Alguns problemas foram encontrados durante a tradução, mas salvamos os resultados parciais para você",
+    "task_resubmitted": "A tarefa de tradução foi reenviada para processamento"
+  },
+  "task": {
+    "task_management": "Gerenciamento de tarefas de tradução",
+    "manage_description": "Gerencie suas tarefas de tradução, veja o progresso e os resultados",
+    "new_translation": "Nova tradução",
+    "refresh_tasks": "Atualizar",
+    "task_list_updated": "Lista de tarefas atualizada",
+    "refresh_failed": "Falha ao atualizar",
+    "operation_success": "Operação bem-sucedida",
+    "operation_failed": "Operação falhou",
+    "select_tasks_first": "Por favor selecione as tarefas primeiro",
+    "no_tasks": "Sem tarefas",
+    "no_matching_tasks": "Nenhuma tarefa correspondente",
+    "create_first_task": "Ainda não há tarefas de tradução, crie uma!",
+    "search_placeholder": "Pesquisar tarefas...",
+    "queue_created": "Tarefa de tradução criada",
+    "can_leave_page": "Você pode sair desta página, veja os resultados mais tarde em \"Minhas tarefas\"",
+    "check_in_tasks": "Você pode verificar o progresso no gerenciamento de tarefas",
+    "view_in_tasks": "Por favor vá para a página \"Minhas tarefas\" para ver o progresso da tradução",
+    "batch_operation_success": "{action} foi executado em {count} tarefas"
+  },
+  "progress": {
+    "preparing": "Preparando",
+    "processing": "Processando",
+    "finalizing": "Finalizando",
+    "completed": "Concluído",
+    "paused": "Pausado",
+    "failed": "Falhou",
+    "cancelled": "Cancelado",
+    "partial_success": "Sucesso parcial",
+    "progress": "Progresso",
+    "understanding_text": "Entendendo seu texto...",
+    "analyzing_language": "Analisando características da linguagem...",
+    "processing_content": "Processando seu conteúdo...",
+    "checking_grammar": "Verificando gramática e fluência...",
+    "final_polish": "Polimento final...",
+    "presenting_results": "Prestes a apresentar os resultados...",
+    "results_ready": "Resultados prontos",
+    "thank_you_waiting": "Obrigado pela sua paciência",
+    "progress_saved": "Seu progresso foi salvo",
+    "processing_time_long": "Tempo de processamento longo",
+    "instant_processing": "Processamento instantâneo",
+    "background_processing": "Processamento em segundo plano",
+    "smart_processing": "Processamento inteligente"
+  },
+  "time": {
+    "time_estimate": "Estimativa de tempo",
+    "estimated_time": "Tempo restante estimado",
+    "can_leave": "Pode sair da página",
+    "accurate_estimate": "Estimativa precisa",
+    "rough_estimate": "Estimativa aproximada",
+    "approximate_estimate": "Estimativa aproximada",
+    "fast_queue": "Fila rápida",
+    "creation_time": "Tempo de criação"
+  },
+  "error": {
+    "error_recovery": "Recuperação de erro",
+    "retry_failed": "Nova tentativa falhou",
+    "unknown_error": "Erro desconhecido",
+    "partial_results": "Resultados parciais",
+    "retry_failed_parts": "Tentar novamente partes que falharam",
+    "download_partial": "Baixar resultados parciais",
+    "segment_retry": "Nova tentativa segmentada",
+    "encountered_problem": "Problema encontrado",
+    "trying_to_resolve": "Estamos tentando resolver",
+    "contact_support": "Por favor aguarde ou entre em contato com o suporte",
+    "please_retry_later": "Por favor tente novamente mais tarde"
+  },
+  "success": {
+    "completed": "Concluído",
+    "operation_success": "Operação bem-sucedida",
+    "partial_success": "Sucesso parcial",
+    "almost_done": "Quase terminado!",
+    "results_shown_below": "Resultados mostrados abaixo",
+    "half_completed": "Mais da metade concluído, continue!"
+  },
+  "credits": {
+    "estimated_consumption": "Consumo estimado",
+    "credits_consumed": "Créditos consumidos",
+    "credits_processing": "Explicação do processamento de créditos",
+    "consumed_credits": "Créditos consumidos",
+    "refunded_credits": "Créditos reembolsados",
+    "retry_only_failed": "Pague apenas créditos pelas partes que falharam ao tentar novamente"
+  },
+  "language": {
+    "source_language": "Idioma origem",
+    "target_language": "Idioma destino",
+    "select_source": "Selecionar idioma origem",
+    "select_target": "Selecionar idioma destino"
+  },
+  "ui": {
+    "start": "Iniciar",
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "continue": "Continuar",
+    "cancel": "Cancelar",
+    "retry": "Tentar novamente",
+    "download": "Baixar",
+    "delete": "Excluir",
+    "refresh": "Atualizar",
+    "all": "Todos",
+    "status": "Status",
+    "priority": "Prioridade",
+    "sort": "Ordenar",
+    "normal": "Normal",
+    "high": "Alto",
+    "urgent": "Urgente",
+    "low": "Baixo",
+    "waiting": "Aguardando",
+    "active": "Ativo",
+    "needs_attention": "Precisa de atenção",
+    "submitting": "Enviando...",
+    "downloading": "Download iniciado",
+    "retrying": "Nova tentativa iniciada",
+    "copied": "Copiado",
+    "text_copied": "Texto copiado para a área de transferência",
+    "input_text": "Texto de entrada",
+    "translation_result": "Resultado da tradução",
+    "characters": "caracteres",
+    "total_tasks": "Total de tarefas",
+    "select_all": "Selecionar todos",
+    "batch_operations": "Operações em lote",
+    "set_priority": "Definir prioridade"
+  },
+  "NotFound": {
+    "title": "Página Não Encontrada",
+    "description": "A página que você procura não existe ou foi movida.",
+    "goHome": "Vai para casa.",
+    "contactSupport": "Contatar Suporte"
+  },
+  "Error": {
+    "title": "Algo deu errado!",
+    "description": "Um erro inesperado ocorreu. Por favor tente novamente.",
+    "errorDetails": "Detalhes do erro (desenvolvimento)",
+    "tryAgain": "Tenta outra vez.",
+    "goHome": "Vai para casa.",
+    "contactSupport": "Contato de apoio"
+  },
+  "Admin": {
+    "dashboard": {
+      "title": "Painel de Administração",
+      "description": "Gerencie as configurações do seu aplicativo e monitore o estado do sistema."
+    }
+  },
+  "Feedback": {
+    "feedback": "Feedback",
+    "title": "O seu feedback é importante para nós",
+    "rating": {
+      "tab": "Classificação",
+      "title": "Avalie o nosso serviço",
+      "select": "Por favor, selecione uma classificação",
+      "very_dissatisfied": "Muito insatisfeito ",
+      "dissatisfied": "Insatisfeito 😕",
+      "neutral": "Neutro 😐",
+      "satisfied": "Satisfeito 😊",
+      "very_satisfied": "Muito satisfeito ",
+      "placeholder": "Por favor, diga-nos seus sentimentos específicos e sugestões...",
+      "submit": "Submeter classificação"
+    },
+    "suggestion": {
+      "tab": "Sugestão",
+      "title": "Sugestão de recurso",
+      "type": "Tipo de sugestão",
+      "categories": {
+        "feature": "Novas características",
+        "ui": "Melhoria da UI",
+        "performance": "Desempenho",
+        "language": "Suporte linguístico",
+        "other": "Outros"
+      },
+      "placeholder": "Por favor, descreva sua sugestão em detalhes, nós vamos considerá-la cuidadosamente...",
+      "submit": "Envie uma sugestão"
+    },
+    "bug": {
+      "tab": "Bug",
+      "title": "Relatório de erro",
+      "type": "Tipo de bug",
+      "categories": {
+        "translation": "Edição de tradução",
+        "ui": "Erro de interface",
+        "payment": "Questão de pagamento",
+        "account": "Emissão da conta",
+        "other": "Outros"
+      },
+      "placeholder": "Por favor, descreva o problema em detalhes, incluindo passos e mensagens de erro...",
+      "email": "E-mail de contacto (opcional)",
+      "submit": "Relata um erro"
+    },
+    "compliment": {
+      "tab": "Um elogio.",
+      "title": "Complimento e obrigado",
+      "placeholder": "Por favor, conte-nos suas características favoritas ou experiências...",
+      "submit": "Envia um elogio"
+    },
+    "common": {
+      "submitting": "A enviar...",
+      "success": "Feedback enviado com sucesso!",
+      "success_desc": "Obrigado pelo seu valioso feedback, vamos considerá-lo cuidadosamente e continuar a melhorar a experiência do produto.",
+      "fill_required": "Por favor, preencha o conteúdo do feedback",
+      "submit_failed": "Não foi apresentada ",
+      "try_again": "Tente novamente mais tarde ou entre em contacto com o serviço de apoio ao cliente",
+      "translation_quality": "Qualidade da tradução:",
+      "thanks_feedback": "Obrigado pelo seu feedback ",
+      "feedback_helps": "Os seus comentários ajudam-nos a melhorar a qualidade da tradução"
+    }
+  }
+}

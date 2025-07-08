@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { AuthContext, useAuthState } from '@/lib/hooks/useAuth'
+import { AuthContext, useAuthState, useAuth } from '@/lib/hooks/useAuth'
 
 interface AuthProviderProps {
   children: ReactNode
@@ -20,3 +20,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     </AuthContext.Provider>
   )
 }
+
+// 导出 useAuth hook
+export { useAuth }

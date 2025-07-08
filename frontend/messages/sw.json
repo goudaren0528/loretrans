@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Transly - Kitafsiri cha AI kwa Lugha za Rasilimali Chache",
+      "title": "Loretrans - Kitafsiri cha AI kwa Lugha za Rasilimali Chache",
       "description": "Utafsiri wa bure kwa kutumia AI kwa lugha 20+ za rasilimali chache kama Creole, Lao, na Kiswahili. Tafsiri maandishi na hati kwa Kiingereza mara moja."
     },
     "hero": {
@@ -27,12 +27,43 @@
       "features": {
         "free": "100% Bure",
         "ai_powered": "Inaendeshwa na AI",
-        "languages": "Lugha 20+"
+        "languages": "Lugha 20+",
+        "document_support": "Msaada wa kutafsiri hati"
       },
       "cta": {
         "start_translating": "Anza Kutafsiri",
-        "upload_document": "Pakia Hati"
-      }
+        "upload_document": "Pakia Hati",
+        "start_free": "Anza Tafsiri ya Bure",
+        "view_pricing": "Angalia Bei"
+      },
+      "badge": "Professional Low-Resource Lugha Tafsiri • Lugha Google Tafsuri haina kufunika",
+      "comparison": {
+        "google": {
+          "description": "Hakuna msaada wa lugha ya rasilimali ndogo",
+          "title": "Google Tafsiri"
+        },
+        "loretrans": {
+          "description": "Msaada wa kitaalamu kwa lugha 20+ za rasilimali ndogo",
+          "title": "Loretrans"
+        }
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Kikrioli cha Haiti",
+          "text": "Bonjo, wapi wewe?"
+        },
+        "english": {
+          "language": "Kiingereza",
+          "text": "Halo, unaendeleaje?"
+        }
+      },
+      "social_proof": {
+        "accuracy": "Usahihi wa tafsiri >90%",
+        "rating": "4.8/5",
+        "users": "Alihudumia watumiaji 10,000+"
+      },
+      "title_highlight": "Kuelewa",
+      "title_part1": "Fanya Kila Lugha "
     },
     "languages": {
       "title": "Lugha Zinazotumika",
@@ -40,197 +71,190 @@
     },
     "cta": {
       "title": "Anza Kutafsiri Leo",
-      "description": "Jiunge na maelfu ya watumiaji wanaomwamini Transly kwa mahitaji yao ya utafsiri",
+      "description": "Jiunge na maelfu ya watumiaji wanaomwamini Loretrans kwa mahitaji yao ya utafsiri",
       "try_now": "Jaribu Sasa - Ni Bure",
       "translate_documents": "Tafsiri Hati"
+    },
+    "cost_comparison": {
+      "google_translate": {
+        "description": "Ufunikaji wa lugha zisizo na rasilimali za kutosha",
+        "price": "Si mkono",
+        "title": "Google Tafsiri"
+      },
+      "human_translation": {
+        "description": "1000 wahusika × $ 0.12/char",
+        "price": "$120",
+        "title": "Tafsiri ya Kibinadamu"
+      },
+      "loretrans": {
+        "description": "1000 wahusika × $ 0.001/char",
+        "price": "$1",
+        "savings": "Kuokoa gharama 99%",
+        "title": "Loretrans"
+      },
+      "title": "Kulinganisha gharama: Kwa nini Loretrans ni gharama nafuu zaidi?"
+    },
+    "feature_section": {
+      "description": "Vifaa vya tafsiri ya kitaalamu iliyoundwa kwa lugha za rasilimali ndogo",
+      "title": "Kwa Nini Uchague Loretrans?"
+    },
+    "user_scenarios": {
+      "academic": {
+        "description": "Unahitaji kutafsiri fasihi ya kitaaluma na vifaa vya utafiti katika lugha zenye rasilimali chache kama vile Kikrioli cha Haiti na Lao",
+        "recommendation": "Ilipendekeza: Mpango wa kuanza ($ 5) • Perfect kwa ajili ya tafsiri karatasi",
+        "title": "Watafiti wa Chuo Kikuu"
+      },
+      "ecommerce": {
+        "description": "Maelezo ya bidhaa ya ndani, tafsiri ya kundi la habari za bidhaa kwa masoko ya lugha ya rasilimali ndogo",
+        "recommendation": "Ilipendekeza: Pro Mpango ($ 25) • Inasaidia tafsiri kundi",
+        "title": "Biashara ya mtandaoni ya kimataifa"
+      },
+      "immigrant": {
+        "description": "Kushughulikia nyaraka rasmi, karatasi za kisheria na vifaa vingine muhimu na mahitaji sahihi ya tafsiri",
+        "recommendation": "Ilipendekeza: Mpango wa Msingi ($ 10) • High usahihi dhamana",
+        "title": "Jamii za Wahamiaji"
+      }
+    },
+    "Footer": {
+      "pricing": "Bei",
+      "interface_language": "Lugha ya kiolesura"
     }
   },
   "IndexPage": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
-    "title": "Inahitaji kutafsiriwa",
-    "description": "Inahitaji kutafsiriwa",
+    "title": "Kichwa",
+    "description": "Maelezo",
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "description": "Maelezo",
       "status": {
-        "free": "Inahitaji kutafsiriwa",
-        "ai_powered": "Inahitaji kutafsiriwa",
-        "multi_language": "Inahitaji kutafsiriwa"
+        "free": "Bure",
+        "ai_powered": "Ukurasa",
+        "multi_language": "Lugha"
       },
-      "cta_start": "Inahitaji kutafsiriwa",
-      "cta_upload": "Inahitaji kutafsiriwa"
+      "cta_start": "Ukurasa",
+      "cta_upload": "Ukurasa"
     },
     "supported_languages": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "cta_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "cta_try": "Inahitaji kutafsiriwa",
-      "cta_docs": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "cta_try": "Ukurasa",
+      "cta_docs": "Ukurasa"
     },
     "translation_options": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
+      "title": "Chagua Njia Yako ya Kutafsiri",
+      "description": "Chagua chaguo bora kwa mahitaji yako ya tafsiri",
+      "coming_soon": "Karibuni",
       "options": {
         "text": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa",
-          "features": {
-            "0": "I",
-            "1": "n",
-            "2": "a",
-            "3": "h",
-            "4": "i",
-            "5": "t",
-            "6": "a",
-            "7": "j",
-            "8": "i",
-            "9": " ",
-            "10": "k",
-            "11": "u",
-            "12": "t",
-            "13": "a",
-            "14": "f",
-            "15": "s",
-            "16": "i",
-            "17": "r",
-            "18": "i",
-            "19": "w",
-            "20": "a"
-          },
-          "button": "Inahitaji kutafsiriwa"
+          "title": "Tafsiri ya Nakala",
+          "description": "Tafsiri maandishi kati ya lugha 20+ rasilimali chini na Kiingereza papo.",
+          "button": "Anza Kutafsiri",
+          "features": [
+            "Wahusika 300 bure",
+            "Matokeo ya papo hapo",
+            "Kucheza sauti",
+            "Nakili kwenye clipboard"
+          ]
         },
         "document": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa",
-          "features": {
-            "0": "I",
-            "1": "n",
-            "2": "a",
-            "3": "h",
-            "4": "i",
-            "5": "t",
-            "6": "a",
-            "7": "j",
-            "8": "i",
-            "9": " ",
-            "10": "k",
-            "11": "u",
-            "12": "t",
-            "13": "a",
-            "14": "f",
-            "15": "s",
-            "16": "i",
-            "17": "r",
-            "18": "i",
-            "19": "w",
-            "20": "a"
-          },
-          "button": "Inahitaji kutafsiriwa"
+          "title": "Tafsiri ya Hati",
+          "description": "Pakia na kutafsiri PDF, Neno, na PowerPoint nyaraka.",
+          "button": "Anza Kutafsiri",
+          "features": [
+            "PDF, Neno, PPT msaada",
+            "Inahifadhi uumbizaji",
+            "Pakua matokeo",
+            "Usindikaji wa kundi"
+          ]
         },
         "image": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa",
-          "features": {
-            "0": "I",
-            "1": "n",
-            "2": "a",
-            "3": "h",
-            "4": "i",
-            "5": "t",
-            "6": "a",
-            "7": "j",
-            "8": "i",
-            "9": " ",
-            "10": "k",
-            "11": "u",
-            "12": "t",
-            "13": "a",
-            "14": "f",
-            "15": "s",
-            "16": "i",
-            "17": "r",
-            "18": "i",
-            "19": "w",
-            "20": "a"
-          },
-          "button": "Inahitaji kutafsiriwa"
+          "title": "Tafsiri ya Picha",
+          "description": "Kuchukua na kutafsiri maandishi kutoka picha kwa kutumia teknolojia OCR.",
+          "button": "Karibuni",
+          "features": [
+            "OCR maandishi uchimbaji",
+            "Maumbizo ya picha nyingi",
+            "Hifadhi mpangilio",
+            "Karibuni"
+          ]
         }
       },
       "quick_start": {
-        "title": "Inahitaji kutafsiriwa",
-        "button": "Inahitaji kutafsiriwa"
-      },
-      "coming_soon": "Inahitaji kutafsiriwa"
+        "title": "Sijui chaguo la kuchagua? Kuanza na tafsiri ya maandishi",
+        "button": "Jaribu Tafsiri ya Nakala Sasa"
+      }
     },
     "language_grid": {
-      "coming_soon": "Inahitaji kutafsiriwa",
-      "try_language": "Inahitaji kutafsiriwa"
+      "coming_soon": "Karibuni",
+      "try_language": "Jaribu {lugha}"
     },
     "feature_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "description": "Maelezo",
       "features": {
         "ai_powered": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         },
         "fast": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         },
         "privacy": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         },
         "languages": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         },
         "tts": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         },
         "documents": {
-          "name": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "name": "Jina",
+          "description": "Maelezo"
         }
       },
       "stats": {
-        "languages": "Inahitaji kutafsiriwa",
-        "free": "Inahitaji kutafsiriwa",
-        "characters": "Inahitaji kutafsiriwa",
-        "availability": "Inahitaji kutafsiriwa"
+        "languages": "Lugha",
+        "free": "Bure",
+        "characters": "Ukurasa",
+        "availability": "Ukurasa"
       }
     },
     "faq_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "description": "Maelezo",
       "questions": {
         "0": {
           "0": "I",
-          "question": "Je, Transly ni huru kutumia?",
-          "answer": "Ndiyo! Transly ni bure kabisa kwa ajili ya tafsiri ya maandishi hadi herufi 1000 kwa ombi. Hakuna ada siri au mahitaji ya usajili."
+          "question": "Jinsi gani Loretrans bei kazi?",
+          "answer": "Loretrans inatoa wahusika 300 bure kwa kila tafsiri. Kwa maandishi ya muda mrefu, sisi malipo 0.1 mikopo kwa kila tabia. watumiaji wapya kupata mikopo 500 kuwakaribisha wakati wao kujiandikisha."
         },
         "1": {
           "0": "n",
-          "question": "Tafsiri hizo ni sahihi kadiri gani?",
-          "answer": "Tunatumia NLLB ya Meta (Hakuna Lugha iliyoachwa nyuma) mfano, ambayo hutoa tafsiri zenye ubora wa juu kwa lugha zenye rasilimali za chini. Wakati hakuna tafsiri ya kiotomatiki ni kamili, NLL B imeundwa mahsusi kushughulikia lugha zilizo na data ndogo ya mafunzo."
+          "question": "Ni lugha gani unazounga mkono?",
+          "answer": "Sisi maalumu katika lugha 20+ rasilimali ya chini ikiwa ni pamoja na Creole ya Haiti, Lao, Kiswahili, Burma, Telugu, na zaidi. lugha zote kusaidia tafsiri bidirectional na Kiingereza."
         },
         "2": {
           "0": "a",
-          "question": "Ni lugha gani unazounga mkono?",
-          "answer": "Tunasaidia lugha 20+ chini ya rasilimali ikiwa ni pamoja na Kihaiti Creole, Lao, Kiswahili, Burma, Telugu, Sinhala, Amharic, Khmer, Nepali, na Malagasy. lugha zote zinaweza kutafsiriwa kwa Kiingereza."
+          "question": "Je, kuna kikomo cha wahusika?",
+          "answer": "Kila tafsiri ni pamoja na wahusika 300 bure. Kwa maandishi ya muda mrefu, unaweza kutumia mikopo (0.1 mikopo kwa kila tabia). Kujiandikisha kupata mikopo 500 kuwakaribisha."
         },
         "3": {
           "0": "h",
-          "question": "Je data yangu ni salama na ya kibinafsi?",
-          "answer": "Bila shaka. Hatuna kuhifadhi maandishi yako ya tafsiri kwenye seva zetu. Nakala yako ni kusindika salama na kufuta mara moja baada ya tafsirisho. Tunachukua faragha kwa umakini."
+          "question": "Ni aina gani ya faili unazounga mkono?",
+          "answer": "Hivi sasa sisi kusaidia TXT faili hadi 10MB. PDF, Neno, na PowerPoint msaada kuja hivi karibuni."
         },
         "4": {
           "0": "i",
@@ -249,8 +273,8 @@
         },
         "7": {
           "0": "j",
-          "question": "Je, ninaweza kutumia Transly kwa ajili ya biashara?",
-          "answer": "Ndiyo, unaweza kutumia Transly kwa ajili ya matumizi ya kibinafsi na kibiashara. Kwa ajili ya kiasi kikubwa cha matumizi ya kibiashara, tafadhali wasiliana nasi kuhusu huduma zetu API."
+          "question": "Je, ninaweza kutumia Loretrans kwa ajili ya biashara?",
+          "answer": "Ndiyo, unaweza kutumia Loretrans kwa ajili ya matumizi ya kibinafsi na kibiashara. Kwa ajili ya kiasi kikubwa cha matumizi ya kibiashara, tafadhali wasiliana nasi kuhusu huduma zetu API."
         },
         "8": "i",
         "9": " ",
@@ -266,227 +290,227 @@
         "19": "w",
         "20": "a"
       },
-      "contact_prompt": "Inahitaji kutafsiriwa",
-      "contact_link": "Inahitaji kutafsiriwa"
+      "contact_prompt": "Una maswali zaidi?",
+      "contact_link": "Wasiliana nasi"
     }
   },
   "AboutPage": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kuhusu Loretrans - Utafsiri wa Kitaalamu kwa Lugha za Rasilimali Ndogo",
+      "description": "Jifunze kuhusu Loretrans, jukwaa la utafsiri la kwanza kwa lugha ndogo hadi Kiingereza. Inaendeshwa na mfano wa Meta NLLB na lugha 20+ zinazotumika."
     },
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kuhusu Loretrans",
+      "description": "Jukwaa la utafsiri wa kitaalamu lililojitolea kuunganisha lugha za rasilimali ndogo na ulimwengu kupitia utafsiri sahihi wa Kiingereza."
     },
     "mission": {
-      "title": "Inahitaji kutafsiriwa",
-      "p1": "Inahitaji kutafsiriwa",
-      "p2": "Inahitaji kutafsiriwa",
-      "cta": "Inahitaji kutafsiriwa"
+      "title": "Dhamira Yetu",
+      "p1": "Katika Loretrans, tunaamini kila lugha ina thamani na inapaswa kusikika. Dhamira yetu ni kupunguza pengo kati ya lugha za rasilimali ndogo na Kiingereza, kukuza mawasiliano na uelewa wa kimataifa.",
+      "p2": "Kwa kuchanganya teknolojia ya hali ya juu ya AI na maarifa ya kina kutoka jamii za kilugha, tunafanikiwa pale ambapo huduma za utafsiri za jadi mara nyingi zinashindwa.",
+      "cta": "Anza Sasa"
     },
     "features": {
       "accessibility": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Upatikanaji",
+        "description": "Kufanya utafsiri wa ubora wa juu upatikane kwa wazungumzaji wa lugha za rasilimali ndogo duniani kote."
       },
       "accuracy": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Usahihi",
+        "description": "Inaendeshwa na mfano wa Meta NLLB, uliotengenezwa maalum kwa lugha ndogo."
       },
       "privacy": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Faragha",
+        "description": "Data yako ni salama. Hatuhifadhi tafsiri au kufuatilia maelezo ya kibinafsi."
       }
     },
     "supported_languages": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "request_cta": "Inahitaji kutafsiriwa",
-      "request_cta_description": "Inahitaji kutafsiriwa"
+      "title": "Lugha Zinazotumika",
+      "description": "Tunatumia lugha {count}, tukizingatia maalum lugha za rasilimali ndogo.",
+      "request_cta": "Omba Lugha",
+      "request_cta_description": "Lugha yako haiko kwenye orodha? Tuambie!"
     },
     "technology": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
+      "title": "Inaendeshwa na AI ya Hali ya Juu",
+      "description": "Loretrans inatumia mfano wa Meta NLLB (Hakuna Lugha Iliyoachwa Nyuma), uliotengenezwa maalum kutoa utafsiri wa ubora wa juu kwa lugha za rasilimali ndogo ambazo mifumo ya jadi inashindwa nazo.",
       "cultural_preservation": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Uhifadhi wa Kitamaduni",
+        "description": "Kuunga mkono utofauti wa kilugha na kusaidia kuhifadhi urithi wa kitamaduni kupitia teknolojia."
       },
       "community_driven": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Inaongozwa na Jamii",
+        "description": "Imejengwa kwa maoni kutoka kwa wazungumzaji wa asili na jamii za kilugha duniani kote."
       },
       "continuous_improvement": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Uboreshaji wa Kuendelea",
+        "description": "Masasisho ya mfano ya kawaida na maboresho ili kutoa ubora bora wa utafsiri."
       }
     },
     "faq": {
-      "title": "Inahitaji kutafsiriwa",
-      "q1_title": "Inahitaji kutafsiriwa",
-      "q1_answer": "Inahitaji kutafsiriwa",
-      "q2_title": "Inahitaji kutafsiriwa",
-      "q2_answer": "Inahitaji kutafsiriwa",
-      "q3_title": "Inahitaji kutafsiriwa",
-      "q3_answer": "Inahitaji kutafsiriwa",
-      "q4_title": "Inahitaji kutafsiriwa",
-      "q4_answer": "Inahitaji kutafsiriwa",
-      "q5_title": "Inahitaji kutafsiriwa",
-      "q5_answer": "Inahitaji kutafsiriwa",
-      "q6_title": "Inahitaji kutafsiriwa",
-      "q6_answer": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "q1_title": "Kichwa",
+      "q1_answer": "Ukurasa",
+      "q2_title": "Kichwa",
+      "q2_answer": "Ukurasa",
+      "q3_title": "Kichwa",
+      "q3_answer": "Ukurasa",
+      "q4_title": "Kichwa",
+      "q4_answer": "Ukurasa",
+      "q5_title": "Kichwa",
+      "q5_answer": "Ukurasa",
+      "q6_title": "Kichwa",
+      "q6_answer": "Ukurasa"
     },
     "cta_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "cta_text": "Inahitaji kutafsiriwa",
-      "cta_docs": "Inahitaji kutafsiriwa"
+      "title": "Tayari Kuanza?",
+      "description": "Pata uzoefu wa utafsiri sahihi kwa lugha yako leo. Iwe ni maandishi ya haraka au hati kamili, Loretrans iko hapa kukusaidia kuwasiliana na ulimwengu.",
+      "cta_text": "Jaribu Utafsiri wa Maandishi",
+      "cta_docs": "Pakia Hati"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "form": {
-      "title": "Inahitaji kutafsiriwa",
-      "firstName": "Inahitaji kutafsiriwa",
-      "firstNamePlaceholder": "Inahitaji kutafsiriwa",
-      "lastName": "Inahitaji kutafsiriwa",
-      "lastNamePlaceholder": "Inahitaji kutafsiriwa",
-      "email": "Inahitaji kutafsiriwa",
-      "emailPlaceholder": "Inahitaji kutafsiriwa",
-      "subject": "Inahitaji kutafsiriwa",
-      "subjectPlaceholder": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "firstName": "Jina",
+      "firstNamePlaceholder": "Jina",
+      "lastName": "Jina",
+      "lastNamePlaceholder": "Jina",
+      "email": "Barua pepe",
+      "emailPlaceholder": "Barua pepe",
+      "subject": "Ukurasa",
+      "subjectPlaceholder": "Ukurasa",
       "subjects": {
-        "translation_issue": "Inahitaji kutafsiriwa",
-        "technical_support": "Inahitaji kutafsiriwa",
-        "feature_request": "Inahitaji kutafsiriwa",
-        "language_request": "Inahitaji kutafsiriwa",
-        "business_inquiry": "Inahitaji kutafsiriwa",
-        "feedback": "Inahitaji kutafsiriwa",
-        "other": "Inahitaji kutafsiriwa"
+        "translation_issue": "Ukurasa",
+        "technical_support": "Msaada",
+        "feature_request": "Ukurasa",
+        "language_request": "Lugha",
+        "business_inquiry": "Biashara",
+        "feedback": "Ukurasa",
+        "other": "Ukurasa"
       },
-      "relatedLanguage": "Inahitaji kutafsiriwa",
-      "relatedLanguagePlaceholder": "Inahitaji kutafsiriwa",
-      "message": "Inahitaji kutafsiriwa",
-      "messagePlaceholder": "Inahitaji kutafsiriwa",
-      "submit": "Inahitaji kutafsiriwa"
+      "relatedLanguage": "Lugha",
+      "relatedLanguagePlaceholder": "Lugha",
+      "message": "Ujumbe",
+      "messagePlaceholder": "Ujumbe",
+      "submit": "Wasilisha"
     },
     "sidebar": {
       "quick_contact": {
-        "title": "Inahitaji kutafsiriwa",
-        "email_support": "Inahitaji kutafsiriwa",
-        "email_address": "Inahitaji kutafsiriwa",
-        "response_time": "Inahitaji kutafsiriwa",
-        "live_chat": "Inahitaji kutafsiriwa",
-        "live_chat_status": "Inahitaji kutafsiriwa",
-        "live_chat_eta": "Inahitaji kutafsiriwa",
-        "support_hours_title": "Inahitaji kutafsiriwa",
-        "support_hours_days": "Inahitaji kutafsiriwa",
-        "support_hours_time": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "email_support": "Msaada",
+        "email_address": "Barua pepe",
+        "response_time": "Ukurasa",
+        "live_chat": "Ukurasa",
+        "live_chat_status": "Hali",
+        "live_chat_eta": "Ukurasa",
+        "support_hours_title": "Kichwa",
+        "support_hours_days": "Msaada",
+        "support_hours_time": "Msaada"
       },
       "common_issues": {
-        "title": "Inahitaji kutafsiriwa",
+        "title": "Kichwa",
         "translation_not_working": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "title": "Kichwa",
+          "description": "Maelezo"
         },
         "language_not_supported": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "title": "Kichwa",
+          "description": "Maelezo"
         },
         "file_upload_issues": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "title": "Kichwa",
+          "description": "Maelezo"
         },
         "audio_playback_not_working": {
-          "title": "Inahitaji kutafsiriwa",
-          "description": "Inahitaji kutafsiriwa"
+          "title": "Kichwa",
+          "description": "Maelezo"
         }
       },
       "self_help": {
-        "title": "Inahitaji kutafsiriwa",
-        "how_it_works": "Inahitaji kutafsiriwa",
-        "try_text": "Inahitaji kutafsiriwa",
-        "try_docs": "Inahitaji kutafsiriwa",
-        "privacy": "Inahitaji kutafsiriwa",
-        "terms": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "how_it_works": "Ukurasa",
+        "try_text": "Maandishi",
+        "try_docs": "Ukurasa",
+        "privacy": "Ukurasa",
+        "terms": "Ukurasa"
       }
     },
     "what_to_expect": {
-      "title": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
       "quick_response": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       },
       "personal_support": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       },
       "follow_up": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       }
     }
   },
   "PricingPage": {
     "meta": {
-      "title": "Bei - Chagua Mpango Unaokufaa | Transly",
+      "title": "Bei - Chagua Mpango Unaokufaa | Loretrans",
       "description": "Mapendekezo ya akili yanayotegemea mazingira. Anza kwa $5 kwa wanafunzi, $10 kwa watumiaji binafsi, $25 kwa wataalamu."
     },
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "plans": {
       "starter": {
         "name": "Mwanzo",
         "description": "Inafaa kwa wanafunzi na watumiaji wa matumizi machache",
-        "discount": "Inahitaji kutafsiriwa"
+        "discount": "Ukurasa"
       },
       "professional": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
-        "discount": "Inahitaji kutafsiriwa"
+        "name": "Jina",
+        "description": "Maelezo",
+        "discount": "Ukurasa"
       },
       "business": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
-        "discount": "Inahitaji kutafsiriwa"
+        "name": "Jina",
+        "description": "Maelezo",
+        "discount": "Ukurasa"
       }
     },
     "features": {
-      "title": "Inahitaji kutafsiriwa",
-      "unlimited_text": "Inahitaji kutafsiriwa",
-      "document_support": "Inahitaji kutafsiriwa",
-      "tts_support": "Inahitaji kutafsiriwa",
-      "api_access": "Inahitaji kutafsiriwa",
-      "priority_support": "Inahitaji kutafsiriwa",
-      "no_expiry": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "unlimited_text": "Maandishi",
+      "document_support": "Msaada",
+      "tts_support": "Msaada",
+      "api_access": "Ukurasa",
+      "priority_support": "Msaada",
+      "no_expiry": "Ukurasa"
     },
     "buttons": {
-      "purchase": "Inahitaji kutafsiriwa",
-      "processing": "Inahitaji kutafsiriwa",
-      "get_started": "Inahitaji kutafsiriwa"
+      "purchase": "Ukurasa",
+      "processing": "Ukurasa",
+      "get_started": "Ukurasa"
     },
     "alert": {
-      "canceled_title": "Inahitaji kutafsiriwa",
-      "canceled_description": "Inahitaji kutafsiriwa"
+      "canceled_title": "Kichwa",
+      "canceled_description": "Maelezo"
     },
-    "loading": "Inahitaji kutafsiriwa",
+    "loading": "Inapakia",
     "cta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "free_trial": "Inahitaji kutafsiriwa",
-      "contact_sales": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "free_trial": "Bure",
+      "contact_sales": "Wasiliana"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "title": "💰 Cost Comparison: Why Choose Loretrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -497,9 +521,9 @@
         "title": "Google Translate",
         "description": "Limited small language coverage"
       },
-      "transly": {
+      "loretrans": {
         "price": "$1",
-        "title": "Transly",
+        "title": "Loretrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
@@ -507,96 +531,145 @@
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "status_free": "Inahitaji kutafsiriwa",
-      "status_ai": "Inahitaji kutafsiriwa",
-      "status_instant": "Inahitaji kutafsiriwa"
+      "title": "Smart Low-Resource Lugha Tafsiri",
+      "subtitle": "AI kwa akili huamua hali ya usindikaji, kusaidia tafsiri ya kitaalamu kwa lugha 20+ zenye rasilimali chache ikiwa ni pamoja na Kikrioli cha Haiti, Lao, Kiburma, na zaidi",
+      "features": {
+        "free_500_chars": "Bure chini ya wahusika 500",
+        "smart_time_estimation": "Smart wakati makadirio",
+        "unified_experience": "Uzoefu wa Tafsiri ya Umoja",
+        "error_recovery": "Smart makosa ahueni"
+      }
     },
     "other_languages": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "faq": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "q1_title": "Inahitaji kutafsiriwa",
-      "q1_answer": "Inahitaji kutafsiriwa",
-      "q2_title": "Inahitaji kutafsiriwa",
-      "q2_answer": "Inahitaji kutafsiriwa",
-      "q3_title": "Inahitaji kutafsiriwa",
-      "q3_answer": "Inahitaji kutafsiriwa",
-      "q4_title": "Inahitaji kutafsiriwa",
-      "q4_answer": "Inahitaji kutafsiriwa",
-      "q5_title": "Inahitaji kutafsiriwa",
-      "q5_answer": "Inahitaji kutafsiriwa",
-      "q6_title": "Inahitaji kutafsiriwa",
-      "q6_answer": "Inahitaji kutafsiriwa",
-      "contact_text": "Inahitaji kutafsiriwa",
-      "contact_link": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "q1_title": "Kichwa",
+      "q1_answer": "Ukurasa",
+      "q2_title": "Kichwa",
+      "q2_answer": "Ukurasa",
+      "q3_title": "Kichwa",
+      "q3_answer": "Ukurasa",
+      "q4_title": "Kichwa",
+      "q4_answer": "Ukurasa",
+      "q5_title": "Kichwa",
+      "q5_answer": "Ukurasa",
+      "q6_title": "Kichwa",
+      "q6_answer": "Ukurasa",
+      "contact_text": "Maandishi",
+      "contact_link": "Kiungo"
     },
     "cta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "try_document": "Inahitaji kutafsiriwa",
-      "view_pricing": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "try_document": "Ukurasa",
+      "view_pricing": "Ukurasa"
     },
     "features": {
-      "title": "Inahitaji kutafsiriwa",
-      "fast_title": "Inahitaji kutafsiriwa",
-      "fast_desc": "Inahitaji kutafsiriwa",
-      "accurate_title": "Inahitaji kutafsiriwa",
-      "accurate_desc": "Inahitaji kutafsiriwa",
-      "free_title": "Inahitaji kutafsiriwa",
-      "free_desc": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "fast_title": "Kichwa",
+      "fast_desc": "Ukurasa",
+      "accurate_title": "Kichwa",
+      "accurate_desc": "Ukurasa",
+      "free_title": "Kichwa",
+      "free_desc": "Bure"
     },
     "how_to": {
-      "title": "Inahitaji kutafsiriwa",
-      "step1_title": "Inahitaji kutafsiriwa",
-      "step1_desc": "Inahitaji kutafsiriwa",
-      "step2_title": "Inahitaji kutafsiriwa",
-      "step2_desc": "Inahitaji kutafsiriwa",
-      "step3_title": "Inahitaji kutafsiriwa",
-      "step3_desc": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "step1_title": "Kichwa",
+      "step1_desc": "Ukurasa",
+      "step2_title": "Kichwa",
+      "step2_desc": "Ukurasa",
+      "step3_title": "Kichwa",
+      "step3_desc": "Ukurasa"
     },
     "supported_languages": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "more": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "more": "Ukurasa"
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Chunguza Tafsiri za Lugha Zenye Rasilimali za Chini Zaidi",
+        "subtitle": "Tunasaidia huduma za tafsiri ya kitaalamu kwa lugha 20+ za rasilimali ndogo"
+      },
+      "faq": {
+        "title": "Maswali Yanayoulizwa Mara Nyingi",
+        "subtitle": "Maswali ya kawaida kuhusu lugha ya chini ya rasilimali ya kutafsiri"
+      },
+      "cta": {
+        "title": "Tayari Kuanza Kutafsiri?",
+        "subtitle": "Uzoefu wa kitaalamu wa lugha ya rasilimali ya chini ya huduma ya tafsiri, bure kabisa chini ya herufi 500",
+        "try_document": "Jaribu Tafsiri ya Hati",
+        "view_pricing": "Angalia Mipango ya Bei"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Ni lugha zipi zinaungwa mkono kwa ajili ya tafsiri?",
+        "answer": "Tunazingatia tafsiri ya lugha yenye rasilimali chache, tukisaidia lugha zaidi ya 20 ambazo Google Translate haiwezi kuzielewa vizuri, ikiwa ni pamoja na Kikrioli cha Haiti, Klaw, Kiswahili, Kiburma, Telugu, na zaidi."
+      },
+      "q2": {
+        "question": "Tafsiri hiyo ni sahihi kadiri gani?",
+        "answer": "Kulingana na mtindo wa NLLB wa Meta, usahihi wetu wa tafsiri unazidi 90%. Hasa kwa lugha zenye rasilimali chache, sisi ni wataalamu zaidi na sahihi kuliko zana za tafsiri za jadi."
+      },
+      "q3": {
+        "question": "Kiasi gani cha bure?",
+        "answer": "Chini ya wahusika 500 ni bure kabisa, hakuna usajili inahitajika. watumiaji waliosajiliwa pia kupata 500 mikopo ziada, ambayo inaweza kutafsiri takriban 50,000 wahusika wa maandishi ya muda mrefu."
+      },
+      "q4": {
+        "question": "Je, ada za tafsiri zinatozwaje?",
+        "answer": "Nakala zaidi ya herufi 500 ni kushtakiwa kwa 0.1 mikopo kwa herufi. Kwa mfano, kutafsiri 1000 herufi inahitaji mikopo 50, gharama kuhusu $ 0.05, kuokoa 99% ikilinganishwa na tafsiri ya binadamu."
+      },
+      "q5": {
+        "question": "Ni aina gani ya faili zinazoungwa mkono?",
+        "answer": "Mbali na tafsiri ya maandishi, sisi pia kusaidia tafsiri za muundo wa hati kama vile PDF, Neno, PPT. Tafsiri ya hati moja kwa moja dondoo maandishi wakati kudumisha uumbizaji wa awali."
+      },
+      "q6": {
+        "question": "Je, matokeo ya tafsiri yanaweza kuhifadhiwa?",
+        "answer": "Historia ya tafsiri kwa watumiaji waliosajiliwa huhifadhiwa moja kwa moja. Mpango wa kuanza huhifadhi kwa siku 7, Mpango Msingi kwa siku 30, Mpango Pro kwa siku 90, Mpango Wa Biashara huhifadhika kwa muda usiojulikana."
+      }
+    },
+    "contact": {
+      "more_questions": "Je, una maswali mengine?",
+      "contact_support": "Wasiliana na timu yetu ya msaada"
     }
   },
   "Layout": {
     "Navigation": {
-      "text_translation": "Inahitaji kutafsiriwa",
-      "text_translation_desc": "Inahitaji kutafsiriwa",
-      "document_translation": "Inahitaji kutafsiriwa",
-      "document_translation_desc": "Inahitaji kutafsiriwa",
-      "about": "Inahitaji kutafsiriwa",
-      "about_desc": "Inahitaji kutafsiriwa"
+      "text_translation": "Maandishi",
+      "text_translation_desc": "Maandishi",
+      "document_translation": "Urambazaji",
+      "document_translation_desc": "Urambazaji",
+      "about": "Kuhusu",
+      "about_desc": "Kuhusu"
     },
     "Footer": {
-      "tagline": "Inahitaji kutafsiriwa",
-      "product": "Inahitaji kutafsiriwa",
-      "text_translation": "Inahitaji kutafsiriwa",
-      "document_translation": "Inahitaji kutafsiriwa",
-      "supported_languages": "Inahitaji kutafsiriwa",
-      "company": "Inahitaji kutafsiriwa",
-      "about_us": "Inahitaji kutafsiriwa",
-      "privacy_policy": "Inahitaji kutafsiriwa",
-      "terms_of_service": "Inahitaji kutafsiriwa",
-      "compliance": "Inahitaji kutafsiriwa",
-      "resources": "Inahitaji kutafsiriwa",
-      "faq": "Inahitaji kutafsiriwa",
-      "contact_support": "Inahitaji kutafsiriwa",
-      "api_docs": "Inahitaji kutafsiriwa",
-      "copyright": "Inahitaji kutafsiriwa",
-      "powered_by": "Inahitaji kutafsiriwa",
+      "tagline": "Chini ya ukurasa",
+      "product": "Chini ya ukurasa",
+      "text_translation": "Maandishi",
+      "document_translation": "Chini ya ukurasa",
+      "supported_languages": "Msaada",
+      "company": "Chini ya ukurasa",
+      "about_us": "Kuhusu",
+      "privacy_policy": "Chini ya ukurasa",
+      "terms_of_service": "Chini ya ukurasa",
+      "compliance": "Chini ya ukurasa",
+      "resources": "Chini ya ukurasa",
+      "faq": "Chini ya ukurasa",
+      "contact_support": "Msaada",
+      "api_docs": "Chini ya ukurasa",
+      "copyright": "Chini ya ukurasa",
+      "powered_by": "Chini ya ukurasa",
       "contact_us": "Contact Us",
-      "support_email": "support@transly.app",
+      "support_email": "support@loretrans.app",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
@@ -605,365 +678,417 @@
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
-    "title": "Inahitaji kutafsiriwa",
-    "description": "Inahitaji kutafsiriwa",
+    "title": "Kichwa",
+    "description": "Maelezo",
     "steps": {
       "step1": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       },
       "step2": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       },
       "step3": {
-        "title": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa"
+        "title": "Kichwa",
+        "description": "Maelezo"
       }
     },
     "languages": {
-      "title": "Inahitaji kutafsiriwa"
+      "title": "Kichwa"
     },
     "cta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "try_text_translation": "Inahitaji kutafsiriwa",
-      "view_pricing": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "try_text_translation": "Maandishi",
+      "view_pricing": "Ukurasa"
     },
     "hero": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "upload_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
     "settings_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "source_language_label": "Inahitaji kutafsiriwa",
-      "source_language_placeholder": "Inahitaji kutafsiriwa",
-      "target_language_label": "Inahitaji kutafsiriwa",
-      "target_language_placeholder": "Inahitaji kutafsiriwa",
-      "translate_button": "Inahitaji kutafsiriwa",
-      "translating_button": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "source_language_label": "Lugha",
+      "source_language_placeholder": "Lugha",
+      "target_language_label": "Lugha",
+      "target_language_placeholder": "Lugha",
+      "translate_button": "Kitufe",
+      "translating_button": "Kitufe"
     },
     "jobs_section": {
-      "title": "Inahitaji kutafsiriwa",
-      "no_jobs": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "no_jobs": "Ukurasa",
       "status": {
-        "pending": "Inahitaji kutafsiriwa",
-        "processing": "Inahitaji kutafsiriwa",
-        "completed": "Inahitaji kutafsiriwa",
-        "failed": "Inahitaji kutafsiriwa"
+        "pending": "Ukurasa",
+        "processing": "Ukurasa",
+        "completed": "Ukurasa",
+        "failed": "Ukurasa"
       },
-      "error_message": "Inahitaji kutafsiriwa",
-      "download_button": "Inahitaji kutafsiriwa"
+      "error_message": "Ujumbe",
+      "download_button": "Kitufe"
     }
   },
   "DocumentTranslator": {
     "auth_required": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "login_button": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "login_button": "Kitufe"
     },
     "upload": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "uploading": "Inahitaji kutafsiriwa",
-      "click_to_select": "Inahitaji kutafsiriwa",
-      "drag_drop": "Inahitaji kutafsiriwa",
-      "upload_success": "Inahitaji kutafsiriwa",
-      "extracted_characters": "Inahitaji kutafsiriwa",
-      "upload_failed": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "uploading": "Inapakia",
+      "click_to_select": "Inahitajika kutafsiriwa",
+      "drag_drop": "Inahitajika kutafsiriwa",
+      "upload_success": "Mafanikio",
+      "extracted_characters": "Inahitajika kutafsiriwa",
+      "upload_failed": "Inahitajika kutafsiriwa"
     },
     "analysis": {
-      "title": "Inahitaji kutafsiriwa",
-      "filename": "Inahitaji kutafsiriwa",
-      "filesize": "Inahitaji kutafsiriwa",
-      "text_preview": "Inahitaji kutafsiriwa",
-      "character_count": "Inahitaji kutafsiriwa",
-      "characters": "Inahitaji kutafsiriwa",
-      "credit_consumption": "Inahitaji kutafsiriwa",
-      "credits": "Inahitaji kutafsiriwa",
-      "free": "Inahitaji kutafsiriwa",
-      "insufficient_credits": "Inahitaji kutafsiriwa",
-      "recharge_now": "Inahitaji kutafsiriwa",
-      "start_translation": "Inahitaji kutafsiriwa",
-      "reupload": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "filename": "Jina",
+      "filesize": "Inahitajika kutafsiriwa",
+      "text_preview": "Maandishi",
+      "character_count": "Inahitajika kutafsiriwa",
+      "characters": "Inahitajika kutafsiriwa",
+      "credit_consumption": "Inahitajika kutafsiriwa",
+      "credits": "Inahitajika kutafsiriwa",
+      "free": "Bure",
+      "insufficient_credits": "Inahitajika kutafsiriwa",
+      "recharge_now": "Inahitajika kutafsiriwa",
+      "start_translation": "Inahitajika kutafsiriwa",
+      "reupload": "Inahitajika kutafsiriwa"
     },
     "translation": {
-      "title": "Inahitaji kutafsiriwa",
-      "progress": "Inahitaji kutafsiriwa",
-      "estimated_time": "Inahitaji kutafsiriwa",
-      "completed": "Inahitaji kutafsiriwa",
-      "download_result": "Inahitaji kutafsiriwa",
-      "translation_started": "Inahitaji kutafsiriwa",
-      "credits_consumed": "Inahitaji kutafsiriwa",
-      "translation_failed": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "progress": "Inahitajika kutafsiriwa",
+      "estimated_time": "Inahitajika kutafsiriwa",
+      "completed": "Inahitajika kutafsiriwa",
+      "download_result": "Inahitajika kutafsiriwa",
+      "translation_started": "Inahitajika kutafsiriwa",
+      "credits_consumed": "Inahitajika kutafsiriwa",
+      "translation_failed": "Inahitajika kutafsiriwa"
     }
   },
   "Errors": {
-    "user_not_authenticated": "Inahitaji kutafsiriwa",
-    "missing_parameters": "Inahitaji kutafsiriwa",
-    "insufficient_credits": "Inahitaji kutafsiriwa",
-    "credit_error": "Inahitaji kutafsiriwa",
-    "translation_invalid_response": "Inahitaji kutafsiriwa",
-    "translation_failed_refund_failed": "Inahitaji kutafsiriwa",
-    "translation_failed": "Inahitaji kutafsiriwa",
-    "unexpected_error": "Inahitaji kutafsiriwa",
-    "method_not_allowed": "Inahitaji kutafsiriwa",
-    "invalid_json": "Inahitaji kutafsiriwa",
-    "missing_fields": "Inahitaji kutafsiriwa",
-    "empty_text": "Inahitaji kutafsiriwa",
-    "text_too_long": "Inahitaji kutafsiriwa",
-    "unexpected_detection_error": "Inahitaji kutafsiriwa",
-    "invalid_lang_code": "Inahitaji kutafsiriwa",
-    "invalid_speech_rate": "Inahitaji kutafsiriwa",
-    "invalid_speech_pitch": "Inahitaji kutafsiriwa",
-    "invalid_voice": "Inahitaji kutafsiriwa",
-    "tts_unavailable": "Inahitaji kutafsiriwa",
-    "tts_failed": "Inahitaji kutafsiriwa",
-    "unexpected_tts_error": "Inahitaji kutafsiriwa",
-    "failed_to_get_voices": "Inahitaji kutafsiriwa"
+    "user_not_authenticated": "Mtumiaji",
+    "missing_parameters": "Inahitajika kutafsiriwa",
+    "insufficient_credits": "Inahitajika kutafsiriwa",
+    "credit_error": "Hitilafu",
+    "translation_invalid_response": "Inahitajika kutafsiriwa",
+    "translation_failed_refund_failed": "Inahitajika kutafsiriwa",
+    "translation_failed": "Inahitajika kutafsiriwa",
+    "unexpected_error": "Hitilafu",
+    "method_not_allowed": "Inahitajika kutafsiriwa",
+    "invalid_json": "Inahitajika kutafsiriwa",
+    "missing_fields": "Inahitajika kutafsiriwa",
+    "empty_text": "Maandishi",
+    "text_too_long": "Maandishi",
+    "unexpected_detection_error": "Hitilafu",
+    "invalid_lang_code": "Inahitajika kutafsiriwa",
+    "invalid_speech_rate": "Inahitajika kutafsiriwa",
+    "invalid_speech_pitch": "Inahitajika kutafsiriwa",
+    "invalid_voice": "Inahitajika kutafsiriwa",
+    "tts_unavailable": "Inahitajika kutafsiriwa",
+    "tts_failed": "Inahitajika kutafsiriwa",
+    "unexpected_tts_error": "Hitilafu",
+    "failed_to_get_voices": "Inahitajika kutafsiriwa"
   },
   "Auth": {
     "ForgotPassword": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "info": "Inahitaji kutafsiriwa",
-      "contact_support": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "info": "Inahitajika kutafsiriwa",
+      "contact_support": "Msaada"
     },
     "SignUpForm": {
-      "title": "Inahitaji kutafsiriwa",
-      "subtitle": "Inahitaji kutafsiriwa",
-      "name_label": "Inahitaji kutafsiriwa",
-      "name_placeholder": "Inahitaji kutafsiriwa",
-      "name_required": "Inahitaji kutafsiriwa",
-      "name_max_length": "Inahitaji kutafsiriwa",
-      "email_label": "Inahitaji kutafsiriwa",
-      "email_placeholder": "Inahitaji kutafsiriwa",
-      "email_required": "Inahitaji kutafsiriwa",
-      "email_invalid": "Inahitaji kutafsiriwa",
-      "email_max_length": "Inahitaji kutafsiriwa",
-      "password_label": "Inahitaji kutafsiriwa",
-      "password_placeholder": "Inahitaji kutafsiriwa",
-      "password_min_length": "Inahitaji kutafsiriwa",
-      "password_max_length": "Inahitaji kutafsiriwa",
-      "confirm_password_label": "Inahitaji kutafsiriwa",
-      "confirm_password_placeholder": "Inahitaji kutafsiriwa",
-      "confirm_password_required": "Inahitaji kutafsiriwa",
-      "password_mismatch": "Inahitaji kutafsiriwa",
-      "password_strength_label": "Inahitaji kutafsiriwa",
-      "password_strength_feedback": "Inahitaji kutafsiriwa",
-      "submit_button": "Inahitaji kutafsiriwa",
-      "submit_loading_button": "Inahitaji kutafsiriwa",
-      "signup_failed": "Inahitaji kutafsiriwa",
-      "signup_error": "Inahitaji kutafsiriwa",
-      "signin_prompt": "Inahitaji kutafsiriwa",
-      "signin_link": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "subtitle": "Kichwa",
+      "name_label": "Jina",
+      "name_placeholder": "Jina",
+      "name_required": "Jina",
+      "name_max_length": "Jina",
+      "email_label": "Barua pepe",
+      "email_placeholder": "Barua pepe",
+      "email_required": "Barua pepe",
+      "email_invalid": "Barua pepe",
+      "email_max_length": "Barua pepe",
+      "password_label": "Nenosiri",
+      "password_placeholder": "Nenosiri",
+      "password_min_length": "Nenosiri",
+      "password_max_length": "Nenosiri",
+      "confirm_password_label": "Nenosiri",
+      "confirm_password_placeholder": "Nenosiri",
+      "confirm_password_required": "Nenosiri",
+      "password_mismatch": "Nenosiri",
+      "password_strength_label": "Nenosiri",
+      "password_strength_feedback": "Nenosiri",
+      "submit_button": "Kitufe",
+      "submit_loading_button": "Kitufe",
+      "signup_failed": "Jisajili",
+      "signup_error": "Hitilafu",
+      "signin_prompt": "Ingia",
+      "signin_link": "Kiungo"
     },
     "SignInForm": {
-      "title": "Inahitaji kutafsiriwa",
-      "subtitle": "Inahitaji kutafsiriwa",
-      "email_label": "Inahitaji kutafsiriwa",
-      "email_placeholder": "Inahitaji kutafsiriwa",
-      "email_required": "Inahitaji kutafsiriwa",
-      "email_invalid": "Inahitaji kutafsiriwa",
-      "email_max_length": "Inahitaji kutafsiriwa",
-      "password_label": "Inahitaji kutafsiriwa",
-      "password_placeholder": "Inahitaji kutafsiriwa",
-      "password_required": "Inahitaji kutafsiriwa",
-      "password_max_length": "Inahitaji kutafsiriwa",
-      "forgot_password_link": "Inahitaji kutafsiriwa",
-      "remember_me_label": "Inahitaji kutafsiriwa",
-      "submit_button": "Inahitaji kutafsiriwa",
-      "submit_loading_button": "Inahitaji kutafsiriwa",
-      "signin_failed": "Inahitaji kutafsiriwa",
-      "signin_error": "Inahitaji kutafsiriwa",
-      "signup_prompt": "Inahitaji kutafsiriwa",
-      "signup_link": "Inahitaji kutafsiriwa",
-      "social_divider": "Inahitaji kutafsiriwa",
-      "google_signin_button": "Inahitaji kutafsiriwa",
-      "signup_bonus_prompt_1": "Inahitaji kutafsiriwa",
-      "signup_bonus_prompt_2": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "subtitle": "Kichwa",
+      "email_label": "Barua pepe",
+      "email_placeholder": "Barua pepe",
+      "email_required": "Barua pepe",
+      "email_invalid": "Barua pepe",
+      "email_max_length": "Barua pepe",
+      "password_label": "Nenosiri",
+      "password_placeholder": "Nenosiri",
+      "password_required": "Nenosiri",
+      "password_max_length": "Nenosiri",
+      "forgot_password_link": "Kiungo",
+      "remember_me_label": "Fomu",
+      "submit_button": "Kitufe",
+      "submit_loading_button": "Kitufe",
+      "signin_failed": "Ingia",
+      "signin_error": "Hitilafu",
+      "signup_prompt": "Jisajili",
+      "signup_link": "Kiungo",
+      "social_divider": "Fomu",
+      "google_signin_button": "Kitufe",
+      "signup_bonus_prompt_1": "Jisajili",
+      "signup_bonus_prompt_2": "Jisajili"
     },
     "GuestLimit": {
-      "remaining_translations": "Inahitaji kutafsiriwa",
-      "register_for_unlimited": "Inahitaji kutafsiriwa"
+      "remaining_translations": "Inahitajika kutafsiriwa",
+      "register_for_unlimited": "Jisajili"
     }
   },
   "TranslatorWidget": {
     "errors": {
-      "limit_reached_title": "Inahitaji kutafsiriwa",
-      "limit_reached_description": "Inahitaji kutafsiriwa",
-      "login_required_title": "Inahitaji kutafsiriwa",
-      "login_required_description": "Inahitaji kutafsiriwa",
-      "daily_limit_title": "Inahitaji kutafsiriwa",
-      "daily_limit_description": "Inahitaji kutafsiriwa"
+      "limit_reached_title": "Kichwa",
+      "limit_reached_description": "Maelezo",
+      "login_required_title": "Kichwa",
+      "login_required_description": "Maelezo",
+      "daily_limit_title": "Kichwa",
+      "daily_limit_description": "Maelezo",
+      "translation_failed": "Tafsiri alishindwa. Tafadhali jaribu tena.",
+      "network_error": "Kosa la mtandao Tafadhali angalia uhusiano wako.",
+      "invalid_input": "Tafadhali ingiza maandishi halali kutafsiri."
     },
     "success": {
-      "translation_complete": "Inahitaji kutafsiriwa",
-      "credits_consumed": "Inahitaji kutafsiriwa"
+      "translation_complete": "Inahitajika kutafsiriwa",
+      "credits_consumed": "Inahitajika kutafsiriwa"
     },
     "alerts": {
-      "login_required_for_long_text": "Inahitaji kutafsiriwa",
-      "login_now": "Inahitaji kutafsiriwa",
-      "or": "Inahitaji kutafsiriwa",
-      "register_account": "Inahitaji kutafsiriwa"
+      "login_required_for_long_text": "Maandishi",
+      "login_now": "Ingia",
+      "or": "Inahitajika kutafsiriwa",
+      "register_account": "Jisajili"
     },
     "buttons": {
-      "translating": "Inahitaji kutafsiriwa",
-      "translate_with_credits": "Inahitaji kutafsiriwa",
-      "free_translate": "Inahitaji kutafsiriwa"
+      "translating": "Inahitajika kutafsiriwa",
+      "translate_with_credits": "Inahitajika kutafsiriwa",
+      "free_translate": "Bure",
+      "start_translate": "Kuanza Tafsiri",
+      "translate": "Tafsiri",
+      "copy_result": "Nakala ya Matokeo",
+      "clear_text": "Nakala wazi"
     },
     "credits": {
-      "balance": "Inahitaji kutafsiriwa",
-      "recharge": "Inahitaji kutafsiriwa",
-      "free_translation": "Inahitaji kutafsiriwa",
-      "estimated_cost": "Inahitaji kutafsiriwa",
-      "insufficient_credits": "Inahitaji kutafsiriwa",
-      "free_quota_usage": "Inahitaji kutafsiriwa",
-      "characters": "Inahitaji kutafsiriwa",
-      "over_limit": "Inahitaji kutafsiriwa",
-      "insufficient_balance": "Inahitaji kutafsiriwa",
-      "recharge_now": "Inahitaji kutafsiriwa"
+      "balance": "Inahitajika kutafsiriwa",
+      "recharge": "Inahitajika kutafsiriwa",
+      "free_translation": "Bure",
+      "estimated_cost": "Inahitajika kutafsiriwa",
+      "insufficient_credits": "Inahitajika kutafsiriwa",
+      "free_quota_usage": "Bure",
+      "characters": "Inahitajika kutafsiriwa",
+      "over_limit": "Inahitajika kutafsiriwa",
+      "insufficient_balance": "Inahitajika kutafsiriwa",
+      "recharge_now": "Inahitajika kutafsiriwa"
+    },
+    "labels": {
+      "from": "Kutoka",
+      "to": "Kwa ",
+      "source_text": "Nakala ya chanzo",
+      "target_text": "Tafsiri",
+      "enter_text": "Ingiza maandishi ya kutafsiri...",
+      "translation_result": "Matokeo ya Tafsiri",
+      "copy_translation": "Nakala Tafsiri",
+      "clear_text": "Nakala wazi",
+      "swap_languages": "Kubadilisha Lugha",
+      "translated_text": "Nakala ya Tafsiri"
+    },
+    "placeholders": {
+      "translation_result": "Tafsiri itaonekana hapa...",
+      "translating": "Kutafsiri...",
+      "enter_source_text": "Enter text to translate..."
+    },
+    "actions": {
+      "copy": "Imepokelewa",
+      "listen": "Sikiliza",
+      "play": "Kucheza",
+      "pause": "Pumuzika",
+      "stop": "Acha ",
+      "download": "Pakua",
+      "share": "Shiriki",
+      "clear": "Safi"
+    },
+    "estimation": {
+      "estimated_time": "Wakati uliokadiriwa",
+      "processing_time": "Muda wa usindikaji",
+      "time_remaining": "Muda uliobaki",
+      "seconds": "sekunde",
+      "minutes": "dakika",
+      "hours": "saa",
+      "less_than_minute": "Chini ya dakika",
+      "about_minutes": "About {minutes} minutes",
+      "about_seconds": "About {seconds} seconds",
+      "calculating": "Kuhesabu...",
+      "queue_position": "Queue position: {position}",
+      "estimated_completion": "Estimated completion: {time}"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo"
     },
-    "title": "Inahitaji kutafsiriwa",
-    "subtitle": "Inahitaji kutafsiriwa",
-    "current_balance": "Inahitaji kutafsiriwa",
+    "title": "Kichwa",
+    "subtitle": "Kichwa",
+    "current_balance": "Inahitajika kutafsiriwa",
     "free_tier": {
-      "title": "Inahitaji kutafsiriwa",
-      "subtitle": "Inahitaji kutafsiriwa",
-      "completely_free": "Inahitaji kutafsiriwa",
-      "credit_based": "Inahitaji kutafsiriwa",
+      "title": "Kichwa",
+      "subtitle": "Kichwa",
+      "completely_free": "Bure",
+      "credit_based": "Inahitajika kutafsiriwa",
       "features": {
-        "free_text": "Inahitaji kutafsiriwa",
-        "all_languages": "Inahitaji kutafsiriwa",
-        "unlimited_use": "Inahitaji kutafsiriwa",
-        "large_text": "Inahitaji kutafsiriwa",
-        "document_translation": "Inahitaji kutafsiriwa",
-        "rate": "Inahitaji kutafsiriwa"
+        "free_text": "Maandishi",
+        "all_languages": "Lugha",
+        "unlimited_use": "Inahitajika kutafsiriwa",
+        "large_text": "Maandishi",
+        "document_translation": "Inahitajika kutafsiriwa",
+        "rate": "Inahitajika kutafsiriwa"
       }
     },
     "packages": {
       "starter": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
+        "name": "Jina",
+        "description": "Maelezo",
         "features": {
-          "credits": "Inahitaji kutafsiriwa",
-          "languages": "Inahitaji kutafsiriwa",
-          "documents": "Inahitaji kutafsiriwa",
-          "validity": "Inahitaji kutafsiriwa"
+          "credits": "Inahitajika kutafsiriwa",
+          "languages": "Lugha",
+          "documents": "Inahitajika kutafsiriwa",
+          "validity": "Inahitajika kutafsiriwa"
         }
       },
       "basic": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
+        "name": "Jina",
+        "description": "Maelezo",
         "features": {
-          "credits": "Inahitaji kutafsiriwa",
-          "languages": "Inahitaji kutafsiriwa",
-          "documents": "Inahitaji kutafsiriwa",
-          "validity": "Inahitaji kutafsiriwa",
-          "support": "Inahitaji kutafsiriwa"
+          "credits": "Inahitajika kutafsiriwa",
+          "languages": "Lugha",
+          "documents": "Inahitajika kutafsiriwa",
+          "validity": "Inahitajika kutafsiriwa",
+          "support": "Msaada"
         }
       },
       "pro": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
+        "name": "Jina",
+        "description": "Maelezo",
         "features": {
-          "credits": "Inahitaji kutafsiriwa",
-          "languages": "Inahitaji kutafsiriwa",
-          "documents": "Inahitaji kutafsiriwa",
-          "validity": "Inahitaji kutafsiriwa",
-          "support": "Inahitaji kutafsiriwa",
-          "batch": "Inahitaji kutafsiriwa"
+          "credits": "Inahitajika kutafsiriwa",
+          "languages": "Lugha",
+          "documents": "Inahitajika kutafsiriwa",
+          "validity": "Inahitajika kutafsiriwa",
+          "support": "Msaada",
+          "batch": "Inahitajika kutafsiriwa"
         }
       },
       "business": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
+        "name": "Jina",
+        "description": "Maelezo",
         "features": {
-          "credits": "Inahitaji kutafsiriwa",
-          "languages": "Inahitaji kutafsiriwa",
-          "documents": "Inahitaji kutafsiriwa",
-          "validity": "Inahitaji kutafsiriwa",
-          "support": "Inahitaji kutafsiriwa",
-          "batch": "Inahitaji kutafsiriwa",
-          "api": "Inahitaji kutafsiriwa"
+          "credits": "Inahitajika kutafsiriwa",
+          "languages": "Lugha",
+          "documents": "Inahitajika kutafsiriwa",
+          "validity": "Inahitajika kutafsiriwa",
+          "support": "Msaada",
+          "batch": "Inahitajika kutafsiriwa",
+          "api": "Inahitajika kutafsiriwa"
         }
       },
       "enterprise": {
-        "name": "Inahitaji kutafsiriwa",
-        "description": "Inahitaji kutafsiriwa",
+        "name": "Jina",
+        "description": "Maelezo",
         "features": {
-          "credits": "Inahitaji kutafsiriwa",
-          "languages": "Inahitaji kutafsiriwa",
-          "documents": "Inahitaji kutafsiriwa",
-          "validity": "Inahitaji kutafsiriwa",
-          "support": "Inahitaji kutafsiriwa",
-          "batch": "Inahitaji kutafsiriwa",
-          "api": "Inahitaji kutafsiriwa",
-          "integration": "Inahitaji kutafsiriwa"
+          "credits": "Inahitajika kutafsiriwa",
+          "languages": "Lugha",
+          "documents": "Inahitajika kutafsiriwa",
+          "validity": "Inahitajika kutafsiriwa",
+          "support": "Msaada",
+          "batch": "Inahitajika kutafsiriwa",
+          "api": "Inahitajika kutafsiriwa",
+          "integration": "Inahitajika kutafsiriwa"
         }
       }
     },
-    "popular": "Inahitaji kutafsiriwa",
-    "save": "Inahitaji kutafsiriwa",
-    "credits": "Inahitaji kutafsiriwa",
-    "purchase_button": "Inahitaji kutafsiriwa",
-    "processing": "Inahitaji kutafsiriwa",
+    "popular": "Inahitajika kutafsiriwa",
+    "save": "Hifadhi",
+    "credits": "Inahitajika kutafsiriwa",
+    "purchase_button": "Kitufe",
+    "processing": "Inahitajika kutafsiriwa",
     "new_user_bonus": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "note": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "note": "Inahitajika kutafsiriwa"
     },
     "register_prompt": {
-      "title": "Inahitaji kutafsiriwa",
-      "description": "Inahitaji kutafsiriwa",
-      "register_button": "Inahitaji kutafsiriwa",
-      "signin_button": "Inahitaji kutafsiriwa"
+      "title": "Kichwa",
+      "description": "Maelezo",
+      "register_button": "Kitufe",
+      "signin_button": "Kitufe"
     },
     "faq": {
-      "title": "Inahitaji kutafsiriwa",
-      "subtitle": "Inahitaji kutafsiriwa",
+      "title": "Maswali Yanayoulizwa Mara Nyingi",
+      "subtitle": "Kichwa",
       "credit_calculation": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Jinsi gani mikopo ni mahesabu?",
+        "answer": "Chini ya herufi 300 ni bure kabisa, ziada ni kushtakiwa kwa 0.1 mikopo / tabia. Kwa mfano: kutafsiri herufi 1000 inahitaji mikopo 70."
       },
       "expiration": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Je, mikopo hupungua?",
+        "answer": "Hapana, mikopo yako haikomi kamwe. Mara baada ya kununuliwa, hubaki kwenye akaunti yako hadi utakapotumia."
       },
       "payment_methods": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Ni njia gani za malipo unazounga mkono?",
+        "answer": "Tunasaidia kadi kubwa za mikopo na kadi za malipo kupitia mfumo wetu salama wa malipo ya Creem."
       },
       "bulk_discount": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Inahitajika kutafsiriwa",
+        "answer": "Inahitajika kutafsiriwa"
       },
       "unused_credits": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Inahitajika kutafsiriwa",
+        "answer": "Inahitajika kutafsiriwa"
       },
       "business_invoicing": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Inahitajika kutafsiriwa",
+        "answer": "Inahitajika kutafsiriwa"
       },
       "api_pricing": {
-        "question": "Inahitaji kutafsiriwa",
-        "answer": "Inahitaji kutafsiriwa"
+        "question": "Inahitajika kutafsiriwa",
+        "answer": "Inahitajika kutafsiriwa"
       },
-      "contact_support": "Inahitaji kutafsiriwa"
+      "contact_support": "Msaada",
+      "upgrade_plan": {
+        "question": "Je, ninaweza kuboresha mpango wangu wakati wowote?",
+        "answer": "Unaweza kununua vifurushi vya ziada vya mikopo wakati wowote, na mikopo itaongezwa kwenye akaunti yako mara moja."
+      }
     }
   },
   "Common": {
@@ -984,152 +1109,153 @@
     "creole_greeting": "Salamu ya Kikrioli",
     "lao_greeting": "Salamu za Lao",
     "swahili_greeting": "Salamu ya Kiswahili",
-    "choose_pricing_plan": "Chagua mpango wa bei"
+    "choose_pricing_plan": "Chagua mpango wa bei",
+    "coming_soon": "Karibuni"
   },
   "translation": {
-    "start_translation": "Inahitaji kutafsiriwa",
-    "translation_complete": "Inahitaji kutafsiriwa",
-    "translation_failed": "Inahitaji kutafsiriwa",
-    "translating": "Inahitaji kutafsiriwa",
-    "preparing_engine": "Inahitaji kutafsiriwa",
-    "about_to_start": "Inahitaji kutafsiriwa",
-    "processing": "Inahitaji kutafsiriwa",
-    "engine_running": "Inahitaji kutafsiriwa",
-    "optimizing_quality": "Inahitaji kutafsiriwa",
-    "translation_paused": "Inahitaji kutafsiriwa",
-    "resume_translation": "Inahitaji kutafsiriwa",
-    "translation_error": "Inahitaji kutafsiriwa",
-    "service_unavailable": "Inahitaji kutafsiriwa",
-    "input_placeholder": "Inahitaji kutafsiriwa",
-    "result_placeholder": "Inahitaji kutafsiriwa",
-    "from_language": "Inahitaji kutafsiriwa",
-    "to_language": "Inahitaji kutafsiriwa",
-    "partial_complete": "Inahitaji kutafsiriwa",
-    "partial_description": "Inahitaji kutafsiriwa",
-    "task_resubmitted": "Inahitaji kutafsiriwa"
+    "start_translation": "Inahitajika kutafsiriwa",
+    "translation_complete": "Inahitajika kutafsiriwa",
+    "translation_failed": "Inahitajika kutafsiriwa",
+    "translating": "Inahitajika kutafsiriwa",
+    "preparing_engine": "Inahitajika kutafsiriwa",
+    "about_to_start": "Kuhusu",
+    "processing": "Inahitajika kutafsiriwa",
+    "engine_running": "Inahitajika kutafsiriwa",
+    "optimizing_quality": "Inahitajika kutafsiriwa",
+    "translation_paused": "Inahitajika kutafsiriwa",
+    "resume_translation": "Inahitajika kutafsiriwa",
+    "translation_error": "Hitilafu",
+    "service_unavailable": "Inahitajika kutafsiriwa",
+    "input_placeholder": "Inahitajika kutafsiriwa",
+    "result_placeholder": "Inahitajika kutafsiriwa",
+    "from_language": "Lugha",
+    "to_language": "Lugha",
+    "partial_complete": "Inahitajika kutafsiriwa",
+    "partial_description": "Maelezo",
+    "task_resubmitted": "Wasilisha"
   },
   "task": {
-    "task_management": "Inahitaji kutafsiriwa",
-    "manage_description": "Inahitaji kutafsiriwa",
-    "new_translation": "Inahitaji kutafsiriwa",
-    "refresh_tasks": "Inahitaji kutafsiriwa",
-    "task_list_updated": "Inahitaji kutafsiriwa",
-    "refresh_failed": "Inahitaji kutafsiriwa",
-    "operation_success": "Inahitaji kutafsiriwa",
-    "operation_failed": "Inahitaji kutafsiriwa",
-    "select_tasks_first": "Inahitaji kutafsiriwa",
-    "no_tasks": "Inahitaji kutafsiriwa",
-    "no_matching_tasks": "Inahitaji kutafsiriwa",
-    "create_first_task": "Inahitaji kutafsiriwa",
-    "search_placeholder": "Inahitaji kutafsiriwa",
-    "queue_created": "Inahitaji kutafsiriwa",
-    "can_leave_page": "Inahitaji kutafsiriwa",
-    "check_in_tasks": "Inahitaji kutafsiriwa",
-    "view_in_tasks": "Inahitaji kutafsiriwa",
-    "batch_operation_success": "Inahitaji kutafsiriwa"
+    "task_management": "Inahitajika kutafsiriwa",
+    "manage_description": "Maelezo",
+    "new_translation": "Inahitajika kutafsiriwa",
+    "refresh_tasks": "Inahitajika kutafsiriwa",
+    "task_list_updated": "Inahitajika kutafsiriwa",
+    "refresh_failed": "Inahitajika kutafsiriwa",
+    "operation_success": "Mafanikio",
+    "operation_failed": "Inahitajika kutafsiriwa",
+    "select_tasks_first": "Inahitajika kutafsiriwa",
+    "no_tasks": "Inahitajika kutafsiriwa",
+    "no_matching_tasks": "Inahitajika kutafsiriwa",
+    "create_first_task": "Inahitajika kutafsiriwa",
+    "search_placeholder": "Inahitajika kutafsiriwa",
+    "queue_created": "Inahitajika kutafsiriwa",
+    "can_leave_page": "Inahitajika kutafsiriwa",
+    "check_in_tasks": "Inahitajika kutafsiriwa",
+    "view_in_tasks": "Inahitajika kutafsiriwa",
+    "batch_operation_success": "Mafanikio"
   },
   "progress": {
-    "preparing": "Inahitaji kutafsiriwa",
-    "processing": "Inahitaji kutafsiriwa",
-    "finalizing": "Inahitaji kutafsiriwa",
-    "completed": "Inahitaji kutafsiriwa",
-    "paused": "Inahitaji kutafsiriwa",
-    "failed": "Inahitaji kutafsiriwa",
-    "cancelled": "Inahitaji kutafsiriwa",
-    "partial_success": "Inahitaji kutafsiriwa",
-    "progress": "Inahitaji kutafsiriwa",
-    "understanding_text": "Inahitaji kutafsiriwa",
-    "analyzing_language": "Inahitaji kutafsiriwa",
-    "processing_content": "Inahitaji kutafsiriwa",
-    "checking_grammar": "Inahitaji kutafsiriwa",
-    "final_polish": "Inahitaji kutafsiriwa",
-    "presenting_results": "Inahitaji kutafsiriwa",
-    "results_ready": "Inahitaji kutafsiriwa",
-    "thank_you_waiting": "Inahitaji kutafsiriwa",
-    "progress_saved": "Inahitaji kutafsiriwa",
-    "processing_time_long": "Inahitaji kutafsiriwa",
-    "instant_processing": "Inahitaji kutafsiriwa",
-    "background_processing": "Inahitaji kutafsiriwa",
-    "smart_processing": "Inahitaji kutafsiriwa"
+    "preparing": "Inahitajika kutafsiriwa",
+    "processing": "Inahitajika kutafsiriwa",
+    "finalizing": "Inahitajika kutafsiriwa",
+    "completed": "Inahitajika kutafsiriwa",
+    "paused": "Inahitajika kutafsiriwa",
+    "failed": "Inahitajika kutafsiriwa",
+    "cancelled": "Ghairi",
+    "partial_success": "Mafanikio",
+    "progress": "Inahitajika kutafsiriwa",
+    "understanding_text": "Maandishi",
+    "analyzing_language": "Lugha",
+    "processing_content": "Inahitajika kutafsiriwa",
+    "checking_grammar": "Inahitajika kutafsiriwa",
+    "final_polish": "Inahitajika kutafsiriwa",
+    "presenting_results": "Inahitajika kutafsiriwa",
+    "results_ready": "Inahitajika kutafsiriwa",
+    "thank_you_waiting": "Inahitajika kutafsiriwa",
+    "progress_saved": "Hifadhi",
+    "processing_time_long": "Inahitajika kutafsiriwa",
+    "instant_processing": "Inahitajika kutafsiriwa",
+    "background_processing": "Inahitajika kutafsiriwa",
+    "smart_processing": "Inahitajika kutafsiriwa"
   },
   "time": {
-    "time_estimate": "Inahitaji kutafsiriwa",
-    "estimated_time": "Inahitaji kutafsiriwa",
-    "can_leave": "Inahitaji kutafsiriwa",
-    "accurate_estimate": "Inahitaji kutafsiriwa",
-    "rough_estimate": "Inahitaji kutafsiriwa",
-    "approximate_estimate": "Inahitaji kutafsiriwa",
-    "fast_queue": "Inahitaji kutafsiriwa",
-    "creation_time": "Inahitaji kutafsiriwa"
+    "time_estimate": "Inahitajika kutafsiriwa",
+    "estimated_time": "Inahitajika kutafsiriwa",
+    "can_leave": "Inahitajika kutafsiriwa",
+    "accurate_estimate": "Inahitajika kutafsiriwa",
+    "rough_estimate": "Inahitajika kutafsiriwa",
+    "approximate_estimate": "Inahitajika kutafsiriwa",
+    "fast_queue": "Inahitajika kutafsiriwa",
+    "creation_time": "Inahitajika kutafsiriwa"
   },
   "error": {
-    "error_recovery": "Inahitaji kutafsiriwa",
-    "retry_failed": "Inahitaji kutafsiriwa",
-    "unknown_error": "Inahitaji kutafsiriwa",
-    "partial_results": "Inahitaji kutafsiriwa",
-    "retry_failed_parts": "Inahitaji kutafsiriwa",
-    "download_partial": "Inahitaji kutafsiriwa",
-    "segment_retry": "Inahitaji kutafsiriwa",
-    "encountered_problem": "Inahitaji kutafsiriwa",
-    "trying_to_resolve": "Inahitaji kutafsiriwa",
-    "contact_support": "Inahitaji kutafsiriwa",
-    "please_retry_later": "Inahitaji kutafsiriwa"
+    "error_recovery": "Hitilafu",
+    "retry_failed": "Inahitajika kutafsiriwa",
+    "unknown_error": "Hitilafu",
+    "partial_results": "Inahitajika kutafsiriwa",
+    "retry_failed_parts": "Inahitajika kutafsiriwa",
+    "download_partial": "Inahitajika kutafsiriwa",
+    "segment_retry": "Inahitajika kutafsiriwa",
+    "encountered_problem": "Inahitajika kutafsiriwa",
+    "trying_to_resolve": "Inahitajika kutafsiriwa",
+    "contact_support": "Msaada",
+    "please_retry_later": "Inahitajika kutafsiriwa"
   },
   "success": {
-    "completed": "Inahitaji kutafsiriwa",
-    "operation_success": "Inahitaji kutafsiriwa",
-    "partial_success": "Inahitaji kutafsiriwa",
-    "almost_done": "Inahitaji kutafsiriwa",
-    "results_shown_below": "Inahitaji kutafsiriwa",
-    "half_completed": "Inahitaji kutafsiriwa"
+    "completed": "Inahitajika kutafsiriwa",
+    "operation_success": "Mafanikio",
+    "partial_success": "Mafanikio",
+    "almost_done": "Inahitajika kutafsiriwa",
+    "results_shown_below": "Inahitajika kutafsiriwa",
+    "half_completed": "Inahitajika kutafsiriwa"
   },
   "credits": {
-    "estimated_consumption": "Inahitaji kutafsiriwa",
-    "credits_consumed": "Inahitaji kutafsiriwa",
-    "credits_processing": "Inahitaji kutafsiriwa",
-    "consumed_credits": "Inahitaji kutafsiriwa",
-    "refunded_credits": "Inahitaji kutafsiriwa",
-    "retry_only_failed": "Inahitaji kutafsiriwa"
+    "estimated_consumption": "Inahitajika kutafsiriwa",
+    "credits_consumed": "Inahitajika kutafsiriwa",
+    "credits_processing": "Inahitajika kutafsiriwa",
+    "consumed_credits": "Inahitajika kutafsiriwa",
+    "refunded_credits": "Inahitajika kutafsiriwa",
+    "retry_only_failed": "Inahitajika kutafsiriwa"
   },
   "language": {
-    "source_language": "Inahitaji kutafsiriwa",
-    "target_language": "Inahitaji kutafsiriwa",
-    "select_source": "Inahitaji kutafsiriwa",
-    "select_target": "Inahitaji kutafsiriwa"
+    "source_language": "Lugha",
+    "target_language": "Lugha",
+    "select_source": "Inahitajika kutafsiriwa",
+    "select_target": "Inahitajika kutafsiriwa"
   },
   "ui": {
-    "start": "Inahitaji kutafsiriwa",
-    "pause": "Inahitaji kutafsiriwa",
-    "resume": "Inahitaji kutafsiriwa",
-    "continue": "Inahitaji kutafsiriwa",
-    "cancel": "Inahitaji kutafsiriwa",
-    "retry": "Inahitaji kutafsiriwa",
-    "download": "Inahitaji kutafsiriwa",
-    "delete": "Inahitaji kutafsiriwa",
-    "refresh": "Inahitaji kutafsiriwa",
-    "all": "Inahitaji kutafsiriwa",
-    "status": "Inahitaji kutafsiriwa",
-    "priority": "Inahitaji kutafsiriwa",
-    "sort": "Inahitaji kutafsiriwa",
-    "normal": "Inahitaji kutafsiriwa",
-    "high": "Inahitaji kutafsiriwa",
-    "urgent": "Inahitaji kutafsiriwa",
-    "low": "Inahitaji kutafsiriwa",
-    "waiting": "Inahitaji kutafsiriwa",
-    "active": "Inahitaji kutafsiriwa",
-    "needs_attention": "Inahitaji kutafsiriwa",
-    "submitting": "Inahitaji kutafsiriwa",
-    "downloading": "Inahitaji kutafsiriwa",
-    "retrying": "Inahitaji kutafsiriwa",
-    "copied": "Inahitaji kutafsiriwa",
-    "text_copied": "Inahitaji kutafsiriwa",
-    "input_text": "Inahitaji kutafsiriwa",
-    "translation_result": "Inahitaji kutafsiriwa",
-    "characters": "Inahitaji kutafsiriwa",
-    "total_tasks": "Inahitaji kutafsiriwa",
-    "select_all": "Inahitaji kutafsiriwa",
-    "batch_operations": "Inahitaji kutafsiriwa",
-    "set_priority": "Inahitaji kutafsiriwa"
+    "start": "Inahitajika kutafsiriwa",
+    "pause": "Inahitajika kutafsiriwa",
+    "resume": "Inahitajika kutafsiriwa",
+    "continue": "Inahitajika kutafsiriwa",
+    "cancel": "Ghairi",
+    "retry": "Inahitajika kutafsiriwa",
+    "download": "Inahitajika kutafsiriwa",
+    "delete": "Inahitajika kutafsiriwa",
+    "refresh": "Inahitajika kutafsiriwa",
+    "all": "Inahitajika kutafsiriwa",
+    "status": "Hali",
+    "priority": "Inahitajika kutafsiriwa",
+    "sort": "Inahitajika kutafsiriwa",
+    "normal": "Inahitajika kutafsiriwa",
+    "high": "Inahitajika kutafsiriwa",
+    "urgent": "Inahitajika kutafsiriwa",
+    "low": "Inahitajika kutafsiriwa",
+    "waiting": "Inahitajika kutafsiriwa",
+    "active": "Inahitajika kutafsiriwa",
+    "needs_attention": "Inahitajika kutafsiriwa",
+    "submitting": "Wasilisha",
+    "downloading": "Inapakia",
+    "retrying": "Inahitajika kutafsiriwa",
+    "copied": "Inahitajika kutafsiriwa",
+    "text_copied": "Maandishi",
+    "input_text": "Maandishi",
+    "translation_result": "Inahitajika kutafsiriwa",
+    "characters": "Inahitajika kutafsiriwa",
+    "total_tasks": "Inahitajika kutafsiriwa",
+    "select_all": "Inahitajika kutafsiriwa",
+    "batch_operations": "Inahitajika kutafsiriwa",
+    "set_priority": "Inahitajika kutafsiriwa"
   },
   "NotFound": {
     "title": "Ukurasa Haukupatikana",
@@ -1149,6 +1275,68 @@
     "dashboard": {
       "title": "Kiwango cha admin",
       "description": "Kusimamia mipangilio ya maombi yako na kufuatilia hali ya mfumo."
+    }
+  },
+  "Feedback": {
+    "feedback": "Maoni ya ziada",
+    "title": "Maoni yako ni muhimu kwetu",
+    "rating": {
+      "tab": "Kiwango cha ",
+      "title": "Tathmini huduma yetu",
+      "select": "Tafadhali chagua rating",
+      "very_dissatisfied": "Sijafurahi sana ",
+      "dissatisfied": "Sijafurahi 😕",
+      "neutral": "Neutral 😐",
+      "satisfied": "Kuridhika 😊",
+      "very_satisfied": "Kuridhika sana ",
+      "placeholder": "Tafadhali tueleze hisia na mapendekezo yako maalum...",
+      "submit": "Tuma Kiwango"
+    },
+    "suggestion": {
+      "tab": "Pendekezo",
+      "title": "Pendekezo la Kipengele",
+      "type": "Aina ya pendekezo",
+      "categories": {
+        "feature": "Kipengele Kipya",
+        "ui": "UI Uboreshaji",
+        "performance": "Utendaji",
+        "language": "Msaada wa lugha",
+        "other": "Nyingine"
+      },
+      "placeholder": "Tafadhali eleza pendekezo lako kwa undani, tutalichunguza kwa makini...",
+      "submit": "Toa Pendekezo"
+    },
+    "bug": {
+      "tab": "Bug",
+      "title": "Ripoti Bug",
+      "type": "Bug Aina",
+      "categories": {
+        "translation": "Toleo la Tafsiri",
+        "ui": "User kosa",
+        "payment": "Suala la Malipo",
+        "account": "Sura ya akaunti",
+        "other": "Nyingine"
+      },
+      "placeholder": "Tafadhali eleza tatizo kwa undani, ikiwa ni pamoja na hatua na ujumbe wa makosa...",
+      "email": "Email ya mawasiliano (Uteuzi) ",
+      "submit": "Ripoti Bug"
+    },
+    "compliment": {
+      "tab": "Pongezi",
+      "title": "Pongezi na Asante",
+      "placeholder": "Tafadhali tuambie sifa au uzoefu wako unaopenda...",
+      "submit": "Tuma Pongezi"
+    },
+    "common": {
+      "submitting": "Kuwasilisha...",
+      "success": "Maoni yaliyotolewa kwa mafanikio!",
+      "success_desc": "Asante kwa maoni yako ya thamani, tutazingatia kwa makini na kuendelea kuboresha uzoefu wa bidhaa.",
+      "fill_required": "Tafadhali kujaza maudhui ya maoni",
+      "submit_failed": "Uwasilishaji alishindwa",
+      "try_again": "Tafadhali jaribu tena baadaye au wasiliana na huduma kwa wateja",
+      "translation_quality": "Ubora wa Tafsiri:",
+      "thanks_feedback": "Asante kwa maoni yako",
+      "feedback_helps": "Maoni yako yanatusaidia kuboresha ubora wa tafsiri"
     }
   }
 }

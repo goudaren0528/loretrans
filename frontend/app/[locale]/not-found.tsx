@@ -26,12 +26,6 @@ export default function LocaleNotFound() {
           >
             {t('goHome')}
           </Link>
-          
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
-              {t('contactSupport')}
-            </Link>
-          </div>
         </div>
       </div>
     </div>

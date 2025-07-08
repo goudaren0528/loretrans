@@ -271,14 +271,14 @@ export function FriendlyProgress({
             />
             
             {/* 步骤指示器 */}
-            {data.totalSteps && data.currentStepIndex !== undefined && (
+            {data.totalSteps && (data.currentStepIndex ?? 0 ?? 0) !== undefined && (
               <div className="flex items-center justify-center space-x-1 mt-2">
                 {Array.from({ length: data.totalSteps }, (_, i) => (
                   <div
                     key={i}
                     className={cn(
                       'w-2 h-2 rounded-full transition-colors',
-                      i <= data.currentStepIndex 
+                      i <= (data.currentStepIndex ?? 0 ?? 0) 
                         ? 'bg-primary' 
                         : 'bg-muted'
                     )}

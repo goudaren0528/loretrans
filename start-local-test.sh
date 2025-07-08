@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Transly 本地测试启动脚本 (使用 Hugging Face Space API)
+# Loretrans 本地测试启动脚本 (使用 Hugging Face Space API)
 # 无需Docker，无需本地AI模型，使用远程翻译服务
 
 set -e
@@ -13,7 +13,7 @@ CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}🚀 启动Transly本地测试环境${NC}"
+echo -e "${CYAN}🚀 启动Loretrans本地测试环境${NC}"
 echo -e "${CYAN}使用 Hugging Face Space API${NC}"
 echo -e "${CYAN}================================${NC}"
 

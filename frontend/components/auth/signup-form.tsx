@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { useRouter } from 'next/navigation'
 import { useToastMessages } from '@/lib/hooks/use-toast-messages'
 import { 
   checkPasswordStrength, 
@@ -133,6 +134,8 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
   const [emailCheckTimeout, setEmailCheckTimeout] = useState<NodeJS.Timeout | null>(null)
   const { signUp } = useAuth()
   const { showSignUpSuccess, showSignUpError } = useToastMessages()
+  const tAuth = useTranslations('Auth.SignUpForm')
+  const router = useRouter()
 
   const t = translations[locale as keyof typeof translations] || translations.en
 
@@ -315,7 +318,12 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
         setIsSuccess(true)
         showSignUpSuccess()
         setTimeout(() => {
-          onSuccess?.()
+          if (onSuccess) {
+            onSuccess()
+          } else {
+            // 默认跳转到首页
+            router.push('/')
+          }
         }, 2000) // 2秒后跳转，让用户看到成功消息
       }
     } catch (error) {
@@ -433,7 +441,7 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
           {/* 密码要求列表 */}
           {password && requirements.length > 0 && (
             <div className="space-y-1">
-              <p className="text-xs text-muted-foreground">{t.passwordRequirements}:</p>
+              <p className="text-xs text-muted-foreground">{tAuth('password_requirements')}:</p>
               <ul className="space-y-1">
                 {requirements.map((req, index) => (
                   <li key={index} className="flex items-center space-x-2 text-xs">
@@ -443,7 +451,7 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
                       <XCircle className="h-3 w-3 text-red-500" />
                     )}
                     <span className={req.met ? 'text-green-600' : 'text-red-600'}>
-                      {req.text}
+                      {req.label}
                     </span>
                   </li>
                 ))}

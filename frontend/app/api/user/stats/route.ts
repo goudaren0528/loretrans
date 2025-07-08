@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
@@ -164,7 +165,7 @@ export async function GET(request: NextRequest) {
     
     if (totalTranslations >= 1000) {
       userLevel = 'Master'
-      nextLevelTarget = null
+      nextLevelTarget = 0
     } else if (totalTranslations >= 100) {
       userLevel = 'Expert'
       nextLevelTarget = 1000

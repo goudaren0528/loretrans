@@ -294,13 +294,13 @@ export function PricingPage() {
                       <span className="text-3xl font-bold text-gray-900">
                         ${pkg.priceUSD}
                       </span>
-                      {pkg.discount > 0 && (
+                      {(pkg.discount ?? 0 ?? 0) > 0 && (
                         <div className="flex items-center justify-center gap-2 mt-1">
                           <span className="text-sm text-gray-500 line-through">
-                            ${(pkg.priceUSD / (1 - pkg.discount / 100)).toFixed(2)}
+                            ${(pkg.priceUSD / (1 - (pkg.discount ?? 0 ?? 0) / 100)).toFixed(2)}
                           </span>
                           <Badge variant="destructive" className="text-xs">
-                            {t('save')} {pkg.discount}%
+                            {t('save')} {pkg.discount ?? 0 ?? 0}%
                           </Badge>
                         </div>
                       )}
@@ -423,10 +423,10 @@ export function PricingPage() {
             <p className="text-gray-600">
               {t('faq.contact_support')}{' '}
               <a
-                href="mailto:support@transly.app"
+                href="mailto:support@loretrans.app"
                 className="font-medium text-primary hover:text-primary/80"
               >
-                support@transly.app
+                support@loretrans.app
               </a>
             </p>
           </div>

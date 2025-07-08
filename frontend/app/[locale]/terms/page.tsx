@@ -3,10 +3,10 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Transly Terms of Service - Legal agreement governing the use of our AI translation platform for low-resource languages.',
+  description: 'Loretrans Terms of Service - Legal agreement governing the use of our AI translation platform for low-resource languages.',
   openGraph: {
-    title: 'Terms of Service | Transly',
-    description: 'Legal terms and conditions for using Transly translation services.',
+    title: 'Terms of Service | Loretrans',
+    description: 'Legal terms and conditions for using Loretrans translation services.',
   },
 }
 
@@ -14,15 +14,15 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Terms of Service",
-  "description": "Transly Terms of Service and legal agreement",
-  "url": "https://transly.app/terms",
+  "description": "Loretrans Terms of Service and legal agreement",
+  "url": "https://loretrans.app/terms",
   "mainEntity": {
     "@type": "TermsOfService",
-    "name": "Transly Terms of Service",
+    "name": "Loretrans Terms of Service",
     "provider": {
       "@type": "Organization",
-      "name": "Transly",
-      "url": "https://transly.app"
+      "name": "Loretrans",
+      "url": "https://loretrans.app"
     }
   }
 }
@@ -48,7 +48,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Agreement to Terms</h2>
               <p className="mb-4">
-                By accessing and using Transly ("Service"), you accept and agree to be bound by 
+                By accessing and using Loretrans ("Service"), you accept and agree to be bound by 
                 the terms and provision of this agreement. If you do not agree to abide by the 
                 above, please do not use this service.
               </p>
@@ -61,7 +61,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">2. Service Description</h2>
               <p className="mb-4">
-                Transly provides AI-powered translation services including:
+                Loretrans provides AI-powered translation services including:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Text translation between low-resource languages and English</li>
@@ -141,7 +141,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">7. Intellectual Property</h2>
               <p className="mb-4">
-                The Transly platform, including its design, functionality, and underlying 
+                The Loretrans platform, including its design, functionality, and underlying 
                 technology, is protected by intellectual property laws. You agree to:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -226,21 +226,21 @@ export default function TermsPage() {
                 If you have questions about these Terms, please contact us at:
               </p>
               <div className="bg-muted p-4 rounded-lg">
-                <p className="font-medium">Transly Support</p>
-                <p>Email: legal@transly.app</p>
-                <p>Website: https://transly.app</p>
+                <p className="font-medium">Loretrans Support</p>
+                <p>Email: legal@loretrans.app</p>
+                <p>Website: https://loretrans.app</p>
               </div>
             </section>
 
             <section className="border-t pt-8">
               <h2 className="text-2xl font-semibold mb-4">14. Acknowledgment</h2>
               <p className="mb-4">
-                By using Transly, you acknowledge that you have read, understood, and 
+                By using Loretrans, you acknowledge that you have read, understood, and 
                 agree to be bound by these Terms of Service. If you do not agree to 
                 these terms, please discontinue use of our service immediately.
               </p>
               <p className="text-sm text-muted-foreground">
-                These Terms constitute the entire agreement between you and Transly 
+                These Terms constitute the entire agreement between you and Loretrans 
                 regarding your use of the service, superseding any prior agreements.
               </p>
             </section>

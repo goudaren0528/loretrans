@@ -1,5 +1,5 @@
 {
-  "name": "transly",
+  "name": "loretrans",
   "version": "1.0.0",
   "description": "Translate Low-Resource Languages to English - AI-powered translation tool",
   "private": true,
@@ -57,7 +57,7 @@
     "nextjs",
     "typescript"
   ],
-  "author": "Transly Team",
+  "author": "Loretrans Team",
   "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.28.0",
@@ -66,6 +66,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/uuid": "^10.0.0",
     "babel-jest": "^30.0.4",
     "concurrently": "^8.2.2",
     "identity-obj-proxy": "^3.0.0",
@@ -80,12 +81,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/transly.git"
+    "url": "https://github.com/yourusername/loretrans.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/transly/issues"
+    "url": "https://github.com/yourusername/loretrans/issues"
   },
-  "homepage": "https://github.com/yourusername/transly#readme",
+  "homepage": "https://github.com/yourusername/loretrans#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.50.2",
     "creem": "^0.3.37",

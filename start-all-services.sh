@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Transly 完整服务启动脚本
+# Loretrans 完整服务启动脚本
 # 启动所有必要的服务：前端、文件处理、NLLB翻译服务
 
 set -e
@@ -13,7 +13,7 @@ CYAN='\033[0;36m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}🚀 启动Transly完整服务环境${NC}"
+echo -e "${CYAN}🚀 启动Loretrans完整服务环境${NC}"
 echo -e "${CYAN}================================${NC}"
 
 # 检查当前目录

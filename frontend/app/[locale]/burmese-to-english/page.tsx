@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: 'Burmese to English Translator - Free AI Translation Tool | Transly',
+  title: 'Burmese to English Translator - Free AI Translation Tool | Loretrans',
   description: 'Free online Burmese to English translator. Accurate AI-powered translation for မြန်မာ text, documents, and phrases. Instant results with NLLB technology.',
   keywords: [
     'burmese translator',
@@ -17,10 +17,10 @@ export const metadata = {
     title: 'Burmese to English Translator - Free AI Translation',
     description: 'Professional Burmese to English translation powered by AI. Translate မြန်မာ text, documents and phrases instantly.',
     type: 'website',
-    url: 'https://transly.app/burmese-to-english',
+    url: 'https://loretrans.app/burmese-to-english',
   },
   twitter: {
-    title: 'Free Burmese to English Translator | Transly',
+    title: 'Free Burmese to English Translator | Loretrans',
     description: 'Accurate AI-powered Burmese to English translation. Perfect for မြန်မာ speakers.',
   }
 };

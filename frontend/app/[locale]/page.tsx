@@ -52,15 +52,15 @@ export default async function HomePage({
                 {/* Value Proposition Badge */}
                 <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-6">
                   <span className="mr-2">🌍</span>
-                  专业小语种翻译 • Google翻译覆盖不到的语言
+                  {t('hero.badge')}
                 </div>
                 
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                  让每种语言都能被
-                  <span className="text-blue-600">理解</span>
+                  {t('hero.title_part1')}
+                  <span className="text-blue-600">{t('hero.title_highlight')}</span>
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-                  专注海地克里奥尔语、老挝语、缅甸语等20+小语种翻译，基于Meta NLLB模型，准确率超过90%
+                  {t('hero.description')}
                 </p>
 
                 {/* Differentiation Comparison */}
@@ -70,8 +70,8 @@ export default async function HomePage({
                       <span className="text-red-600 text-xs">✗</span>
                     </div>
                     <div>
-                      <div className="font-medium text-red-800">Google翻译</div>
-                      <div className="text-red-600">不支持小语种</div>
+                      <div className="font-medium text-red-800">{t('hero.comparison.google.title')}</div>
+                      <div className="text-red-600">{t('hero.comparison.google.description')}</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
@@ -79,8 +79,8 @@ export default async function HomePage({
                       <span className="text-green-600 text-xs">✓</span>
                     </div>
                     <div>
-                      <div className="font-medium text-green-800">Transly</div>
-                      <div className="text-green-600">专业支持20+小语种</div>
+                      <div className="font-medium text-green-800">{t('hero.comparison.loretrans.title')}</div>
+                      <div className="text-green-600">{t('hero.comparison.loretrans.description')}</div>
                     </div>
                   </div>
                 </div>
@@ -89,15 +89,15 @@ export default async function HomePage({
                 <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3">
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-green-500"></div>
-                    <span>500字符内完全免费</span>
+                    <span>{t('hero.features.free')}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-blue-500"></div>
-                    <span>Meta NLLB AI驱动</span>
+                    <span>{t('hero.features.ai_powered')}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <div className="flex h-2 w-2 rounded-full bg-purple-500"></div>
-                    <span>支持文档翻译</span>
+                    <span>{t('hero.features.document_support')}</span>
                   </div>
                 </div>
 
@@ -108,13 +108,13 @@ export default async function HomePage({
                     className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
                     <span className="mr-2">🚀</span>
-                    立即免费翻译
+                    {t('hero.cta.start_free')}
                   </a>
                   <a
                     href={`/${locale}/pricing`}
                     className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200"
                   >
-                    查看定价
+                    {t('hero.cta.view_pricing')}
                   </a>
                 </div>
 
@@ -122,12 +122,12 @@ export default async function HomePage({
                 <div className="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-500">
                   <div className="flex items-center gap-1">
                     <span className="text-yellow-400">★★★★★</span>
-                    <span>4.8/5</span>
+                    <span>{t('hero.social_proof.rating')}</span>
                   </div>
                   <div className="h-4 w-px bg-gray-300"></div>
-                  <span>已服务10,000+用户</span>
+                  <span>{t('hero.social_proof.users')}</span>
                   <div className="h-4 w-px bg-gray-300"></div>
-                  <span>翻译准确率&gt;90%</span>
+                  <span>{t('hero.social_proof.accuracy')}</span>
                 </div>
               </div>
 
@@ -141,12 +141,12 @@ export default async function HomePage({
                   />
                   {/* Floating Language Cards */}
                   <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 border">
-                    <div className="text-xs font-medium text-gray-600">海地克里奥尔语</div>
-                    <div className="text-sm text-gray-800">Bonjou, kijan ou ye?</div>
+                    <div className="text-xs font-medium text-gray-600">{t('hero.floating_cards.creole.language')}</div>
+                    <div className="text-sm text-gray-800">{t('hero.floating_cards.creole.text')}</div>
                   </div>
                   <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border">
-                    <div className="text-xs font-medium text-gray-600">English</div>
-                    <div className="text-sm text-gray-800">Hello, how are you?</div>
+                    <div className="text-xs font-medium text-gray-600">{t('hero.floating_cards.english.language')}</div>
+                    <div className="text-sm text-gray-800">{t('hero.floating_cards.english.text')}</div>
                   </div>
                 </div>
               </div>
@@ -229,10 +229,10 @@ export default async function HomePage({
                   <div className="text-xs text-gray-500">{t('cost_comparison.google_translate.description')}</div>
                 </div>
                 <div className="text-center p-6 bg-green-50 rounded-xl border-2 border-green-200">
-                  <div className="text-3xl font-bold text-green-600 mb-2">{t('cost_comparison.transly.price')}</div>
-                  <div className="text-sm text-green-800 font-medium mb-2">{t('cost_comparison.transly.title')}</div>
-                  <div className="text-xs text-green-600">{t('cost_comparison.transly.description')}</div>
-                  <div className="mt-2 text-xs font-semibold text-green-700">{t('cost_comparison.transly.savings')}</div>
+                  <div className="text-3xl font-bold text-green-600 mb-2">{t('cost_comparison.loretrans.price')}</div>
+                  <div className="text-sm text-green-800 font-medium mb-2">{t('cost_comparison.loretrans.title')}</div>
+                  <div className="text-xs text-green-600">{t('cost_comparison.loretrans.description')}</div>
+                  <div className="mt-2 text-xs font-semibold text-green-700">{t('cost_comparison.loretrans.savings')}</div>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { APP_CONFIG } from '../../config/app.config'
 import { locales } from '@/lib/navigation'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://transly.app'
+  const baseUrl = 'https://loretrans.app'
   
   // 基础页面
   const staticPages: MetadataRoute.Sitemap = [

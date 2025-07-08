@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
@@ -36,13 +36,7 @@ export default function DashboardPage() {
   const [userStats, setUserStats] = useState<UserStats | null>(null)
   const [statsLoading, setStatsLoading] = useState(true)
 
-  // 如果未登录，重定向到登录页面
-  if (!loading && !user) {
-    router.push('/auth/signin?redirect=/dashboard')
-    return null
-  }
-
-  const loadUserStats = async () => {
+  const loadUserStats = useCallback(async () => {
     try {
       const response = await fetch('/api/user/personal-stats', {
         headers: {
@@ -58,7 +52,7 @@ export default function DashboardPage() {
     } finally {
       setStatsLoading(false)
     }
-  }
+  }, [])
 
   const getAuthToken = async () => {
     // 获取用户认证token的逻辑
@@ -71,6 +65,12 @@ export default function DashboardPage() {
       loadUserStats()
     }
   }, [user, loadUserStats])
+
+  // 如果未登录，重定向到登录页面
+  if (!loading && !user) {
+    router.push('/auth/signin?redirect=/dashboard')
+    return null
+  }
 
   if (loading) {
     return (
@@ -145,7 +145,7 @@ export default function DashboardPage() {
 
           <Card>
             <CardContent className="p-6">
-              <CreditBalance showDetails={false} />
+              <CreditBalance />
             </CardContent>
           </Card>
         </div>
@@ -295,7 +295,7 @@ export default function DashboardPage() {
                       注册时间
                     </label>
                     <div className="text-gray-900">
-                      {user?.created_at ? new Date(user.created_at).toLocaleDateString('zh-CN') : '--'}
+                      {user?.profile?.created_at ? new Date(user.profile.created_at).toLocaleDateString('zh-CN') : '--'}
                     </div>
                   </div>
 

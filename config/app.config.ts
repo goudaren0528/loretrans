@@ -1,11 +1,11 @@
 export const APP_CONFIG = {
   // 应用基本信息
   app: {
-    name: 'Transly',
+    name: 'Loretrans',
     description: 'Translate Low-Resource Languages to English',
     version: '1.0.0',
-    author: 'Transly Team',
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://transly.app',
+    author: 'Loretrans Team',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://loretrans.app',
   },
 
   // 支持的语言配置
@@ -51,7 +51,7 @@ export const APP_CONFIG = {
         name: 'Burmese', 
         nativeName: 'မြန်မာ', 
         slug: 'burmese',
-        available: true,
+        available: false,
         bidirectional: true,
         priority: 1,
         region: 'Southeast Asia',
@@ -62,7 +62,7 @@ export const APP_CONFIG = {
         name: 'Telugu', 
         nativeName: 'తెలుగు', 
         slug: 'telugu',
-        available: true,
+        available: false,
         bidirectional: true,
         priority: 1,
         region: 'South Asia',
@@ -299,9 +299,9 @@ export const APP_CONFIG = {
 
   // 文件处理配置
   files: {
-    maxSize: parseInt(process.env.FILE_MAX_SIZE || '52428800'), // 50MB
+    maxSize: parseInt(process.env.FILE_MAX_SIZE || '10485760'), // 10MB
     maxPages: parseInt(process.env.FILE_MAX_PAGES || '100'),
-    supportedFormats: ['pdf', 'docx', 'doc', 'pptx', 'ppt', 'txt'],
+    supportedFormats: ['txt'], // Currently only TXT supported, others coming soon
     uploadPath: process.env.FILE_UPLOAD_PATH || '/tmp/uploads',
   },
 
@@ -339,7 +339,7 @@ export const APP_CONFIG = {
   database: {
     mongodb: {
       uri: process.env.MONGODB_URI || '',
-      dbName: process.env.MONGODB_DB_NAME || 'transly',
+      dbName: process.env.MONGODB_DB_NAME || 'loretrans',
     },
     redis: {
       url: process.env.KV_REST_API_URL || '',
@@ -351,7 +351,7 @@ export const APP_CONFIG = {
   email: {
     provider: process.env.EMAIL_PROVIDER || 'resend',
     apiKey: process.env.RESEND_API_KEY || '',
-    from: process.env.EMAIL_FROM || 'noreply@transly.app',
+    from: process.env.EMAIL_FROM || 'noreply@loretrans.app',
   },
 
   // Creem支付配置 - 简化为单一API密钥模式
@@ -366,10 +366,10 @@ export const APP_CONFIG = {
 
   // SEO配置
   seo: {
-    defaultTitle: 'Transly - Translate Low-Resource Languages to English',
+    defaultTitle: 'Loretrans - Translate Low-Resource Languages to English',
     defaultDescription: 'Free AI-powered translation tool for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.',
     defaultKeywords: 'translation, AI, low-resource languages, English, NLLB, creole translator',
-    twitterHandle: '@TranslyApp',
+    twitterHandle: '@LoretransApp',
     ogImage: '/images/og-image.png',
   },
 

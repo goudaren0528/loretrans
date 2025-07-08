@@ -51,10 +51,6 @@ export default function Error({
             <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
               Go Home
             </a>
-            {' • '}
-            <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
-              Contact Support
-            </a>
           </div>
         </div>
       </div>

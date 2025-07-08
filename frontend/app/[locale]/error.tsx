@@ -55,10 +55,6 @@ export default function LocaleError({
             <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
               {t('goHome')}
             </Link>
-            {' • '}
-            <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
-              {t('contactSupport')}
-            </Link>
           </div>
         </div>
       </div>

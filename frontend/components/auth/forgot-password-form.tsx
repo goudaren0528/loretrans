@@ -146,3 +146,6 @@ export default function ForgotPasswordForm({ locale = 'en' }: ForgotPasswordForm
     </div>
   )
 }
+
+// 添加命名导出
+export { ForgotPasswordForm }

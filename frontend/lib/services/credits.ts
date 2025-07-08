@@ -10,7 +10,7 @@ import type {
 
 // 积分计费配置
 export const CREDIT_CONFIG = {
-  FREE_CHARACTERS: 500, // 每次翻译免费字符数
+  FREE_CHARACTERS: 300, // 每次翻译免费字符数
   RATE_PER_CHARACTER: 0.1, // 超出免费额度后每字符积分数
   REGISTRATION_BONUS: 500, // 注册奖励积分
   REFERRAL_BONUS: 200, // 推荐奖励积分
@@ -312,55 +312,6 @@ export class CreditService {
     } catch (error) {
       console.error('消费积分失败:', error)
       return false
-    }
-  }
-
-  /**
-   * 消费翻译积分
-   */
-  async consumeTranslationCredits(
-    userId: string,
-    characterCount: number,
-    sourceLanguage: string,
-    targetLanguage: string,
-    translationType: 'text' | 'document' = 'text'
-  ): Promise<{
-    success: boolean;
-    calculation: CreditCalculation;
-    transaction?: CreditTransaction;
-  }> {
-    try {
-      const calculation = this.calculateCreditsRequired(characterCount)
-      
-      if (calculation.credits_required <= 0) {
-        return {
-          success: true,
-          calculation
-        }
-      }
-
-      const success = await this.consumeCredits(userId, {
-        amount: calculation.credits_required,
-        description: `翻译服务 (${sourceLanguage} → ${targetLanguage})`,
-        metadata: {
-          translation_type: translationType,
-          character_count: characterCount,
-          source_language: sourceLanguage,
-          target_language: targetLanguage,
-          rate_per_character: CREDIT_CONFIG.RATE_PER_CHARACTER
-        }
-      })
-
-      return {
-        success,
-        calculation
-      }
-    } catch (error) {
-      console.error('消费翻译积分失败:', error)
-      return {
-        success: false,
-        calculation: this.calculateCreditsRequired(characterCount)
-      }
     }
   }
 

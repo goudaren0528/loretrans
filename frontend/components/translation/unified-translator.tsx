@@ -118,18 +118,31 @@ export function UnifiedTranslator({
       return
     }
 
-    // 检查用户登录状态和积分
-    if (needsCredits && !user) {
+    // 检查用户登录状态和积分（基于300字符的产品方案）
+    // 超过300字符需要积分，但为了避免认证问题，允许1000字符以下使用公共端点
+    
+    console.log('[Login Debug] User state check:', {
+      characterCount,
+      hasUser: !!user,
+      userId: user?.id,
+      userEmail: user?.email,
+      textLength: state.sourceText.length,
+      needsLogin: characterCount > 300 && !user && state.sourceText.length > 1000
+    })
+    
+    if (characterCount > 300 && !user && state.sourceText.length > 1000) {
+      console.log('[Login Debug] Triggering login requirement')
       toast({
         title: t('errors.login_required_title'),
-        description: t('errors.login_required_description'),
+        description: 'For translations over 1000 characters, please sign in to continue.',
         variant: "destructive",
       })
       router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
       return
     }
 
-    if (needsCredits && !canAfford) {
+    // 检查已登录用户的积分余额（对于需要积分的翻译）
+    if (characterCount > 300 && user && !canAfford) {
       toast({
         title: t('credits.insufficient_balance', { required: estimatedCredits, current: credits }),
         description: t('credits.recharge_now'),
@@ -164,60 +177,137 @@ export function UnifiedTranslator({
     setState(prev => ({ ...prev, isLoading: true, error: null }))
 
     try {
-      // 根据处理模式选择不同的API端点
-      const endpoint = processingMode === 'instant' ? '/api/translate' : '/api/translate/queue'
+      // 根据产品方案智能选择API端点
+      let endpoint = '/api/translate'
+      let headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+      
+      // 产品方案：300字符以内免费，300以上需要积分
+      // 但为了避免认证问题，对于1000字符以下仍使用公共端点+异步扣积分
+      if (state.sourceText.length <= 1000) {
+        endpoint = '/api/translate/public'
+      } else if (processingMode === 'fast_queue' || processingMode === 'background') {
+        endpoint = '/api/translate/queue'
+      }
+      
+      // 如果使用需要认证的端点，添加认证头
+      if (endpoint !== '/api/translate/public' && user) {
+        try {
+          // 从Supabase获取当前session
+          const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+          const supabase = createSupabaseBrowserClient()
+          const { data: { session } } = await supabase.auth.getSession()
+          
+          console.log('[Auth Debug]', {
+            endpoint,
+            hasUser: !!user,
+            hasSession: !!session,
+            hasAccessToken: !!session?.access_token,
+            tokenPreview: session?.access_token?.substring(0, 20) + '...'
+          })
+          
+          if (session?.access_token) {
+            headers['Authorization'] = `Bearer ${session.access_token}`
+          }
+        } catch (error) {
+          console.warn('Failed to get auth token:', error)
+        }
+      }
       
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers,
         body: JSON.stringify({
           text: state.sourceText,
-          sourceLanguage: state.sourceLanguage,
-          targetLanguage: state.targetLanguage,
+          sourceLang: state.sourceLanguage,
+          targetLang: state.targetLanguage,
+          sourceLanguage: state.sourceLanguage, // 保持兼容性
+          targetLanguage: state.targetLanguage, // 保持兼容性
           processingMode, // 内部标识
         }),
       })
 
       const data = await response.json()
 
+      console.log('[API Response Debug]', {
+        endpoint,
+        status: response.status,
+        ok: response.ok,
+        responseKeys: Object.keys(data),
+        hasTranslatedText: !!data.translatedText,
+        hasDataTranslatedText: !!data.data?.translatedText,
+        hasResult: !!data.result,
+        errorMessage: data.error,
+        timestamp: new Date().toISOString()
+      })
+
       if (!response.ok) {
-        throw new Error(data.error?.message || 'Translation failed')
+        throw new Error(data.error?.message || data.error || 'Translation failed')
       }
 
       if (processingMode === 'instant') {
-        // 即时翻译结果
+        // 即时翻译结果 - 处理不同API端点的响应格式
+        const translatedText = data.translatedText || data.data?.translatedText || data.result
+        
+        console.log('[Translation Response]', {
+          endpoint,
+          responseData: data,
+          extractedText: translatedText,
+          timestamp: new Date().toISOString()
+        })
+        
         setState(prev => ({
           ...prev,
-          translatedText: data.data.translatedText,
+          translatedText: translatedText,
           isLoading: false,
         }))
 
-        // 显示积分消耗提示
-        if (needsCredits) {
+        // 根据产品方案处理积分（300字符以上需要扣积分）
+        console.log('[Post-Translation Debug] User state after translation:', {
+          characterCount,
+          hasUser: !!user,
+          userId: user?.id,
+          userEmail: user?.email,
+          willTriggerCredits: characterCount > 300 && user,
+          willShowSignupPrompt: characterCount > 300 && !user
+        })
+        
+        if (characterCount > 300 && user) {
+          // 异步扣除积分
+          consumeCreditsAsync(estimatedCredits, characterCount, translatedText.length)
+        } else if (characterCount > 300 && !user) {
+          // 未登录用户超过300字符，提示注册
+          console.log('[Post-Translation Debug] Showing signup prompt for unauth user')
           toast({
-            title: t('success.translation_complete'),
-            description: t('success.credits_consumed', { credits: estimatedCredits }),
+            title: 'Translation Complete',
+            description: 'For translations over 300 characters, please sign up for credits.',
+            variant: "default",
+          })
+        } else {
+          // 300字符以内完全免费
+          toast({
+            title: 'Translation Complete',
+            description: 'Free translation completed successfully',
           })
         }
       } else {
         // 队列任务创建成功
         setState(prev => ({
           ...prev,
-          jobId: data.data.jobId,
+          jobId: data.data?.jobId || data.jobId,
           isLoading: false,
         }))
 
         toast({
-          title: t('task.queue_created'),
+          title: 'Translation Queued',
           description: processingMode === 'background' 
-            ? t('task.can_leave_page')
-            : t('translation.processing'),
+            ? 'You can leave this page and check back later'
+            : 'Processing your translation...',
         })
 
         // 如果是快速队列，开始轮询状态
-        if (processingMode === 'fast_queue') {
+        if (processingMode === 'fast_queue' && data?.data?.jobId) {
           pollJobStatus(data.data.jobId)
         }
       }
@@ -231,12 +321,125 @@ export function UnifiedTranslator({
       }))
 
       toast({
-        title: t('errors.translation_failed'),
+        title: 'Translation Failed',
         description: error instanceof Error ? error.message : 'Unknown error occurred',
         variant: "destructive",
       })
     }
   }, [state, user, canTranslate, needsCredits, canAfford, estimatedCredits, credits, locale, router, t, recordTranslation])
+
+  // 异步积分消费函数
+  const consumeCreditsAsync = useCallback(async (
+    creditsToConsume: number, 
+    characterCount: number, 
+    translationLength: number,
+    retryCount = 0
+  ) => {
+    const maxRetries = 3
+    
+    try {
+      // 获取认证头
+      let authHeaders: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+      
+      if (user) {
+        try {
+          const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+          const supabase = createSupabaseBrowserClient()
+          const { data: { session } } = await supabase.auth.getSession()
+          
+          console.log('[Credit Debug] Auth check:', {
+            hasUser: !!user,
+            userId: user?.id,
+            hasSession: !!session,
+            hasAccessToken: !!session?.access_token,
+            tokenPreview: session?.access_token?.substring(0, 20) + '...',
+            creditsToConsume,
+            currentCredits: credits
+          })
+          
+          if (session?.access_token) {
+            authHeaders['Authorization'] = `Bearer ${session.access_token}`
+          } else {
+            console.warn('[Credit Debug] No access token available')
+          }
+        } catch (error) {
+          console.warn('Failed to get auth token for credit consumption:', error)
+        }
+      }
+
+      const creditResponse = await fetch('/api/credits/consume', {
+        method: 'POST',
+        headers: authHeaders,
+        body: JSON.stringify({
+          amount: creditsToConsume,
+          reason: 'text_translation',
+          metadata: {
+            characterCount,
+            sourceLanguage: state.sourceLanguage,
+            targetLanguage: state.targetLanguage,
+            translationLength,
+            endpoint: 'public_with_async_billing',
+            timestamp: new Date().toISOString()
+          }
+        })
+      })
+      
+      const creditData = await creditResponse.json()
+      
+      console.log('[Credit Debug] API Response:', {
+        status: creditResponse.status,
+        ok: creditResponse.ok,
+        data: creditData,
+        requestAmount: creditsToConsume,
+        timestamp: new Date().toISOString()
+      })
+      
+      if (creditResponse.ok) {
+        console.log('[Credits] Successfully consumed:', creditData)
+        
+        // 更新本地积分状态
+        if (typeof credits === 'number') {
+          // 这里可以触发积分刷新
+          // refreshCredits?.()
+        }
+        
+        toast({
+          title: 'Translation Complete',
+          description: t('success.credits_consumed', { credits: creditsToConsume }),
+        })
+      } else if (creditResponse.status === 402) {
+        // 积分不足
+        console.warn('[Credits] Insufficient credits:', creditData)
+        toast({
+          title: 'Translation Complete',
+          description: `Translation successful, but insufficient credits (${creditData.available}/${creditData.required})`,
+          variant: "destructive",
+        })
+      } else {
+        throw new Error(`Credit API error: ${creditData.error || 'Unknown error'}`)
+      }
+      
+    } catch (error) {
+      console.warn(`[Credits] Consumption failed (attempt ${retryCount + 1}):`, error)
+      
+      if (retryCount < maxRetries) {
+        // 指数退避重试
+        const delay = Math.pow(2, retryCount) * 1000 // 1s, 2s, 4s
+        setTimeout(() => {
+          consumeCreditsAsync(creditsToConsume, characterCount, translationLength, retryCount + 1)
+        }, delay)
+      } else {
+        // 最终失败
+        toast({
+          title: 'Translation Complete',
+          description: 'Translation successful, but credit deduction failed. Please contact support if this persists.',
+          variant: "default",
+        })
+      }
+    }
+  }, [user, state.sourceLanguage, state.targetLanguage, credits, t])
 
   // 轮询任务状态（用于快速队列）
   const pollJobStatus = useCallback(async (jobId: string) => {
@@ -311,9 +514,9 @@ export function UnifiedTranslator({
 
   const getTranslateButtonText = () => {
     if (state.isLoading) {
-      return state.processingMode === 'background' ? '提交中...' : '翻译中...'
+      return state.processingMode === 'background' ? 'Submitting...' : 'Translating...'
     }
-    return '开始翻译' // 统一的按钮文案
+    return 'Start Translation'
   }
 
   const getTranslateButtonIcon = () => {
@@ -370,18 +573,25 @@ export function UnifiedTranslator({
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {[APP_CONFIG.languages.target, ...APP_CONFIG.languages.supported.filter(lang => lang.available)].map((lang) => (
-                <SelectItem key={lang.code} value={lang.code}>
-                  {lang.nativeName || lang.name} {lang.nativeName && lang.nativeName !== lang.name ? `(${lang.name})` : ''}
-                </SelectItem>
-              ))}
+              <SelectItem value="en">English</SelectItem>
+              <SelectItem value="zh">中文 (Chinese)</SelectItem>
+              <SelectItem value="es">Español (Spanish)</SelectItem>
+              <SelectItem value="fr">Français (French)</SelectItem>
+              <SelectItem value="ar">العربية (Arabic)</SelectItem>
+              <SelectItem value="hi">हिन्दी (Hindi)</SelectItem>
+              <SelectItem value="pt">Português (Portuguese)</SelectItem>
+              <SelectItem value="ht">Kreyòl Ayisyen (Haitian Creole)</SelectItem>
+              <SelectItem value="lo">ລາວ (Lao)</SelectItem>
+              <SelectItem value="sw">Kiswahili (Swahili)</SelectItem>
+              <SelectItem value="my">မြန်မာ (Burmese)</SelectItem>
+              <SelectItem value="te">తెలుగు (Telugu)</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
 
-      {/* 智能时间预估 */}
-      {showTimeEstimate && state.sourceText.trim() && (
+      {/* 智能时间预估 - 已隐藏 */}
+      {false && showTimeEstimate && state.sourceText.trim() && (
         <DynamicTimeEstimate
           text={state.sourceText}
           sourceLanguage={state.sourceLanguage}
@@ -434,12 +644,11 @@ export function UnifiedTranslator({
 
           {/* 积分和配额信息 */}
           <ConditionalRender
-            condition={!!user}
-            fallback={<FreeQuotaProgress current={limitStatus.used} max={limitStatus.limit} />}
+            when={user ? 'authenticated' : 'unauthenticated'}
+            fallback={<FreeQuotaProgress currentLength={limitStatus ? (limitStatus.totalLimit - limitStatus.remainingTranslations) : 0} />}
           >
             <CreditEstimate 
-              characters={characterCount}
-              showBalance={true}
+              textLength={characterCount}
             />
           </ConditionalRender>
         </div>
@@ -459,17 +668,13 @@ export function UnifiedTranslator({
                   className="h-8 px-2"
                 >
                   <Copy className="h-3 w-3 mr-1" />
-                  {t('actions.copy')}
+                  {t('TranslatorWidget.actions.copy')}
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 px-2"
-                  disabled
-                >
+                {/* Voice playback functionality hidden */}
+                {/* <Button variant="ghost" size="sm" className="h-8 px-2 hidden">
                   <Volume2 className="h-3 w-3 mr-1" />
-                  {t('actions.listen')}
-                </Button>
+                  {t('TranslatorWidget.actions.listen')}
+                </Button> */}
               </div>
             )}
           </div>
@@ -518,8 +723,8 @@ export function UnifiedTranslator({
 
       {/* 双向导航 */}
       <BidirectionalNavigation 
-        sourceLanguage={state.sourceLanguage}
-        targetLanguage={state.targetLanguage}
+        currentSourceLang={state.sourceLanguage}
+        currentTargetLang={state.targetLanguage}
       />
     </div>
   )

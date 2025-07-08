@@ -19,6 +19,10 @@ export const PAGE_TRANSLATIONS = {
   '/terms': '/terms',
   '/compliance': '/compliance',
   '/api-docs': '/api-docs',
+  // 认证相关页面
+  '/auth/signin': '/auth/signin',
+  '/auth/signup': '/auth/signup',
+  '/auth/forgot-password': '/auth/forgot-password',
   // 语言特定翻译页面 - 保持英文路径
   '/creole-to-english': '/creole-to-english',
   '/lao-to-english': '/lao-to-english', 
@@ -164,11 +168,12 @@ export const navigationItems = [
     href: '/pricing',
     translationKey: 'Navigation.pricing'
   },
-  { 
-    key: 'contact',
-    href: '/contact',
-    translationKey: 'Navigation.contact'
-  },
+  // Contact temporarily hidden
+  // { 
+  //   key: 'contact',
+  //   href: '/contact',
+  //   translationKey: 'Navigation.contact'
+  // },
 ] as const;
 
 export const { Link, redirect, usePathname, useRouter, getPathname } =

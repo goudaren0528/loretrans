@@ -1,11 +1,11 @@
-# 🌍 Transly - 专业小语种翻译平台
+# 🌍 Loretrans - 专业小语种翻译平台
 
 > 让每种语言都能被理解，让每个声音都能被听见
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/your-repo/transly)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/your-repo/loretrans)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/your-repo/transly/actions)
-[![Health Check](https://img.shields.io/badge/health-check-passing-brightgreen.svg)](https://transly.app/api/health)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/your-repo/loretrans/actions)
+[![Health Check](https://img.shields.io/badge/health-check-passing-brightgreen.svg)](https://loretrans.app/api/health)
 
 ## 📋 目录
 
@@ -20,7 +20,7 @@
 
 ## 🎯 项目概述
 
-Transly 是一个专注于小语种翻译的AI驱动平台，基于Meta NLLB模型，专门解决Google翻译等主流工具无法处理的语言翻译需求。
+Loretrans 是一个专注于小语种翻译的AI驱动平台，基于Meta NLLB模型，专门解决Google翻译等主流工具无法处理的语言翻译需求。
 
 ### 🌟 核心价值
 
@@ -184,8 +184,8 @@ graph TB
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/your-repo/transly.git
-cd transly
+git clone https://github.com/your-repo/loretrans.git
+cd loretrans
 ```
 
 ### 2. 环境配置
@@ -253,7 +253,7 @@ npm run dev
 ### 项目结构
 
 ```
-transly/
+loretrans/
 ├── frontend/                 # Next.js前端应用
 │   ├── app/                 # App Router页面
 │   ├── components/          # React组件
@@ -600,8 +600,8 @@ npm install -g pm2
 
 ```bash
 # 克隆代码
-git clone https://github.com/your-repo/transly.git
-cd transly
+git clone https://github.com/your-repo/loretrans.git
+cd loretrans
 
 # 安装依赖
 cd frontend && npm ci && npm run build
@@ -782,14 +782,14 @@ chore(deps): update dependencies
 
 ## 📞 联系我们
 
-- 📧 邮箱: support@transly.app
-- 🌐 网站: https://transly.app
-- 📱 Twitter: [@TranslyApp](https://twitter.com/TranslyApp)
-- 💬 Discord: [Transly Community](https://discord.gg/transly)
+- 📧 邮箱: support@loretrans.app
+- 🌐 网站: https://loretrans.app
+- 📱 Twitter: [@LoretransApp](https://twitter.com/LoretransApp)
+- 💬 Discord: [Loretrans Community](https://discord.gg/loretrans)
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the Transly Team</p>
+  <p>Made with ❤️ by the Loretrans Team</p>
   <p>让每种语言都能被理解 🌍</p>
 </div>

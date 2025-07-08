@@ -62,7 +62,7 @@ function SignInComponent() {
         <SignInForm 
           onSuccess={handleSignInSuccess} 
           redirectTo={redirectTo}
-          locale={locale}
+          
         />
       </div>
     </div>

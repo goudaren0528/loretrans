@@ -40,7 +40,7 @@ export function ComingSoonTemplate({
             )}
             
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl max-w-2xl mx-auto">
-              {description} Our AI-powered translation tool for {language} will be available soon with the same high-quality translation you expect from Transly.
+              {description} Our AI-powered translation tool for {language} will be available soon with the same high-quality translation you expect from Loretrans.
             </p>
             
             <div className="mt-8 flex items-center justify-center gap-x-6">

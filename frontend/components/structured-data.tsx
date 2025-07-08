@@ -23,8 +23,8 @@ export const StructuredDataTemplates = {
   webApplication: {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Transly - AI Translation Tool",
-    "url": "https://transly.app",
+    "name": "Loretrans - AI Translation Tool",
+    "url": "https://loretrans.app",
     "description": "Professional translation for low-resource languages to English using AI technology.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web",
@@ -37,8 +37,8 @@ export const StructuredDataTemplates = {
     },
     "provider": {
       "@type": "Organization",
-      "name": "Transly",
-      "url": "https://transly.app"
+      "name": "Loretrans",
+      "url": "https://loretrans.app"
     },
     "featureList": [
       "AI-powered translation",
@@ -55,8 +55,8 @@ export const StructuredDataTemplates = {
     "name": `${sourceLanguage} to ${targetLanguage} Translation`,
     "provider": {
       "@type": "Organization",
-      "name": "Transly",
-      "url": "https://transly.app"
+      "name": "Loretrans",
+      "url": "https://loretrans.app"
     },
     "description": `Professional AI-powered translation from ${sourceLanguage} to ${targetLanguage}`,
     "serviceType": "Translation Service",
@@ -97,19 +97,19 @@ export const StructuredDataTemplates = {
   organization: {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Transly",
-    "url": "https://transly.app",
-    "logo": "https://transly.app/logo.png",
+    "name": "Loretrans",
+    "url": "https://loretrans.app",
+    "logo": "https://loretrans.app/logo.png",
     "description": "Professional translation platform for low-resource languages powered by AI technology.",
     "foundingDate": "2024",
     "sameAs": [
-      "https://twitter.com/TranslyApp",
-      "https://github.com/transly-app"
+      "https://twitter.com/LoretransApp",
+      "https://github.com/loretrans-app"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "support@transly.app"
+      "email": "support@loretrans.app"
     }
   },
 

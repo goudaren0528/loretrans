@@ -1,7 +1,7 @@
 // Application Configuration
 export const APP_CONFIG = {
   // Application Info
-  name: 'Transly',
+  name: 'Loretrans',
   version: '2.0.0',
   description: 'Professional small language translation platform',
   
@@ -24,21 +24,30 @@ export const APP_CONFIG = {
     },
   },
   
+  // NLLB Configuration
+  nllb: {
+    maxLength: 10000,
+    serviceUrl: process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator',
+    timeout: parseInt(process.env.NLLB_SERVICE_TIMEOUT || '60000'),
+    enabled: process.env.NLLB_SERVICE_ENABLED === 'true',
+  },
+  
   // Supported Languages
   languages: {
+    target: { code: 'en', name: 'English', nativeName: 'English', available: true },
     supported: [
-      { code: 'en', name: 'English', nativeName: 'English' },
-      { code: 'zh', name: 'Chinese', nativeName: '中文' },
-      { code: 'es', name: 'Spanish', nativeName: 'Español' },
-      { code: 'fr', name: 'French', nativeName: 'Français' },
-      { code: 'ar', name: 'Arabic', nativeName: 'العربية' },
-      { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी' },
-      { code: 'pt', name: 'Portuguese', nativeName: 'Português' },
-      { code: 'ht', name: 'Haitian Creole', nativeName: 'Kreyòl Ayisyen' },
-      { code: 'lo', name: 'Lao', nativeName: 'ລາວ' },
-      { code: 'sw', name: 'Swahili', nativeName: 'Kiswahili' },
-      { code: 'my', name: 'Burmese', nativeName: 'မြန်မာ' },
-      { code: 'te', name: 'Telugu', nativeName: 'తెలుగు' },
+      { code: 'en', name: 'English', nativeName: 'English', available: true },
+      { code: 'zh', name: 'Chinese', nativeName: '中文', available: true },
+      { code: 'es', name: 'Spanish', nativeName: 'Español', available: true },
+      { code: 'fr', name: 'French', nativeName: 'Français', available: true },
+      { code: 'ar', name: 'Arabic', nativeName: 'العربية', available: true },
+      { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', available: true },
+      { code: 'pt', name: 'Portuguese', nativeName: 'Português', available: true },
+      { code: 'ht', name: 'Haitian Creole', nativeName: 'Kreyòl Ayisyen', available: true },
+      { code: 'lo', name: 'Lao', nativeName: 'ລາວ', available: true },
+      { code: 'sw', name: 'Swahili', nativeName: 'Kiswahili', available: true },
+      { code: 'my', name: 'Burmese', nativeName: 'မြန်မာ', available: true },
+      { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', available: true },
     ],
     defaultLocale: 'en',
   },

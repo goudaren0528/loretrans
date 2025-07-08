@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
 
@@ -19,7 +20,7 @@ export async function GET() {
     // 检查数据库连接
     const supabase = createServerSupabaseClient()
     const { data, error } = await supabase
-      .from('profiles')
+      .from('users')
       .select('count')
       .limit(1)
       .single()

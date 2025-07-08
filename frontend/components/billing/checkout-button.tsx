@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { useToastMessages } from '@/lib/hooks/use-toast-messages';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useAuth } from '@/components/auth/auth-provider';
+import { authService } from '@/lib/services/auth';
 
 interface CheckoutButtonProps {
   planId: string;
@@ -31,7 +32,7 @@ export function CheckoutButton({
   const router = useRouter();
   const t = useTranslations('Checkout');
   const { showGenericError } = useToastMessages();
-  const { user, getAccessToken } = useAuth();
+  const { user } = useAuth();
 
   const handleCheckout = async () => {
     // 检查用户是否已登录
@@ -50,8 +51,8 @@ export function CheckoutButton({
       console.log(`👤 User: ${user.email}`);
       
       // 获取访问token
-      const accessToken = await getAccessToken();
-      if (!accessToken) {
+      const session = await authService.getSession();
+      if (!session?.access_token) {
         throw new Error('Unable to get access token. Please log in again.');
       }
 
@@ -61,7 +62,7 @@ export function CheckoutButton({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}`,
+          'Authorization': `Bearer ${session.access_token}`,
         },
         body: JSON.stringify({ planId }),
       });

@@ -63,11 +63,6 @@ export function LanguageSwitcher({
 
   const currentLanguageName = getLocaleName(currentLocale, showNativeNames ? 'native' : 'english')
 
-  // 按类别分组语言
-  const primaryLanguages: Locale[] = ['en', 'zh', 'es', 'fr', 'ar', 'hi']
-  const supportedTranslationLanguages: Locale[] = ['ht', 'lo', 'sw', 'my', 'te']
-  const otherLanguages: Locale[] = ['pt']
-
   if (variant === 'icon-only') {
     return (
       <DropdownMenu>
@@ -84,11 +79,8 @@ export function LanguageSwitcher({
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           
-          {/* 主要语言 */}
-          <DropdownMenuLabel className="text-xs text-gray-500 px-2 py-1">
-            主要语言
-          </DropdownMenuLabel>
-          {primaryLanguages.map((locale) => (
+          {/* 所有支持的语言 */}
+          {locales.map((locale) => (
             <DropdownMenuItem
               key={locale}
               onClick={() => handleLanguageChange(locale)}
@@ -108,63 +100,6 @@ export function LanguageSwitcher({
               )}
             </DropdownMenuItem>
           ))}
-          
-          <DropdownMenuSeparator />
-          
-          {/* 支持的翻译语言 */}
-          <DropdownMenuLabel className="text-xs text-gray-500 px-2 py-1 flex items-center gap-1">
-            支持的小语种
-            <Badge variant="secondary" className="text-xs">翻译语言</Badge>
-          </DropdownMenuLabel>
-          {supportedTranslationLanguages.map((locale) => (
-            <DropdownMenuItem
-              key={locale}
-              onClick={() => handleLanguageChange(locale)}
-              className="flex items-center justify-between cursor-pointer"
-              disabled={isChanging}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium">
-                  {localeNames[locale].native}
-                </span>
-                <span className="text-xs text-gray-500">
-                  {localeNames[locale].english}
-                </span>
-              </div>
-              {currentLocale === locale && (
-                <Check className="w-4 h-4 text-green-600" />
-              )}
-            </DropdownMenuItem>
-          ))}
-          
-          {otherLanguages.length > 0 && (
-            <>
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel className="text-xs text-gray-500 px-2 py-1">
-                其他语言
-              </DropdownMenuLabel>
-              {otherLanguages.map((locale) => (
-                <DropdownMenuItem
-                  key={locale}
-                  onClick={() => handleLanguageChange(locale)}
-                  className="flex items-center justify-between cursor-pointer"
-                  disabled={isChanging}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">
-                      {localeNames[locale].native}
-                    </span>
-                    <span className="text-xs text-gray-500">
-                      {localeNames[locale].english}
-                    </span>
-                  </div>
-                  {currentLocale === locale && (
-                    <Check className="w-4 h-4 text-green-600" />
-                  )}
-                </DropdownMenuItem>
-              ))}
-            </>
-          )}
         </DropdownMenuContent>
       </DropdownMenu>
     )
@@ -214,35 +149,9 @@ export function LanguageSwitcher({
         <DropdownMenuLabel>选择界面语言</DropdownMenuLabel>
         <DropdownMenuSeparator />
         
-        {/* 主要语言 */}
+        {/* 所有支持的语言 */}
         <div className="space-y-1">
-          {primaryLanguages.map((locale) => (
-            <DropdownMenuItem
-              key={locale}
-              onClick={() => handleLanguageChange(locale)}
-              className="flex items-center justify-between cursor-pointer p-3"
-              disabled={isChanging}
-            >
-              <div>
-                <div className="font-medium">{localeNames[locale].native}</div>
-                <div className="text-sm text-gray-500">{localeNames[locale].english}</div>
-              </div>
-              {currentLocale === locale && (
-                <Check className="w-4 h-4 text-green-600" />
-              )}
-            </DropdownMenuItem>
-          ))}
-        </div>
-        
-        <DropdownMenuSeparator />
-        
-        {/* 支持的翻译语言 */}
-        <DropdownMenuLabel className="flex items-center gap-2 text-xs">
-          支持的小语种
-          <Badge variant="secondary" className="text-xs">可翻译</Badge>
-        </DropdownMenuLabel>
-        <div className="space-y-1">
-          {supportedTranslationLanguages.map((locale) => (
+          {locales.map((locale) => (
             <DropdownMenuItem
               key={locale}
               onClick={() => handleLanguageChange(locale)}

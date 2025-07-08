@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 处理特定类型的指标
-    await processSpecialMetrics(supabase, metrics, userId)
+    await processSpecialMetrics(supabase, metrics, userId || null)
 
     return NextResponse.json({
       success: true,

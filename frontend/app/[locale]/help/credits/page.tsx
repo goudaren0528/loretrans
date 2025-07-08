@@ -6,7 +6,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { CreditsRefreshButton, PaymentHelpDialog } from '@/components/ui/credits-refresh-button';
 
 export const metadata: Metadata = {
-  title: '积分问题帮助 - Transly',
+  title: '积分问题帮助 - Loretrans',
   description: '解决积分显示、更新和支付相关问题',
 };
 
@@ -83,7 +83,7 @@ export default function CreditsHelpPage() {
           </div>
 
           <div className="mt-6 flex gap-4">
-            <CreditsRefreshButton size="md" variant="default" />
+            <CreditsRefreshButton size="default" variant="default" />
             <PaymentHelpDialog />
           </div>
         </CardContent>

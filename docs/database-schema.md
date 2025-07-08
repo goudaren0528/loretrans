@@ -1,8 +1,8 @@
-# Transly 数据库设计文档
+# Loretrans 数据库设计文档
 
 ## 概述
 
-Transly 采用 Supabase PostgreSQL 数据库，设计了完整的用户系统、积分系统和支付系统。本文档详细描述数据库架构、表结构和安全策略。
+Loretrans 采用 Supabase PostgreSQL 数据库，设计了完整的用户系统、积分系统和支付系统。本文档详细描述数据库架构、表结构和安全策略。
 
 ## 架构设计原则
 
@@ -286,4 +286,4 @@ SELECT get_user_credits('uuid-here'); -- 管理员查看指定用户积分
 
 ## 总结
 
-该数据库设计充分考虑了安全性、性能和扩展性，采用现代 PostgreSQL 特性和 Supabase 平台优势，为 Transly 翻译平台提供了稳定可靠的数据存储解决方案。 
+该数据库设计充分考虑了安全性、性能和扩展性，采用现代 PostgreSQL 特性和 Supabase 平台优势，为 Loretrans 翻译平台提供了稳定可靠的数据存储解决方案。 

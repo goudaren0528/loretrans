@@ -1,23 +1,10 @@
 {
   "version": 2,
-  "name": "transly-frontend",
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "projectSettings": {
-          "framework": "nextjs"
-        }
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "frontend/$1"
-    }
-  ],
+  "name": "loretrans-frontend",
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "npm install && cd frontend && npm install",
+  "framework": "nextjs",
   "functions": {
     "frontend/app/api/**/*.ts": {
       "maxDuration": 30
@@ -27,17 +14,10 @@
     },
     "frontend/app/api/document/*/route.ts": {
       "maxDuration": 120
+    },
+    "frontend/app/api/test-nllb/route.ts": {
+      "maxDuration": 45
     }
-  },
-  "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
-    "CREEM_API_KEY": "@creem-api-key",
-    "NLLB_SERVICE_URL": "@nllb-service-url",
-    "FILE_PROCESSOR_URL": "@file-processor-url",
-    "NEXTAUTH_SECRET": "@nextauth-secret",
-    "NEXTAUTH_URL": "@nextauth-url"
   },
   "headers": [
     {
@@ -53,19 +33,30 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
+          "value": "Content-Type, Authorization, X-Requested-With"
+        },
+        {
+          "key": "Access-Control-Max-Age",
+          "value": "86400"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/translate",
-      "destination": "/api/translate"
     },
     {
-      "source": "/api/document/:path*",
-      "destination": "/api/document/:path*"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -73,6 +64,12 @@
       "source": "/",
       "destination": "/en",
       "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     }
   ],
   "crons": [

@@ -20,8 +20,8 @@ export interface GuestTranslationRecord {
 
 export class GuestLimitService {
   private static readonly DAILY_LIMIT = 10
-  private static readonly STORAGE_KEY = 'transly_guest_translations'
-  private static readonly IP_STORAGE_KEY = 'transly_guest_ip_hash'
+  private static readonly STORAGE_KEY = 'loretrans_guest_translations'
+  private static readonly IP_STORAGE_KEY = 'loretrans_guest_ip_hash'
 
   /**
    * Get the daily limit value

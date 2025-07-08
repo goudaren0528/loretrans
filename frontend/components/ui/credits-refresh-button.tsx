@@ -7,7 +7,7 @@ import { useAuth } from '@/components/auth/auth-provider';
 import { useToast } from '@/components/ui/use-toast';
 
 interface CreditsRefreshButtonProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'default' | 'lg';
   variant?: 'default' | 'outline' | 'ghost';
   showText?: boolean;
   className?: string;
@@ -51,19 +51,16 @@ export function CreditsRefreshButton({
         toast({
           title: "积分已更新！",
           description: `您的积分增加了 ${creditsDiff.toLocaleString()}`,
-          duration: 5000,
         });
       } else if (creditsDiff < 0) {
         toast({
           title: "积分已更新",
           description: `您的积分减少了 ${Math.abs(creditsDiff).toLocaleString()}`,
-          duration: 5000,
         });
       } else {
         toast({
           title: "积分已刷新",
           description: `当前积分: ${afterCredits.toLocaleString()}`,
-          duration: 3000,
         });
       }
       
@@ -76,7 +73,6 @@ export function CreditsRefreshButton({
         title: "刷新失败",
         description: "无法刷新积分，请稍后重试",
         variant: "destructive",
-        duration: 5000,
       });
     } finally {
       setIsRefreshing(false);

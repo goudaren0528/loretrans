@@ -177,3 +177,15 @@ microservices/ngrok.exe
 
 # PID文件
 .*.pid
+# 临时脚本和测试文件
+temp-scripts/
+*.mjs
+*-fix.sh
+*-test.js
+debug-*.html
+
+# 构建和部署临时文件
+*.backup
+*.disabled
+.temp/
+

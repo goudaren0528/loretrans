@@ -18,20 +18,51 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Transly - AI Translator for Low-Resource Languages",
+      "title": "Loretrans - AI Translator for Low-Resource Languages",
       "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
     },
     "hero": {
-      "title": "AI-Powered Translation for Low-Resource Languages",
-      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for languages often underserved by mainstream services. Get started for free.",
+      "badge": "Professional Low-Resource Language Translation • Languages Google Translate Doesn't Cover",
+      "title": "Make Every Language Understood",
+      "title_part1": "Make Every Language ",
+      "title_highlight": "Understood",
+      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for 20+ low-resource languages often underserved by mainstream services. Get started with 300 free characters per translation.",
+      "comparison": {
+        "google": {
+          "title": "Google Translate",
+          "description": "No low-resource language support"
+        },
+        "loretrans": {
+          "title": "Loretrans",
+          "description": "Professional support for 20+ low-resource languages"
+        }
+      },
       "features": {
-        "free": "100% Free",
-        "ai_powered": "AI-Powered",
-        "languages": "20+ Languages"
+        "free": "Free up to 500 characters",
+        "ai_powered": "Meta NLLB AI-powered",
+        "document_support": "Document translation support"
       },
       "cta": {
-        "start_translating": "Start Translating",
-        "upload_document": "Upload Document"
+        "start_free": "Start Free Translation",
+        "view_pricing": "View Pricing"
+      },
+      "social_proof": {
+        "rating": "4.8/5",
+        "users": "Served 10,000+ users",
+        "accuracy": "Translation accuracy >90%"
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Haitian Creole",
+          "text": "Bonjou, kijan ou ye?"
+        },
+        "english": {
+          "language": "English",
+          "text": "Hello, how are you?"
+        }
+      },
+      "status": {
+        "free": "Register for 500 Credits"
       }
     },
     "languages": {
@@ -40,14 +71,61 @@
     },
     "cta": {
       "title": "Start Translating Today",
-      "description": "Join thousands of users who trust Transly for their translation needs",
+      "description": "Join thousands of users who trust Loretrans for their translation needs",
       "try_now": "Try Now - It's Free",
       "translate_documents": "Translate Documents"
+    },
+    "feature_section": {
+      "title": "Why Choose Loretrans?",
+      "description": "Professional-grade translation tools designed for low-resource languages"
+    },
+    "cost_comparison": {
+      "title": "Cost Comparison: Why Loretrans is More Cost-Effective?",
+      "human_translation": {
+        "price": "$120",
+        "title": "Human Translation",
+        "description": "1000 characters × $0.12/char"
+      },
+      "google_translate": {
+        "price": "Not supported",
+        "title": "Google Translate",
+        "description": "Insufficient low-resource language coverage"
+      },
+      "loretrans": {
+        "price": "$1",
+        "title": "Loretrans",
+        "description": "1000 characters × $0.001/char (300 free + 700×0.001)",
+        "savings": "Save 99% cost"
+      }
+    },
+    "user_scenarios": {
+      "academic": {
+        "title": "Academic Researchers",
+        "description": "Need to translate academic literature and research materials in low-resource languages like Haitian Creole and Lao",
+        "recommendation": "Recommended: Starter Plan ($5) • Perfect for paper translation"
+      },
+      "immigrant": {
+        "title": "Immigrant Communities",
+        "description": "Handle official documents, legal papers and other important materials with accurate translation needs",
+        "recommendation": "Recommended: Basic Plan ($10) • High accuracy guarantee"
+      },
+      "ecommerce": {
+        "title": "Cross-border E-commerce",
+        "description": "Product description localization, batch translation of product information to low-resource language markets",
+        "recommendation": "Recommended: Pro Plan ($25) • Supports batch translation"
+      }
+    },
+    "cta_section": {
+      "cta_try": "Get 500 Credits - Register Now"
+    },
+    "Footer": {
+      "pricing": "Pricing",
+      "interface_language": "Interface Language"
     }
   },
   "IndexPage": {
     "meta": {
-      "title": "Transly - AI Translator for Low-Resource Languages",
+      "title": "Loretrans - AI Translator for Low-Resource Languages",
       "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
     },
     "title": "Translate Low-Resource Languages",
@@ -69,9 +147,11 @@
     },
     "cta_section": {
       "title": "Start Translating Today",
-      "description": "Join thousands of users who trust Transly for their translation needs",
+      "description": "Join thousands of users who trust Loretrans for their translation needs",
       "cta_try": "Try Now - It's Free",
-      "cta_docs": "Translate Documents"
+      "cta_docs": "Translate Documents",
+      "try_now": "Register for 500 Free Credits",
+      "translate_documents": "Start Translating"
     },
     "translation_options": {
       "title": "Choose Your Translation Method",
@@ -79,9 +159,9 @@
       "options": {
         "text": {
           "title": "Text Translation",
-          "description": "Translate text between 20+ low-resource languages and English instantly.",
+          "description": "Translate text between 20+ low-resource languages and English instantly. Free for up to 300 characters per request.",
           "features": [
-            "Up to 1000 characters",
+            "Up to 300 characters free",
             "Instant results",
             "Voice playback",
             "Copy to clipboard"
@@ -90,12 +170,12 @@
         },
         "document": {
           "title": "Document Translation",
-          "description": "Upload and translate PDF, Word, and PowerPoint documents.",
+          "description": "Upload and translate TXT files (PDF, Word, PowerPoint coming soon) documents.",
           "features": [
-            "PDF, Word, PPT support",
+            "TXT support (10MB max)",
             "Preserves formatting",
             "Download results",
-            "Batch processing"
+            "Coming soon: PDF, Word, PPT"
           ],
           "button": "Start Translating"
         },
@@ -122,7 +202,7 @@
       "try_language": "Try {language}"
     },
     "feature_section": {
-      "title": "Why Choose Transly?",
+      "title": "Why Choose Loretrans?",
       "description": "Professional-grade translation tools designed for low-resource languages",
       "features": {
         "ai_powered": {
@@ -175,7 +255,7 @@
       }
     },
     "cost_comparison": {
-      "title": "Cost Comparison: Why Transly is More Cost-Effective?",
+      "title": "Cost Comparison: Why Loretrans is More Cost-Effective?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -186,32 +266,32 @@
         "title": "Google Translate",
         "description": "Insufficient low-resource language coverage"
       },
-      "transly": {
+      "loretrans": {
         "price": "$1",
-        "title": "Transly",
+        "title": "Loretrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
     },
     "faq_section": {
       "title": "Frequently Asked Questions",
-      "description": "Everything you need to know about Transly",
+      "description": "Everything you need to know about Loretrans",
       "questions": [
         {
-          "question": "Is Transly really free to use?",
-          "answer": "Yes! Transly is completely free for text translation up to 1000 characters per request. There are no hidden fees or subscription requirements."
+          "question": "How does Loretrans pricing work?",
+          "answer": "Loretrans offers 300 free characters per translation. For longer texts, we charge 0.1 credits per character beyond the free limit. New users get 500 welcome credits when they register."
         },
         {
-          "question": "How accurate are the translations?",
-          "answer": "We use Meta's NLLB (No Language Left Behind) model, which provides high-quality translations for low-resource languages. While no automated translation is perfect, NLLB is specifically designed to handle languages with limited training data."
+          "question": "What languages do you support?",
+          "answer": "We specialize in 20+ low-resource languages including Haitian Creole, Lao, Swahili, Burmese, Telugu, and more. All languages support bidirectional translation with English."
         },
         {
-          "question": "Which languages do you support?",
-          "answer": "We support 20+ low-resource languages including Haitian Creole, Lao, Swahili, Burmese, Telugu, Sinhala, Amharic, Khmer, Nepali, and Malagasy. All languages can be translated to English."
+          "question": "Is there a character limit?",
+          "answer": "Each translation includes 300 free characters. For longer texts, you can use credits (0.1 credits per character). Register to get 500 welcome credits for extended translations."
         },
         {
-          "question": "Is my data safe and private?",
-          "answer": "Absolutely. We don't store your translation text on our servers. Your text is processed securely and deleted immediately after translation. We take privacy seriously."
+          "question": "What file formats do you support?",
+          "answer": "Currently we support TXT files up to 10MB. PDF, Word, and PowerPoint support is coming soon based on user feedback."
         },
         {
           "question": "Can I translate documents?",
@@ -226,26 +306,38 @@
           "answer": "Free users can translate up to 1000 characters per request. For longer texts, you can break them into smaller chunks or upload documents for processing."
         },
         {
-          "question": "Can I use Transly for commercial purposes?",
-          "answer": "Yes, you can use Transly for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
+          "question": "Can I use Loretrans for commercial purposes?",
+          "answer": "Yes, you can use Loretrans for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
         }
       ],
       "contact_prompt": "Have more questions?",
       "contact_link": "Contact our support team"
+    },
+    "faq": {
+      "q1_answer": "Loretrans offers 300 free characters per translation with no registration required. For longer texts, we charge 0.1 credits per character beyond the free limit. New users receive 500 welcome credits when they register, perfect for translating longer documents.",
+      "q3_answer": "Currently we support TXT files up to 10MB. We're actively developing support for PDF, Microsoft Word (.doc, .docx), and PowerPoint (.ppt, .pptx) formats based on user feedback.",
+      "q4_answer": "Our translations use Meta's NLLB model, specifically trained for low-resource languages. We offer 300 free characters per translation, with additional characters at 0.1 credits each. For example, a 1000-character text costs 70 credits (300 free + 700×0.1). Register to get 500 welcome credits.",
+      "q1_title": "How does Loretrans pricing work?",
+      "q2_title": "What makes Loretrans different?",
+      "q2_answer": "We specialize in 20+ low-resource languages often poorly supported by mainstream services. Using Meta's NLLB model, we provide superior accuracy for languages like Haitian Creole, Lao, Swahili, and Burmese.",
+      "q5_title": "Do I need to create an account?",
+      "q5_answer": "No account needed for 300-character translations. However, registering gives you 500 welcome credits, translation history, priority support, and access to upcoming features like document translation.",
+      "q6_title": "How do credits work?",
+      "q6_answer": "Credits are used for translations over 300 characters at 0.1 credits per character. New users get 500 welcome credits (worth 5000 characters). Credits never expire and can be topped up anytime."
     }
   },
   "AboutPage": {
     "meta": {
-      "title": "About Transly - Professional Translation for Low-Resource Languages",
-      "description": "Learn about Transly, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
+      "title": "About Loretrans - Professional Translation for Low-Resource Languages",
+      "description": "Learn about Loretrans, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
     },
     "hero": {
-      "title": "About Transly",
+      "title": "About Loretrans",
       "description": "Professional translation platform dedicated to connecting low-resource languages with the world through accurate English translation."
     },
     "mission": {
       "title": "Our Mission",
-      "p1": "We believe every language deserves to be heard. Transly bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
+      "p1": "We believe every language deserves to be heard. Loretrans bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
       "p2": "Powered by Meta's state-of-the-art NLLB (No Language Left Behind) model, we support over 20 languages that are often overlooked by mainstream translation services.",
       "cta": "Try Document Translation"
     },
@@ -271,7 +363,7 @@
     },
     "technology": {
       "title": "Powered by Advanced AI",
-      "description": "Transly uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
+      "description": "Loretrans uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
       "cultural_preservation": {
         "title": "Cultural Preservation",
         "description": "Supporting linguistic diversity and helping preserve cultural heritage through technology."
@@ -287,8 +379,8 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "q1_title": "What makes Transly different from other translation services?",
-      "q1_answer": "Transly specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
+      "q1_title": "What makes Loretrans different from other translation services?",
+      "q1_answer": "Loretrans specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
       "q2_title": "Is my data safe and private?",
       "q2_answer": "Yes, we prioritize your privacy. We don't store your translations or personal data. All translations are processed securely and deleted immediately after delivery. For document translations, files are automatically removed after download.",
       "q3_title": "What file formats do you support for document translation?",
@@ -302,19 +394,19 @@
     },
     "cta_section": {
       "title": "Ready to Get Started?",
-      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Transly is here to help you communicate with the world.",
+      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Loretrans is here to help you communicate with the world.",
       "cta_text": "Try Text Translation",
       "cta_docs": "Upload Document"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Contact Support - Get Help with Transly",
-      "description": "Need help with translation? Contact our support team for assistance with Transly translation services, technical issues, or general inquiries."
+      "title": "Contact Support - Get Help with Loretrans",
+      "description": "Need help with translation? Contact our support team for assistance with Loretrans translation services, technical issues, or general inquiries."
     },
     "hero": {
       "title": "Contact Support",
-      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Transly."
+      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Loretrans."
     },
     "form": {
       "title": "Send us a message",
@@ -345,7 +437,7 @@
       "quick_contact": {
         "title": "Quick Contact",
         "email_support": "Email Support",
-        "email_address": "support@transly.app",
+        "email_address": "support@loretrans.app",
         "response_time": "Response within 24 hours",
         "live_chat": "Live Chat",
         "live_chat_status": "Available soon",
@@ -375,7 +467,7 @@
       },
       "self_help": {
         "title": "Self-Help Resources",
-        "how_it_works": "→ How Transly works",
+        "how_it_works": "→ How Loretrans works",
         "try_text": "→ Try text translation",
         "try_docs": "→ Document translation guide",
         "privacy": "→ Privacy policy",
@@ -400,7 +492,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Pricing - Choose Your Translation Credits | Transly",
+      "title": "Pricing - Choose Your Translation Credits | Loretrans",
       "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
     },
     "hero": {
@@ -442,44 +534,22 @@
       "canceled_title": "Payment Canceled",
       "canceled_description": "Your purchase was canceled. You have not been charged. Please feel free to select a plan and try again."
     },
-    "loading": "Loading...",
-    "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Transly?",
-      "human_translation": {
-        "price": "$120",
-        "title": "Human Translation",
-        "description": "1000 characters × $0.12/char"
-      },
-      "google_translate": {
-        "price": "Not Supported",
-        "title": "Google Translate",
-        "description": "Limited small language coverage"
-      },
-      "transly": {
-        "price": "$1",
-        "title": "Transly",
-        "description": "1000 characters × $0.001/char",
-        "savings": "Save 99% cost"
-      }
-    },
-    "cta": {
-      "title": "Ready to Get Started?",
-      "description": "Join thousands of users who trust Transly for their translation needs. Start translating today!",
-      "free_trial": "Try Free Translation",
-      "contact_sales": "Contact Sales"
-    }
+    "loading": "Loading..."
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Text Translator - Free AI Translation Tool | Transly",
+      "title": "Text Translator - Free AI Translation Tool | Loretrans",
       "description": "Free online text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly with AI."
     },
     "hero": {
-      "title": "Free Text Translator",
-      "description": "Translate text between 20+ low-resource languages and English using advanced AI. Fast, accurate, and completely free for up to 500 characters.",
-      "status_free": "500 chars free",
-      "status_ai": "AI-Powered",
-      "status_instant": "Instant Results"
+      "title": "Smart Low-Resource Language Translation",
+      "subtitle": "AI intelligently determines processing mode, supporting professional translation for 20+ low-resource languages including Haitian Creole, Lao, Burmese, and more",
+      "features": {
+        "free_500_chars": "Free under 500 characters",
+        "smart_time_estimation": "Smart time estimation",
+        "unified_experience": "Unified translation experience",
+        "error_recovery": "Smart error recovery"
+      }
     },
     "other_languages": {
       "title": "Try Other Languages",
@@ -489,17 +559,17 @@
       "title": "Text Translation FAQ",
       "description": "Everything you need to know about our text translation service",
       "q1_title": "How much does text translation cost?",
-      "q1_answer": "Text translation is completely free for up to 500 characters per request. For longer texts (over 500 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 50 credits (500 free + 500×0.1 = 50 credits).",
+      "q1_answer": "Each translation includes 300 free characters. For longer texts, we charge 0.1 credits per character. Register to get 500 welcome credits for extended translations.",
       "q2_title": "Which languages do you support?",
       "q2_answer": "We specialize in low-resource languages that are often poorly supported by mainstream translation services. We currently support Haitian Creole, Lao, Swahili, Burmese, Telugu, Chinese, and more. All languages support bidirectional translation with English.",
       "q3_title": "How accurate are the translations?",
       "q3_answer": "Our translations are powered by Meta's NLLB (No Language Left Behind) model, which is specifically designed for low-resource languages. While no automated translation is perfect, NLLB provides significantly better accuracy for small languages compared to traditional translation services.",
       "q4_title": "Do I need to create an account?",
-      "q4_answer": "No account is required for free translations (up to 500 characters). However, creating a free account gives you 500 bonus credits and allows you to purchase additional credits for longer translations. You'll also get access to translation history and other premium features.",
+      "q4_answer": "No account required for 300-character translations. However, registering gives you 500 bonus credits, translation history, and access to premium features.",
       "q5_title": "Can I translate from English to other languages?",
       "q5_answer": "Yes! All our supported languages work bidirectionally. You can translate from English to any supported language, or from any supported language to English. Just use the language selector to choose your desired translation direction.",
       "q6_title": "What's the character limit?",
-      "q6_answer": "Free users can translate up to 500 characters per request without any cost. For longer texts, you can either break them into smaller chunks or purchase credits. Registered users get 500 bonus credits to start with, which allows for longer translations.",
+      "q6_answer": "Each translation includes 300 free characters. For longer texts, use credits (0.1 per character). New users get 500 welcome credits when they register.",
       "contact_text": "Have more questions?",
       "contact_link": "Contact our support team"
     },
@@ -515,8 +585,8 @@
       "fast_desc": "Get instant translations powered by advanced AI models. No waiting, no delays.",
       "accurate_title": "High Accuracy",
       "accurate_desc": "Powered by Meta's NLLB model, ensuring high-quality translations for all supported languages.",
-      "free_title": "Always Free",
-      "free_desc": "No hidden fees, no limits, no registration required. Translate as much as you need."
+      "free_title": "Free + Bonus Credits",
+      "free_desc": "300 characters free per translation. Register for 500 bonus credits to translate longer texts."
     },
     "how_to": {
       "title": "How to Use the Text Translator",
@@ -531,6 +601,52 @@
       "title": "Supported Languages",
       "description": "We support translation from these languages to English:",
       "more": "And many more low-resource languages..."
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Explore More Low-Resource Language Translation",
+        "subtitle": "We support professional translation services for 20+ low-resource languages"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Common questions about low-resource language translation"
+      },
+      "cta": {
+        "title": "Ready to Start Translating?",
+        "subtitle": "Experience professional low-resource language translation service, completely free under 500 characters",
+        "try_document": "Try Document Translation",
+        "view_pricing": "View Pricing Plans"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Which languages are supported for translation?",
+        "answer": "We focus on low-resource language translation, supporting 20+ languages that Google Translate doesn't cover well, including Haitian Creole, Lao, Swahili, Burmese, Telugu, and more."
+      },
+      "q2": {
+        "question": "How accurate is the translation?",
+        "answer": "Based on Meta's NLLB model, our translation accuracy exceeds 90%. Especially for low-resource languages, we are more professional and accurate than traditional translation tools."
+      },
+      "q3": {
+        "question": "What is the free quota?",
+        "answer": "Under 500 characters is completely free, no registration required. Registered users also get 500 credit bonus, which can translate approximately 50,000 characters of long text."
+      },
+      "q4": {
+        "question": "How are translation fees calculated?",
+        "answer": "Text over 500 characters is charged at 0.1 credits per character. For example, translating 1000 characters requires 50 credits, costing about $0.05, saving 99% compared to human translation."
+      },
+      "q5": {
+        "question": "Which file formats are supported?",
+        "answer": "In addition to text translation, we also support translation of document formats like PDF, Word, PPT. Document translation automatically extracts text while maintaining original formatting."
+      },
+      "q6": {
+        "question": "Can translation results be saved?",
+        "answer": "Translation history for registered users is automatically saved. Starter plan saves for 7 days, Basic plan for 30 days, Pro plan for 90 days, Business plan saves indefinitely."
+      }
+    },
+    "contact": {
+      "more_questions": "Have other questions?",
+      "contact_support": "Contact our support team"
     }
   },
   "Layout": {
@@ -540,7 +656,7 @@
       "document_translation": "Document Translation",
       "document_translation_desc": "Upload and translate documents",
       "about": "About",
-      "about_desc": "Learn about Transly"
+      "about_desc": "Learn about Loretrans"
     },
     "Footer": {
       "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
@@ -560,18 +676,18 @@
       "contact_support": "Contact Support",
       "api_docs": "API Documentation",
       "contact_us": "Contact Us",
-      "support_email": "support@transly.app",
+      "support_email": "support@loretrans.app",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
       "telugu_language": "Telugu",
-      "copyright": "© 2024 Transly. All rights reserved.",
+      "copyright": "© 2024 Loretrans. All rights reserved.",
       "powered_by": "Powered by Meta NLLB AI Technology"
     }
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Document Translation - Translate PDF, Word, PowerPoint | Transly",
+      "title": "Document Translation - Translate PDF, Word, PowerPoint | Loretrans",
       "description": "Upload and translate documents to English. Support for PDF, Word, PowerPoint files with AI-powered translation for low-resource languages."
     },
     "title": "Document Translation",
@@ -703,7 +819,7 @@
       "contact_support": "Contact Support"
     },
     "SignUpForm": {
-      "title": "Create a Transly Account",
+      "title": "Create a Loretrans Account",
       "subtitle": "Create an account to get 500 bonus credits",
       "name_label": "Name",
       "name_placeholder": "Enter your name",
@@ -729,10 +845,22 @@
       "signup_failed": "Sign up failed, please try again",
       "signup_error": "An error occurred during sign up, please try again",
       "signin_prompt": "Already have an account?",
-      "signin_link": "Sign In"
+      "signin_link": "Sign In",
+      "password_requirements": "Password Requirements",
+      "requirement_length": "At least 8 characters",
+      "requirement_uppercase": "At least one uppercase letter",
+      "requirement_lowercase": "At least one lowercase letter",
+      "requirement_number": "At least one number",
+      "requirement_special": "At least one special character",
+      "password_strength": "Password Strength",
+      "strength_very_weak": "Very Weak",
+      "strength_weak": "Weak",
+      "strength_fair": "Fair",
+      "strength_good": "Good",
+      "strength_excellent": "Excellent"
     },
     "SignInForm": {
-      "title": "Sign In to Transly",
+      "title": "Sign In to Loretrans",
       "subtitle": "Welcome back! Please sign in to your account",
       "email_label": "Email",
       "email_placeholder": "Enter your email",
@@ -768,11 +896,16 @@
       "login_required_title": "Login required",
       "login_required_description": "Long text translation requires a logged-in account",
       "daily_limit_title": "Translation limit reached",
-      "daily_limit_description": "Daily free translation limit has been reached"
+      "daily_limit_description": "Daily free translation limit has been reached",
+      "translation_failed": "Translation failed. Please try again.",
+      "network_error": "Network error. Please check your connection.",
+      "invalid_input": "Please enter valid text to translate.",
+      "text_too_long": "Text is too long. Maximum {max} characters allowed."
     },
     "success": {
       "translation_complete": "Translation complete",
-      "credits_consumed": "Consumed {credits} credits"
+      "credits_consumed": "Consumed {credits} credits",
+      "free_translation_complete": "Free translation completed successfully"
     },
     "alerts": {
       "login_required_for_long_text": "Long text translation requires a logged-in account.",
@@ -782,8 +915,13 @@
     },
     "buttons": {
       "translating": "Translating...",
+      "submitting": "Submitting...",
       "translate_with_credits": "Translate ({credits} credits)",
-      "free_translate": "Translate"
+      "free_translate": "Translate",
+      "start_translate": "Start Translation",
+      "translate": "Translate",
+      "copy_result": "Copy Result",
+      "clear_text": "Clear Text"
     },
     "credits": {
       "balance": "Credits",
@@ -796,12 +934,53 @@
       "over_limit": "Exceeds free quota by {excess} characters, will consume credits",
       "insufficient_balance": "Insufficient credits! Need {required} credits, current balance {current} credits.",
       "recharge_now": "Recharge now"
+    },
+    "labels": {
+      "from": "From",
+      "to": "To",
+      "source_text": "Source Text",
+      "target_text": "Translation",
+      "enter_text": "Enter text to translate...",
+      "translation_result": "Translation Result",
+      "copy_translation": "Copy Translation",
+      "clear_text": "Clear Text",
+      "swap_languages": "Swap Languages",
+      "translated_text": "Translated Text"
+    },
+    "placeholders": {
+      "translation_result": "Translation will appear here...",
+      "translating": "Translating...",
+      "enter_source_text": "Enter text to translate..."
+    },
+    "actions": {
+      "copy": "Copy",
+      "listen": "Listen",
+      "play": "Play",
+      "pause": "Pause",
+      "stop": "Stop",
+      "download": "Download",
+      "share": "Share",
+      "clear": "Clear"
+    },
+    "estimation": {
+      "estimated_time": "Estimated time",
+      "processing_time": "Processing time",
+      "time_remaining": "Time remaining",
+      "seconds": "seconds",
+      "minutes": "minutes",
+      "hours": "hours",
+      "less_than_minute": "Less than a minute",
+      "about_minutes": "About {minutes} minutes",
+      "about_seconds": "About {seconds} seconds",
+      "calculating": "Calculating...",
+      "queue_position": "Queue position: {position}",
+      "estimated_completion": "Estimated completion: {time}"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Pricing Plans - Transly AI Translation",
-      "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
+      "title": "Pricing Plans - Choose Your Translation Solution | Loretrans",
+      "description": "Smart pricing recommendations based on usage scenarios. Starting from $5 for students, $10 for individuals, $25 for professionals. Support for 20+ low-resource languages including Haitian Creole and Lao."
     },
     "title": "Choose Your Credit Package",
     "subtitle": "Flexible credit system, pay as you go, no monthly subscriptions",
@@ -812,7 +991,7 @@
       "completely_free": "✅ Completely Free:",
       "credit_based": "💰 Credit-based:",
       "features": {
-        "free_text": "Text under 500 characters",
+        "free_text": "Text under 300 characters",
         "all_languages": "All language pairs supported",
         "unlimited_use": "Unlimited usage",
         "large_text": "Text over 500 characters",
@@ -903,15 +1082,15 @@
       "subtitle": "Everything you need to know about our pricing",
       "credit_calculation": {
         "question": "How are credits calculated?",
-        "answer": "Under 500 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 50 credits."
+        "answer": "Under 300 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 70 credits."
       },
       "expiration": {
         "question": "Do credits expire?",
-        "answer": "Credit validity depends on the package purchased, ranging from 7 to 180 days. We'll notify you before expiration."
+        "answer": "No, your credits never expire. Once purchased, they remain in your account until used."
       },
       "payment_methods": {
-        "question": "What payment methods are supported?",
-        "answer": "We support credit cards, debit cards, and digital wallets. All payments are processed through the secure Creem platform."
+        "question": "What payment methods do you support?",
+        "answer": "We support major credit cards and debit cards through our secure Creem payment system."
       },
       "bulk_discount": {
         "question": "Do you offer bulk discounts?",
@@ -929,7 +1108,136 @@
         "question": "How does API pricing work?",
         "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 500."
       },
-      "contact_support": "Have more questions? Contact our support team"
+      "contact_support": "Have more questions? Contact our support team",
+      "upgrade_plan": {
+        "question": "Can I upgrade my plan anytime?",
+        "answer": "Absolutely! You can purchase additional credit packages anytime, and credits will be added to your account immediately."
+      }
+    },
+    "scenarios": {
+      "student": {
+        "name": "Student Users",
+        "description": "Academic papers, homework translation",
+        "monthlyUsage": "1-5K characters",
+        "features": [
+          "Academic literature translation",
+          "Homework assistance",
+          "Research material processing"
+        ],
+        "testimonial": {
+          "text": "I used it to translate an entire semester of Haitian literature works, with high accuracy!",
+          "author": "Zhang - Linguistics Major"
+        },
+        "usageExample": "Can translate about 10-15 academic papers"
+      },
+      "individual": {
+        "name": "Individual Users",
+        "description": "Blog content, social media",
+        "monthlyUsage": "5-15K characters",
+        "features": [
+          "Personal blog translation",
+          "Social media content",
+          "Daily communication"
+        ],
+        "testimonial": {
+          "text": "As an immigrant, this tool helped me handle many official document translations.",
+          "author": "Maria - Haitian Immigrant"
+        },
+        "usageExample": "Perfect for personal content and documents"
+      },
+      "professional": {
+        "name": "Professionals",
+        "description": "Client documents, business translation",
+        "monthlyUsage": "15-50K characters",
+        "features": [
+          "Business document translation",
+          "Client communication",
+          "Professional materials"
+        ],
+        "testimonial": {
+          "text": "Helped our company successfully enter the Myanmar market with professional translation quality.",
+          "author": "David - Cross-border E-commerce Manager"
+        },
+        "usageExample": "Ideal for business communications and documents"
+      },
+      "enterprise": {
+        "name": "Enterprise Users",
+        "description": "Large-scale content localization",
+        "monthlyUsage": "50K+ characters",
+        "features": [
+          "Batch translation",
+          "API access",
+          "Team management",
+          "Priority support"
+        ],
+        "testimonial": {
+          "text": "NGO work often requires handling multilingual documents, this tool saves a lot of time.",
+          "author": "Sarah - International NGO Project Manager"
+        },
+        "usageExample": "Perfect for organizations with high-volume needs"
+      }
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfect for light users and students",
+        "features": [
+          "2,500 credits (about 25,000 characters)",
+          "All low-resource languages supported",
+          "Document translation feature",
+          "7-day translation history",
+          "Email support"
+        ],
+        "limitations": [
+          "No batch translation support",
+          "No API access"
+        ],
+        "bestFor": [
+          "Students",
+          "Light personal users"
+        ]
+      },
+      "basic": {
+        "name": "Basic",
+        "description": "Great for regular users - Most Popular",
+        "features": [
+          "6,000 credits (about 60,000 characters)",
+          "All low-resource languages supported",
+          "Document translation feature",
+          "30-day translation history",
+          "Priority email support",
+          "Advanced translation options"
+        ],
+        "limitations": [
+          "No batch translation support",
+          "No API access"
+        ],
+        "bestFor": [
+          "Regular users",
+          "Small businesses"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Ideal for professionals and small businesses",
+        "features": [
+          "20,000 credits (about 200,000 characters)",
+          "All low-resource languages supported",
+          "Document translation feature",
+          "90-day translation history",
+          "Priority support",
+          "Advanced translation options",
+          "Batch translation (up to 10 files)"
+        ],
+        "limitations": [
+          "No API access"
+        ],
+        "bestFor": [
+          "Professionals",
+          "Small businesses",
+          "Content creators"
+        ]
+      }
     }
   },
   "Common": {
@@ -953,46 +1261,13 @@
     "choose_pricing_plan": "Choose a pricing plan"
   },
   "translation": {
-    "start_translation": "开始翻译",
-    "translation_complete": "翻译完成",
-    "translation_failed": "翻译失败",
-    "translating": "翻译中...",
-    "preparing_engine": "准备翻译引擎...",
-    "about_to_start": "即将开始翻译...",
-    "processing": "翻译进行中，请稍候...",
-    "engine_running": "翻译引擎全力运转中...",
-    "optimizing_quality": "正在优化翻译质量...",
-    "translation_paused": "翻译已暂停",
-    "resume_translation": "点击继续按钮恢复翻译",
-    "translation_error": "翻译过程中遇到了问题",
-    "service_unavailable": "翻译服务暂时不可用，请稍后重试",
-    "input_placeholder": "输入要翻译的文本...",
-    "result_placeholder": "翻译结果将显示在这里...",
-    "from_language": "翻译的",
-    "to_language": "翻译成的",
-    "partial_complete": "翻译部分完成",
-    "partial_description": "翻译过程中遇到了一些问题，但我们已为您保存了部分结果",
-    "task_resubmitted": "翻译任务已重新提交处理"
+    "translation_complete": "Translation Complete",
+    "processing": "Processing..."
   },
   "task": {
-    "task_management": "翻译任务管理",
-    "manage_description": "管理您的翻译任务，查看进度和结果",
-    "new_translation": "新建翻译",
-    "refresh_tasks": "刷新",
-    "task_list_updated": "任务列表已更新",
-    "refresh_failed": "刷新失败",
-    "operation_success": "操作成功",
-    "operation_failed": "操作失败",
-    "select_tasks_first": "请先选择要操作的任务",
-    "no_tasks": "暂无任务",
-    "no_matching_tasks": "没有符合条件的任务",
-    "create_first_task": "还没有翻译任务，去创建一个吧！",
-    "search_placeholder": "搜索任务...",
-    "queue_created": "翻译任务已创建",
-    "can_leave_page": "您可以离开此页面，稍后在\"我的任务\"中查看结果",
-    "check_in_tasks": "可在任务管理中查看进度",
-    "view_in_tasks": "请到\"我的任务\"页面查看翻译进度",
-    "batch_operation_success": "已对 {count} 个任务执行{action}"
+    "queue_created": "Translation queued",
+    "can_leave_page": "You can leave this page while processing",
+    "processing": "Processing your translation..."
   },
   "progress": {
     "preparing": "准备中",
@@ -1042,20 +1317,16 @@
     "please_retry_later": "请稍后重试"
   },
   "success": {
-    "completed": "已完成",
-    "operation_success": "操作成功",
-    "partial_success": "部分成功",
-    "almost_done": "马上就要完成了！",
-    "results_shown_below": "结果已显示在下方",
-    "half_completed": "已完成一半以上，继续加油！"
+    "translation_complete": "Translation Complete",
+    "credits_consumed": "{credits} credits consumed",
+    "copied": "Copied!",
+    "copied_description": "Text copied to clipboard",
+    "results_shown_below": "Results shown below",
+    "free_translation": "Free translation completed"
   },
   "credits": {
-    "estimated_consumption": "预计消耗",
-    "credits_consumed": "消耗 {credits} 积分",
-    "credits_processing": "积分处理说明",
-    "consumed_credits": "已消耗积分",
-    "refunded_credits": "已退还积分",
-    "retry_only_failed": "重试时只需为失败部分支付积分"
+    "insufficient_balance": "Insufficient credits. Required: {required}, Current: {current}",
+    "recharge_now": "Please recharge your account"
   },
   "language": {
     "source_language": "源语言",
@@ -1142,24 +1413,89 @@
     "translation_failed": "Translation Failed",
     "text_too_long": "Text is too long. Maximum {max} characters allowed."
   },
-  "success": {
-    "translation_complete": "Translation Complete",
-    "credits_consumed": "{credits} credits consumed",
-    "copied": "Copied!",
-    "copied_description": "Text copied to clipboard",
-    "results_shown_below": "Results shown below"
+  "Feedback": {
+    "feedback": "Feedback",
+    "title": "Your feedback is important to us",
+    "rating": {
+      "tab": "Rating",
+      "title": "Rate our service",
+      "select": "Please select a rating",
+      "very_dissatisfied": "Very dissatisfied 😞",
+      "dissatisfied": "Dissatisfied 😕",
+      "neutral": "Neutral 😐",
+      "satisfied": "Satisfied 😊",
+      "very_satisfied": "Very satisfied 🤩",
+      "placeholder": "Please tell us your specific feelings and suggestions...",
+      "submit": "Submit Rating"
+    },
+    "suggestion": {
+      "tab": "Suggestion",
+      "title": "Feature Suggestion",
+      "type": "Suggestion Type",
+      "categories": {
+        "feature": "New Feature",
+        "ui": "UI Improvement",
+        "performance": "Performance",
+        "language": "Language Support",
+        "other": "Other"
+      },
+      "placeholder": "Please describe your suggestion in detail, we will consider it carefully...",
+      "submit": "Submit Suggestion"
+    },
+    "bug": {
+      "tab": "Bug",
+      "title": "Bug Report",
+      "type": "Bug Type",
+      "categories": {
+        "translation": "Translation Issue",
+        "ui": "UI Error",
+        "payment": "Payment Issue",
+        "account": "Account Issue",
+        "other": "Other"
+      },
+      "placeholder": "Please describe the problem in detail, including steps and error messages...",
+      "email": "Contact Email (Optional)",
+      "submit": "Report Bug"
+    },
+    "compliment": {
+      "tab": "Compliment",
+      "title": "Compliment and Thanks",
+      "placeholder": "Thank you for your recognition! Please tell us your favorite features or experiences...",
+      "submit": "Send Compliment"
+    },
+    "common": {
+      "submitting": "Submitting...",
+      "success": "Feedback submitted successfully!",
+      "success_desc": "Thank you for your valuable feedback, we will consider it carefully and continue to improve the product experience.",
+      "fill_required": "Please fill in feedback content",
+      "submit_failed": "Submission failed",
+      "try_again": "Please try again later or contact customer service",
+      "translation_quality": "Translation quality:",
+      "thanks_feedback": "Thank you for your feedback",
+      "feedback_helps": "Your feedback helps us improve translation quality"
+    }
   },
-  "credits": {
-    "insufficient_balance": "Insufficient credits. Required: {required}, Current: {current}",
-    "recharge_now": "Please recharge your account"
+  "TextTranslation": {
+    "faq": {
+      "q1_answer": "Text translation is completely free for up to 300 characters per request. For longer texts (over 300 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 70 credits (300 free + 700×0.1 = 70 credits)."
+    }
   },
-  "task": {
-    "queue_created": "Translation queued",
-    "can_leave_page": "You can leave this page while processing",
-    "processing": "Processing your translation..."
+  "auth": {
+    "register_prompt": {
+      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase. Free translation up to 300 characters per request."
+    }
   },
-  "translation": {
-    "translation_complete": "Translation Complete",
-    "processing": "Processing..."
+  "AuthPage": {
+    "signin": {
+      "title": "Sign In to Loretrans",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot password?",
+      "signin_button": "Sign In",
+      "signup_link": "Don't have an account yet? Sign Up Now",
+      "credentials_prompt": "Enter your credentials to access your account",
+      "remember_me": "Remember me",
+      "signup_text": "Sign up"
+    }
   }
 }

@@ -1,6 +1,6 @@
 # NLLB Local Translation Service
 
-本服务提供基于Meta NLLB 600M模型的本地化翻译API，专为Transly项目设计。
+本服务提供基于Meta NLLB 600M模型的本地化翻译API，专为Loretrans项目设计。
 
 ## 🚀 快速开始
 
@@ -254,7 +254,7 @@ LOG_LEVEL=error  # 仅错误信息
 
 ## 📚 集成指南
 
-### 与Transly主服务集成
+### 与Loretrans主服务集成
 
 1. 更新主服务配置:
 ```typescript

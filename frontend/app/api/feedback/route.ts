@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 发送通知邮件（高优先级反馈）
-    if (feedbackData.type === 'bug' || (feedbackData.type === 'rating' && feedbackData.rating <= 2)) {
+    if (feedbackData.type === 'bug' || (feedbackData.type === 'rating' && feedbackData.rating !== undefined && feedbackData.rating <= 2)) {
       try {
         await sendFeedbackNotification(data)
       } catch (error) {
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
 async function sendFeedbackNotification(feedback: any) {
   // 这里可以集成邮件服务，如Resend
   const emailData = {
-    to: 'support@transly.app',
+    to: 'support@loretrans.app',
     subject: `新的${feedback.type === 'bug' ? '问题报告' : '负面反馈'} - ${feedback.type}`,
     html: `
       <h2>新的用户反馈</h2>

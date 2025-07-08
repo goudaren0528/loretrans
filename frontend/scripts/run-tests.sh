@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Transly Test Execution Script
+# Loretrans Test Execution Script
 # Version: 2.0.0
 # Author: QA Team
 
@@ -20,7 +20,7 @@ PARALLEL=${PARALLEL:-true}
 COVERAGE=${COVERAGE:-true}
 BROWSER=${BROWSER:-"chromium"}
 
-echo -e "${BLUE}🧪 Transly Test Suite Execution${NC}"
+echo -e "${BLUE}🧪 Loretrans Test Suite Execution${NC}"
 echo -e "${BLUE}================================${NC}"
 echo "Environment: $TEST_ENV"
 echo "Skip Build: $SKIP_BUILD"
@@ -223,7 +223,7 @@ generate_test_report() {
     mkdir -p "$report_dir"
     
     # Combine test results
-    echo "# Transly Test Execution Report" > "$report_dir/test-summary.md"
+    echo "# Loretrans Test Execution Report" > "$report_dir/test-summary.md"
     echo "Generated: $(date)" >> "$report_dir/test-summary.md"
     echo "" >> "$report_dir/test-summary.md"
     

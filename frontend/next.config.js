@@ -25,7 +25,7 @@ const nextConfig = {
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key',
   },
   images: {
-    domains: ['cdn.transly.app'],
+    domains: ['cdn.loretrans.app'],
     formats: ['image/webp', 'image/avif'],
   },
   // SEO和性能优化

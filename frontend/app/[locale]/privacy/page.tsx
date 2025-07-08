@@ -3,9 +3,9 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Transly Privacy Policy - How we collect, use, and protect your data when using our AI translation services.',
+  description: 'Loretrans Privacy Policy - How we collect, use, and protect your data when using our AI translation services.',
   openGraph: {
-    title: 'Privacy Policy | Transly',
+    title: 'Privacy Policy | Loretrans',
     description: 'Learn about our data practices and privacy commitments.',
   },
 }
@@ -14,15 +14,15 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Privacy Policy",
-  "description": "Transly Privacy Policy and data protection practices",
-  "url": "https://transly.app/privacy",
+  "description": "Loretrans Privacy Policy and data protection practices",
+  "url": "https://loretrans.app/privacy",
   "mainEntity": {
     "@type": "PrivacyPolicy",
-    "name": "Transly Privacy Policy",
+    "name": "Loretrans Privacy Policy",
     "provider": {
       "@type": "Organization",
-      "name": "Transly",
-      "url": "https://transly.app"
+      "name": "Loretrans",
+      "url": "https://loretrans.app"
     }
   }
 }
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
               <p className="mb-4">
-                At Transly, we are committed to protecting your privacy and ensuring the 
+                At Loretrans, we are committed to protecting your privacy and ensuring the 
                 security of your personal information. This Privacy Policy explains how we 
                 collect, use, disclose, and safeguard your information when you use our 
                 AI-powered translation platform.
@@ -275,8 +275,8 @@ export default function PrivacyPage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-medium">Privacy Officer</p>
-                <p>Email: privacy@transly.app</p>
-                <p>Website: https://transly.app</p>
+                <p>Email: privacy@loretrans.app</p>
+                <p>Website: https://loretrans.app</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   We will respond to privacy inquiries within 30 days.
                 </p>

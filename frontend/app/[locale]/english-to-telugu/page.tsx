@@ -3,7 +3,7 @@ import { BidirectionalTranslator } from '@/components/bidirectional-translator'
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Telugu Translation | Free Online Translator | Transly',
+  title: 'English to Telugu Translation | Free Online Translator | Loretrans',
   description: 'Translate English to Telugu instantly with our AI-powered translator. Free, accurate, and fast translation service supporting text, documents, and more.',
   keywords: 'English to Telugu, translate English Telugu, English Telugu translator, free translation, AI translator',
   openGraph: {
@@ -26,16 +26,16 @@ const structuredData = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://transly.app/english-to-telugu",
-      "url": "https://transly.app/english-to-telugu",
+      "@id": "https://loretrans.app/english-to-telugu",
+      "url": "https://loretrans.app/english-to-telugu",
       "name": "English to Telugu Translation | Free Online Translator",
       "description": "Translate English to Telugu instantly with our AI-powered translator. Free, accurate, and fast translation service.",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://transly.app/#website",
-        "name": "Transly",
-        "url": "https://transly.app"
+        "@id": "https://loretrans.app/#website",
+        "name": "Loretrans",
+        "url": "https://loretrans.app"
       }
     },
     {

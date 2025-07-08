@@ -1,30 +1,49 @@
 {
-  "name": "Transly - AI Translation Tool",
-  "short_name": "Transly",
-  "description": "Free AI-powered translation tool for 20+ low-resource languages",
+  "name": "Loretrans - AI Translation for Low-Resource Languages",
+  "short_name": "Loretrans",
+  "description": "Professional AI-powered translation for 20+ low-resource languages to English",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "orientation": "portrait-primary",
+  "categories": [
+    "productivity",
+    "utilities",
+    "education"
+  ],
+  "lang": "en",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "48x48",
+      "sizes": "16x16 32x32",
       "type": "image/x-icon"
     },
     {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "categories": ["productivity", "utilities"],
-  "lang": "en",
-  "dir": "ltr"
-} 
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

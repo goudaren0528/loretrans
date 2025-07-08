@@ -4,14 +4,14 @@ import { BidirectionalTranslator } from '@/components/bidirectional-translator'
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Lao Translation - Free AI Translator | Transly',
+  title: 'English to Lao Translation - Free AI Translator | Loretrans',
   description: 'Translate English to Lao (Laotian) instantly with our AI-powered translator. Convert English text to ลາວ script with high accuracy. Free online translation tool.',
   keywords: ['English to Lao translation', 'English to Laotian', 'ลາວ translator', 'free Lao translation', 'English Lao converter'],
   openGraph: {
     title: 'English to Lao Translation - Free AI Translator',
     description: 'Translate English to Lao (Laotian) instantly with AI. Free, accurate, and easy to use.',
-    url: 'https://transly.app/english-to-lao',
-    siteName: 'Transly',
+    url: 'https://loretrans.app/english-to-lao',
+    siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Lao (Laotian) instantly with AI. Free, accurate, and easy to use.',
   },
   alternates: {
-    canonical: 'https://transly.app/english-to-lao',
+    canonical: 'https://loretrans.app/english-to-lao',
   },
 }
 
@@ -96,7 +96,7 @@ export default function EnglishToLaoPage() {
           "@type": "WebApplication",
           "name": "English to Lao Translator",
           "description": "Free AI-powered English to Lao translation tool",
-          "url": "https://transly.app/english-to-lao",
+          "url": "https://loretrans.app/english-to-lao",
           "applicationCategory": "Language Translation",
           "operatingSystem": "Any",
           "offers": {

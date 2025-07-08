@@ -1,4 +1,4 @@
-# 🌍 Transly - 专业小语种翻译平台
+# 🌍 Loretrans - 专业小语种翻译平台
 
 **版本**: v2.0.0  
 **翻译引擎**: Hugging Face Space NLLB 1.3B  
@@ -165,8 +165,8 @@
 ### 本地开发
 ```bash
 # 1. 克隆项目
-git clone https://github.com/your-org/transly.git
-cd transly/frontend
+git clone https://github.com/your-org/loretrans.git
+cd loretrans/frontend
 
 # 2. 安装依赖
 npm install
@@ -208,7 +208,7 @@ NEXTAUTH_SECRET=your_nextauth_secret
 ## 📁 项目结构
 
 ```
-transly/
+loretrans/
 ├── frontend/                    # Next.js 前端应用
 │   ├── app/                    # App Router 页面
 │   │   ├── [locale]/          # 多语言路由
@@ -327,8 +327,8 @@ Phase 3 - UX优化 (Week 7-10):
 - **服务状态**: https://your-domain.com/api/health
 
 ### 开发资源
-- **GitHub仓库**: https://github.com/your-org/transly
-- **Vercel部署**: https://vercel.com/your-org/transly
+- **GitHub仓库**: https://github.com/your-org/loretrans
+- **Vercel部署**: https://vercel.com/your-org/loretrans
 - **Supabase控制台**: https://app.supabase.com/project/your-project
 - **HF Space服务**: https://wane0528-my-nllb-api.hf.space
 
@@ -366,4 +366,4 @@ Phase 3 - UX优化 (Week 7-10):
 
 **最后更新**: 2024-07-03  
 **版本**: v2.0.0  
-**维护团队**: Transly 5人开发团队
+**维护团队**: Loretrans 5人开发团队

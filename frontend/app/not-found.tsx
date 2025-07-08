@@ -23,12 +23,6 @@ export default function NotFound() {
           >
             Go Home
           </Link>
-          
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
-              Contact Support
-            </Link>
-          </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
@@ -29,7 +30,7 @@ export async function GET(request: NextRequest) {
     }
 
     // 检查管理员权限（简化版本）
-    const adminEmails = ['admin@transly.app', 'support@transly.app']
+    const adminEmails = ['admin@loretrans.app', 'support@loretrans.app']
     if (!adminEmails.includes(user.email || '')) {
       return NextResponse.json(
         { error: '权限不足' },
@@ -41,15 +42,18 @@ export async function GET(request: NextRequest) {
     const analytics = await getSystemAnalytics(supabase)
 
     // 记录管理员访问
-    await supabase
-      .from('admin_access_logs')
-      .insert({
-        user_id: user.id,
-        action: 'view_analytics',
-        ip_address: request.headers.get('x-forwarded-for') || 'unknown',
-        timestamp: new Date().toISOString()
-      })
-      .catch(error => console.log('Failed to log admin access:', error))
+    try {
+      await supabase
+        .from('admin_access_logs')
+        .insert({
+          user_id: user.id,
+          action: 'view_analytics',
+          ip_address: request.headers.get('x-forwarded-for') || 'unknown',
+          timestamp: new Date().toISOString()
+        })
+    } catch (logError) {
+      console.log('Failed to log admin access:', logError)
+    }
 
     return NextResponse.json({
       success: true,
@@ -110,7 +114,7 @@ async function getSystemAnalytics(supabase: any) {
     ])
 
     // 计算活跃用户数
-    const activeUsers = new Set(recentUsers?.map(u => u.user_id) || []).size
+    const activeUsers = new Set(recentUsers?.map((u: any) => u.user_id) || []).size
 
     // 计算热门语言
     const languageCount = (translationStats || []).reduce((acc: any, t: any) => {

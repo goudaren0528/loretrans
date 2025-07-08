@@ -211,7 +211,7 @@ export default function TasksPage() {
     }
     
     // 更新任务状态
-    setTasks(prev => prev.map(task => {
+    setTasks(prev => prev.map((task: any) => {
       if (task.id === taskId) {
         switch (action) {
           case 'pause':
@@ -227,7 +227,7 @@ export default function TasksPage() {
         }
       }
       return task
-    }))
+    }) as any)
   }, [])
 
   // 批量操作
@@ -408,7 +408,7 @@ export default function TasksPage() {
 
         <TabsContent value="paused" className="mt-6">
           <TaskDashboard
-            tasks={tasks.filter(t => t.status === 'paused')}
+            tasks={tasks.filter((t: any) => t.status === 'paused')}
             onTaskAction={handleTaskAction}
             onBatchAction={handleBatchAction}
             onRefresh={handleRefresh}

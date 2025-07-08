@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "重启 Transly 开发环境..."
+echo "重启 Loretrans 开发环境..."
 
 # 停止现有服务
 ./stop-dev.sh

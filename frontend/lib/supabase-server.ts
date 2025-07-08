@@ -16,6 +16,11 @@ export function createServerSupabaseClient() {
 }
 
 /**
+ * 为了兼容性，也导出为 createClient
+ */
+export const createClient = createServerSupabaseClient
+
+/**
  * 获取当前用户（服务器端）
  */
 export async function getCurrentUser() {

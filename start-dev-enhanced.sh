@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================
-# Transly 增强版开发启动脚本
+# Loretrans 增强版开发启动脚本
 # 用途: 启动所有开发服务并进行健康检查
 # 版本: 2.0
 # 更新时间: 2025-01-03
@@ -227,7 +227,7 @@ show_status() {
     log_step "服务状态总览"
     
     echo -e "${CYAN}================================${NC}"
-    echo -e "${CYAN}    Transly 开发环境已启动    ${NC}"
+    echo -e "${CYAN}    Loretrans 开发环境已启动    ${NC}"
     echo -e "${CYAN}================================${NC}"
     echo ""
     echo -e "${GREEN}🌐 前端服务:${NC}     http://localhost:3000"
@@ -270,7 +270,7 @@ log_warning() {
     echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
-log_info "停止 Transly 开发服务..."
+log_info "停止 Loretrans 开发服务..."
 
 # 停止前端服务
 if [ -f "logs/frontend.pid" ]; then
@@ -319,7 +319,7 @@ create_restart_script() {
     cat > restart-dev.sh << 'EOF'
 #!/bin/bash
 
-echo "重启 Transly 开发环境..."
+echo "重启 Loretrans 开发环境..."
 
 # 停止现有服务
 ./stop-dev.sh
@@ -338,7 +338,7 @@ EOF
 main() {
     echo -e "${CYAN}"
     echo "========================================"
-    echo "    Transly 开发环境启动脚本 v2.0"
+    echo "    Loretrans 开发环境启动脚本 v2.0"
     echo "========================================"
     echo -e "${NC}"
     

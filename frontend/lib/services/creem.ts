@@ -7,7 +7,12 @@
 import { APP_CONFIG } from '@/config/app.config'
 
 // 导入网络修复工具
-const { enhancedFetch, initializeCreemNetworkFix } = require('../../lib/creem-network-fix.js');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { createNetworkAdapter, createCryptoUtils } = require('../../lib/creem-network-fix.js');
+
+// 创建网络适配器和加密工具
+const networkAdapter = createNetworkAdapter();
+const cryptoUtils = createCryptoUtils();
 
 export interface CreemCheckoutParams {
   product_id: string
@@ -51,10 +56,7 @@ export class CreemService {
     this.apiKey = apiKey
     this.baseUrl = 'https://api.creem.io/v1'
     
-    // 初始化网络修复
-    if (typeof window === 'undefined') { // 只在服务端初始化
-      initializeCreemNetworkFix();
-    }
+    // 网络适配器已在模块顶部初始化
   }
 
   /**
@@ -64,21 +66,32 @@ export class CreemService {
     console.log('Creating Creem checkout with params:', params)
 
     try {
-      // 使用增强的fetch函数，自动处理网络问题
-      const fetchFunction = typeof window === 'undefined' ? enhancedFetch : fetch;
-      
-      const response = await fetchFunction(`${this.baseUrl}/checkouts`, {
-        method: 'POST',
-        headers: {
-          'x-api-key': this.apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(params),
-        timeout: 15000
-      })
+      // 使用网络适配器进行请求
+      const response = typeof window === 'undefined' 
+        ? await networkAdapter.request({
+            url: `${this.baseUrl}/checkouts`,
+            method: 'POST',
+            headers: {
+              'x-api-key': this.apiKey,
+              'Content-Type': 'application/json'
+            },
+            data: params
+          })
+        : await fetch(`${this.baseUrl}/checkouts`, {
+            method: 'POST',
+            headers: {
+              'x-api-key': this.apiKey,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+          });
 
-      if (!response.ok) {
-        const errorText = await response.text()
+      // 统一处理响应格式
+      const isNetworkAdapter = typeof window === 'undefined';
+      const responseOk = isNetworkAdapter ? response.status < 400 : response.ok;
+      
+      if (!responseOk) {
+        const errorText = isNetworkAdapter ? JSON.stringify(response.data) : await response.text()
         let errorData: any = {}
         try {
           errorData = JSON.parse(errorText)
@@ -106,14 +119,15 @@ export class CreemService {
         throw new Error(errorMessage)
       }
 
-      const result = await response.json()
+      const result = isNetworkAdapter ? response.data : await response.json()
       console.log('Creem checkout created successfully:', result.id)
       return result
     } catch (error) {
       console.error('Failed to create Creem checkout:', error)
       
       // 如果是网络错误，提供更友好的错误信息
-      if (error.code === 'EAI_AGAIN' || error.code === 'ENOTFOUND') {
+      if (error && typeof error === 'object' && 'code' in error && 
+          (error.code === 'EAI_AGAIN' || error.code === 'ENOTFOUND')) {
         throw new Error('Network connectivity issue. Please check your internet connection and try again.')
       }
       
@@ -126,22 +140,33 @@ export class CreemService {
    */
   async getProduct(productId: string): Promise<CreemProduct> {
     try {
-      const fetchFunction = typeof window === 'undefined' ? enhancedFetch : fetch;
-      
-      const response = await fetchFunction(`${this.baseUrl}/products/${productId}`, {
-        method: 'GET',
-        headers: {
-          'x-api-key': this.apiKey,
-          'Content-Type': 'application/json'
-        },
-        timeout: 10000
-      })
+      // 使用网络适配器进行请求
+      const response = typeof window === 'undefined' 
+        ? await networkAdapter.request({
+            url: `${this.baseUrl}/products/${productId}`,
+            method: 'GET',
+            headers: {
+              'x-api-key': this.apiKey,
+              'Content-Type': 'application/json'
+            }
+          })
+        : await fetch(`${this.baseUrl}/products/${productId}`, {
+            method: 'GET',
+            headers: {
+              'x-api-key': this.apiKey,
+              'Content-Type': 'application/json'
+            }
+          });
 
-      if (!response.ok) {
-        const errorText = await response.text()
+      // 统一处理响应格式
+      const isNetworkAdapter = typeof window === 'undefined';
+      const responseOk = isNetworkAdapter ? response.status < 400 : response.ok;
+
+      if (!responseOk) {
+        const errorText = isNetworkAdapter ? JSON.stringify(response.data) : await response.text()
         let errorData: any = {}
         try {
-          errorData = JSON.parse(errorText)
+          errorData = isNetworkAdapter ? response.data : JSON.parse(errorText)
         } catch {
           errorData = { message: errorText }
         }
@@ -154,7 +179,7 @@ export class CreemService {
         throw new Error(errorMessage)
       }
 
-      return await response.json()
+      return isNetworkAdapter ? response.data : await response.json()
     } catch (error) {
       console.error('Failed to get Creem product:', error)
       throw error
@@ -278,3 +303,6 @@ export const creem = (() => {
   // 使用真实服务
   return creemService
 })()
+
+// 为了兼容性，也导出为 creemServer
+export const creemServer = creem

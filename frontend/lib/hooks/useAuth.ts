@@ -219,7 +219,7 @@ export function useCredits() {
   
   // 预估积分消耗
   const estimateCredits = useCallback((textLength: number) => {
-    const freeLimit = 500 // 500字符免费
+    const freeLimit = 300 // 300字符免费
     if (textLength <= freeLimit) {
       return 0
     }

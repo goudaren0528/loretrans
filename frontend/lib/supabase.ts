@@ -27,7 +27,7 @@ const supabaseOptions = {
   },
   global: {
     headers: {
-      'X-Client-Info': 'transly-frontend'
+      'X-Client-Info': 'loretrans-frontend'
     }
   },
   realtime: {
@@ -55,7 +55,7 @@ export const createSupabaseBrowserClient = () => {
       ...supabaseOptions,
       auth: {
         ...supabaseOptions.auth,
-        storageKey: 'transly-auth', // 使用唯一的存储键
+        storageKey: 'loretrans-auth', // 使用唯一的存储键
       }
     })
   }
@@ -115,7 +115,7 @@ export const createSupabaseServiceClient = () => {
     },
     global: {
       headers: {
-        'X-Client-Info': 'transly-service'
+        'X-Client-Info': 'loretrans-service'
       }
     }
   })

@@ -19,7 +19,7 @@ export interface TimeEstimate {
 // 翻译策略配置
 const PROCESSING_THRESHOLDS = {
   // 字符数阈值
-  INSTANT_MAX: 500,      // 即时处理上限
+  INSTANT_MAX: 1000,     // 即时处理上限（提高到1000字符）
   FAST_QUEUE_MAX: 2000,  // 快速队列上限
   
   // 复杂度因子

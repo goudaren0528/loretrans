@@ -50,7 +50,7 @@ export function Navigation() {
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
             <Languages className="h-6 w-6 text-blue-600" />
-            <span className="text-xl font-bold">Transly</span>
+            <span className="text-xl font-bold">Loretrans</span>
           </Link>
         </div>
 
@@ -58,7 +58,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center space-x-6">
           {navigationItems.map((item) => {
             const Icon = navIcons[item.key] || Home
-            const href = buildLocalizedUrl(currentLocale, item.href)
+            const href = buildLocalizedUrl(currentLocale || 'en', item.href)
             const isActive = pathname === href || 
               (item.href !== '/' && pathname.startsWith(href))
 
@@ -120,7 +120,7 @@ export function Navigation() {
             <div className="space-y-2">
               {navigationItems.map((item) => {
                 const Icon = navIcons[item.key] || Home
-                const href = buildLocalizedUrl(currentLocale, item.href)
+                const href = buildLocalizedUrl(currentLocale || 'en', item.href)
                 const isActive = pathname === href || 
                   (item.href !== '/' && pathname.startsWith(href))
 
@@ -170,7 +170,8 @@ export function Footer() {
   const footerLinks = [
     { key: 'about_us', href: '/about' },
     { key: 'pricing', href: '/pricing' },
-    { key: 'contact_support', href: '/contact' },
+    // Contact temporarily hidden
+    // { key: 'contact_support', href: '/contact' },
     { key: 'privacy_policy', href: '/privacy' },
     { key: 'terms_of_service', href: '/terms' },
   ]
@@ -183,7 +184,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Languages className="h-6 w-6 text-blue-600" />
-              <span className="text-xl font-bold">Transly</span>
+              <span className="text-xl font-bold">Loretrans</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {tLayout('Footer.tagline')}
@@ -201,7 +202,7 @@ export function Footer() {
               {footerLinks.map((link) => (
                 <Link
                   key={link.key}
-                  href={buildLocalizedUrl(currentLocale, link.href)}
+                  href={buildLocalizedUrl(currentLocale || 'en', link.href)}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   {tLayout(`Footer.${link.key}`)}
@@ -228,7 +229,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Contact - Temporarily Hidden */}
+          {/* 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold">{tLayout('Footer.contact_us')}</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
@@ -242,10 +244,11 @@ export function Footer() {
               </Link>
             </div>
           </div>
+          */}
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Transly. All rights reserved.</p>
+          <p>&copy; 2024 Loretrans. All rights reserved.</p>
         </div>
       </div>
     </footer>

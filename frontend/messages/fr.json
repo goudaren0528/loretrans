@@ -18,21 +18,52 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Transly - Traducteur IA pour Langues à Faibles Ressources",
+      "title": "Loretrans - Traducteur IA pour Langues à Faibles Ressources",
       "description": "Traduction IA gratuite pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez textes et documents en anglais instantanément."
     },
     "hero": {
       "title": "Traduction Alimentée par l'IA pour Langues à Faibles Ressources",
-      "description": "Brisez les barrières linguistiques avec une IA de pointe. Notre plateforme fournit des traductions de haute qualité pour les langues souvent négligées par les services grand public. Commencez gratuitement.",
+      "description": "Traduction de haute qualité pour plus de 20 langues à faible ressource. 300 caractères gratuits par traduction.",
       "features": {
         "free": "100% Gratuit",
         "ai_powered": "Alimenté par l'IA",
-        "languages": "+20 Langues"
+        "languages": "+20 Langues",
+        "document_support": "Soutien à la traduction de documents"
       },
       "cta": {
         "start_translating": "Commencer à Traduire",
-        "upload_document": "Télécharger un Document"
-      }
+        "upload_document": "Télécharger un Document",
+        "start_free": "Commencez la traduction gratuite",
+        "view_pricing": "Afficher les prix"
+      },
+      "badge": "Traduction professionnelle de langues à faible consommation de ressources • Langues que Google Translate ne couvre pas",
+      "comparison": {
+        "google": {
+          "description": "Aucun support pour les langues peu utilisées",
+          "title": "Je suis en train de lire."
+        },
+        "loretrans": {
+          "description": "Assistance professionnelle pour plus de 20 langues à faible ressource",
+          "title": "Loretrans"
+        }
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Créole haïtien",
+          "text": "Bonjour, comment allez-vous ?"
+        },
+        "english": {
+          "language": "Anglais",
+          "text": "Bonjour, comment allez-vous ?"
+        }
+      },
+      "social_proof": {
+        "accuracy": "Résultats de traduction > 90%",
+        "rating": "4,8/5",
+        "users": "Servis à plus de 10 000 utilisateurs"
+      },
+      "title_highlight": "Je comprends.",
+      "title_part1": "Faites chaque langue"
     },
     "languages": {
       "title": "Langues Supportées",
@@ -40,14 +71,58 @@
     },
     "cta": {
       "title": "Commencez à Traduire Aujourd'hui",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
       "try_now": "Essayez Maintenant - C'est Gratuit",
       "translate_documents": "Traduire des Documents"
+    },
+    "cost_comparison": {
+      "google_translate": {
+        "description": "Couverture insuffisante des langues à faible ressource",
+        "price": "Non supporté",
+        "title": "Je suis en train de lire."
+      },
+      "human_translation": {
+        "description": "1000 caractères × 0,12 $/char",
+        "price": "120 $",
+        "title": "Traduction par l'homme"
+      },
+      "loretrans": {
+        "description": "1000 caractères × 0,001 $/char",
+        "price": "1 $",
+        "savings": "Économisez 99% de coût",
+        "title": "Loretrans"
+      },
+      "title": "Comparaison des coûts: Pourquoi Loretrans est-il plus rentable?"
+    },
+    "feature_section": {
+      "description": "Outils de traduction de qualité professionnelle conçus pour les langues à faible ressource",
+      "title": "Pourquoi choisir Loretrans ?"
+    },
+    "user_scenarios": {
+      "academic": {
+        "description": "Besoin de traduire des ouvrages universitaires et des documents de recherche dans des langues à faible ressource comme le créole haïtien et le lao",
+        "recommendation": "Recommandé: Plan de démarrage (5 $) • Parfait pour la traduction papier",
+        "title": "Les chercheurs universitaires"
+      },
+      "ecommerce": {
+        "description": "Localisation de la description du produit, traduction par lots des informations sur le produit pour les marchés linguistiques à faible ressource",
+        "recommendation": "Recommandé: Plan Pro (25 $) • Prend en charge la traduction par lots",
+        "title": "Commerce électronique transfrontalier"
+      },
+      "immigrant": {
+        "description": "Traiter les documents officiels, les documents juridiques et autres documents importants ayant besoin d'une traduction précise",
+        "recommendation": "Recommandé: Plan de base (10 $) • Garantie de haute précision",
+        "title": "Les communautés d'immigrants"
+      }
+    },
+    "Footer": {
+      "pricing": "Tarifs",
+      "interface_language": "Langue d'interface"
     }
   },
   "IndexPage": {
     "meta": {
-      "title": "Transly - Traducteur IA pour Langues à Faibles Ressources",
+      "title": "Loretrans - Traducteur IA pour Langues à Faibles Ressources",
       "description": "Traduction gratuite par IA pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez instantanément du texte et des documents en anglais."
     },
     "hero": {
@@ -73,7 +148,7 @@
           "title": "Traduction de Texte",
           "description": "Traduisez instantanément du texte entre plus de 20 langues à faibles ressources et l'anglais.",
           "features": {
-            "0": "Jusqu'à 1000 caractères",
+            "0": "300 caractères gratuits",
             "1": "Résultats instantanés",
             "2": "Lecture vocale",
             "3": "Copier dans le presse-papiers"
@@ -84,10 +159,10 @@
           "title": "Traduction de Documents",
           "description": "Chargez et traduisez des documents PDF, Word et PowerPoint.",
           "features": {
-            "0": "Support PDF, Word, PPT",
+            "0": "Prise en charge des fichiers PDF, Word et PPT (maximum 50 Mo)",
             "1": "Préserve la mise en forme",
             "2": "Télécharger les résultats",
-            "3": "Traitement par lots"
+            "3": "Jusqu'à 100 pages"
           },
           "button": "Commencer à Traduire"
         },
@@ -110,7 +185,7 @@
       "coming_soon": "Bientôt disponible"
     },
     "feature_section": {
-      "title": "Pourquoi Choisir Transly ?",
+      "title": "Pourquoi Choisir Loretrans ?",
       "description": "Outils de traduction de qualité professionnelle conçus pour les langues à faibles ressources",
       "features": {
         "ai_powered": {
@@ -147,23 +222,23 @@
     },
     "faq_section": {
       "title": "Questions Fréquemment Posées",
-      "description": "Tout ce que vous devez savoir sur Transly",
+      "description": "Tout ce que vous devez savoir sur Loretrans",
       "questions": {
         "0": {
-          "question": "Transly est-il vraiment gratuit ?",
-          "answer": "Oui ! Transly est entièrement gratuit pour la traduction de texte jusqu'à 1000 caractères par requête. Il n'y a pas de frais cachés ni d'abonnement requis."
+          "question": "Comment fonctionne le prix de Loretrans ?",
+          "answer": "Loretrans offre 300 caractères gratuits par traduction. Pour les textes plus longs, nous facturons 0,1 crédit par caractère. Les nouveaux utilisateurs obtiennent 500 crédits de bienvenue lors de leur inscription."
         },
         "1": {
-          "question": "Quelle est la précision des traductions ?",
-          "answer": "Nous utilisons le modèle NLLB (No Language Left Behind) de Meta, qui fournit des traductions de haute qualité pour les langues à faibles ressources. Bien qu'aucune traduction automatisée ne soit parfaite, NLLB est spécifiquement conçu pour traiter les langues avec des données d'entraînement limitées."
+          "question": "Quelles langues prenez-vous en charge ?",
+          "answer": "Nous sommes spécialisés dans plus de 20 langues à faible ressource, y compris le créole d'Haïti, le lao, le swahili, le birman, le télougou, etc. Toutes les langues prennent en charge la traduction bidirectionnelle avec l'anglais."
         },
         "2": {
-          "question": "Quelles langues prenez-vous en charge ?",
-          "answer": "Nous prenons en charge plus de 20 langues à faibles ressources, dont le créole haïtien, le lao, le swahili, le birman, le telugu, le cingalais, l'amharique, le khmer, le népalais et le malgache. Toutes les langues peuvent être traduites en anglais."
+          "question": "Y a-t-il une limite de caractères ?",
+          "answer": "Chaque traduction comprend 300 caractères gratuits. Pour les textes plus longs, vous pouvez utiliser des crédits (0,1 crédit par caractère). Inscrivez-vous pour obtenir 500 crédits de bienvenue."
         },
         "3": {
-          "question": "Mes données sont-elles sécurisées et confidentielles ?",
-          "answer": "Absolument. Nous ne stockons pas le texte de votre traduction sur nos serveurs. Votre texte est traité en toute sécurité et supprimé immédiatement après la traduction. Nous prenons la confidentialité très au sérieux."
+          "question": "Quels formats de fichiers prenez-vous en charge ?",
+          "answer": "Actuellement, nous prenons en charge les fichiers TXT jusqu'à 10 Mo. La prise en charge des fichier PDF, Word et PowerPoint est en cours."
         },
         "4": {
           "question": "Puis-je traduire des documents ?",
@@ -178,8 +253,8 @@
           "answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 1000 caractères par requête. Pour les textes plus longs, vous pouvez les diviser en morceaux plus petits ou charger des documents pour le traitement."
         },
         "7": {
-          "question": "Puis-je utiliser Transly à des fins commerciales ?",
-          "answer": "Oui, vous pouvez utiliser Transly à des fins personnelles et commerciales. Pour une utilisation commerciale à grand volume, veuillez nous contacter au sujet de nos services API."
+          "question": "Puis-je utiliser Loretrans à des fins commerciales ?",
+          "answer": "Oui, vous pouvez utiliser Loretrans à des fins personnelles et commerciales. Pour une utilisation commerciale à grand volume, veuillez nous contacter au sujet de nos services API."
         }
       },
       "contact_prompt": "Vous avez d'autres questions ?",
@@ -187,15 +262,15 @@
     },
     "cta_section": {
       "title": "Commencez à Traduire Dès Aujourd'hui",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
       "cta_try": "Essayez Maintenant - C'est Gratuit",
       "cta_docs": "Traduire des Documents"
     },
     "title": "Traduire les Langues à Faibles Ressources",
     "description": "Traduction alimentée par l'IA pour les langues aux ressources limitées.",
     "language_grid": {
-      "coming_soon": "Bientôt Disponible",
-      "try_language": "Essayer la Langue"
+      "coming_soon": "Je viens bientôt",
+      "try_language": "Essayez le langage"
     }
   },
   "Layout": {
@@ -205,7 +280,7 @@
       "document_translation": "Traduction de Documents",
       "document_translation_desc": "Charger et traduire des documents",
       "about": "À propos",
-      "about_desc": "En savoir plus sur Transly"
+      "about_desc": "En savoir plus sur Loretrans"
     },
     "Footer": {
       "tagline": "Traduction professionnelle pour les langues à faibles ressources vers l'anglais. Propulsé par la technologie IA de Meta NLLB.",
@@ -222,10 +297,10 @@
       "faq": "FAQ",
       "contact_support": "Contacter le Support",
       "api_docs": "Documentation de l'API",
-      "copyright": "© 2024 Transly. Tous droits réservés.",
+      "copyright": "© 2024 Loretrans. Tous droits réservés.",
       "powered_by": "Propulsé par la Technologie IA de Meta NLLB",
       "contact_us": "Contact Us",
-      "support_email": "support@transly.app",
+      "support_email": "support@loretrans.app",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
@@ -234,7 +309,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Tarifs - Choisissez Votre Pack de Crédits de Traduction | Transly",
+      "title": "Tarifs - Choisissez Votre Pack de Crédits de Traduction | Loretrans",
       "description": "Choisissez un pack de crédits qui correspond à vos besoins de traduction. Tarifs flexibles pour particuliers, professionnels et entreprises."
     },
     "hero": {
@@ -279,13 +354,13 @@
     "loading": "Chargement...",
     "cta": {
       "title": "Prêt à Commencer?",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Transly pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
       "try_now": "Essayer Maintenant - C'est Gratuit",
       "free_trial": "Essai Gratuit",
       "contact_sales": "Contacter les Ventes"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "title": "💰 Cost Comparison: Why Choose Loretrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -296,9 +371,9 @@
         "title": "Google Translate",
         "description": "Limited small language coverage"
       },
-      "transly": {
+      "loretrans": {
         "price": "$1",
-        "title": "Transly",
+        "title": "Loretrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
@@ -306,7 +381,7 @@
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Traduction de Documents - Traduire PDF, Word, PowerPoint | Transly",
+      "title": "Traduction de Documents - Traduire PDF, Word, PowerPoint | Loretrans",
       "description": "Chargez et traduisez des documents en anglais. Support pour les fichiers PDF, Word, PowerPoint avec traduction IA pour les langues à faibles ressources."
     },
     "title": "Traduction de Documents",
@@ -438,7 +513,7 @@
       "contact_support": "Contacter le support"
     },
     "SignUpForm": {
-      "title": "Créer un compte Transly",
+      "title": "Créer un compte Loretrans",
       "subtitle": "Créez un compte pour obtenir 500 crédits bonus",
       "name_label": "Nom",
       "name_placeholder": "Entrez votre nom",
@@ -464,10 +539,22 @@
       "signup_failed": "L'inscription a échoué, veuillez réessayer",
       "signup_error": "Une erreur est survenue lors de l'inscription, veuillez réessayer",
       "signin_prompt": "Vous avez déjà un compte ?",
-      "signin_link": "Se connecter"
+      "signin_link": "Se connecter",
+      "password_requirements": "Exigences du mot de passe",
+      "requirement_length": "Au moins 8 caractères",
+      "requirement_uppercase": "Au moins une lettre majuscule",
+      "requirement_lowercase": "Au moins une lettre minuscule",
+      "requirement_number": "Au moins un chiffre",
+      "requirement_special": "Au moins un caractère spécial",
+      "password_strength": "Force du mot de passe",
+      "strength_very_weak": "Très faible",
+      "strength_weak": "Faible",
+      "strength_fair": "Correct",
+      "strength_good": "Bon",
+      "strength_excellent": "Excellent"
     },
     "SignInForm": {
-      "title": "Se connecter à Transly",
+      "title": "Se connecter à Loretrans",
       "subtitle": "Content de vous revoir ! Veuillez vous connecter à votre compte",
       "email_label": "Votre courriel",
       "email_placeholder": "Entrez votre email",
@@ -503,7 +590,11 @@
       "login_required_title": "Connexion requise",
       "login_required_description": "La traduction de texte long nécessite un compte connecté",
       "daily_limit_title": "Limite de traduction atteinte",
-      "daily_limit_description": "La limite quotidienne de traduction gratuite a été atteinte"
+      "daily_limit_description": "La limite quotidienne de traduction gratuite a été atteinte",
+      "translation_failed": "La traduction a échoué. Veuillez réessayer.",
+      "network_error": "Erreur réseau. Vérifiez votre connexion.",
+      "invalid_input": "Veuillez entrer un texte valide à traduire.",
+      "text_too_long": "Le texte est trop long. Maximum {max} caractères autorisés."
     },
     "success": {
       "translation_complete": "Traduction terminée",
@@ -518,7 +609,12 @@
     "buttons": {
       "translating": "Traduction en cours...",
       "translate_with_credits": "Traduire ({credits} crédits)",
-      "free_translate": "Je traduis"
+      "free_translate": "Je traduis",
+      "start_translate": "Commencer la traduction",
+      "translate": "Traduire",
+      "copy_result": "Copier le Résultat",
+      "clear_text": "Effacer le Texte",
+      "submitting": "Soumission en cours..."
     },
     "credits": {
       "balance": "Crédits",
@@ -531,16 +627,57 @@
       "over_limit": "Dépasse le quota gratuit de {excess} caractères, consommera des crédits",
       "insufficient_balance": "Crédits insuffisants ! Besoin de {required} crédits, solde actuel {current} crédits.",
       "recharge_now": "Recharger maintenant"
+    },
+    "labels": {
+      "from": "De ",
+      "to": "À ",
+      "source_text": "Texte de la source",
+      "target_text": "Traduit",
+      "enter_text": "Entrez le texte pour traduire...",
+      "translation_result": "Résultat de traduction",
+      "copy_translation": "Je vais vous faire une copie",
+      "clear_text": "Le texte est clair",
+      "swap_languages": "Échange de langues",
+      "translated_text": "Texte Traduit"
+    },
+    "placeholders": {
+      "translation_result": "La traduction apparaîtra ici...",
+      "translating": "Traduction en cours...",
+      "enter_source_text": "Entrez le texte à traduire..."
+    },
+    "actions": {
+      "copy": "Copier",
+      "listen": "Écouter",
+      "play": "Jouer",
+      "pause": "Pause",
+      "stop": "Arrêter",
+      "download": "Télécharger",
+      "share": "Partager",
+      "clear": "Effacer"
+    },
+    "estimation": {
+      "estimated_time": "Temps estimé",
+      "processing_time": "Temps de traitement",
+      "time_remaining": "Temps restant",
+      "seconds": "secondes",
+      "minutes": "minutes",
+      "hours": "heures",
+      "less_than_minute": "Moins d'une minute",
+      "about_minutes": "Environ {minutes} minutes",
+      "about_seconds": "Environ {seconds} secondes",
+      "calculating": "Calcul en cours...",
+      "queue_position": "Position dans la file: {position}",
+      "estimated_completion": "Achèvement estimé: {time}"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Contacter le Support - Obtenir de l'Aide avec Transly",
-      "description": "Besoin d'aide avec la traduction ? Contactez notre équipe de support pour obtenir de l'assistance avec les services de traduction Transly, les problèmes techniques ou les demandes générales."
+      "title": "Contacter le Support - Obtenir de l'Aide avec Loretrans",
+      "description": "Besoin d'aide avec la traduction ? Contactez notre équipe de support pour obtenir de l'assistance avec les services de traduction Loretrans, les problèmes techniques ou les demandes générales."
     },
     "hero": {
       "title": "Contacter le Support",
-      "description": "Vous avez des questions sur nos services de traduction ? Besoin d'un support technique ? Nous sommes là pour vous aider à tirer le meilleur parti de Transly."
+      "description": "Vous avez des questions sur nos services de traduction ? Besoin d'un support technique ? Nous sommes là pour vous aider à tirer le meilleur parti de Loretrans."
     },
     "form": {
       "title": "Envoyez-nous un message",
@@ -601,7 +738,7 @@
       },
       "self_help": {
         "title": "Ressources d'Auto-assistance",
-        "how_it_works": "→ Comment fonctionne Transly",
+        "how_it_works": "→ Comment fonctionne Loretrans",
         "try_text": "→ Essayer la traduction de texte",
         "try_docs": "→ Guide de traduction de documents",
         "privacy": "→ Politique de confidentialité",
@@ -626,16 +763,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "À propos de Transly - Traduction Professionnelle pour les Langues à Faibles Ressources",
-      "description": "Découvrez Transly, la plateforme de traduction leader pour les petites langues vers l'anglais. Alimenté par le modèle NLLB de Meta avec plus de 20 langues supportées."
+      "title": "À propos de Loretrans - Traduction Professionnelle pour les Langues à Faibles Ressources",
+      "description": "Découvrez Loretrans, la plateforme de traduction leader pour les petites langues vers l'anglais. Alimenté par le modèle NLLB de Meta avec plus de 20 langues supportées."
     },
     "hero": {
-      "title": "À propos de Transly",
+      "title": "À propos de Loretrans",
       "description": "Plateforme de traduction professionnelle dédiée à connecter les langues à faibles ressources avec le monde grâce à une traduction précise vers l'anglais."
     },
     "mission": {
       "title": "Notre Mission",
-      "p1": "Nous croyons que chaque langue mérite d'être entendue. Transly comble le fossé de communication pour les locuteurs de langues à faibles ressources, en fournissant des services de traduction précis et accessibles vers l'anglais.",
+      "p1": "Nous croyons que chaque langue mérite d'être entendue. Loretrans comble le fossé de communication pour les locuteurs de langues à faibles ressources, en fournissant des services de traduction précis et accessibles vers l'anglais.",
       "p2": "Alimenté par le modèle NLLB (No Language Left Behind) de pointe de Meta, nous supportons plus de 20 langues qui sont souvent négligées par les services de traduction grand public.",
       "cta": "Essayer la Traduction de Documents"
     },
@@ -661,7 +798,7 @@
     },
     "technology": {
       "title": "Alimenté par l'IA Avancée",
-      "description": "Transly utilise le modèle NLLB (No Language Left Behind) de Meta, spécialement conçu pour fournir une traduction de haute qualité pour les langues à faibles ressources avec lesquelles les systèmes traditionnels ont des difficultés.",
+      "description": "Loretrans utilise le modèle NLLB (No Language Left Behind) de Meta, spécialement conçu pour fournir une traduction de haute qualité pour les langues à faibles ressources avec lesquelles les systèmes traditionnels ont des difficultés.",
       "cultural_preservation": {
         "title": "Préservation Culturelle",
         "description": "Soutenir la diversité linguistique et aider à préserver le patrimoine culturel grâce à la technologie."
@@ -677,8 +814,8 @@
     },
     "faq": {
       "title": "Questions Fréquemment Posées",
-      "q1_title": "Qu'est-ce qui différencie Transly des autres services de traduction ?",
-      "q1_answer": "Transly se spécialise dans les langues à faibles ressources qui sont souvent mal prises en charge par les services de traduction grand public. Nous utilisons le modèle NLLB de Meta, qui est spécialement conçu pour ces langues, garantissant une meilleure précision et un meilleur contexte culturel.",
+      "q1_title": "Qu'est-ce qui différencie Loretrans des autres services de traduction ?",
+      "q1_answer": "Loretrans se spécialise dans les langues à faibles ressources qui sont souvent mal prises en charge par les services de traduction grand public. Nous utilisons le modèle NLLB de Meta, qui est spécialement conçu pour ces langues, garantissant une meilleure précision et un meilleur contexte culturel.",
       "q2_title": "Mes données sont-elles sécurisées et privées ?",
       "q2_answer": "Oui, nous accordons la priorité à votre vie privée. Nous ne stockons ni vos traductions ni vos données personnelles. Toutes les traductions sont traitées de manière sécurisée et supprimées immédiatement après leur livraison. Pour les traductions de documents, les fichiers sont automatiquement supprimés après le téléchargement.",
       "q3_title": "Quels formats de fichiers prenez-vous en charge pour la traduction de documents ?",
@@ -692,15 +829,15 @@
     },
     "cta_section": {
       "title": "Prêt à Commencer ?",
-      "description": "Découvrez une traduction précise pour votre langue aujourd'hui. Qu'il s'agisse d'un texte rapide ou d'un document complet, Transly est là pour vous aider à communiquer avec le monde.",
+      "description": "Découvrez une traduction précise pour votre langue aujourd'hui. Qu'il s'agisse d'un texte rapide ou d'un document complet, Loretrans est là pour vous aider à communiquer avec le monde.",
       "cta_text": "Essayer la Traduction de Texte",
       "cta_docs": "Télécharger un Document"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Plans Tarifaires - Traduction IA Transly",
-      "description": "Choisissez un forfait de crédits qui correspond à vos besoins de traduction. Tarification flexible pour particuliers, professionnels et entreprises."
+      "title": "Plans de tarification - Choisissez votre solution de traduction",
+      "description": "Des recommandations de prix intelligentes basées sur des scénarios d'utilisation."
     },
     "title": "Choisissez Votre Forfait de Crédits",
     "subtitle": "Système de crédits flexible, payez à l'usage, sans abonnements mensuels",
@@ -798,19 +935,19 @@
       "signin_button": "J'ai Déjà un Compte"
     },
     "faq": {
-      "title": "Questions Fréquemment Posées",
+      "title": "Questions fréquemment posées",
       "subtitle": "Tout ce que vous devez savoir sur nos tarifs",
       "credit_calculation": {
         "question": "Comment les crédits sont-ils calculés?",
-        "answer": "Moins de 500 caractères est complètement gratuit, l'excédent est facturé à 0.1 crédits/caractère. Par exemple: traduire 1000 caractères nécessite 50 crédits."
+        "answer": "Pour moins de 300 caractères, il est entièrement gratuit, l'excédent est de 0,1 crédit par caractère."
       },
       "expiration": {
-        "question": "Les crédits expirent-ils?",
-        "answer": "La validité des crédits dépend du forfait acheté, de 7 à 180 jours. Nous vous préviendrons avant l'expiration."
+        "question": "Les crédits expirent-ils ?",
+        "answer": "Non, vos crédits n'expirent jamais, une fois achetés, ils restent sur votre compte jusqu'à ce qu'ils soient utilisés."
       },
       "payment_methods": {
-        "question": "Quels modes de paiement sont supportés?",
-        "answer": "Nous supportons les cartes de crédit, cartes de débit et portefeuilles numériques. Tous les paiements sont traités via la plateforme sécurisée Creem."
+        "question": "Quels sont les modes de paiement que vous acceptez ?",
+        "answer": "Nous prenons en charge les principales cartes de crédit et de débit grâce à notre système de paiement Creem sécurisé."
       },
       "bulk_discount": {
         "question": "Offrez-vous des remises en volume?",
@@ -828,20 +965,64 @@
         "question": "Comment fonctionne la tarification API?",
         "answer": "L'accès API est inclus avec les forfaits Entreprise et Corporate. L'utilisation de l'API consomme des crédits au même taux que les traductions web - 0.1 crédits par caractère au-dessus de 500."
       },
-      "contact_support": "Vous avez d'autres questions? Contactez notre équipe de support"
+      "contact_support": "Vous avez d'autres questions? Contactez notre équipe de support",
+      "upgrade_plan": {
+        "question": "Je peux mettre à jour mon plan à tout moment ?",
+        "answer": "Vous pouvez acheter des forfaits de crédit supplémentaires à tout moment, et les crédits seront ajoutés à votre compte immédiatement."
+      }
+    },
+    "scenarios": {
+      "student": {
+        "name": "Utilisateurs étudiants"
+      },
+      "individual": {
+        "name": "Utilisateurs individuels"
+      },
+      "professional": {
+        "name": "Professionnels"
+      },
+      "enterprise": {
+        "name": "Utilisateurs d'entreprise"
+      }
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Parfait pour les utilisateurs légers et les étudiants",
+        "features": [
+          "2500 crédits (environ 25 000 caractères)"
+        ]
+      },
+      "basic": {
+        "name": "Basic",
+        "description": "Idéal pour les utilisateurs réguliers - Plus populaire",
+        "features": [
+          "6 000 crédits (environ 60 000 caractères)"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Idéal pour les professionnels et les petites entreprises",
+        "features": [
+          "20 000 crédits (environ 200 000 caractères)"
+        ]
+      }
     }
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Traducteur de Texte - Outil de Traduction IA Gratuit | Transly",
+      "title": "Traducteur de Texte - Outil de Traduction IA Gratuit | Loretrans",
       "description": "Traducteur de texte en ligne gratuit pour plus de 20 langues à faibles ressources. Traduisez Créole, Lao, Swahili, Birman et plus vers l'anglais instantanément avec l'IA."
     },
     "hero": {
-      "title": "Traducteur de Texte Gratuit",
-      "description": "Traduisez du texte entre plus de 20 langues à faibles ressources et l'anglais en utilisant une IA avancée. Rapide, précis et entièrement gratuit pour jusqu'à 500 caractères.",
-      "status_free": "500 caractères gratuits",
-      "status_ai": "Alimenté par l'IA",
-      "status_instant": "Résultats Instantanés"
+      "title": "Traduction de langues intelligentes à faible consommation de ressources",
+      "subtitle": "L'IA détermine intelligemment le mode de traitement, prenant en charge la traduction professionnelle pour plus de 20 langues à faible ressource, y compris le créole haïtien, le lao, le birman, et plus encore",
+      "features": {
+        "free_500_chars": "Gratuit sous 500 caractères",
+        "smart_time_estimation": "Estimation du temps par le biais d'un système intelligent",
+        "unified_experience": "Expérience de traduction unifiée",
+        "error_recovery": "Récupération d' erreur intelligente"
+      }
     },
     "other_languages": {
       "title": "Essayer D'autres Langues",
@@ -893,6 +1074,52 @@
       "title": "Langues Supportées",
       "description": "Nous supportons la traduction de ces langues vers l'anglais:",
       "more": "Et beaucoup plus de langues à faibles ressources..."
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Explorez des traductions dans des langues à faible consommation de ressources",
+        "subtitle": "Nous soutenons des services de traduction professionnels pour plus de 20 langues à faible ressource"
+      },
+      "faq": {
+        "title": "Questions fréquemment posées",
+        "subtitle": "Questions fréquentes sur la traduction dans les langues à faible ressources"
+      },
+      "cta": {
+        "title": "Prêt à commencer à traduire ?",
+        "subtitle": "Expérience de service de traduction linguistique professionnel à faible coût, entièrement gratuit sous 500 caractères",
+        "try_document": "Essayez la traduction de documents",
+        "view_pricing": "Voir les tarifs"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Quelles langues sont prises en charge pour la traduction?",
+        "answer": "Nous nous concentrons sur la traduction de langues à faible consommation de ressources, en prenant en charge plus de 20 langues que Google Translate ne couvre pas bien, y compris le créole haïtien, le lao, le swahili, le birman, le télougou et plus encore."
+      },
+      "q2": {
+        "question": "Quelle est l'exactitude de la traduction ?",
+        "answer": "Basé sur le modèle NLLB de Meta, notre précision de traduction dépasse 90%."
+      },
+      "q3": {
+        "question": "Quel est le quota gratuit ?",
+        "answer": "Les utilisateurs enregistrés obtiennent également un bonus de 500 crédits, qui peut traduire environ 50 000 caractères de texte long."
+      },
+      "q4": {
+        "question": "Comment sont calculés les frais de traduction?",
+        "answer": "Le texte de plus de 500 caractères est facturé à 0,1 crédit par caractère. Par exemple, traduire 1000 caractères nécessite 50 crédits, coûtant environ 0,05 $, ce qui économise 99% par rapport à la traduction humaine."
+      },
+      "q5": {
+        "question": "Quels formats de fichiers sont pris en charge ?",
+        "answer": "En plus de la traduction de texte, nous prenons également en charge la traductions de formats de documents tels que PDF, Word, PPT. La traduction des documents extrait automatiquement du texte tout en conservant la mise en forme originale."
+      },
+      "q6": {
+        "question": "Les résultats de traduction peuvent-ils être sauvegardés?",
+        "answer": "L'historique de traduction des utilisateurs enregistrés est automatiquement enregistré. Le plan Starter est enregistré pendant 7 jours, le plan Basic pendant 30 jours, les plans Pro pendant 90 jours, et les plans Business sont enregistrés indéfiniment."
+      }
+    },
+    "contact": {
+      "more_questions": "Vous avez d'autres questions ?",
+      "contact_support": "Contactez notre équipe de support"
     }
   },
   "Common": {
@@ -913,7 +1140,8 @@
     "creole_greeting": "Salutations créoles",
     "lao_greeting": "Salutation du Laos",
     "swahili_greeting": "Salutation en swahili",
-    "choose_pricing_plan": "Choisissez un plan de tarification"
+    "choose_pricing_plan": "Choisissez un plan de tarification",
+    "coming_soon": "Je viens bientôt"
   },
   "translation": {
     "start_translation": "Commencer la traduction",
@@ -1010,7 +1238,10 @@
     "partial_success": "Succès partiel",
     "almost_done": "Presque terminé !",
     "results_shown_below": "Résultats affichés ci-dessous",
-    "half_completed": "Plus de la moitié terminé, continuez !"
+    "half_completed": "Plus de la moitié terminé, continuez !",
+    "translation_complete": "Traduction terminée",
+    "credits_consumed": "{credits} crédits consommés",
+    "free_translation": "Traduction gratuite terminée"
   },
   "credits": {
     "estimated_consumption": "Consommation estimée",
@@ -1018,7 +1249,9 @@
     "credits_processing": "Explication du traitement des crédits",
     "consumed_credits": "Crédits consommés",
     "refunded_credits": "Crédits remboursés",
-    "retry_only_failed": "Ne payez que les crédits pour les parties échouées lors de la nouvelle tentative"
+    "retry_only_failed": "Ne payez que les crédits pour les parties échouées lors de la nouvelle tentative",
+    "insufficient_balance": "Crédits insuffisants : Besoin de {required}, vous avez {current}",
+    "recharge_now": "Veuillez recharger vos crédits pour continuer."
   },
   "language": {
     "source_language": "Langue source",
@@ -1079,5 +1312,89 @@
       "title": "Le tableau de bord de l'administrateur",
       "description": "Gérez les paramètres de votre application et surveillez l'état du système."
     }
+  },
+  "Feedback": {
+    "feedback": "Réactions",
+    "title": "Votre feedback est important pour nous",
+    "rating": {
+      "tab": "Notation",
+      "title": "Évaluez notre service",
+      "select": "Veuillez sélectionner une note",
+      "very_dissatisfied": "Très mécontent",
+      "dissatisfied": "Je suis insatisfait.",
+      "neutral": "Neutre 😐",
+      "satisfied": "Je suis satisfait 😊",
+      "very_satisfied": "Très satisfaite",
+      "placeholder": "S'il vous plaît, dites-nous vos sentiments et suggestions spécifiques...",
+      "submit": "Soumettre une note"
+    },
+    "suggestion": {
+      "tab": "Une suggestion ?",
+      "title": "Suggestion de fonctionnalité",
+      "type": "Type de suggestion",
+      "categories": {
+        "feature": "Nouveau élément",
+        "ui": "Amélioration de l'interface utilisateur",
+        "performance": "Performance",
+        "language": "Support linguistique",
+        "other": "Autres"
+      },
+      "placeholder": "S'il vous plaît décrivez votre suggestion en détail, nous l'examinerons attentivement...",
+      "submit": "Je vous en prie, faites-moi une suggestion."
+    },
+    "bug": {
+      "tab": "Bug ",
+      "title": "Rapport de bugs",
+      "type": "Type de bug",
+      "categories": {
+        "translation": "Édition de traduction",
+        "ui": "Erreur d'interface utilisateur",
+        "payment": "Émission de paiement",
+        "account": "Émission de compte",
+        "other": "Autres"
+      },
+      "placeholder": "Veuillez décrire le problème en détail, y compris les étapes et les messages d'erreur...",
+      "email": "Email de contact (facultatif)",
+      "submit": "Rappelez le bogue"
+    },
+    "compliment": {
+      "tab": "Je vous félicite.",
+      "title": "Félicitations et remerciements",
+      "placeholder": "Merci pour votre reconnaissance ! Parlez-nous de vos caractéristiques ou expériences préférées...",
+      "submit": "Envoyez un compliment"
+    },
+    "common": {
+      "submitting": "Je vous présente...",
+      "success": "Les commentaires ont été envoyés avec succès!",
+      "success_desc": "Merci pour vos précieux commentaires, nous les examinerons attentivement et continuerons à améliorer l'expérience du produit.",
+      "fill_required": "Veuillez remplir le contenu de la rétroaction",
+      "submit_failed": "La soumission a échoué",
+      "try_again": "Veuillez réessayer plus tard ou contacter le service clientèle",
+      "translation_quality": "Qualité de traduction:",
+      "thanks_feedback": "Merci pour vos commentaires ",
+      "feedback_helps": "Vos commentaires nous aident à améliorer la qualité de la traduction"
+    }
+  },
+  "AuthPage": {
+    "signin": {
+      "title": "Se connecter à Loretrans",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "forgot_password": "Mot de passe oublié ?",
+      "signin_button": "Se connecter",
+      "signup_link": "Vous n'avez pas encore de compte ? Inscrivez-vous maintenant",
+      "credentials_prompt": "Entrez vos identifiants pour accéder à votre compte",
+      "remember_me": "Se souvenir de moi",
+      "signup_text": "S'inscrire"
+    }
+  },
+  "errors": {
+    "limit_reached_title": "Limite quotidienne atteinte",
+    "limit_reached_description": "Vous avez atteint votre limite quotidienne de traduction. Veuillez réessayer demain ou mettre à niveau votre plan.",
+    "login_required_title": "Connexion requise",
+    "login_required_description": "Veuillez vous connecter pour continuer votre traduction.",
+    "daily_limit_title": "Limite quotidienne dépassée",
+    "daily_limit_description": "Vous avez dépassé votre limite quotidienne de traduction.",
+    "translation_failed": "Échec de la traduction"
   }
 }

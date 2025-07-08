@@ -1,4 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
+import fs from 'fs';
 import { headers } from 'next/headers';
 
 /**
@@ -135,7 +137,6 @@ async function handlePaymentCompleted(data: any) {
     
     // 🔧 关键改进：立即更新数据库积分
     try {
-      const { createClient } = require('@supabase/supabase-js');
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -174,7 +175,6 @@ async function handlePaymentCompleted(data: any) {
         console.log('[CREEM Webhook] ✅ Credits updated successfully:', updateResult[0]);
         
         // 记录支付历史
-        const fs = require('fs');
         const logPath = '/home/hwt/translation-low-source/payment-history.log';
         const logEntry = `${new Date().toISOString()} - Payment Completed (Auto): {"payment_id":"${checkoutObject.id}","user_id":"${userId}","credits":${credits},"amount":${amount || 5.00},"status":"completed","email":"${customer?.email}"}\n`;
         

@@ -13,8 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Transly - Translate Low-Resource Languages to English',
-    template: '%s | Transly',
+    default: 'Loretrans - Translate Low-Resource Languages to English',
+    template: '%s | Loretrans',
   },
   description:
     'Free AI-powered translation tool for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.',
@@ -29,42 +29,42 @@ export const metadata: Metadata = {
     'burmese translator',
     'lao translator',
   ],
-  authors: [{ name: 'Transly Team' }],
-  creator: 'Transly Team',
-  publisher: 'Transly',
+  authors: [{ name: 'Loretrans Team' }],
+  creator: 'Loretrans Team',
+  publisher: 'Loretrans',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://transly.app'),
+  metadataBase: new URL('https://loretrans.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://transly.app',
-    title: 'Transly - Translate Low-Resource Languages to English',
+    url: 'https://loretrans.app',
+    title: 'Loretrans - Translate Low-Resource Languages to English',
     description:
       'Free AI-powered translation tool for 20+ low-resource languages.',
-    siteName: 'Transly',
+    siteName: 'Loretrans',
     images: [
       {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Transly - AI Translation Tool',
+        alt: 'Loretrans - AI Translation Tool',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Transly - Translate Low-Resource Languages to English',
+    title: 'Loretrans - Translate Low-Resource Languages to English',
     description:
       'Free AI-powered translation tool for 20+ low-resource languages.',
     images: ['/images/og-image.png'],
-    creator: '@TranslyApp',
+    creator: '@LoretransApp',
   },
   robots: {
     index: true,

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
@@ -31,8 +32,8 @@ export async function GET(request: NextRequest) {
     // 检查用户是否为管理员
     // 方法1: 检查特定邮箱
     const adminEmails = [
-      'admin@transly.app',
-      'support@transly.app',
+      'admin@loretrans.app',
+      'support@loretrans.app',
       // 在这里添加管理员邮箱
     ]
     
@@ -59,21 +60,22 @@ export async function GET(request: NextRequest) {
 
     // 记录管理员访问日志
     if (isAdmin) {
-      await supabase
-        .from('admin_access_logs')
-        .insert({
-          user_id: user.id,
-          action: 'permission_check',
-          ip_address: request.headers.get('x-forwarded-for') || 
-                     request.headers.get('x-real-ip') || 
-                     'unknown',
-          user_agent: request.headers.get('user-agent') || 'unknown',
-          timestamp: new Date().toISOString()
-        })
-        .catch(error => {
-          // 忽略日志记录错误
-          console.log('Failed to log admin access:', error)
-        })
+      try {
+        await supabase
+          .from('admin_access_logs')
+          .insert({
+            user_id: user.id,
+            action: 'permission_check',
+            ip_address: request.headers.get('x-forwarded-for') || 
+                       request.headers.get('x-real-ip') || 
+                       'unknown',
+            user_agent: request.headers.get('user-agent') || 'unknown',
+            timestamp: new Date().toISOString()
+          })
+      } catch (logError) {
+        // 忽略日志记录错误
+        console.log('Failed to log admin access:', logError)
+      }
     }
 
     return NextResponse.json({

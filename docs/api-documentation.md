@@ -1,4 +1,4 @@
-# 🔌 Transly API 文档
+# 🔌 Loretrans API 文档
 
 **版本**: v2.0.0  
 **更新日期**: 2024-07-03  
@@ -8,7 +8,7 @@
 
 ## 📋 概述
 
-Transly API 提供高质量的多语言翻译服务，专注于小语种翻译。我们使用**Hugging Face Space部署的NLLB 1.3B模型**，为用户提供准确、快速的翻译体验。
+Loretrans API 提供高质量的多语言翻译服务，专注于小语种翻译。我们使用**Hugging Face Space部署的NLLB 1.3B模型**，为用户提供准确、快速的翻译体验。
 
 ### 🌟 核心特性
 
@@ -356,9 +356,9 @@ X-RateLimit-Reset: 1625097600
 ### JavaScript/TypeScript
 
 ```typescript
-import { TranslyAPI } from '@transly/sdk'
+import { LoretransAPI } from '@loretrans/sdk'
 
-const client = new TranslyAPI({
+const client = new LoretransAPI({
   apiKey: 'your-api-key',
   baseURL: 'https://your-domain.com/api'
 })
@@ -376,9 +376,9 @@ console.log(result.translatedText) // "你好世界"
 ### Python
 
 ```python
-import transly
+import loretrans
 
-client = transly.Client(
+client = loretrans.Client(
     api_key='your-api-key',
     base_url='https://your-domain.com/api'
 )

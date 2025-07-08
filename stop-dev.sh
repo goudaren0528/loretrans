@@ -15,7 +15,7 @@ log_warning() {
     echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
-log_info "停止 Transly 开发服务..."
+log_info "停止 Loretrans 开发服务..."
 
 # 停止前端服务
 if [ -f "logs/frontend.pid" ]; then

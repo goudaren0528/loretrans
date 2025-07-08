@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Transly - Tradiktè AI pou Lang ki pa gen Anpil Resous",
+      "title": "Loretrans - Tradiktè AI pou Lang ki pa gen Anpil Resous",
       "description": "Tradiksyon gratis ak AI pou 20+ lang ki pa gen anpil resous tankou Kreyòl, Lao, ak Swahili. Tradwi tèks ak dokiman yo nan Anglè imedyatman."
     },
     "hero": {
@@ -27,12 +27,43 @@
       "features": {
         "free": "100% Gratis",
         "ai_powered": "Ak Pouvwa AI",
-        "languages": "20+ Lang"
+        "languages": "20+ Lang",
+        "document_support": "Sipò pou tradiksyon dokiman"
       },
       "cta": {
         "start_translating": "Kòmanse Tradwi",
-        "upload_document": "Telechaje Dokiman"
-      }
+        "upload_document": "Telechaje Dokiman",
+        "start_free": "Kòmanse Tradiksyon Gratis",
+        "view_pricing": "Gade Pri"
+      },
+      "badge": "Pwofesyonèl Tradiksyon Lang ki ba resous • Lang Google Translate pa kouvri",
+      "comparison": {
+        "google": {
+          "description": "Pa gen sipò pou lang ki gen ti resous",
+          "title": "Google tradui"
+        },
+        "loretrans": {
+          "description": "Sipò pwofesyonèl pou 20+ lang ki gen ti resous",
+          "title": "Loretrans"
+        }
+      },
+      "floating_cards": {
+        "creole": {
+          "language": "Kreyòl ayisyen",
+          "text": "Bonjou, kijan ou ye?"
+        },
+        "english": {
+          "language": "Angle",
+          "text": "Bonjou, ki jan ou ye?"
+        }
+      },
+      "social_proof": {
+        "accuracy": "Presizyon tradiksyon > 90%",
+        "rating": "4.8/5",
+        "users": "Sèvi 10,000+ itilizatè"
+      },
+      "title_highlight": "Konprann",
+      "title_part1": "Fè chak lang "
     },
     "languages": {
       "title": "Lang ki Sipòte yo",
@@ -40,176 +71,190 @@
     },
     "cta": {
       "title": "Kòmanse Tradwi Jodi a",
-      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan Transly pou bezwen tradiksyon yo",
+      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan Loretrans pou bezwen tradiksyon yo",
       "try_now": "Eseye Kounye a - Li Gratis",
       "translate_documents": "Tradwi Dokiman yo"
+    },
+    "cost_comparison": {
+      "google_translate": {
+        "description": "Kouvèti lang ki pa gen ase resous",
+        "price": "Pa sipòte",
+        "title": "Google tradui"
+      },
+      "human_translation": {
+        "description": "1000 karaktè × $0.12/char",
+        "price": "$120",
+        "title": "Tradiksyon moun"
+      },
+      "loretrans": {
+        "description": "1000 karaktè × $0.001/char",
+        "price": "$1",
+        "savings": "Ekonomize 99% depans",
+        "title": "Loretrans"
+      },
+      "title": "Konparezon Pri: Poukisa Loretrans se pi pri-efikas?"
+    },
+    "feature_section": {
+      "description": "Zouti tradiksyon pwofesyonèl ki fèt pou lang ki gen ti resous",
+      "title": "Poukisa w chwazi Loretrans?"
+    },
+    "user_scenarios": {
+      "academic": {
+        "description": "Bezwen tradui literati akademik ak materyèl rechèch nan lang ki pa gen anpil resous tankou kreyòl ayisyen ak lao",
+        "recommendation": "Rekòmande: Plan pou kòmanse ($5) • Pafè pou tradiksyon papye",
+        "title": "Chèchè akademik"
+      },
+      "ecommerce": {
+        "description": "Lokalizasyon deskripsyon pwodwi, tradiksyon seri enfòmasyon sou pwodwi pou mache lang ki gen ti resous",
+        "recommendation": "Rekòmande: Pro Plan ($25) • Sipòte tradiksyon pakèt",
+        "title": "E-komès travès fwontyè"
+      },
+      "immigrant": {
+        "description": "Fè fas ak dokiman ofisyèl, dokiman legal ak lòt materyèl enpòtan ki bezwen yon tradiksyon egzat",
+        "recommendation": "Rekòmande: Plan debaz ($10) • Garanti presizyon segondè",
+        "title": "Kominote imigran"
+      }
+    },
+    "Footer": {
+      "pricing": "Pri yo",
+      "interface_language": "Lang entèfas"
     }
   },
   "IndexPage": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
-    "title": "Gen pou tradwi",
-    "description": "Gen pou tradwi",
+    "title": "Tit",
+    "description": "Deskripsyon",
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
+      "title": "Tit",
+      "description": "Deskripsyon",
       "status": {
-        "free": "Gen pou tradwi",
-        "ai_powered": "Gen pou tradwi",
-        "multi_language": "Gen pou tradwi"
+        "free": "Gratis",
+        "ai_powered": "Paj",
+        "multi_language": "Lang"
       },
-      "cta_start": "Gen pou tradwi",
-      "cta_upload": "Gen pou tradwi"
+      "cta_start": "Kòmanse",
+      "cta_upload": "Chaje"
     },
     "supported_languages": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "cta_section": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "cta_try": "Gen pou tradwi",
-      "cta_docs": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "cta_try": "Paj",
+      "cta_docs": "Paj"
     },
     "translation_options": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
+      "title": "Chwazi metòd tradiksyon w",
+      "description": "Chwazi opsyon ki pi bon pou bezwen tradiksyon ou yo",
+      "coming_soon": "Vini byento",
       "options": {
         "text": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi",
-          "features": {
-            "0": "G",
-            "1": "e",
-            "2": "n",
-            "3": " ",
-            "4": "p",
-            "5": "o",
-            "6": "u",
-            "7": " ",
-            "8": "t",
-            "9": "r",
-            "10": "a",
-            "11": "d",
-            "12": "w",
-            "13": "i"
-          },
-          "button": "Gen pou tradwi"
+          "title": "Tradiksyon tèks",
+          "description": "Tradui tèks ant 20+ lang ki gen resous ki ba ak angle imedyatman.",
+          "button": "Kòmanse tradui",
+          "features": [
+            "300 karaktè gratis",
+            "Rezilta imedya",
+            "Replay vwa",
+            "Kopye nan clipboard"
+          ]
         },
         "document": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi",
-          "features": {
-            "0": "G",
-            "1": "e",
-            "2": "n",
-            "3": " ",
-            "4": "p",
-            "5": "o",
-            "6": "u",
-            "7": " ",
-            "8": "t",
-            "9": "r",
-            "10": "a",
-            "11": "d",
-            "12": "w",
-            "13": "i"
-          },
-          "button": "Gen pou tradwi"
+          "title": "Tradiksyon Dokiman",
+          "description": "Upload ak tradui PDF, Pawòl, ak PowerPoint dokiman.",
+          "button": "Kòmanse tradui",
+          "features": [
+            "Sipòte PDF, Pawòl, PPT",
+            "Kenbe fòma",
+            "Rale dosye rezilta",
+            "Pwosesis seri"
+          ]
         },
         "image": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi",
-          "features": {
-            "0": "G",
-            "1": "e",
-            "2": "n",
-            "3": " ",
-            "4": "p",
-            "5": "o",
-            "6": "u",
-            "7": " ",
-            "8": "t",
-            "9": "r",
-            "10": "a",
-            "11": "d",
-            "12": "w",
-            "13": "i"
-          },
-          "button": "Gen pou tradwi"
+          "title": "Tradiksyon imaj",
+          "description": "Ekstrè ak tradui tèks nan imaj lè l sèvi avèk teknoloji OCR.",
+          "button": "Vini byento",
+          "features": [
+            "Ekstraksyon tèks OCR",
+            "Plizyè fòma imaj",
+            "Kenbe layout",
+            "Vini byento"
+          ]
         }
       },
       "quick_start": {
-        "title": "Gen pou tradwi",
-        "button": "Gen pou tradwi"
-      },
-      "coming_soon": "Gen pou tradwi"
+        "title": "Ou pa sèten ki opsyon pou chwazi? Kòmanse ak tradiksyon tèks",
+        "button": "Eseye tradiksyon tèks kounye a"
+      }
     },
     "language_grid": {
-      "coming_soon": "Gen pou tradwi",
-      "try_language": "Gen pou tradwi"
+      "coming_soon": "Vini byento",
+      "try_language": "Eseye {lang}"
     },
     "feature_section": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
+      "title": "Tit",
+      "description": "Deskripsyon",
       "features": {
         "ai_powered": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         },
         "fast": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         },
         "privacy": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         },
         "languages": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         },
         "tts": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         },
         "documents": {
-          "name": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "name": "Non",
+          "description": "Deskripsyon"
         }
       },
       "stats": {
-        "languages": "Gen pou tradwi",
-        "free": "Gen pou tradwi",
-        "characters": "Gen pou tradwi",
-        "availability": "Gen pou tradwi"
+        "languages": "Lang",
+        "free": "Gratis",
+        "characters": "Paj",
+        "availability": "Paj"
       }
     },
     "faq_section": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
+      "title": "Tit",
+      "description": "Deskripsyon",
       "questions": {
         "0": {
           "0": "G",
-          "question": "Èske Transly vrèman gratis pou itilize?",
-          "answer": "Wi! Transly se konplètman gratis pou tradiksyon tèks jiska 1000 karaktè pou chak demann. Pa gen okenn frè kache oswa kondisyon abònman."
+          "question": "Ki jan Loretrans pri travay?",
+          "answer": "Loretrans ofri 300 karaktè gratis pou chak tradiksyon. Pou tèks pi long, nou chaje 0.1 kredi pou chak karaktè. Nouvo itilizatè jwenn 500 kredi akeyi lè yo enskri."
         },
         "1": {
           "0": "e",
-          "question": "Ki jan egzat tradiksyon yo ye?",
-          "answer": "Nou itilize modèl NLLB Meta a (Pa gen lang kite dèyè), ki bay tradiksyon-wo kalite pou lang ki gen resous ki ba. Pandan ke pa gen okenn tradiksyon otomatik se pafè, NLL B ki fèt espesyalman pou okipe lang ak done fòmasyon limite."
+          "question": "Ki lang ou sipòte?",
+          "answer": "Nou espesyalize nan 20+ lang ki gen resous ki ba ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, ak plis ankò."
         },
         "2": {
           "0": "n",
-          "question": "Ki lang ou sipòte?",
-          "answer": "Nou sipòte 20+ lang ki pa gen anpil resous, ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, sinhala, amharik, kmer, nepalyen, ak malgasyen."
+          "question": "Èske gen yon limit karaktè?",
+          "answer": "Chak tradiksyon gen ladan 300 karaktè gratis. Pou tèks pi long, ou ka itilize kredi (0.1 kredi pou chak karaktè). Enskri pou jwenn 500 kredi akeyi."
         },
         "3": {
           "0": " ",
-          "question": "Èske done mwen an an sekirite ak prive?",
-          "answer": "Absoliman. Nou pa estoke tèks tradiksyon ou sou serveurs nou yo. tèks ou a trete san danje epi efase imedyatman apre tradiksyon. Nou pran vi prive ou oserye."
+          "question": "Ki fòma dosye ou sipòte?",
+          "answer": "Kounye a nou sipòte fichiers TXT jiska 10MB. PDF, Pawòl, ak PowerPoint sipò ap vini byento."
         },
         "4": {
           "0": "p",
@@ -228,8 +273,8 @@
         },
         "7": {
           "0": " ",
-          "question": "Èske mwen ka itilize Transly pou rezon komèsyal?",
-          "answer": "Wi, ou ka itilize Transly pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
+          "question": "Èske mwen ka itilize Loretrans pou rezon komèsyal?",
+          "answer": "Wi, ou ka itilize Loretrans pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
         },
         "8": "t",
         "9": "r",
@@ -238,227 +283,227 @@
         "12": "w",
         "13": "i"
       },
-      "contact_prompt": "Gen pou tradwi",
-      "contact_link": "Gen pou tradwi"
+      "contact_prompt": "Kontak",
+      "contact_link": "Lyen"
     }
   },
   "AboutPage": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Konsèy Loretrans - Tradiksyon Pwofesyonèl pou Lang ki gen Mwens Resous",
+      "description": "Aprann sou Loretrans, platfòm tradiksyon prensipal la pou lang ti yo nan Angle. Ki gen pouvwa pa Meta NLLB modèl ak 20+ lang yo sipòte."
     },
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Konsèy Loretrans",
+      "description": "Platfòm tradiksyon pwofesyonèl ki dedye nan konekte lang ki gen mwens resous yo ak mond lan nan tradiksyon Angle egzak."
     },
     "mission": {
-      "title": "Gen pou tradwi",
-      "p1": "Gen pou tradwi",
-      "p2": "Gen pou tradwi",
-      "cta": "Gen pou tradwi"
+      "title": "Misyon Nou an",
+      "p1": "Nan Loretrans, nou kwè chak lang gen valè e yo dwe tande. Misyon nou an se diminye distans lan ant lang ki gen mwens resous yo ak Angle, ankouraje kominikasyon ak konprann mondyal.",
+      "p2": "Lè nou konbine teknoloji AI avanse ak konesans pwofon nan kominote lang yo, nou reyisi kote sèvis tradiksyon tradisyonèl yo souvan echwe.",
+      "cta": "Kòmanse Kounye a"
     },
     "features": {
       "accessibility": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Aksè",
+        "description": "Fè tradiksyon kalite segondè aksesib pou moun ki pale lang ki gen mwens resous yo nan mond lan."
       },
       "accuracy": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Presizyòn",
+        "description": "Ki gen pouvwa pa Meta a NLLB modèl, ki fèt espesyalman pou lang ti yo."
       },
       "privacy": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Vi Prive",
+        "description": "Done ou yo an sekirite. Nou pa konsève tradiksyon yo oswa swiv enfòmasyon pèsonèl."
       }
     },
     "supported_languages": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "request_cta": "Gen pou tradwi",
-      "request_cta_description": "Gen pou tradwi"
+      "title": "Lang yo ki Sipòte",
+      "description": "Nou sipòte {count} lang yo, ak yon konsantrasyon espesyal sou lang ki gen mwens resous yo.",
+      "request_cta": "Mande Lang",
+      "request_cta_description": "Lang ou an pa nan lis la? Fè nou konnen!"
     },
     "technology": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
+      "title": "Ki gen Pouvwa pa AI Avanse",
+      "description": "Loretrans sèvi ak Meta a NLLB (Pa gen Lang ki Kite Dèyè) modèl, ki fèt espesyalman pou bay tradiksyon kalite segondè pou lang ki gen mwens resous yo ke sistèm tradisyonèl yo gen difikilte ak yo.",
       "cultural_preservation": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Konsèvasyon Kiltirèl",
+        "description": "Sipòte divèsite lang ak ede konsève eritaj kiltirèl nan teknoloji."
       },
       "community_driven": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Kominote ki Mennen",
+        "description": "Bati ak kòmantè nan moun ki pale lang natif natal yo ak kominote lang yo nan mond lan."
       },
       "continuous_improvement": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Amelyorasyon Kontinyèl",
+        "description": "Aktyalizasyon modèl regilye ak amelyorasyon yo pou bay pi bon kalite tradiksyon."
       }
     },
     "faq": {
-      "title": "Gen pou tradwi",
-      "q1_title": "Gen pou tradwi",
-      "q1_answer": "Gen pou tradwi",
-      "q2_title": "Gen pou tradwi",
-      "q2_answer": "Gen pou tradwi",
-      "q3_title": "Gen pou tradwi",
-      "q3_answer": "Gen pou tradwi",
-      "q4_title": "Gen pou tradwi",
-      "q4_answer": "Gen pou tradwi",
-      "q5_title": "Gen pou tradwi",
-      "q5_answer": "Gen pou tradwi",
-      "q6_title": "Gen pou tradwi",
-      "q6_answer": "Gen pou tradwi"
+      "title": "Tit",
+      "q1_title": "Tit",
+      "q1_answer": "Paj",
+      "q2_title": "Tit",
+      "q2_answer": "Paj",
+      "q3_title": "Tit",
+      "q3_answer": "Paj",
+      "q4_title": "Tit",
+      "q4_answer": "Paj",
+      "q5_title": "Tit",
+      "q5_answer": "Paj",
+      "q6_title": "Tit",
+      "q6_answer": "Paj"
     },
     "cta_section": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "cta_text": "Gen pou tradwi",
-      "cta_docs": "Gen pou tradwi"
+      "title": "Pare pou Kòmanse?",
+      "description": "Fè eksperyans tradiksyon egzak pou lang ou an jodi a. Kit li se yon tèks rapid oswa yon dokiman konplè, Loretrans la pou ede ou kominike ak mond lan.",
+      "cta_text": "Eseye Tradiksyon Tèks",
+      "cta_docs": "Telechaje Dokiman"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "form": {
-      "title": "Gen pou tradwi",
-      "firstName": "Gen pou tradwi",
-      "firstNamePlaceholder": "Gen pou tradwi",
-      "lastName": "Gen pou tradwi",
-      "lastNamePlaceholder": "Gen pou tradwi",
-      "email": "Gen pou tradwi",
-      "emailPlaceholder": "Gen pou tradwi",
-      "subject": "Gen pou tradwi",
-      "subjectPlaceholder": "Gen pou tradwi",
+      "title": "Tit",
+      "firstName": "Non",
+      "firstNamePlaceholder": "Non",
+      "lastName": "Non",
+      "lastNamePlaceholder": "Non",
+      "email": "Imèl",
+      "emailPlaceholder": "Imèl",
+      "subject": "Paj",
+      "subjectPlaceholder": "Paj",
       "subjects": {
-        "translation_issue": "Gen pou tradwi",
-        "technical_support": "Gen pou tradwi",
-        "feature_request": "Gen pou tradwi",
-        "language_request": "Gen pou tradwi",
-        "business_inquiry": "Gen pou tradwi",
-        "feedback": "Gen pou tradwi",
-        "other": "Gen pou tradwi"
+        "translation_issue": "Paj",
+        "technical_support": "Sipò",
+        "feature_request": "Paj",
+        "language_request": "Lang",
+        "business_inquiry": "Biznis",
+        "feedback": "Tounen",
+        "other": "Paj"
       },
-      "relatedLanguage": "Gen pou tradwi",
-      "relatedLanguagePlaceholder": "Gen pou tradwi",
-      "message": "Gen pou tradwi",
-      "messagePlaceholder": "Gen pou tradwi",
-      "submit": "Gen pou tradwi"
+      "relatedLanguage": "Lang",
+      "relatedLanguagePlaceholder": "Lang",
+      "message": "Mesaj",
+      "messagePlaceholder": "Mesaj",
+      "submit": "Soumèt"
     },
     "sidebar": {
       "quick_contact": {
-        "title": "Gen pou tradwi",
-        "email_support": "Gen pou tradwi",
-        "email_address": "Gen pou tradwi",
-        "response_time": "Gen pou tradwi",
-        "live_chat": "Gen pou tradwi",
-        "live_chat_status": "Gen pou tradwi",
-        "live_chat_eta": "Gen pou tradwi",
-        "support_hours_title": "Gen pou tradwi",
-        "support_hours_days": "Gen pou tradwi",
-        "support_hours_time": "Gen pou tradwi"
+        "title": "Tit",
+        "email_support": "Sipò",
+        "email_address": "Imèl",
+        "response_time": "Paj",
+        "live_chat": "Paj",
+        "live_chat_status": "Estati",
+        "live_chat_eta": "Paj",
+        "support_hours_title": "Tit",
+        "support_hours_days": "Sipò",
+        "support_hours_time": "Sipò"
       },
       "common_issues": {
-        "title": "Gen pou tradwi",
+        "title": "Tit",
         "translation_not_working": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "title": "Tit",
+          "description": "Deskripsyon"
         },
         "language_not_supported": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "title": "Tit",
+          "description": "Deskripsyon"
         },
         "file_upload_issues": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "title": "Tit",
+          "description": "Deskripsyon"
         },
         "audio_playback_not_working": {
-          "title": "Gen pou tradwi",
-          "description": "Gen pou tradwi"
+          "title": "Tit",
+          "description": "Deskripsyon"
         }
       },
       "self_help": {
-        "title": "Gen pou tradwi",
-        "how_it_works": "Gen pou tradwi",
-        "try_text": "Gen pou tradwi",
-        "try_docs": "Gen pou tradwi",
-        "privacy": "Gen pou tradwi",
-        "terms": "Gen pou tradwi"
+        "title": "Tit",
+        "how_it_works": "Paj",
+        "try_text": "Tèks",
+        "try_docs": "Paj",
+        "privacy": "Paj",
+        "terms": "Paj"
       }
     },
     "what_to_expect": {
-      "title": "Gen pou tradwi",
+      "title": "Tit",
       "quick_response": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       },
       "personal_support": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       },
       "follow_up": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       }
     }
   },
   "PricingPage": {
     "meta": {
-      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | Transly",
+      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | Loretrans",
       "description": "Plan ki baze sou senayo yo ak rekòmandasyon entelijan. Kòmanse ak $5 pou etidyan yo, $10 pou itilizatè pèsonèl yo, $25 pou pwofesyonèl yo."
     },
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "plans": {
       "starter": {
         "name": "Kòmansè",
         "description": "Bon pou etidyan ak itilizatè ki pa itilize anpil",
-        "discount": "Gen pou tradwi"
+        "discount": "Paj"
       },
       "professional": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
-        "discount": "Gen pou tradwi"
+        "name": "Non",
+        "description": "Deskripsyon",
+        "discount": "Paj"
       },
       "business": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
-        "discount": "Gen pou tradwi"
+        "name": "Non",
+        "description": "Deskripsyon",
+        "discount": "Paj"
       }
     },
     "features": {
-      "title": "Gen pou tradwi",
-      "unlimited_text": "Gen pou tradwi",
-      "document_support": "Gen pou tradwi",
-      "tts_support": "Gen pou tradwi",
-      "api_access": "Gen pou tradwi",
-      "priority_support": "Gen pou tradwi",
-      "no_expiry": "Gen pou tradwi"
+      "title": "Tit",
+      "unlimited_text": "Tèks",
+      "document_support": "Sipò",
+      "tts_support": "Sipò",
+      "api_access": "Paj",
+      "priority_support": "Sipò",
+      "no_expiry": "Paj"
     },
     "buttons": {
-      "purchase": "Gen pou tradwi",
-      "processing": "Gen pou tradwi",
-      "get_started": "Gen pou tradwi"
+      "purchase": "Paj",
+      "processing": "Paj",
+      "get_started": "Kòmanse"
     },
     "alert": {
-      "canceled_title": "Gen pou tradwi",
-      "canceled_description": "Gen pou tradwi"
+      "canceled_title": "Tit",
+      "canceled_description": "Deskripsyon"
     },
-    "loading": "Gen pou tradwi",
+    "loading": "K ap chaje",
     "cta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "free_trial": "Gen pou tradwi",
-      "contact_sales": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "free_trial": "Gratis",
+      "contact_sales": "Kontak"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Transly?",
+      "title": "💰 Cost Comparison: Why Choose Loretrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -469,9 +514,9 @@
         "title": "Google Translate",
         "description": "Limited small language coverage"
       },
-      "transly": {
+      "loretrans": {
         "price": "$1",
-        "title": "Transly",
+        "title": "Loretrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
@@ -479,96 +524,145 @@
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "status_free": "Gen pou tradwi",
-      "status_ai": "Gen pou tradwi",
-      "status_instant": "Gen pou tradwi"
+      "title": "Tradiksyon Smart pou lang ki pa gen anpil resous",
+      "subtitle": "AI detèmine mòd pwosesis entèlijan, sipòte tradiksyon pwofesyonèl pou 20+ lang ki gen ti resous ki gen ladan kreyòl ayisyen, Lao, Burma, ak plis ankò",
+      "features": {
+        "free_500_chars": "Gratis anba 500 karaktè",
+        "smart_time_estimation": "Smart estime tan",
+        "unified_experience": "Eksperyans tradiksyon inifye",
+        "error_recovery": "Rekiperasyon erè entelijan"
+      }
     },
     "other_languages": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "faq": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "q1_title": "Gen pou tradwi",
-      "q1_answer": "Gen pou tradwi",
-      "q2_title": "Gen pou tradwi",
-      "q2_answer": "Gen pou tradwi",
-      "q3_title": "Gen pou tradwi",
-      "q3_answer": "Gen pou tradwi",
-      "q4_title": "Gen pou tradwi",
-      "q4_answer": "Gen pou tradwi",
-      "q5_title": "Gen pou tradwi",
-      "q5_answer": "Gen pou tradwi",
-      "q6_title": "Gen pou tradwi",
-      "q6_answer": "Gen pou tradwi",
-      "contact_text": "Gen pou tradwi",
-      "contact_link": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "q1_title": "Tit",
+      "q1_answer": "Paj",
+      "q2_title": "Tit",
+      "q2_answer": "Paj",
+      "q3_title": "Tit",
+      "q3_answer": "Paj",
+      "q4_title": "Tit",
+      "q4_answer": "Paj",
+      "q5_title": "Tit",
+      "q5_answer": "Paj",
+      "q6_title": "Tit",
+      "q6_answer": "Paj",
+      "contact_text": "Tèks",
+      "contact_link": "Lyen"
     },
     "cta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "try_document": "Gen pou tradwi",
-      "view_pricing": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "try_document": "Paj",
+      "view_pricing": "Gade"
     },
     "features": {
-      "title": "Gen pou tradwi",
-      "fast_title": "Gen pou tradwi",
-      "fast_desc": "Gen pou tradwi",
-      "accurate_title": "Gen pou tradwi",
-      "accurate_desc": "Gen pou tradwi",
-      "free_title": "Gen pou tradwi",
-      "free_desc": "Gen pou tradwi"
+      "title": "Tit",
+      "fast_title": "Tit",
+      "fast_desc": "Paj",
+      "accurate_title": "Tit",
+      "accurate_desc": "Paj",
+      "free_title": "Tit",
+      "free_desc": "Gratis"
     },
     "how_to": {
-      "title": "Gen pou tradwi",
-      "step1_title": "Gen pou tradwi",
-      "step1_desc": "Gen pou tradwi",
-      "step2_title": "Gen pou tradwi",
-      "step2_desc": "Gen pou tradwi",
-      "step3_title": "Gen pou tradwi",
-      "step3_desc": "Gen pou tradwi"
+      "title": "Tit",
+      "step1_title": "Tit",
+      "step1_desc": "Paj",
+      "step2_title": "Tit",
+      "step2_desc": "Paj",
+      "step3_title": "Tit",
+      "step3_desc": "Paj"
     },
     "supported_languages": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "more": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "more": "Paj"
+    },
+    "sections": {
+      "explore_languages": {
+        "title": "Eksplore plis tradiksyon lang ki pa gen anpil resous",
+        "subtitle": "Nou sipòte sèvis tradiksyon pwofesyonèl pou 20+ lang ki gen ti resous"
+      },
+      "faq": {
+        "title": "Kesyon yo poze souvan",
+        "subtitle": "Kesyon komen sou tradiksyon lang ki gen ti resous"
+      },
+      "cta": {
+        "title": "Pare pou kòmanse tradui?",
+        "subtitle": "Eksperyans pwofesyonèl sèvis tradiksyon lang ki ba resous, konplètman gratis anba 500 karaktè",
+        "try_document": "Eseye tradiksyon dokiman",
+        "view_pricing": "Gade Plan Pri"
+      }
+    },
+    "faq_items": {
+      "q1": {
+        "question": "Ki lang yo sipòte pou tradiksyon?",
+        "answer": "Nou konsantre sou tradiksyon lang ki pa gen anpil resous, sipòte plis pase 20 lang ke Google Translate pa kouvri byen, ki gen ladan kreyòl ayisyen, lao, swahili, birman, telugu, ak plis ankò."
+      },
+      "q2": {
+        "question": "Ki jan egzat tradiksyon an ye?",
+        "answer": "Baze sou modèl NLLB Meta a, presizyon tradiksyon nou an depase 90%. Espesyalman pou lang ki gen ti resous, nou pi pwofesyonèl ak egzat pase zouti tradiksyon tradisyonèl yo."
+      },
+      "q3": {
+        "question": "Ki kantite lajan gratis?",
+        "answer": "Anba 500 karaktè se konplètman gratis, pa gen okenn enskripsyon ki nesesè. itilizatè ki anrejistre tou jwenn 500 kredi bonis, ki ka tradui apeprè 50,000 karaktè nan tèks long."
+      },
+      "q4": {
+        "question": "Ki jan yo kalkile frè tradiksyon?",
+        "answer": "Tèks ki gen plis pase 500 karaktè chaje nan 0.1 kredi pou chak karaktè. Pou egzanp, tradui 1000 karaktè mande pou 50 kredi, koute apeprè $ 0.05, ekonomize 99% konpare ak tradiksyon imen."
+      },
+      "q5": {
+        "question": "Ki fòma dosye yo sipòte?",
+        "answer": "Anplis tradiksyon tèks, nou tou sipòte tradiksyon fòma dokiman tankou PDF, Pawòl, PPT. Dokiman tradiksyon otomatikman ekstrè tèks pandan y ap kenbe fòma orijinal la."
+      },
+      "q6": {
+        "question": "Èske rezilta tradiksyon ka sove?",
+        "answer": "Istwa tradiksyon pou itilizatè ki anrejistre yo sove otomatikman. Plan Starter sove pou 7 jou, Plan debaz pou 30 jou, plan Pro pou 90 jou, Business plan sove pou endefini."
+      }
+    },
+    "contact": {
+      "more_questions": "Èske w gen lòt kesyon?",
+      "contact_support": "Kontakte ekip sipò nou an"
     }
   },
   "Layout": {
     "Navigation": {
-      "text_translation": "Gen pou tradwi",
-      "text_translation_desc": "Gen pou tradwi",
-      "document_translation": "Gen pou tradwi",
-      "document_translation_desc": "Gen pou tradwi",
-      "about": "Gen pou tradwi",
-      "about_desc": "Gen pou tradwi"
+      "text_translation": "Tèks",
+      "text_translation_desc": "Tèks",
+      "document_translation": "Navigasyon",
+      "document_translation_desc": "Navigasyon",
+      "about": "Konsèy",
+      "about_desc": "Konsèy"
     },
     "Footer": {
-      "tagline": "Gen pou tradwi",
-      "product": "Gen pou tradwi",
-      "text_translation": "Gen pou tradwi",
-      "document_translation": "Gen pou tradwi",
-      "supported_languages": "Gen pou tradwi",
-      "company": "Gen pou tradwi",
-      "about_us": "Gen pou tradwi",
-      "privacy_policy": "Gen pou tradwi",
-      "terms_of_service": "Gen pou tradwi",
-      "compliance": "Gen pou tradwi",
-      "resources": "Gen pou tradwi",
-      "faq": "Gen pou tradwi",
-      "contact_support": "Gen pou tradwi",
-      "api_docs": "Gen pou tradwi",
-      "copyright": "Gen pou tradwi",
-      "powered_by": "Gen pou tradwi",
+      "tagline": "Anba paj",
+      "product": "Anba paj",
+      "text_translation": "Tèks",
+      "document_translation": "Anba paj",
+      "supported_languages": "Sipò",
+      "company": "Anba paj",
+      "about_us": "Konsèy",
+      "privacy_policy": "Anba paj",
+      "terms_of_service": "Anba paj",
+      "compliance": "Anba paj",
+      "resources": "Anba paj",
+      "faq": "Anba paj",
+      "contact_support": "Sipò",
+      "api_docs": "Anba paj",
+      "copyright": "Anba paj",
+      "powered_by": "Anba paj",
       "contact_us": "Contact Us",
-      "support_email": "support@transly.app",
+      "support_email": "support@loretrans.app",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
@@ -577,365 +671,417 @@
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
-    "title": "Gen pou tradwi",
-    "description": "Gen pou tradwi",
+    "title": "Tit",
+    "description": "Deskripsyon",
     "steps": {
       "step1": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       },
       "step2": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       },
       "step3": {
-        "title": "Gen pou tradwi",
-        "description": "Gen pou tradwi"
+        "title": "Tit",
+        "description": "Deskripsyon"
       }
     },
     "languages": {
-      "title": "Gen pou tradwi"
+      "title": "Tit"
     },
     "cta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "try_text_translation": "Gen pou tradwi",
-      "view_pricing": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "try_text_translation": "Tèks",
+      "view_pricing": "Gade"
     },
     "hero": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "upload_section": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
     "settings_section": {
-      "title": "Gen pou tradwi",
-      "source_language_label": "Gen pou tradwi",
-      "source_language_placeholder": "Gen pou tradwi",
-      "target_language_label": "Gen pou tradwi",
-      "target_language_placeholder": "Gen pou tradwi",
-      "translate_button": "Gen pou tradwi",
-      "translating_button": "Gen pou tradwi"
+      "title": "Tit",
+      "source_language_label": "Lang",
+      "source_language_placeholder": "Lang",
+      "target_language_label": "Lang",
+      "target_language_placeholder": "Lang",
+      "translate_button": "Bouton",
+      "translating_button": "Bouton"
     },
     "jobs_section": {
-      "title": "Gen pou tradwi",
-      "no_jobs": "Gen pou tradwi",
+      "title": "Tit",
+      "no_jobs": "Paj",
       "status": {
-        "pending": "Gen pou tradwi",
-        "processing": "Gen pou tradwi",
-        "completed": "Gen pou tradwi",
-        "failed": "Gen pou tradwi"
+        "pending": "Paj",
+        "processing": "Paj",
+        "completed": "Paj",
+        "failed": "Paj"
       },
-      "error_message": "Gen pou tradwi",
-      "download_button": "Gen pou tradwi"
+      "error_message": "Mesaj",
+      "download_button": "Bouton"
     }
   },
   "DocumentTranslator": {
     "auth_required": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "login_button": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "login_button": "Bouton"
     },
     "upload": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "uploading": "Gen pou tradwi",
-      "click_to_select": "Gen pou tradwi",
-      "drag_drop": "Gen pou tradwi",
-      "upload_success": "Gen pou tradwi",
-      "extracted_characters": "Gen pou tradwi",
-      "upload_failed": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "uploading": "K ap chaje",
+      "click_to_select": "Bezwen tradwi",
+      "drag_drop": "Bezwen tradwi",
+      "upload_success": "Siksè",
+      "extracted_characters": "Bezwen tradwi",
+      "upload_failed": "Chaje"
     },
     "analysis": {
-      "title": "Gen pou tradwi",
-      "filename": "Gen pou tradwi",
-      "filesize": "Gen pou tradwi",
-      "text_preview": "Gen pou tradwi",
-      "character_count": "Gen pou tradwi",
-      "characters": "Gen pou tradwi",
-      "credit_consumption": "Gen pou tradwi",
-      "credits": "Gen pou tradwi",
-      "free": "Gen pou tradwi",
-      "insufficient_credits": "Gen pou tradwi",
-      "recharge_now": "Gen pou tradwi",
-      "start_translation": "Gen pou tradwi",
-      "reupload": "Gen pou tradwi"
+      "title": "Tit",
+      "filename": "Non",
+      "filesize": "Bezwen tradwi",
+      "text_preview": "Tèks",
+      "character_count": "Bezwen tradwi",
+      "characters": "Bezwen tradwi",
+      "credit_consumption": "Modifye",
+      "credits": "Modifye",
+      "free": "Gratis",
+      "insufficient_credits": "Modifye",
+      "recharge_now": "Bezwen tradwi",
+      "start_translation": "Kòmanse",
+      "reupload": "Chaje"
     },
     "translation": {
-      "title": "Gen pou tradwi",
-      "progress": "Gen pou tradwi",
-      "estimated_time": "Gen pou tradwi",
-      "completed": "Gen pou tradwi",
-      "download_result": "Gen pou tradwi",
-      "translation_started": "Gen pou tradwi",
-      "credits_consumed": "Gen pou tradwi",
-      "translation_failed": "Gen pou tradwi"
+      "title": "Tit",
+      "progress": "Bezwen tradwi",
+      "estimated_time": "Bezwen tradwi",
+      "completed": "Bezwen tradwi",
+      "download_result": "Telechaje",
+      "translation_started": "Kòmanse",
+      "credits_consumed": "Modifye",
+      "translation_failed": "Bezwen tradwi"
     }
   },
   "Errors": {
-    "user_not_authenticated": "Gen pou tradwi",
-    "missing_parameters": "Gen pou tradwi",
-    "insufficient_credits": "Gen pou tradwi",
-    "credit_error": "Gen pou tradwi",
-    "translation_invalid_response": "Gen pou tradwi",
-    "translation_failed_refund_failed": "Gen pou tradwi",
-    "translation_failed": "Gen pou tradwi",
-    "unexpected_error": "Gen pou tradwi",
-    "method_not_allowed": "Gen pou tradwi",
-    "invalid_json": "Gen pou tradwi",
-    "missing_fields": "Gen pou tradwi",
-    "empty_text": "Gen pou tradwi",
-    "text_too_long": "Gen pou tradwi",
-    "unexpected_detection_error": "Gen pou tradwi",
-    "invalid_lang_code": "Gen pou tradwi",
-    "invalid_speech_rate": "Gen pou tradwi",
-    "invalid_speech_pitch": "Gen pou tradwi",
-    "invalid_voice": "Gen pou tradwi",
-    "tts_unavailable": "Gen pou tradwi",
-    "tts_failed": "Gen pou tradwi",
-    "unexpected_tts_error": "Gen pou tradwi",
-    "failed_to_get_voices": "Gen pou tradwi"
+    "user_not_authenticated": "Itilizatè",
+    "missing_parameters": "Bezwen tradwi",
+    "insufficient_credits": "Modifye",
+    "credit_error": "Erè",
+    "translation_invalid_response": "Bezwen tradwi",
+    "translation_failed_refund_failed": "Bezwen tradwi",
+    "translation_failed": "Bezwen tradwi",
+    "unexpected_error": "Erè",
+    "method_not_allowed": "Bezwen tradwi",
+    "invalid_json": "Bezwen tradwi",
+    "missing_fields": "Bezwen tradwi",
+    "empty_text": "Tèks",
+    "text_too_long": "Tèks",
+    "unexpected_detection_error": "Erè",
+    "invalid_lang_code": "Bezwen tradwi",
+    "invalid_speech_rate": "Bezwen tradwi",
+    "invalid_speech_pitch": "Bezwen tradwi",
+    "invalid_voice": "Bezwen tradwi",
+    "tts_unavailable": "Bezwen tradwi",
+    "tts_failed": "Bezwen tradwi",
+    "unexpected_tts_error": "Erè",
+    "failed_to_get_voices": "Bezwen tradwi"
   },
   "Auth": {
     "ForgotPassword": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "info": "Gen pou tradwi",
-      "contact_support": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "info": "Bezwen tradwi",
+      "contact_support": "Sipò"
     },
     "SignUpForm": {
-      "title": "Gen pou tradwi",
-      "subtitle": "Gen pou tradwi",
-      "name_label": "Gen pou tradwi",
-      "name_placeholder": "Gen pou tradwi",
-      "name_required": "Gen pou tradwi",
-      "name_max_length": "Gen pou tradwi",
-      "email_label": "Gen pou tradwi",
-      "email_placeholder": "Gen pou tradwi",
-      "email_required": "Gen pou tradwi",
-      "email_invalid": "Gen pou tradwi",
-      "email_max_length": "Gen pou tradwi",
-      "password_label": "Gen pou tradwi",
-      "password_placeholder": "Gen pou tradwi",
-      "password_min_length": "Gen pou tradwi",
-      "password_max_length": "Gen pou tradwi",
-      "confirm_password_label": "Gen pou tradwi",
-      "confirm_password_placeholder": "Gen pou tradwi",
-      "confirm_password_required": "Gen pou tradwi",
-      "password_mismatch": "Gen pou tradwi",
-      "password_strength_label": "Gen pou tradwi",
-      "password_strength_feedback": "Gen pou tradwi",
-      "submit_button": "Gen pou tradwi",
-      "submit_loading_button": "Gen pou tradwi",
-      "signup_failed": "Gen pou tradwi",
-      "signup_error": "Gen pou tradwi",
-      "signin_prompt": "Gen pou tradwi",
-      "signin_link": "Gen pou tradwi"
+      "title": "Tit",
+      "subtitle": "Tit",
+      "name_label": "Non",
+      "name_placeholder": "Non",
+      "name_required": "Non",
+      "name_max_length": "Non",
+      "email_label": "Imèl",
+      "email_placeholder": "Imèl",
+      "email_required": "Imèl",
+      "email_invalid": "Imèl",
+      "email_max_length": "Imèl",
+      "password_label": "Modpas",
+      "password_placeholder": "Modpas",
+      "password_min_length": "Modpas",
+      "password_max_length": "Modpas",
+      "confirm_password_label": "Modpas",
+      "confirm_password_placeholder": "Modpas",
+      "confirm_password_required": "Modpas",
+      "password_mismatch": "Modpas",
+      "password_strength_label": "Modpas",
+      "password_strength_feedback": "Modpas",
+      "submit_button": "Bouton",
+      "submit_loading_button": "Bouton",
+      "signup_failed": "Enskri",
+      "signup_error": "Erè",
+      "signin_prompt": "Konekte",
+      "signin_link": "Lyen"
     },
     "SignInForm": {
-      "title": "Gen pou tradwi",
-      "subtitle": "Gen pou tradwi",
-      "email_label": "Gen pou tradwi",
-      "email_placeholder": "Gen pou tradwi",
-      "email_required": "Gen pou tradwi",
-      "email_invalid": "Gen pou tradwi",
-      "email_max_length": "Gen pou tradwi",
-      "password_label": "Gen pou tradwi",
-      "password_placeholder": "Gen pou tradwi",
-      "password_required": "Gen pou tradwi",
-      "password_max_length": "Gen pou tradwi",
-      "forgot_password_link": "Gen pou tradwi",
-      "remember_me_label": "Gen pou tradwi",
-      "submit_button": "Gen pou tradwi",
-      "submit_loading_button": "Gen pou tradwi",
-      "signin_failed": "Gen pou tradwi",
-      "signin_error": "Gen pou tradwi",
-      "signup_prompt": "Gen pou tradwi",
-      "signup_link": "Gen pou tradwi",
-      "social_divider": "Gen pou tradwi",
-      "google_signin_button": "Gen pou tradwi",
-      "signup_bonus_prompt_1": "Gen pou tradwi",
-      "signup_bonus_prompt_2": "Gen pou tradwi"
+      "title": "Tit",
+      "subtitle": "Tit",
+      "email_label": "Imèl",
+      "email_placeholder": "Imèl",
+      "email_required": "Imèl",
+      "email_invalid": "Imèl",
+      "email_max_length": "Imèl",
+      "password_label": "Modpas",
+      "password_placeholder": "Modpas",
+      "password_required": "Modpas",
+      "password_max_length": "Modpas",
+      "forgot_password_link": "Lyen",
+      "remember_me_label": "Fòm",
+      "submit_button": "Bouton",
+      "submit_loading_button": "Bouton",
+      "signin_failed": "Konekte",
+      "signin_error": "Erè",
+      "signup_prompt": "Enskri",
+      "signup_link": "Lyen",
+      "social_divider": "Fòm",
+      "google_signin_button": "Bouton",
+      "signup_bonus_prompt_1": "Enskri",
+      "signup_bonus_prompt_2": "Enskri"
     },
     "GuestLimit": {
-      "remaining_translations": "Gen pou tradwi",
-      "register_for_unlimited": "Gen pou tradwi"
+      "remaining_translations": "Bezwen tradwi",
+      "register_for_unlimited": "Enskri"
     }
   },
   "TranslatorWidget": {
     "errors": {
-      "limit_reached_title": "Gen pou tradwi",
-      "limit_reached_description": "Gen pou tradwi",
-      "login_required_title": "Gen pou tradwi",
-      "login_required_description": "Gen pou tradwi",
-      "daily_limit_title": "Gen pou tradwi",
-      "daily_limit_description": "Gen pou tradwi"
+      "limit_reached_title": "Tit",
+      "limit_reached_description": "Deskripsyon",
+      "login_required_title": "Tit",
+      "login_required_description": "Deskripsyon",
+      "daily_limit_title": "Tit",
+      "daily_limit_description": "Deskripsyon",
+      "translation_failed": "Tradiksyon echwe. Tanpri eseye ankò.",
+      "network_error": "Erè rezo. Tanpri tcheke koneksyon ou.",
+      "invalid_input": "Tanpri antre yon tèks ki valab pou tradui."
     },
     "success": {
-      "translation_complete": "Gen pou tradwi",
-      "credits_consumed": "Gen pou tradwi"
+      "translation_complete": "Bezwen tradwi",
+      "credits_consumed": "Modifye"
     },
     "alerts": {
-      "login_required_for_long_text": "Gen pou tradwi",
-      "login_now": "Gen pou tradwi",
-      "or": "Gen pou tradwi",
-      "register_account": "Gen pou tradwi"
+      "login_required_for_long_text": "Tèks",
+      "login_now": "Konekte",
+      "or": "Bezwen tradwi",
+      "register_account": "Enskri"
     },
     "buttons": {
-      "translating": "Gen pou tradwi",
-      "translate_with_credits": "Gen pou tradwi",
-      "free_translate": "Gen pou tradwi"
+      "translating": "Bezwen tradwi",
+      "translate_with_credits": "Modifye",
+      "free_translate": "Gratis",
+      "start_translate": "Kòmanse tradiksyon",
+      "translate": "Tradui",
+      "copy_result": "Kopi Rezilta",
+      "clear_text": "Tèks klè"
     },
     "credits": {
-      "balance": "Gen pou tradwi",
-      "recharge": "Gen pou tradwi",
-      "free_translation": "Gen pou tradwi",
-      "estimated_cost": "Gen pou tradwi",
-      "insufficient_credits": "Gen pou tradwi",
-      "free_quota_usage": "Gen pou tradwi",
-      "characters": "Gen pou tradwi",
-      "over_limit": "Gen pou tradwi",
-      "insufficient_balance": "Gen pou tradwi",
-      "recharge_now": "Gen pou tradwi"
+      "balance": "Bezwen tradwi",
+      "recharge": "Bezwen tradwi",
+      "free_translation": "Gratis",
+      "estimated_cost": "Bezwen tradwi",
+      "insufficient_credits": "Modifye",
+      "free_quota_usage": "Gratis",
+      "characters": "Bezwen tradwi",
+      "over_limit": "Bezwen tradwi",
+      "insufficient_balance": "Bezwen tradwi",
+      "recharge_now": "Bezwen tradwi"
+    },
+    "labels": {
+      "from": "Soti nan",
+      "to": "Pou",
+      "source_text": "Tèks sous",
+      "target_text": "Tradiksyon",
+      "enter_text": "Antre tèks pou tradui...",
+      "translation_result": "Rezilta tradiksyon",
+      "copy_translation": "Kopi Tradiksyon",
+      "clear_text": "Tèks klè",
+      "swap_languages": "Chanje lang",
+      "translated_text": "Tèks tradui"
+    },
+    "placeholders": {
+      "translation_result": "Tradiksyon ap parèt isit la...",
+      "translating": "Tradui...",
+      "enter_source_text": "Antre tèks pou tradui..."
+    },
+    "actions": {
+      "copy": "Koupye",
+      "listen": "Koute",
+      "play": "Jwe",
+      "pause": "Pause",
+      "stop": "Sispann",
+      "download": "Rale dosye",
+      "share": "Pataje",
+      "clear": "Li klè"
+    },
+    "estimation": {
+      "estimated_time": "Tan estime",
+      "processing_time": "Tan pwosesis",
+      "time_remaining": "Tan ki rete",
+      "seconds": "segond",
+      "minutes": "minit",
+      "hours": "èdtan",
+      "less_than_minute": "Mwens pase yon minit",
+      "about_minutes": "About {minutes} minutes",
+      "about_seconds": "About {seconds} seconds",
+      "calculating": "Kalkile...",
+      "queue_position": "Queue position: {position}",
+      "estimated_completion": "Estimated completion: {time}"
     }
   },
   "pricing": {
     "meta": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon"
     },
-    "title": "Gen pou tradwi",
-    "subtitle": "Gen pou tradwi",
-    "current_balance": "Gen pou tradwi",
+    "title": "Tit",
+    "subtitle": "Tit",
+    "current_balance": "Bezwen tradwi",
     "free_tier": {
-      "title": "Gen pou tradwi",
-      "subtitle": "Gen pou tradwi",
-      "completely_free": "Gen pou tradwi",
-      "credit_based": "Gen pou tradwi",
+      "title": "Tit",
+      "subtitle": "Tit",
+      "completely_free": "Gratis",
+      "credit_based": "Modifye",
       "features": {
-        "free_text": "Gen pou tradwi",
-        "all_languages": "Gen pou tradwi",
-        "unlimited_use": "Gen pou tradwi",
-        "large_text": "Gen pou tradwi",
-        "document_translation": "Gen pou tradwi",
-        "rate": "Gen pou tradwi"
+        "free_text": "Tèks",
+        "all_languages": "Lang",
+        "unlimited_use": "Bezwen tradwi",
+        "large_text": "Tèks",
+        "document_translation": "Bezwen tradwi",
+        "rate": "Bezwen tradwi"
       }
     },
     "packages": {
       "starter": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
+        "name": "Non",
+        "description": "Deskripsyon",
         "features": {
-          "credits": "Gen pou tradwi",
-          "languages": "Gen pou tradwi",
-          "documents": "Gen pou tradwi",
-          "validity": "Gen pou tradwi"
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi"
         }
       },
       "basic": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
+        "name": "Non",
+        "description": "Deskripsyon",
         "features": {
-          "credits": "Gen pou tradwi",
-          "languages": "Gen pou tradwi",
-          "documents": "Gen pou tradwi",
-          "validity": "Gen pou tradwi",
-          "support": "Gen pou tradwi"
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò"
         }
       },
       "pro": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
+        "name": "Non",
+        "description": "Deskripsyon",
         "features": {
-          "credits": "Gen pou tradwi",
-          "languages": "Gen pou tradwi",
-          "documents": "Gen pou tradwi",
-          "validity": "Gen pou tradwi",
-          "support": "Gen pou tradwi",
-          "batch": "Gen pou tradwi"
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi"
         }
       },
       "business": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
+        "name": "Non",
+        "description": "Deskripsyon",
         "features": {
-          "credits": "Gen pou tradwi",
-          "languages": "Gen pou tradwi",
-          "documents": "Gen pou tradwi",
-          "validity": "Gen pou tradwi",
-          "support": "Gen pou tradwi",
-          "batch": "Gen pou tradwi",
-          "api": "Gen pou tradwi"
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi",
+          "api": "Bezwen tradwi"
         }
       },
       "enterprise": {
-        "name": "Gen pou tradwi",
-        "description": "Gen pou tradwi",
+        "name": "Non",
+        "description": "Deskripsyon",
         "features": {
-          "credits": "Gen pou tradwi",
-          "languages": "Gen pou tradwi",
-          "documents": "Gen pou tradwi",
-          "validity": "Gen pou tradwi",
-          "support": "Gen pou tradwi",
-          "batch": "Gen pou tradwi",
-          "api": "Gen pou tradwi",
-          "integration": "Gen pou tradwi"
+          "credits": "Modifye",
+          "languages": "Lang",
+          "documents": "Bezwen tradwi",
+          "validity": "Bezwen tradwi",
+          "support": "Sipò",
+          "batch": "Bezwen tradwi",
+          "api": "Bezwen tradwi",
+          "integration": "Bezwen tradwi"
         }
       }
     },
-    "popular": "Gen pou tradwi",
-    "save": "Gen pou tradwi",
-    "credits": "Gen pou tradwi",
-    "purchase_button": "Gen pou tradwi",
-    "processing": "Gen pou tradwi",
+    "popular": "Bezwen tradwi",
+    "save": "Sove",
+    "credits": "Modifye",
+    "purchase_button": "Bouton",
+    "processing": "Bezwen tradwi",
     "new_user_bonus": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "note": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "note": "Bezwen tradwi"
     },
     "register_prompt": {
-      "title": "Gen pou tradwi",
-      "description": "Gen pou tradwi",
-      "register_button": "Gen pou tradwi",
-      "signin_button": "Gen pou tradwi"
+      "title": "Tit",
+      "description": "Deskripsyon",
+      "register_button": "Bouton",
+      "signin_button": "Bouton"
     },
     "faq": {
-      "title": "Gen pou tradwi",
-      "subtitle": "Gen pou tradwi",
+      "title": "Kesyon yo poze souvan",
+      "subtitle": "Tit",
       "credit_calculation": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Ki jan yo kalkile kredi?",
+        "answer": "Anba 300 karaktè se konplètman gratis, depase a chaje nan 0.1 kredi / karaktè."
       },
       "expiration": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Èske kredi yo ekspire?",
+        "answer": "Non, kredi ou yo pa janm ekspire. Yon fwa yo achte yo, yo rete nan kont ou jiskaske yo itilize."
       },
       "payment_methods": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Ki metòd peman ou sipòte?",
+        "answer": "Nou sipòte kat kredi ak kat debi atravè sistèm peman Creem nou an."
       },
       "bulk_discount": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
       },
       "unused_credits": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
       },
       "business_invoicing": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
       },
       "api_pricing": {
-        "question": "Gen pou tradwi",
-        "answer": "Gen pou tradwi"
+        "question": "Bezwen tradwi",
+        "answer": "Bezwen tradwi"
       },
-      "contact_support": "Gen pou tradwi"
+      "contact_support": "Sipò",
+      "upgrade_plan": {
+        "question": "Èske m ka mete plan mwen an pi wo nenpòt lè?",
+        "answer": "Absoliman! Ou ka achte pake kredi adisyonèl nenpòt ki lè, ak kredi yo pral ajoute nan kont ou imedyatman."
+      }
     }
   },
   "Common": {
@@ -956,152 +1102,153 @@
     "creole_greeting": "Bonjou kreyòl",
     "lao_greeting": "Layo salye",
     "swahili_greeting": "Byenveni Swahili",
-    "choose_pricing_plan": "Chwazi yon plan pri"
+    "choose_pricing_plan": "Chwazi yon plan pri",
+    "coming_soon": "Vini byento"
   },
   "translation": {
-    "start_translation": "Gen pou tradwi",
-    "translation_complete": "Gen pou tradwi",
-    "translation_failed": "Gen pou tradwi",
-    "translating": "Gen pou tradwi",
-    "preparing_engine": "Gen pou tradwi",
-    "about_to_start": "Gen pou tradwi",
-    "processing": "Gen pou tradwi",
-    "engine_running": "Gen pou tradwi",
-    "optimizing_quality": "Gen pou tradwi",
-    "translation_paused": "Gen pou tradwi",
-    "resume_translation": "Gen pou tradwi",
-    "translation_error": "Gen pou tradwi",
-    "service_unavailable": "Gen pou tradwi",
-    "input_placeholder": "Gen pou tradwi",
-    "result_placeholder": "Gen pou tradwi",
-    "from_language": "Gen pou tradwi",
-    "to_language": "Gen pou tradwi",
-    "partial_complete": "Gen pou tradwi",
-    "partial_description": "Gen pou tradwi",
-    "task_resubmitted": "Gen pou tradwi"
+    "start_translation": "Kòmanse",
+    "translation_complete": "Bezwen tradwi",
+    "translation_failed": "Bezwen tradwi",
+    "translating": "Bezwen tradwi",
+    "preparing_engine": "Bezwen tradwi",
+    "about_to_start": "Konsèy",
+    "processing": "Bezwen tradwi",
+    "engine_running": "Bezwen tradwi",
+    "optimizing_quality": "Bezwen tradwi",
+    "translation_paused": "Bezwen tradwi",
+    "resume_translation": "Bezwen tradwi",
+    "translation_error": "Erè",
+    "service_unavailable": "Bezwen tradwi",
+    "input_placeholder": "Bezwen tradwi",
+    "result_placeholder": "Bezwen tradwi",
+    "from_language": "Lang",
+    "to_language": "Lang",
+    "partial_complete": "Bezwen tradwi",
+    "partial_description": "Deskripsyon",
+    "task_resubmitted": "Soumèt"
   },
   "task": {
-    "task_management": "Gen pou tradwi",
-    "manage_description": "Gen pou tradwi",
-    "new_translation": "Gen pou tradwi",
-    "refresh_tasks": "Gen pou tradwi",
-    "task_list_updated": "Gen pou tradwi",
-    "refresh_failed": "Gen pou tradwi",
-    "operation_success": "Gen pou tradwi",
-    "operation_failed": "Gen pou tradwi",
-    "select_tasks_first": "Gen pou tradwi",
-    "no_tasks": "Gen pou tradwi",
-    "no_matching_tasks": "Gen pou tradwi",
-    "create_first_task": "Gen pou tradwi",
-    "search_placeholder": "Gen pou tradwi",
-    "queue_created": "Gen pou tradwi",
-    "can_leave_page": "Gen pou tradwi",
-    "check_in_tasks": "Gen pou tradwi",
-    "view_in_tasks": "Gen pou tradwi",
-    "batch_operation_success": "Gen pou tradwi"
+    "task_management": "Bezwen tradwi",
+    "manage_description": "Deskripsyon",
+    "new_translation": "Bezwen tradwi",
+    "refresh_tasks": "Bezwen tradwi",
+    "task_list_updated": "Aktyalize",
+    "refresh_failed": "Bezwen tradwi",
+    "operation_success": "Siksè",
+    "operation_failed": "Bezwen tradwi",
+    "select_tasks_first": "Bezwen tradwi",
+    "no_tasks": "Bezwen tradwi",
+    "no_matching_tasks": "Bezwen tradwi",
+    "create_first_task": "Kreye",
+    "search_placeholder": "Chèche",
+    "queue_created": "Kreye",
+    "can_leave_page": "Bezwen tradwi",
+    "check_in_tasks": "Bezwen tradwi",
+    "view_in_tasks": "Gade",
+    "batch_operation_success": "Siksè"
   },
   "progress": {
-    "preparing": "Gen pou tradwi",
-    "processing": "Gen pou tradwi",
-    "finalizing": "Gen pou tradwi",
-    "completed": "Gen pou tradwi",
-    "paused": "Gen pou tradwi",
-    "failed": "Gen pou tradwi",
-    "cancelled": "Gen pou tradwi",
-    "partial_success": "Gen pou tradwi",
-    "progress": "Gen pou tradwi",
-    "understanding_text": "Gen pou tradwi",
-    "analyzing_language": "Gen pou tradwi",
-    "processing_content": "Gen pou tradwi",
-    "checking_grammar": "Gen pou tradwi",
-    "final_polish": "Gen pou tradwi",
-    "presenting_results": "Gen pou tradwi",
-    "results_ready": "Gen pou tradwi",
-    "thank_you_waiting": "Gen pou tradwi",
-    "progress_saved": "Gen pou tradwi",
-    "processing_time_long": "Gen pou tradwi",
-    "instant_processing": "Gen pou tradwi",
-    "background_processing": "Gen pou tradwi",
-    "smart_processing": "Gen pou tradwi"
+    "preparing": "Bezwen tradwi",
+    "processing": "Bezwen tradwi",
+    "finalizing": "Bezwen tradwi",
+    "completed": "Bezwen tradwi",
+    "paused": "Bezwen tradwi",
+    "failed": "Bezwen tradwi",
+    "cancelled": "Anile",
+    "partial_success": "Siksè",
+    "progress": "Bezwen tradwi",
+    "understanding_text": "Tèks",
+    "analyzing_language": "Lang",
+    "processing_content": "Bezwen tradwi",
+    "checking_grammar": "Bezwen tradwi",
+    "final_polish": "Bezwen tradwi",
+    "presenting_results": "Bezwen tradwi",
+    "results_ready": "Bezwen tradwi",
+    "thank_you_waiting": "Bezwen tradwi",
+    "progress_saved": "Sove",
+    "processing_time_long": "Bezwen tradwi",
+    "instant_processing": "Bezwen tradwi",
+    "background_processing": "Tounen",
+    "smart_processing": "Bezwen tradwi"
   },
   "time": {
-    "time_estimate": "Gen pou tradwi",
-    "estimated_time": "Gen pou tradwi",
-    "can_leave": "Gen pou tradwi",
-    "accurate_estimate": "Gen pou tradwi",
-    "rough_estimate": "Gen pou tradwi",
-    "approximate_estimate": "Gen pou tradwi",
-    "fast_queue": "Gen pou tradwi",
-    "creation_time": "Gen pou tradwi"
+    "time_estimate": "Bezwen tradwi",
+    "estimated_time": "Bezwen tradwi",
+    "can_leave": "Bezwen tradwi",
+    "accurate_estimate": "Bezwen tradwi",
+    "rough_estimate": "Bezwen tradwi",
+    "approximate_estimate": "Bezwen tradwi",
+    "fast_queue": "Bezwen tradwi",
+    "creation_time": "Bezwen tradwi"
   },
   "error": {
-    "error_recovery": "Gen pou tradwi",
-    "retry_failed": "Gen pou tradwi",
-    "unknown_error": "Gen pou tradwi",
-    "partial_results": "Gen pou tradwi",
-    "retry_failed_parts": "Gen pou tradwi",
-    "download_partial": "Gen pou tradwi",
-    "segment_retry": "Gen pou tradwi",
-    "encountered_problem": "Gen pou tradwi",
-    "trying_to_resolve": "Gen pou tradwi",
-    "contact_support": "Gen pou tradwi",
-    "please_retry_later": "Gen pou tradwi"
+    "error_recovery": "Erè",
+    "retry_failed": "Bezwen tradwi",
+    "unknown_error": "Erè",
+    "partial_results": "Bezwen tradwi",
+    "retry_failed_parts": "Bezwen tradwi",
+    "download_partial": "Telechaje",
+    "segment_retry": "Bezwen tradwi",
+    "encountered_problem": "Bezwen tradwi",
+    "trying_to_resolve": "Bezwen tradwi",
+    "contact_support": "Sipò",
+    "please_retry_later": "Bezwen tradwi"
   },
   "success": {
-    "completed": "Gen pou tradwi",
-    "operation_success": "Gen pou tradwi",
-    "partial_success": "Gen pou tradwi",
-    "almost_done": "Gen pou tradwi",
-    "results_shown_below": "Gen pou tradwi",
-    "half_completed": "Gen pou tradwi"
+    "completed": "Bezwen tradwi",
+    "operation_success": "Siksè",
+    "partial_success": "Siksè",
+    "almost_done": "Bezwen tradwi",
+    "results_shown_below": "Bezwen tradwi",
+    "half_completed": "Bezwen tradwi"
   },
   "credits": {
-    "estimated_consumption": "Gen pou tradwi",
-    "credits_consumed": "Gen pou tradwi",
-    "credits_processing": "Gen pou tradwi",
-    "consumed_credits": "Gen pou tradwi",
-    "refunded_credits": "Gen pou tradwi",
-    "retry_only_failed": "Gen pou tradwi"
+    "estimated_consumption": "Bezwen tradwi",
+    "credits_consumed": "Modifye",
+    "credits_processing": "Modifye",
+    "consumed_credits": "Modifye",
+    "refunded_credits": "Modifye",
+    "retry_only_failed": "Bezwen tradwi"
   },
   "language": {
-    "source_language": "Gen pou tradwi",
-    "target_language": "Gen pou tradwi",
-    "select_source": "Gen pou tradwi",
-    "select_target": "Gen pou tradwi"
+    "source_language": "Lang",
+    "target_language": "Lang",
+    "select_source": "Bezwen tradwi",
+    "select_target": "Bezwen tradwi"
   },
   "ui": {
-    "start": "Gen pou tradwi",
-    "pause": "Gen pou tradwi",
-    "resume": "Gen pou tradwi",
-    "continue": "Gen pou tradwi",
-    "cancel": "Gen pou tradwi",
-    "retry": "Gen pou tradwi",
-    "download": "Gen pou tradwi",
-    "delete": "Gen pou tradwi",
-    "refresh": "Gen pou tradwi",
-    "all": "Gen pou tradwi",
-    "status": "Gen pou tradwi",
-    "priority": "Gen pou tradwi",
-    "sort": "Gen pou tradwi",
-    "normal": "Gen pou tradwi",
-    "high": "Gen pou tradwi",
-    "urgent": "Gen pou tradwi",
-    "low": "Gen pou tradwi",
-    "waiting": "Gen pou tradwi",
-    "active": "Gen pou tradwi",
-    "needs_attention": "Gen pou tradwi",
-    "submitting": "Gen pou tradwi",
-    "downloading": "Gen pou tradwi",
-    "retrying": "Gen pou tradwi",
-    "copied": "Gen pou tradwi",
-    "text_copied": "Gen pou tradwi",
-    "input_text": "Gen pou tradwi",
-    "translation_result": "Gen pou tradwi",
-    "characters": "Gen pou tradwi",
-    "total_tasks": "Gen pou tradwi",
-    "select_all": "Gen pou tradwi",
-    "batch_operations": "Gen pou tradwi",
-    "set_priority": "Gen pou tradwi"
+    "start": "Kòmanse",
+    "pause": "Bezwen tradwi",
+    "resume": "Bezwen tradwi",
+    "continue": "Kontinye",
+    "cancel": "Anile",
+    "retry": "Bezwen tradwi",
+    "download": "Telechaje",
+    "delete": "Efase",
+    "refresh": "Bezwen tradwi",
+    "all": "Bezwen tradwi",
+    "status": "Estati",
+    "priority": "Bezwen tradwi",
+    "sort": "Klase",
+    "normal": "Bezwen tradwi",
+    "high": "Bezwen tradwi",
+    "urgent": "Bezwen tradwi",
+    "low": "Bezwen tradwi",
+    "waiting": "Bezwen tradwi",
+    "active": "Bezwen tradwi",
+    "needs_attention": "Bezwen tradwi",
+    "submitting": "Soumèt",
+    "downloading": "K ap chaje",
+    "retrying": "Bezwen tradwi",
+    "copied": "Bezwen tradwi",
+    "text_copied": "Tèks",
+    "input_text": "Tèks",
+    "translation_result": "Bezwen tradwi",
+    "characters": "Bezwen tradwi",
+    "total_tasks": "Bezwen tradwi",
+    "select_all": "Bezwen tradwi",
+    "batch_operations": "Bezwen tradwi",
+    "set_priority": "Bezwen tradwi"
   },
   "NotFound": {
     "title": "Pa jwenn paj",
@@ -1121,6 +1268,68 @@
     "dashboard": {
       "title": "Admin tablodbò",
       "description": "Jere aplikasyon ou anviwònman ak kontwole sistèm estati."
+    }
+  },
+  "Feedback": {
+    "feedback": "Feedback",
+    "title": "Feedback ou enpòtan pou nou",
+    "rating": {
+      "tab": "Rating",
+      "title": "Rate sèvis nou yo",
+      "select": "Tanpri chwazi yon evalyasyon",
+      "very_dissatisfied": "Trè ensatisfaksyon ",
+      "dissatisfied": "Ensatisfaksyon 😕",
+      "neutral": "Neytral 😐",
+      "satisfied": "Satisfaksyon 😊",
+      "very_satisfied": "Trè satisfè ",
+      "placeholder": "Tanpri di nou santiman espesifik ou ak sijesyon...",
+      "submit": "Soumèt Rating"
+    },
+    "suggestion": {
+      "tab": "Sijesyon",
+      "title": "Sijesyon karakteristik",
+      "type": "Kalite sijesyon",
+      "categories": {
+        "feature": "Nouvo karakteristik",
+        "ui": "Amelyorasyon UI",
+        "performance": "Pèfòmans",
+        "language": "Sipò pou lang",
+        "other": "Lòt"
+      },
+      "placeholder": "Tanpri dekri sijesyon w lan an detay, nou pral konsidere l ak anpil atansyon...",
+      "submit": "Soumèt yon sijesyon"
+    },
+    "bug": {
+      "tab": "Bug",
+      "title": "Rapòti Bòg",
+      "type": "Kalite ensèk",
+      "categories": {
+        "translation": "Pwoblèm tradiksyon",
+        "ui": "Erè UI",
+        "payment": "Pwoblèm peman",
+        "account": "Emisyon kont",
+        "other": "Lòt"
+      },
+      "placeholder": "Tanpri dekri pwoblèm nan an detay, ki gen ladan etap ak mesaj erè...",
+      "email": "Imèl kontak (Opsyonèl)",
+      "submit": "Rapòte yon erè"
+    },
+    "compliment": {
+      "tab": "Konpliman",
+      "title": "Konpliman ak Mèsi",
+      "placeholder": "Mèsi pou rekonesans ou! Tanpri di nou karakteristik ou pi renmen oswa eksperyans...",
+      "submit": "Voye konpliman"
+    },
+    "common": {
+      "submitting": "Mwen soumèt...",
+      "success": "Feedback soumèt avèk siksè!",
+      "success_desc": "Mèsi pou fidbak ki gen anpil valè ou, nou pral konsidere li ak anpil atansyon epi kontinye amelyore eksperyans pwodwi a.",
+      "fill_required": "Tanpri ranpli kontni fidbak",
+      "submit_failed": "Sòtman an echwe",
+      "try_again": "Tanpri eseye ankò pita oswa kontakte sèvis kliyan",
+      "translation_quality": "Kalite tradiksyon:",
+      "thanks_feedback": "Mèsi pou fidbak ou",
+      "feedback_helps": "Feedback ou ede nou amelyore kalite tradiksyon"
     }
   }
 }

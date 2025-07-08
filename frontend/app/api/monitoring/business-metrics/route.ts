@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase-server'
 
@@ -61,7 +62,7 @@ export async function GET(request: NextRequest) {
     
     const dailyRevenue = dailyPayments?.reduce((sum, p) => sum + p.amount_usd, 0) || 0
     const monthlyRevenue = monthlyPayments?.reduce((sum, p) => sum + p.amount_usd, 0) || 0
-    const averageOrderValue = monthlyPayments?.length > 0 ? monthlyRevenue / monthlyPayments.length : 0
+    const averageOrderValue = (monthlyPayments?.length ?? 0) > 0 ? monthlyRevenue / (monthlyPayments?.length ?? 1) : 0
     
     // 计算用户留存率（简化版本）
     const { data: allUsers } = await supabase
@@ -73,7 +74,7 @@ export async function GET(request: NextRequest) {
       user.last_sign_in_at && new Date(user.last_sign_in_at) >= weekAgo
     ).length || 0
     
-    const userRetentionRate = allUsers?.length > 0 ? (activeOldUsers / allUsers.length) * 100 : 0
+    const userRetentionRate = (allUsers?.length ?? 0) > 0 ? (activeOldUsers / (allUsers?.length ?? 1)) * 100 : 0
     
     // 转化率计算
     const totalUsers = monthlyUsers?.length || 0

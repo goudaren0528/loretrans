@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Haitian Creole Translator – Free & Accurate',
     description: 'Translate English to Haitian Creole instantly with our AI-powered tool. Perfect for communication, documents, and learning.',
-    url: 'https://transly.app/english-to-creole',
-    siteName: 'Transly',
+    url: 'https://loretrans.app/english-to-creole',
+    siteName: 'Loretrans',
     images: [
       {
         url: '/images/og-english-to-creole.png',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     images: ['/images/twitter-english-to-creole.png'],
   },
   alternates: {
-    canonical: 'https://transly.app/english-to-creole',
+    canonical: 'https://loretrans.app/english-to-creole',
     languages: {
-      'en': 'https://transly.app/english-to-creole',
-      'ht': 'https://transly.app/creole-to-english',
+      'en': 'https://loretrans.app/english-to-creole',
+      'ht': 'https://loretrans.app/creole-to-english',
     },
   },
 }
@@ -313,7 +313,7 @@ export default function EnglishToCreolePage() {
               "applicationCategory": "Translation",
               "operatingSystem": "All",
               "browserRequirements": "Requires JavaScript",
-              "url": "https://transly.app/english-to-creole",
+              "url": "https://loretrans.app/english-to-creole",
               "description": "Free online tool to translate English to Haitian Creole instantly using AI technology.",
               "offers": {
                 "@type": "Offer",

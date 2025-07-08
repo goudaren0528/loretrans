@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Transly Vercel 部署脚本
+# Loretrans Vercel 部署脚本
 
-echo "🚀 开始部署Transly到Vercel..."
+echo "🚀 开始部署Loretrans到Vercel..."
 
 # 检查必要文件
 if [ ! -f "vercel.json" ]; then

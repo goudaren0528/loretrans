@@ -5,7 +5,7 @@ import { Providers } from '../providers';
 import { Navigation, Footer } from '@/components/navigation';
 import { Toaster } from '@/components/ui/toaster';
 import { UserOnboarding } from '@/components/onboarding/user-onboarding';
-import { FloatingFeedback } from '@/components/feedback/feedback-widget';
+import { FloatingFeedback } from '@/components/feedback/feedback-widget-multilingual';
 import { locales, type Locale } from '@/lib/navigation';
 import { headers } from 'next/headers';
 
@@ -27,17 +27,17 @@ export async function generateMetadata({
   });
 
   return {
-    title: 'Transly - AI Translation for Low-Resource Languages',
+    title: 'Loretrans - AI Translation for Low-Resource Languages',
     description: 'Professional AI-powered translation for 20+ low-resource languages to English. Fast, accurate, and SEO-friendly.',
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: alternates
     },
     openGraph: {
-      title: 'Transly - AI Translation Platform',
+      title: 'Loretrans - AI Translation Platform',
       description: 'Professional translation for low-resource languages',
       url: `${baseUrl}/${locale}`,
-      siteName: 'Transly',
+      siteName: 'Loretrans',
       locale: locale,
       type: 'website',
     },

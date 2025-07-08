@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "name": "loretrans-frontend",
+  "name": "translation-low-source-frontend",
+  "framework": "nextjs",
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/.next",
-  "installCommand": "npm install && cd frontend && npm install",
-  "framework": "nextjs",
+  "installCommand": "npm install --prefix frontend",
   "functions": {
     "frontend/app/api/**/*.ts": {
       "maxDuration": 30
@@ -14,9 +14,6 @@
     },
     "frontend/app/api/document/*/route.ts": {
       "maxDuration": 120
-    },
-    "frontend/app/api/test-nllb/route.ts": {
-      "maxDuration": 45
     }
   },
   "headers": [
@@ -34,27 +31,6 @@
         {
           "key": "Access-Control-Allow-Headers",
           "value": "Content-Type, Authorization, X-Requested-With"
-        },
-        {
-          "key": "Access-Control-Max-Age",
-          "value": "86400"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         }
       ]
     }
@@ -64,18 +40,6 @@
       "source": "/",
       "destination": "/en",
       "permanent": false
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/cleanup",
-      "schedule": "0 2 * * *"
     }
   ]
 }

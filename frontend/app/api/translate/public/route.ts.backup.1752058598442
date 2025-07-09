@@ -1,0 +1,144 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+// NLLB语言代码映射
+const NLLB_LANGUAGE_MAP: Record<string, string> = {
+  'ht': 'hat_Latn', // Haitian Creole
+  'lo': 'lao_Laoo', // Lao
+  'sw': 'swh_Latn', // Swahili
+  'my': 'mya_Mymr', // Burmese
+  'te': 'tel_Telu', // Telugu
+  'si': 'sin_Sinh', // Sinhala
+  'am': 'amh_Ethi', // Amharic
+  'km': 'khm_Khmr', // Khmer
+  'ne': 'npi_Deva', // Nepali
+  'mg': 'plt_Latn', // Malagasy
+  'en': 'eng_Latn', // English
+  'zh': 'zho_Hans', // Chinese (Simplified)
+  'fr': 'fra_Latn', // French
+  'es': 'spa_Latn', // Spanish
+  'pt': 'por_Latn', // Portuguese
+  'ar': 'arb_Arab', // Arabic
+  'hi': 'hin_Deva', // Hindi
+};
+
+// 获取NLLB格式的语言代码
+function getNLLBLanguageCode(langCode: string): string {
+  return NLLB_LANGUAGE_MAP[langCode] || langCode;
+}
+
+// 调用Hugging Face Space API
+async function translateWithNLLB(text: string, sourceLang: string, targetLang: string) {
+  const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
+  const timeout = parseInt(process.env.NLLB_SERVICE_TIMEOUT || '60000');
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const response = await fetch(nllbServiceUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        text: text,
+        source: getNLLBLanguageCode(sourceLang),
+        target: getNLLBLanguageCode(targetLang),
+      }),
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`NLLB API error: ${response.status} - ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data.result || data.translated_text || data.translation;
+
+  } catch (error) {
+    clearTimeout(timeoutId);
+    
+    if (error instanceof Error) {
+      if (error.name === 'AbortError') {
+        throw new Error('Translation timeout');
+      }
+      throw error;
+    }
+    throw new Error('Unknown translation error');
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { text, sourceLang, targetLang } = body;
+
+    // 验证输入
+    if (!text || typeof text !== 'string') {
+      return NextResponse.json(
+        { error: 'Text is required and must be a string' },
+        { status: 400 }
+      );
+    }
+
+    if (!sourceLang || !targetLang) {
+      return NextResponse.json(
+        { error: 'Source and target languages are required' },
+        { status: 400 }
+      );
+    }
+
+    // 临时提高免费用户的文本长度限制到1000字符（保持功能可用）
+    const maxFreeLength = 1000;
+    if (text.length > maxFreeLength) {
+      return NextResponse.json(
+        { 
+          error: 'Text too long for free translation. Please register to translate longer texts.',
+          maxLength: maxFreeLength,
+          currentLength: text.length,
+          requiresLogin: true
+        },
+        { status: 400 }
+      );
+    }
+
+    // 调用翻译服务
+    const translatedText = await translateWithNLLB(text, sourceLang, targetLang);
+
+    return NextResponse.json({
+      success: true,
+      translatedText,
+      sourceLang,
+      targetLang,
+      characterCount: text.length,
+      isFree: true
+    });
+
+  } catch (error) {
+    console.error('Public translation error:', error);
+    
+    return NextResponse.json(
+      { 
+        error: error instanceof Error ? error.message : 'Translation failed',
+        success: false
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// 支持CORS预检请求
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
+}

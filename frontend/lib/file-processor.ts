@@ -1,13 +1,39 @@
-import { NextRequest } from 'next/server';
+// PDF.js类型定义
+interface PDFTextItem {
+  str: string;
+  dir?: string;
+  width?: number;
+  height?: number;
+  transform?: number[];
+  fontName?: string;
+}
+
+interface PDFTextContent {
+  items: PDFTextItem[];
+}
+
+interface PDFPageProxy {
+  getTextContent(): Promise<PDFTextContent>;
+}
+
+interface PDFDocumentProxy {
+  numPages: number;
+  getPage(pageNumber: number): Promise<PDFPageProxy>;
+}
 
 // 动态导入pdfjs-dist以避免类型错误
-let pdfjsLib: any = null;
+let pdfjsLib: {
+  getDocument: (options: { data: ArrayBuffer }) => { promise: Promise<PDFDocumentProxy> };
+  GlobalWorkerOptions: { workerSrc: string };
+} | null = null;
 
 // 配置PDF.js worker
 if (typeof window === 'undefined') {
   // 服务器端配置
   try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     pdfjsLib = require('pdfjs-dist');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const path = require('path');
     pdfjsLib.GlobalWorkerOptions.workerSrc = path.join(process.cwd(), 'node_modules/pdfjs-dist/build/pdf.worker.js');
   } catch (error) {
@@ -53,6 +79,10 @@ export interface FileProcessResult {
 // PDF文本提取
 export async function extractTextFromPDF(buffer: ArrayBuffer): Promise<string> {
   try {
+    if (!pdfjsLib) {
+      throw new Error('PDF.js library not loaded');
+    }
+
     const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
     const numPages = pdf.numPages;
     let fullText = '';
@@ -61,7 +91,7 @@ export async function extractTextFromPDF(buffer: ArrayBuffer): Promise<string> {
       const page = await pdf.getPage(pageNum);
       const textContent = await page.getTextContent();
       const pageText = textContent.items
-        .map((item: any) => item.str)
+        .map((item: PDFTextItem) => item.str)
         .join(' ');
       fullText += pageText + '\n';
     }

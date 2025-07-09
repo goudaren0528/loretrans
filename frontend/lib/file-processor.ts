@@ -24,7 +24,7 @@ interface PDFDocumentProxy {
 // 动态导入pdfjs-dist以避免类型错误
 let pdfjsLib: {
   getDocument: (options: { data: ArrayBuffer }) => { promise: Promise<PDFDocumentProxy> };
-  GlobalWorkerOptions: { workerSrc: string };
+  GlobalWorkerOptions?: { workerSrc: string };
 } | null = null;
 
 // 配置PDF.js worker
@@ -35,7 +35,11 @@ if (typeof window === 'undefined') {
     pdfjsLib = require('pdfjs-dist');
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const path = require('path');
-    pdfjsLib.GlobalWorkerOptions.workerSrc = path.join(process.cwd(), 'node_modules/pdfjs-dist/build/pdf.worker.js');
+    
+    // 确保pdfjsLib不为null后再设置worker路径
+    if (pdfjsLib && pdfjsLib.GlobalWorkerOptions) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = path.join(process.cwd(), 'node_modules/pdfjs-dist/build/pdf.worker.js');
+    }
   } catch (error) {
     console.warn('Failed to load pdfjs-dist:', error);
   }

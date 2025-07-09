@@ -49,8 +49,13 @@ function checkFileProcessorFix() {
     },
     {
       name: '添加null检查',
-      test: content.includes('if (!pdfjsLib)'),
-      fix: '✅ 已添加pdfjsLib null检查'
+      test: content.includes('if (!pdfjsLib)') && content.includes('if (pdfjsLib && pdfjsLib.GlobalWorkerOptions)'),
+      fix: '✅ 已添加pdfjsLib null检查和GlobalWorkerOptions检查'
+    },
+    {
+      name: '修复GlobalWorkerOptions可能为null的问题',
+      test: content.includes('GlobalWorkerOptions?:'),
+      fix: '✅ 已将GlobalWorkerOptions设为可选属性'
     }
   ];
   

@@ -52,23 +52,28 @@ class SmartTranslationService {
       hasActiveTasks: boolean
     }
   ): ProcessingMode {
-    const textLength = text.length
-    const complexity = this.calculateComplexity(text, sourceLanguage)
-    const adjustedLength = textLength * complexity
+    // 临时禁用队列模式，始终使用即时处理以确保翻译结果直接显示
+    // 这样可以避免翻译结果不显示的问题
+    return 'instant'
+    
+    // 原始逻辑（已禁用）：
+    // const textLength = text.length
+    // const complexity = this.calculateComplexity(text, sourceLanguage)
+    // const adjustedLength = textLength * complexity
 
-    // 未登录用户只能使用即时模式
-    if (!userContext?.isLoggedIn) {
-      return 'instant'
-    }
+    // // 未登录用户只能使用即时模式
+    // if (!userContext?.isLoggedIn) {
+    //   return 'instant'
+    // }
 
-    // 基于调整后的文本长度判断
-    if (adjustedLength <= PROCESSING_THRESHOLDS.INSTANT_MAX) {
-      return 'instant'
-    } else if (adjustedLength <= PROCESSING_THRESHOLDS.FAST_QUEUE_MAX) {
-      return 'fast_queue'
-    } else {
-      return 'background'
-    }
+    // // 基于调整后的文本长度判断
+    // if (adjustedLength <= PROCESSING_THRESHOLDS.INSTANT_MAX) {
+    //   return 'instant'
+    // } else if (adjustedLength <= PROCESSING_THRESHOLDS.FAST_QUEUE_MAX) {
+    //   return 'fast_queue'
+    // } else {
+    //   return 'background'
+    // }
   }
 
   /**

@@ -23,7 +23,7 @@
     },
     "hero": {
       "title": "Traduction Alimentée par l'IA pour Langues à Faibles Ressources",
-      "description": "Traduction de haute qualité pour plus de 20 langues à faible ressource. 300 caractères gratuits par traduction.",
+      "description": "Traduction de haute qualité pour plus de 20 langues à faible ressource. 1000 caractères gratuits par traduction.",
       "features": {
         "free": "100% Gratuit",
         "ai_powered": "Alimenté par l'IA",
@@ -148,7 +148,7 @@
           "title": "Traduction de Texte",
           "description": "Traduisez instantanément du texte entre plus de 20 langues à faibles ressources et l'anglais.",
           "features": {
-            "0": "300 caractères gratuits",
+            "0": "1000 caractères gratuits",
             "1": "Résultats instantanés",
             "2": "Lecture vocale",
             "3": "Copier dans le presse-papiers"
@@ -226,7 +226,7 @@
       "questions": {
         "0": {
           "question": "Comment fonctionne le prix de Loretrans ?",
-          "answer": "Loretrans offre 300 caractères gratuits par traduction. Pour les textes plus longs, nous facturons 0,1 crédit par caractère. Les nouveaux utilisateurs obtiennent 500 crédits de bienvenue lors de leur inscription."
+          "answer": "Loretrans offre 1000 caractères gratuits par traduction. Pour les textes plus longs, nous facturons 0,1 crédit par caractère. Les nouveaux utilisateurs obtiennent 500 crédits de bienvenue lors de leur inscription."
         },
         "1": {
           "question": "Quelles langues prenez-vous en charge ?",
@@ -234,7 +234,7 @@
         },
         "2": {
           "question": "Y a-t-il une limite de caractères ?",
-          "answer": "Chaque traduction comprend 300 caractères gratuits. Pour les textes plus longs, vous pouvez utiliser des crédits (0,1 crédit par caractère). Inscrivez-vous pour obtenir 500 crédits de bienvenue."
+          "answer": "Chaque traduction comprend 1000 caractères gratuits. Pour les textes plus longs, vous pouvez utiliser des crédits (0,1 crédit par caractère). Inscrivez-vous pour obtenir 500 crédits de bienvenue."
         },
         "3": {
           "question": "Quels formats de fichiers prenez-vous en charge ?",
@@ -925,12 +925,12 @@
     "processing": "Traitement...",
     "new_user_bonus": {
       "title": "Offre Exclusive pour Nouveaux Utilisateurs",
-      "description": "🎉 Inscrivez-vous et obtenez 500 crédits + 20% de crédits supplémentaires au premier achat",
+      "description": "🎉 Inscrivez-vous et obtenez 500 crédits",
       "note": "Le bonus sera automatiquement appliqué à votre compte après le paiement"
     },
     "register_prompt": {
       "title": "Inscrivez-vous Maintenant pour Plus d'Avantages",
-      "description": "Les utilisateurs enregistrés bénéficient de 500 crédits de bienvenue + 20% de récompense supplémentaire au premier rechargement",
+      "description": "Les utilisateurs enregistrés bénéficient de 500 crédits de bienvenue",
       "register_button": "S'inscrire Maintenant",
       "signin_button": "J'ai Déjà un Compte"
     },
@@ -1141,7 +1141,13 @@
     "lao_greeting": "Salutation du Laos",
     "swahili_greeting": "Salutation en swahili",
     "choose_pricing_plan": "Choisissez un plan de tarification",
-    "coming_soon": "Je viens bientôt"
+    "coming_soon": "Je viens bientôt",
+    "select_language": "Sélectionner la langue",
+    "translation_placeholder": "La traduction apparaîtra ici...",
+    "switch_languages": "Changer de langue",
+    "switch_source_target": "Changer les langues source et cible",
+    "reset_translation": "Réinitialiser la traduction",
+    "clear_reset": "Effacer et réinitialiser tout le contenu"
   },
   "translation": {
     "start_translation": "Commencer la traduction",

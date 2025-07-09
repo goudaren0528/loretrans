@@ -32,7 +32,7 @@ echo -e "${YELLOW}📦 检查依赖...${NC}"
 # 检查前端依赖
 if [ ! -d "frontend/node_modules" ]; then
     echo -e "${YELLOW}安装前端依赖...${NC}"
-    cd frontend && npm install && cd ..
+    cd frontend && pnpm install && cd ..
 else
     echo -e "${GREEN}✅ 前端依赖已安装${NC}"
 fi
@@ -79,7 +79,7 @@ done
 # 启动前端应用
 echo -e "${YELLOW}启动前端应用 (端口 3000)...${NC}"
 cd frontend
-npm run dev > ../logs/frontend.log 2>&1 &
+pnpm run dev > ../logs/frontend.log 2>&1 &
 FRONTEND_PID=$!
 cd ..
 

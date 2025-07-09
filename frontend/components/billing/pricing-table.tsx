@@ -37,7 +37,7 @@ export function PricingTable() {
                   {t('freeTranslation', { defaultValue: 'Free Translation' })}
                 </div>
                 <div className="text-blue-700 dark:text-blue-300">
-                  {t('freeDescription', { defaultValue: 'Up to 500 characters - completely free' })}
+                  {t('freeDescription', { defaultValue: 'Up to 300 characters - completely free' })}
                 </div>
               </div>
             </div>

@@ -8,17 +8,23 @@ import { createSupabaseServiceClient } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json()
+    console.log('🔍 Server: Checking email:', email)
 
     if (!email) {
+      console.log('❌ Server: Email is required')
       return NextResponse.json(
         { error: 'Email is required' },
         { status: 400 }
       )
     }
 
-    // 验证邮箱格式
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    // 更强大的邮箱格式验证 - 符合RFC 5322标准
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    const regexResult = emailRegex.test(email)
+    console.log('📧 Server: Email regex test result:', regexResult)
+    
+    if (!regexResult) {
+      console.log('❌ Server: Invalid email format')
       return NextResponse.json(
         { 
           available: false,

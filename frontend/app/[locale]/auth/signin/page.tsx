@@ -1,4 +1,5 @@
 import { SignInForm } from '@/components/auth/signin-form'
+import { RedirectIfAuthenticated } from '@/components/auth/redirect-if-authenticated'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
@@ -16,5 +17,9 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 }
 
 export default function SignInPage() {
-  return <SignInForm />
+  return (
+    <RedirectIfAuthenticated>
+      <SignInForm />
+    </RedirectIfAuthenticated>
+  )
 }

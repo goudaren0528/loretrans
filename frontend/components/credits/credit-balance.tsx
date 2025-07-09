@@ -132,7 +132,7 @@ interface FreeQuotaProgressProps {
 
 export function FreeQuotaProgress({ currentLength, className }: FreeQuotaProgressProps) {
   const t = useTranslations('TranslatorWidget.credits')
-  const freeLimit = 500
+  const freeLimit = 1000 // 更新为1000字符免费
   
   // Add null safety for currentLength
   const safeCurrentLength = currentLength ?? 0

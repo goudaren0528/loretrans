@@ -7,6 +7,7 @@ import { APP_CONFIG } from '../../config/app.config'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useTranslations } from 'next-intl'
+import { getTranslationPageUrl, hasLanguageTranslationPage } from '@/lib/utils/page-utils'
 
 interface LanguageGridProps {
   currentLanguage?: string
@@ -32,6 +33,9 @@ export function LanguageGrid({
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {supportedLanguages.map((language) => {
         const isAvailable = language.available
+        const hasSpecialPage = hasLanguageTranslationPage(language.code)
+        const translationUrl = getTranslationPageUrl(language.code, 'english')
+        
         const cardClassName = `group relative overflow-hidden rounded-lg border bg-card p-4 transition-all ${
           isAvailable
             ? 'hover:shadow-md hover:scale-105 cursor-pointer'
@@ -42,7 +46,7 @@ export function LanguageGrid({
           return (
             <Link
               key={language.code}
-              href={`/${language.slug}-to-english` as any}
+              href={translationUrl}
               className={cardClassName}
             >
               <div className="flex flex-col items-center text-center">
@@ -50,6 +54,11 @@ export function LanguageGrid({
                   <h3 className="font-semibold text-foreground">
                     {language.name}
                   </h3>
+                  {hasSpecialPage && (
+                    <Badge variant="secondary" className="text-xs">
+                      Special
+                    </Badge>
+                  )}
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {language.nativeName}

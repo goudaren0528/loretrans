@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Eye, EyeOff, Mail, Lock, AlertCircle, Loader2, CheckCircle, Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -35,6 +36,7 @@ interface SignInFormProps {
 export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
   const t = useTranslations('AuthPage.signin')
   const tCommon = useTranslations('Common')
+  const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -139,12 +141,13 @@ export function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
             <Label htmlFor="password" className="text-sm font-medium">
               {t('password')}
             </Label>
-            <Link
+            {/* Forgot password link hidden for now */}
+            {/* <Link
               href="/auth/forgot-password"
               className="text-sm text-primary hover:underline"
             >
               {t('forgot_password')}
-            </Link>
+            </Link> */}
           </div>
           <div className="relative">
             <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />

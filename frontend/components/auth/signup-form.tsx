@@ -167,18 +167,26 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
 
   // 邮箱唯一性检查
   const checkEmailAvailability = useCallback(async (emailToCheck: string) => {
+    console.log('🔍 Checking email:', emailToCheck)
+    
     if (!emailToCheck || !emailToCheck.includes('@')) {
+      console.log('❌ Email validation: empty or no @ symbol')
       setEmailValidation('idle')
       return
     }
 
-    // 基本邮箱格式验证
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(emailToCheck)) {
+    // 更强大的邮箱格式验证
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    const regexResult = emailRegex.test(emailToCheck)
+    console.log('📧 Email regex test result:', regexResult)
+    
+    if (!regexResult) {
+      console.log('❌ Email validation: invalid format')
       setEmailValidation('invalid')
       return
     }
 
+    console.log('⏳ Starting server validation...')
     setEmailValidation('checking')
 
     try {
@@ -191,12 +199,15 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
       })
 
       const result = await response.json()
+      console.log('🌐 Server response:', result)
 
       if (response.ok) {
         if (result.available) {
+          console.log('✅ Email is available')
           setEmailValidation('available')
           clearErrors('email')
         } else {
+          console.log('❌ Email is taken')
           setEmailValidation('taken')
           setError('email', {
             type: 'manual',
@@ -204,6 +215,7 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
           })
         }
       } else {
+        console.log('❌ Server error:', result)
         setEmailValidation('invalid')
         setError('email', {
           type: 'manual',
@@ -211,7 +223,7 @@ export function SignUpForm({ onSuccess, locale = 'en' }: SignUpFormProps) {
         })
       }
     } catch (error) {
-      console.error('Email check error:', error)
+      console.error('💥 Email check error:', error)
       setEmailValidation('idle')
     }
   }, [setError, clearErrors, t])

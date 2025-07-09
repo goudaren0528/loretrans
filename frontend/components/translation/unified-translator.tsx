@@ -49,7 +49,7 @@ export function UnifiedTranslator({
   className
 }: UnifiedTranslatorProps) {
   const { user } = useAuth()
-  const { credits, hasEnoughCredits, estimateCredits } = useCredits()
+  const { credits, hasEnoughCredits, estimateCredits, refreshCredits } = useCredits()
   const { limitStatus, recordTranslation, canTranslate, isLimitReached } = useGuestLimit()
   const router = useRouter()
   const pathname = usePathname()
@@ -165,10 +165,8 @@ export function UnifiedTranslator({
       }
     }
 
-    const processingMode = state.processingMode || 'instant'
-    
-    // 内部日志记录处理模式
-    console.log(`[Translation Start] Mode: ${processingMode}`, {
+    // 简化处理：直接开始翻译，不使用复杂的处理模式
+    console.log('[Translation Start] Using simplified instant mode', {
       textLength: state.sourceText.length,
       estimatedCredits,
       timestamp: new Date().toISOString()
@@ -183,12 +181,14 @@ export function UnifiedTranslator({
         'Content-Type': 'application/json',
       }
       
-      // 产品方案：300字符以内免费，300以上需要积分
-      // 但为了避免认证问题，对于1000字符以下仍使用公共端点+异步扣积分
+      // 智能选择API端点：
+      // 临时方案：1000字符以下使用公共端点（保持功能可用）
+      // 超过1000字符才需要认证和积分
       if (state.sourceText.length <= 1000) {
         endpoint = '/api/translate/public'
-      } else if (processingMode === 'fast_queue' || processingMode === 'background') {
-        endpoint = '/api/translate/queue'
+      } else {
+        // 对于1000字符以上的文本，使用认证API并扣除积分
+        endpoint = '/api/translate'
       }
       
       // 如果使用需要认证的端点，添加认证头
@@ -215,17 +215,19 @@ export function UnifiedTranslator({
         }
       }
       
+      // 构建请求体
+      const requestBody = {
+        text: state.sourceText,
+        sourceLang: state.sourceLanguage,
+        targetLang: state.targetLanguage,
+        sourceLanguage: state.sourceLanguage, // 保持兼容性
+        targetLanguage: state.targetLanguage, // 保持兼容性
+      }
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers,
-        body: JSON.stringify({
-          text: state.sourceText,
-          sourceLang: state.sourceLanguage,
-          targetLang: state.targetLanguage,
-          sourceLanguage: state.sourceLanguage, // 保持兼容性
-          targetLanguage: state.targetLanguage, // 保持兼容性
-          processingMode, // 内部标识
-        }),
+        body: JSON.stringify(requestBody),
       })
 
       const data = await response.json()
@@ -246,70 +248,39 @@ export function UnifiedTranslator({
         throw new Error(data.error?.message || data.error || 'Translation failed')
       }
 
-      if (processingMode === 'instant') {
-        // 即时翻译结果 - 处理不同API端点的响应格式
-        const translatedText = data.translatedText || data.data?.translatedText || data.result
-        
-        console.log('[Translation Response]', {
-          endpoint,
-          responseData: data,
-          extractedText: translatedText,
-          timestamp: new Date().toISOString()
-        })
-        
-        setState(prev => ({
-          ...prev,
-          translatedText: translatedText,
-          isLoading: false,
-        }))
+      // 直接处理翻译结果，不再使用复杂的处理模式判断
+      const translatedText = data.translatedText || data.data?.translatedText || data.result
+      
+      console.log('[Translation Response]', {
+        endpoint,
+        responseData: data,
+        extractedText: translatedText,
+        timestamp: new Date().toISOString()
+      })
+      
+      if (!translatedText) {
+        throw new Error('No translation result received')
+      }
 
-        // 根据产品方案处理积分（300字符以上需要扣积分）
-        console.log('[Post-Translation Debug] User state after translation:', {
-          characterCount,
-          hasUser: !!user,
-          userId: user?.id,
-          userEmail: user?.email,
-          willTriggerCredits: characterCount > 300 && user,
-          willShowSignupPrompt: characterCount > 300 && !user
-        })
-        
-        if (characterCount > 300 && user) {
-          // 异步扣除积分
-          consumeCreditsAsync(estimatedCredits, characterCount, translatedText.length)
-        } else if (characterCount > 300 && !user) {
-          // 未登录用户超过300字符，提示注册
-          console.log('[Post-Translation Debug] Showing signup prompt for unauth user')
-          toast({
-            title: 'Translation Complete',
-            description: 'For translations over 300 characters, please sign up for credits.',
-            variant: "default",
-          })
-        } else {
-          // 300字符以内完全免费
-          toast({
-            title: 'Translation Complete',
-            description: 'Free translation completed successfully',
-          })
-        }
-      } else {
-        // 队列任务创建成功
-        setState(prev => ({
-          ...prev,
-          jobId: data.data?.jobId || data.jobId,
-          isLoading: false,
-        }))
+      // 更新状态显示翻译结果
+      setState(prev => ({
+        ...prev,
+        translatedText: translatedText,
+        isLoading: false,
+        error: null
+      }))
 
-        toast({
-          title: 'Translation Queued',
-          description: processingMode === 'background' 
-            ? 'You can leave this page and check back later'
-            : 'Processing your translation...',
-        })
+      // 显示成功提示
+      toast({
+        title: 'Translation Complete',
+        description: state.sourceText.length <= 1000 
+          ? 'Free translation completed successfully'
+          : `Translation completed using ${estimatedCredits} credits`,
+      })
 
-        // 如果是快速队列，开始轮询状态
-        if (processingMode === 'fast_queue' && data?.data?.jobId) {
-          pollJobStatus(data.data.jobId)
-        }
+      // 如果使用了积分，刷新积分余额
+      if (state.sourceText.length > 1000 && user) {
+        await refreshCredits()
       }
 
     } catch (error) {

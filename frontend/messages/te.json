@@ -1102,7 +1102,13 @@
     "lao_greeting": "లావో వందనం",
     "swahili_greeting": "స్వాహిలీ శుభాకాంక్షలు",
     "choose_pricing_plan": "ధరల ప్రణాళికను ఎంచుకోండి",
-    "coming_soon": "త్వరలో వస్తుంది"
+    "coming_soon": "త్వరలో వస్తుంది",
+    "select_language": "భాషను ఎంచుకోండి",
+    "translation_placeholder": "అనువాదం ఇక్కడ కనిపిస్తుంది...",
+    "switch_languages": "భాషలను మార్చండి",
+    "switch_source_target": "మూల మరియు లక్ష్య భాషలను మార్చండి",
+    "reset_translation": "అనువాదాన్ని రీసెట్ చేయండి",
+    "clear_reset": "అన్ని కంటెంట్‌ను క్లియర్ చేసి రీసెట్ చేయండి"
   },
   "translation": {
     "start_translation": "అనువాదం అవసరం",

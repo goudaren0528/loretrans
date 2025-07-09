@@ -12,6 +12,18 @@ import { useAuth } from '@/lib/hooks/useAuth'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditBalance } from '@/components/credits/credit-balance'
 import { PRICING_PLANS } from '@/config/pricing.config'
+// 定义本地类型以避免导入错误
+type PricingPlan = {
+  id: string
+  name: string
+  description: string
+  credits: number
+  priceUSD: number
+  popular?: boolean
+  discount?: number
+  features: string[]
+  validityDays?: number
+}
 import { authService } from '@/lib/services/auth'
 
 export function PricingPage() {
@@ -20,8 +32,12 @@ export function PricingPage() {
   const router = useRouter()
   const [loading, setLoading] = useState<string | null>(null)
 
-  // 过滤出付费商品（排除免费计划）
-  const creditPackages = PRICING_PLANS.filter(plan => plan.id !== 'free')
+  // 过滤出付费商品（排除免费计划和高级套餐）
+  const creditPackages = (PRICING_PLANS || []).filter(plan => 
+    plan.id !== 'free' && 
+    plan.id !== 'business' && 
+    plan.id !== 'enterprise'
+  )
 
   const handlePurchase = async (packageId: string) => {
     console.log('🛒 Purchase button clicked for package:', packageId)
@@ -310,7 +326,7 @@ export function PricingPage() {
 
                 <CardContent className="px-4 pb-4 flex-1">
                   <ul className="space-y-2">
-                    {Object.keys(t.raw(`packages.${pkg.id}.features`)).map((featureKey) => (
+                    {(pkg.features || []).map((featureKey) => (
                       <li key={featureKey} className="flex items-start gap-2 text-sm">
                         <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                         <span>{t(`packages.${pkg.id}.features.${featureKey}`)}</span>
@@ -423,10 +439,10 @@ export function PricingPage() {
             <p className="text-gray-600">
               {t('faq.contact_support')}{' '}
               <a
-                href="mailto:support@loretrans.app"
+                href="mailto:Loretrans@proton.me"
                 className="font-medium text-primary hover:text-primary/80"
               >
-                support@loretrans.app
+                Loretrans@proton.me
               </a>
             </p>
           </div>

@@ -1,0 +1,59 @@
+{
+  "environments": {
+    "local": {
+      "base_url": "http://localhost:3000",
+      "timeout": 30,
+      "description": "Local development environment"
+    },
+    "staging": {
+      "base_url": "https://staging.your-domain.com",
+      "timeout": 45,
+      "description": "Staging environment"
+    },
+    "production": {
+      "base_url": "https://your-domain.com",
+      "timeout": 60,
+      "description": "Production environment"
+    }
+  },
+  "test_data": {
+    "translation": {
+      "basic_text": "Hello world",
+      "long_text": "This is a longer text that will be used to test the translation API with more content to ensure it handles larger inputs properly.",
+      "special_chars": "Hello! How are you? I'm fine, thanks. 你好世界！",
+      "empty_text": "",
+      "languages": {
+        "valid": ["en", "zh", "es", "fr", "de", "ja", "ko"],
+        "invalid": ["invalid", "xyz", "123"]
+      }
+    },
+    "batch_translation": {
+      "small_batch": ["Hello", "World", "Test"],
+      "large_batch": ["Hello world", "How are you?", "I am fine", "Thank you", "Good morning", "Good night", "See you later", "Have a nice day", "Welcome", "Goodbye"]
+    }
+  },
+  "expected_responses": {
+    "translation": {
+      "success": {
+        "status": 200,
+        "required_fields": ["translatedText", "sourceLanguage", "targetLanguage"]
+      },
+      "error": {
+        "invalid_language": 400,
+        "empty_text": 400,
+        "malformed_json": 400,
+        "missing_fields": 400
+      }
+    },
+    "detection": {
+      "success": {
+        "status": 200,
+        "required_fields": ["detectedLanguage", "confidence"]
+      }
+    }
+  },
+  "rate_limiting": {
+    "requests_per_minute": 60,
+    "burst_size": 10
+  }
+}

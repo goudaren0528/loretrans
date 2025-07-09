@@ -4,7 +4,7 @@ import { getMessages } from 'next-intl/server';
 import { Providers } from '../providers';
 import { Navigation, Footer } from '@/components/navigation';
 import { Toaster } from '@/components/ui/toaster';
-import { UserOnboarding } from '@/components/onboarding/user-onboarding';
+// import { UserOnboarding } from '@/components/onboarding/user-onboarding'; // Temporarily disabled
 import { FloatingFeedback } from '@/components/feedback/feedback-widget-multilingual';
 import { locales, type Locale } from '@/lib/navigation';
 import { headers } from 'next/headers';
@@ -75,7 +75,7 @@ export default async function LocaleLayout({
           <Footer />
         </div>
         <Toaster />
-        <UserOnboarding />
+        {/* <UserOnboarding /> */} {/* Temporarily disabled - users go directly to homepage after signup */}
         <FloatingFeedback />
       </Providers>
     </NextIntlClientProvider>

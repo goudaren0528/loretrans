@@ -1109,7 +1109,13 @@
     "lao_greeting": "လာအို နှုတ်ဆက်ချက်",
     "swahili_greeting": "ဆွာဟီလီ နှုတ်ဆက်ချက်",
     "choose_pricing_plan": "ဈေးနှုန်း အစီအစဉ်ကို ရွေးပါ",
-    "coming_soon": "မကြာခင် လာပါမယ်"
+    "coming_soon": "မကြာခင် လာပါမယ်",
+    "select_language": "ဘာသာစကားရွေးချယ်ပါ",
+    "translation_placeholder": "ဘာသာပြန်ချက်ကို ဤနေရာတွင် ပြသပါမည်...",
+    "switch_languages": "ဘာသာစကားများပြောင်းရန်",
+    "switch_source_target": "အရင်းအမြစ်နှင့် ပစ်မှတ်ဘာသာစကားများပြောင်းရန်",
+    "reset_translation": "ဘာသာပြန်ချက်ကို ပြန်လည်သတ်မှတ်ရန်",
+    "clear_reset": "အားလုံးကို ရှင်းလင်းပြီး ပြန်လည်သတ်မှတ်ရန်"
   },
   "translation": {
     "start_translation": "ဘာသာပြန်ရန်လိုအပ်သည်",

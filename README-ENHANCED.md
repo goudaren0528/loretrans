@@ -782,7 +782,7 @@ chore(deps): update dependencies
 
 ## 📞 联系我们
 
-- 📧 邮箱: support@loretrans.app
+- 📧 邮箱: Loretrans@proton.me
 - 🌐 网站: https://loretrans.app
 - 📱 Twitter: [@LoretransApp](https://twitter.com/LoretransApp)
 - 💬 Discord: [Loretrans Community](https://discord.gg/loretrans)

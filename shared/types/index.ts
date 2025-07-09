@@ -417,4 +417,6 @@ export interface PricingPlan {
   originalValue?: number; // 原价，用于计算折扣
   discount?: number; // 折扣百分比
   popular?: boolean; // 是否为推荐套餐
+  features?: string[]; // 功能特性列表，用于前端显示
+  validityDays?: number; // 有效期天数
 }

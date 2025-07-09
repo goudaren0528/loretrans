@@ -12,14 +12,67 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
-  alternates: {
-    canonical: '/english-to-telugu',
-    languages: {
-      'en': '/english-to-telugu',
-      'te': '/telugu-to-english',
-    },
-  },
 }
+
+const features = [
+  {
+    title: "AI-Powered Translation",
+    description: "Advanced neural machine translation technology specifically trained for English-Telugu language pairs",
+    icon: "🤖"
+  },
+  {
+    title: "Telugu Script Support", 
+    description: "Full support for Telugu script (తెలుగు) with proper character encoding and text rendering",
+    icon: "తె"
+  },
+  {
+    title: "Bidirectional Translation",
+    description: "Switch between English-to-Telugu and Telugu-to-English translation with one click",
+    icon: "🔄"
+  },
+  {
+    title: "Cultural Context",
+    description: "Translations consider cultural nuances and context specific to Telugu language usage",
+    icon: "🏛️"
+  },
+  {
+    title: "Free & Fast",
+    description: "Get instant English to Telugu translations at no cost, with results in seconds",
+    icon: "⚡"
+  },
+  {
+    title: "No Registration",
+    description: "Start translating immediately without creating accounts or providing personal information",
+    icon: "🚀"
+  }
+]
+
+const englishToTeluguFAQs = [
+  {
+    question: "How accurate is the English to Telugu translation?",
+    answer: "Our AI-powered translator provides high-accuracy English to Telugu translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+  },
+  {
+    question: "Can I translate Telugu text back to English?",
+    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between English-to-Telugu and Telugu-to-English translation using the swap button."
+  },
+  {
+    question: "Is the English to Telugu translator free to use?",
+    answer: "Yes, our English to Telugu translation service is completely free with no registration required. Simply enter your English text and get instant Telugu translations."
+  },
+  {
+    question: "What types of text can I translate from English to Telugu?",
+    answer: "You can translate various types of English content to Telugu including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+  },
+  {
+    question: "Does the translator support Telugu script properly?",
+    answer: "Yes, our translator fully supports the Telugu script (తెలుగు) and handles the unique characteristics of the Telugu writing system, including proper character encoding and text direction."
+  },
+  {
+    question: "Can I use this for business English to Telugu translation?",
+    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Telugu speaker."
+  }
+]
 
 const structuredData = {
   "@context": "https://schema.org",

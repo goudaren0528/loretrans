@@ -12,14 +12,67 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
-  alternates: {
-    canonical: '/english-to-swahili',
-    languages: {
-      'en': '/english-to-swahili',
-      'sw': '/swahili-to-english',
-    },
-  },
 }
+
+const features = [
+  {
+    title: "AI-Powered Translation",
+    description: "Advanced neural machine translation technology specifically trained for English-Swahili language pairs",
+    icon: "🤖"
+  },
+  {
+    title: "Swahili Script Support", 
+    description: "Full support for Swahili script (Kiswahili) with proper character encoding and text rendering",
+    icon: "S"
+  },
+  {
+    title: "Bidirectional Translation",
+    description: "Switch between English-to-Swahili and Swahili-to-English translation with one click",
+    icon: "🔄"
+  },
+  {
+    title: "Cultural Context",
+    description: "Translations consider cultural nuances and context specific to Swahili language usage",
+    icon: "🏛️"
+  },
+  {
+    title: "Free & Fast",
+    description: "Get instant English to Swahili translations at no cost, with results in seconds",
+    icon: "⚡"
+  },
+  {
+    title: "No Registration",
+    description: "Start translating immediately without creating accounts or providing personal information",
+    icon: "🚀"
+  }
+]
+
+const englishToSwahiliFAQs = [
+  {
+    question: "How accurate is the English to Swahili translation?",
+    answer: "Our AI-powered translator provides high-accuracy English to Swahili translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+  },
+  {
+    question: "Can I translate Swahili text back to English?",
+    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between English-to-Swahili and Swahili-to-English translation using the swap button."
+  },
+  {
+    question: "Is the English to Swahili translator free to use?",
+    answer: "Yes, our English to Swahili translation service is completely free with no registration required. Simply enter your English text and get instant Swahili translations."
+  },
+  {
+    question: "What types of text can I translate from English to Swahili?",
+    answer: "You can translate various types of English content to Swahili including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+  },
+  {
+    question: "Does the translator support Swahili script properly?",
+    answer: "Yes, our translator fully supports the Swahili script (Kiswahili) and handles the unique characteristics of the Swahili writing system, including proper character encoding and text direction."
+  },
+  {
+    question: "Can I use this for business English to Swahili translation?",
+    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Swahili speaker."
+  }
+]
 
 const structuredData = {
   "@context": "https://schema.org",

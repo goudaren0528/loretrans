@@ -52,7 +52,7 @@ export function FAQ() {
             <p className="text-gray-600">
               {t('contact_prompt')}{' '}
               <a
-                href="mailto:support@loretrans.app"
+                href="mailto:Loretrans@proton.me"
                 className="font-medium text-primary hover:text-primary/80"
               >
                 {t('contact_link')}

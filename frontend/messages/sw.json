@@ -1110,7 +1110,13 @@
     "lao_greeting": "Salamu za Lao",
     "swahili_greeting": "Salamu ya Kiswahili",
     "choose_pricing_plan": "Chagua mpango wa bei",
-    "coming_soon": "Karibuni"
+    "coming_soon": "Karibuni",
+    "select_language": "Chagua lugha",
+    "translation_placeholder": "Tafsiri itaonekana hapa...",
+    "switch_languages": "Badilisha lugha",
+    "switch_source_target": "Badilisha lugha za chanzo na lengwa",
+    "reset_translation": "Weka upya tafsiri",
+    "clear_reset": "Futa na weka upya yaliyomo yote"
   },
   "translation": {
     "start_translation": "Inahitajika kutafsiriwa",

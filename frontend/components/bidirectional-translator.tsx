@@ -24,8 +24,6 @@ interface BidirectionalTranslatorProps {
   showLanguageDetection?: boolean
   enableBidirectionalMode?: boolean
   className?: string
-  sourceLanguage?: any
-  targetLanguage?: any
 }
 
 export function BidirectionalTranslator({
@@ -35,13 +33,16 @@ export function BidirectionalTranslator({
   showNavigation = true,
   showLanguageDetection = true,
   enableBidirectionalMode = true,
-  className,
-  sourceLanguage,
-  targetLanguage
+  className
 }: BidirectionalTranslatorProps) {
+  
+  
+  const t = useTranslations();
   
   // 使用自定义Hook管理语言切换状态
   const {
+    sourceLanguage,
+    targetLanguage,
     sourceText,
     targetText,
     switchLanguages,
@@ -56,6 +57,26 @@ export function BidirectionalTranslator({
   const [error, setError] = React.useState<string | null>(null)
   const [translationMode, setTranslationMode] = React.useState<'single' | 'bidirectional'>('single')
 
+  // 确保语言状态正确初始化
+  React.useEffect(() => {
+    console.log('[Language Debug] Component mounted with:', {
+      defaultSourceLang,
+      defaultTargetLang,
+      currentSourceLanguage: sourceLanguage,
+      currentTargetLanguage: targetLanguage
+    })
+    
+    // 如果语言状态未正确初始化，手动设置
+    if (!sourceLanguage && defaultSourceLang) {
+      console.log('[Language Debug] Setting source language to:', defaultSourceLang)
+      setSourceLanguage(defaultSourceLang)
+    }
+    if (!targetLanguage && defaultTargetLang) {
+      console.log('[Language Debug] Setting target language to:', defaultTargetLang)
+      setTargetLanguage(defaultTargetLang)
+    }
+  }, [defaultSourceLang, defaultTargetLang, sourceLanguage, targetLanguage, setSourceLanguage, setTargetLanguage])
+
   const maxLength = APP_CONFIG.nllb.maxLength
   const characterCount = getCharacterCount(sourceText)
   const isOverLimit = characterCount > maxLength
@@ -64,14 +85,22 @@ export function BidirectionalTranslator({
   const handleTranslate = React.useCallback(async () => {
     if (!sourceText.trim() || isOverLimit) return
 
+    console.log('[Translation Debug] Starting translation with:', {
+      sourceLanguage,
+      targetLanguage,
+      sourceText: sourceText.substring(0, 50) + '...',
+      defaultSourceLang,
+      defaultTargetLang
+    })
+
     setIsLoading(true)
     setError(null)
 
     try {
       const requestBody = {
         text: sourceText,
-        sourceLanguage,
-        targetLanguage,
+        sourceLang: sourceLanguage,
+        targetLang: targetLanguage,
         mode: enableBidirectionalMode ? translationMode : 'single',
         options: {
           enableCache: true,
@@ -80,26 +109,83 @@ export function BidirectionalTranslator({
         }
       }
 
+      console.log('[Translation Debug] Request body:', requestBody)
+
+      // 获取认证token
+      let headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+      
+      try {
+        const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+        const supabase = createSupabaseBrowserClient()
+        const { data: { session } } = await supabase.auth.getSession()
+        
+        if (session?.access_token) {
+          headers['Authorization'] = `Bearer ${session.access_token}`
+          console.log('[Translation Debug] Auth token added')
+        } else {
+          console.warn('No access token available for translation')
+        }
+      } catch (error) {
+        console.error('Failed to get auth token for translation:', error)
+      }
+
       const response = await fetch('/api/translate', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers,
         body: JSON.stringify(requestBody),
       })
 
       const data = await response.json()
 
+      console.log('[Translation Debug] API response:', JSON.stringify(data, null, 2))
+      console.log('[Translation Debug] Response keys:', Object.keys(data || {}))
+      console.log('[Translation Debug] Response type:', typeof data)
+
       if (!response.ok) {
-        throw new Error(data.error?.message || 'Translation failed')
+        console.error('[Translation Debug] API error response:', data)
+        throw new Error(data.error?.message || data.message || 'Translation failed')
       }
 
-      if (translationMode === 'bidirectional' && data.data.mode === 'bidirectional') {
-        // 双向翻译结果
-        updateTargetText(data.data.forward.translatedText)
+      // 检查不同可能的响应结构
+      let translatedText = null
+      
+      // 情况1: 标准结构 { data: { translatedText: "..." } }
+      if (data && data.data && data.data.translatedText) {
+        console.log('[Translation Debug] Found standard structure: data.data.translatedText')
+        translatedText = data.data.translatedText
+      }
+      // 情况2: 直接结构 { translatedText: "..." }
+      else if (data && data.translatedText) {
+        console.log('[Translation Debug] Found direct structure: data.translatedText')
+        translatedText = data.translatedText
+      }
+      // 情况3: 其他可能的字段名
+      else if (data && data.translation) {
+        console.log('[Translation Debug] Found alternative structure: data.translation')
+        translatedText = data.translation
+      }
+      // 情况4: 嵌套在result中
+      else if (data && data.result && data.result.translatedText) {
+        console.log('[Translation Debug] Found nested structure: data.result.translatedText')
+        translatedText = data.result.translatedText
+      }
+      else {
+        console.error('[Translation Debug] Unknown response structure:', {
+          hasData: !!data,
+          dataKeys: data ? Object.keys(data) : [],
+          dataDataKeys: data?.data ? Object.keys(data.data) : [],
+          fullResponse: data
+        })
+        throw new Error('Invalid response structure from translation service')
+      }
+
+      if (translatedText) {
+        console.log('[Translation Debug] Successfully extracted translated text:', translatedText.substring(0, 100) + '...')
+        updateTargetText(translatedText)
       } else {
-        // 单向翻译结果
-        updateTargetText(data.data.translatedText)
+        throw new Error('No translated text found in response')
       }
 
     } catch (error) {
@@ -149,14 +235,6 @@ export function BidirectionalTranslator({
 
   return (
     <div className={cn("w-full max-w-4xl mx-auto space-y-6", className)}>
-      {/* 双向翻译导航 */}
-      {showNavigation && (
-        <BidirectionalNavigation
-          currentSourceLang={sourceLanguage}
-          currentTargetLang={targetLanguage}
-        />
-      )}
-
       <div className="rounded-lg border bg-card text-card-foreground shadow-lg">
         <div className="p-6">
           {/* 语言选择器和切换 */}
@@ -165,9 +243,9 @@ export function BidirectionalTranslator({
               <Label htmlFor="source-language" className="text-sm font-medium">
                 From
               </Label>
-              <Select value={sourceLanguage} onValueChange={setSourceLanguage}>
+              <Select value={sourceLanguage || defaultSourceLang || ''} onValueChange={setSourceLanguage}>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="t('Common.select_language')" />
+                  <SelectValue placeholder={t("Common.select_language")} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">
@@ -207,9 +285,9 @@ export function BidirectionalTranslator({
               <Label htmlFor="target-language" className="text-sm font-medium">
                 To
               </Label>
-              <Select value={targetLanguage} onValueChange={setTargetLanguage}>
+              <Select value={targetLanguage || defaultTargetLang || ''} onValueChange={setTargetLanguage}>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="t('Common.select_language')" />
+                  <SelectValue placeholder={t("Common.select_language")} />
                 </SelectTrigger>
                 <SelectContent>
                   {targetLanguageOptions.map((lang) => (
@@ -236,9 +314,9 @@ export function BidirectionalTranslator({
             </div>
           )}
 
-          {/* 翻译模式选择 */}
-          {enableBidirectionalMode && (
-            <div className="mb-4 flex items-center gap-4">
+          {/* 翻译模式选择 - 已隐藏 */}
+          {false && enableBidirectionalMode && (
+            <div className="mb-4 flex items-center gap-4" style={{display: 'none'}}>
               <Label className="text-sm font-medium">Translation Mode:</Label>
               <div className="flex gap-2">
                 <Button
@@ -300,7 +378,7 @@ export function BidirectionalTranslator({
                   className="min-h-[120px] resize-y bg-muted/50"
                   value={targetText}
                   readOnly
-                  placeholder="t('Common.translation_placeholder')"
+                  placeholder={t("Common.translation_placeholder")}
                 />
                 <div className="absolute bottom-2 right-2 flex items-center gap-2">
                   {targetText && (
@@ -356,6 +434,14 @@ export function BidirectionalTranslator({
           </div>
         </div>
       </div>
+
+      {/* 双向翻译导航 - 放在翻译器下方 */}
+      {showNavigation && (
+        <BidirectionalNavigation
+          currentSourceLang={sourceLanguage}
+          currentTargetLang={targetLanguage}
+        />
+      )}
     </div>
   )
 } 

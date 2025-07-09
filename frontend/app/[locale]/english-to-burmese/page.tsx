@@ -12,14 +12,67 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
-  alternates: {
-    canonical: '/english-to-burmese',
-    languages: {
-      'en': '/english-to-burmese',
-      'my': '/burmese-to-english',
-    },
-  },
 }
+
+const features = [
+  {
+    title: "AI-Powered Translation",
+    description: "Advanced neural machine translation technology specifically trained for English-Burmese language pairs",
+    icon: "🤖"
+  },
+  {
+    title: "Burmese Script Support", 
+    description: "Full support for Burmese script (မြန်မာ) with proper character encoding and text rendering",
+    icon: "မ"
+  },
+  {
+    title: "Bidirectional Translation",
+    description: "Switch between English-to-Burmese and Burmese-to-English translation with one click",
+    icon: "🔄"
+  },
+  {
+    title: "Cultural Context",
+    description: "Translations consider cultural nuances and context specific to Burmese language usage",
+    icon: "🏛️"
+  },
+  {
+    title: "Free & Fast",
+    description: "Get instant English to Burmese translations at no cost, with results in seconds",
+    icon: "⚡"
+  },
+  {
+    title: "No Registration",
+    description: "Start translating immediately without creating accounts or providing personal information",
+    icon: "🚀"
+  }
+]
+
+const englishToBurmeseFAQs = [
+  {
+    question: "How accurate is the English to Burmese translation?",
+    answer: "Our AI-powered translator provides high-accuracy English to Burmese translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+  },
+  {
+    question: "Can I translate Burmese text back to English?",
+    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between English-to-Burmese and Burmese-to-English translation using the swap button."
+  },
+  {
+    question: "Is the English to Burmese translator free to use?",
+    answer: "Yes, our English to Burmese translation service is completely free with no registration required. Simply enter your English text and get instant Burmese translations."
+  },
+  {
+    question: "What types of text can I translate from English to Burmese?",
+    answer: "You can translate various types of English content to Burmese including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+  },
+  {
+    question: "Does the translator support Burmese script properly?",
+    answer: "Yes, our translator fully supports the Burmese script (မြန်မာ) and handles the unique characteristics of the Burmese writing system, including proper character encoding and text direction."
+  },
+  {
+    question: "Can I use this for business English to Burmese translation?",
+    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Burmese speaker."
+  }
+]
 
 const structuredData = {
   "@context": "https://schema.org",

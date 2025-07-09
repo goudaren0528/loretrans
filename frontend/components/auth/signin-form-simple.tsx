@@ -25,7 +25,7 @@ export default function SignInForm({ onSuccess, redirectTo }: SignInFormProps) {
     
     if (!formData.email) {
       newErrors.email = 'Email is required'
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(formData.email)) {
       newErrors.email = 'Email is invalid'
     }
     

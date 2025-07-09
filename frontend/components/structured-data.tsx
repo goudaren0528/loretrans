@@ -109,7 +109,7 @@ export const StructuredDataTemplates = {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "support@loretrans.app"
+      "email": "Loretrans@proton.me"
     }
   },
 

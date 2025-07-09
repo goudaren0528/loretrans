@@ -25,7 +25,7 @@
       "badge": "专业小语种翻译 • Google翻译覆盖不到的语言",
       "title_part1": "让每种语言都能被",
       "title_highlight": "理解",
-      "description": "通过尖端AI打破语言障碍。我们的平台为20+种主流服务不足的小语种提供高质量翻译。每次翻译300字符内免费开始。",
+      "description": "通过尖端AI打破语言障碍。我们的平台为20+种主流服务不足的小语种提供高质量翻译。每次翻译1000字符内免费开始。",
       "comparison": {
         "google": {
           "title": "Google翻译",
@@ -37,7 +37,7 @@
         }
       },
       "features": {
-        "free": "500字符内完全免费",
+        "free": "1000字符内完全免费",
         "ai_powered": "Meta NLLB AI驱动",
         "document_support": "支持文档翻译"
       },
@@ -93,7 +93,7 @@
       "loretrans": {
         "price": "$1",
         "title": "Loretrans",
-        "description": "1000字符 × $0.001/字符 (300字符免费 + 700×0.001)",
+        "description": "1000字符 × $0.001/字符 (1000字符免费 + 0×0.001)",
         "savings": "节省99%成本"
       }
     },
@@ -159,10 +159,10 @@
       "options": {
         "text": {
           "title": "文本翻译",
-          "description": "在20+种小语种和英语之间即时翻译文本。每次翻译300字符内免费。",
+          "description": "在20+种小语种和英语之间即时翻译文本。每次翻译1000字符内免费。",
           "button": "开始翻译",
           "features": [
-            "300字符内免费",
+            "1000字符内免费",
             "立即获得结果",
             "语音播放",
             "复制到剪贴板"
@@ -198,7 +198,7 @@
     },
     "language_grid": {
       "coming_soon": "即将开放",
-      "try_language": "试试使用{语言}"
+      "try_language": "试试 {language}"
     },
     "feature_section": {
       "title": "为什么选择Loretrans?",
@@ -279,7 +279,7 @@
         "0": {
           "0": "待",
           "question": "Loretrans的定价如何运作？",
-          "answer": "Loretrans每次翻译提供300字符免费额度。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励。"
+          "answer": "Loretrans每次翻译提供1000字符免费额度。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励。"
         },
         "1": {
           "0": "翻",
@@ -289,7 +289,7 @@
         "2": {
           "0": "译",
           "question": "有字符限制吗？",
-          "answer": "每次翻译包含300字符免费额度。更长文本可使用积分（每字符0.1积分）。注册即可获得500积分欢迎奖励用于长文本翻译。"
+          "answer": "每次翻译包含1000字符免费额度。更长文本可使用积分（每字符0.1积分）。注册即可获得500积分欢迎奖励用于长文本翻译。"
         },
         "3": {
           "question": "支持哪些文件格式？",
@@ -316,16 +316,16 @@
       "contact_link": "联系我们的支持团队"
     },
     "faq": {
-      "q1_answer": "Loretrans每次翻译提供300字符免费额度，无需注册。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励，非常适合翻译长文档。",
+      "q1_answer": "Loretrans每次翻译提供1000字符免费额度，无需注册。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励，非常适合翻译长文档。",
       "q3_answer": "我们目前支持PDF、Microsoft Word (.doc, .docx)、PowerPoint (.ppt, .pptx)和纯文本(.txt)文件，最大10MB，最多100页。我们正在根据用户反馈添加更多格式支持。",
-      "q4_answer": "我们的翻译由Meta最先进的NLLB模型驱动，专门针对小语种训练。我们为每次翻译的前300字符提供免费服务，超出部分按每字符0.1积分收费。例如，1000字符的文本需要70积分（300字符免费 + 700×0.1 = 70积分）。虽然没有自动翻译是完美的，但我们的系统为小语种提供了比传统服务显著更好的结果。",
+      "q4_answer": "我们的翻译由Meta最先进的NLLB模型驱动，专门针对小语种训练。我们为每次翻译的前1000字符提供免费服务，超出部分按每字符0.1积分收费。例如，1000字符的文本需要0积分（1000字符免费 + 0×0.1 = 0积分）。虽然没有自动翻译是完美的，但我们的系统为小语种提供了比传统服务显著更好的结果。",
       "q1_title": "Loretrans的定价如何运作？",
       "q2_title": "Loretrans有什么不同？",
       "q2_answer": "我们专注于20+种主流服务支持不足的小语种。使用Meta的NLLB模型，为海地克里奥尔语、老挝语、斯瓦希里语、缅甸语等语言提供卓越的准确性。",
       "q5_title": "需要创建账户吗？",
       "q5_answer": "300字符翻译无需账户。但注册可获得500积分欢迎奖励、翻译历史、优先支持，以及即将推出的文档翻译等功能的访问权限。",
       "q6_title": "积分如何运作？",
-      "q6_answer": "积分用于超过300字符的翻译，按每字符0.1积分计费。新用户获得500积分欢迎奖励（价值5000字符）。积分永不过期，可随时充值。"
+      "q6_answer": "积分用于超过1000字符的翻译，按每字符0.1积分计费。新用户获得500积分欢迎奖励（价值5000字符）。积分永不过期，可随时充值。"
     }
   },
   "AboutPage": {
@@ -761,8 +761,8 @@
     },
     "upload": {
       "title": "文件上传",
-      "description": "支持PDF,Word,PowerPoint和文本文件,最大 {maxSize}",
-      "uploading": "现在我们要做些什么?",
+      "description": "支持文本文件(.txt)、HTML(.html)、PDF(.pdf)、Word(.docx)和PowerPoint(.pptx)。最大文件大小: {maxSize}。建议使用纯文本文件以获得最佳效果。",
+      "uploading": "正在上传...",
       "click_to_select": "点击选择文件",
       "drag_drop": "或是把文件拖放到这里",
       "upload_success": "文件成功上传",
@@ -781,15 +781,23 @@
       "free": "免费",
       "insufficient_credits": "没有足够的贷款!需要 {要求} 贷款,流动余额 {当前} 积分.",
       "recharge_now": "现在充电",
-      "start_translation": "开始翻译",
+      "language_selection": "语言选择",
+      "source_language": "文档语言",
+      "select_source_language": "选择文档语言",
+      "translate_to_english_only": "所有文档将翻译为英文",
+      "start_translation": "翻译为英文",
       "reupload": "重新上传"
     },
     "translation": {
       "title": "翻译的进展",
       "progress": "处理进展",
+      "processing": "正在翻译文档，请稍候...",
       "estimated_time": "预计 {秒} 剩余的秒",
       "completed": "翻译完成了!",
-      "download_result": "翻译结果下载",
+      "result_preview": "翻译结果预览",
+      "download_result": "下载翻译结果",
+      "download_started": "开始下载",
+      "download_description": "文件 {filename} 正在下载",
       "translation_started": "翻译开始",
       "credits_consumed": "消耗的 {积分} 积分",
       "translation_failed": "翻译失败"
@@ -902,7 +910,7 @@
       "limit_reached_title": "翻译限制达到",
       "limit_reached_description": "免费用户每天可以翻译最多10次.",
       "login_required_title": "需要登录",
-      "login_required_description": "长文本翻译需要登录帐户",
+      "login_required_description": "超过{limit}字符的文本需要登录。请登录后继续。",
       "daily_limit_title": "翻译限制达到",
       "daily_limit_description": "已达到每日免费翻译的限额",
       "translation_failed": "翻译失败，请重试。",
@@ -1113,7 +1121,7 @@
       },
       "api_pricing": {
         "question": "如何确定API价格?",
-        "answer": "商业和企业包包含API访问.API使用费用与Web翻译相同 - 每个字符超过500个0.1个积分."
+        "answer": "商业和企业包包含API访问.API使用费用与Web翻译相同 - 每个字符超过300个0.1个积分."
       },
       "contact_support": "有更多问题请联系我们的支持团队",
       "upgrade_plan": {
@@ -1266,7 +1274,13 @@
     "lao_greeting": "老挝语问候",
     "swahili_greeting": "斯瓦希里语问候",
     "choose_pricing_plan": "选择一个价格计划",
-    "coming_soon": "即将开放"
+    "coming_soon": "即将开放",
+    "select_language": "选择语言",
+    "translation_placeholder": "翻译结果将显示在这里...",
+    "switch_languages": "切换语言",
+    "switch_source_target": "切换源语言和目标语言",
+    "reset_translation": "重置翻译",
+    "clear_reset": "清空并重置所有内容"
   },
   "translation": {
     "start_translation": "开始翻译",
@@ -1502,12 +1516,12 @@
   },
   "TextTranslation": {
     "faq": {
-      "q1_answer": "文本翻译在300字符内完全免费。对于更长的文本（超过300字符），我们按每字符0.1积分收费。例如，1000字符的文本需要70积分（300字符免费 + 700×0.1 = 70积分）。"
+      "q1_answer": "文本翻译在1000字符内完全免费。对于更长的文本（超过1000字符），我们按每字符0.1积分收费。例如，1000字符的文本需要0积分（1000字符免费 + 0×0.1 = 0积分）。"
     }
   },
   "auth": {
     "register_prompt": {
-      "description": "注册用户享受500积分欢迎奖励 + 首次充值20%额外奖励。每次翻译300字符内免费。"
+      "description": "注册用户享受500积分欢迎奖励。每次翻译1000字符内免费。"
     }
   },
   "AuthPage": {
@@ -1527,7 +1541,7 @@
     "limit_reached_title": "每日限额已达",
     "limit_reached_description": "您已达到每日翻译限额。请明天再试或升级您的计划。",
     "login_required_title": "需要登录",
-    "login_required_description": "请登录以继续您的翻译。",
+    "login_required_description": "超过{limit}字符的文本需要登录。请登录后继续。",
     "daily_limit_title": "超出每日限额",
     "daily_limit_description": "您已超出每日翻译限额。",
     "translation_failed": "翻译失败"

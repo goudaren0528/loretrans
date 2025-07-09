@@ -77,7 +77,7 @@ async function translateHandler(req: NextRequestWithUser) {
   console.log(`Request details: ${characterCount} characters, from ${sourceLang} to ${targetLang}.`);
 
   try {
-    // Step 1: Calculate credits required (500 chars free, then 0.1 credits/char)
+    // Step 1: Calculate credits required (300 chars free, then 0.1 credits/char)
     const calculation = creditService.calculateCreditsRequired(characterCount);
     console.log(`Credit calculation for user ${userId}:`, {
       total_characters: calculation.total_characters,
@@ -108,7 +108,7 @@ async function translateHandler(req: NextRequestWithUser) {
       
       console.log(`Successfully consumed ${calculation.credits_required} credits for user ${userId}.`);
     } else {
-      console.log(`Translation is free for user ${userId} (${characterCount} chars <= 500 free limit).`);
+      console.log(`Translation is free for user ${userId} (${characterCount} chars <= 300 free limit).`);
     }
 
     try {

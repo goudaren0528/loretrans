@@ -1042,12 +1042,12 @@
     "processing": "Processamento...",
     "new_user_bonus": {
       "title": "Ofertas exclusivas para novos utilizadores",
-      "description": " Inscreva-se e obtenha 500 créditos + 20% de créditos extras na primeira compra",
+      "description": " Inscreva-se e obtenha 500 créditos",
       "note": "O bónus será aplicado automaticamente na sua conta após o pagamento."
     },
     "register_prompt": {
       "title": "Inscreva-se agora para obter mais benefícios",
-      "description": "Os utilizadores registados beneficiam de 500 créditos de bónus de boas-vindas + 20% de recompensa extra na primeira compra",
+      "description": "Os utilizadores registados beneficiam de 500 créditos de bónus de boas-vindas",
       "register_button": "Regista-te agora",
       "signin_button": "Já tem conta"
     },
@@ -1145,7 +1145,13 @@
     "lao_greeting": "Saudações laóis",
     "swahili_greeting": "Saudação em suaíli",
     "choose_pricing_plan": "Escolha um plano de preços",
-    "coming_soon": "Em breve."
+    "coming_soon": "Em breve.",
+    "select_language": "Selecionar idioma",
+    "translation_placeholder": "A tradução aparecerá aqui...",
+    "switch_languages": "Trocar idiomas",
+    "switch_source_target": "Trocar idiomas de origem e destino",
+    "reset_translation": "Redefinir tradução",
+    "clear_reset": "Limpar e redefinir todo o conteúdo"
   },
   "translation": {
     "start_translation": "Iniciar tradução",

@@ -1,0 +1,10 @@
+API Test Report
+===============
+Date: Wed Jul  9 11:04:55 CST 2025
+Base URL: http://localhost:8080
+Total Tests: 11
+Passed: 0
+Failed: 11
+Success Rate: 0%
+
+Test Results Directory: ./test-results

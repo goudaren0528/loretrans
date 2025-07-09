@@ -1103,7 +1103,13 @@
     "lao_greeting": "Layo salye",
     "swahili_greeting": "Byenveni Swahili",
     "choose_pricing_plan": "Chwazi yon plan pri",
-    "coming_soon": "Vini byento"
+    "coming_soon": "Vini byento",
+    "select_language": "Chwazi lang",
+    "translation_placeholder": "Tradiksyon an ap parèt isit la...",
+    "switch_languages": "Chanje lang yo",
+    "switch_source_target": "Chanje lang sous ak lang sib yo",
+    "reset_translation": "Rekomanse tradiksyon an",
+    "clear_reset": "Efase ak rekomanse tout bagay"
   },
   "translation": {
     "start_translation": "Kòmanse",

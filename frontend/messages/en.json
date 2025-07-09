@@ -26,7 +26,7 @@
       "title": "Make Every Language Understood",
       "title_part1": "Make Every Language ",
       "title_highlight": "Understood",
-      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for 20+ low-resource languages often underserved by mainstream services. Get started with 300 free characters per translation.",
+      "description": "Break language barriers with cutting-edge AI. Our platform provides high-quality translations for 20+ low-resource languages often underserved by mainstream services. Get started with 1000 free characters per translation.",
       "comparison": {
         "google": {
           "title": "Google Translate",
@@ -38,7 +38,7 @@
         }
       },
       "features": {
-        "free": "Free up to 500 characters",
+        "free": "Free up to 1000 characters",
         "ai_powered": "Meta NLLB AI-powered",
         "document_support": "Document translation support"
       },
@@ -94,7 +94,7 @@
       "loretrans": {
         "price": "$1",
         "title": "Loretrans",
-        "description": "1000 characters × $0.001/char (300 free + 700×0.001)",
+        "description": "1000 characters × $0.001/char (1000 free + 0×0.001)",
         "savings": "Save 99% cost"
       }
     },
@@ -159,9 +159,9 @@
       "options": {
         "text": {
           "title": "Text Translation",
-          "description": "Translate text between 20+ low-resource languages and English instantly. Free for up to 300 characters per request.",
+          "description": "Translate text between 20+ low-resource languages and English instantly. Free for up to 1000 characters per request.",
           "features": [
-            "Up to 300 characters free",
+            "Up to 1000 characters free",
             "Instant results",
             "Voice playback",
             "Copy to clipboard"
@@ -279,7 +279,7 @@
       "questions": [
         {
           "question": "How does Loretrans pricing work?",
-          "answer": "Loretrans offers 300 free characters per translation. For longer texts, we charge 0.1 credits per character beyond the free limit. New users get 500 welcome credits when they register."
+          "answer": "Loretrans offers 1000 free characters per translation. For longer texts, we charge 0.1 credits per character beyond the free limit. New users get 500 welcome credits when they register."
         },
         {
           "question": "What languages do you support?",
@@ -287,7 +287,7 @@
         },
         {
           "question": "Is there a character limit?",
-          "answer": "Each translation includes 300 free characters. For longer texts, you can use credits (0.1 credits per character). Register to get 500 welcome credits for extended translations."
+          "answer": "Each translation includes 1000 free characters. For longer texts, you can use credits (0.1 credits per character). Register to get 500 welcome credits for extended translations."
         },
         {
           "question": "What file formats do you support?",
@@ -314,16 +314,16 @@
       "contact_link": "Contact our support team"
     },
     "faq": {
-      "q1_answer": "Loretrans offers 300 free characters per translation with no registration required. For longer texts, we charge 0.1 credits per character beyond the free limit. New users receive 500 welcome credits when they register, perfect for translating longer documents.",
+      "q1_answer": "Loretrans offers 1000 free characters per translation with no registration required. For longer texts, we charge 0.1 credits per character beyond the free limit. New users receive 500 welcome credits when they register, perfect for translating longer documents.",
       "q3_answer": "Currently we support TXT files up to 10MB. We're actively developing support for PDF, Microsoft Word (.doc, .docx), and PowerPoint (.ppt, .pptx) formats based on user feedback.",
-      "q4_answer": "Our translations use Meta's NLLB model, specifically trained for low-resource languages. We offer 300 free characters per translation, with additional characters at 0.1 credits each. For example, a 1000-character text costs 70 credits (300 free + 700×0.1). Register to get 500 welcome credits.",
+      "q4_answer": "Our translations use Meta's NLLB model, specifically trained for low-resource languages. We offer 1000 free characters per translation, with additional characters at 0.1 credits each. For example, a 1000-character text costs 0 credits (1000 free + 0×0.1). Register to get 500 welcome credits.",
       "q1_title": "How does Loretrans pricing work?",
       "q2_title": "What makes Loretrans different?",
       "q2_answer": "We specialize in 20+ low-resource languages often poorly supported by mainstream services. Using Meta's NLLB model, we provide superior accuracy for languages like Haitian Creole, Lao, Swahili, and Burmese.",
       "q5_title": "Do I need to create an account?",
-      "q5_answer": "No account needed for 300-character translations. However, registering gives you 500 welcome credits, translation history, priority support, and access to upcoming features like document translation.",
+      "q5_answer": "No account needed for 1000-character translations. However, registering gives you 500 welcome credits, translation history, priority support, and access to upcoming features like document translation.",
       "q6_title": "How do credits work?",
-      "q6_answer": "Credits are used for translations over 300 characters at 0.1 credits per character. New users get 500 welcome credits (worth 5000 characters). Credits never expire and can be topped up anytime."
+      "q6_answer": "Credits are used for translations over 1000 characters at 0.1 credits per character. New users get 500 welcome credits (worth 5000 characters). Credits never expire and can be topped up anytime."
     }
   },
   "AboutPage": {
@@ -559,7 +559,7 @@
       "title": "Text Translation FAQ",
       "description": "Everything you need to know about our text translation service",
       "q1_title": "How much does text translation cost?",
-      "q1_answer": "Each translation includes 300 free characters. For longer texts, we charge 0.1 credits per character. Register to get 500 welcome credits for extended translations.",
+      "q1_answer": "Each translation includes 1000 free characters. For longer texts, we charge 0.1 credits per character. Register to get 500 welcome credits for extended translations.",
       "q2_title": "Which languages do you support?",
       "q2_answer": "We specialize in low-resource languages that are often poorly supported by mainstream translation services. We currently support Haitian Creole, Lao, Swahili, Burmese, Telugu, Chinese, and more. All languages support bidirectional translation with English.",
       "q3_title": "How accurate are the translations?",
@@ -569,7 +569,7 @@
       "q5_title": "Can I translate from English to other languages?",
       "q5_answer": "Yes! All our supported languages work bidirectionally. You can translate from English to any supported language, or from any supported language to English. Just use the language selector to choose your desired translation direction.",
       "q6_title": "What's the character limit?",
-      "q6_answer": "Each translation includes 300 free characters. For longer texts, use credits (0.1 per character). New users get 500 welcome credits when they register.",
+      "q6_answer": "Each translation includes 1000 free characters. For longer texts, use credits (0.1 per character). New users get 500 welcome credits when they register.",
       "contact_text": "Have more questions?",
       "contact_link": "Contact our support team"
     },
@@ -753,7 +753,7 @@
     },
     "upload": {
       "title": "Upload Document",
-      "description": "Support PDF, Word, PowerPoint and text files, max {maxSize}",
+      "description": "Supports text files (.txt), HTML (.html), PDF (.pdf), Word (.docx), and PowerPoint (.pptx). Max file size: {maxSize}. For best results, use plain text files.",
       "uploading": "Uploading...",
       "click_to_select": "Click to select file",
       "drag_drop": "or drag and drop file here",
@@ -773,15 +773,23 @@
       "free": "Free",
       "insufficient_credits": "Insufficient credits! Need {required} credits, current balance {current} credits.",
       "recharge_now": "Recharge now",
-      "start_translation": "Start Translation",
+      "language_selection": "Language Selection",
+      "source_language": "Document Language",
+      "select_source_language": "Select document language",
+      "translate_to_english_only": "All documents will be translated to English",
+      "start_translation": "Translate to English",
       "reupload": "Re-upload"
     },
     "translation": {
       "title": "Translation Progress",
       "progress": "Processing progress",
+      "processing": "Translating document, please wait...",
       "estimated_time": "Estimated {seconds} seconds remaining",
       "completed": "Translation completed!",
+      "result_preview": "Translation Result Preview",
       "download_result": "Download Translation Result",
+      "download_started": "Download Started",
+      "download_description": "File {filename} is being downloaded",
       "translation_started": "Translation started",
       "credits_consumed": "Consumed {credits} credits",
       "translation_failed": "Translation failed"
@@ -894,7 +902,7 @@
       "limit_reached_title": "Translation limit reached",
       "limit_reached_description": "Free users can translate up to 10 times per day. Register for unlimited translations",
       "login_required_title": "Login required",
-      "login_required_description": "Long text translation requires a logged-in account",
+      "login_required_description": "Text over {limit} characters requires login. Please sign in to continue.",
       "daily_limit_title": "Translation limit reached",
       "daily_limit_description": "Daily free translation limit has been reached",
       "translation_failed": "Translation failed. Please try again.",
@@ -991,7 +999,7 @@
       "completely_free": "✅ Completely Free:",
       "credit_based": "💰 Credit-based:",
       "features": {
-        "free_text": "Text under 300 characters",
+        "free_text": "Text under 1000 characters",
         "all_languages": "All language pairs supported",
         "unlimited_use": "Unlimited usage",
         "large_text": "Text over 500 characters",
@@ -1068,12 +1076,12 @@
     "processing": "Processing...",
     "new_user_bonus": {
       "title": "New User Exclusive Offer",
-      "description": "🎉 Sign up and get 500 credits + 20% extra credits on first purchase",
+      "description": "🎉 Sign up and get 500 credits",
       "note": "Bonus will be automatically applied to your account after payment"
     },
     "register_prompt": {
       "title": "Register Now for More Benefits",
-      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase",
+      "description": "Registered users enjoy 500 credit welcome bonus",
       "register_button": "Register Now",
       "signin_button": "Already Have Account"
     },
@@ -1082,7 +1090,7 @@
       "subtitle": "Everything you need to know about our pricing",
       "credit_calculation": {
         "question": "How are credits calculated?",
-        "answer": "Under 300 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 70 credits."
+        "answer": "Under 300 characters is completely free, excess is charged at 0.1 credits/character. For example: translating 1000 characters requires 0 credits."
       },
       "expiration": {
         "question": "Do credits expire?",
@@ -1106,7 +1114,7 @@
       },
       "api_pricing": {
         "question": "How does API pricing work?",
-        "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 500."
+        "answer": "API access is included with Business and Enterprise packages. API usage consumes credits at the same rate as web translations - 0.1 credits per character over 300."
       },
       "contact_support": "Have more questions? Contact our support team",
       "upgrade_plan": {
@@ -1258,7 +1266,13 @@
     "creole_greeting": "Creole greeting",
     "lao_greeting": "Lao greeting",
     "swahili_greeting": "Swahili greeting",
-    "choose_pricing_plan": "Choose a pricing plan"
+    "choose_pricing_plan": "Choose a pricing plan",
+    "select_language": "Select Language",
+    "translation_placeholder": "Translation will appear here...",
+    "switch_languages": "Switch Languages",
+    "switch_source_target": "Switch source and target languages",
+    "reset_translation": "Reset Translation",
+    "clear_reset": "Clear and reset all content"
   },
   "translation": {
     "translation_complete": "Translation Complete",
@@ -1477,12 +1491,12 @@
   },
   "TextTranslation": {
     "faq": {
-      "q1_answer": "Text translation is completely free for up to 300 characters per request. For longer texts (over 300 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 70 credits (300 free + 700×0.1 = 70 credits)."
+      "q1_answer": "Text translation is completely free for up to 1000 characters per request. For longer texts (over 1000 characters), we charge 0.1 credits per character. For example, a 1000-character text would cost 0 credits (1000 free + 0×0.1 = 0 credits)."
     }
   },
   "auth": {
     "register_prompt": {
-      "description": "Registered users enjoy 500 credit welcome bonus + 20% extra reward on first purchase. Free translation up to 300 characters per request."
+      "description": "Registered users enjoy 500 credit welcome bonus. Free translation up to 1000 characters per request."
     }
   },
   "AuthPage": {

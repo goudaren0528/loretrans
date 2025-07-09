@@ -1,0 +1,10 @@
+API Test Report
+===============
+Date: Wed Jul  9 11:05:10 CST 2025
+Base URL: http://localhost:3000
+Total Tests: 11
+Passed: 1
+Failed: 10
+Success Rate: 9%
+
+Test Results Directory: ./test-results

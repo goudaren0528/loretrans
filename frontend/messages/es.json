@@ -23,7 +23,7 @@
     },
     "hero": {
       "title": "Traducción Impulsada por IA para Idiomas de Bajos Recursos",
-      "description": "Traducciones de alta calidad para más de 20 idiomas con pocos recursos. 300 caracteres gratis por traducción.",
+      "description": "Traducciones de alta calidad para más de 20 idiomas con pocos recursos. 1000 caracteres gratis por traducción.",
       "features": {
         "free": "100% Gratis",
         "ai_powered": "Con IA",
@@ -148,7 +148,7 @@
           "title": "Traducción de Texto",
           "description": "Traduzca texto entre más de 20 idiomas de bajos recursos e inglés al instante.",
           "features": {
-            "0": "300 caracteres gratis",
+            "0": "1000 caracteres gratis",
             "1": "Resultados instantáneos",
             "2": "Reproducción de voz",
             "3": "Copiar al portapapeles"
@@ -226,7 +226,7 @@
       "questions": {
         "0": {
           "question": "¿Cómo funciona el precio de Loretrans?",
-          "answer": "Loretrans ofrece 300 caracteres gratis por traducción. Para textos más largos, cobramos 0.1 créditos por carácter. Los nuevos usuarios obtienen 500 créditos de bienvenida cuando se registran."
+          "answer": "Loretrans ofrece 1000 caracteres gratis por traducción. Para textos más largos, cobramos 0.1 créditos por carácter. Los nuevos usuarios obtienen 500 créditos de bienvenida cuando se registran."
         },
         "1": {
           "question": "¿Qué idiomas soporta?",
@@ -925,12 +925,12 @@
     "processing": "Procesando...",
     "new_user_bonus": {
       "title": "Oferta Exclusiva para Nuevos Usuarios",
-      "description": "🎉 Regístrate y obtén 500 créditos + 20% de créditos extra en la primera compra",
+      "description": "🎉 Regístrate y obtén 500 créditos",
       "note": "La bonificación se aplicará automáticamente a tu cuenta después del pago"
     },
     "register_prompt": {
       "title": "Regístrate Ahora para Más Beneficios",
-      "description": "Los usuarios registrados disfrutan de 500 créditos de bienvenida + 20% de recompensa extra en la primera recarga",
+      "description": "Los usuarios registrados disfrutan de 500 créditos de bienvenida",
       "register_button": "Registrarse Ahora",
       "signin_button": "Ya Tengo Cuenta"
     },
@@ -1141,7 +1141,13 @@
     "lao_greeting": "Saludo de Laos",
     "swahili_greeting": "Saludo en swahili",
     "choose_pricing_plan": "Elige un plan de precios",
-    "coming_soon": "Pronto llegará"
+    "coming_soon": "Pronto llegará",
+    "select_language": "Seleccionar idioma",
+    "translation_placeholder": "La traducción aparecerá aquí...",
+    "switch_languages": "Cambiar idiomas",
+    "switch_source_target": "Cambiar idiomas de origen y destino",
+    "reset_translation": "Restablecer traducción",
+    "clear_reset": "Limpiar y restablecer todo el contenido"
   },
   "translation": {
     "start_translation": "Comenzar traducción",

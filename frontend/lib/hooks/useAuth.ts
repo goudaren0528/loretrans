@@ -208,8 +208,68 @@ export function useUserRole() {
 // 积分相关Hook
 export function useCredits() {
   const { user, refreshUser } = useAuth()
+  const [credits, setCredits] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
   
-  const credits = user?.credits || 0
+  // 直接从数据库获取积分
+  const fetchCredits = useCallback(async () => {
+    if (!user?.id) {
+      setCredits(0)
+      return
+    }
+    
+    setIsLoading(true)
+    try {
+      const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+      const supabase = createSupabaseBrowserClient()
+      
+      console.log('[useCredits] Fetching credits for user:', user.id)
+      
+      // 查询users表的credits字段
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('credits')
+        .eq('id', user.id)
+        .single()
+      
+      if (userError) {
+        console.error('查询用户积分失败:', userError)
+        // 如果查询失败，尝试创建用户记录
+        const { data: insertData, error: insertError } = await supabase
+          .from('users')
+          .insert({ 
+            id: user.id, 
+            email: user.email || '',
+            credits: 500 
+          })
+          .select('credits')
+          .single()
+        
+        if (!insertError && insertData) {
+          setCredits(insertData.credits)
+          console.log('[useCredits] 创建新用户积分记录:', insertData.credits)
+        } else {
+          setCredits(0)
+        }
+      } else if (userData) {
+        setCredits(userData.credits)
+        console.log('[useCredits] 查询到用户积分:', userData.credits)
+      } else {
+        setCredits(0)
+      }
+    } catch (error) {
+      console.error('[useCredits] 积分查询异常:', error)
+      setCredits(0)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [user?.id])
+  
+  // 用户变化时重新获取积分
+  useEffect(() => {
+    fetchCredits()
+  }, [fetchCredits])
+  
   const hasCredits = credits > 0
   
   // 检查是否有足够积分
@@ -217,9 +277,9 @@ export function useCredits() {
     return credits >= required
   }, [credits])
   
-  // 预估积分消耗
+  // 预估积分消耗 - 更新为1000字符免费
   const estimateCredits = useCallback((textLength: number) => {
-    const freeLimit = 300 // 300字符免费
+    const freeLimit = 1000 // 1000字符免费
     if (textLength <= freeLimit) {
       return 0
     }
@@ -231,6 +291,7 @@ export function useCredits() {
     hasCredits,
     hasEnoughCredits,
     estimateCredits,
-    refreshCredits: refreshUser,
+    isLoading,
+    refreshCredits: fetchCredits, // 使用新的获取函数
   }
 } 

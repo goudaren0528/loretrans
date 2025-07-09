@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowRight, ArrowLeft, Globe, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { APP_CONFIG } from '../../config/app.config'
+import { getTranslationPageUrl } from '@/lib/utils/page-utils'
 
 interface BidirectionalNavigationProps {
   currentSourceLang: string
@@ -42,11 +43,11 @@ export function BidirectionalNavigation({
     if (currentTargetLang === 'en') {
       // 当前是 小语种→英文，反向是 英文→小语种
       const sourceSlug = sourceLanguageInfo?.slug
-      return sourceSlug ? `/english-to-${sourceSlug}` : '#'
+      return sourceSlug ? getTranslationPageUrl('english', sourceSlug) : '#'
     } else {
       // 当前是 英文→小语种，反向是 小语种→英文
       const targetSlug = targetLanguageInfo?.slug
-      return targetSlug ? `/${targetSlug}-to-english` : '#'
+      return targetSlug ? getTranslationPageUrl(targetSlug, 'english') : '#'
     }
   }
 
@@ -111,8 +112,8 @@ export function BidirectionalNavigation({
 
           <div className="grid grid-cols-2 gap-2">
             {relatedLanguages.map((language) => {
-              const toEnglishUrl = `/${language.slug}-to-english`
-              const fromEnglishUrl = `/english-to-${language.slug}`
+              const toEnglishUrl = getTranslationPageUrl(language.slug, 'english')
+              const fromEnglishUrl = getTranslationPageUrl('english', language.slug)
 
               return (
                 <div key={language.code} className="space-y-1">
@@ -191,13 +192,13 @@ export function useBidirectionalNavigation() {
         const sourceInfo = APP_CONFIG.languages.supported.find(
           (lang) => lang.code === sourceLang
         )
-        url = sourceInfo ? `/${sourceInfo.slug}-to-english` : '/text-translate'
+        url = sourceInfo ? getTranslationPageUrl(sourceInfo.slug, 'english') : '/text-translate'
       } else if (sourceLang === 'en') {
         // 英文→小语种
         const targetInfo = APP_CONFIG.languages.supported.find(
           (lang) => lang.code === targetLang
         )
-        url = targetInfo ? `/english-to-${targetInfo.slug}` : '/text-translate'
+        url = targetInfo ? getTranslationPageUrl('english', targetInfo.slug) : '/text-translate'
       } else {
         // 其他情况，使用通用翻译页面
         url = '/text-translate'
@@ -215,14 +216,14 @@ export function useBidirectionalNavigation() {
           (lang) => lang.code === sourceLang
         )
         return sourceInfo
-          ? `/${sourceInfo.slug}-to-english`
+          ? getTranslationPageUrl(sourceInfo.slug, 'english')
           : '/text-translate'
       } else if (sourceLang === 'en') {
         const targetInfo = APP_CONFIG.languages.supported.find(
           (lang) => lang.code === targetLang
         )
         return targetInfo
-          ? `/english-to-${targetInfo.slug}`
+          ? getTranslationPageUrl('english', targetInfo.slug)
           : '/text-translate'
       } else {
         return '/text-translate'

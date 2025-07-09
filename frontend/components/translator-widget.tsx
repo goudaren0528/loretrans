@@ -59,7 +59,7 @@ export function TranslatorWidget({
 
   const maxLength = APP_CONFIG.nllb.maxLength
   const characterCount = getCharacterCount(state.sourceText)
-  const isOverLimit = characterCount > maxLength
+  const isOverMaxLimit = characterCount > maxLength  // 超过最大长度限制(10000)
   
   // 积分消耗计算
   const estimatedCredits = estimateCredits(characterCount)
@@ -67,9 +67,16 @@ export function TranslatorWidget({
   const needsCredits = estimatedCredits > 0
 
   const handleTranslate = useCallback(async () => {
-    if (!state.sourceText.trim() || isOverLimit) return
+    if (!state.sourceText.trim() || isOverMaxLimit) return
 
-    // 检查未登录用户限制
+    // 优先检查字符数限制 - 超过300字符且未登录，直接跳转登录
+    if (needsCredits && !user) {
+      // 直接跳转到登录页面，不显示toast
+      router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
+      return
+    }
+
+    // 检查未登录用户翻译次数限制
     if (!user && !canTranslate) {
       toast({
         title: t('errors.limit_reached_title'),
@@ -77,17 +84,6 @@ export function TranslatorWidget({
         variant: "destructive",
       })
       router.push(`/${locale}/auth/signup?redirect=` + encodeURIComponent(window.location.pathname))
-      return
-    }
-
-    // 检查用户登录状态和积分
-    if (needsCredits && !user) {
-      toast({
-        title: t('errors.login_required_title'),
-        description: t('errors.login_required_description'),
-        variant: "destructive",
-      })
-      router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
       return
     }
 
@@ -117,32 +113,96 @@ export function TranslatorWidget({
     setState(prev => ({ ...prev, isLoading: true, error: null }))
 
     try {
-      const response = await fetch('/api/translate', {
+      // 字符数检查逻辑
+      const FREE_LIMIT = 1000 // 更新为1000字符免费
+      const isOverLimit = characterCount > FREE_LIMIT
+      
+      // 如果超过免费限制且未登录，提示登录
+      if (isOverLimit && !user) {
+        setState(prev => ({ ...prev, isLoading: false }))
+        toast({
+          title: t('errors.login_required_title', { defaultValue: 'Login Required' }),
+          description: t('errors.login_required_description', { 
+            defaultValue: `Text over ${FREE_LIMIT} characters requires login. Please sign in to continue.`,
+            limit: FREE_LIMIT 
+          }),
+          variant: "destructive"
+        })
+        
+        // 延迟跳转到登录页面
+        setTimeout(() => {
+          window.location.href = '/auth/signin'
+        }, 2000)
+        
+        return
+      }
+      
+      // 选择API端点：300字符以下使用公共API，超过且已登录使用认证API
+      const shouldUsePublicAPI = characterCount <= FREE_LIMIT
+      const endpoint = shouldUsePublicAPI ? '/api/translate/public' : '/api/translate'
+      
+      // 准备请求头
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+
+      // 如果使用认证API，添加认证头
+      if (!shouldUsePublicAPI && user) {
+        try {
+          const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+          const supabase = createSupabaseBrowserClient()
+          const { data: { session } } = await supabase.auth.getSession()
+          
+          if (session?.access_token) {
+            headers['Authorization'] = `Bearer ${session.access_token}`
+          }
+        } catch (error) {
+          console.warn('Failed to get auth token:', error)
+        }
+      }
+
+      const requestBody = shouldUsePublicAPI 
+        ? {
+            text: state.sourceText,
+            sourceLang: state.sourceLanguage,
+            targetLang: state.targetLanguage,
+          }
+        : {
+            text: state.sourceText,
+            sourceLanguage: state.sourceLanguage,
+            targetLanguage: state.targetLanguage,
+          }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: state.sourceText,
-          sourceLanguage: state.sourceLanguage,
-          targetLanguage: state.targetLanguage,
-        }),
+        headers,
+        body: JSON.stringify(requestBody),
       })
 
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error?.message || 'Translation failed')
+        throw new Error(data.error?.message || data.error || 'Translation failed')
+      }
+
+      // 处理不同API的响应格式
+      let translatedText = ''
+      if (shouldUsePublicAPI) {
+        // 公共API响应格式: { success: true, translatedText: "..." }
+        translatedText = data.translatedText
+      } else {
+        // 认证API响应格式: { translatedText: "..." }
+        translatedText = data.translatedText
       }
 
       setState(prev => ({
         ...prev,
-        translatedText: data.data.translatedText,
+        translatedText: translatedText,
         isLoading: false,
       }))
 
-      // 显示积分消耗提示
-      if (needsCredits) {
+      // 显示积分消耗提示（仅对认证API且实际消耗积分时）
+      if (!shouldUsePublicAPI && needsCredits) {
         toast({
           title: t('success.translation_complete'),
           description: t('success.credits_consumed', { credits: estimatedCredits }),
@@ -155,7 +215,7 @@ export function TranslatorWidget({
         isLoading: false,
       }))
     }
-  }, [state.sourceText, state.sourceLanguage, state.targetLanguage, isOverLimit, needsCredits, user, canAfford, estimatedCredits, credits, router])
+  }, [state.sourceText, state.sourceLanguage, state.targetLanguage, isOverMaxLimit, needsCredits, user, canAfford, estimatedCredits, credits, router])
 
   const handleSwapLanguages = useCallback(() => {
     // 交换语言和文本内容
@@ -309,7 +369,7 @@ export function TranslatorWidget({
                 </div>
               </div>
               <div className="flex justify-between items-center text-xs text-muted-foreground">
-                <span className={cn(isOverLimit && 'text-destructive')}>
+                <span className={cn(isOverMaxLimit && 'text-destructive')}>
                   {characterCount}/{maxLength} characters
                 </span>
                 <CreditEstimate textLength={characterCount} />
@@ -331,20 +391,35 @@ export function TranslatorWidget({
                 </Alert>
               )}
               
-              {/* 未登录用户提示 */}
+              {/* 未登录用户提示 - 超过300字符时显示 */}
               <ConditionalRender when="unauthenticated">
                 {needsCredits && (
-                  <Alert className="mt-2">
-                    <Coins className="h-4 w-4" />
-                    <AlertDescription>
-                      {t('alerts.login_required_for_long_text')}
-                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push(`/${locale}/auth/signin`)}>
-                        {t('alerts.login_now')}
-                      </Button>
-                      {t('alerts.or')}
-                      <Button variant="link" className="p-0 h-auto ml-1" onClick={() => router.push(`/${locale}/auth/signup`)}>
-                        {t('alerts.register_account')}
-                      </Button>
+                  <Alert className="mt-2 border-orange-200 bg-orange-50">
+                    <Coins className="h-4 w-4 text-orange-600" />
+                    <AlertDescription className="text-orange-800">
+                      <div className="font-medium mb-2">
+                        超过300字符需要登录账户
+                      </div>
+                      <div className="text-sm mb-3">
+                        免费用户可翻译300字符以内文本，登录后可翻译更长文本
+                      </div>
+                      <div className="flex gap-2">
+                        <Button 
+                          size="sm" 
+                          onClick={() => router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))}
+                          className="bg-orange-600 hover:bg-orange-700"
+                        >
+                          立即登录
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => router.push(`/${locale}/auth/signup?redirect=` + encodeURIComponent(window.location.pathname))}
+                          className="border-orange-300 text-orange-700 hover:bg-orange-100"
+                        >
+                          注册账户
+                        </Button>
+                      </div>
                     </AlertDescription>
                   </Alert>
                 )}
@@ -398,7 +473,7 @@ export function TranslatorWidget({
           <div className="mt-6 flex justify-center">
             <Button
               onClick={handleTranslate}
-              disabled={!state.sourceText.trim() || isOverLimit || state.isLoading || (needsCredits && !canAfford)}
+              disabled={!state.sourceText.trim() || isOverMaxLimit || state.isLoading || (needsCredits && !canAfford)}
               size="lg"
               className="min-w-[140px]"
             >
@@ -406,6 +481,11 @@ export function TranslatorWidget({
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   {t('buttons.translating')}
+                </>
+              ) : needsCredits && !user ? (
+                <>
+                  <Coins className="mr-2 h-4 w-4" />
+                  登录后翻译
                 </>
               ) : needsCredits ? (
                 <>

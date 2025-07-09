@@ -19,6 +19,39 @@ export const metadata: Metadata = {
         alt: 'English to Haitian Creole Translator',
       },
     ],
+  },
+}
+
+const englishToCreoleFAQs = [
+  {
+    question: "How accurate is the English to Creole translation?",
+    answer: "Our AI-powered translator provides high-accuracy English to Creole translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+  },
+  {
+    question: "Can I translate Creole text back to English?",
+    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between English-to-Creole and Creole-to-English translation using the swap button."
+  },
+  {
+    question: "Is the English to Creole translator free to use?",
+    answer: "Yes, our English to Creole translation service is completely free with no registration required. Simply enter your English text and get instant Creole translations."
+  },
+  {
+    question: "What types of text can I translate from English to Creole?",
+    answer: "You can translate various types of English content to Creole including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+  },
+  {
+    question: "Does the translator support Creole script properly?",
+    answer: "Yes, our translator fully supports the Creole script (Kreyòl Ayisyen) and handles the unique characteristics of the Creole writing system, including proper character encoding and text direction."
+  },
+  {
+    question: "Can I use this for business English to Creole translation?",
+    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Creole speaker."
+  }
+]
+
+// Additional metadata for the page
+const pageMetadata = {
+  openGraph: {
     locale: 'en_US',
     type: 'website',
   },
@@ -228,51 +261,6 @@ export default function EnglishToCreolePage() {
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </details>
             ))}
-          </div>
-        </div>
-
-        {/* Related Languages */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Other Language Translators
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a 
-              href="/english-to-lao" 
-              className="block p-4 border rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">🇱🇦</div>
-                <p className="font-medium">English to Lao</p>
-              </div>
-            </a>
-            <a 
-              href="/english-to-swahili" 
-              className="block p-4 border rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">🇹🇿</div>
-                <p className="font-medium">English to Swahili</p>
-              </div>
-            </a>
-            <a 
-              href="/english-to-burmese" 
-              className="block p-4 border rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">🇲🇲</div>
-                <p className="font-medium">English to Burmese</p>
-              </div>
-            </a>
-            <a 
-              href="/english-to-telugu" 
-              className="block p-4 border rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">🇮🇳</div>
-                <p className="font-medium">English to Telugu</p>
-              </div>
-            </a>
           </div>
         </div>
 

@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { getTranslationPageUrl, hasLanguageTranslationPage } from '@/lib/utils/page-utils'
 import { 
   Globe, 
   Users, 
@@ -124,7 +125,7 @@ export function SupportedLanguagesGrid({
                 即将推出
               </Button>
             ) : (
-              <Link href={`/${language.slug}-to-english`}>
+              <Link href={getTranslationPageUrl(language.slug, 'english')}>
                 <Button className="w-full group-hover:bg-blue-600 transition-colors">
                   开始翻译
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

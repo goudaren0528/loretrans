@@ -1,4 +1,5 @@
 import { SignUpForm } from '@/components/auth/signup-form'
+import { RedirectIfAuthenticated } from '@/components/auth/redirect-if-authenticated'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
@@ -16,5 +17,9 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 }
 
 export default function SignUpPage() {
-  return <SignUpForm />
+  return (
+    <RedirectIfAuthenticated>
+      <SignUpForm />
+    </RedirectIfAuthenticated>
+  )
 }

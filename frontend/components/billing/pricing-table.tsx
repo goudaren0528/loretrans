@@ -48,7 +48,7 @@ export function PricingTable() {
                   {t('creditBilling', { defaultValue: 'Credit Billing' })}
                 </div>
                 <div className="text-blue-700 dark:text-blue-300">
-                  {t('creditDescription', { defaultValue: '0.1 credits per character over 500' })}
+                  {t('creditDescription', { defaultValue: '0.1 credits per character over 1000' })}
                 </div>
               </div>
             </div>

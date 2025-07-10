@@ -18,7 +18,7 @@ import { toast } from '@/lib/hooks/use-toast'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { detectLocaleFromPath } from '@/lib/navigation'
-import { BidirectionalNavigation } from '@/components/bidirectional-navigation'
+
 import { DynamicTimeEstimate } from '@/components/translation/smart-time-estimate'
 import { estimateProcessingTime, determineProcessingMode, type ProcessingMode } from '@/lib/services/smart-translation'
 
@@ -468,8 +468,10 @@ export function UnifiedTranslator({
       ...prev,
       sourceLanguage: prev.targetLanguage,
       targetLanguage: prev.sourceLanguage,
-      sourceText: prev.translatedText,
-      translatedText: prev.sourceText,
+      // 不交换文本内容，保持原有的文本在原有的位置
+      // sourceText 保持不变
+      // translatedText 清空，因为语言方向改变了，之前的翻译结果不再有效
+      translatedText: '',
     }))
   }, [])
 
@@ -639,7 +641,7 @@ export function UnifiedTranslator({
                   className="h-8 px-2"
                 >
                   <Copy className="h-3 w-3 mr-1" />
-                  {t('TranslatorWidget.actions.copy')}
+                  {t('actions.copy')}
                 </Button>
                 {/* Voice playback functionality hidden */}
                 {/* <Button variant="ghost" size="sm" className="h-8 px-2 hidden">
@@ -692,11 +694,7 @@ export function UnifiedTranslator({
         </Button>
       </div>
 
-      {/* 双向导航 */}
-      <BidirectionalNavigation 
-        currentSourceLang={state.sourceLanguage}
-        currentTargetLang={state.targetLanguage}
-      />
+
     </div>
   )
 }

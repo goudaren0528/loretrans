@@ -163,23 +163,75 @@
 - Git
 
 ### 本地开发
+
+#### 快速启动 (推荐)
 ```bash
 # 1. 克隆项目
 git clone https://github.com/your-org/loretrans.git
-cd loretrans/frontend
+cd loretrans
 
-# 2. 安装依赖
-npm install
+# 2. 安装所有依赖
+npm run install:all
 
 # 3. 配置环境变量
 cp .env.example .env.local
 # 编辑 .env.local 填入必要的API密钥
 
-# 4. 启动开发服务器
+# 4. 启动开发环境 (前台运行)
 npm run dev
+# 或者使用脚本
+./start-dev.sh
 
-# 5. 访问应用
+# 5. 后台启动 (可选)
+npm run dev:background
+# 或者
+./start-dev.sh --background
+
+# 6. 停止服务
+npm run dev:stop
+# 或者
+./start-dev.sh --stop
+
+# 7. 访问应用
 open http://localhost:3000
+```
+
+#### 启动脚本选项
+```bash
+# 显示帮助
+./start-dev.sh --help
+
+# 前台启动 (默认，可以看到实时日志)
+./start-dev.sh
+./start-dev.sh --foreground
+
+# 后台启动 (服务在后台运行)
+./start-dev.sh --background
+
+# 停止所有服务
+./start-dev.sh --stop
+```
+
+#### 服务端口
+- **前端应用**: http://localhost:3000
+- **文件处理微服务**: http://localhost:3010
+- **API健康检查**: http://localhost:3000/api/health
+- **微服务健康检查**: http://localhost:3010/health
+
+#### 日志查看
+```bash
+# 查看前端日志
+tail -f logs/frontend.log
+
+# 查看微服务日志
+tail -f logs/file-processor.log
+```
+
+#### 传统启动方式 (仅前端)
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
 ### 环境变量配置

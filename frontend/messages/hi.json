@@ -873,8 +873,12 @@
       "signup_bonus_prompt_2": "500 बोनस क्रेडिट"
     },
     "GuestLimit": {
-      "remaining_translations": "आप {count} आज अधिक बार अनुवाद कर सकते हैं",
+      "remaining_translations": "आप आज {count} बार और अनुवाद कर सकते हैं",
       "register_for_unlimited": "असीमित पहुँच के लिए पंजीकरण"
+    },
+    "Status": {
+      "checking_login": "लॉगिन स्थिति की जांच की जा रही है...",
+      "redirecting": "पहले से लॉग इन हैं, रीडायरेक्ट कर रहे हैं..."
     }
   },
   "TranslatorWidget": {

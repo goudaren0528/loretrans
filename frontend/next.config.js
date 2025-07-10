@@ -4,6 +4,26 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config, { isServer }) => {
+    // Add polyfills for client-side
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+      };
+    }
+    
+    // Ensure regenerator-runtime is available
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'regenerator-runtime': require.resolve('regenerator-runtime'),
+    };
+    
+    return config;
+  },
   // 环境变量配置 - 使用Hugging Face Space NLLB服务
   env: {
     // 生产环境使用Hugging Face Space，开发环境也可以使用
@@ -88,6 +108,23 @@ const nextConfig = {
       {
         source: '/sitemap.xml',
         destination: '/api/sitemap',
+      },
+      // Handle static assets that might be prefixed with locale
+      {
+        source: '/:locale/images/:path*',
+        destination: '/images/:path*',
+      },
+      {
+        source: '/:locale/icons/:path*',
+        destination: '/icons/:path*',
+      },
+      {
+        source: '/:locale/favicon.ico',
+        destination: '/favicon.ico',
+      },
+      {
+        source: '/:locale/manifest.json',
+        destination: '/manifest.json',
       },
     ];
   },

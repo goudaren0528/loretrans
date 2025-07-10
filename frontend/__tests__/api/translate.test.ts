@@ -28,9 +28,9 @@ jest.mock('@/lib/services/credits', () => ({
   createServerCreditService: () => ({
     calculateCreditsRequired: jest.fn((characterCount) => ({
       total_characters: characterCount,
-      free_characters: Math.min(characterCount, 500),
-      billable_characters: Math.max(0, characterCount - 500),
-      credits_required: Math.max(0, (characterCount - 500) * 0.1),
+      free_characters: Math.min(characterCount, 1000),
+      billable_characters: Math.max(0, characterCount - 1000),
+      credits_required: Math.max(0, (characterCount - 1000) * 0.1),
     })),
     consumeTranslationCredits: jest.fn().mockResolvedValue({
       success: true,

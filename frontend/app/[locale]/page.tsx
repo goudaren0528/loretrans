@@ -4,6 +4,7 @@ import { TranslationOptions } from '@/components/translation-options'
 import { LanguageGrid } from '@/components/language-grid'
 import { FeatureSection } from '@/components/feature-section'
 import { FAQ } from '@/components/faq'
+import { HeroImage } from '@/components/hero-image'
 import {
   WebApplicationStructuredData,
   OrganizationStructuredData,
@@ -19,6 +20,34 @@ export async function generateMetadata({
   return {
     title: t('meta.title'),
     description: t('meta.description'),
+    keywords: [
+      'AI translator',
+      'low-resource languages',
+      'free translation',
+      'Creole translator',
+      'Lao translator',
+      'Swahili translator',
+      'Burmese translator',
+      'NLLB translation',
+      'document translation',
+      'text translation'
+    ],
+    openGraph: {
+      title: t('meta.title'),
+      description: t('meta.description'),
+      url: `https://loretrans.app/${locale}`,
+      type: 'website',
+      images: ['/images/og-image.png'],
+      siteName: 'Loretrans',
+      locale: locale === 'en' ? 'en_US' : locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('meta.title'),
+      description: t('meta.description'),
+      images: ['/images/og-image.png'],
+      creator: '@LoretransApp',
+    },
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -42,6 +71,7 @@ export default async function HomePage({
       {/* Structured Data */}
       <WebApplicationStructuredData />
       <OrganizationStructuredData />
+      
       {/* Hero Section */}
       <section className="relative py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
@@ -107,14 +137,15 @@ export default async function HomePage({
                     href={`/${locale}/text-translate`}
                     className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
-                    <span className="mr-2">🚀</span>
-                    {t('hero.cta.start_free')}
+                    <span className="mr-2">📝</span>
+                    Text Translation
                   </a>
                   <a
-                    href={`/${locale}/pricing`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-gray-300 px-8 py-4 text-base font-semibold text-gray-700 hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200"
+                    href={`/${locale}/document-translate`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-base font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
-                    {t('hero.cta.view_pricing')}
+                    <span className="mr-2">📄</span>
+                    Document Translation
                   </a>
                 </div>
 
@@ -134,7 +165,7 @@ export default async function HomePage({
               {/* Hero Illustration */}
               <div className="flex justify-center lg:justify-end">
                 <div className="relative">
-                  <img
+                  <HeroImage
                     src="/images/hero-illustration.svg"
                     alt="AI Translation Platform Illustration"
                     className="w-full max-w-md h-auto"
@@ -155,92 +186,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Value Proposition Section */}
-      <section className="relative py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                {t('feature_section.title')}
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                {t('feature_section.description')}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* User Scenario 1 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">👨‍🎓</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.academic.title')}</h3>
-                <p className="text-gray-600 mb-4">
-                  {t('user_scenarios.academic.description')}
-                </p>
-                <div className="text-sm text-blue-600 font-medium">
-                  {t('user_scenarios.academic.recommendation')}
-                </div>
-              </div>
-
-              {/* User Scenario 2 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">🌍</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.immigrant.title')}</h3>
-                <p className="text-gray-600 mb-4">
-                  {t('user_scenarios.immigrant.description')}
-                </p>
-                <div className="text-sm text-green-600 font-medium">
-                  {t('user_scenarios.immigrant.recommendation')}
-                </div>
-              </div>
-
-              {/* User Scenario 3 */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-2xl">🏢</span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('user_scenarios.ecommerce.title')}</h3>
-                <p className="text-gray-600 mb-4">
-                  {t('user_scenarios.ecommerce.description')}
-                </p>
-                <div className="text-sm text-purple-600 font-medium">
-                  {t('user_scenarios.ecommerce.recommendation')}
-                </div>
-              </div>
-            </div>
-
-            {/* Cost Comparison */}
-            <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border">
-              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                {t('cost_comparison.title')}
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center p-6 bg-red-50 rounded-xl">
-                  <div className="text-3xl font-bold text-red-600 mb-2">{t('cost_comparison.human_translation.price')}</div>
-                  <div className="text-sm text-red-800 font-medium mb-2">{t('cost_comparison.human_translation.title')}</div>
-                  <div className="text-xs text-red-600">{t('cost_comparison.human_translation.description')}</div>
-                </div>
-                <div className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="text-3xl font-bold text-gray-500 mb-2">{t('cost_comparison.google_translate.price')}</div>
-                  <div className="text-sm text-gray-700 font-medium mb-2">{t('cost_comparison.google_translate.title')}</div>
-                  <div className="text-xs text-gray-500">{t('cost_comparison.google_translate.description')}</div>
-                </div>
-                <div className="text-center p-6 bg-green-50 rounded-xl border-2 border-green-200">
-                  <div className="text-3xl font-bold text-green-600 mb-2">{t('cost_comparison.loretrans.price')}</div>
-                  <div className="text-sm text-green-800 font-medium mb-2">{t('cost_comparison.loretrans.title')}</div>
-                  <div className="text-xs text-green-600">{t('cost_comparison.loretrans.description')}</div>
-                  <div className="mt-2 text-xs font-semibold text-green-700">{t('cost_comparison.loretrans.savings')}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Translation Options */}
+      {/* Translation Options - 移到HERO下面 */}
       <TranslationOptions />
 
       {/* Supported Languages */}
@@ -260,7 +206,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features - 保留这个作为唯一的Why Choose Loretrans */}
       <FeatureSection />
 
       {/* FAQ */}
@@ -292,5 +238,5 @@ export default async function HomePage({
         </div>
       </section>
     </div>
-  )
-} 
+  );
+}

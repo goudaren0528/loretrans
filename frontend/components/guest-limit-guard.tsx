@@ -142,7 +142,7 @@ export function GuestLimitGuard({
                   <Zap className="h-6 w-6 text-green-600" />
                 </div>
                 <h3 className="font-medium mb-1">无限制翻译</h3>
-                <p className="text-sm text-gray-600">500字符以下无限次翻译</p>
+                <p className="text-sm text-gray-600">1000字符以下无限次翻译</p>
               </div>
               <div className="text-center">
                 <div className="rounded-full bg-blue-100 p-3 w-12 h-12 mx-auto mb-3 flex items-center justify-center">

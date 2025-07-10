@@ -866,8 +866,12 @@
       "signup_bonus_prompt_2": "500 رصيد إضافي"
     },
     "GuestLimit": {
-      "remaining_translations": "يمكنك ترجمة {عد} مرات أكثر اليوم",
+      "remaining_translations": "يمكنك ترجمة {count} مرات أكثر اليوم",
       "register_for_unlimited": "تسجيل للدخول غير المحدود"
+    },
+    "Status": {
+      "checking_login": "جاري التحقق من حالة تسجيل الدخول...",
+      "redirecting": "تم تسجيل الدخول بالفعل، جاري إعادة التوجيه..."
     }
   },
   "TranslatorWidget": {

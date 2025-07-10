@@ -864,6 +864,10 @@
     "GuestLimit": {
       "remaining_translations": "Pode traduzir {count} mais vezes hoje",
       "register_for_unlimited": "Registro para acesso ilimitado"
+    },
+    "Status": {
+      "checking_login": "Verificando status de login...",
+      "redirecting": "Já logado, redirecionando..."
     }
   },
   "TranslatorWidget": {

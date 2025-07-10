@@ -45,9 +45,9 @@ jobs:
     strategy:
       matrix:
         service:
-          - name: nllb-service
-            dockerfile: microservices/nllb-local/Dockerfile.railway
-            context: microservices/nllb-local
+          # - name: nllb-service
+          #   dockerfile: microservices/nllb-local/Dockerfile.railway
+          #   context: microservices/nllb-local
           - name: file-processor
             dockerfile: microservices/file-processor/Dockerfile
             context: microservices/file-processor

@@ -269,19 +269,18 @@
         throw exception;
       }
       
-      var context = this;
-      function handle(loc, caught) {
+      const handle = (loc, caught) => {
         record.type = "throw";
         record.arg = exception;
-        context.next = loc;
+        this.next = loc;
         
         if (caught) {
-          context.method = "next";
-          context.arg = undefined;
+          this.method = "next";
+          this.arg = undefined;
         }
         
         return !!caught;
-      }
+      };
       
       for (var i = this.tryEntries.length - 1; i >= 0; --i) {
         var entry = this.tryEntries[i];

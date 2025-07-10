@@ -1,14 +1,14 @@
 // Client-side polyfill loader
 // Import this in components that use async/await or generators
 
-export function ensurePolyfills() {
+export async function ensurePolyfills() {
   // Check if we're in browser environment
   if (typeof window !== 'undefined') {
     // Ensure regeneratorRuntime is available
     if (!window.regeneratorRuntime) {
       try {
-        const regeneratorRuntime = require('regenerator-runtime/runtime');
-        window.regeneratorRuntime = regeneratorRuntime;
+        const regeneratorRuntime = await import('regenerator-runtime/runtime');
+        window.regeneratorRuntime = regeneratorRuntime.default || regeneratorRuntime;
       } catch (error) {
         console.warn('Failed to load regenerator-runtime:', error);
       }
@@ -17,7 +17,7 @@ export function ensurePolyfills() {
     // Ensure Promise is available
     if (typeof Promise === 'undefined') {
       try {
-        require('es6-promise/auto');
+        await import('es6-promise/auto');
       } catch (error) {
         console.warn('Failed to load Promise polyfill:', error);
       }
@@ -26,6 +26,6 @@ export function ensurePolyfills() {
 }
 
 // Auto-load polyfills when this module is imported
-ensurePolyfills();
+ensurePolyfills().catch(console.warn);
 
 export default ensurePolyfills;

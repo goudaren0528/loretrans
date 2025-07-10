@@ -858,6 +858,10 @@
     "GuestLimit": {
       "remaining_translations": "అనువాదం అవసరం",
       "register_for_unlimited": "అనువాదం అవసరం"
+    },
+    "Status": {
+      "checking_login": "లాగిన్ స్థితిని తనిఖీ చేస్తోంది...",
+      "redirecting": "ఇప్పటికే లాగిన్ అయ్యారు, రీడైరెక్ట్ చేస్తోంది..."
     }
   },
   "TranslatorWidget": {

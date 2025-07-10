@@ -10,10 +10,10 @@ export default createMiddleware({
 export const config = {
   matcher: [
     // Match all pathnames except for
-    // - /api (API routes)
-    // - /_next (Next.js internals)
-    // - /_vercel (Vercel internals)
-    // - /favicon.ico, /sitemap.xml, /robots.txt (static files)
-    '/((?!api|_next|_vercel|favicon.ico|sitemap.xml|robots.txt).*)',
+    // - API routes
+    // - Next.js internals
+    // - Static files
+    // - AI search optimization file
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llm.txt|images|icons|logo|manifest.json).*)',
   ],
 }

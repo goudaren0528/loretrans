@@ -12,6 +12,18 @@ export const APP_CONFIG = {
   languages: {
     // 小语种到英文的主要支持语言
     supported: [
+      // 英语 - 作为源语言和目标语言
+      { 
+        code: 'en', 
+        name: 'English', 
+        nativeName: 'English', 
+        slug: 'english',
+        available: true,
+        bidirectional: true,
+        priority: 0, // 最高优先级
+        region: 'Global',
+        speakers: '1.5B',
+      },
       // 第一批 - 已完全支持的核心小语种
       { 
         code: 'ht', 
@@ -51,7 +63,7 @@ export const APP_CONFIG = {
         name: 'Burmese', 
         nativeName: 'မြန်မာ', 
         slug: 'burmese',
-        available: false,
+        available: true,
         bidirectional: true,
         priority: 1,
         region: 'Southeast Asia',
@@ -62,7 +74,7 @@ export const APP_CONFIG = {
         name: 'Telugu', 
         nativeName: 'తెలుగు', 
         slug: 'telugu',
-        available: false,
+        available: true,
         bidirectional: true,
         priority: 1,
         region: 'South Asia',
@@ -235,7 +247,7 @@ export const APP_CONFIG = {
         name: 'Arabic', 
         nativeName: 'العربية', 
         slug: 'arabic',
-        available: true, // 新启用
+        available: true,
         bidirectional: true,
         priority: 1,
         region: 'Middle East',
@@ -246,11 +258,44 @@ export const APP_CONFIG = {
         name: 'Hindi', 
         nativeName: 'हिन्दी', 
         slug: 'hindi',
-        available: true, // 新启用
+        available: true,
         bidirectional: true,
         priority: 1,
         region: 'South Asia',
         speakers: '600M',
+      },
+      { 
+        code: 'fr', 
+        name: 'French', 
+        nativeName: 'Français', 
+        slug: 'french',
+        available: true,
+        bidirectional: true,
+        priority: 1,
+        region: 'Europe',
+        speakers: '280M',
+      },
+      { 
+        code: 'es', 
+        name: 'Spanish', 
+        nativeName: 'Español', 
+        slug: 'spanish',
+        available: true,
+        bidirectional: true,
+        priority: 1,
+        region: 'Europe/Americas',
+        speakers: '500M',
+      },
+      { 
+        code: 'pt', 
+        name: 'Portuguese', 
+        nativeName: 'Português', 
+        slug: 'portuguese',
+        available: true,
+        bidirectional: true,
+        priority: 1,
+        region: 'Europe/Americas',
+        speakers: '260M',
       },
       
       // 即将支持的语言
@@ -279,6 +324,23 @@ export const APP_CONFIG = {
     ],
     // 目标语言（主要是英文）
     target: { code: 'en', name: 'English', nativeName: 'English', slug: 'english' },
+  },
+
+  // 翻译配置
+  translation: {
+    freeCharacterLimit: 1000, // 免费翻译字符限制
+    maxTextInputLimit: 5000, // 文本输入上限
+    queueThreshold: 1000, // 队列模式阈值
+    creditRatePerCharacter: 0.1, // 超出免费额度后每字符积分数
+    registrationBonus: 500, // 注册奖励积分
+    // 队列处理配置
+    queue: {
+      enabled: true, // 启用队列模式
+      maxConcurrentTasks: 3, // 最大并发任务数
+      taskTimeout: 300000, // 任务超时时间 (5分钟)
+      retryAttempts: 2, // 重试次数
+      retryDelay: 5000, // 重试延迟 (5秒)
+    },
   },
 
   // NLLB模型配置

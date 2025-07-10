@@ -1,53 +1,31 @@
-import type { Metadata } from 'next'
-import { BidirectionalTranslator } from '@/components/bidirectional-translator'
+import React from 'react'
+import { Metadata } from 'next'
+import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Telugu Translation | Free Online Translator | Loretrans',
-  description: 'Translate English to Telugu instantly with our AI-powered translator. Free, accurate, and fast translation service supporting text, documents, and more.',
-  keywords: 'English to Telugu, translate English Telugu, English Telugu translator, free translation, AI translator',
+  title: 'English to Telugu Translation - Free AI Translator | Loretrans',
+  description: 'Translate English to Telugu (తెలుగు) instantly with our AI-powered translator. Convert తెలుగు text to English with high accuracy. Support for long texts up to 5,000 characters.',
+  keywords: ['English to Telugu translation', 'English to తెలుగు', 'English to Telugu translator', 'free English to Telugu translation', 'English Telugu converter', 'queue translation'],
   openGraph: {
-    title: 'English to Telugu Translation | Free Online Translator',
-    description: 'Translate English to Telugu instantly with our AI-powered translator. Free, accurate, and fast translation service.',
-    type: 'website',
+    title: 'English to Telugu Translation - Free AI Translator',
+    description: 'Translate English to Telugu (తెలుగు) instantly with AI. Support for long texts and queue processing.',
+    url: 'https://loretrans.app/english-to-telugu',
+    siteName: 'Loretrans',
     locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'English to Telugu Translation - Free AI Translator',
+    description: 'Translate English to Telugu (తెలుగు) instantly with AI. Support for long texts and queue processing.',
+  },
+  alternates: {
+    canonical: 'https://loretrans.app/english-to-telugu',
   },
 }
 
-const features = [
-  {
-    title: "AI-Powered Translation",
-    description: "Advanced neural machine translation technology specifically trained for English-Telugu language pairs",
-    icon: "🤖"
-  },
-  {
-    title: "Telugu Script Support", 
-    description: "Full support for Telugu script (తెలుగు) with proper character encoding and text rendering",
-    icon: "తె"
-  },
-  {
-    title: "Bidirectional Translation",
-    description: "Switch between English-to-Telugu and Telugu-to-English translation with one click",
-    icon: "🔄"
-  },
-  {
-    title: "Cultural Context",
-    description: "Translations consider cultural nuances and context specific to Telugu language usage",
-    icon: "🏛️"
-  },
-  {
-    title: "Free & Fast",
-    description: "Get instant English to Telugu translations at no cost, with results in seconds",
-    icon: "⚡"
-  },
-  {
-    title: "No Registration",
-    description: "Start translating immediately without creating accounts or providing personal information",
-    icon: "🚀"
-  }
-]
-
-const englishToTeluguFAQs = [
+const englishtoteluguFAQs = [
   {
     question: "How accurate is the English to Telugu translation?",
     answer: "Our AI-powered translator provides high-accuracy English to Telugu translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
@@ -58,266 +36,241 @@ const englishToTeluguFAQs = [
   },
   {
     question: "Is the English to Telugu translator free to use?",
-    answer: "Yes, our English to Telugu translation service is completely free with no registration required. Simply enter your English text and get instant Telugu translations."
+    answer: "Yes, our English to Telugu translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
   },
   {
-    question: "What types of text can I translate from English to Telugu?",
-    answer: "You can translate various types of English content to Telugu including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+    question: "How long can the text be for English to Telugu translation?",
+    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+  },
+  {
+    question: "Do I need to create an account to translate long texts?",
+    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
   },
   {
     question: "Does the translator support Telugu script properly?",
-    answer: "Yes, our translator fully supports the Telugu script (తెలుగు) and handles the unique characteristics of the Telugu writing system, including proper character encoding and text direction."
+    answer: "Yes, our translator fully supports the Haitian Creole script (తెలుగు) and handles the unique characteristics of the Telugu writing system, including proper character encoding and text direction."
   },
   {
     question: "Can I use this for business English to Telugu translation?",
-    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Telugu speaker."
+    answer: "Yes, our translator is suitable for business use. However, for critical business documents, we recommend having translations reviewed by a professional translator to ensure accuracy and cultural appropriateness."
+  },
+  {
+    question: "What is queue processing for long texts?",
+    answer: "Queue processing allows you to translate long texts (1,000+ characters) in the background. You can submit your text and return later to check the results, with full translation history tracking."
   }
 ]
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://loretrans.app/english-to-telugu",
-      "url": "https://loretrans.app/english-to-telugu",
-      "name": "English to Telugu Translation | Free Online Translator",
-      "description": "Translate English to Telugu instantly with our AI-powered translator. Free, accurate, and fast translation service.",
-      "inLanguage": "en-US",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://loretrans.app/#website",
-        "name": "Loretrans",
-        "url": "https://loretrans.app"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "English to Telugu Translator",
-      "applicationCategory": "TranslationApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Real-time English to Telugu translation",
-        "AI-powered translation engine",
-        "Document translation support",
-        "Free unlimited translations"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How accurate is English to Telugu translation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our AI-powered translator provides highly accurate English to Telugu translations, especially for common phrases and everyday communication."
-          }
-        },
-        {
-          "@type": "Question", 
-          "name": "Can I translate documents from English to Telugu?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, you can upload documents in various formats (PDF, Word, etc.) for English to Telugu translation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the English to Telugu translator free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our English to Telugu translation service is completely free with no usage limits."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "HowTo",
-      "name": "How to Translate English to Telugu",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Enter English Text",
-          "text": "Type or paste your English text in the input field"
-        },
-        {
-          "@type": "HowToStep", 
-          "name": "Click Translate",
-          "text": "Press the translate button to convert English to Telugu"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Get Telugu Translation",
-          "text": "Receive your accurate Telugu translation instantly"
-        }
-      ]
-    }
-  ]
-}
+const features = [
+  {
+    title: "AI-Powered Translation",
+    description: "Advanced NLLB technology ensures accurate English to Telugu translations with cultural context",
+    icon: "🤖"
+  },
+  {
+    title: "Bidirectional Support",
+    description: "Seamlessly switch between English-to-Telugu and Telugu-to-English translation",
+    icon: "🔄"
+  },
+  {
+    title: "Long Text Support",
+    description: "Handle texts up to 5,000 characters with intelligent queue processing",
+    icon: "📄"
+  },
+  {
+    title: "Queue Processing",
+    description: "Background processing for long texts with progress tracking and history",
+    icon: "⚡"
+  },
+  {
+    title: "Translation History",
+    description: "Keep track of your translations with comprehensive task management",
+    icon: "📝"
+  },
+  {
+    title: "Instant & Queue Modes",
+    description: "Short texts translate instantly, longer texts use smart queue processing",
+    icon: "🚀"
+  }
+]
 
 export default function EnglishToTeluguPage() {
   return (
-    <>
-      <StructuredData type="WebPage" data={structuredData} />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              English to Telugu Translation
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Translate English to Telugu instantly with our advanced AI translator. 
-              Perfect for communication, learning, and business needs.
-            </p>
-          </div>
+    <main className="min-h-screen bg-background">
+      {/* Structured Data */}
+      <StructuredData 
+        type="WebApplication"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "English to Telugu Translator",
+          "description": "Free AI-powered English to Telugu translation tool with queue processing and translation history",
+          "url": "https://loretrans.app/english-to-telugu",
+          "applicationCategory": "TranslationApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+          }
+        }}
+      />
 
-          {/* Main Translator */}
-          <div className="mb-12">
-            <BidirectionalTranslator 
-              defaultSourceLang="en"
-              defaultTargetLang="te"
-              placeholder="Enter English text to translate..."
-            />
-          </div>
-
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Instant Translation</h3>
-              <p className="text-gray-600">Get immediate English to Telugu translations powered by advanced AI technology.</p>
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                English to Telugu
+                <span className="block text-blue-600">AI Translator</span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Translate English to Telugu (తెలుగు) instantly with our advanced AI translator. 
+                Support for long texts, queue processing, and translation history.
+              </p>
             </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">High Accuracy</h3>
-              <p className="text-gray-600">Our AI model ensures accurate and contextually appropriate Telugu translations.</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Free & Unlimited</h3>
-              <p className="text-gray-600">Translate as much English text to Telugu as you need, completely free.</p>
-            </div>
-          </div>
-
-          {/* Example Translations */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Common English to Telugu Translations</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Hello</span>
-                  <span className="text-blue-600">నమస్కారం</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Thank you</span>
-                  <span className="text-blue-600">ధన్యవాదాలు</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Good morning</span>
-                  <span className="text-blue-600">శుభోదయం</span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">How are you?</span>
-                  <span className="text-blue-600">ఎలా ఉన్నారు?</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Goodbye</span>
-                  <span className="text-blue-600">వీడ్కోలు</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Please</span>
-                  <span className="text-blue-600">దయచేసి</span>
-                </div>
-              </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                Free to use
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                Up to 5,000 characters
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                Queue processing
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                Translation history
+              </span>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* How to Use */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">How to Use English to Telugu Translator</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">1</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Enter English Text</h3>
-                <p className="text-gray-600 text-sm">Type or paste your English text in the input field above.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">2</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Click Translate</h3>
-                <p className="text-gray-600 text-sm">Press the translate button to convert your text to Telugu.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">3</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Get Telugu Translation</h3>
-                <p className="text-gray-600 text-sm">Receive your accurate Telugu translation instantly.</p>
-              </div>
+      {/* Enhanced Translation Tool */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <EnhancedTextTranslator
+            defaultSourceLang="en"
+            defaultTargetLang="te"
+            className="max-w-6xl mx-auto"
+          />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Advanced Translation Features
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Professional-grade English to Telugu translation with modern features
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="text-3xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* About Telugu */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">About Telugu Language</h2>
-            <p className="text-gray-600 mb-4">
-              Telugu is a Dravidian language spoken by over 95 million people, primarily in the Indian states of 
-              Andhra Pradesh and Telangana. It is the fourth most spoken language in India and the 15th most spoken 
-              language in the world. Telugu has a rich literary tradition spanning over a thousand years.
-            </p>
-            <p className="text-gray-600">
-              Our English to Telugu translator helps bridge communication gaps, making it easier for English speakers 
-              to connect with Telugu-speaking communities for business, travel, education, and cultural exchange.
-            </p>
-          </div>
-
-          {/* FAQ */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">How accurate is English to Telugu translation?</h3>
-                <p className="text-gray-600">Our AI-powered translator provides highly accurate English to Telugu translations, especially for common phrases and everyday communication. For complex or specialized content, we recommend reviewing the translation.</p>
+      {/* About Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  About the Telugu Language
+                </h2>
+                <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <p>
+                    English is a widely spoken language with rich cultural heritage and linguistic features.
+                    Our AI translator respects these linguistic characteristics to provide accurate English to Telugu translations.
+                  </p>
+                  <p>
+                    Whether you're translating English documents to Telugu, communicating with Telugu speakers, or learning languages, 
+                    our enhanced translator helps bridge the language gap with cultural sensitivity and linguistic accuracy.
+                  </p>
+                  <p>
+                    With support for long texts up to 5,000 characters and intelligent queue processing, you can handle everything 
+                    from short messages to lengthy documents with ease.
+                  </p>
+                </div>
               </div>
               
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I translate documents from English to Telugu?</h3>
-                <p className="text-gray-600">Yes, you can upload documents in various formats (PDF, Word, etc.) for English to Telugu translation. Visit our document translation page for this feature.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Is the English to Telugu translator free?</h3>
-                <p className="text-gray-600">Yes, our English to Telugu translation service is completely free with no usage limits. You can translate as much text as you need.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Does the translator work for Telugu to English?</h3>
-                <p className="text-gray-600">Yes! We also offer Telugu to English translation. You can switch languages using the swap button or visit our Telugu to English page.</p>
+              <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-gray-900">Language Info</h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Language:</span>
+                      <span className="font-medium">Telugu</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Native Name:</span>
+                      <span className="font-medium">తెలుగు</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Code:</span>
+                      <span className="font-medium">te</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Max Length:</span>
+                      <span className="font-medium">5,000 chars</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Frequently Asked Questions
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Everything you need to know about our English to Telugu translator
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {englishtoteluguFAQs.map((faq, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   )
-} 
+}

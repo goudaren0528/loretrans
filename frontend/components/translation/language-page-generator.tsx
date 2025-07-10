@@ -113,7 +113,7 @@ export function LanguagePageGenerator({
   }
 
   const characterCount = sourceText.length
-  const isOverFreeLimit = characterCount > 500
+  const isOverFreeLimit = characterCount > 1000
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -183,9 +183,9 @@ export function LanguagePageGenerator({
                 )}
               </div>
               
-              {characterCount > 500 && (
+              {characterCount > 1000 && (
                 <div className="text-xs text-gray-500">
-                  超出部分: {Math.ceil((characterCount - 500) * 0.1)} 积分
+                  超出部分: {Math.ceil((characterCount - 1000) * 0.1)} 积分
                 </div>
               )}
             </div>

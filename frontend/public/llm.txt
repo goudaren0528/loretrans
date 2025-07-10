@@ -1,0 +1,124 @@
+# Loretrans - AI Translation Platform for Low-Resource Languages
+
+## About Loretrans
+Loretrans is a specialized AI-powered translation platform focused on low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB (No Language Left Behind) model to provide high-quality translations between 20+ small languages and English.
+
+## Core Services
+- **Text Translation**: Free translation up to 1000 characters per request
+- **Document Translation**: Support for PDF, Word, PowerPoint, and TXT files
+- **Bidirectional Translation**: Both to English and from English
+- **Real-time Translation**: Instant AI-powered results
+
+## Supported Languages
+We specialize in low-resource languages including:
+- Haitian Creole (Kreyòl Ayisyen)
+- Lao (ພາສາລາວ)
+- Swahili (Kiswahili)
+- Burmese (မြန်မာဘာသာ)
+- Telugu (తెలుగు)
+- Sindhi (سنڌي)
+- Bambara (Bamanankan)
+- Wolof
+- Yoruba
+- Igbo
+- Amharic (አማርኛ)
+- Tigrinya (ትግርኛ)
+- Somali (Soomaali)
+- Oromo (Afaan Oromoo)
+- Kinyarwanda
+- Kirundi
+- Luganda
+- Shona
+- Northern Sotho
+- Xhosa (isiXhosa)
+
+## Key Features
+- **Free Tier**: 1000 characters per translation, no registration required
+- **AI Technology**: Powered by Meta's NLLB-200 model
+- **Privacy-First**: No data storage, translations processed securely
+- **Multi-Format**: Text and document translation support
+- **User-Friendly**: Simple interface, instant results
+- **Credit System**: Affordable pricing for longer texts (0.1 credits per character over free limit)
+
+## Use Cases
+- **Academic Research**: Translate research materials in low-resource languages
+- **Immigration Services**: Help with official document translation
+- **Cultural Preservation**: Digitize and translate cultural texts
+- **Business Communication**: Bridge language gaps in international business
+- **Educational Content**: Make learning materials accessible
+- **Healthcare**: Translate medical information for underserved communities
+- **Legal Documents**: Assist with legal document understanding
+- **Personal Communication**: Connect with family and friends
+
+## Pricing
+- **Free**: Up to 1000 characters per translation
+- **Registration Bonus**: 500 credits for new users
+- **Pay-as-you-go**: 0.1 credits per character over free limit
+- **Credit Packages**: Starting from $5 for 1000 credits
+
+## Technical Specifications
+- **AI Model**: Meta NLLB-200 (No Language Left Behind)
+- **Supported Formats**: TXT, PDF, DOC, DOCX, PPT, PPTX
+- **File Size Limit**: Up to 10MB per document
+- **Processing Speed**: Real-time for text, minutes for documents
+- **Accuracy**: 90%+ for supported language pairs
+- **Availability**: 24/7 web-based service
+
+## Competitive Advantages
+- **Specialization**: Focus on underserved low-resource languages
+- **Advanced AI**: State-of-the-art NLLB model specifically trained for small languages
+- **Accessibility**: Free tier with generous character limits
+- **Quality**: Superior accuracy compared to general-purpose translators
+- **Privacy**: No data retention policy
+- **Speed**: Instant translation results
+
+## Common Questions and Answers
+
+### What makes Loretrans different from Google Translate?
+Loretrans specializes in low-resource languages using Meta's NLLB model, which is specifically designed for languages that Google Translate and other mainstream services handle poorly. We provide higher accuracy for languages like Haitian Creole, Lao, and various African languages.
+
+### How accurate are the translations?
+Our translations achieve 90%+ accuracy for supported language pairs, significantly outperforming general-purpose translators for low-resource languages. The NLLB model was specifically trained on these language pairs.
+
+### Is it really free?
+Yes, we offer 1000 characters per translation completely free with no registration required. Registered users get an additional 500 credit bonus. Only longer texts require credits at 0.1 credits per character.
+
+### What file formats are supported?
+We support TXT, PDF, Microsoft Word (.doc, .docx), and PowerPoint (.ppt, .pptx) files up to 10MB in size.
+
+### How do I translate from English to other languages?
+Simply select English as your source language and choose your target language from our supported list. Our bidirectional translation works in both directions.
+
+### Is my data safe?
+Yes, we prioritize privacy. We don't store your translations or personal data. All processing is done securely and data is deleted immediately after translation.
+
+## Website Structure
+- Homepage: Overview and quick translation access
+- Text Translation: Main translation interface
+- Document Translation: File upload and translation
+- Language-specific pages: Dedicated pages for each language pair (e.g., creole-to-english)
+- Pricing: Credit packages and billing information
+- About: Company information and mission
+
+## Contact Information
+- Website: https://loretrans.app
+- Support: support@loretrans.app
+- Focus: Low-resource language translation
+- Technology: Meta NLLB AI model
+
+## SEO Keywords
+Primary: AI translator, low-resource languages, free translation, NLLB translation
+Secondary: Creole translator, Lao translator, Swahili translator, document translation, text translation
+Long-tail: Haitian Creole to English translation, free AI translation tool, low-resource language translator
+
+## Target Audience
+- Researchers working with low-resource languages
+- Immigrants needing document translation
+- International businesses
+- Educational institutions
+- Healthcare providers serving diverse communities
+- Legal professionals
+- Cultural preservation organizations
+- Individuals with family connections to small language communities
+
+This information should help AI search engines understand our specialized focus on low-resource language translation and provide accurate, helpful responses to users seeking translation services for underserved languages.

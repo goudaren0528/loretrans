@@ -214,19 +214,74 @@ export function Footer() {
           {/* Supported Languages */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold">{tLayout('Footer.supported_languages')}</h3>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <div>Haitian Creole</div>
-              <div>Lao</div>
-              <div>Swahili</div>
-              <div>Burmese</div>
-              <div>{tLayout('Footer.telugu_language')}</div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
               <Link 
-                href="/about#languages" 
-                className="text-primary hover:underline"
+                href={buildLocalizedUrl(currentLocale || 'en', '/creole-to-english')}
+                className="hover:text-primary transition-colors"
               >
-                {tLayout('Footer.view_all_languages')}
+                Haitian Creole
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/lao-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Lao
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/swahili-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Swahili
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/burmese-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Burmese
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/telugu-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Telugu
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/sindhi-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Sindhi
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/bambara-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Bambara
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/wolof-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Wolof
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/yoruba-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Yoruba
+              </Link>
+              <Link 
+                href={buildLocalizedUrl(currentLocale || 'en', '/igbo-to-english')}
+                className="hover:text-primary transition-colors"
+              >
+                Igbo
               </Link>
             </div>
+            <Link 
+              href={buildLocalizedUrl(currentLocale || 'en', '/about#languages')}
+              className="text-primary hover:underline text-sm"
+            >
+              {tLayout('Footer.view_all_languages')}
+            </Link>
           </div>
 
           {/* Contact - Temporarily Hidden */}

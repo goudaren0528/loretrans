@@ -1,3 +1,4 @@
+import '@/lib/regenerator-polyfill'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -91,6 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
       <head>
+        <script src="/polyfills-inline.js" defer></script>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

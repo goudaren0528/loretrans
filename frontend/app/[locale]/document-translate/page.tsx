@@ -16,6 +16,32 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
+    keywords: [
+      'document translation',
+      'PDF translator',
+      'Word document translation',
+      'PowerPoint translation',
+      'AI document translator',
+      'low-resource languages',
+      'file translation',
+      'upload and translate',
+      'NLLB document translation'
+    ],
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `https://loretrans.app/${locale}/document-translate`,
+      type: 'website',
+      images: ['/images/og-image.png'],
+      siteName: 'Loretrans',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: ['/images/og-image.png'],
+      creator: '@LoretransApp',
+    },
     alternates: {
       canonical: `/${locale}/document-translate`,
       languages: {

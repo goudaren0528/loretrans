@@ -891,6 +891,10 @@
     "GuestLimit": {
       "remaining_translations": "ທ່ານສາມາດແປ {count} ຫຼາຍຄັ້ງໃນມື້ນີ້",
       "register_for_unlimited": "ລົງທະບຽນເພື່ອເຂົ້າເຖິງບໍ່ຈໍາກັດ"
+    },
+    "Status": {
+      "checking_login": "ກຳລັງກວດສອບສະຖານະການເຂົ້າສູ່ລະບົບ...",
+      "redirecting": "ເຂົ້າສູ່ລະບົບແລ້ວ, ກຳລັງປ່ຽນເສັ້ນທາງ..."
     }
   },
   "TranslatorWidget": {

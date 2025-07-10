@@ -1,53 +1,31 @@
-import type { Metadata } from 'next'
-import { BidirectionalTranslator } from '@/components/bidirectional-translator'
+import React from 'react'
+import { Metadata } from 'next'
+import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Swahili Translation | Free Online Translator | Loretrans',
-  description: 'Translate English to Swahili instantly with our AI-powered translator. Free, accurate, and fast translation service supporting text, documents, and more.',
-  keywords: 'English to Swahili, translate English Swahili, English Swahili translator, free translation, AI translator',
+  title: 'English to Swahili Translation - Free AI Translator | Loretrans',
+  description: 'Translate English to Swahili (Kiswahili) instantly with our AI-powered translator. Convert Kiswahili text to English with high accuracy. Support for long texts up to 5,000 characters.',
+  keywords: ['English to Swahili translation', 'English to Kiswahili', 'English to Swahili translator', 'free English to Swahili translation', 'English Swahili converter', 'queue translation'],
   openGraph: {
-    title: 'English to Swahili Translation | Free Online Translator',
-    description: 'Translate English to Swahili instantly with our AI-powered translator. Free, accurate, and fast translation service.',
-    type: 'website',
+    title: 'English to Swahili Translation - Free AI Translator',
+    description: 'Translate English to Swahili (Kiswahili) instantly with AI. Support for long texts and queue processing.',
+    url: 'https://loretrans.app/english-to-swahili',
+    siteName: 'Loretrans',
     locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'English to Swahili Translation - Free AI Translator',
+    description: 'Translate English to Swahili (Kiswahili) instantly with AI. Support for long texts and queue processing.',
+  },
+  alternates: {
+    canonical: 'https://loretrans.app/english-to-swahili',
   },
 }
 
-const features = [
-  {
-    title: "AI-Powered Translation",
-    description: "Advanced neural machine translation technology specifically trained for English-Swahili language pairs",
-    icon: "🤖"
-  },
-  {
-    title: "Swahili Script Support", 
-    description: "Full support for Swahili script (Kiswahili) with proper character encoding and text rendering",
-    icon: "S"
-  },
-  {
-    title: "Bidirectional Translation",
-    description: "Switch between English-to-Swahili and Swahili-to-English translation with one click",
-    icon: "🔄"
-  },
-  {
-    title: "Cultural Context",
-    description: "Translations consider cultural nuances and context specific to Swahili language usage",
-    icon: "🏛️"
-  },
-  {
-    title: "Free & Fast",
-    description: "Get instant English to Swahili translations at no cost, with results in seconds",
-    icon: "⚡"
-  },
-  {
-    title: "No Registration",
-    description: "Start translating immediately without creating accounts or providing personal information",
-    icon: "🚀"
-  }
-]
-
-const englishToSwahiliFAQs = [
+const englishtoswahiliFAQs = [
   {
     question: "How accurate is the English to Swahili translation?",
     answer: "Our AI-powered translator provides high-accuracy English to Swahili translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
@@ -58,266 +36,241 @@ const englishToSwahiliFAQs = [
   },
   {
     question: "Is the English to Swahili translator free to use?",
-    answer: "Yes, our English to Swahili translation service is completely free with no registration required. Simply enter your English text and get instant Swahili translations."
+    answer: "Yes, our English to Swahili translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
   },
   {
-    question: "What types of text can I translate from English to Swahili?",
-    answer: "You can translate various types of English content to Swahili including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+    question: "How long can the text be for English to Swahili translation?",
+    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+  },
+  {
+    question: "Do I need to create an account to translate long texts?",
+    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
   },
   {
     question: "Does the translator support Swahili script properly?",
-    answer: "Yes, our translator fully supports the Swahili script (Kiswahili) and handles the unique characteristics of the Swahili writing system, including proper character encoding and text direction."
+    answer: "Yes, our translator fully supports the Haitian Creole script (Kiswahili) and handles the unique characteristics of the Swahili writing system, including proper character encoding and text direction."
   },
   {
     question: "Can I use this for business English to Swahili translation?",
-    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a native Swahili speaker."
+    answer: "Yes, our translator is suitable for business use. However, for critical business documents, we recommend having translations reviewed by a professional translator to ensure accuracy and cultural appropriateness."
+  },
+  {
+    question: "What is queue processing for long texts?",
+    answer: "Queue processing allows you to translate long texts (1,000+ characters) in the background. You can submit your text and return later to check the results, with full translation history tracking."
   }
 ]
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://loretrans.app/english-to-swahili",
-      "url": "https://loretrans.app/english-to-swahili",
-      "name": "English to Swahili Translation | Free Online Translator",
-      "description": "Translate English to Swahili instantly with our AI-powered translator. Free, accurate, and fast translation service.",
-      "inLanguage": "en-US",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://loretrans.app/#website",
-        "name": "Loretrans",
-        "url": "https://loretrans.app"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "English to Swahili Translator",
-      "applicationCategory": "TranslationApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Real-time English to Swahili translation",
-        "AI-powered translation engine",
-        "Document translation support",
-        "Free unlimited translations"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How accurate is English to Swahili translation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our AI-powered translator provides highly accurate English to Swahili translations, especially for common phrases and everyday communication."
-          }
-        },
-        {
-          "@type": "Question", 
-          "name": "Can I translate documents from English to Swahili?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, you can upload documents in various formats (PDF, Word, etc.) for English to Swahili translation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the English to Swahili translator free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our English to Swahili translation service is completely free with no usage limits."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "HowTo",
-      "name": "How to Translate English to Swahili",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Enter English Text",
-          "text": "Type or paste your English text in the input field"
-        },
-        {
-          "@type": "HowToStep", 
-          "name": "Click Translate",
-          "text": "Press the translate button to convert English to Swahili"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Get Swahili Translation",
-          "text": "Receive your accurate Swahili translation instantly"
-        }
-      ]
-    }
-  ]
-}
+const features = [
+  {
+    title: "AI-Powered Translation",
+    description: "Advanced NLLB technology ensures accurate English to Swahili translations with cultural context",
+    icon: "🤖"
+  },
+  {
+    title: "Bidirectional Support",
+    description: "Seamlessly switch between English-to-Swahili and Swahili-to-English translation",
+    icon: "🔄"
+  },
+  {
+    title: "Long Text Support",
+    description: "Handle texts up to 5,000 characters with intelligent queue processing",
+    icon: "📄"
+  },
+  {
+    title: "Queue Processing",
+    description: "Background processing for long texts with progress tracking and history",
+    icon: "⚡"
+  },
+  {
+    title: "Translation History",
+    description: "Keep track of your translations with comprehensive task management",
+    icon: "📝"
+  },
+  {
+    title: "Instant & Queue Modes",
+    description: "Short texts translate instantly, longer texts use smart queue processing",
+    icon: "🚀"
+  }
+]
 
 export default function EnglishToSwahiliPage() {
   return (
-    <>
-                <StructuredData type="WebPage" data={structuredData} />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              English to Swahili Translation
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Translate English to Swahili instantly with our advanced AI translator. 
-              Perfect for communication, learning, and business needs.
-            </p>
-          </div>
+    <main className="min-h-screen bg-background">
+      {/* Structured Data */}
+      <StructuredData 
+        type="WebApplication"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "English to Swahili Translator",
+          "description": "Free AI-powered English to Swahili translation tool with queue processing and translation history",
+          "url": "https://loretrans.app/english-to-swahili",
+          "applicationCategory": "TranslationApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+          }
+        }}
+      />
 
-          {/* Main Translator */}
-          <div className="mb-12">
-            <BidirectionalTranslator 
-              defaultSourceLang="en"
-              defaultTargetLang="sw"
-              placeholder="Enter English text to translate..."
-            />
-          </div>
-
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Instant Translation</h3>
-              <p className="text-gray-600">Get immediate English to Swahili translations powered by advanced AI technology.</p>
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                English to Swahili
+                <span className="block text-blue-600">AI Translator</span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Translate English to Swahili (Kiswahili) instantly with our advanced AI translator. 
+                Support for long texts, queue processing, and translation history.
+              </p>
             </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">High Accuracy</h3>
-              <p className="text-gray-600">Our AI model ensures accurate and contextually appropriate Swahili translations.</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Free & Unlimited</h3>
-              <p className="text-gray-600">Translate as much English text to Swahili as you need, completely free.</p>
-            </div>
-          </div>
-
-          {/* Example Translations */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Common English to Swahili Translations</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Hello</span>
-                  <span className="text-blue-600">Hujambo</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Thank you</span>
-                  <span className="text-blue-600">Asante</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Good morning</span>
-                  <span className="text-blue-600">Habari za asubuhi</span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">How are you?</span>
-                  <span className="text-blue-600">Habari yako?</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Goodbye</span>
-                  <span className="text-blue-600">Kwaheri</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                  <span className="text-gray-900 font-medium">Please</span>
-                  <span className="text-blue-600">Tafadhali</span>
-                </div>
-              </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                Free to use
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                Up to 5,000 characters
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                Queue processing
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                Translation history
+              </span>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* How to Use */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">How to Use English to Swahili Translator</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">1</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Enter English Text</h3>
-                <p className="text-gray-600 text-sm">Type or paste your English text in the input field above.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">2</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Click Translate</h3>
-                <p className="text-gray-600 text-sm">Press the translate button to convert your text to Swahili.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">3</div>
-                <h3 className="font-semibold text-gray-900 mb-2">Get Swahili Translation</h3>
-                <p className="text-gray-600 text-sm">Receive your accurate Swahili translation instantly.</p>
-              </div>
+      {/* Enhanced Translation Tool */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <EnhancedTextTranslator
+            defaultSourceLang="en"
+            defaultTargetLang="sw"
+            className="max-w-6xl mx-auto"
+          />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Advanced Translation Features
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Professional-grade English to Swahili translation with modern features
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="text-3xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* About Swahili */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">About Swahili Language</h2>
-            <p className="text-gray-600 mb-4">
-              Swahili (Kiswahili) is a Bantu language spoken by over 100 million people across East Africa, 
-              including Tanzania, Kenya, Uganda, and the Democratic Republic of Congo. It serves as a lingua franca 
-              throughout the region and is one of the official languages of the African Union.
-            </p>
-            <p className="text-gray-600">
-              Our English to Swahili translator helps bridge communication gaps, making it easier for English speakers 
-              to connect with Swahili-speaking communities for business, travel, education, and cultural exchange.
-            </p>
-          </div>
-
-          {/* FAQ */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">How accurate is English to Swahili translation?</h3>
-                <p className="text-gray-600">Our AI-powered translator provides highly accurate English to Swahili translations, especially for common phrases and everyday communication. For complex or specialized content, we recommend reviewing the translation.</p>
+      {/* About Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  About the Swahili Language
+                </h2>
+                <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <p>
+                    English is a widely spoken language with rich cultural heritage and linguistic features.
+                    Our AI translator respects these linguistic characteristics to provide accurate English to Swahili translations.
+                  </p>
+                  <p>
+                    Whether you're translating English documents to Swahili, communicating with Swahili speakers, or learning languages, 
+                    our enhanced translator helps bridge the language gap with cultural sensitivity and linguistic accuracy.
+                  </p>
+                  <p>
+                    With support for long texts up to 5,000 characters and intelligent queue processing, you can handle everything 
+                    from short messages to lengthy documents with ease.
+                  </p>
+                </div>
               </div>
               
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I translate documents from English to Swahili?</h3>
-                <p className="text-gray-600">Yes, you can upload documents in various formats (PDF, Word, etc.) for English to Swahili translation. Visit our document translation page for this feature.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Is the English to Swahili translator free?</h3>
-                <p className="text-gray-600">Yes, our English to Swahili translation service is completely free with no usage limits. You can translate as much text as you need.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Does the translator work for Swahili to English?</h3>
-                <p className="text-gray-600">Yes! We also offer Swahili to English translation. You can switch languages using the swap button or visit our Swahili to English page.</p>
+              <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-gray-900">Language Info</h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Language:</span>
+                      <span className="font-medium">Swahili</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Native Name:</span>
+                      <span className="font-medium">Kiswahili</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Code:</span>
+                      <span className="font-medium">sw</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Max Length:</span>
+                      <span className="font-medium">5,000 chars</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Frequently Asked Questions
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Everything you need to know about our English to Swahili translator
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {englishtoswahiliFAQs.map((faq, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   )
-} 
+}

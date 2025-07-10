@@ -4,11 +4,11 @@ import { useEffect, ReactNode } from 'react'
 import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { useTranslations } from 'next-intl'
 
 interface RedirectIfAuthenticatedProps {
   children: ReactNode
   redirectTo?: string
-  loadingMessage?: string
 }
 
 /**
@@ -17,11 +17,11 @@ interface RedirectIfAuthenticatedProps {
  */
 export function RedirectIfAuthenticated({ 
   children, 
-  redirectTo = '/', 
-  loadingMessage = '检查登录状态...' 
+  redirectTo = '/'
 }: RedirectIfAuthenticatedProps) {
   const { user, loading, isAuthenticated } = useAuth()
   const router = useRouter()
+  const t = useTranslations('Auth.Status')
 
   useEffect(() => {
     if (!loading && isAuthenticated && user) {
@@ -35,7 +35,7 @@ export function RedirectIfAuthenticated({
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-sm text-muted-foreground">{loadingMessage}</p>
+          <p className="text-sm text-muted-foreground">{t('checking_login')}</p>
         </div>
       </div>
     )
@@ -47,7 +47,7 @@ export function RedirectIfAuthenticated({
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-sm text-muted-foreground">已登录，正在跳转...</p>
+          <p className="text-sm text-muted-foreground">{t('redirecting')}</p>
         </div>
       </div>
     )

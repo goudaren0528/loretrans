@@ -9,21 +9,42 @@ const LANGUAGE_CODE_TO_SLUG: Record<string, string> = {
   'sw': 'swahili', 
   'my': 'burmese',
   'te': 'telugu',
+  'ar': 'arabic',
+  'zh': 'chinese',
+  'fr': 'french',
+  'hi': 'hindi',
+  'pt': 'portuguese',
+  'es': 'spanish',
   'en': 'english',
   'english': 'english'
 }
 
 // 定义实际存在的翻译页面路由
 const EXISTING_TRANSLATION_PAGES = [
-  'creole-to-english',
-  'lao-to-english', 
-  'swahili-to-english',
+  // xxx-to-english pages
+  'arabic-to-english',
   'burmese-to-english',
+  'chinese-to-english',
+  'creole-to-english',
+  'french-to-english',
+  'hindi-to-english',
+  'lao-to-english',
+  'portuguese-to-english',
+  'spanish-to-english',
+  'swahili-to-english',
   'telugu-to-english',
-  'english-to-creole',
-  'english-to-lao',
-  'english-to-swahili',
+  
+  // english-to-xxx pages
+  'english-to-arabic',
   'english-to-burmese',
+  'english-to-chinese',
+  'english-to-creole',
+  'english-to-french',
+  'english-to-hindi',
+  'english-to-lao',
+  'english-to-portuguese',
+  'english-to-spanish',
+  'english-to-swahili',
   'english-to-telugu'
 ]
 

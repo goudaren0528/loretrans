@@ -903,6 +903,10 @@
     "GuestLimit": {
       "remaining_translations": "您可以今天翻译更多次",
       "register_for_unlimited": "登记无限制访问"
+    },
+    "Status": {
+      "checking_login": "检查登录状态...",
+      "redirecting": "已登录，正在跳转..."
     }
   },
   "TranslatorWidget": {

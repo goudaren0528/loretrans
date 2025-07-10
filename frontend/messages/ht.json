@@ -859,6 +859,10 @@
     "GuestLimit": {
       "remaining_translations": "Bezwen tradwi",
       "register_for_unlimited": "Enskri"
+    },
+    "Status": {
+      "checking_login": "N ap verifye estati koneksyon an...",
+      "redirecting": "Deja konekte, n ap redirije..."
     }
   },
   "TranslatorWidget": {

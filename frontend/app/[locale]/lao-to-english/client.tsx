@@ -1,44 +1,44 @@
 'use client'
 
 import React from 'react'
-import { BidirectionalTranslator } from '@/components/bidirectional-translator'
+import { LanguageGrid } from '@/components/language-grid'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
 import Link from 'next/link'
 import { TranslationServiceStructuredData, FAQStructuredData, HowToStructuredData } from '@/components/structured-data'
 import nextDynamic from 'next/dynamic'
 
-const BidirectionalTranslatorWidget = nextDynamic(() => import('@/components/bidirectional-translator').then(mod => mod.BidirectionalTranslator), {
+const TranslatorWidget = nextDynamic(() => import('@/components/translator-widget').then(mod => mod.TranslatorWidget), {
   ssr: false,
   loading: () => <div className="h-96" />, // Placeholder
 })
 
-const laoExamples = [
+const laotoenglishExamples = [
   {
-    lao: "ສະບາຍດີ, ເຈົ້າສະບາຍດີບໍ?",
+    creole: "Bonjou, kijan ou ye?",
     english: "Hello, how are you?",
     category: "Greetings"
   },
   {
-    lao: "ຂ້ອຍຕ້ອງການຄວາມຊ່ວຍເຫຼືອ.",
-    english: "I need help.",
+    creole: "Mwen bezwen èd ou.",
+    english: "I need your help.",
     category: "Common Phrases"
   },
   {
-    lao: "ເຈົ້າຢູ່ໃສ?",
-    english: "Where are you from?",
+    creole: "Ki kote ou rete?",
+    english: "Where do you live?",
     category: "Questions"
   },
   {
-    lao: "ຂ້ອຍບໍ່ເຂົ້າໃຈ.",
+    creole: "Mwen pa konprann.",
     english: "I don't understand.",
     category: "Communication"
   }
 ]
 
-const laoFAQ = [
+const laotoenglishFAQ = [
   {
-    question: "Is this Lao to English translator accurate?",
+    question: "Is this Lao translator accurate?",
     answer: "Our translator uses Meta's NLLB AI model, specifically trained on Lao (ລາວ). It provides significantly better accuracy than traditional translation services for Lao text."
   },
   {
@@ -46,28 +46,28 @@ const laoFAQ = [
     answer: "Yes! Our document translation feature supports PDF, Word, and text files. Upload your Lao document and get an English translation while preserving the original formatting."
   },
   {
-    question: "Do you support both Lao dialects?",
-    answer: "Our AI model is trained on standard Lao (ລາວ) and works well with common dialectal variations found in Laos and Lao diaspora communities."
+    question: "Do you support Lao dialects?",
+    answer: "Our AI model is trained on standard Lao (ລາວ) and works well with common dialectal variations of Lao."
   },
   {
     question: "Is this translator free to use?",
-    answer: "Yes, our basic Lao to English translation is completely free. For document translation and advanced features, we offer premium options."
+    answer: "Yes, our basic Haitian Creole to English translation is completely free. For document translation and advanced features, we offer premium options."
   },
   {
-    question: "Can I translate from English back to Lao?",
-    answer: "Absolutely! Our translator supports bidirectional translation between English and Lao. Just use the language switch button to reverse the translation direction."
+    question: "Can I translate from English back to Haitian Creole?",
+    answer: "Absolutely! Our translator supports bidirectional translation between English and Haitian Creole. Just use the language switch button to reverse the translation direction."
   }
 ]
 
-export default function LaoToEnglishClient() {
+export default function CreoleToEnglishClient() {
   const translationSteps = [
     {
-      name: "Enter your Lao text",
-      text: "Type or paste your ລາວ text into the input area on our homepage."
+      name: "Enter your Haitian Creole text",
+      text: "Type or paste your Kreyòl Ayisyen text into the input area on our homepage."
     },
     {
       name: "Select language options",
-      text: "Ensure 'Lao' is selected as the source language and 'English' as the target language."
+      text: "Ensure 'Haitian Creole' is selected as the source language and 'English' as the target language."
     },
     {
       name: "Click translate",
@@ -83,12 +83,12 @@ export default function LaoToEnglishClient() {
     <div className="min-h-screen">
       {/* Structured Data */}
       <TranslationServiceStructuredData 
-        sourceLanguage="Lao" 
+        sourceLanguage="Haitian Creole" 
         targetLanguage="English" 
       />
-      <FAQStructuredData questions={laoFAQ} />
+      <FAQStructuredData questions={laotoenglishFAQ} />
       <HowToStructuredData 
-        title="How to Translate Lao to English"
+        title="How to Translate Haitian Creole to English"
         steps={translationSteps}
       />
       {/* Hero Section */}
@@ -96,15 +96,15 @@ export default function LaoToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Lao to English Translator
+              Haitian Creole to English Translator
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Professional ລາວ to English translation powered by AI. 
+              Professional Kreyòl Ayisyen to English translation powered by AI. 
               Translate text, documents, and phrases instantly with high accuracy.
             </p>
             <div className="flex flex-wrap justify-center gap-2 mt-6">
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                🇱🇦 ລາວ
+                🇭🇹 Kreyòl Ayisyen
               </span>
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
                 AI Powered
@@ -119,12 +119,10 @@ export default function LaoToEnglishClient() {
           </div>
           {/* Translation Widget */}
           <div className="max-w-4xl mx-auto">
-            <BidirectionalTranslatorWidget 
+            <TranslatorWidget 
               defaultSourceLang="lo"
               defaultTargetLang="en"
-              placeholder="Type your Lao text here... (ພິມຂໍ້ຄວາມລາວຂອງທ່ານທີ່ນີ້...)"
-              showNavigation={false}
-              enableBidirectionalMode={true}
+              placeholder="Type your Haitian Creole text here... (Ekri teks Kreyòl ou a isit la...)"
             />
           </div>
         </div>
@@ -134,11 +132,11 @@ export default function LaoToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why Choose Our Lao Translator?
+              Why Choose Our Haitian Creole Translator?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Designed specifically for Lao speakers with advanced AI technology 
-              that understands the nuances of ລາວ language.
+              Designed specifically for Haitian Creole speakers with advanced AI technology 
+              that understands the nuances of Kreyòl Ayisyen.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -146,9 +144,9 @@ export default function LaoToEnglishClient() {
               <div className="rounded-full bg-primary/10 p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Globe className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-lg mb-3">Native Lao Support</h3>
+              <h3 className="font-semibold text-lg mb-3">Native Haitian Creole Support</h3>
               <p className="text-muted-foreground">
-                Trained specifically on ລາວ with deep understanding of cultural context and expressions.
+                Trained specifically on Kreyòl Ayisyen with deep understanding of cultural context and expressions.
               </p>
             </div>
             <div className="text-center p-6 border rounded-lg">
@@ -166,7 +164,7 @@ export default function LaoToEnglishClient() {
               </div>
               <h3 className="font-semibold text-lg mb-3">Document Translation</h3>
               <p className="text-muted-foreground">
-                Upload PDF, Word, or text files in Lao and download professional English translations.
+                Upload PDF, Word, or text files in Haitian Creole and download professional English translations.
               </p>
             </div>
             <div className="text-center p-6 border rounded-lg">
@@ -204,14 +202,14 @@ export default function LaoToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Common Lao Phrases
+              Common Haitian Creole Phrases
             </h2>
             <p className="text-lg text-muted-foreground">
-              Practice with these everyday ລາວ expressions
+              Practice with these everyday Kreyòl Ayisyen expressions
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {laoExamples.map((example, index) => (
+            {laotoenglishExamples.map((example, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
                 <div className="mb-4">
                   <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full mb-2">
@@ -219,7 +217,7 @@ export default function LaoToEnglishClient() {
                   </span>
                   <div className="space-y-2">
                     <p className="text-lg font-medium text-gray-900">
-                      "{example.lao}"
+                      "{example.creole}"
                     </p>
                     <p className="text-gray-600">
                       "{example.english}"
@@ -236,7 +234,7 @@ export default function LaoToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              How to Translate Lao to English
+              How to Translate Haitian Creole to English
             </h2>
             <p className="text-lg text-muted-foreground">
               Simple steps to get accurate translations
@@ -270,11 +268,11 @@ export default function LaoToEnglishClient() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to know about Lao translation
+              Everything you need to know about Haitian Creole translation
             </p>
           </div>
           <div className="space-y-6">
-            {laoFAQ.map((faq, index) => (
+            {laotoenglishFAQ.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
                 <h3 className="font-semibold text-lg mb-3 text-gray-900">
                   {faq.question}
@@ -299,9 +297,9 @@ export default function LaoToEnglishClient() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="/creole-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
-              <h3 className="font-semibold">Creole to English</h3>
-              <p className="text-sm text-muted-foreground mt-1">Kreyòl Ayisyen → English</p>
+            <a href="/lao-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
+              <h3 className="font-semibold">Lao to English</h3>
+              <p className="text-sm text-muted-foreground mt-1">ລາວ → English</p>
             </a>
             <a href="/swahili-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
               <h3 className="font-semibold">Swahili to English</h3>
@@ -322,10 +320,10 @@ export default function LaoToEnglishClient() {
       <section className="py-16 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Translate Lao?
+            Ready to Translate Haitian Creole?
           </h2>
           <p className="text-lg mb-8 text-blue-100">
-            Start translating ລາວ to English today - it's fast, accurate, and free!
+            Start translating Kreyòl Ayisyen to English today - it's fast, accurate, and free!
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/text-translate">

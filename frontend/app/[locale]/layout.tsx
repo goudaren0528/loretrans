@@ -1,3 +1,4 @@
+import '@/lib/regenerator-polyfill'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider, createTranslator } from 'next-intl';
 import { getMessages } from 'next-intl/server';

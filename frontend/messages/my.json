@@ -865,6 +865,10 @@
     "GuestLimit": {
       "remaining_translations": "ဘာသာပြန်ရန်လိုအပ်သည်",
       "register_for_unlimited": "ဘာသာပြန်ရန်လိုအပ်သည်"
+    },
+    "Status": {
+      "checking_login": "လော့ဂ်အင်အခြေအနေကို စစ်ဆေးနေသည်...",
+      "redirecting": "ရှိပြီးသား လော့ဂ်အင်ဝင်ထားသည်၊ ပြန်လည်ညွှန်းနေသည်..."
     }
   },
   "TranslatorWidget": {

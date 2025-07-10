@@ -1,15 +1,15 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { BidirectionalTranslator } from '@/components/bidirectional-translator'
+import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Haitian Creole to English Translation - Free AI Translator | Loretrans',
-  description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with our AI-powered translator. Convert Kreyòl Ayisyen text to English with high accuracy. Free online translation tool.',
-  keywords: ['Haitian Creole to English translation', 'Kreyòl Ayisyen to English', 'Haitian Creole translator', 'free Haitian Creole translation', 'Haitian Creole English converter'],
+  description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with our AI-powered translator. Convert Kreyòl Ayisyen text to English with high accuracy. Support for long texts up to 5,000 characters.',
+  keywords: ['Haitian Creole to English translation', 'Kreyòl Ayisyen to English', 'Haitian Creole translator', 'free Haitian Creole translation', 'Haitian Creole English converter', 'queue translation'],
   openGraph: {
     title: 'Haitian Creole to English Translation - Free AI Translator',
-    description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with AI. Free, accurate, and easy to use.',
+    description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.app/creole-to-english',
     siteName: 'Loretrans',
     locale: 'en_US',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Haitian Creole to English Translation - Free AI Translator',
-    description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with AI. Free, accurate, and easy to use.',
+    description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
     canonical: 'https://loretrans.app/creole-to-english',
@@ -36,11 +36,15 @@ const creoleToEnglishFAQs = [
   },
   {
     question: "Is the Haitian Creole to English translator free to use?",
-    answer: "Yes, our Haitian Creole to English translation service is completely free with no registration required. Simply enter your Haitian Creole text and get instant English translations."
+    answer: "Yes, our Haitian Creole to English translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
   },
   {
-    question: "What types of text can I translate from Haitian Creole to English?",
-    answer: "You can translate various types of Haitian Creole content to English including documents, emails, websites, social media posts, and casual conversations. Our translator handles both formal and informal language styles."
+    question: "How long can the text be for Haitian Creole to English translation?",
+    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+  },
+  {
+    question: "Do I need to create an account to translate long texts?",
+    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
   },
   {
     question: "Does the translator support Haitian Creole script properly?",
@@ -48,39 +52,43 @@ const creoleToEnglishFAQs = [
   },
   {
     question: "Can I use this for business Haitian Creole to English translation?",
-    answer: "Our translator works well for business communications, but for important business documents, legal texts, or official communications, we recommend having translations reviewed by a professional translator."
+    answer: "Yes, our translator is suitable for business use. However, for critical business documents, we recommend having translations reviewed by a professional translator to ensure accuracy and cultural appropriateness."
+  },
+  {
+    question: "What is queue processing for long texts?",
+    answer: "Queue processing allows you to translate long texts (1,000+ characters) in the background. You can submit your text and return later to check the results, with full translation history tracking."
   }
 ]
 
 const features = [
   {
     title: "AI-Powered Translation",
-    description: "Advanced neural machine translation technology specifically trained for Haitian Creole-English language pairs",
+    description: "Advanced NLLB technology ensures accurate Haitian Creole to English translations with cultural context",
     icon: "🤖"
   },
   {
-    title: "Haitian Creole Script Support", 
-    description: "Full support for Haitian Creole script (Kreyòl Ayisyen) with proper character encoding and text rendering",
-    icon: "K"
-  },
-  {
-    title: "Bidirectional Translation",
-    description: "Switch between Haitian Creole-to-English and English-to-Haitian Creole translation with one click",
+    title: "Bidirectional Support",
+    description: "Seamlessly switch between Haitian Creole-to-English and English-to-Haitian Creole translation",
     icon: "🔄"
   },
   {
-    title: "Cultural Context",
-    description: "Translations consider cultural nuances and context specific to Haitian Creole language usage",
-    icon: "🏛️"
+    title: "Long Text Support",
+    description: "Handle texts up to 5,000 characters with intelligent queue processing",
+    icon: "📄"
   },
   {
-    title: "Free & Fast",
-    description: "Get instant Haitian Creole to English translations at no cost, with results in seconds",
+    title: "Queue Processing",
+    description: "Background processing for long texts with progress tracking and history",
     icon: "⚡"
   },
   {
-    title: "No Registration",
-    description: "Start translating immediately without creating accounts or providing personal information",
+    title: "Translation History",
+    description: "Keep track of your translations with comprehensive task management",
+    icon: "📝"
+  },
+  {
+    title: "Instant & Queue Modes",
+    description: "Short texts translate instantly, longer texts use smart queue processing",
     icon: "🚀"
   }
 ]
@@ -95,7 +103,7 @@ export default function HaitianCreoleToEnglishPage() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Haitian Creole to English Translator",
-          "description": "Free AI-powered Haitian Creole to English translation tool",
+          "description": "Free AI-powered Haitian Creole to English translation tool with queue processing and translation history",
           "url": "https://loretrans.app/creole-to-english",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
@@ -118,48 +126,44 @@ export default function HaitianCreoleToEnglishPage() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-blue-600">Haitian Creole</span> to English Translation
+                Haitian Creole to English
+                <span className="block text-blue-600">AI Translator</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Transform Haitian Creole text into clear English instantly with our AI-powered translator.
-                <span className="block mt-2 text-lg">
-                  Free, accurate, and designed for the Haitian Creole language community.
-                </span>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with our advanced AI translator. 
+                Support for long texts, queue processing, and translation history.
               </p>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+            
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                Free Forever
+                Free to use
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                AI-Powered
+                Up to 5,000 characters
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                Bidirectional
+                Queue processing
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                Instant Results
+                Translation history
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Translation Tool */}
+      {/* Enhanced Translation Tool */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <BidirectionalTranslator
+          <EnhancedTextTranslator
             defaultSourceLang="ht"
             defaultTargetLang="en"
-            placeholder="Enter Haitian Creole text to translate to English..."
-            showNavigation={true}
-            showLanguageDetection={true}
-            enableBidirectionalMode={true}
+            className="max-w-6xl mx-auto"
           />
         </div>
       </section>
@@ -170,23 +174,18 @@ export default function HaitianCreoleToEnglishPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Why Choose Our Haitian Creole to English Translator?
+                Advanced Translation Features
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Experience the most advanced AI translation technology tailored for the Haitian Creole-English language pair
+                Professional-grade Haitian Creole to English translation with modern features
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="relative group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="text-2xl mr-3">{feature.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-900">{feature.title}</h3>
-                  </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="text-3xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
@@ -195,7 +194,7 @@ export default function HaitianCreoleToEnglishPage() {
         </div>
       </section>
 
-      {/* About Haitian Creole Language */}
+      {/* About Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -211,7 +210,11 @@ export default function HaitianCreoleToEnglishPage() {
                   </p>
                   <p>
                     Whether you're translating Haitian Creole documents, communicating with English speakers, or learning languages, 
-                    our AI translator helps bridge the language gap with cultural sensitivity and linguistic accuracy.
+                    our enhanced translator helps bridge the language gap with cultural sensitivity and linguistic accuracy.
+                  </p>
+                  <p>
+                    With support for long texts up to 5,000 characters and intelligent queue processing, you can handle everything 
+                    from short messages to lengthy documents with ease.
                   </p>
                 </div>
               </div>
@@ -232,6 +235,10 @@ export default function HaitianCreoleToEnglishPage() {
                       <span className="text-gray-600">Code:</span>
                       <span className="font-medium">ht</span>
                     </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Max Length:</span>
+                      <span className="font-medium">5,000 chars</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -249,36 +256,16 @@ export default function HaitianCreoleToEnglishPage() {
                 Frequently Asked Questions
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Everything you need to know about Haitian Creole to English translation
+                Everything you need to know about our Haitian Creole to English translator
               </p>
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-8">
               {creoleToEnglishFAQs.map((faq, index) => (
-                <details
-                  key={index}
-                  className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md"
-                >
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900 marker:content-['']">
-                    {faq.question}
-                    <svg
-                      className="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </summary>
-                  <div className="mt-4 text-gray-600 leading-7">
-                    {faq.answer}
-                  </div>
-                </details>
+                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
               ))}
             </div>
           </div>

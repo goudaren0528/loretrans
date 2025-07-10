@@ -866,6 +866,10 @@
     "GuestLimit": {
       "remaining_translations": "Inahitajika kutafsiriwa",
       "register_for_unlimited": "Jisajili"
+    },
+    "Status": {
+      "checking_login": "Inakagua hali ya kuingia...",
+      "redirecting": "Tayari umeingia, inaelekeza..."
     }
   },
   "TranslatorWidget": {

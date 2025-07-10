@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { LanguageGrid } from '@/components/language-grid'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Globe, Zap, FileText, Volume2, Shield } from 'lucide-react'
 import Link from 'next/link'
@@ -12,71 +13,61 @@ const TranslatorWidget = nextDynamic(() => import('@/components/translator-widge
   loading: () => <div className="h-96" />, // Placeholder
 })
 
-const burmeseExamples = [
+const burmesetoenglishExamples = [
   {
-    burmese: "မင်္ဂလာပါ၊ နေကောင်းလား?",
+    creole: "Bonjou, kijan ou ye?",
     english: "Hello, how are you?",
     category: "Greetings"
   },
   {
-    burmese: "ကျွန်တော် အကူအညီ လိုတယ်။",
-    english: "I need help.",
+    creole: "Mwen bezwen èd ou.",
+    english: "I need your help.",
     category: "Common Phrases"
   },
   {
-    burmese: "ဘယ်နေရာက လာတာလဲ?",
-    english: "Where are you from?",
+    creole: "Ki kote ou rete?",
+    english: "Where do you live?",
     category: "Questions"
   },
   {
-    burmese: "ကျေးဇူးတင်ပါတယ်။",
-    english: "Thank you.",
-    category: "Politeness"
-  },
-  {
-    burmese: "ကျွန်တော် အင်္ဂလိပ် မသိပါဘူး။",
-    english: "I don't know English.",
+    creole: "Mwen pa konprann.",
+    english: "I don't understand.",
     category: "Communication"
-  },
-  {
-    burmese: "စျေးဘယ်လောက် ကျသလဲ?",
-    english: "How much does it cost?",
-    category: "Shopping"
   }
 ]
 
-const burmeseFAQ = [
+const burmesetoenglishFAQ = [
   {
-    question: "Is this Burmese to English translator accurate?",
-    answer: "Our translator uses Meta's NLLB AI model, specifically trained on Burmese (မြန်မာ). It provides significantly better accuracy than traditional translation services for Myanmar text and script."
+    question: "Is this Burmese translator accurate?",
+    answer: "Our translator uses Meta's NLLB AI model, specifically trained on Burmese (မြန်မာ). It provides significantly better accuracy than traditional translation services for Burmese text."
   },
   {
     question: "Can I translate documents from Burmese to English?",
     answer: "Yes! Our document translation feature supports PDF, Word, and text files. Upload your Burmese document and get an English translation while preserving the original formatting."
   },
   {
-    question: "Do you support Myanmar script properly?",
-    answer: "Absolutely! Our AI model is fully trained on the Myanmar script (မြန်မာအက္ခရာ) and can accurately process complex Burmese text with proper character rendering."
+    question: "Do you support Burmese dialects?",
+    answer: "Our AI model is trained on standard Burmese (မြန်မာ) and works well with common dialectal variations of Burmese."
   },
   {
     question: "Is this translator free to use?",
-    answer: "Yes, our basic Burmese to English translation is completely free. For document translation and advanced features, we offer premium options."
+    answer: "Yes, our basic Haitian Creole to English translation is completely free. For document translation and advanced features, we offer premium options."
   },
   {
-    question: "Can I translate from English back to Burmese?",
-    answer: "Absolutely! Our translator supports bidirectional translation between English and Burmese. Just use the language switch button to reverse the translation direction."
+    question: "Can I translate from English back to Haitian Creole?",
+    answer: "Absolutely! Our translator supports bidirectional translation between English and Haitian Creole. Just use the language switch button to reverse the translation direction."
   }
 ]
 
-export default function BurmeseToEnglishClient() {
+export default function CreoleToEnglishClient() {
   const translationSteps = [
     {
-      name: "Enter your Burmese text",
-      text: "Type or paste your မြန်မာ text into the input area on our homepage."
+      name: "Enter your Haitian Creole text",
+      text: "Type or paste your Kreyòl Ayisyen text into the input area on our homepage."
     },
     {
       name: "Select language options",
-      text: "Ensure 'Burmese' is selected as the source language and 'English' as the target language."
+      text: "Ensure 'Haitian Creole' is selected as the source language and 'English' as the target language."
     },
     {
       name: "Click translate",
@@ -92,12 +83,12 @@ export default function BurmeseToEnglishClient() {
     <div className="min-h-screen">
       {/* Structured Data */}
       <TranslationServiceStructuredData 
-        sourceLanguage="Burmese" 
+        sourceLanguage="Haitian Creole" 
         targetLanguage="English" 
       />
-      <FAQStructuredData questions={burmeseFAQ} />
+      <FAQStructuredData questions={burmesetoenglishFAQ} />
       <HowToStructuredData 
-        title="How to Translate Burmese to English"
+        title="How to Translate Haitian Creole to English"
         steps={translationSteps}
       />
       {/* Hero Section */}
@@ -105,15 +96,15 @@ export default function BurmeseToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Burmese to English Translator
+              Haitian Creole to English Translator
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Professional မြန်မာ to English translation powered by AI. 
+              Professional Kreyòl Ayisyen to English translation powered by AI. 
               Translate text, documents, and phrases instantly with high accuracy.
             </p>
             <div className="flex flex-wrap justify-center gap-2 mt-6">
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
-                🇲🇲 မြန်မာ
+                🇭🇹 Kreyòl Ayisyen
               </span>
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
                 AI Powered
@@ -131,7 +122,7 @@ export default function BurmeseToEnglishClient() {
             <TranslatorWidget 
               defaultSourceLang="my"
               defaultTargetLang="en"
-              placeholder="Type your Burmese text here... (မြန်မာစာသား ရိုက်ထည့်ပါ...)"
+              placeholder="Type your Haitian Creole text here... (Ekri teks Kreyòl ou a isit la...)"
             />
           </div>
         </div>
@@ -141,11 +132,11 @@ export default function BurmeseToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why Choose Our Burmese Translator?
+              Why Choose Our Haitian Creole Translator?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Designed specifically for Burmese speakers with advanced AI technology 
-              that understands the nuances of Myanmar language and script.
+              Designed specifically for Haitian Creole speakers with advanced AI technology 
+              that understands the nuances of Kreyòl Ayisyen.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -153,9 +144,9 @@ export default function BurmeseToEnglishClient() {
               <div className="rounded-full bg-primary/10 p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Globe className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-lg mb-3">Native Burmese Support</h3>
+              <h3 className="font-semibold text-lg mb-3">Native Haitian Creole Support</h3>
               <p className="text-muted-foreground">
-                Trained specifically on မြန်မာ with deep understanding of Myanmar cultural context and script complexity.
+                Trained specifically on Kreyòl Ayisyen with deep understanding of cultural context and expressions.
               </p>
             </div>
             <div className="text-center p-6 border rounded-lg">
@@ -173,7 +164,7 @@ export default function BurmeseToEnglishClient() {
               </div>
               <h3 className="font-semibold text-lg mb-3">Document Translation</h3>
               <p className="text-muted-foreground">
-                Upload PDF, Word, or text files in Burmese and download professional English translations.
+                Upload PDF, Word, or text files in Haitian Creole and download professional English translations.
               </p>
             </div>
             <div className="text-center p-6 border rounded-lg">
@@ -211,14 +202,14 @@ export default function BurmeseToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Common Burmese Phrases
+              Common Haitian Creole Phrases
             </h2>
             <p className="text-lg text-muted-foreground">
-              Practice with these everyday မြန်မာ expressions
+              Practice with these everyday Kreyòl Ayisyen expressions
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {burmeseExamples.map((example, index) => (
+            {burmesetoenglishExamples.map((example, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
                 <div className="mb-4">
                   <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full mb-2">
@@ -226,7 +217,7 @@ export default function BurmeseToEnglishClient() {
                   </span>
                   <div className="space-y-2">
                     <p className="text-lg font-medium text-gray-900">
-                      "{example.burmese}"
+                      "{example.creole}"
                     </p>
                     <p className="text-gray-600">
                       "{example.english}"
@@ -243,7 +234,7 @@ export default function BurmeseToEnglishClient() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              How to Translate Burmese to English
+              How to Translate Haitian Creole to English
             </h2>
             <p className="text-lg text-muted-foreground">
               Simple steps to get accurate translations
@@ -277,11 +268,11 @@ export default function BurmeseToEnglishClient() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to know about Burmese translation
+              Everything you need to know about Haitian Creole translation
             </p>
           </div>
           <div className="space-y-6">
-            {burmeseFAQ.map((faq, index) => (
+            {burmesetoenglishFAQ.map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
                 <h3 className="font-semibold text-lg mb-3 text-gray-900">
                   {faq.question}
@@ -306,10 +297,6 @@ export default function BurmeseToEnglishClient() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="/creole-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
-              <h3 className="font-semibold">Creole to English</h3>
-              <p className="text-sm text-muted-foreground mt-1">Kreyòl Ayisyen → English</p>
-            </a>
             <a href="/lao-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
               <h3 className="font-semibold">Lao to English</h3>
               <p className="text-sm text-muted-foreground mt-1">ລາວ → English</p>
@@ -317,6 +304,10 @@ export default function BurmeseToEnglishClient() {
             <a href="/swahili-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
               <h3 className="font-semibold">Swahili to English</h3>
               <p className="text-sm text-muted-foreground mt-1">Kiswahili → English</p>
+            </a>
+            <a href="/burmese-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
+              <h3 className="font-semibold">Burmese to English</h3>
+              <p className="text-sm text-muted-foreground mt-1">မြန်မာ → English</p>
             </a>
             <a href="/telugu-to-english" className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border">
               <h3 className="font-semibold">Telugu to English</h3>
@@ -329,10 +320,10 @@ export default function BurmeseToEnglishClient() {
       <section className="py-16 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Translate Burmese?
+            Ready to Translate Haitian Creole?
           </h2>
           <p className="text-lg mb-8 text-blue-100">
-            Start translating မြန်မာ to English today - it's fast, accurate, and free!
+            Start translating Kreyòl Ayisyen to English today - it's fast, accurate, and free!
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/text-translate">

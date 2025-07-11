@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// 增强的翻译服务配置 - 300字符分块
+// 增强的翻译服务配置
 const ENHANCED_CONFIG = {
-  MAX_CHUNK_SIZE: 300,        // 减少到300字符提高成功率
+  MAX_CHUNK_SIZE: 300,        // 减少到300字符
   MAX_RETRIES: 3,             // 每个块最多重试3次
   RETRY_DELAY: 1000,          // 重试延迟1秒
   CHUNK_DELAY: 500,           // 块间延迟500ms
@@ -21,6 +21,7 @@ const NLLB_LANGUAGE_MAP: Record<string, string> = {
   'yo': 'yor_Latn', 'zh': 'zho_Hans', 'zu': 'zul_Latn'
 };
 
+// 主要翻译服务端点
 const NLLB_SERVICE_URL = 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
 
 function getNLLBLanguageCode(language: string): string {
@@ -31,14 +32,13 @@ function getNLLBLanguageCode(language: string): string {
 
 /**
  * 智能文本分块 - 300字符优化版本
- * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
  */
 function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.MAX_CHUNK_SIZE): string[] {
   if (text.length <= maxChunkSize) {
     return [text];
   }
 
-  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
+  console.log(`📝 开始智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
   
   const chunks: string[] = [];
   
@@ -46,8 +46,6 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
   const paragraphs = text.split(/\n\s*\n/);
   
   for (const paragraph of paragraphs) {
-    if (paragraph.trim().length === 0) continue;
-    
     if (paragraph.length <= maxChunkSize) {
       chunks.push(paragraph.trim());
     } else {
@@ -56,9 +54,7 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
       let currentChunk = '';
       
       for (let i = 0; i < sentences.length; i++) {
-        const sentence = sentences[i].trim();
-        if (!sentence) continue;
-        
+        const sentence = sentences[i];
         const potentialChunk = currentChunk + (currentChunk ? '. ' : '') + sentence;
         
         if (potentialChunk.length <= maxChunkSize) {
@@ -94,12 +90,12 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
 }
 
 /**
- * 强制分块处理超长句子
+ * 强制按句子结构分块（处理超长句子）
  */
 function forceChunkBySentence(sentence: string, maxSize: number): string[] {
   const chunks: string[] = [];
   
-  // 策略3: 按逗号分割
+  // 按逗号分割
   const parts = sentence.split(/,\s+/);
   let currentChunk = '';
   
@@ -113,7 +109,7 @@ function forceChunkBySentence(sentence: string, maxSize: number): string[] {
         chunks.push(currentChunk);
       }
       
-      // 策略4: 按空格分割（词汇边界）
+      // 如果单个部分仍然太长，按空格分割
       if (part.length > maxSize) {
         const words = part.split(' ');
         let wordChunk = '';
@@ -234,7 +230,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`\n🌍 增强翻译开始: ${text.length}字符, ${sourceLang} -> ${targetLang}`);
+    console.log(`\n🌍 开始增强翻译: ${text.length}字符, ${sourceLang} -> ${targetLang}`);
 
     try {
       const sourceNLLB = getNLLBLanguageCode(sourceLang);
@@ -242,7 +238,7 @@ export async function POST(request: NextRequest) {
       
       console.log(`🔄 语言代码转换: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
       
-      // 智能分块 - 300字符
+      // 智能分块
       const chunks = smartTextChunking(text, ENHANCED_CONFIG.MAX_CHUNK_SIZE);
       
       if (chunks.length === 1) {
@@ -256,8 +252,7 @@ export async function POST(request: NextRequest) {
           targetLang: targetLang,
           characterCount: text.length,
           chunksProcessed: 1,
-          service: 'nllb-enhanced-300char',
-          chunkSize: ENHANCED_CONFIG.MAX_CHUNK_SIZE
+          service: 'nllb-enhanced-300char'
         });
       } else {
         // 多块处理
@@ -272,25 +267,15 @@ export async function POST(request: NextRequest) {
           try {
             const chunkResult = await translateWithRetry(chunk, sourceNLLB, targetNLLB);
             translatedChunks.push(chunkResult);
-            chunkResults.push({ 
-              index: i + 1, 
-              status: 'success', 
-              originalLength: chunk.length,
-              translatedLength: chunkResult.length 
-            });
+            chunkResults.push({ index: i + 1, status: 'success', length: chunkResult.length });
           } catch (chunkError: any) {
             console.log(`⚠️ 块 ${i + 1} 翻译失败，使用备用翻译`);
             const fallbackChunk = getFallbackTranslation(chunk, sourceLang, targetLang);
             translatedChunks.push(fallbackChunk);
-            chunkResults.push({ 
-              index: i + 1, 
-              status: 'fallback', 
-              originalLength: chunk.length,
-              error: chunkError.message 
-            });
+            chunkResults.push({ index: i + 1, status: 'fallback', error: chunkError.message });
           }
           
-          // 块间延迟避免限流
+          // 块间延迟
           if (i < chunks.length - 1) {
             console.log(`⏳ 块间延迟 ${ENHANCED_CONFIG.CHUNK_DELAY}ms...`);
             await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.CHUNK_DELAY));
@@ -308,8 +293,7 @@ export async function POST(request: NextRequest) {
           characterCount: text.length,
           chunksProcessed: chunks.length,
           chunkResults: chunkResults,
-          service: 'nllb-enhanced-300char',
-          chunkSize: ENHANCED_CONFIG.MAX_CHUNK_SIZE
+          service: 'nllb-enhanced-300char'
         });
       }
     } catch (translationError: any) {
@@ -323,7 +307,7 @@ export async function POST(request: NextRequest) {
         sourceLang: sourceLang,
         targetLang: targetLang,
         characterCount: text.length,
-        service: 'fallback-enhanced',
+        service: 'fallback',
         error: translationError.message
       });
     }

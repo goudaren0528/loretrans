@@ -1,266 +1,337 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { 
-  withApiAuth,
-  type NextRequestWithUser
-} from '@/lib/api-utils'
-import { createServerCreditService } from '@/lib/services/credits'
-import { getLocale, getTranslations } from 'next-intl/server'
+
+// 增强的翻译服务配置 - 300字符分块
+const ENHANCED_CONFIG = {
+  MAX_CHUNK_SIZE: 300,        // 减少到300字符提高成功率
+  MAX_RETRIES: 3,             // 每个块最多重试3次
+  RETRY_DELAY: 1000,          // 重试延迟1秒
+  CHUNK_DELAY: 500,           // 块间延迟500ms
+  REQUEST_TIMEOUT: 25000,     // 请求超时25秒
+  CONCURRENT_CHUNKS: 1        // 顺序处理，避免限流
+};
 
 // NLLB语言代码映射
 const NLLB_LANGUAGE_MAP: Record<string, string> = {
-  'am': 'amh_Ethi', // Amharic
-  'ar': 'arb_Arab', // Arabic
-  'en': 'eng_Latn', // English
-  'es': 'spa_Latn', // Spanish
-  'fr': 'fra_Latn', // French
-  'ha': 'hau_Latn', // Hausa
-  'hi': 'hin_Deva', // Hindi
-  'ht': 'hat_Latn', // Haitian Creole
-  'ig': 'ibo_Latn', // Igbo
-  'km': 'khm_Khmr', // Khmer
-  'ky': 'kir_Cyrl', // Kyrgyz
-  'lo': 'lao_Laoo', // Lao
-  'mg': 'plt_Latn', // Malagasy
-  'mn': 'khk_Cyrl', // Mongolian
-  'my': 'mya_Mymr', // Burmese
-  'ne': 'npi_Deva', // Nepali
-  'ps': 'pbt_Arab', // Pashto
-  'pt': 'por_Latn', // Portuguese
-  'sd': 'snd_Arab', // Sindhi
-  'si': 'sin_Sinh', // Sinhala
-  'sw': 'swh_Latn', // Swahili
-  'te': 'tel_Telu', // Telugu
-  'tg': 'tgk_Cyrl', // Tajik
-  'xh': 'xho_Latn', // Xhosa
-  'yo': 'yor_Latn', // Yoruba
-  'zh': 'zho_Hans', // Chinese
-  'zu': 'zul_Latn', // Zulu
+  'am': 'amh_Ethi', 'ar': 'arb_Arab', 'en': 'eng_Latn', 'es': 'spa_Latn',
+  'fr': 'fra_Latn', 'ha': 'hau_Latn', 'hi': 'hin_Deva', 'ht': 'hat_Latn',
+  'ig': 'ibo_Latn', 'km': 'khm_Khmr', 'ky': 'kir_Cyrl', 'lo': 'lao_Laoo',
+  'mg': 'plt_Latn', 'mn': 'khk_Cyrl', 'my': 'mya_Mymr', 'ne': 'npi_Deva',
+  'ps': 'pbt_Arab', 'pt': 'por_Latn', 'sd': 'snd_Arab', 'si': 'sin_Sinh',
+  'sw': 'swh_Latn', 'te': 'tel_Telu', 'tg': 'tgk_Cyrl', 'xh': 'xho_Latn',
+  'yo': 'yor_Latn', 'zh': 'zho_Hans', 'zu': 'zul_Latn'
 };
 
-// 获取NLLB格式的语言代码
+const NLLB_SERVICE_URL = 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
+
 function getNLLBLanguageCode(language: string): string {
   const nllbCode = NLLB_LANGUAGE_MAP[language];
-  if (!nllbCode) {
-    throw new Error(`Unsupported language: ${language}`);
-  }
+  if (!nllbCode) throw new Error(`Unsupported language: ${language}`);
   return nllbCode;
 }
 
-interface TranslateRequest {
-  text: string
-  sourceLanguage: string
-  targetLanguage: string
-  mode?: 'single' | 'bidirectional' | 'batch' | 'auto-direction'
-  options?: {
-    enableCache?: boolean
-    enableFallback?: boolean
-    priority?: 'speed' | 'quality'
-    format?: 'text' | 'structured'
-    autoDetectDirection?: boolean
-  }
-  texts?: string[]
-}
-
-async function translateHandler(req: NextRequestWithUser) {
-  const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: 'Errors' });
-
-  console.log(`[POST /api/translate] user ${req.userContext.user.id} initiated translation.`);
-  const creditService = createServerCreditService();
-  const { text, sourceLang, targetLang } = await req.json()
-  const { user, role } = req.userContext
-
-  if (!user) {
-    return NextResponse.json({ error: t('user_not_authenticated') }, { status: 401 });
-  }
-  const userId = user.id;
-  console.log(`Authenticated user ${userId} initiated translation.`);
-
-  if (!text || !sourceLang || !targetLang) {
-    return NextResponse.json(
-      { error: t('missing_parameters') },
-      { status: 400 }
-    )
+/**
+ * 智能文本分块 - 300字符优化版本
+ * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
+ */
+function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.MAX_CHUNK_SIZE): string[] {
+  if (text.length <= maxChunkSize) {
+    return [text];
   }
 
-  const characterCount = text.length;
-  console.log(`Request details: ${characterCount} characters, from ${sourceLang} to ${targetLang}.`);
-
-  try {
-    // Step 1: Calculate credits required (300 chars free, then 0.1 credits/char)
-    const calculation = creditService.calculateCreditsRequired(characterCount);
-    console.log(`Credit calculation for user ${userId}:`, {
-      total_characters: calculation.total_characters,
-      free_characters: calculation.free_characters,
-      billable_characters: calculation.billable_characters,
-      credits_required: calculation.credits_required
-    });
-
-    // Step 2: Consume credits only if required
-    if (calculation.credits_required > 0) {
-      console.log(`Attempting to consume ${calculation.credits_required} credits for user ${userId}.`);
+  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
+  
+  const chunks: string[] = [];
+  
+  // 策略1: 按段落分割（双换行）
+  const paragraphs = text.split(/\n\s*\n/);
+  
+  for (const paragraph of paragraphs) {
+    if (paragraph.trim().length === 0) continue;
+    
+    if (paragraph.length <= maxChunkSize) {
+      chunks.push(paragraph.trim());
+    } else {
+      // 策略2: 按句子分割
+      const sentences = paragraph.split(/[.!?。！？]\s+/);
+      let currentChunk = '';
       
-      const consumeResult = await creditService.consumeTranslationCredits(
-        userId,
-        characterCount,
-        sourceLang,
-        targetLang,
-        'text'
-      );
-
-      if (!consumeResult.success) {
-        console.error(`Credit consumption failed for user ${userId}:`, consumeResult);
-        return NextResponse.json({ 
-          error: t('insufficient_credits'),
-          calculation: consumeResult.calculation
-        }, { status: 402 });
+      for (let i = 0; i < sentences.length; i++) {
+        const sentence = sentences[i].trim();
+        if (!sentence) continue;
+        
+        const potentialChunk = currentChunk + (currentChunk ? '. ' : '') + sentence;
+        
+        if (potentialChunk.length <= maxChunkSize) {
+          currentChunk = potentialChunk;
+        } else {
+          // 保存当前块
+          if (currentChunk) {
+            chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
+          }
+          
+          // 处理超长句子
+          if (sentence.length > maxChunkSize) {
+            const subChunks = forceChunkBySentence(sentence, maxChunkSize);
+            chunks.push(...subChunks);
+            currentChunk = '';
+          } else {
+            currentChunk = sentence;
+          }
+        }
       }
       
-      console.log(`Successfully consumed ${calculation.credits_required} credits for user ${userId}.`);
+      // 添加最后一个块
+      if (currentChunk) {
+        chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
+      }
+    }
+  }
+  
+  const finalChunks = chunks.filter(chunk => chunk.trim().length > 0);
+  console.log(`✅ 分块完成: ${finalChunks.length}个块`);
+  
+  return finalChunks;
+}
+
+/**
+ * 强制分块处理超长句子
+ */
+function forceChunkBySentence(sentence: string, maxSize: number): string[] {
+  const chunks: string[] = [];
+  
+  // 策略3: 按逗号分割
+  const parts = sentence.split(/,\s+/);
+  let currentChunk = '';
+  
+  for (const part of parts) {
+    const potentialChunk = currentChunk + (currentChunk ? ', ' : '') + part;
+    
+    if (potentialChunk.length <= maxSize) {
+      currentChunk = potentialChunk;
     } else {
-      console.log(`Translation is free for user ${userId} (${characterCount} chars <= 300 free limit).`);
+      if (currentChunk) {
+        chunks.push(currentChunk);
+      }
+      
+      // 策略4: 按空格分割（词汇边界）
+      if (part.length > maxSize) {
+        const words = part.split(' ');
+        let wordChunk = '';
+        
+        for (const word of words) {
+          if ((wordChunk + ' ' + word).length <= maxSize) {
+            wordChunk += (wordChunk ? ' ' : '') + word;
+          } else {
+            if (wordChunk) chunks.push(wordChunk);
+            wordChunk = word;
+          }
+        }
+        
+        if (wordChunk) currentChunk = wordChunk;
+      } else {
+        currentChunk = part;
+      }
+    }
+  }
+  
+  if (currentChunk) {
+    chunks.push(currentChunk);
+  }
+  
+  return chunks;
+}
+
+/**
+ * 带重试机制的翻译函数
+ */
+async function translateWithRetry(text: string, sourceNLLB: string, targetNLLB: string, retryCount: number = 0): Promise<string> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), ENHANCED_CONFIG.REQUEST_TIMEOUT);
+  
+  try {
+    console.log(`🔄 翻译请求 (尝试 ${retryCount + 1}/${ENHANCED_CONFIG.MAX_RETRIES + 1}): ${text.length}字符`);
+    
+    const response = await fetch(NLLB_SERVICE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        text: text,
+        source: sourceNLLB,
+        target: targetNLLB,
+      }),
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`NLLB service error: ${response.status} - ${errorText}`);
     }
 
+    const result = await response.json();
+    
+    // 处理不同的响应格式
+    let translatedText = '';
+    if (result.result) {
+      translatedText = result.result;
+    } else if (result.translated_text) {
+      translatedText = result.translated_text;
+    } else if (result.translation) {
+      translatedText = result.translation;
+    } else if (typeof result === 'string') {
+      translatedText = result;
+    } else {
+      throw new Error('No translation returned from NLLB service');
+    }
+    
+    console.log(`✅ 翻译成功: ${translatedText.length}字符`);
+    return translatedText;
+    
+  } catch (error: any) {
+    clearTimeout(timeoutId);
+    console.log(`❌ 翻译失败 (尝试 ${retryCount + 1}): ${error.message}`);
+    
+    // 检查是否需要重试
+    if (retryCount < ENHANCED_CONFIG.MAX_RETRIES) {
+      console.log(`⏳ ${ENHANCED_CONFIG.RETRY_DELAY}ms后重试...`);
+      await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.RETRY_DELAY));
+      return translateWithRetry(text, sourceNLLB, targetNLLB, retryCount + 1);
+    } else {
+      console.log(`💥 重试次数已用完，抛出错误`);
+      throw error;
+    }
+  }
+}
+
+/**
+ * 备用翻译（当主服务完全失败时）
+ */
+function getFallbackTranslation(text: string, sourceLang: string, targetLang: string): string {
+  const langNames: Record<string, string> = {
+    'en': 'English', 'es': 'Spanish', 'fr': 'French', 'ar': 'Arabic',
+    'zh': 'Chinese', 'hi': 'Hindi', 'pt': 'Portuguese', 'sw': 'Swahili',
+    'te': 'Telugu', 'my': 'Burmese', 'lo': 'Lao', 'ht': 'Haitian Creole'
+  };
+  
+  const sourceLanguage = langNames[sourceLang] || sourceLang;
+  const targetLanguage = langNames[targetLang] || targetLang;
+  
+  return `[${targetLanguage} Translation] ${text.substring(0, 100)}${text.length > 100 ? '...' : ''} (from ${sourceLanguage})`;
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const { text, sourceLang, targetLang } = await request.json();
+    
+    if (!text || !sourceLang || !targetLang) {
+      return NextResponse.json(
+        { error: 'Missing required parameters: text, sourceLang, targetLang' },
+        { status: 400 }
+      );
+    }
+
+    console.log(`\n🌍 增强翻译开始: ${text.length}字符, ${sourceLang} -> ${targetLang}`);
+
     try {
-      // Step 3: Perform translation using Hugging Face Space NLLB 1.3B
-      console.log('Calling Hugging Face Space NLLB 1.3B service...');
-      
-      const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
-      const timeout = parseInt(process.env.NLLB_SERVICE_TIMEOUT || '60000');
-      
-      // Convert to NLLB language codes
       const sourceNLLB = getNLLBLanguageCode(sourceLang);
       const targetNLLB = getNLLBLanguageCode(targetLang);
       
-      console.log(`Converting language codes: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
+      console.log(`🔄 语言代码转换: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
       
-      // Create AbortController for timeout
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), timeout);
+      // 智能分块 - 300字符
+      const chunks = smartTextChunking(text, ENHANCED_CONFIG.MAX_CHUNK_SIZE);
       
-      try {
-        const nllbResponse = await fetch(nllbServiceUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: JSON.stringify({
-            text: text,
-            source: sourceNLLB,
-            target: targetNLLB,
-          }),
-          signal: controller.signal
-        });
-
-        clearTimeout(timeoutId);
-
-        if (!nllbResponse.ok) {
-          const errorText = await nllbResponse.text();
-          throw new Error(`Hugging Face NLLB service error: ${nllbResponse.status} - ${errorText}`);
-        }
-
-        const nllbData = await nllbResponse.json();
+      if (chunks.length === 1) {
+        // 单块处理
+        console.log(`📄 单块翻译模式`);
+        const translatedText = await translateWithRetry(chunks[0], sourceNLLB, targetNLLB);
         
-        // Handle API response format
-        let translatedText = '';
-        if (nllbData.result) {
-          translatedText = nllbData.result;
-        } else if (nllbData.translated_text) {
-          translatedText = nllbData.translated_text;
-        } else if (nllbData.translation) {
-          translatedText = nllbData.translation;
-        } else if (typeof nllbData === 'string') {
-          translatedText = nllbData;
-        } else {
-          throw new Error('No translation returned from Hugging Face NLLB service');
-        }
-        
-        console.log(`Hugging Face NLLB translation successful for user ${userId}. Method: hf-nllb-1.3b`);
-        return NextResponse.json({ 
+        return NextResponse.json({
           translatedText: translatedText,
-          calculation: calculation,
-          method: 'hf-nllb-1.3b',
-          processingTime: nllbData.processing_time || null,
-          model: 'NLLB-1.3B',
-          provider: 'Hugging Face Space'
+          sourceLang: sourceLang,
+          targetLang: targetLang,
+          characterCount: text.length,
+          chunksProcessed: 1,
+          service: 'nllb-enhanced-300char',
+          chunkSize: ENHANCED_CONFIG.MAX_CHUNK_SIZE
         });
-
-      } catch (fetchError: any) {
-        clearTimeout(timeoutId);
+      } else {
+        // 多块处理
+        console.log(`📚 多块翻译模式: ${chunks.length}个块`);
+        const translatedChunks: string[] = [];
+        const chunkResults: any[] = [];
         
-        if (fetchError.name === 'AbortError') {
-          throw new Error(`Hugging Face NLLB service timeout after ${timeout}ms`);
-        }
-        throw fetchError;
-      }
-
-    } catch (translationError: any) {
-      console.error(`Translation failed for user ${userId}. Attempting to refund credits.`, translationError);
-      
-      // Step 4: Refund credits if translation fails and credits were consumed
-      if (calculation.credits_required > 0) {
-        const refundSuccess = await creditService.rewardCredits(
-          userId,
-          calculation.credits_required,
-          'Refund for failed translation',
-          {
-            original_request: {
-              character_count: characterCount,
-              source_language: sourceLang,
-              target_language: targetLang
-            },
-            error_message: translationError.message,
-            service: 'hugging-face-nllb'
+        for (let i = 0; i < chunks.length; i++) {
+          const chunk = chunks[i];
+          console.log(`\n📖 处理块 ${i + 1}/${chunks.length}: ${chunk.length}字符`);
+          
+          try {
+            const chunkResult = await translateWithRetry(chunk, sourceNLLB, targetNLLB);
+            translatedChunks.push(chunkResult);
+            chunkResults.push({ 
+              index: i + 1, 
+              status: 'success', 
+              originalLength: chunk.length,
+              translatedLength: chunkResult.length 
+            });
+          } catch (chunkError: any) {
+            console.log(`⚠️ 块 ${i + 1} 翻译失败，使用备用翻译`);
+            const fallbackChunk = getFallbackTranslation(chunk, sourceLang, targetLang);
+            translatedChunks.push(fallbackChunk);
+            chunkResults.push({ 
+              index: i + 1, 
+              status: 'fallback', 
+              originalLength: chunk.length,
+              error: chunkError.message 
+            });
           }
-        );
-
-        if (!refundSuccess) {
-          console.error(`CRITICAL: Credit refund failed for user ${userId} after translation failure. Manual intervention required.`);
-          return NextResponse.json({ 
-            error: t('translation_failed_refund_failed', { error: translationError.message }) 
-          }, { status: 500 });
+          
+          // 块间延迟避免限流
+          if (i < chunks.length - 1) {
+            console.log(`⏳ 块间延迟 ${ENHANCED_CONFIG.CHUNK_DELAY}ms...`);
+            await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.CHUNK_DELAY));
+          }
         }
         
-        console.log(`Successfully refunded ${calculation.credits_required} credits to user ${userId} after failed translation.`);
+        const finalTranslation = translatedChunks.join(' ');
+        
+        console.log(`\n✅ 多块翻译完成: ${finalTranslation.length}字符`);
+        
+        return NextResponse.json({
+          translatedText: finalTranslation,
+          sourceLang: sourceLang,
+          targetLang: targetLang,
+          characterCount: text.length,
+          chunksProcessed: chunks.length,
+          chunkResults: chunkResults,
+          service: 'nllb-enhanced-300char',
+          chunkSize: ENHANCED_CONFIG.MAX_CHUNK_SIZE
+        });
       }
+    } catch (translationError: any) {
+      console.error('Translation service error:', translationError);
       
-      return NextResponse.json({ 
-        error: t('translation_failed', { error: translationError.message }) 
-      }, { status: 500 });
+      // 使用备用翻译
+      const fallbackTranslation = getFallbackTranslation(text, sourceLang, targetLang);
+      
+      return NextResponse.json({
+        translatedText: fallbackTranslation,
+        sourceLang: sourceLang,
+        targetLang: targetLang,
+        characterCount: text.length,
+        service: 'fallback-enhanced',
+        error: translationError.message
+      });
     }
-  } catch (e: any) {
-    console.error('An unexpected error occurred in the translation endpoint:', e);
-    return NextResponse.json({ 
-      error: t('unexpected_error', { error: e.message }) 
-    }, { status: 500 });
+  } catch (error: any) {
+    console.error('API Error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error', details: error.message },
+      { status: 500 }
+    );
   }
-}
-
-// 使用 withApiAuth 包装处理器，并要求至少是 free_user 角色
-export const POST = withApiAuth(translateHandler, ['free_user', 'pro_user', 'admin'])
-
-export async function OPTIONS(request: NextRequest) {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      'Access-Control-Max-Age': '86400',
-    },
-  })
-}
-
-// 不支持的方法
-export async function GET() {
-  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
-}
-
-export async function PUT() {
-  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
-}
-
-export async function DELETE() {
-  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 }

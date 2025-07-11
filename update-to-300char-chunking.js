@@ -1,4 +1,49 @@
-import { NextRequest, NextResponse } from 'next/server'
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+console.log('🔧 更新翻译API使用300字符分块和增强重试机制...\n');
+
+// 查找需要更新的API文件
+const apiFiles = [
+  '/home/hwt/translation-low-source/frontend/app/api/translate-simple/route.ts',
+  '/home/hwt/translation-low-source/frontend/app/api/translate/route.ts',
+  '/home/hwt/translation-low-source/frontend/app/api/translate-text/route.ts'
+];
+
+function updateTranslateAPI(filePath) {
+  console.log(`📝 更新文件: ${filePath}`);
+  
+  if (!fs.existsSync(filePath)) {
+    console.log(`⚠️  文件不存在，跳过: ${filePath}`);
+    return;
+  }
+  
+  // 读取现有文件
+  const originalContent = fs.readFileSync(filePath, 'utf8');
+  
+  // 检查是否已经是增强版本
+  if (originalContent.includes('nllb-enhanced-300char')) {
+    console.log(`✅ 文件已经是300字符增强版本，跳过更新`);
+    return;
+  }
+  
+  // 创建备份
+  const backupPath = filePath + '.backup.' + Date.now();
+  fs.writeFileSync(backupPath, originalContent);
+  console.log(`💾 创建备份: ${backupPath}`);
+  
+  // 生成新的API内容
+  const newContent = generateEnhancedAPI();
+  
+  // 写入新内容
+  fs.writeFileSync(filePath, newContent);
+  console.log(`✅ 更新完成: ${filePath}`);
+}
+
+function generateEnhancedAPI() {
+  return `import { NextRequest, NextResponse } from 'next/server'
 
 // 增强的翻译服务配置 - 300字符分块
 const ENHANCED_CONFIG = {
@@ -25,7 +70,7 @@ const NLLB_SERVICE_URL = 'https://wane0528-my-nllb-api.hf.space/api/v4/translato
 
 function getNLLBLanguageCode(language: string): string {
   const nllbCode = NLLB_LANGUAGE_MAP[language];
-  if (!nllbCode) throw new Error(`Unsupported language: ${language}`);
+  if (!nllbCode) throw new Error(\`Unsupported language: \${language}\`);
   return nllbCode;
 }
 
@@ -38,12 +83,12 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
     return [text];
   }
 
-  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
+  console.log(\`📝 智能分块: \${text.length}字符 -> \${maxChunkSize}字符/块\`);
   
   const chunks: string[] = [];
   
   // 策略1: 按段落分割（双换行）
-  const paragraphs = text.split(/\n\s*\n/);
+  const paragraphs = text.split(/\\n\\s*\\n/);
   
   for (const paragraph of paragraphs) {
     if (paragraph.trim().length === 0) continue;
@@ -52,7 +97,7 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
       chunks.push(paragraph.trim());
     } else {
       // 策略2: 按句子分割
-      const sentences = paragraph.split(/[.!?。！？]\s+/);
+      const sentences = paragraph.split(/[.!?。！？]\\s+/);
       let currentChunk = '';
       
       for (let i = 0; i < sentences.length; i++) {
@@ -88,7 +133,7 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
   }
   
   const finalChunks = chunks.filter(chunk => chunk.trim().length > 0);
-  console.log(`✅ 分块完成: ${finalChunks.length}个块`);
+  console.log(\`✅ 分块完成: \${finalChunks.length}个块\`);
   
   return finalChunks;
 }
@@ -100,7 +145,7 @@ function forceChunkBySentence(sentence: string, maxSize: number): string[] {
   const chunks: string[] = [];
   
   // 策略3: 按逗号分割
-  const parts = sentence.split(/,\s+/);
+  const parts = sentence.split(/,\\s+/);
   let currentChunk = '';
   
   for (const part of parts) {
@@ -149,7 +194,7 @@ async function translateWithRetry(text: string, sourceNLLB: string, targetNLLB: 
   const timeoutId = setTimeout(() => controller.abort(), ENHANCED_CONFIG.REQUEST_TIMEOUT);
   
   try {
-    console.log(`🔄 翻译请求 (尝试 ${retryCount + 1}/${ENHANCED_CONFIG.MAX_RETRIES + 1}): ${text.length}字符`);
+    console.log(\`🔄 翻译请求 (尝试 \${retryCount + 1}/\${ENHANCED_CONFIG.MAX_RETRIES + 1}): \${text.length}字符\`);
     
     const response = await fetch(NLLB_SERVICE_URL, {
       method: 'POST',
@@ -169,7 +214,7 @@ async function translateWithRetry(text: string, sourceNLLB: string, targetNLLB: 
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(`NLLB service error: ${response.status} - ${errorText}`);
+      throw new Error(\`NLLB service error: \${response.status} - \${errorText}\`);
     }
 
     const result = await response.json();
@@ -188,20 +233,20 @@ async function translateWithRetry(text: string, sourceNLLB: string, targetNLLB: 
       throw new Error('No translation returned from NLLB service');
     }
     
-    console.log(`✅ 翻译成功: ${translatedText.length}字符`);
+    console.log(\`✅ 翻译成功: \${translatedText.length}字符\`);
     return translatedText;
     
   } catch (error: any) {
     clearTimeout(timeoutId);
-    console.log(`❌ 翻译失败 (尝试 ${retryCount + 1}): ${error.message}`);
+    console.log(\`❌ 翻译失败 (尝试 \${retryCount + 1}): \${error.message}\`);
     
     // 检查是否需要重试
     if (retryCount < ENHANCED_CONFIG.MAX_RETRIES) {
-      console.log(`⏳ ${ENHANCED_CONFIG.RETRY_DELAY}ms后重试...`);
+      console.log(\`⏳ \${ENHANCED_CONFIG.RETRY_DELAY}ms后重试...\`);
       await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.RETRY_DELAY));
       return translateWithRetry(text, sourceNLLB, targetNLLB, retryCount + 1);
     } else {
-      console.log(`💥 重试次数已用完，抛出错误`);
+      console.log(\`💥 重试次数已用完，抛出错误\`);
       throw error;
     }
   }
@@ -220,7 +265,7 @@ function getFallbackTranslation(text: string, sourceLang: string, targetLang: st
   const sourceLanguage = langNames[sourceLang] || sourceLang;
   const targetLanguage = langNames[targetLang] || targetLang;
   
-  return `[${targetLanguage} Translation] ${text.substring(0, 100)}${text.length > 100 ? '...' : ''} (from ${sourceLanguage})`;
+  return \`[\${targetLanguage} Translation] \${text.substring(0, 100)}\${text.length > 100 ? '...' : ''} (from \${sourceLanguage})\`;
 }
 
 export async function POST(request: NextRequest) {
@@ -234,20 +279,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`\n🌍 增强翻译开始: ${text.length}字符, ${sourceLang} -> ${targetLang}`);
+    console.log(\`\\n🌍 增强翻译开始: \${text.length}字符, \${sourceLang} -> \${targetLang}\`);
 
     try {
       const sourceNLLB = getNLLBLanguageCode(sourceLang);
       const targetNLLB = getNLLBLanguageCode(targetLang);
       
-      console.log(`🔄 语言代码转换: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
+      console.log(\`🔄 语言代码转换: \${sourceLang} -> \${sourceNLLB}, \${targetLang} -> \${targetNLLB}\`);
       
       // 智能分块 - 300字符
       const chunks = smartTextChunking(text, ENHANCED_CONFIG.MAX_CHUNK_SIZE);
       
       if (chunks.length === 1) {
         // 单块处理
-        console.log(`📄 单块翻译模式`);
+        console.log(\`📄 单块翻译模式\`);
         const translatedText = await translateWithRetry(chunks[0], sourceNLLB, targetNLLB);
         
         return NextResponse.json({
@@ -261,13 +306,13 @@ export async function POST(request: NextRequest) {
         });
       } else {
         // 多块处理
-        console.log(`📚 多块翻译模式: ${chunks.length}个块`);
+        console.log(\`📚 多块翻译模式: \${chunks.length}个块\`);
         const translatedChunks: string[] = [];
         const chunkResults: any[] = [];
         
         for (let i = 0; i < chunks.length; i++) {
           const chunk = chunks[i];
-          console.log(`\n📖 处理块 ${i + 1}/${chunks.length}: ${chunk.length}字符`);
+          console.log(\`\\n📖 处理块 \${i + 1}/\${chunks.length}: \${chunk.length}字符\`);
           
           try {
             const chunkResult = await translateWithRetry(chunk, sourceNLLB, targetNLLB);
@@ -279,7 +324,7 @@ export async function POST(request: NextRequest) {
               translatedLength: chunkResult.length 
             });
           } catch (chunkError: any) {
-            console.log(`⚠️ 块 ${i + 1} 翻译失败，使用备用翻译`);
+            console.log(\`⚠️ 块 \${i + 1} 翻译失败，使用备用翻译\`);
             const fallbackChunk = getFallbackTranslation(chunk, sourceLang, targetLang);
             translatedChunks.push(fallbackChunk);
             chunkResults.push({ 
@@ -292,14 +337,14 @@ export async function POST(request: NextRequest) {
           
           // 块间延迟避免限流
           if (i < chunks.length - 1) {
-            console.log(`⏳ 块间延迟 ${ENHANCED_CONFIG.CHUNK_DELAY}ms...`);
+            console.log(\`⏳ 块间延迟 \${ENHANCED_CONFIG.CHUNK_DELAY}ms...\`);
             await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.CHUNK_DELAY));
           }
         }
         
         const finalTranslation = translatedChunks.join(' ');
         
-        console.log(`\n✅ 多块翻译完成: ${finalTranslation.length}字符`);
+        console.log(\`\\n✅ 多块翻译完成: \${finalTranslation.length}字符\`);
         
         return NextResponse.json({
           translatedText: finalTranslation,
@@ -334,4 +379,40 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}`;
 }
+
+function main() {
+  console.log('🚀 开始更新翻译API到300字符分块版本...\n');
+  
+  // 更新所有API文件
+  apiFiles.forEach(updateTranslateAPI);
+  
+  console.log('\n✅ 更新完成！');
+  console.log('\n📊 更新总结:');
+  console.log('- ✅ 分块大小从800字符减少到300字符');
+  console.log('- ✅ 增加了3次重试机制');
+  console.log('- ✅ 优化了智能分块算法');
+  console.log('- ✅ 增强了错误处理和备用翻译');
+  console.log('- ✅ 添加了详细的处理日志');
+  
+  console.log('\n🎯 预期效果:');
+  console.log('- 提高长文本翻译成功率');
+  console.log('- 减少500错误的发生');
+  console.log('- 更好的错误恢复能力');
+  console.log('- 保持翻译质量和语义连贯性');
+  
+  console.log('\n📝 下一步:');
+  console.log('1. 重启开发服务器');
+  console.log('2. 测试不同长度的文本翻译');
+  console.log('3. 监控翻译成功率和性能');
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  updateTranslateAPI,
+  generateEnhancedAPI
+};

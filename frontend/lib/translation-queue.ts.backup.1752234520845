@@ -242,24 +242,7 @@ class TranslationQueue {
     }
 
     const data = await response.json()
-    console.log('✅ 翻译API响应:', data);
-    // 处理不同的响应格式
-    let translatedText = '';
-    if (data.translatedText) {
-      translatedText = data.translatedText;
-    } else if (data.translated_text) {
-      translatedText = data.translated_text;
-    } else if (data.result) {
-      translatedText = data.result;
-    } else if (typeof data === 'string') {
-      translatedText = data;
-    } else {
-      console.error('❌ 未知的API响应格式:', data);
-      throw new Error('Invalid API response format');
-    }
-    
-    console.log('✅ 队列翻译完成: ' + translatedText.length + '字符');
-    return translatedText;
+    return data.translated_text
   }
 
   /**

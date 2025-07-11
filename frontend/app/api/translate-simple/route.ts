@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
       const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
       const timeout = parseInt(process.env.NLLB_SERVICE_TIMEOUT || '30000'); // 减少单个请求超时时间
       const maxChunkSize = 800; // 减少块大小以提高成功率
-      
+      console.log(nllbServiceUrl,'NLLB service url')
       // Convert to NLLB language codes
       const sourceNLLB = getNLLBLanguageCode(sourceLang);
       const targetNLLB = getNLLBLanguageCode(targetLang);

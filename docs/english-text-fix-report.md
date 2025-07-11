@@ -76,7 +76,7 @@
 ### 剩余问题分析
 剩余的12个英文文本主要包括：
 - **专有名词**: "AI-Powered", "FAQ"
-- **邮箱地址**: "support@loretrans.app", "your.email@example.com"
+- **邮箱地址**: "support@loretrans.com", "your.email@example.com"
 - **时间格式**: "9:00 AM - 6:00 PM UTC"
 - **技术术语**: "Powered by Meta NLLB AI Technology"
 - **界面元素**: "Message *", "OR"

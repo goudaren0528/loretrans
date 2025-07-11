@@ -85,7 +85,7 @@ Loretrans是专门针对小语种翻译的AI平台
 - 不存储用户数据，保护隐私
 - 专门优化小语种翻译，优于Google翻译
 
-访问：https://loretrans.app
+访问：https://loretrans.com
 ```
 
 #### **查询2**: "NLLB翻译模型怎么样？"
@@ -123,7 +123,7 @@ Loretrans使用NLLB-200模型，为20+小语种提供翻译服务，
 - 90%+翻译准确率
 - 支持文档翻译
 
-访问：https://loretrans.app
+访问：https://loretrans.com
 ```
 
 ## 📊 AI搜索优化效果监控

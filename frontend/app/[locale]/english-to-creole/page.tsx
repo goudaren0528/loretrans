@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Haitian Creole Translation - Free AI Translator',
     description: 'Translate English to English instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-creole',
+    url: 'https://loretrans.com/english-to-creole',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to English instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-creole',
+    canonical: 'https://loretrans.com/english-to-creole',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToHaitianCreolePage() {
           "@type": "WebApplication",
           "name": "English to Haitian Creole Translator",
           "description": "Free AI-powered English to Haitian Creole translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-creole",
+          "url": "https://loretrans.com/english-to-creole",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

@@ -29,7 +29,7 @@
       "comparison": {
         "google": {
           "title": "Google翻译",
-          "description": "小语种覆盖不足"
+          "description": "对低资源语言支持有限"
         },
         "loretrans": {
           "title": "Loretrans",
@@ -439,11 +439,11 @@
       "quick_contact": {
         "title": "快速联系",
         "email_support": "电子邮件支持",
-        "email_address": "支持@loretrans.app",
+        "email_address": "支持@loretrans.com",
         "response_time": "应对24小时内",
         "live_chat": "现场聊天",
         "live_chat_status": "很快就会出现",
-        "live_chat_eta": "预计将于2024年第二季度推出",
+        "live_chat_eta": "预计将于2025年第二季度推出",
         "support_hours_title": "支持时间",
         "support_hours_days": "月 - 星期五",
         "support_hours_time": "时间:上午9点至下午6点"
@@ -684,12 +684,12 @@
       "contact_support": "联系支持",
       "api_docs": "应用程序文件",
       "contact_us": "联系我们",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 在线支持",
       "contact_form": "联系表单",
       "view_all_languages": "查看全部 →",
       "telugu_language": "泰卢固语",
-      "copyright": "© 2024 转载所有权利保留.",
+      "copyright": "© 2025 转载所有权利保留.",
       "powered_by": "通过Meta NLLB AI技术提供支持"
     }
   },

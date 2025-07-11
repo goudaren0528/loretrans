@@ -31,31 +31,32 @@ interface DocumentTranslatorProps {
 
 // 支持的小语种列表（与文本翻译保持一致）
 const SUPPORTED_SOURCE_LANGUAGES = [
-  { code: 'zh', name: '中文 (Chinese)', flag: '🇨🇳' },
-  { code: 'ja', name: '日本語 (Japanese)', flag: '🇯🇵' },
-  { code: 'ko', name: '한국어 (Korean)', flag: '🇰🇷' },
-  { code: 'fr', name: 'Français (French)', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch (German)', flag: '🇩🇪' },
-  { code: 'es', name: 'Español (Spanish)', flag: '🇪🇸' },
-  { code: 'it', name: 'Italiano (Italian)', flag: '🇮🇹' },
-  { code: 'pt', name: 'Português (Portuguese)', flag: '🇵🇹' },
-  { code: 'ru', name: 'Русский (Russian)', flag: '🇷🇺' },
-  { code: 'ar', name: 'العربية (Arabic)', flag: '🇸🇦' },
-  { code: 'hi', name: 'हिन्दी (Hindi)', flag: '🇮🇳' },
-  { code: 'th', name: 'ไทย (Thai)', flag: '🇹🇭' },
-  { code: 'vi', name: 'Tiếng Việt (Vietnamese)', flag: '🇻🇳' },
-  { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
-  { code: 'ms', name: 'Bahasa Melayu (Malay)', flag: '🇲🇾' },
-  { code: 'tl', name: 'Filipino (Tagalog)', flag: '🇵🇭' },
-  { code: 'sw', name: 'Kiswahili (Swahili)', flag: '🇰🇪' },
   { code: 'am', name: 'አማርኛ (Amharic)', flag: '🇪🇹' },
-  { code: 'my', name: 'မြန်မာ (Myanmar)', flag: '🇲🇲' },
+  { code: 'ar', name: 'العربية (Arabic)', flag: '🇸🇦' },
+  { code: 'my', name: 'မြန်မာ (Burmese)', flag: '🇲🇲' },
+  { code: 'zh', name: '中文 (Chinese)', flag: '🇨🇳' },
+  { code: 'fr', name: 'Français (French)', flag: '🇫🇷' },
+  { code: 'ht', name: 'Kreyòl Ayisyen (Haitian Creole)', flag: '🇭🇹' },
+  { code: 'ha', name: 'Hausa (Hausa)', flag: '🇳🇬' },
+  { code: 'hi', name: 'हिन्दी (Hindi)', flag: '🇮🇳' },
+  { code: 'ig', name: 'Igbo (Igbo)', flag: '🇳🇬' },
   { code: 'km', name: 'ខ្មែរ (Khmer)', flag: '🇰🇭' },
+  { code: 'ky', name: 'Кыргызча (Kyrgyz)', flag: '🇰🇬' },
   { code: 'lo', name: 'ລາວ (Lao)', flag: '🇱🇦' },
-  { code: 'si', name: 'සිංහල (Sinhala)', flag: '🇱🇰' },
+  { code: 'mg', name: 'Malagasy (Malagasy)', flag: '🇲🇬' },
+  { code: 'mn', name: 'Монгол (Mongolian)', flag: '🇲🇳' },
   { code: 'ne', name: 'नेपाली (Nepali)', flag: '🇳🇵' },
-  { code: 'bn', name: 'বাংলা (Bengali)', flag: '🇧🇩' },
-  { code: 'ur', name: 'اردو (Urdu)', flag: '🇵🇰' },
+  { code: 'ps', name: 'پښتو (Pashto)', flag: '🇦🇫' },
+  { code: 'pt', name: 'Português (Portuguese)', flag: '🇵🇹' },
+  { code: 'sd', name: 'سنڌي (Sindhi)', flag: '🇵🇰' },
+  { code: 'si', name: 'සිංහල (Sinhala)', flag: '🇱🇰' },
+  { code: 'es', name: 'Español (Spanish)', flag: '🇪🇸' },
+  { code: 'sw', name: 'Kiswahili (Swahili)', flag: '🇰🇪' },
+  { code: 'tg', name: 'Тоҷикӣ (Tajik)', flag: '🇹🇯' },
+  { code: 'te', name: 'తెలుగు (Telugu)', flag: '🇮🇳' },
+  { code: 'xh', name: 'isiXhosa (Xhosa)', flag: '🇿🇦' },
+  { code: 'yo', name: 'Yorùbá (Yoruba)', flag: '🇳🇬' },
+  { code: 'zu', name: 'isiZulu (Zulu)', flag: '🇿🇦' }
 ]
 
 // 目标语言固定为英文
@@ -585,7 +586,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                   <Button
                     onClick={() => handleTranslate(sourceLanguage, TARGET_LANGUAGE.code)}
                     disabled={!uploadState.uploadResult.canProceed}
-                    className="flex-1"
+                    className="flex-shrink-0"
                   >
                     {t('analysis.start_translation')}
                   </Button>
@@ -637,7 +638,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     <Button 
                       onClick={downloadTranslationResult} 
                       disabled={!(translationState.result as any)?.translatedText}
-                      className="w-full"
+                      className="w-auto max-w-full"
                     >
                       <Download className="h-4 w-4 mr-2" />
                       {t('translation.download_result')}

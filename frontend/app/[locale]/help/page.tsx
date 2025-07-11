@@ -387,7 +387,7 @@ export default function HelpPage() {
                 Contact Support
               </a>
               <a
-                href="mailto:support@loretrans.app"
+                href="mailto:support@loretrans.com"
                 className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
               >
                 Email Us Directly

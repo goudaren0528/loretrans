@@ -39,7 +39,7 @@
       "badge": "ການແປພາສາແບບມືອາຊີບທີ່ມີແຫຼ່ງທີ່ ຫນ້ອຍ • ພາສາທີ່ Google Translate ບໍ່ກວມເອົາ",
       "comparison": {
         "google": {
-          "description": "ບໍ່ມີການສະຫນັບສະຫນູນພາສາທີ່ມີຊັບພະຍາກອນຕ່ໍາ",
+          "description": "ການສະຫນັບສະຫນູນທີ່ຈຳກັດສຳລັບພາສາທີ່ມີຊັບພະຍາກອນຕ່ຳ",
           "title": "Google Translate"
         },
         "loretrans": {
@@ -430,11 +430,11 @@
       "quick_contact": {
         "title": "ຕິດຕໍ່ຫາໄວໆ",
         "email_support": "ການສະຫນັບສະຫນູນອີເມວ",
-        "email_address": "support@loretrans.app",
+        "email_address": "support@loretrans.com",
         "response_time": "ຕອບພາຍໃນ 24 ຊົ່ວໂມງ",
         "live_chat": "ສົນທະນາສົດ",
         "live_chat_status": "ຈະມີໃນໄວໆນີ້",
-        "live_chat_eta": "ຈະມາຮອດໃນໄຕມາດທີ 2 ຂອງປີ 2024",
+        "live_chat_eta": "ຈະມາຮອດໃນໄຕມາດທີ 2 ຂອງປີ 2025",
         "support_hours_title": "ເວລາສະຫນັບສະຫນູນ",
         "support_hours_days": "ວັນຈັນ - ວັນສຸກ",
         "support_hours_time": "9:00 AM - 6:00 PM UTC"
@@ -691,10 +691,10 @@
       "faq": "FAQ",
       "contact_support": "ການຕິດຕໍ່ສະຫນັບສະຫນູນ",
       "api_docs": "ເອກະສານ API",
-      "copyright": "© 2024 Loretrans. ສິດທັງ ຫມົດ ແມ່ນສະຫງວນ.",
+      "copyright": "© 2025 Loretrans. ສິດທັງ ຫມົດ ແມ່ນສະຫງວນ.",
       "powered_by": "Powered by Meta NLLB AI Technology",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

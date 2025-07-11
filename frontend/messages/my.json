@@ -39,7 +39,7 @@
       "badge": "Professional Low-Resource Language Translation • Google Translate က မဖုံးအုပ်တဲ့ ဘာသာစကားများ",
       "comparison": {
         "google": {
-          "description": "အရင်းအမြစ်နည်းသော ဘာသာစကားများအတွက် ထောက်ပံ့မှုမရှိပါ",
+          "description": "အရင်းအမြစ်နည်းသောဘာသာစကားများအတွက် ကန့်သတ်ထားသောပံ့ပိုးမှု",
           "title": "Google Translate ကို သုံးပါ။"
         },
         "loretrans": {
@@ -668,7 +668,7 @@
       "copyright": "ဘာသာပြန်ရန်လိုအပ်သည်",
       "powered_by": "ဘာသာပြန်ရန်လိုအပ်သည်",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

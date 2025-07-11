@@ -21,23 +21,27 @@ export async function generateMetadata({
   const protocol = headersList.get('x-forwarded-proto') || 'http';
   const baseUrl = `${protocol}://${host}`;
   
+  // For production, use the correct domain
+  const productionBaseUrl = 'https://loretrans.com';
+  const canonicalBaseUrl = host.includes('localhost') ? productionBaseUrl : baseUrl;
+  
   // Generate alternate language URLs
   const alternates: Record<string, string> = {};
   locales.forEach(loc => {
-    alternates[loc] = `${baseUrl}/${loc}`;
+    alternates[loc] = `${canonicalBaseUrl}/${loc}`;
   });
 
   return {
-    title: 'Loretrans - AI Translation for Low-Resource Languages',
-    description: 'Professional AI-powered translation for 20+ low-resource languages to English. Fast, accurate, and SEO-friendly.',
+    title: 'Loretrans - Free AI Low-Resource Language Translator',
+    description: 'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology.',
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
+      canonical: locale === 'en' ? canonicalBaseUrl : `${canonicalBaseUrl}/${locale}`,
       languages: alternates
     },
     openGraph: {
-      title: 'Loretrans - AI Translation Platform',
-      description: 'Professional translation for low-resource languages',
-      url: `${baseUrl}/${locale}`,
+      title: 'Loretrans - Free AI Low-Resource Language Translator',
+      description: 'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English.',
+      url: locale === 'en' ? canonicalBaseUrl : `${canonicalBaseUrl}/${locale}`,
       siteName: 'Loretrans',
       locale: locale,
       type: 'website',

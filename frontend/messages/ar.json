@@ -39,7 +39,7 @@
       "badge": "ترجمة لغة محترفة ذات موارد قليلة • اللغات التي لا تغطيها ترجمة جوجل",
       "comparison": {
         "google": {
-          "description": "لا يوجد دعم لغة ذات موارد منخفضة",
+          "description": "دعم محدود للغات ذات الموارد المحدودة",
           "title": "ترجمة جوجل"
         },
         "loretrans": {
@@ -395,11 +395,11 @@
       "quick_contact": {
         "title": "الاتصال السريع",
         "email_support": "دعم البريد الإلكتروني",
-        "email_address": "support@loretrans.app",
+        "email_address": "support@loretrans.com",
         "response_time": "الرد خلال 24 ساعة",
         "live_chat": "دردشة مباشرة",
         "live_chat_status": "متاحة قريباً",
-        "live_chat_eta": "قادمة في الربع الثاني من عام 2024",
+        "live_chat_eta": "قادمة في الربع الثاني من عام 2025",
         "support_hours_title": "ساعات الدعم",
         "support_hours_days": "الإثنين - الجمعة",
         "support_hours_time": "9: 00 صباحاً - 6: 00 مساءً بالتوقيت العالمي"
@@ -656,10 +656,10 @@
       "faq": "أسئلة شائعة",
       "contact_support": "دعم الاتصال",
       "api_docs": "وثائق واجهة برمجة التطبيقات",
-      "copyright": "© 2024 ترانسلي. جميع الحقوق محجوزة.",
+      "copyright": "© 2025 ترانسلي. جميع الحقوق محجوزة.",
       "powered_by": "مدعومة من قبل تقنية Meta NLLB AI",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

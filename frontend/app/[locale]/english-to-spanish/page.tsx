@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Spanish Translation - Free AI Translator',
     description: 'Translate English to Spanish (Español) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-spanish',
+    url: 'https://loretrans.com/english-to-spanish',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Spanish (Español) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-spanish',
+    canonical: 'https://loretrans.com/english-to-spanish',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToSpanishPage() {
           "@type": "WebApplication",
           "name": "English to Spanish Translator",
           "description": "Free AI-powered English to Spanish translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-spanish",
+          "url": "https://loretrans.com/english-to-spanish",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

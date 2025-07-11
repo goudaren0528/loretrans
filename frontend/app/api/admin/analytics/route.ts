@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     }
 
     // 检查管理员权限（简化版本）
-    const adminEmails = ['admin@loretrans.app', 'support@loretrans.app']
+    const adminEmails = ['admin@loretrans.com', 'support@loretrans.com']
     if (!adminEmails.includes(user.email || '')) {
       return NextResponse.json(
         { error: '权限不足' },

@@ -2,23 +2,33 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // NLLB语言代码映射
 const NLLB_LANGUAGE_MAP: Record<string, string> = {
-  'ht': 'hat_Latn', // Haitian Creole
-  'lo': 'lao_Laoo', // Lao
-  'sw': 'swh_Latn', // Swahili
-  'my': 'mya_Mymr', // Burmese
-  'te': 'tel_Telu', // Telugu
-  'si': 'sin_Sinh', // Sinhala
   'am': 'amh_Ethi', // Amharic
-  'km': 'khm_Khmr', // Khmer
-  'ne': 'npi_Deva', // Nepali
-  'mg': 'plt_Latn', // Malagasy
-  'en': 'eng_Latn', // English
-  'zh': 'zho_Hans', // Chinese (Simplified)
-  'fr': 'fra_Latn', // French
-  'es': 'spa_Latn', // Spanish
-  'pt': 'por_Latn', // Portuguese
   'ar': 'arb_Arab', // Arabic
+  'en': 'eng_Latn', // English
+  'es': 'spa_Latn', // Spanish
+  'fr': 'fra_Latn', // French
+  'ha': 'hau_Latn', // Hausa
   'hi': 'hin_Deva', // Hindi
+  'ht': 'hat_Latn', // Haitian Creole
+  'ig': 'ibo_Latn', // Igbo
+  'km': 'khm_Khmr', // Khmer
+  'ky': 'kir_Cyrl', // Kyrgyz
+  'lo': 'lao_Laoo', // Lao
+  'mg': 'plt_Latn', // Malagasy
+  'mn': 'khk_Cyrl', // Mongolian
+  'my': 'mya_Mymr', // Burmese
+  'ne': 'npi_Deva', // Nepali
+  'ps': 'pbt_Arab', // Pashto
+  'pt': 'por_Latn', // Portuguese
+  'sd': 'snd_Arab', // Sindhi
+  'si': 'sin_Sinh', // Sinhala
+  'sw': 'swh_Latn', // Swahili
+  'te': 'tel_Telu', // Telugu
+  'tg': 'tgk_Cyrl', // Tajik
+  'xh': 'xho_Latn', // Xhosa
+  'yo': 'yor_Latn', // Yoruba
+  'zh': 'zho_Hans', // Chinese
+  'zu': 'zul_Latn', // Zulu
 };
 
 // 获取NLLB格式的语言代码

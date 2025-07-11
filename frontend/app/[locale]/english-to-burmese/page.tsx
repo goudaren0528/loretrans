@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Burmese Translation - Free AI Translator',
     description: 'Translate English to Burmese (မြန်မာ) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-burmese',
+    url: 'https://loretrans.com/english-to-burmese',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Burmese (မြန်မာ) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-burmese',
+    canonical: 'https://loretrans.com/english-to-burmese',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToBurmesePage() {
           "@type": "WebApplication",
           "name": "English to Burmese Translator",
           "description": "Free AI-powered English to Burmese translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-burmese",
+          "url": "https://loretrans.com/english-to-burmese",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

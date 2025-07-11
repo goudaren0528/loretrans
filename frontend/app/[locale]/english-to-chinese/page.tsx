@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Chinese Translation - Free AI Translator',
     description: 'Translate English to Chinese (中文) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-chinese',
+    url: 'https://loretrans.com/english-to-chinese',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Chinese (中文) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-chinese',
+    canonical: 'https://loretrans.com/english-to-chinese',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToChinesePage() {
           "@type": "WebApplication",
           "name": "English to Chinese Translator",
           "description": "Free AI-powered English to Chinese translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-chinese",
+          "url": "https://loretrans.com/english-to-chinese",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

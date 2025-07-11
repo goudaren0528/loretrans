@@ -106,4 +106,4 @@ cd frontend && npm run dev
 # English to Telugu: http://localhost:3000/english-to-telugu
 ```
 
-生成时间: 7/8/2025, 7:30:14 PM
+生成时间: 7/11/2025, 11:08:36 AM

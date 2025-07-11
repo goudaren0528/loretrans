@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/your-repo/loretrans)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/your-repo/loretrans/actions)
-[![Health Check](https://img.shields.io/badge/health-check-passing-brightgreen.svg)](https://loretrans.app/api/health)
+[![Health Check](https://img.shields.io/badge/health-check-passing-brightgreen.svg)](https://loretrans.com/api/health)
 
 ## 📋 目录
 
@@ -783,7 +783,7 @@ chore(deps): update dependencies
 ## 📞 联系我们
 
 - 📧 邮箱: Loretrans@proton.me
-- 🌐 网站: https://loretrans.app
+- 🌐 网站: https://loretrans.com
 - 📱 Twitter: [@LoretransApp](https://twitter.com/LoretransApp)
 - 💬 Discord: [Loretrans Community](https://discord.gg/loretrans)
 

@@ -39,7 +39,7 @@
       "badge": "వృత్తిపరమైన తక్కువ వనరుల భాషా అనువాదం • Google అనువాదాన్ని కవర్ చేయని భాషలు",
       "comparison": {
         "google": {
-          "description": "తక్కువ వనరుల భాషా మద్దతు లేదు",
+          "description": "తక్కువ వనరుల భాషలకు పరిమిత మద్దతు",
           "title": "గూగుల్ అనువాదం"
         },
         "loretrans": {
@@ -661,7 +661,7 @@
       "copyright": "అనువాదం అవసరం",
       "powered_by": "అనువాదం అవసరం",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

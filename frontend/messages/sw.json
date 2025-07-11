@@ -39,7 +39,7 @@
       "badge": "Professional Low-Resource Lugha Tafsiri • Lugha Google Tafsuri haina kufunika",
       "comparison": {
         "google": {
-          "description": "Hakuna msaada wa lugha ya rasilimali ndogo",
+          "description": "Msaada mdogo kwa lugha za rasilimali chache",
           "title": "Google Tafsiri"
         },
         "loretrans": {
@@ -669,7 +669,7 @@
       "copyright": "Chini ya ukurasa",
       "powered_by": "Chini ya ukurasa",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

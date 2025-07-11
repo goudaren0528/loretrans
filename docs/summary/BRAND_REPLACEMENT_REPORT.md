@@ -54,9 +54,9 @@
 - ✅ API 文档
 
 ### 5. 邮箱地址更新
-- ✅ `support@transly.app` → `support@loretrans.app`
-- ✅ `admin@transly.app` → `admin@loretrans.app`
-- ✅ `noreply@transly.app` → `noreply@loretrans.app`
+- ✅ `support@transly.app` → `support@loretrans.com`
+- ✅ `admin@transly.app` → `admin@loretrans.com`
+- ✅ `noreply@transly.app` → `noreply@loretrans.com`
 
 ## 清理工作
 - ✅ 删除了旧的测试覆盖率文件 (`coverage/` 目录)

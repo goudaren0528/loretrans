@@ -15,14 +15,14 @@ const structuredData = {
   "@type": "WebPage",
   "name": "Privacy Policy",
   "description": "Loretrans Privacy Policy and data protection practices",
-  "url": "https://loretrans.app/privacy",
+  "url": "https://loretrans.com/privacy",
   "mainEntity": {
     "@type": "PrivacyPolicy",
     "name": "Loretrans Privacy Policy",
     "provider": {
       "@type": "Organization",
       "name": "Loretrans",
-      "url": "https://loretrans.app"
+      "url": "https://loretrans.com"
     }
   }
 }
@@ -275,8 +275,8 @@ export default function PrivacyPage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-medium">Privacy Officer</p>
-                <p>Email: privacy@loretrans.app</p>
-                <p>Website: https://loretrans.app</p>
+                <p>Email: privacy@loretrans.com</p>
+                <p>Website: https://loretrans.com</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   We will respond to privacy inquiries within 30 days.
                 </p>

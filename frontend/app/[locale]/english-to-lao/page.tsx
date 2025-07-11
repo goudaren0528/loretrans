@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Lao Translation - Free AI Translator',
     description: 'Translate English to Lao (ລາວ) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-lao',
+    url: 'https://loretrans.com/english-to-lao',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Lao (ລາວ) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-lao',
+    canonical: 'https://loretrans.com/english-to-lao',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToLaoPage() {
           "@type": "WebApplication",
           "name": "English to Lao Translator",
           "description": "Free AI-powered English to Lao translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-lao",
+          "url": "https://loretrans.com/english-to-lao",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

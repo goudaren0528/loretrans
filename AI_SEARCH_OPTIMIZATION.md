@@ -8,7 +8,7 @@
 
 ### 文件位置
 - **路径**: `/public/llm.txt`
-- **访问**: https://loretrans.app/llm.txt
+- **访问**: https://loretrans.com/llm.txt
 - **目的**: 为AI搜索引擎提供结构化的网站信息
 
 ### 文件内容结构
@@ -133,7 +133,7 @@ AI理想回答：
 - 支持文档翻译
 - 不存储用户数据，保护隐私
 
-访问地址：https://loretrans.app"
+访问地址：https://loretrans.com"
 ```
 
 ### 关键信息要素

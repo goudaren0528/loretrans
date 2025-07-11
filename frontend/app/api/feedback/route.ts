@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
 async function sendFeedbackNotification(feedback: any) {
   // 这里可以集成邮件服务，如Resend
   const emailData = {
-    to: 'support@loretrans.app',
+    to: 'support@loretrans.com',
     subject: `新的${feedback.type === 'bug' ? '问题报告' : '负面反馈'} - ${feedback.type}`,
     html: `
       <h2>新的用户反馈</h2>

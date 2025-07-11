@@ -4,9 +4,10 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { getFreeCharacterLimit, getMaxTextInputLimit } from '@/lib/config';
+import { TranslationNavButtons } from '@/components/translation-nav-buttons';
 
 // 文本翻译专用 FAQ 组件
-function TextTranslateFAQ() {
+function TextTranslateFAQ({ locale }: { locale: string }) {
   const t = useTranslations('TextTranslatePage');
   const freeCharLimit = getFreeCharacterLimit();
   const maxInputLimit = getMaxTextInputLimit();
@@ -99,7 +100,7 @@ function TextTranslateFAQ() {
               {t('contact.still_have_questions')}
             </p>
             <a
-              href="mailto:support@loretrans.app"
+              href="mailto:support@loretrans.com"
               className="font-medium text-blue-600 hover:text-blue-500"
             >
               {t('contact.contact_support')}
@@ -174,12 +175,15 @@ export function TextTranslateClient({ locale }: TextTranslateClientProps) {
       {/* Enhanced Translation Interface */}
       <section className="relative py-8">
         <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto mb-8">
+            <TranslationNavButtons currentPage="text" locale={locale} />
+          </div>
           <EnhancedTextTranslator className="mx-auto max-w-6xl" />
         </div>
       </section>
 
       {/* FAQ Section */}
-      <TextTranslateFAQ />
+      <TextTranslateFAQ locale={locale} />
     </div>
   );
 }

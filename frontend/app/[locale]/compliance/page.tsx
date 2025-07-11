@@ -15,11 +15,11 @@ const structuredData = {
   "@type": "WebPage",
   "name": "Compliance Statement",
   "description": "Loretrans Compliance Statement and regulatory adherence",
-  "url": "https://loretrans.app/compliance",
+  "url": "https://loretrans.com/compliance",
   "mainEntity": {
     "@type": "Organization",
     "name": "Loretrans",
-    "url": "https://loretrans.app",
+    "url": "https://loretrans.com",
     "compliance": [
       "GDPR",
       "CCPA",
@@ -124,9 +124,9 @@ export default function CompliancePage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-medium">Compliance Officer</p>
-                <p>Email: compliance@loretrans.app</p>
-                <p>Data Protection Officer: dpo@loretrans.app</p>
-                <p>Website: https://loretrans.app</p>
+                <p>Email: compliance@loretrans.com</p>
+                <p>Data Protection Officer: dpo@loretrans.com</p>
+                <p>Website: https://loretrans.com</p>
               </div>
             </section>
           </div>

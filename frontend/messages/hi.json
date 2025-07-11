@@ -39,7 +39,7 @@
       "badge": "कम संसाधन वाली भाषा अनुवाद • भाषाएँ Google अनुवाद नहीं कवर करती हैं",
       "comparison": {
         "google": {
-          "description": "कम संसाधन वाली भाषा का समर्थन नहीं",
+          "description": "कम संसाधन भाषाओं के लिए सीमित समर्थन",
           "title": "गूगल अनुवाद करें"
         },
         "loretrans": {
@@ -402,11 +402,11 @@
       "quick_contact": {
         "title": "त्वरित संपर्क",
         "email_support": "ईमेल सहायता",
-        "email_address": "support@loretrans.app",
+        "email_address": "support@loretrans.com",
         "response_time": "24 घंटे के भीतर प्रतिक्रिया",
         "live_chat": "लाइव चैट",
         "live_chat_status": "जल्द उपलब्ध",
-        "live_chat_eta": "2024 की दूसरी तिमाही में आ रहा है",
+        "live_chat_eta": "2025 की दूसरी तिमाही में आ रहा है",
         "support_hours_title": "सहायता के घंटे",
         "support_hours_days": "सोमवार-शुक्रवार",
         "support_hours_time": "सुबह 9:00 बजे से शाम 6:00 बजे तक"
@@ -663,10 +663,10 @@
       "faq": "अक्सर पूछे जाने वाले प्रश्न",
       "contact_support": "संपर्क सहायता",
       "api_docs": "एपीआई प्रलेखन",
-      "copyright": "© 2024 ट्रांसली. सभी अधिकार सुरक्षित हैं.",
+      "copyright": "© 2025 ट्रांसली. सभी अधिकार सुरक्षित हैं.",
       "powered_by": "मेटा एनएलएलबी एआई प्रौद्योगिकी द्वारा संचालित",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

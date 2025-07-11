@@ -14,21 +14,27 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Loretrans - Translate Low-Resource Languages to English',
-    template: '%s | Loretrans',
+    default: 'Loretrans - Free AI Low-Resource Language Translator',
+    template: '%s',
   },
   description:
-    'Free AI-powered translation tool for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.',
+    'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology.',
   keywords: [
-    'translation',
-    'AI',
+    'free translator',
+    'AI translation',
     'low-resource languages',
-    'English',
-    'NLLB',
+    'English translation',
+    'NLLB translator',
     'creole translator',
     'swahili translator',
     'burmese translator',
     'lao translator',
+    'minority languages',
+    'underrepresented languages',
+    'neural machine translation',
+    'multilingual AI',
+    'language technology',
+    'free translation tool',
   ],
   authors: [{ name: 'Loretrans Team' }],
   creator: 'Loretrans Team',
@@ -38,17 +44,17 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://loretrans.app'),
+  metadataBase: new URL('https://loretrans.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://loretrans.app',
-    title: 'Loretrans - Translate Low-Resource Languages to English',
+    url: 'https://loretrans.com',
+    title: 'Loretrans - Free AI Low-Resource Language Translator',
     description:
-      'Free AI-powered translation tool for 20+ low-resource languages.',
+      'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English.',
     siteName: 'Loretrans',
     images: [
       {
@@ -61,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Loretrans - Translate Low-Resource Languages to English',
+    title: 'Loretrans - Free AI Low-Resource Language Translator',
     description:
-      'Free AI-powered translation tool for 20+ low-resource languages.',
+      'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English.',
     images: ['/images/og-image.png'],
     creator: '@LoretransApp',
   },

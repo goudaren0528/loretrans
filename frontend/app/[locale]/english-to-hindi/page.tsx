@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Hindi Translation - Free AI Translator',
     description: 'Translate English to Hindi (हिन्दी) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-hindi',
+    url: 'https://loretrans.com/english-to-hindi',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Hindi (हिन्दी) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-hindi',
+    canonical: 'https://loretrans.com/english-to-hindi',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToHindiPage() {
           "@type": "WebApplication",
           "name": "English to Hindi Translator",
           "description": "Free AI-powered English to Hindi translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-hindi",
+          "url": "https://loretrans.com/english-to-hindi",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

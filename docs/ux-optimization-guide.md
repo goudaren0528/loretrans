@@ -365,7 +365,7 @@ interface ErrorRecoveryData {
 ## 📞 支持和反馈
 
 如有问题或建议，请联系开发团队：
-- 📧 Email: dev@loretrans.app
+- 📧 Email: dev@loretrans.com
 - 💬 GitHub Issues: [项目仓库]
 - 📱 微信群: [开发者群]
 

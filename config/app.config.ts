@@ -5,7 +5,7 @@ export const APP_CONFIG = {
     description: 'Translate Low-Resource Languages to English',
     version: '1.0.0',
     author: 'Loretrans Team',
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://loretrans.app',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://loretrans.com',
   },
 
   // 支持的语言配置
@@ -304,7 +304,7 @@ export const APP_CONFIG = {
         name: 'Pashto', 
         nativeName: 'پښتو', 
         slug: 'pashto',
-        available: false, // 即将支持
+        available: true, // 即将支持
         bidirectional: false,
         priority: 4,
         region: 'South Asia',
@@ -315,7 +315,7 @@ export const APP_CONFIG = {
         name: 'Sindhi', 
         nativeName: 'سنڌي', 
         slug: 'sindhi',
-        available: false,
+        available: true,
         bidirectional: false,
         priority: 4,
         region: 'South Asia',
@@ -413,7 +413,7 @@ export const APP_CONFIG = {
   email: {
     provider: process.env.EMAIL_PROVIDER || 'resend',
     apiKey: process.env.RESEND_API_KEY || '',
-    from: process.env.EMAIL_FROM || 'noreply@loretrans.app',
+    from: process.env.EMAIL_FROM || 'noreply@loretrans.com',
   },
 
   // Creem支付配置 - 简化为单一API密钥模式

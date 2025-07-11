@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Swahili Translation - Free AI Translator',
     description: 'Translate English to Swahili (Kiswahili) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-swahili',
+    url: 'https://loretrans.com/english-to-swahili',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Swahili (Kiswahili) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-swahili',
+    canonical: 'https://loretrans.com/english-to-swahili',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToSwahiliPage() {
           "@type": "WebApplication",
           "name": "English to Swahili Translator",
           "description": "Free AI-powered English to Swahili translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-swahili",
+          "url": "https://loretrans.com/english-to-swahili",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

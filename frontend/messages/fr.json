@@ -39,7 +39,7 @@
       "badge": "Traduction professionnelle de langues à faible consommation de ressources • Langues que Google Translate ne couvre pas",
       "comparison": {
         "google": {
-          "description": "Aucun support pour les langues peu utilisées",
+          "description": "Support limité pour les langues à faibles ressources",
           "title": "Je suis en train de lire."
         },
         "loretrans": {
@@ -297,10 +297,10 @@
       "faq": "FAQ",
       "contact_support": "Contacter le Support",
       "api_docs": "Documentation de l'API",
-      "copyright": "© 2024 Loretrans. Tous droits réservés.",
+      "copyright": "© 2025 Loretrans. Tous droits réservés.",
       "powered_by": "Propulsé par la Technologie IA de Meta NLLB",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
@@ -716,7 +716,7 @@
         "response_time": "Réponse sous 24 heures",
         "live_chat": "Chat en Direct",
         "live_chat_status": "Disponible bientôt",
-        "live_chat_eta": "Disponible au Q2 2024",
+        "live_chat_eta": "Disponible au Q2 2025",
         "support_hours_title": "Heures de Support",
         "support_hours_days": "Lundi - Vendredi",
         "support_hours_time": "9h00 à 18h00 UTC"

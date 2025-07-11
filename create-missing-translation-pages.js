@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to ${name} Translation - Free AI Translator',
     description: 'Translate English to ${name} (${nativeName}) instantly with AI. Free, accurate, and easy to use.',
-    url: 'https://loretrans.app/english-to-${slug}',
+    url: 'https://loretrans.com/english-to-${slug}',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     description: 'Translate English to ${name} (${nativeName}) instantly with AI. Free, accurate, and easy to use.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-${slug}',
+    canonical: 'https://loretrans.com/english-to-${slug}',
   },
 }
 
@@ -147,7 +147,7 @@ export default function EnglishTo${name}Page() {
           "@type": "WebApplication",
           "name": "English to ${name} Translator",
           "description": "Free AI-powered English to ${name} translation tool",
-          "url": "https://loretrans.app/english-to-${slug}",
+          "url": "https://loretrans.com/english-to-${slug}",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

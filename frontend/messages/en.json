@@ -18,8 +18,8 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - AI Translator for Low-Resource Languages",
-      "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
+      "title": "Loretrans - Free AI Low-Resource Language Translator",
+      "description": "Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology."
     },
     "hero": {
       "badge": "Professional Low-Resource Language Translation • Languages Google Translate Doesn't Cover",
@@ -30,7 +30,7 @@
       "comparison": {
         "google": {
           "title": "Google Translate",
-          "description": "No low-resource language support"
+          "description": "Limited support for low-resource languages"
         },
         "loretrans": {
           "title": "Loretrans",
@@ -437,11 +437,11 @@
       "quick_contact": {
         "title": "Quick Contact",
         "email_support": "Email Support",
-        "email_address": "support@loretrans.app",
+        "email_address": "support@loretrans.com",
         "response_time": "Response within 24 hours",
         "live_chat": "Live Chat",
         "live_chat_status": "Available soon",
-        "live_chat_eta": "Coming in Q2 2024",
+        "live_chat_eta": "Coming in Q2 2025",
         "support_hours_title": "Support Hours",
         "support_hours_days": "Monday - Friday",
         "support_hours_time": "9:00 AM - 6:00 PM UTC"
@@ -676,12 +676,12 @@
       "contact_support": "Contact Support",
       "api_docs": "API Documentation",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
       "telugu_language": "Telugu",
-      "copyright": "© 2024 Loretrans. All rights reserved.",
+      "copyright": "© 2025 Loretrans. All rights reserved.",
       "powered_by": "Powered by Meta NLLB AI Technology"
     }
   },

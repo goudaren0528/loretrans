@@ -39,7 +39,7 @@
       "badge": "Pwofesyonèl Tradiksyon Lang ki ba resous • Lang Google Translate pa kouvri",
       "comparison": {
         "google": {
-          "description": "Pa gen sipò pou lang ki gen ti resous",
+          "description": "Sipò limite pou lang ki gen resous limite yo",
           "title": "Google tradui"
         },
         "loretrans": {
@@ -662,7 +662,7 @@
       "copyright": "Anba paj",
       "powered_by": "Anba paj",
       "contact_us": "Contact Us",
-      "support_email": "support@loretrans.app",
+      "support_email": "support@loretrans.com",
       "support_24_7": "24/7 Online Support",
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",

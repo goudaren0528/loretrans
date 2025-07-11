@@ -32,8 +32,8 @@ export async function GET(request: NextRequest) {
     // 检查用户是否为管理员
     // 方法1: 检查特定邮箱
     const adminEmails = [
-      'admin@loretrans.app',
-      'support@loretrans.app',
+      'admin@loretrans.com',
+      'support@loretrans.com',
       // 在这里添加管理员邮箱
     ]
     

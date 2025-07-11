@@ -303,7 +303,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Loretrans. All rights reserved.</p>
+          <p>&copy; 2025 Loretrans. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Arabic Translation - Free AI Translator',
     description: 'Translate English to Arabic (العربية) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-arabic',
+    url: 'https://loretrans.com/english-to-arabic',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Arabic (العربية) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-arabic',
+    canonical: 'https://loretrans.com/english-to-arabic',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToArabicPage() {
           "@type": "WebApplication",
           "name": "English to Arabic Translator",
           "description": "Free AI-powered English to Arabic translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-arabic",
+          "url": "https://loretrans.com/english-to-arabic",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

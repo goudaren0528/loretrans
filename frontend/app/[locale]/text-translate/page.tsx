@@ -27,7 +27,7 @@ export async function generateMetadata({
     openGraph: {
       title: t('title'),
       description: t('description'),
-      url: `https://loretrans.app/${locale}/text-translate`,
+      url: `https://loretrans.com/${locale}/text-translate`,
       type: 'website',
       images: ['/images/og-image.png'],
     },

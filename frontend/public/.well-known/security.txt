@@ -1,0 +1,6 @@
+Contact: mailto:security@loretrans.com
+Contact: https://loretrans.com/en/contact
+Expires: 2025-12-31T23:59:59.000Z
+Acknowledgments: https://loretrans.com/en/about
+Preferred-Languages: en
+Canonical: https://loretrans.com/.well-known/security.txt

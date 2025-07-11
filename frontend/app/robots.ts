@@ -8,27 +8,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
-          '/auth/',
-          '/dashboard/',
-          '/checkout/',
-          '/_next/',
-          '/admin/',
+          '/en/admin/',
+          '/en/dashboard/',
+          '/en/auth/',
         ],
       },
-      {
-        userAgent: 'GPTBot',
-        disallow: '/',
-      },
-      {
-        userAgent: 'ChatGPT-User',
-        disallow: '/',
-      },
-      {
-        userAgent: 'CCBot',
-        disallow: '/',
-      },
     ],
-    sitemap: 'https://loretrans.app/sitemap.xml',
-    host: 'https://loretrans.app',
+    sitemap: 'https://loretrans.com/sitemap.xml',
   }
 }

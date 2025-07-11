@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Telugu Translation - Free AI Translator',
     description: 'Translate English to Telugu (తెలుగు) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-telugu',
+    url: 'https://loretrans.com/english-to-telugu',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Telugu (తెలుగు) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-telugu',
+    canonical: 'https://loretrans.com/english-to-telugu',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToTeluguPage() {
           "@type": "WebApplication",
           "name": "English to Telugu Translator",
           "description": "Free AI-powered English to Telugu translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-telugu",
+          "url": "https://loretrans.com/english-to-telugu",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

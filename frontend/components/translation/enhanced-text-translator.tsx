@@ -40,16 +40,33 @@ interface EnhancedTextTranslatorProps {
 
 // 支持的语言列表
 const SUPPORTED_LANGUAGES = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ht', name: 'Haitian Creole', flag: '🇭🇹' },
-  { code: 'lo', name: 'Lao', flag: '🇱🇦' },
-  { code: 'sw', name: 'Swahili', flag: '🇰🇪' },
+  { code: 'am', name: 'Amharic', flag: '🇪🇹' },
+  { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
   { code: 'my', name: 'Burmese', flag: '🇲🇲' },
-  { code: 'te', name: 'Telugu', flag: '🇮🇳' },
   { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
+  { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'fr', name: 'French', flag: '🇫🇷' },
-  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+  { code: 'ht', name: 'Haitian Creole', flag: '🇭🇹' },
+  { code: 'ha', name: 'Hausa', flag: '🇳🇬' },
+  { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
+  { code: 'ig', name: 'Igbo', flag: '🇳🇬' },
+  { code: 'km', name: 'Khmer', flag: '🇰🇭' },
+  { code: 'ky', name: 'Kyrgyz', flag: '🇰🇬' },
+  { code: 'lo', name: 'Lao', flag: '🇱🇦' },
+  { code: 'mg', name: 'Malagasy', flag: '🇲🇬' },
+  { code: 'mn', name: 'Mongolian', flag: '🇲🇳' },
+  { code: 'ne', name: 'Nepali', flag: '🇳🇵' },
+  { code: 'ps', name: 'Pashto', flag: '🇦🇫' },
   { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
+  { code: 'sd', name: 'Sindhi', flag: '🇵🇰' },
+  { code: 'si', name: 'Sinhala', flag: '🇱🇰' },
+  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+  { code: 'sw', name: 'Swahili', flag: '🇰🇪' },
+  { code: 'tg', name: 'Tajik', flag: '🇹🇯' },
+  { code: 'te', name: 'Telugu', flag: '🇮🇳' },
+  { code: 'xh', name: 'Xhosa', flag: '🇿🇦' },
+  { code: 'yo', name: 'Yoruba', flag: '🇳🇬' },
+  { code: 'zu', name: 'Zulu', flag: '🇿🇦' }
 ]
 
 export function EnhancedTextTranslator({ 

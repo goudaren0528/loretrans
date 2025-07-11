@@ -24,7 +24,7 @@ export const StructuredDataTemplates = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Loretrans - AI Translation Tool",
-    "url": "https://loretrans.app",
+    "url": "https://loretrans.com",
     "description": "Professional translation for low-resource languages to English using AI technology.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web",
@@ -38,7 +38,7 @@ export const StructuredDataTemplates = {
     "provider": {
       "@type": "Organization",
       "name": "Loretrans",
-      "url": "https://loretrans.app"
+      "url": "https://loretrans.com"
     },
     "featureList": [
       "AI-powered translation",
@@ -56,7 +56,7 @@ export const StructuredDataTemplates = {
     "provider": {
       "@type": "Organization",
       "name": "Loretrans",
-      "url": "https://loretrans.app"
+      "url": "https://loretrans.com"
     },
     "description": `Professional AI-powered translation from ${sourceLanguage} to ${targetLanguage}`,
     "serviceType": "Translation Service",
@@ -98,10 +98,10 @@ export const StructuredDataTemplates = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Loretrans",
-    "url": "https://loretrans.app",
-    "logo": "https://loretrans.app/logo.png",
+    "url": "https://loretrans.com",
+    "logo": "https://loretrans.com/logo.png",
     "description": "Professional translation platform for low-resource languages powered by AI technology.",
-    "foundingDate": "2024",
+    "foundingDate": "2025",
     "sameAs": [
       "https://twitter.com/LoretransApp",
       "https://github.com/loretrans-app"

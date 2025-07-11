@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to Portuguese Translation - Free AI Translator',
     description: 'Translate English to Portuguese (Português) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-portuguese',
+    url: 'https://loretrans.com/english-to-portuguese',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to Portuguese (Português) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-portuguese',
+    canonical: 'https://loretrans.com/english-to-portuguese',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToPortuguesePage() {
           "@type": "WebApplication",
           "name": "English to Portuguese Translator",
           "description": "Free AI-powered English to Portuguese translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-portuguese",
+          "url": "https://loretrans.com/english-to-portuguese",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

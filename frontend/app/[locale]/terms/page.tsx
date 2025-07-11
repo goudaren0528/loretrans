@@ -15,14 +15,14 @@ const structuredData = {
   "@type": "WebPage",
   "name": "Terms of Service",
   "description": "Loretrans Terms of Service and legal agreement",
-  "url": "https://loretrans.app/terms",
+  "url": "https://loretrans.com/terms",
   "mainEntity": {
     "@type": "TermsOfService",
     "name": "Loretrans Terms of Service",
     "provider": {
       "@type": "Organization",
       "name": "Loretrans",
-      "url": "https://loretrans.app"
+      "url": "https://loretrans.com"
     }
   }
 }
@@ -227,8 +227,8 @@ export default function TermsPage() {
               </p>
               <div className="bg-muted p-4 rounded-lg">
                 <p className="font-medium">Loretrans Support</p>
-                <p>Email: legal@loretrans.app</p>
-                <p>Website: https://loretrans.app</p>
+                <p>Email: legal@loretrans.com</p>
+                <p>Website: https://loretrans.com</p>
               </div>
             </section>
 

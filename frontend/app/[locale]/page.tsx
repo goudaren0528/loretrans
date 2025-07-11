@@ -35,7 +35,7 @@ export async function generateMetadata({
     openGraph: {
       title: t('meta.title'),
       description: t('meta.description'),
-      url: `https://loretrans.app/${locale}`,
+      url: `https://loretrans.com/${locale}`,
       type: 'website',
       images: ['/images/og-image.png'],
       siteName: 'Loretrans',

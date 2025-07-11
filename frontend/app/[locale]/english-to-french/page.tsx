@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'English to French Translation - Free AI Translator',
     description: 'Translate English to French (Français) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.app/english-to-french',
+    url: 'https://loretrans.com/english-to-french',
     siteName: 'Loretrans',
     locale: 'en_US',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Translate English to French (Français) instantly with AI. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.app/english-to-french',
+    canonical: 'https://loretrans.com/english-to-french',
   },
 }
 
@@ -104,7 +104,7 @@ export default function EnglishToFrenchPage() {
           "@type": "WebApplication",
           "name": "English to French Translator",
           "description": "Free AI-powered English to French translation tool with queue processing and translation history",
-          "url": "https://loretrans.app/english-to-french",
+          "url": "https://loretrans.com/english-to-french",
           "applicationCategory": "TranslationApplication",
           "operatingSystem": "Any",
           "offers": {

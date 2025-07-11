@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   description: 'Free AI-powered translation tool for 20+ low-resource languages...',
   keywords: [...], // ✅ 相关关键词
-  metadataBase: new URL('https://loretrans.app'), // ✅ 正确的base URL
+  metadataBase: new URL('https://loretrans.com'), // ✅ 正确的base URL
   openGraph: {...}, // ✅ 完整的OG标签
   twitter: {...}, // ✅ Twitter Cards
   robots: {...}, // ✅ 搜索引擎指令
@@ -123,7 +123,7 @@ export const metadata: Metadata = {
   keywords: ['Haitian Creole to English translation', ...],
   openGraph: {...},
   twitter: {...},
-  alternates: { canonical: 'https://loretrans.app/creole-to-english' }
+  alternates: { canonical: 'https://loretrans.com/creole-to-english' }
 }
 ```
 
@@ -184,7 +184,7 @@ export async function generateMetadata({
     openGraph: {
       title: 'Free Text Translation - AI Translator',
       description: 'Translate 20+ low-resource languages to English instantly',
-      url: `https://loretrans.app/${locale}/text-translate`,
+      url: `https://loretrans.com/${locale}/text-translate`,
       type: 'website'
     },
     alternates: {
@@ -210,7 +210,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/auth/', '/dashboard/']
     },
-    sitemap: 'https://loretrans.app/sitemap.xml'
+    sitemap: 'https://loretrans.com/sitemap.xml'
   }
 }
 ```
@@ -223,7 +223,7 @@ export default function robots(): MetadataRoute.Robots {
 openGraph: {
   title: t('meta.title'),
   description: t('meta.description'),
-  url: `https://loretrans.app/${locale}`,
+  url: `https://loretrans.com/${locale}`,
   type: 'website',
   images: ['/images/og-image.png']
 },

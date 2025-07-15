@@ -1,4 +1,73 @@
 const fastify = require('fastify')({ logger: true })
+// 获取文档信息路由
+fastify.get('/api/documents/:documentId', async (request, reply) => {
+  try {
+    const { documentId } = request.params
+    
+    console.log(`[Document API] 请求文档: ${documentId}`)
+    
+    // 查找文档文件
+    const uploadsDir = path.join(__dirname, '../uploads')
+    const files = await fs.readdir(uploadsDir)
+    
+    // 查找匹配的文件（文档ID可能是文件名的一部分）
+    let foundFile = null
+    for (const file of files) {
+      if (file.includes(documentId) || documentId.includes(file.split('.')[0])) {
+        foundFile = file
+        break
+      }
+    }
+    
+    if (!foundFile) {
+      console.log(`[Document API] 文档未找到: ${documentId}`)
+      console.log(`[Document API] 可用文件列表: ${files.slice(0, 5).join(', ')}...`)
+      
+      reply.code(404)
+      return {
+        success: false,
+        error: {
+          code: 'DOCUMENT_NOT_FOUND',
+          message: '文档不存在或已过期',
+          documentId: documentId,
+          availableFiles: files.length
+        }
+      }
+    }
+    
+    const filePath = path.join(uploadsDir, foundFile)
+    const stats = await fs.stat(filePath)
+    const content = await fs.readFile(filePath, 'utf8')
+    
+    console.log(`[Document API] 文档找到: ${foundFile}, 大小: ${stats.size} bytes`)
+    
+    return {
+      success: true,
+      data: {
+        id: documentId,
+        fileName: foundFile,
+        content: content,
+        size: stats.size,
+        lastModified: stats.mtime,
+        type: path.extname(foundFile).substring(1)
+      }
+    }
+    
+  } catch (error) {
+    console.error(`[Document API] 错误: ${error.message}`)
+    fastify.log.error(error)
+    reply.code(500)
+    return {
+      success: false,
+      error: {
+        code: 'DOCUMENT_FETCH_ERROR',
+        message: '获取文档失败',
+        details: error.message
+      }
+    }
+  }
+})
+
 const path = require('path')
 const fs = require('fs-extra')
 const { TranslationService } = require('./translation-service')
@@ -720,7 +789,7 @@ async function start() {
     await registerPlugins()
     
     const host = process.env.HOST || '0.0.0.0'
-    const port = process.env.PORT || 8000
+    const port = process.env.PORT || 3010
     
     await fastify.listen({ host, port })
     console.log(`📄 File Processor service running on http://${host}:${port}`)

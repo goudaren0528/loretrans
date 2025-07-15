@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积分同步测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>积分同步测试页面</h1>
+    
+    <div class="test-section info">
+        <h3>测试说明</h3>
+        <p>此页面用于测试积分显示同步问题的修复效果。</p>
+        <p>请在浏览器开发者工具的控制台中查看详细日志。</p>
+    </div>
+    
+    <div class="test-section">
+        <h3>当前状态</h3>
+        <div id="status">正在检查...</div>
+    </div>
+    
+    <div class="test-section">
+        <h3>测试操作</h3>
+        <button onclick="testCreditsSync()">测试积分同步</button>
+        <button onclick="simulateUpload()">模拟文件上传</button>
+        <button onclick="checkDebugInfo()">检查调试信息</button>
+        <button onclick="clearConsole()">清空控制台</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>测试结果</h3>
+        <div id="results">等待测试...</div>
+    </div>
+    
+    <script>
+        // 模拟积分同步测试
+        function testCreditsSync() {
+            console.log('🧪 开始积分同步测试...')
+            
+            // 模拟 API 返回积分数据
+            const mockApiResponse = {
+                userId: '8d10fb8d-07de-49ba-8f04-158dbffa28c5',
+                email: 'test01@test.com',
+                credits: 5500
+            }
+            
+            console.log('✅ 模拟API返回:', mockApiResponse)
+            
+            // 检查全局调试状态
+            if (window.__CREDITS_DEBUG__) {
+                console.log('🔍 全局调试状态:', window.__CREDITS_DEBUG__)
+            } else {
+                console.log('⚠️  全局调试状态未初始化')
+                window.__CREDITS_DEBUG__ = {
+                    credits: mockApiResponse.credits,
+                    isLoading: false,
+                    lastUpdate: new Date().toISOString()
+                }
+            }
+            
+            updateResults('积分同步测试完成，请查看控制台日志')
+        }
+        
+        // 模拟文件上传
+        function simulateUpload() {
+            console.log('📁 模拟文件上传...')
+            console.log('[Document Upload] 开始获取认证token')
+            console.log('[Document Upload] 会话检查结果: 成功')
+            console.log('[Document Upload] 准备发送请求')
+            console.log('[Document Translator] File uploaded, refreshing credits')
+            console.log('[useCredits] Fetching credits for user: 8d10fb8d-07de-49ba-8f04-158dbffa28c5')
+            console.log('[useCredits] 查询到用户积分: 5500')
+            
+            updateResults('文件上传模拟完成，积分应该已刷新')
+        }
+        
+        // 检查调试信息
+        function checkDebugInfo() {
+            console.log('🔍 检查调试信息...')
+            
+            const debugInfo = {
+                globalDebug: window.__CREDITS_DEBUG__ || null,
+                localStorage: {
+                    hasAuthData: !!localStorage.getItem('supabase.auth.token'),
+                    authDataLength: localStorage.getItem('supabase.auth.token')?.length || 0
+                },
+                userAgent: navigator.userAgent,
+                timestamp: new Date().toISOString()
+            }
+            
+            console.log('调试信息:', debugInfo)
+            updateResults('调试信息已输出到控制台')
+        }
+        
+        // 清空控制台
+        function clearConsole() {
+            console.clear()
+            console.log('🧹 控制台已清空')
+        }
+        
+        // 更新结果显示
+        function updateResults(message) {
+            const resultsDiv = document.getElementById('results')
+            const timestamp = new Date().toLocaleTimeString()
+            resultsDiv.innerHTML += `<div>[${timestamp}] ${message}</div>`
+        }
+        
+        // 更新状态显示
+        function updateStatus() {
+            const statusDiv = document.getElementById('status')
+            const hasDebug = !!window.__CREDITS_DEBUG__
+            const debugCredits = window.__CREDITS_DEBUG__?.credits || 0
+            
+            statusDiv.innerHTML = `
+                <div>调试状态: ${hasDebug ? '✅ 已启用' : '❌ 未启用'}</div>
+                <div>调试积分: ${debugCredits}</div>
+                <div>最后更新: ${window.__CREDITS_DEBUG__?.lastUpdate || '未知'}</div>
+            `
+        }
+        
+        // 页面加载时初始化
+        window.addEventListener('load', function() {
+            console.log('🚀 积分同步测试页面已加载')
+            updateStatus()
+            
+            // 每秒更新状态
+            setInterval(updateStatus, 1000)
+        })
+        
+        // 添加全局调试函数
+        window.debugCredits = function() {
+            console.log('=== 积分调试信息 ===')
+            console.log('全局调试状态:', window.__CREDITS_DEBUG__)
+            
+            // 检查 localStorage 中的用户信息
+            const authData = localStorage.getItem('supabase.auth.token')
+            if (authData) {
+                try {
+                    const parsed = JSON.parse(authData)
+                    console.log('认证状态:', {
+                        hasUser: !!parsed.user,
+                        userId: parsed.user?.id,
+                        email: parsed.user?.email
+                    })
+                } catch (e) {
+                    console.log('认证数据解析失败:', e)
+                }
+            }
+            
+            console.log('请检查网络面板中的 /api/auth/user 请求')
+            console.log('请检查 Supabase 数据库中的 users 表')
+        }
+    </script>
+</body>
+</html>

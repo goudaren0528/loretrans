@@ -7,8 +7,17 @@ async function uploadHandler(req: NextRequestWithUser) {
   try {
     const { user, role } = req.userContext
 
+    console.log('[Document Upload] 认证信息:', {
+      hasUser: !!user,
+      userId: user?.id,
+      userEmail: user?.email,
+      role: role,
+      timestamp: new Date().toISOString()
+    });
+
     // 检查用户权限
     if (!user) {
+      console.log('[Document Upload] 用户未认证');
       return NextResponse.json({
         error: '文档翻译需要登录账户',
         code: 'AUTH_REQUIRED',
@@ -20,15 +29,24 @@ async function uploadHandler(req: NextRequestWithUser) {
     const file = formData.get('file') as File
 
     if (!file) {
+      console.log('[Document Upload] 未提供文件');
       return NextResponse.json({
         error: '请选择要上传的文件',
         code: 'FILE_REQUIRED'
       }, { status: 400 })
     }
 
+    console.log('[Document Upload] 开始处理文件:', {
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: file.type,
+      userId: user.id
+    });
+
     // 验证文件
     const validation = validateFile(file, role)
     if (!validation.valid) {
+      console.log('[Document Upload] 文件验证失败:', validation.error);
       return NextResponse.json({
         error: validation.error,
         code: 'FILE_VALIDATION_ERROR'
@@ -37,12 +55,13 @@ async function uploadHandler(req: NextRequestWithUser) {
 
     // 获取文件信息
     const fileInfo = getFileInfo(file)
-    console.log(`Processing file: ${fileInfo.name} (${fileInfo.sizeFormatted}) for user: ${user.id}`)
+    console.log(`[Document Upload] 处理文件: ${fileInfo.name} (${fileInfo.sizeFormatted}) for user: ${user.id}`)
 
     // 处理文件并提取文本
     const processingResult = await processFile(file)
 
     if (!processingResult.success) {
+      console.log('[Document Upload] 文件处理失败:', processingResult.error);
       return NextResponse.json({
         error: processingResult.error || '文件处理失败',
         code: 'FILE_PROCESSING_ERROR',
@@ -58,6 +77,7 @@ async function uploadHandler(req: NextRequestWithUser) {
 
     // 验证提取的文本长度
     if (characterCount! < 10) {
+      console.log('[Document Upload] 提取文本过少:', characterCount);
       return NextResponse.json({
         error: '提取的文本内容过少，请检查文档是否包含足够的文本',
         code: 'INSUFFICIENT_TEXT_CONTENT'
@@ -68,48 +88,51 @@ async function uploadHandler(req: NextRequestWithUser) {
     const creditService = createServerCreditService()
     const calculation = creditService.calculateCreditsRequired(characterCount!)
 
-    // 直接查询用户积分表，避免服务器端认证问题
+    console.log('[Document Upload] 积分计算:', {
+      characterCount: characterCount,
+      creditsRequired: calculation.credits_required,
+      userId: user.id
+    });
+
+    // 查询用户积分 - 使用服务端客户端确保RLS正确应用
     let userCredits = 0
     try {
       const { createSupabaseServerClient } = await import('@/lib/supabase')
       const supabase = createSupabaseServerClient()
       
-      console.log('[Document Upload Credit Check]', {
-        userId: user.id,
-        characterCount,
-        creditsRequired: calculation.credits_required
-      })
-      
-      // 查询users表的credits字段
-      const { data: userData, error: userError } = await supabase
+      // 直接使用已认证的用户ID
+      const { data: userData, error: creditsError } = await supabase
         .from('users')
         .select('credits')
         .eq('id', user.id)
         .single()
       
-      if (userError) {
-        console.error('查询用户积分失败:', userError)
-        // 如果查询失败，尝试创建用户记录
-        const { data: insertData, error: insertError } = await supabase
-          .from('users')
-          .insert({ 
-            id: user.id, 
-            email: user.email || '',
-            credits: 500 
-          })
-          .select('credits')
-          .single()
-        
-        if (!insertError && insertData) {
-          userCredits = insertData.credits
-          console.log('创建新用户积分记录:', userCredits)
+      if (creditsError && creditsError.code !== 'PGRST116') {
+        console.error('[Document Upload] 查询用户积分失败:', creditsError)
+        // 如果是新用户，创建积分记录
+        if (creditsError.code === 'PGRST116') {
+          const { data: insertData, error: insertError } = await supabase
+            .from('users')
+            .insert([{ 
+              id: user.id, 
+              email: user.email,
+              credits: 3000 
+            }])
+            .select('credits')
+            .single()
+          
+          if (!insertError && insertData) {
+            userCredits = insertData.credits
+            console.log('[Document Upload] 创建新用户积分记录:', userCredits)
+          }
         }
       } else if (userData) {
         userCredits = userData.credits
-        console.log('查询到用户积分:', userCredits)
+        console.log('[Document Upload] 查询到用户积分:', userCredits)
       }
     } catch (error) {
-      console.error('积分查询异常:', error)
+      console.error('[Document Upload] 积分查询异常:', error)
+      userCredits = 0
     }
 
     const hasEnoughCredits = userCredits >= calculation.credits_required
@@ -136,7 +159,7 @@ async function uploadHandler(req: NextRequestWithUser) {
     cleanupExpiredCache()
 
     // 记录处理日志
-    console.log(`File processed successfully: ${fileId}, characters: ${characterCount}, credits required: ${calculation.credits_required}`)
+    console.log(`[Document Upload] 文件处理成功: ${fileId}, characters: ${characterCount}, credits required: ${calculation.credits_required}`)
 
     return NextResponse.json({
       success: true,
@@ -149,6 +172,14 @@ async function uploadHandler(req: NextRequestWithUser) {
       userCredits,
       hasEnoughCredits,
       canProceed: calculation.credits_required === 0 || hasEnoughCredits,
+      // 添加调试信息
+      debug: {
+        userId: user.id,
+        creditsRequired: calculation.credits_required,
+        userCredits: userCredits,
+        hasEnoughCredits: hasEnoughCredits,
+        timestamp: new Date().toISOString()
+      },
       processingTime: metadata!.processingTime,
       fileType: metadata!.fileType,
       message: hasEnoughCredits ? 
@@ -157,7 +188,7 @@ async function uploadHandler(req: NextRequestWithUser) {
     })
 
   } catch (error) {
-    console.error('Document upload error:', error)
+    console.error('[Document Upload] 处理错误:', error)
     
     // 根据错误类型返回不同的错误信息
     let errorMessage = '文档处理失败，请重试'
@@ -205,7 +236,7 @@ function cleanupExpiredCache() {
   }
   
   if (cleanedCount > 0) {
-    console.log(`Cleaned up ${cleanedCount} expired cache entries`)
+    console.log(`[Document Upload] 清理了 ${cleanedCount} 个过期缓存项`)
   }
   
   // 如果缓存过大，清理最旧的项目
@@ -218,7 +249,7 @@ function cleanupExpiredCache() {
       ;(global as any).documentCache.delete(entries[i][0])
     }
     
-    console.log('Cleaned up oldest cache entries due to size limit')
+    console.log('[Document Upload] 由于大小限制清理了最旧的缓存项')
   }
 }
 

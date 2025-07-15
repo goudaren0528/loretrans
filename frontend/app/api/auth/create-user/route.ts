@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
         id: userId,
         email: email,
         email_verified: false,
-        credits: 500,
+        credits: 3000,
         role: 'free_user'
       })
       .select()
@@ -82,8 +82,8 @@ export async function POST(request: NextRequest) {
       .insert({
         user_id: userId,
         type: 'reward',
-        amount: 500,
-        balance: 500,
+        amount: 3000,
+        balance: 3000,
         description: 'Welcome bonus'
       })
 

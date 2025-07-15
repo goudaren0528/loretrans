@@ -281,7 +281,7 @@ class AuthService {
         return null
       }
 
-      return await this.getUserData(user.id)
+      return await this.getUserData(user.id, user.email)
     } catch (error) {
       console.error('Get current user error:', error)
       return null
@@ -359,10 +359,18 @@ class AuthService {
           await new Promise(resolve => setTimeout(resolve, 2000))
         }
         
-        const userData = await this.getUserData(session.user.id)
+        const userData = await this.getUserData(session.user.id, session.user.email)
         
         if (userData) {
           callback(userData)
+          
+          // 主动触发积分刷新
+          setTimeout(() => {
+            if (typeof window !== 'undefined' && window.__CREDITS_REFRESH__) {
+              console.log('[Auth] 触发积分刷新')
+              window.__CREDITS_REFRESH__()
+            }
+          }, 1000)
         } else {
           // 如果获取用户数据失败，但认证成功，使用基本信息
           console.warn('Failed to fetch user data, but auth was successful')
@@ -427,7 +435,7 @@ class AuthService {
   /**
    * 获取完整用户数据（使用API端点获取，绕过RLS限制）
    */
-  private async getUserData(userId: string): Promise<AuthUser | null> {
+  private async getUserData(userId: string, userEmail?: string): Promise<AuthUser | null> {
     if (!this.isReady()) {
       return null
     }
@@ -495,7 +503,12 @@ class AuthService {
         
         // 如果直接查询也没有数据，可能是触发器还没执行完
         // 尝试手动创建用户记录
-        console.log('🔄 尝试手动创建用户记录...')
+        console.log('🔄 尝试手动创建用户记录...', { 
+  userId, 
+  email: userEmail, 
+  actualEmail: userEmail || 'MISSING_EMAIL',
+  sessionEmail: 'from_session'
+})
         try {
           const createResponse = await fetch('/api/auth/create-user', {
             method: 'POST',
@@ -504,7 +517,7 @@ class AuthService {
             },
             body: JSON.stringify({
               userId: userId,
-              email: 'unknown@example.com', // 临时邮箱，实际会被覆盖
+              email: userEmail || 'unknown@example.com', // 使用实际邮箱
               name: 'User'
             }),
           })

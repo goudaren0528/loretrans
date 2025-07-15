@@ -30,6 +30,29 @@ const nextConfig = {
       'regenerator-runtime': require.resolve('regenerator-runtime'),
     };
     
+    // Fix Supabase module resolution
+    config.externals = config.externals || [];
+    if (isServer) {
+      config.externals.push({
+        '@supabase/supabase-js': '@supabase/supabase-js'
+      });
+    }
+    
+    // Optimize chunks to avoid vendor chunk issues
+    config.optimization = config.optimization || {};
+    config.optimization.splitChunks = {
+      ...config.optimization.splitChunks,
+      cacheGroups: {
+        ...config.optimization.splitChunks?.cacheGroups,
+        supabase: {
+          test: /[\/]node_modules[\/]@supabase[\/]/,
+          name: 'supabase',
+          chunks: 'all',
+          priority: 10,
+        },
+      },
+    };
+    
     return config;
   },
   
@@ -84,7 +107,9 @@ const nextConfig = {
   // 实验性功能
   experimental: {
     // 启用服务器组件
-    serverComponentsExternalPackages: ['sharp'],
+    serverComponentsExternalPackages: ['sharp', '@supabase/supabase-js'],
+    // 修复模块解析问题
+    esmExternals: 'loose',
   },
   
   // 图片配置

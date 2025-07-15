@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -89,7 +89,16 @@ interface TranslationResult {
 
 export function DocumentTranslator({ className }: DocumentTranslatorProps) {
   const { user } = useAuth()
-  const { credits, refreshCredits } = useCredits()
+
+  const { credits, refreshCredits, isLoading: creditsLoading } = useCredits()
+  
+  // 添加本地积分状态以确保实时更新
+  const [localCredits, setLocalCredits] = useState<number>(credits)
+  
+  // 同步全局积分状态到本地状态
+  useEffect(() => {
+    setLocalCredits(credits)
+  }, [credits])
   const router = useRouter()
   const t = useTranslations('DocumentTranslator')
 
@@ -105,6 +114,9 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
     uploadResult: null,
     error: null
   })
+
+
+  
 
   const [translationState, setTranslationState] = useState<{
     isTranslating: boolean
@@ -145,28 +157,71 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       // 获取认证token
       let headers: Record<string, string> = {}
       
+      console.log('[Document Upload] 开始获取认证token', {
+        hasUser: !!user,
+        userId: user?.id,
+        userEmail: user?.email
+      });
+      
       if (user) {
         try {
           const { createSupabaseBrowserClient } = await import('@/lib/supabase')
           const supabase = createSupabaseBrowserClient()
-          const { data: { session } } = await supabase.auth.getSession()
           
-          console.log('[Document Upload Auth]', {
-            hasUser: !!user,
+          // 先检查当前会话
+          const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+          
+          console.log('[Document Upload] 会话检查结果:', {
             hasSession: !!session,
             hasAccessToken: !!session?.access_token,
+            sessionError: sessionError,
+            tokenLength: session?.access_token?.length,
             tokenPreview: session?.access_token?.substring(0, 20) + '...'
-          })
+          });
           
-          if (session?.access_token) {
-            headers['Authorization'] = `Bearer ${session.access_token}`
+          if (sessionError) {
+            console.error('[Document Upload] 获取会话失败:', sessionError);
+            // 尝试刷新会话
+            const { data: refreshData, error: refreshError } = await supabase.auth.refreshSession();
+            if (refreshError) {
+              console.error('[Document Upload] 刷新会话失败:', refreshError);
+              throw new Error('会话已过期，请重新登录');
+            } else if (refreshData.session?.access_token) {
+              headers['Authorization'] = `Bearer ${refreshData.session.access_token}`;
+              console.log('[Document Upload] 使用刷新后的token');
+            }
+          } else if (session?.access_token) {
+            headers['Authorization'] = `Bearer ${session.access_token}`;
+            console.log('[Document Upload] 使用当前会话token');
           } else {
-            console.warn('No access token available for document upload')
+            console.warn('[Document Upload] 没有可用的访问token');
+            throw new Error('无法获取认证token，请重新登录');
           }
         } catch (error) {
-          console.error('Failed to get auth token for document upload:', error)
+          console.error('[Document Upload] 获取认证token失败:', error);
+          toast({
+            title: '认证失败',
+            description: '请重新登录后再试',
+            variant: "destructive",
+          });
+          router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname));
+          return;
         }
+      } else {
+        console.error('[Document Upload] 用户未登录');
+        toast({
+          title: t('auth_required.title'),
+          description: t('auth_required.description'),
+          variant: "destructive",
+        });
+        router.push('/auth/signin?redirect=' + encodeURIComponent(window.location.pathname));
+        return;
       }
+
+      console.log('[Document Upload] 准备发送请求', {
+        hasAuthHeader: !!headers['Authorization'],
+        headerCount: Object.keys(headers).length
+      });
 
       const response = await fetch('/api/document/upload', {
         method: 'POST',
@@ -209,26 +264,56 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
   const handleTranslate = useCallback(async (sourceLanguage: string, targetLanguage: string) => {
     if (!uploadState.uploadResult || !user) return
 
+    // 等待积分加载完成
+    if (creditsLoading) {
+      console.log('[Document Translation] Waiting for credits to load...')
+      toast({
+        title: '正在加载积分信息...',
+        description: '请稍候',
+        variant: "default",
+      })
+      return
+    }
+
+    // 强制刷新积分以确保最新状态
+    const updatedCredits = await refreshCredits()
+    if (typeof updatedCredits === 'number') {
+      setLocalCredits(updatedCredits)
+      console.log('[Document Translation] Credits updated:', updatedCredits)
+    }
+
     const { fileId, characterCount, creditCalculation } = uploadState.uploadResult
 
     // 实时检查积分余额，不依赖上传时的数据
     console.log('[Document Translation] Real-time credit check', {
       characterCount,
       creditsRequired: creditCalculation.credits_required,
-      currentCredits: credits
+      currentCredits: credits,
+      creditsLoading,
+      userId: user.id,
+      timestamp: new Date().toISOString()
     })
 
-    // 如果需要积分但积分不足
-    if (creditCalculation.credits_required > 0 && credits < creditCalculation.credits_required) {
+    // 如果需要积分但积分不足 - 使用实时积分检查
+    console.log('[Document Translation] Real-time credit check', {
+      required: creditCalculation.credits_required,
+      localCredits: localCredits,
+      globalCredits: credits,
+      uploadResultCredits: uploadState.uploadResult.userCredits,
+      timestamp: new Date().toISOString()
+    })
+    
+    if (creditCalculation.credits_required > 0 && localCredits < creditCalculation.credits_required) {
       console.log('[Document Translation] Insufficient credits', {
         required: creditCalculation.credits_required,
-        available: credits
+        available: localCredits,
+        globalCredits: credits
       })
       
       toast({
         title: t('analysis.insufficient_credits', { 
           required: creditCalculation.credits_required, 
-          current: credits 
+          current: localCredits 
         }),
         description: t('analysis.recharge_now'),
         variant: "destructive",
@@ -311,7 +396,11 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       })
 
       // 刷新积分余额
-      await refreshCredits()
+      const updatedCredits = await refreshCredits()
+      if (typeof updatedCredits === 'number') {
+        setLocalCredits(updatedCredits)
+        console.log('[Document Translation] Credits refreshed after completion:', updatedCredits)
+      }
 
       toast({
         title: t('translation.completed'),
@@ -379,6 +468,27 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       description: t('translation.download_description', { filename: downloadFileName }),
     })
   }, [translationState.result, uploadState.uploadResult, t])
+
+  // 组件挂载时强制刷新积分
+  useEffect(() => {
+    if (user?.id) {
+      console.log('[Document Translator] Component mounted, refreshing credits for user:', user.id)
+      refreshCredits()
+    }
+  }, [user?.id, refreshCredits])
+
+  // 文件上传成功后刷新积分并同步状态
+  useEffect(() => {
+    if (uploadState.uploadResult && user?.id) {
+      console.log('[Document Translator] File uploaded, refreshing credits')
+      refreshCredits().then(updatedCredits => {
+        if (typeof updatedCredits === 'number') {
+          setLocalCredits(updatedCredits)
+          console.log('[Document Translator] Credits synced after upload:', updatedCredits)
+        }
+      })
+    }
+  }, [uploadState.uploadResult, user?.id, refreshCredits])
 
   const resetUpload = useCallback(() => {
     setUploadState({
@@ -516,13 +626,13 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     </div>
                   </div>
 
-                  {!uploadState.uploadResult.hasEnoughCredits && uploadState.uploadResult.creditCalculation.credits_required > 0 && (
+                  {uploadState.uploadResult.creditCalculation.credits_required > 0 && localCredits < uploadState.uploadResult.creditCalculation.credits_required && (
                     <Alert variant="destructive">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
                         {t('analysis.insufficient_credits', { 
                           required: uploadState.uploadResult.creditCalculation.credits_required,
-                          current: uploadState.uploadResult.userCredits
+                          current: localCredits
                         })}
                         <Button variant="link" className="p-0 h-auto ml-2" asChild>
                           <a href="/pricing">{t('analysis.recharge_now')}</a>
@@ -585,7 +695,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                 <div className="flex gap-3">
                   <Button
                     onClick={() => handleTranslate(sourceLanguage, TARGET_LANGUAGE.code)}
-                    disabled={!uploadState.uploadResult.canProceed}
+                    disabled={uploadState.uploadResult.creditCalculation.credits_required > 0 && localCredits < uploadState.uploadResult.creditCalculation.credits_required}
                     className="flex-shrink-0"
                   >
                     {t('analysis.start_translation')}

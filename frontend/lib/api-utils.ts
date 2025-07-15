@@ -195,26 +195,41 @@ type RoleCheck = UserRole | UserRole[]
  */
 export function withApiAuth(handler: AppRouterApiHandler, requiredRoles?: RoleCheck) {
   return async (req: NextRequest) => {
+    console.log('[API Auth] 开始认证检查:', {
+      method: req.method,
+      url: req.url,
+      timestamp: new Date().toISOString()
+    });
+
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
     if (!supabaseUrl || !supabaseAnonKey) {
+      console.error('[API Auth] Supabase配置缺失');
       return NextResponse.json({ error: 'API auth not configured' }, { status: 500 })
     }
     
     const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
     const authHeader = req.headers.get('authorization')
+    console.log('[API Auth] 认证头检查:', {
+      hasAuthHeader: !!authHeader,
+      headerFormat: authHeader?.startsWith('Bearer ') ? 'Bearer格式正确' : '格式错误或缺失',
+      headerLength: authHeader?.length
+    });
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      console.log('[API Auth] 认证失败: 缺少或格式错误的Authorization头');
       return NextResponse.json({ error: 'Unauthorized: No token provided' }, { status: 401 })
     }
 
     const jwt = authHeader.split(' ')[1]
 
     try {
-      const { data, error } = await supabase.auth.getUser(jwt)
+      console.log('[API Auth] 验证JWT token:', { tokenLength: jwt.length, tokenPreview: jwt.substring(0, 20) + '...' });
+    const { data, error } = await supabase.auth.getUser(jwt)
 
       if (error || !data.user) {
+        console.log('[API Auth] JWT验证失败:', { error: error?.message, hasUser: !!data.user });
         return NextResponse.json({ error: 'Unauthorized: Invalid token' }, { status: 401 })
       }
 

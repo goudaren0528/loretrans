@@ -20,7 +20,8 @@ const supabaseOptions = {
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: true,
-    flowType: 'pkce' as const
+    flowType: 'pkce' as const,
+    timeout: 60000
   },
   db: {
     schema: 'public'
@@ -31,7 +32,7 @@ const supabaseOptions = {
     }
   },
   realtime: {
-    timeout: 20000,
+    timeout: 30000,
     heartbeatIntervalMs: 30000
   }
 }
@@ -51,13 +52,35 @@ export const createSupabaseBrowserClient = () => {
   
   // 使用全局变量确保真正的单例
   if (!globalThis.__supabase_browser_client) {
-    globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
-      ...supabaseOptions,
-      auth: {
-        ...supabaseOptions.auth,
-        storageKey: 'loretrans-auth', // 使用唯一的存储键
-      }
-    })
+    try {
+      globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+        ...supabaseOptions,
+        auth: {
+          ...supabaseOptions.auth,
+          storageKey: 'loretrans-auth', // 使用唯一的存储键
+        }
+      })
+      
+      // 添加连接错误处理
+      globalThis.__supabase_browser_client.auth.onAuthStateChange((event, session) => {
+        if (event === 'SIGNED_OUT' && session === null) {
+          console.log('[Supabase] User signed out')
+        }
+        if (event === 'TOKEN_REFRESHED') {
+          console.log('[Supabase] Token refreshed successfully')
+        }
+      })
+      
+    } catch (error) {
+      console.error('[Supabase] Failed to create browser client:', error)
+      // 创建一个基本的客户端作为后备
+      globalThis.__supabase_browser_client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+        auth: {
+          autoRefreshToken: true,
+          persistSession: true
+        }
+      })
+    }
   }
   
   return globalThis.__supabase_browser_client
@@ -99,232 +122,19 @@ export const createSupabaseServerClient = (cookieStore?: any) => {
   })
 }
 
-// 服务角色客户端（用于后端管理操作）
+// 创建具有服务角色权限的客户端（用于管理操作）
 export const createSupabaseServiceClient = () => {
   if (!supabaseServiceKey) {
-    throw new Error('Service role key not configured')
+    throw new Error('Service role key is required for admin operations')
   }
   
   return createClient(supabaseUrl, supabaseServiceKey, {
     auth: {
       autoRefreshToken: false,
-      persistSession: false,
-    },
-    db: {
-      schema: 'public'
-    },
-    global: {
-      headers: {
-        'X-Client-Info': 'loretrans-service'
-      }
+      persistSession: false
     }
   })
 }
 
-// 通用客户端（用于非React环境）- 使用相同的单例
-export const supabase = createSupabaseBrowserClient()
-
-// 数据库类型定义
-export type Database = {
-  public: {
-    Tables: {
-      users: {
-        Row: {
-          id: string
-          email: string
-          email_verified: boolean
-          credits: number
-          role: 'admin' | 'pro_user' | 'free_user'
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id: string
-          email: string
-          email_verified?: boolean
-          credits?: number
-          role?: 'admin' | 'pro_user' | 'free_user'
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          email?: string
-          email_verified?: boolean
-          credits?: number
-          role?: 'admin' | 'pro_user' | 'free_user'
-          created_at?: string
-          updated_at?: string
-        }
-      }
-      user_profiles: {
-        Row: {
-          id: string
-          user_id: string
-          name: string | null
-          avatar_url: string | null
-          language: string
-          timezone: string
-          notification_preferences: any
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          name?: string | null
-          avatar_url?: string | null
-          language?: string
-          timezone?: string
-          notification_preferences?: any
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          name?: string | null
-          avatar_url?: string | null
-          language?: string
-          timezone?: string
-          notification_preferences?: any
-          created_at?: string
-          updated_at?: string
-        }
-      }
-      credit_transactions: {
-        Row: {
-          id: string
-          user_id: string
-          type: 'purchase' | 'consume' | 'reward' | 'refund'
-          amount: number
-          balance: number
-          description: string
-          metadata: any | null
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          type: 'purchase' | 'consume' | 'reward' | 'refund'
-          amount: number
-          balance: number
-          description: string
-          metadata?: any | null
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          type?: 'purchase' | 'consume' | 'reward' | 'refund'
-          amount?: number
-          balance?: number
-          description?: string
-          metadata?: any | null
-          created_at?: string
-        }
-      }
-      payments: {
-        Row: {
-          id: string
-          user_id: string
-          creem_payment_id: string
-          creem_session_id: string | null
-          amount: number
-          credits: number
-          status: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
-          payment_method: string | null
-          metadata: any | null
-          created_at: string
-          completed_at: string | null
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          creem_payment_id: string
-          creem_session_id?: string | null
-          amount: number
-          credits: number
-          status?: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
-          payment_method?: string | null
-          metadata?: any | null
-          created_at?: string
-          completed_at?: string | null
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          creem_payment_id?: string
-          creem_session_id?: string | null
-          amount?: number
-          credits?: number
-          status?: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
-          payment_method?: string | null
-          metadata?: any | null
-          created_at?: string
-          completed_at?: string | null
-        }
-      }
-      user_stats: {
-        Row: {
-          id: string
-          email: string
-          credits: number
-          created_at: string
-          name: string | null
-          language: string
-          total_consumed: number
-          total_purchased: number
-          total_payments: number
-          total_spent: number
-        }
-      }
-    }
-    Views: {
-      user_stats: {
-        Row: {
-          id: string
-          email: string
-          credits: number
-          created_at: string
-          name: string | null
-          language: string
-          total_consumed: number
-          total_purchased: number
-          total_payments: number
-          total_spent: number
-        }
-      }
-    }
-    Functions: {
-      consume_credits: {
-        Args: {
-          p_user_id: string
-          p_amount: number
-          p_description: string
-          p_metadata?: any
-        }
-        Returns: boolean
-      }
-      purchase_credits: {
-        Args: {
-          p_user_id: string
-          p_amount: number
-          p_payment_id: string
-          p_description?: string
-        }
-        Returns: boolean
-      }
-      get_user_credits: {
-        Args: {
-          p_user_id?: string
-        }
-        Returns: number
-      }
-    }
-    Enums: {
-      transaction_type: 'purchase' | 'consume' | 'reward' | 'refund'
-      payment_status: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
-    }
-  }
-} 
+// 导出配置常量
+export { supabaseUrl, supabaseAnonKey }

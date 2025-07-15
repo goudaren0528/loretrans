@@ -646,7 +646,9 @@
     },
     "contact": {
       "more_questions": "Have other questions?",
-      "contact_support": "Contact our support team"
+      "contact_support": "Contact our support team",
+      "still_have_questions": "Still have questions?",
+      "get_help": "Get help with your translation needs"
     }
   },
   "Layout": {
@@ -1429,7 +1431,11 @@
     "daily_limit_title": "Daily Limit Exceeded",
     "daily_limit_description": "You've reached your daily translation limit.",
     "translation_failed": "Translation Failed",
-    "text_too_long": "Text is too long. Maximum {max} characters allowed."
+    "text_too_long": "Text is too long. Maximum {max} characters allowed.",
+    "network_error": "Network error occurred",
+    "server_error": "Server error occurred",
+    "auth_error": "Authentication error",
+    "file_error": "File processing error"
   },
   "Feedback": {
     "feedback": "Feedback",
@@ -1515,5 +1521,18 @@
       "remember_me": "Remember me",
       "signup_text": "Sign up"
     }
+  },
+  "auth_required": {
+    "title": "Authentication Required",
+    "description": "Please sign in to use this feature",
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up"
+  },
+  "upload": {
+    "upload_success": "File uploaded successfully",
+    "upload_failed": "File upload failed",
+    "extracted_characters": "Extracted {count} characters",
+    "processing": "Processing file...",
+    "select_file": "Select a file to upload"
   }
 }

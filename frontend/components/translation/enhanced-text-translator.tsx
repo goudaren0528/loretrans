@@ -98,15 +98,28 @@ export function EnhancedTextTranslator({
   const canAfford = !user || credits >= costInfo.creditsRequired
   const needsLoginForQueue = willUseQueue && !user // 长文本需要登录
 
-  useEffect(() => {
+    useEffect(() => {
     // 监听任务更新
     const handleTaskUpdate = (event: CustomEvent<TranslationTask>) => {
       const task = event.detail
-      if (currentTask && task.id === currentTask.id) {
+      console.log('[Translator] 收到任务更新:', {
+        taskId: task.id,
+        currentTaskId: currentTask?.id,
+        status: task.status,
+        progress: task.progress,
+        hasTranslatedText: !!task.translatedText,
+        translatedText: task.translatedText?.substring(0, 50) + '...'
+      });
+      
+      // 如果没有当前任务，或者任务ID匹配，或者是同一个会话的任务，都处理更新
+      if (!currentTask || task.id === currentTask.id || 
+          (task.sessionId === sessionId && task.status !== 'pending')) {
         setCurrentTask(task)
         
-        if (task.status === 'completed' && task.translatedText) {
-          setTranslatedText(task.translatedText)
+        if (task.status === 'completed' && (task.translatedText || task.result)) {
+          const result = task.translatedText || task.result || '';
+          console.log('[Translator] 设置翻译结果:', result);
+          setTranslatedText(result)
           setIsTranslating(false)
           refreshCredits()
           toast({
@@ -114,23 +127,34 @@ export function EnhancedTextTranslator({
             description: "Your text has been successfully translated.",
           })
         } else if (task.status === 'failed') {
+          console.log('[Translator] 翻译失败:', task.error);
           setIsTranslating(false)
           toast({
             title: "Translation failed",
             description: task.error || "An error occurred during translation.",
             variant: "destructive",
           })
+        } else if (task.status === 'processing') {
+          console.log('[Translator] 翻译进行中，进度:', task.progress);
+          // 确保翻译状态保持
+          setIsTranslating(true)
         }
+      } else {
+        console.log('[Translator] 忽略不匹配的任务更新');
       }
     }
 
+    // 监听多个事件
     window.addEventListener('translationTaskUpdate', handleTaskUpdate as EventListener)
+    window.addEventListener('taskUpdate', handleTaskUpdate as EventListener)
+    
     return () => {
       window.removeEventListener('translationTaskUpdate', handleTaskUpdate as EventListener)
+      window.removeEventListener('taskUpdate', handleTaskUpdate as EventListener)
     }
   }, [currentTask, refreshCredits])
 
-  const handleTranslate = async () => {
+    const handleTranslate = async () => {
     if (!sourceText.trim()) {
       toast({
         title: "No text to translate",
@@ -166,45 +190,49 @@ export function EnhancedTextTranslator({
 
     setIsTranslating(true)
     setTranslatedText('')
+    setCurrentTask(null) // 重置当前任务
 
     try {
+      console.log('[Translator] 开始翻译:', { sourceText, sourceLanguage, targetLanguage });
+      
+      // 等待任务创建完成
+      const task = await translationQueue.addTask(
+        sourceText,
+        sourceLanguage,
+        targetLanguage,
+        {
+          type: 'text',
+          priority: willUseQueue ? 2 : 3,
+          userId: user?.id,
+          sessionId
+        }
+      )
+      
+      console.log('[Translator] 任务已创建:', task);
+      setCurrentTask(task)
+      
       if (willUseQueue) {
-        // 使用队列模式 (需要登录)
-        const task = translationQueue.addTask(
-          sourceText,
-          sourceLanguage,
-          targetLanguage,
-          {
-            type: 'text',
-            priority: 2, // 注册用户优先级
-            userId: user?.id,
-            sessionId
-          }
-        )
-        
-        setCurrentTask(task)
-        
         toast({
           title: "Translation queued",
-          description: `Your translation has been added to the queue. You can leave this page and come back later.`,
+          description: "Your translation has been added to the queue. You can leave this page and come back later.",
         })
       } else {
-        // 直接翻译模式
-        const task = translationQueue.addTask(
-          sourceText,
-          sourceLanguage,
-          targetLanguage,
-          {
-            type: 'text',
-            priority: 3, // 直接翻译优先级最高
-            userId: user?.id,
-            sessionId
+        // 对于短文本，直接检查结果
+        setTimeout(() => {
+          if (task.status === 'completed' && task.translatedText) {
+            console.log('[Translator] 直接翻译完成:', task.translatedText);
+            setTranslatedText(task.translatedText)
+            setIsTranslating(false)
+            refreshCredits()
+            toast({
+              title: "Translation completed",
+              description: "Your text has been successfully translated.",
+            })
           }
-        )
-        
-        setCurrentTask(task)
+        }, 1000) // 1秒后检查结果
       }
     } catch (error) {
+      console.error('[Translator] 翻译失败:', error);
       setIsTranslating(false)
       toast({
         title: "Translation failed",
@@ -407,7 +435,7 @@ export function EnhancedTextTranslator({
                 value={sourceText}
                 onChange={(e) => setSourceText(e.target.value)}
                 placeholder="Enter text to translate..."
-                className="min-h-[200px] resize-none" // 扩大高度
+                className="min-h-[200px] resize-none"
                 maxLength={maxInputLimit}
               />
               
@@ -427,7 +455,7 @@ export function EnhancedTextTranslator({
 
             {/* Output Area */}
             <div className="space-y-2">
-              <div className="flex items-center justify-between h-5"> {/* 固定标签区域高度 */}
+              <div className="flex items-center justify-between h-5">
                 <label className="text-sm font-medium">Translation</label>
                 {translatedText && (
                   <div className="flex gap-2">
@@ -455,42 +483,43 @@ export function EnhancedTextTranslator({
               <Textarea
                 value={translatedText}
                 readOnly
-                placeholder="Translation will appear here..."
-                className="min-h-[200px] resize-none bg-muted" // 扩大高度
+                placeholder={isTranslating ? "Translating..." : "Translation will appear here..."}
+                className="min-h-[200px] resize-none"
               />
               
-              {/* Current Task Status */}
-              {currentTask && isTranslating && (
-                <div className="space-y-2 p-3 bg-blue-50 border border-blue-200 rounded">
-                  <div className="flex items-center gap-2">
-                    {currentTask.status === 'processing' ? (
-                      <Loader2 className="h-4 w-4 animate-spin text-blue-500" />
-                    ) : currentTask.status === 'completed' ? (
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                    ) : (
-                      <Clock className="h-4 w-4 text-yellow-500" />
-                    )}
-                    <span className="text-sm font-medium capitalize">
-                      {currentTask.status}
+              {/* 统一的翻译状态和进度显示 */}
+              {isTranslating && (
+                <div className="space-y-3 p-4 bg-blue-50 rounded-lg border">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                      <span className="text-sm font-medium text-blue-700">
+                        {currentTask?.status === 'processing' ? 'Translating...' : 'Preparing...'}
+                      </span>
+                    </div>
+                    <span className="text-sm text-blue-600">
+                      {currentTask?.progress || 0}%
                     </span>
                   </div>
                   
-                  {currentTask.status === 'processing' && currentTask.estimatedTime && (
-                    <div className="space-y-1">
-                      <Progress value={50} className="h-2" />
-                      <p className="text-xs text-blue-600">
-                        Estimated time: {Math.ceil(currentTask.estimatedTime / 1000)}s
-                      </p>
-                    </div>
-                  )}
-                  
-                  {currentTask.status === 'pending' && (
-                    <p className="text-xs text-yellow-600">
-                      Your translation is in the queue. Position updates automatically.
-                    </p>
+                  {currentTask && (
+                    <>
+                      <Progress 
+                        value={currentTask.progress || 0} 
+                        className="w-full h-2" 
+                      />
+                      <div className="flex justify-between text-xs text-blue-600">
+                        <span>Status: {currentTask.status || 'pending'}</span>
+                        {willUseQueue && (
+                          <span>Queue mode - You can leave this page</span>
+                        )}
+                      </div>
+                    </>
                   )}
                 </div>
               )}
+              
+
             </div>
           </div>
 

@@ -1,4 +1,67 @@
-'use client'
+#!/usr/bin/env node
+
+const fs = require('fs').promises;
+const path = require('path');
+
+console.log('🔧 优化文本翻译页面...\n');
+
+async function removeTranslatingDuplicates() {
+    const translatorPath = path.join(__dirname, 'frontend/components/translation/enhanced-text-translator.tsx');
+    
+    try {
+        let content = await fs.readFile(translatorPath, 'utf8');
+        
+        // 查找并移除重复的翻译状态组件
+        // 只保留一个简洁的 translating 状态显示
+        const optimizedStatusDisplay = `              {/* 翻译状态显示 */}
+              {isTranslating && (
+                <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="flex items-center gap-2">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                    <span className="text-sm font-medium text-blue-700">Translating...</span>
+                    <span className="text-sm text-blue-600 ml-auto">
+                      {currentTask?.progress || 0}%
+                    </span>
+                  </div>
+                  {currentTask && currentTask.progress > 0 && (
+                    <Progress 
+                      value={currentTask.progress || 0} 
+                      className="w-full h-1 mt-2" 
+                    />
+                  )}
+                </div>
+              )}`;
+
+        // 替换所有翻译状态显示相关的代码
+        content = content.replace(
+            /\{\/\* 简化的翻译状态显示 \*\/\}[\s\S]*?\}\s*\)\s*\}/,
+            optimizedStatusDisplay
+        );
+
+        // 如果上面的替换没有成功，尝试其他可能的模式
+        if (!content.includes('Translating...')) {
+            content = content.replace(
+                /\{\/\* 翻译状态和进度显示 \*\/\}[\s\S]*?\}\s*\)\s*\}/,
+                optimizedStatusDisplay
+            );
+        }
+
+        await fs.writeFile(translatorPath, content, 'utf8');
+        console.log('✅ 已优化翻译状态显示');
+        
+    } catch (error) {
+        console.error('❌ 优化翻译状态失败:', error.message);
+    }
+}
+
+async function optimizeHistoryLayout() {
+    const historyPath = path.join(__dirname, 'frontend/components/translation/task-history-table.tsx');
+    
+    try {
+        let content = await fs.readFile(historyPath, 'utf8');
+        
+        // 创建优化后的历史记录组件 - 更紧凑的布局，只保留必要按钮
+        const optimizedHistoryComponent = `'use client'
 
 import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -33,9 +96,9 @@ export function TaskHistoryTable({ className, sessionId }: TaskHistoryTableProps
       const hours = Math.floor(diff / 3600000)
       const days = Math.floor(diff / 86400000)
       
-      if (days > 0) return `${days}d ago`
-      if (hours > 0) return `${hours}h ago`
-      if (minutes > 0) return `${minutes}m ago`
+      if (days > 0) return \`\${days}d ago\`
+      if (hours > 0) return \`\${hours}h ago\`
+      if (minutes > 0) return \`\${minutes}m ago\`
       return 'Just now'
     } catch (error) {
       return 'Unknown'
@@ -131,7 +194,7 @@ export function TaskHistoryTable({ className, sessionId }: TaskHistoryTableProps
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `translation-${task.sourceLanguage}-to-${task.targetLanguage}-${Date.now()}.txt`
+    a.download = \`translation-\${task.sourceLanguage}-to-\${task.targetLanguage}-\${Date.now()}.txt\`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -205,12 +268,12 @@ export function TaskHistoryTable({ className, sessionId }: TaskHistoryTableProps
                   {task.status === 'processing' && <Loader2 className="h-3 w-3 text-blue-600 animate-spin" />}
                   {task.status === 'pending' && <Clock className="h-3 w-3 text-gray-400" />}
                   
-                  <Badge variant="secondary" className={`text-xs ${
+                  <Badge variant="secondary" className={\`text-xs \${
                     task.status === 'completed' ? 'bg-green-100 text-green-700' :
                     task.status === 'failed' ? 'bg-red-100 text-red-700' :
                     task.status === 'processing' ? 'bg-blue-100 text-blue-700' :
                     'bg-gray-100 text-gray-700'
-                  }`}>
+                  }\`}>
                     {task.status}
                   </Badge>
                   
@@ -287,4 +350,41 @@ export function TaskHistoryTable({ className, sessionId }: TaskHistoryTableProps
       </CardContent>
     </Card>
   )
+}`;
+
+        // 完全替换历史记录组件
+        await fs.writeFile(historyPath, optimizedHistoryComponent, 'utf8');
+        console.log('✅ 已优化历史记录布局和功能');
+        
+    } catch (error) {
+        console.error('❌ 优化历史记录失败:', error.message);
+    }
 }
+
+async function main() {
+    console.log('🔍 优化目标:');
+    console.log('1. 移除重复的翻译状态组件');
+    console.log('2. 简化历史记录按钮 - 只保留Copy和Download');
+    console.log('3. 优化样式高度 - 让页面更紧凑\n');
+    
+    console.log('🛠️  具体优化:');
+    console.log('翻译状态:');
+    console.log('- 移除重复的processing组件');
+    console.log('- 只保留简洁的Translating状态');
+    console.log('- 减少组件高度和内边距\n');
+    
+    console.log('历史记录:');
+    console.log('- 移除Copy Record和Download Record按钮');
+    console.log('- 只保留Copy result和Download result');
+    console.log('- 减少记录项高度');
+    console.log('- 优化文字大小和间距');
+    console.log('- 限制显示15条记录\n');
+    
+    await removeTranslatingDuplicates();
+    await optimizeHistoryLayout();
+    
+    console.log('\n✅ 文本翻译页面优化完成！');
+    console.log('页面现在更简洁紧凑，功能更专注。');
+}
+
+main().catch(console.error);

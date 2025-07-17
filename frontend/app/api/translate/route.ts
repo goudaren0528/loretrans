@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // 增强的翻译服务配置 - 300字符分块
 const ENHANCED_CONFIG = {
-  MAX_CHUNK_SIZE: 300,        // 减少到300字符提高成功率
+  MAX_CHUNK_SIZE: 300,        // 统一使用300字符分块
   MAX_RETRIES: 3,             // 每个块最多重试3次
   RETRY_DELAY: 1000,          // 重试延迟1秒
   CHUNK_DELAY: 500,           // 块间延迟500ms
@@ -33,14 +33,18 @@ function getNLLBLanguageCode(language: string): string {
  * 智能文本分块 - 300字符优化版本
  * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
  */
-function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.MAX_CHUNK_SIZE): string[] {
+/**
+ * 统一的智能文本分块函数
+ * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
+ */
+function smartTextChunking(text, maxChunkSize = 300) {
   if (text.length <= maxChunkSize) {
     return [text];
   }
 
   console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
   
-  const chunks: string[] = [];
+  const chunks = [];
   
   // 策略1: 按段落分割（双换行）
   const paragraphs = text.split(/\n\s*\n/);
@@ -92,6 +96,8 @@ function smartTextChunking(text: string, maxChunkSize: number = ENHANCED_CONFIG.
   
   return finalChunks;
 }
+
+
 
 /**
  * 强制分块处理超长句子
@@ -234,6 +240,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    
+    // 长文本检测和队列重定向
+    if (text.length > 1000) { // 超过1000字符使用队列处理
+      console.log(`[Translation] 长文本检测: ${text.length}字符，重定向到队列处理`);
+      
+      try {
+        const queueResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/translate/queue`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            text,
+            sourceLanguage: sourceLang,
+            targetLanguage: targetLang
+          })
+        });
+        
+        const queueResult = await queueResponse.json();
+        
+        if (queueResult.success) {
+          return NextResponse.json({
+            success: true,
+            useQueue: true,
+            jobId: queueResult.jobId,
+            estimatedTime: queueResult.estimatedTime,
+            totalChunks: queueResult.totalChunks,
+            message: '文本较长，已转入后台队列处理，请稍后查询结果'
+          });
+        }
+      } catch (queueError) {
+        console.error('[Translation] 队列处理失败，回退到直接处理:', queueError);
+        // 继续使用原有逻辑，但使用更小的分块
+      }
+    }
+
     console.log(`\n🌍 增强翻译开始: ${text.length}字符, ${sourceLang} -> ${targetLang}`);
 
     try {
@@ -242,7 +284,42 @@ export async function POST(request: NextRequest) {
       
       console.log(`🔄 语言代码转换: ${sourceLang} -> ${sourceNLLB}, ${targetLang} -> ${targetNLLB}`);
       
-      // 智能分块 - 300字符
+      
+// 长文本检测和队列重定向
+if (text.length > 1000) { // 超过1000字符使用队列处理
+  console.log(`[Translation] 长文本检测: ${text.length}字符，重定向到队列处理`);
+  
+  try {
+    const queueResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/translate/queue`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text,
+        sourceLanguage,
+        targetLanguage
+      })
+    });
+    
+    const queueResult = await queueResponse.json();
+    
+    if (queueResult.success) {
+      return NextResponse.json({
+        success: true,
+        useQueue: true,
+        jobId: queueResult.jobId,
+        estimatedTime: queueResult.estimatedTime,
+        message: '文本较长，已转入后台队列处理，请稍后查询结果'
+      });
+    }
+  } catch (queueError) {
+    console.error('[Translation] 队列处理失败，回退到直接处理:', queueError);
+    // 继续使用原有逻辑
+  }
+}
+
+  // 智能分块 - 300字符
       const chunks = smartTextChunking(text, ENHANCED_CONFIG.MAX_CHUNK_SIZE);
       
       if (chunks.length === 1) {

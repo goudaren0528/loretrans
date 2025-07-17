@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入框修复验证</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+        .warning { background-color: #fff3cd; border-color: #ffeaa7; color: #856404; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 3px; }
+        button:hover { background: #0056b3; }
+        .big-button { padding: 15px 25px; font-size: 16px; background: #28a745; }
+        .big-button:hover { background: #218838; }
+    </style>
+</head>
+<body>
+    <h1>🎉 输入框修复验证</h1>
+    
+    <div class="test-section success">
+        <h3>✅ 问题已修复</h3>
+        <p><strong>问题原因</strong>: 输入区域的 Textarea 组件使用了错误的属性：</p>
+        <ul>
+            <li>❌ <code>value={translatedText}</code> (应该是 sourceText)</li>
+            <li>❌ <code>readOnly</code> (输入框不应该只读)</li>
+            <li>❌ 缺少 <code>onChange</code> 事件处理</li>
+        </ul>
+        
+        <p><strong>修复内容</strong>:</p>
+        <ul>
+            <li>✅ <code>value={sourceText}</code></li>
+            <li>✅ <code>onChange={(e) => setSourceText(e.target.value)}</code></li>
+            <li>✅ 移除了 <code>readOnly</code> 属性</li>
+            <li>✅ 恢复了正确的占位符文本</li>
+        </ul>
+    </div>
+
+    <div class="test-section info">
+        <h3>🧪 现在可以测试</h3>
+        <p>点击下面的按钮打开翻译应用，输入框现在应该可以正常输入了：</p>
+        
+        <a href="http://localhost:3000/en/text-translate" target="_blank">
+            <button class="big-button">打开翻译应用测试</button>
+        </a>
+    </div>
+
+    <div class="test-section warning">
+        <h3>📋 测试检查清单</h3>
+        <p>请在翻译应用中验证以下功能：</p>
+        <ol>
+            <li><strong>输入功能</strong>: 在左侧 "Source Text" 框中可以正常输入文字</li>
+            <li><strong>字符计数</strong>: 输入时右上角的字符计数会实时更新</li>
+            <li><strong>进度条</strong>: 输入框下方的进度条会根据字符数更新</li>
+            <li><strong>翻译功能</strong>: 输入文字后可以正常进行翻译</li>
+            <li><strong>结果显示</strong>: 翻译结果会显示在右侧输出框中</li>
+            <li><strong>历史记录</strong>: 翻译任务会出现在下方的历史记录中</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 如果还有问题</h3>
+        <p>如果输入框仍然无法使用，可能的原因：</p>
+        <ul>
+            <li><strong>缓存问题</strong>: 尝试硬刷新页面 (Ctrl+F5 或 Cmd+Shift+R)</li>
+            <li><strong>编译问题</strong>: 等待几秒让 Next.js 重新编译</li>
+            <li><strong>JavaScript错误</strong>: 打开 F12 开发者工具检查控制台错误</li>
+        </ul>
+        
+        <button onclick="showTroubleshooting()">显示故障排除步骤</button>
+        <div id="troubleshooting" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 3px;">
+            <h4>🔧 故障排除步骤:</h4>
+            <ol>
+                <li>打开翻译页面</li>
+                <li>按 F12 打开开发者工具</li>
+                <li>切换到 Console 标签</li>
+                <li>刷新页面 (F5)</li>
+                <li>查看是否有红色错误信息</li>
+                <li>尝试点击输入框并输入文字</li>
+                <li>如果仍无法输入，切换到 Elements 标签检查输入框的 HTML 属性</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section success">
+        <h3>🚀 功能完整性</h3>
+        <p>修复后的翻译应用应该具备以下完整功能：</p>
+        <ul>
+            <li>✅ <strong>文本输入</strong>: 可以在源文本框中输入内容</li>
+            <li>✅ <strong>字符统计</strong>: 实时显示字符数和限制</li>
+            <li>✅ <strong>语言选择</strong>: 可以选择源语言和目标语言</li>
+            <li>✅ <strong>翻译处理</strong>: 短文本直接翻译，长文本队列处理</li>
+            <li>✅ <strong>进度显示</strong>: 统一的翻译进度和状态显示</li>
+            <li>✅ <strong>结果操作</strong>: 复制和下载翻译结果</li>
+            <li>✅ <strong>任务历史</strong>: 查看翻译历史记录</li>
+        </ul>
+    </div>
+
+    <script>
+        function showTroubleshooting() {
+            const troubleshooting = document.getElementById('troubleshooting');
+            troubleshooting.style.display = troubleshooting.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // 页面加载时的提示
+        window.onload = function() {
+            console.log('🎉 输入框修复验证页面已加载');
+            console.log('输入框问题已修复，现在可以正常使用了！');
+        };
+    </script>
+</body>
+</html>

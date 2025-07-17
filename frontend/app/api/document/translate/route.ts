@@ -20,7 +20,7 @@ const createSupabaseAdminClient = () => {
 
 // 增强的文档翻译配置
 const ENHANCED_DOC_CONFIG = {
-  MAX_CHUNK_SIZE: 300,        // 减少到300字符提高成功率
+  MAX_CHUNK_SIZE: 300,        // 统一使用300字符分块
   MAX_RETRIES: 3,             // 每个块最多重试3次
   RETRY_DELAY: 1000,          // 重试延迟1秒
   CHUNK_DELAY: 500,           // 块间延迟500ms
@@ -286,65 +286,71 @@ async function performTranslation(text: string, sourceLanguage: string, targetLa
 /**
  * 智能文档分块
  */
-function smartDocumentChunking(text: string, maxChunkSize: number = ENHANCED_DOC_CONFIG.MAX_CHUNK_SIZE): string[] {
+/**
+ * 统一的智能文本分块函数
+ * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
+ */
+function smartDocumentChunking(text, maxChunkSize = 300) {
   if (text.length <= maxChunkSize) {
-    return [text]
+    return [text];
   }
 
-  console.log(`📝 智能文档分块: ${text.length}字符 -> ${maxChunkSize}字符/块`)
+  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
   
-  const chunks: string[] = []
+  const chunks = [];
   
   // 策略1: 按段落分割（双换行）
-  const paragraphs = text.split(/\n\s*\n/)
+  const paragraphs = text.split(/\n\s*\n/);
   
   for (const paragraph of paragraphs) {
-    if (paragraph.trim().length === 0) continue
+    if (paragraph.trim().length === 0) continue;
     
     if (paragraph.length <= maxChunkSize) {
-      chunks.push(paragraph.trim())
+      chunks.push(paragraph.trim());
     } else {
       // 策略2: 按句子分割
-      const sentences = paragraph.split(/[.!?。！？]\s+/)
-      let currentChunk = ''
+      const sentences = paragraph.split(/[.!?。！？]\s+/);
+      let currentChunk = '';
       
       for (let i = 0; i < sentences.length; i++) {
-        const sentence = sentences[i].trim()
-        if (!sentence) continue
+        const sentence = sentences[i].trim();
+        if (!sentence) continue;
         
-        const potentialChunk = currentChunk + (currentChunk ? '. ' : '') + sentence
+        const potentialChunk = currentChunk + (currentChunk ? '. ' : '') + sentence;
         
         if (potentialChunk.length <= maxChunkSize) {
-          currentChunk = potentialChunk
+          currentChunk = potentialChunk;
         } else {
           // 保存当前块
           if (currentChunk) {
-            chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'))
+            chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
           }
           
           // 处理超长句子
           if (sentence.length > maxChunkSize) {
-            const subChunks = forceChunkBySentence(sentence, maxChunkSize)
-            chunks.push(...subChunks)
-            currentChunk = ''
+            const subChunks = forceChunkBySentence(sentence, maxChunkSize);
+            chunks.push(...subChunks);
+            currentChunk = '';
           } else {
-            currentChunk = sentence
+            currentChunk = sentence;
           }
         }
       }
       
       // 添加最后一个块
       if (currentChunk) {
-        chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'))
+        chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
       }
     }
   }
   
-  const finalChunks = chunks.filter(chunk => chunk.trim().length > 0)
-  console.log(`✅ 文档分块完成: ${finalChunks.length}个块`)
+  const finalChunks = chunks.filter(chunk => chunk.trim().length > 0);
+  console.log(`✅ 分块完成: ${finalChunks.length}个块`);
   
-  return finalChunks
+  return finalChunks;
 }
+
+
 
 /**
  * 强制分块处理超长句子

@@ -1,336 +1,478 @@
-import { v4 as uuidv4 } from 'uuid'
-import { getQueueConfig } from './config'
+/**
+ * 翻译队列状态检查器
+ */
+
+export interface QueueJob {
+  id: string;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  progress: number;
+  result?: string;
+  error?: string;
+  totalChunks: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export class TranslationQueueChecker {
+  private checkInterval: number = 2000; // 2秒检查一次
+  
+  /**
+   * 轮询检查任务状态
+   */
+  async pollJobStatus(jobId: string, onUpdate: (job: QueueJob) => void): Promise<QueueJob> {
+    return new Promise((resolve, reject) => {
+      const poll = async () => {
+        try {
+          const response = await fetch(`/api/translate/queue?jobId=${jobId}`);
+          const result = await response.json();
+          
+          if (!result.success) {
+            reject(new Error(result.error || '查询任务状态失败'));
+            return;
+          }
+          
+          const job = result.job;
+          onUpdate(job);
+          
+          if (job.status === 'completed') {
+            resolve(job);
+          } else if (job.status === 'failed') {
+            reject(new Error(job.error || '翻译任务失败'));
+          } else {
+            // 继续轮询
+            setTimeout(poll, this.checkInterval);
+          }
+          
+        } catch (error) {
+          reject(error);
+        }
+      };
+      
+      poll();
+    });
+  }
+  
+  /**
+   * 一次性检查任务状态
+   */
+  async checkJobStatus(jobId: string): Promise<QueueJob> {
+    const response = await fetch(`/api/translate/queue?jobId=${jobId}`);
+    const result = await response.json();
+    
+    if (!result.success) {
+      throw new Error(result.error || '查询任务状态失败');
+    }
+    
+    return result.job;
+  }
+}
+
+export const queueChecker = new TranslationQueueChecker();
 
 export interface TranslationTask {
-  id: string
-  type: 'text' | 'document'
-  status: 'pending' | 'processing' | 'completed' | 'failed'
-  priority: number
-  createdAt: Date
-  updatedAt: Date
-  completedAt?: Date
-  
-  // 输入数据
-  sourceText: string
-  sourceLanguage: string
-  targetLanguage: string
-  characterCount: number
-  
-  // 输出数据
-  translatedText?: string
-  error?: string
-  
-  // 元数据
-  userId?: string
-  sessionId: string
-  estimatedTime?: number
-  actualTime?: number
-  retryCount: number
-  maxRetries: number
+  id: string;
+  text: string;
+  sourceLanguage: string;
+  targetLanguage: string;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  progress: number;
+  result?: string;
+  translatedText?: string;
+  error?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  sessionId?: string;
+  queueJobId?: string;
 }
 
-export interface QueueStats {
-  totalTasks: number
-  pendingTasks: number
-  processingTasks: number
-  completedTasks: number
-  failedTasks: number
-  averageProcessingTime: number
-}
-
-class TranslationQueue {
-  private tasks: Map<string, TranslationTask> = new Map()
-  private processingTasks: Set<string> = new Set()
-  private listeners: Map<string, (task: TranslationTask) => void> = new Map()
-  private queueConfig = getQueueConfig()
-
-  /**
-   * 添加翻译任务
-   */
-  addTask(
-    sourceText: string,
+class TranslationQueueManager {
+  private tasks: Map<string, TranslationTask> = new Map();
+  
+  getUserTasks(sessionId: string): TranslationTask[] {
+    console.log('[Queue] 获取用户任务，sessionId:', sessionId, '总任务数:', this.tasks.size);
+    
+    const userTasks: TranslationTask[] = [];
+    for (const task of this.tasks.values()) {
+      // 匹配 sessionId 或者如果没有 sessionId 则显示所有任务（用于调试）
+      if (!sessionId || task.sessionId === sessionId || !task.sessionId) {
+        userTasks.push(task);
+      }
+    }
+    
+    const sortedTasks = userTasks.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    console.log('[Queue] 返回任务数:', sortedTasks.length);
+    
+    return sortedTasks;
+  }
+  
+  async addTask(
+    text: string,
     sourceLanguage: string,
     targetLanguage: string,
     options: {
-      type?: 'text' | 'document'
-      priority?: number
-      userId?: string
-      sessionId?: string
-    } = {}
-  ): TranslationTask {
+      type: 'text' | 'document';
+      priority: number;
+      userId?: string;
+      sessionId: string;
+    }
+  ): Promise<TranslationTask> {
+    const taskId = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    
     const task: TranslationTask = {
-      id: uuidv4(),
-      type: options.type || 'text',
-      status: 'pending',
-      priority: options.priority || 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      
-      sourceText,
+      id: taskId,
+      text,
       sourceLanguage,
       targetLanguage,
-      characterCount: sourceText.length,
-      
-      userId: options.userId,
-      sessionId: options.sessionId || uuidv4(),
-      retryCount: 0,
-      maxRetries: this.queueConfig.retryAttempts,
-    }
-
-    this.tasks.set(task.id, task)
-    this.processQueue()
+      status: 'pending',
+      progress: 0,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      sessionId: options.sessionId,
+      result: '',
+      translatedText: '',
+      error: ''
+    };
     
-    return task
-  }
-
-  /**
-   * 获取任务
-   */
-  getTask(taskId: string): TranslationTask | undefined {
-    return this.tasks.get(taskId)
-  }
-
-  /**
-   * 获取用户任务列表
-   */
-  getUserTasks(sessionId: string): TranslationTask[] {
-    return Array.from(this.tasks.values())
-      .filter(task => task.sessionId === sessionId)
-      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
-  }
-
-  /**
-   * 监听任务状态变化
-   */
-  onTaskUpdate(taskId: string, callback: (task: TranslationTask) => void) {
-    this.listeners.set(taskId, callback)
-  }
-
-  /**
-   * 移除任务监听
-   */
-  removeTaskListener(taskId: string) {
-    this.listeners.delete(taskId)
-  }
-
-  /**
-   * 更新任务状态
-   */
-  private updateTask(taskId: string, updates: Partial<TranslationTask>) {
-    const task = this.tasks.get(taskId)
-    if (!task) return
-
-    Object.assign(task, updates, { updatedAt: new Date() })
+    console.log('[Queue] 创建新任务:', {
+      id: taskId,
+      textLength: text.length,
+      willUseQueue: text.length > 1000
+    });
     
-    // 通知监听器
-    const listener = this.listeners.get(taskId)
-    if (listener) {
-      listener(task)
-    }
-
-    // 广播更新（用于UI刷新）
-    this.broadcastUpdate(task)
-  }
-
-  /**
-   * 处理队列
-   */
-  private async processQueue() {
-    const maxConcurrent = this.queueConfig.maxConcurrentTasks
+    this.tasks.set(taskId, task);
     
-    if (this.processingTasks.size >= maxConcurrent) {
-      return
-    }
-
-    // 获取待处理任务（按优先级和创建时间排序）
-    const pendingTasks = Array.from(this.tasks.values())
-      .filter(task => task.status === 'pending')
-      .sort((a, b) => {
-        if (a.priority !== b.priority) {
-          return b.priority - a.priority // 高优先级优先
-        }
-        return a.createdAt.getTime() - b.createdAt.getTime() // 早创建的优先
-      })
-
-    for (const task of pendingTasks) {
-      if (this.processingTasks.size >= maxConcurrent) {
-        break
-      }
-
-      this.processTask(task)
-    }
-  }
-
-  /**
-   * 处理单个任务
-   */
-  private async processTask(task: TranslationTask) {
-    this.processingTasks.add(task.id)
-    this.updateTask(task.id, { 
-      status: 'processing',
-      estimatedTime: this.estimateProcessingTime(task.characterCount)
-    })
-
-    const startTime = Date.now()
-
+    // 立即触发初始状态更新
+    this.dispatchTaskUpdate(task);
+    
+    // 根据文本长度决定使用哪个API
     try {
-      // 调用翻译API
-      const translatedText = await this.callTranslationAPI(
-        task.sourceText,
-        task.sourceLanguage,
-        task.targetLanguage
-      )
-
-      const actualTime = Date.now() - startTime
-
-      this.updateTask(task.id, {
-        status: 'completed',
-        translatedText,
-        completedAt: new Date(),
-        actualTime
-      })
-
-    } catch (error) {
-      console.error(`Translation task ${task.id} failed:`, error)
-      
-      // 重试逻辑
-      if (task.retryCount < task.maxRetries) {
-        this.updateTask(task.id, {
-          status: 'pending',
-          retryCount: task.retryCount + 1
-        })
+      if (text.length > 1000) {
+        // 长文本使用队列API
+        console.log(`[Queue] 长文本(${text.length}字符)使用队列处理`);
         
-        // 延迟重试
-        setTimeout(() => {
-          this.processQueue()
-        }, this.queueConfig.retryDelay)
+        task.status = 'processing';
+        task.progress = 10;
+        task.updatedAt = new Date();
+        this.dispatchTaskUpdate(task);
+        
+        const response = await fetch('/api/translate/queue', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            text,
+            sourceLanguage,
+            targetLanguage
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          task.status = 'processing';
+          task.progress = 20;
+          task.queueJobId = result.jobId;
+          task.updatedAt = new Date();
+          this.dispatchTaskUpdate(task);
+          
+          // 开始轮询队列状态
+          this.pollQueueStatus(taskId, result.jobId);
+        } else {
+          task.status = 'failed';
+          task.error = result.error || '队列处理失败';
+          task.updatedAt = new Date();
+          this.dispatchTaskUpdate(task);
+        }
       } else {
-        this.updateTask(task.id, {
-          status: 'failed',
-          error: error instanceof Error ? error.message : 'Translation failed'
-        })
+        // 短文本直接翻译
+        console.log(`[Queue] 短文本(${text.length}字符)直接翻译`);
+        
+        task.status = 'processing';
+        task.progress = 50;
+        task.updatedAt = new Date();
+        this.dispatchTaskUpdate(task);
+        
+        const response = await fetch('/api/translate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            text,
+            sourceLang: sourceLanguage,
+            targetLang: targetLanguage
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const result = await response.json();
+        console.log('[Queue] API响应:', result);
+        
+        if (result.translatedText) {
+          task.status = 'completed';
+          task.progress = 100;
+          task.translatedText = result.translatedText;
+          task.result = result.translatedText;
+          task.updatedAt = new Date();
+          
+          console.log('[Queue] 翻译完成:', task.translatedText);
+          this.dispatchTaskUpdate(task);
+        } else if (result.useQueue && result.jobId) {
+          // 意外进入队列模式
+          console.log('[Queue] 意外进入队列模式');
+          task.queueJobId = result.jobId;
+          task.progress = 30;
+          this.dispatchTaskUpdate(task);
+          this.pollQueueStatus(taskId, result.jobId);
+        } else {
+          task.status = 'failed';
+          task.error = result.error || '翻译失败：未返回翻译结果';
+          task.updatedAt = new Date();
+          
+          console.error('[Queue] 翻译失败:', task.error);
+          this.dispatchTaskUpdate(task);
+        }
       }
-    } finally {
-      this.processingTasks.delete(task.id)
-      this.processQueue() // 处理下一个任务
-    }
-  }
-
-  /**
-   * 调用翻译API
-   */
-  private async callTranslationAPI(
-    text: string,
-    sourceLanguage: string,
-    targetLanguage: string
-  ): Promise<string> {
-    const response = await fetch('/api/translate-simple', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text,
-        sourceLang: sourceLanguage,
-        targetLang: targetLanguage,
-      }),
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      throw new Error(errorData.error || `Translation API error: ${response.statusText}`)
-    }
-
-    const data = await response.json()
-    console.log('✅ 翻译API响应:', data);
-    // 处理不同的响应格式
-    let translatedText = '';
-    if (data.translatedText) {
-      translatedText = data.translatedText;
-    } else if (data.translated_text) {
-      translatedText = data.translated_text;
-    } else if (data.result) {
-      translatedText = data.result;
-    } else if (typeof data === 'string') {
-      translatedText = data;
-    } else {
-      console.error('❌ 未知的API响应格式:', data);
-      throw new Error('Invalid API response format');
+    } catch (error) {
+      console.error('[Queue] API调用失败:', error);
+      task.status = 'failed';
+      task.error = error instanceof Error ? error.message : '网络请求失败';
+      task.updatedAt = new Date();
+      
+      this.dispatchTaskUpdate(task);
     }
     
-    console.log('✅ 队列翻译完成: ' + translatedText.length + '字符');
-    return translatedText;
+    return task;
   }
-
-  /**
-   * 估算处理时间
-   */
-  private estimateProcessingTime(characterCount: number): number {
-    // 基于字符数估算处理时间（毫秒）
-    const baseTime = 2000 // 基础时间 2秒
-    const timePerChar = 0.5 // 每字符 0.5毫秒
-    return baseTime + (characterCount * timePerChar)
+  
+  private async pollQueueStatus(taskId: string, queueJobId: string) {
+    const task = this.tasks.get(taskId);
+    if (!task) return;
+    
+    // 健康检查缓存
+    let lastHealthCheck = 0;
+    let lastHealthStatus = true;
+    const healthCheckInterval = 15000; // 增加到15秒内不重复检查
+    
+    // 检查服务是否可用
+    const checkConnection = async () => {
+      const now = Date.now();
+      
+      // 如果最近检查过且状态良好，直接返回
+      if (lastHealthStatus && (now - lastHealthCheck) < healthCheckInterval) {
+        console.log('[Queue] 使用缓存的健康状态: 正常');
+        return true;
+      }
+      
+      try {
+        // 增加超时时间以匹配后端健康检查的处理时间
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => {
+          console.log('[Queue] 健康检查超时，中止请求');
+          controller.abort();
+        }, 12000); // 12秒超时，给后端足够时间
+        
+        const response = await fetch('/api/health', {
+          signal: controller.signal
+        });
+        
+        clearTimeout(timeoutId);
+        lastHealthCheck = now;
+        
+        if (!response.ok) {
+          console.log('[Queue] 健康检查HTTP状态异常:', response.status);
+          lastHealthStatus = false;
+          return false;
+        }
+        
+        // 检查服务状态详情
+        const healthData = await response.json();
+        
+        // 只有当NLLB服务完全不可用时才认为服务不可用
+        // degraded状态仍然允许翻译继续进行
+        if (healthData.services?.nllb_service === 'unhealthy') {
+          console.log('[Queue] NLLB服务不可用:', healthData.services?.nllb_service);
+          lastHealthStatus = false;
+          return false;
+        }
+        
+        // healthy 或 degraded 状态都允许继续
+        console.log('[Queue] 服务状态检查通过:', healthData.status, 'NLLB:', healthData.services?.nllb_service);
+        lastHealthStatus = true;
+        return true;
+      } catch (error) {
+        console.log('[Queue] 连接检查失败:', error.message);
+        lastHealthCheck = now;
+        
+        // 如果是超时错误，但后端可能仍在工作，给一次机会
+        if (error.message.includes('timed out') || error.message.includes('aborted')) {
+          console.log('[Queue] 超时错误，但可能是健康检查慢，允许继续尝试');
+          lastHealthStatus = true; // 暂时标记为可用
+          return true;
+        }
+        
+        lastHealthStatus = false;
+        return false;
+      }
+    };
+    
+    const poll = async () => {
+      // 先检查连接
+      if (!(await checkConnection())) {
+        console.log('[Queue] 服务不可用，停止轮询');
+        task.status = 'failed';
+        task.error = '服务暂时不可用，请稍后重试';
+        task.updatedAt = new Date();
+        this.dispatchTaskUpdate(task);
+        return;
+      }
+      try {
+        const response = await fetch(`/api/translate/queue?jobId=${queueJobId}`);
+        
+        // 处理404错误 - 任务不存在或已过期
+        if (response.status === 404) {
+          console.log('[Queue] 任务不存在或已过期，可能服务已重启');
+          task.status = 'failed';
+          task.error = '任务已过期或服务重启，请重新提交翻译请求';
+          task.updatedAt = new Date();
+          this.dispatchTaskUpdate(task);
+          return;
+        }
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          const job = result.job;
+          
+          task.status = job.status as any;
+          task.progress = job.progress;
+          task.updatedAt = new Date();
+          
+          if (job.status === 'completed') {
+            console.log('[Queue] 任务完成，结果长度:', job.result?.length || 0);
+            
+            // 确保有实际的翻译结果才标记为完成
+            if (job.result && job.result.trim() && job.result.length > 0) {
+              task.translatedText = job.result;
+              task.result = job.result;
+              task.status = 'completed';
+              this.dispatchTaskUpdate(task);
+            } else {
+              console.log('[Queue] 任务标记为完成但结果为空，继续轮询');
+              task.status = 'processing';
+              setTimeout(poll, 2000);
+              this.dispatchTaskUpdate(task);
+            }
+          } else if (job.status === 'failed') {
+            console.log('[Queue] 任务失败:', job.error);
+            task.error = job.error;
+            task.status = 'failed';
+            this.dispatchTaskUpdate(task);
+          } else {
+            console.log('[Queue] 任务进行中:', job.status, job.progress + '%');
+            // 继续轮询
+            setTimeout(poll, 2000);
+            this.dispatchTaskUpdate(task);
+          }
+        } else {
+          // API返回success: false
+          console.log('[Queue] API返回失败:', result.error);
+          
+          if (result.code === 'JOB_NOT_FOUND') {
+            task.status = 'failed';
+            task.error = result.suggestion || '任务不存在，请重新提交翻译请求';
+            task.updatedAt = new Date();
+            this.dispatchTaskUpdate(task);
+            return;
+          } else {
+            // 其他错误，继续重试
+            setTimeout(poll, 3000);
+          }
+        }
+      } catch (error) {
+        console.error('[Queue] 轮询失败:', error);
+        
+        // 检查是否是连接错误
+        if (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+          console.log('[Queue] 检测到连接错误，停止轮询');
+          task.status = 'failed';
+          task.error = '服务连接失败，请刷新页面重试';
+          task.updatedAt = new Date();
+          this.dispatchTaskUpdate(task);
+        } else {
+          // 其他错误继续重试
+          setTimeout(poll, 5000); // 5秒后重试
+        }
+      }
+    };
+    
+    // 1秒后开始轮询
+    setTimeout(poll, 1000);
   }
-
-  /**
-   * 广播任务更新
-   */
-  private broadcastUpdate(task: TranslationTask) {
-    // 使用 CustomEvent 广播更新
+  
+  private dispatchTaskUpdate(task: TranslationTask) {
+    console.log('[Queue] 触发任务更新事件:', {
+      id: task.id,
+      status: task.status,
+      progress: task.progress,
+      hasResult: !!task.translatedText
+    });
+    
+    // 确保任务在本地存储中更新
+    this.tasks.set(task.id, { ...task, updatedAt: new Date() });
+    
+    // 触发自定义事件通知UI更新
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('translationTaskUpdate', {
-        detail: task
-      }))
+      const event = new CustomEvent('translationTaskUpdate', { detail: task });
+      window.dispatchEvent(event);
+      
+      // 额外触发一个通用更新事件
+      const genericEvent = new CustomEvent('taskUpdate', { detail: task });
+      window.dispatchEvent(genericEvent);
+      
+      // 触发任务历史更新事件
+      const historyEvent = new CustomEvent('taskHistoryUpdate', { detail: task });
+      window.dispatchEvent(historyEvent);
     }
   }
-
-  /**
-   * 获取队列统计信息
-   */
-  getQueueStats(): QueueStats {
-    const tasks = Array.from(this.tasks.values())
-    const completedTasks = tasks.filter(t => t.status === 'completed')
-    
-    const averageProcessingTime = completedTasks.length > 0
-      ? completedTasks.reduce((sum, task) => sum + (task.actualTime || 0), 0) / completedTasks.length
-      : 0
-
-    return {
-      totalTasks: tasks.length,
-      pendingTasks: tasks.filter(t => t.status === 'pending').length,
-      processingTasks: tasks.filter(t => t.status === 'processing').length,
-      completedTasks: completedTasks.length,
-      failedTasks: tasks.filter(t => t.status === 'failed').length,
-      averageProcessingTime
+  
+  updateTask(taskId: string, updates: Partial<TranslationTask>) {
+    const task = this.tasks.get(taskId);
+    if (task) {
+      Object.assign(task, updates);
+      task.updatedAt = new Date();
     }
   }
-
-  /**
-   * 清理旧任务
-   */
-  cleanupOldTasks(maxAge: number = 24 * 60 * 60 * 1000) { // 默认24小时
-    const now = Date.now()
-    const tasksToDelete: string[] = []
-
-    for (const [taskId, task] of this.tasks) {
-      if (now - task.createdAt.getTime() > maxAge) {
-        tasksToDelete.push(taskId)
+  
+  getTask(taskId: string): TranslationTask | undefined {
+    return this.tasks.get(taskId);
+  }
+  
+  removeTask(taskId: string) {
+    this.tasks.delete(taskId);
+  }
+  
+  // 清理过期任务
+  cleanup() {
+    const now = new Date();
+    for (const [taskId, task] of this.tasks.entries()) {
+      const ageInHours = (now.getTime() - task.createdAt.getTime()) / (1000 * 60 * 60);
+      if (ageInHours > 24) { // 24小时后清理
+        this.tasks.delete(taskId);
       }
     }
-
-    tasksToDelete.forEach(taskId => {
-      this.tasks.delete(taskId)
-      this.listeners.delete(taskId)
-    })
   }
 }
 
-// 单例模式
-export const translationQueue = new TranslationQueue()
+export const translationQueue = new TranslationQueueManager();
 
-// 定期清理旧任务
+// 定期清理过期任务
 if (typeof window !== 'undefined') {
   setInterval(() => {
-    translationQueue.cleanupOldTasks()
-  }, 60 * 60 * 1000) // 每小时清理一次
+    translationQueue.cleanup();
+  }, 60 * 60 * 1000); // 每小时清理一次
 }

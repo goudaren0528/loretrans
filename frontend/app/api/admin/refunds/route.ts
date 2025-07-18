@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { withApiAuth, type NextRequestWithUser } from '@/lib/api-utils';
-import { creemServer } from '@/lib/services/creem';
+import { creem } from '@/lib/services/creem';
 import { createServiceRoleClient } from '@/lib/supabase-server';
 
 async function handleRefund(req: NextRequestWithUser) {
@@ -12,7 +12,7 @@ async function handleRefund(req: NextRequestWithUser) {
       return NextResponse.json({ error: 'paymentId and amount are required' }, { status: 400 });
     }
 
-    if (!creemServer) {
+    if (!creem) {
       return NextResponse.json({ error: 'Payment service not available' }, { status: 503 });
     }
 

@@ -119,7 +119,7 @@ export function UnifiedTranslator({
     }
 
     // 检查用户登录状态和积分（基于300字符的产品方案）
-    // 超过300字符需要积分，但为了避免认证问题，允许1000字符以下使用公共端点
+    // 超过300字符需要积分，但为了避免认证问题，允许5000字符以下使用公共端点
     
     console.log('[Login Debug] User state check:', {
       characterCount,
@@ -127,14 +127,14 @@ export function UnifiedTranslator({
       userId: user?.id,
       userEmail: user?.email,
       textLength: state.sourceText.length,
-      needsLogin: characterCount > 300 && !user && state.sourceText.length > 1000
+      needsLogin: characterCount > 300 && !user && state.sourceText.length > 5000
     })
     
-    if (characterCount > 300 && !user && state.sourceText.length > 1000) {
+    if (characterCount > 300 && !user && state.sourceText.length > 5000) {
       console.log('[Login Debug] Triggering login requirement')
       toast({
         title: t('errors.login_required_title'),
-        description: 'For translations over 1000 characters, please sign in to continue.',
+        description: 'For translations over 5000 characters, please sign in to continue.',
         variant: "destructive",
       })
       router.push(`/${locale}/auth/signin?redirect=` + encodeURIComponent(window.location.pathname))
@@ -182,12 +182,12 @@ export function UnifiedTranslator({
       }
       
       // 智能选择API端点：
-      // 临时方案：1000字符以下使用公共端点（保持功能可用）
-      // 超过1000字符才需要认证和积分
-      if (state.sourceText.length <= 1000) {
+      // 临时方案：5000字符以下使用公共端点（保持功能可用）
+      // 超过5000字符才需要认证和积分
+      if (state.sourceText.length <= 5000) {
         endpoint = '/api/translate/public'
       } else {
-        // 对于1000字符以上的文本，使用认证API并扣除积分
+        // 对于5000字符以上的文本，使用认证API并扣除积分
         endpoint = '/api/translate'
       }
       
@@ -273,13 +273,13 @@ export function UnifiedTranslator({
       // 显示成功提示
       toast({
         title: 'Translation Complete',
-        description: state.sourceText.length <= 1000 
+        description: state.sourceText.length <= 5000 
           ? 'Free translation completed successfully'
           : `Translation completed using ${estimatedCredits} credits`,
       })
 
       // 如果使用了积分，刷新积分余额
-      if (state.sourceText.length > 1000 && user) {
+      if (state.sourceText.length > 5000 && user) {
         await refreshCredits()
       }
 

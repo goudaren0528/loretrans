@@ -399,7 +399,7 @@ export function EnhancedTextTranslator({
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <span>Please sign in to translate texts over 1000 characters.</span>
+                  <span>Please sign in to translate texts over 5000 characters.</span>
                   <Button
                     variant="outline"
                     size="sm"

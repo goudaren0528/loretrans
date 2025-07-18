@@ -139,7 +139,7 @@ export function getClientIP(request: NextRequest): string {
 /**
  * 验证文本长度
  */
-export function validateTextLength(text: string, maxLength: number = 1000): { valid: boolean; length: number } {
+export function validateTextLength(text: string, maxLength: number = 5000): { valid: boolean; length: number } {
   const length = Array.from(text).length
   return {
     valid: length <= maxLength,

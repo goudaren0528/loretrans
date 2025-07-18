@@ -328,8 +328,8 @@ export const APP_CONFIG = {
 
   // 翻译配置
   translation: {
-    freeCharacterLimit: 1000, // 免费翻译字符限制
-    maxTextInputLimit: 5000, // 文本输入上限
+    freeCharacterLimit: 5000, // 免费翻译字符限制 (从1000提升到5000)
+    maxTextInputLimit: 10000, // 文本输入上限 (提升以支持更长文本)
     queueThreshold: 1000, // 队列模式阈值
     creditRatePerCharacter: 0.1, // 超出免费额度后每字符积分数
     registrationBonus: 500, // 注册奖励积分
@@ -347,7 +347,7 @@ export const APP_CONFIG = {
   nllb: {
     model: process.env.NLLB_MODEL || 'facebook/nllb-200-distilled-600M',
     apiUrl: process.env.HUGGINGFACE_API_URL || 'https://api-inference.huggingface.co/models',
-    maxLength: parseInt(process.env.NLLB_MAX_LENGTH || '1000'),
+    maxLength: parseInt(process.env.NLLB_MAX_LENGTH || '5000'),
     temperature: parseFloat(process.env.NLLB_TEMPERATURE || '0.3'),
     timeout: parseInt(process.env.NLLB_TIMEOUT || '30000'),
     // 本地服务配置

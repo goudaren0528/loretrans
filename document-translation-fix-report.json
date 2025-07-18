@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-07-17T12:10:53.523Z",
+  "issue": {
+    "title": "文档翻译无结果问题",
+    "description": "10000字符文档翻译立即完成但没有翻译结果",
+    "symptoms": [
+      "API响应成功返回数据",
+      "提取的translatedText为undefined",
+      "最终翻译文本长度为0"
+    ]
+  },
+  "rootCause": {
+    "description": "API响应数据结构与前端提取逻辑不匹配",
+    "details": [
+      "API直接返回data.translatedText字段",
+      "前端期望从data.result.translatedText获取",
+      "提取逻辑优先级顺序错误"
+    ]
+  },
+  "solution": {
+    "description": "调整前端数据提取逻辑",
+    "changes": [
+      "将data.translatedText放在提取逻辑第一位",
+      "保留data.result?.translatedText作为备选",
+      "确保与API返回结构完全匹配"
+    ]
+  },
+  "verification": {
+    "allTestsPassed": false,
+    "testResults": [
+      {
+        "name": "数据提取逻辑修复",
+        "passed": false,
+        "required": true
+      },
+      {
+        "name": "日志输出完整性",
+        "passed": true,
+        "required": true
+      },
+      {
+        "name": "错误处理机制",
+        "passed": true,
+        "required": true
+      },
+      {
+        "name": "积分刷新逻辑",
+        "passed": true,
+        "required": true
+      }
+    ]
+  },
+  "status": "NEEDS_ATTENTION"
+}

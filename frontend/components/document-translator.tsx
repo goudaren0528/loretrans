@@ -379,10 +379,18 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       }
 
       console.log('[Document Translation] API Response:', data)
-      console.log('[Document Translation] Extracted translatedText:', data.result?.translatedText || data.translatedText)
-
-      // 翻译成功，立即设置为完成状态
-      const translatedText = data.result?.translatedText || data.translatedText || ''
+      
+      // 检查是否是异步任务
+      if (data.isAsync && data.jobId) {
+        console.log('[Document Translation] 异步任务创建:', data.jobId)
+        // 开始轮询异步任务状态
+        await pollAsyncTranslationStatus(data.jobId)
+        return
+      }
+      
+      // 同步任务 - 修复：API直接返回translatedText字段，不是嵌套在result中
+      const translatedText = data.translatedText || data.result?.translatedText || ''
+      console.log('[Document Translation] Extracted translatedText:', translatedText)
       console.log('[Document Translation] Final translatedText length:', translatedText.length)
       
       setTranslationState({
@@ -422,6 +430,188 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       })
     }
   }, [uploadState.uploadResult, user, credits, router, refreshCredits, t])
+
+  // 轮询异步翻译任务状态
+  const pollAsyncTranslationStatus = useCallback(async (jobId: string) => {
+    console.log('[Document Translation] 开始轮询异步任务:', jobId)
+    
+    const maxAttempts = 300 // 最多轮询5分钟 (300 * 1秒)，增加轮询次数
+    let attempts = 0
+    let consecutiveErrors = 0
+    const maxConsecutiveErrors = 5 // 最多连续5次错误后停止
+    
+    const poll = async () => {
+      try {
+        attempts++
+        console.log(`[Document Translation] 轮询尝试 ${attempts}/${maxAttempts}`)
+        
+        // 构建认证头
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json',
+        }
+        
+        if (user) {
+          try {
+            const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+            const supabase = createSupabaseBrowserClient()
+            const { data: { session } } = await supabase.auth.getSession()
+            
+            if (session?.access_token) {
+              headers['Authorization'] = `Bearer ${session.access_token}`
+            } else {
+              console.warn('No access token available for status check')
+            }
+          } catch (error) {
+            console.error('Failed to get auth token for status check:', error)
+          }
+        }
+        
+        const response = await fetch(`/api/document/translate/status?jobId=${jobId}`, {
+          method: 'GET',
+          headers,
+        })
+        
+        const data = await response.json()
+        
+        if (!response.ok) {
+          throw new Error(data.error || '查询任务状态失败')
+        }
+        
+        if (!data.success || !data.job) {
+          throw new Error('任务不存在或已过期')
+        }
+        
+        const job = data.job
+        console.log(`[Document Translation] 任务状态: ${job.status}, 进度: ${job.progress}%`)
+        
+        // 更新进度
+        setTranslationState(prev => ({
+          ...prev,
+          progress: job.progress || 0
+        }))
+        
+        if (job.status === 'completed' && job.result) {
+          console.log('[Document Translation] 异步任务完成，结果长度:', job.result.length)
+          
+          // 完成任务并扣除积分
+          // 构建认证头
+          const completeHeaders: Record<string, string> = {
+            'Content-Type': 'application/json',
+          }
+          
+          if (user) {
+            try {
+              const { createSupabaseBrowserClient } = await import('@/lib/supabase')
+              const supabase = createSupabaseBrowserClient()
+              const { data: { session } } = await supabase.auth.getSession()
+              
+              if (session?.access_token) {
+                completeHeaders['Authorization'] = `Bearer ${session.access_token}`
+              } else {
+                console.warn('No access token available for task completion')
+              }
+            } catch (error) {
+              console.error('Failed to get auth token for task completion:', error)
+            }
+          }
+          
+          const completeResponse = await fetch('/api/document/translate/status', {
+            method: 'POST',
+            headers: completeHeaders,
+            body: JSON.stringify({ jobId })
+          })
+          
+          const completeData = await completeResponse.json()
+          
+          if (completeResponse.ok && completeData.success) {
+            // 设置翻译完成状态
+            setTranslationState({
+              isTranslating: false,
+              result: {
+                translatedText: job.result,
+                originalLength: completeData.originalLength,
+                translatedLength: completeData.translatedLength,
+                creditsUsed: completeData.creditsUsed
+              },
+              progress: 100,
+              error: null
+            })
+            
+            // 刷新积分余额
+            const updatedCredits = await refreshCredits()
+            if (typeof updatedCredits === 'number') {
+              setLocalCredits(updatedCredits)
+              console.log('[Document Translation] Credits refreshed after async completion:', updatedCredits)
+            }
+            
+            toast({
+              title: t('translation.completed'),
+              description: t('translation.credits_consumed', { credits: completeData.creditsUsed || 0 }),
+            })
+          } else {
+            throw new Error(completeData.error || '完成任务失败')
+          }
+          
+          return // 任务完成，停止轮询
+        }
+        
+        if (job.status === 'failed') {
+          throw new Error(job.error || '翻译任务失败')
+        }
+        
+        // 如果任务还在进行中，继续轮询
+        if (job.status === 'processing' || job.status === 'pending') {
+          consecutiveErrors = 0 // 重置连续错误计数
+          if (attempts < maxAttempts) {
+            setTimeout(poll, 1000) // 1秒后再次轮询
+          } else {
+            throw new Error('翻译任务超时，请重试')
+          }
+        }
+        
+      } catch (error: any) {
+        console.error('[Document Translation] 轮询异步任务失败:', error)
+        consecutiveErrors++
+        
+        // 区分网络错误和其他错误
+        const isNetworkError = error.message.includes('fetch failed') || 
+                              error.message.includes('Failed to fetch') ||
+                              error.message.includes('Network Error') ||
+                              error.name === 'TypeError'
+        
+        if (isNetworkError && consecutiveErrors < maxConsecutiveErrors && attempts < maxAttempts) {
+          console.log(`[Document Translation] 网络错误，${2000}ms后重试 (连续错误: ${consecutiveErrors}/${maxConsecutiveErrors})`)
+          setTimeout(poll, 2000) // 网络错误时等待2秒后重试
+          return
+        }
+        
+        // 如果不是网络错误，或者连续错误太多，或者超过最大尝试次数，则停止轮询
+        console.error('[Document Translation] 轮询停止:', {
+          isNetworkError,
+          consecutiveErrors,
+          maxConsecutiveErrors,
+          attempts,
+          maxAttempts
+        })
+        
+        setTranslationState({
+          isTranslating: false,
+          result: null,
+          progress: 0,
+          error: isNetworkError ? '网络连接不稳定，请检查网络后重试' : error.message
+        })
+        
+        toast({
+          title: t('translation.translation_failed'),
+          description: isNetworkError ? '网络连接不稳定，请检查网络后重试' : error.message,
+          variant: 'destructive'
+        })
+      }
+    }
+    
+    // 开始轮询
+    setTimeout(poll, 1000) // 1秒后开始第一次轮询
+  }, [user, refreshCredits, t, toast])
 
   // 下载翻译结果
   const downloadTranslationResult = useCallback(() => {

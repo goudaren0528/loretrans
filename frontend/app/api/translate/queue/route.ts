@@ -75,6 +75,14 @@ function loadQueueFromFile() {
           }
         });
         console.log(`[Queue] 从备份恢复了 ${restoredCount} 个任务`);
+        
+        // 如果有恢复的任务，启动处理器
+        if (restoredCount > 0) {
+          console.log('[Queue] 启动处理器处理恢复的任务');
+          setTimeout(() => {
+            processNextPendingJob();
+          }, 1000);
+        }
       } else {
         console.log('[Queue] 备份文件过期，不进行恢复');
         // 删除过期的备份文件
@@ -530,4 +538,118 @@ function mapToNLLBLanguageCode(language: string): string {
   };
   
   return languageMap[language] || language;
+}
+
+// 处理下一个pending任务
+async function processNextPendingJob() {
+  try {
+    // 查找第一个pending状态的任务
+    let pendingJob = null;
+    let pendingJobId = null;
+    
+    for (const [jobId, job] of translationQueue.entries()) {
+      if (job.status === 'pending') {
+        pendingJob = job;
+        pendingJobId = jobId;
+        break;
+      }
+    }
+    
+    if (!pendingJob) {
+      console.log('[Queue] 没有pending任务需要处理');
+      return;
+    }
+    
+    console.log(`[Queue] 准备开始处理任务: ${pendingJobId}`);
+    console.log(`[Queue] processTranslationJob 开始执行: ${pendingJobId}`);
+    
+    // 设置任务状态为processing
+    pendingJob.status = 'processing';
+    pendingJob.updatedAt = new Date();
+    translationQueue.set(pendingJobId, pendingJob);
+    
+    console.log(`[Queue] 设置任务状态为processing: ${pendingJobId}`);
+    console.log(`[Queue] 任务状态已更新并保存: ${pendingJobId}`);
+    
+    // 开始处理任务
+    console.log(`[Queue] 开始处理任务 ${pendingJobId}: {`);
+    console.log(`  文本长度: ${pendingJob.text.length}`);
+    console.log(`  分块数量: ${pendingJob.chunks.length}`);
+    console.log(`  源语言: ${pendingJob.sourceLanguage}`);
+    console.log(`  目标语言: ${pendingJob.targetLanguage}`);
+    console.log(`}`);
+    
+    // 处理所有分块
+    const results = [];
+    let completedChunks = 0;
+    
+    for (let i = 0; i < pendingJob.chunks.length; i++) {
+      const chunk = pendingJob.chunks[i];
+      
+      try {
+        console.log(`[Queue] 处理分块 ${i + 1}/${pendingJob.chunks.length}: ${chunk.substring(0, 50)}...`);
+        
+        const result = await translateChunkWithRetry(
+          chunk,
+          pendingJob.sourceLanguage,
+          pendingJob.targetLanguage
+        );
+        
+        if (result.success) {
+          results.push(result.translatedText);
+          completedChunks++;
+          
+          // 更新进度
+          const progress = Math.round((completedChunks / pendingJob.chunks.length) * 100);
+          pendingJob.progress = progress;
+          pendingJob.updatedAt = new Date();
+          translationQueue.set(pendingJobId, pendingJob);
+          
+          console.log(`[Queue] 分块 ${i + 1} 翻译成功，进度: ${progress}%`);
+        } else {
+          throw new Error(result.error || '翻译失败');
+        }
+        
+        // 分块间延迟
+        if (i < pendingJob.chunks.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, QUEUE_CONFIG.CHUNK_DELAY));
+        }
+        
+      } catch (error) {
+        console.error(`[Queue] 分块 ${i + 1} 翻译失败:`, error);
+        
+        // 任务失败
+        pendingJob.status = 'failed';
+        pendingJob.error = error.message;
+        pendingJob.updatedAt = new Date();
+        translationQueue.set(pendingJobId, pendingJob);
+        
+        // 保存状态并继续处理下一个任务
+        saveQueueToFile();
+        setTimeout(() => processNextPendingJob(), 1000);
+        return;
+      }
+    }
+    
+    // 任务完成
+    const finalResult = results.join(' ');
+    pendingJob.status = 'completed';
+    pendingJob.progress = 100;
+    pendingJob.result = finalResult;
+    pendingJob.updatedAt = new Date();
+    translationQueue.set(pendingJobId, pendingJob);
+    
+    console.log(`[Queue] 任务 ${pendingJobId} 完成，结果长度: ${finalResult.length}`);
+    
+    // 保存状态
+    saveQueueToFile();
+    
+    // 继续处理下一个任务
+    setTimeout(() => processNextPendingJob(), 1000);
+    
+  } catch (error) {
+    console.error('[Queue] 处理任务时发生错误:', error);
+    // 1秒后重试
+    setTimeout(() => processNextPendingJob(), 1000);
+  }
 }

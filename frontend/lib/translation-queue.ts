@@ -151,7 +151,7 @@ class TranslationQueueManager {
         console.log(`[Queue] 长文本(${text.length}字符)使用队列处理`);
         
         task.status = 'processing';
-        task.progress = 10;
+        task.progress = 5; // 降低初始进度，避免过度乐观
         task.updatedAt = new Date();
         this.dispatchTaskUpdate(task);
         
@@ -171,7 +171,7 @@ class TranslationQueueManager {
         
         if (result.success) {
           task.status = 'processing';
-          task.progress = 20;
+          task.progress = 10; // 降低提交成功后的进度
           task.queueJobId = result.jobId;
           task.updatedAt = new Date();
           this.dispatchTaskUpdate(task);
@@ -374,6 +374,28 @@ class TranslationQueueManager {
             this.dispatchTaskUpdate(task);
           } else {
             console.log('[Queue] 任务进行中:', job.status, job.progress + '%');
+            // 更新任务进度，采用更智能的策略
+            const backendProgress = job.progress || 0;
+            const currentProgress = task.progress || 0;
+            
+            // 智能进度更新策略
+            if (backendProgress >= currentProgress) {
+              // 后端进度大于等于当前进度，正常更新
+              task.progress = backendProgress;
+              if (backendProgress > currentProgress) {
+                console.log('[Queue] 进度更新:', currentProgress + '% → ' + backendProgress + '%');
+              }
+            } else if (backendProgress === 0 && currentProgress <= 10) {
+              // 如果后端返回0且当前进度很小（<=10%），可能是刚开始，允许重置
+              task.progress = 0;
+              console.log('[Queue] 重置进度为0% (任务刚开始)');
+            } else {
+              // 其他情况保持当前进度，避免大幅倒退
+              console.log('[Queue] 保持当前进度:', currentProgress + '% (避免倒退到' + backendProgress + '%)');
+            }
+            
+            task.status = 'processing';
+            task.updatedAt = new Date();
             // 继续轮询
             setTimeout(poll, 2000);
             this.dispatchTaskUpdate(task);

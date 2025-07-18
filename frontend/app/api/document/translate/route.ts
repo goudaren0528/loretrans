@@ -21,10 +21,10 @@ const createSupabaseAdminClient = () => {
 // 增强的文档翻译配置
 const ENHANCED_DOC_CONFIG = {
   MAX_CHUNK_SIZE: 300,        // 统一使用300字符分块
-  MAX_RETRIES: 3,             // 每个块最多重试3次
-  RETRY_DELAY: 1000,          // 重试延迟1秒
-  CHUNK_DELAY: 500,           // 块间延迟500ms
-  REQUEST_TIMEOUT: 25000,     // 请求超时25秒
+  MAX_RETRIES: 5,             // 每个块最多重试5次（增加重试次数）
+  RETRY_DELAY: 2000,          // 重试延迟2秒（增加延迟）
+  CHUNK_DELAY: 1000,          // 块间延迟1秒（增加延迟避免限流）
+  REQUEST_TIMEOUT: 45000,     // 请求超时45秒（增加超时时间）
   CONCURRENT_CHUNKS: 1        // 顺序处理，避免限流
 };
 
@@ -193,16 +193,29 @@ async function translateHandler(req: NextRequestWithUser) {
     }
 
     // 执行翻译
-    const translationResult = await performTranslation(text, sourceLanguage, targetLanguage)
+    const translationResult = await performTranslation(text, sourceLanguage, targetLanguage, fileId)
 
     if (!translationResult.success) {
       return NextResponse.json({
-        error: translationResult.error || '翻译失败',
+        error: 'error' in translationResult ? translationResult.error : '翻译失败',
         code: 'TRANSLATION_FAILED'
       }, { status: 500 })
     }
 
-    // 扣除积分（如果需要）
+    // 检查是否是异步任务
+    if ('jobId' in translationResult && translationResult.jobId) {
+      // 异步任务 - 返回任务信息，不扣除积分（任务完成后再扣除）
+      return NextResponse.json({
+        success: true,
+        message: 'message' in translationResult ? translationResult.message : '异步任务已创建',
+        jobId: translationResult.jobId,
+        totalChunks: 'totalChunks' in translationResult ? translationResult.totalChunks : 0,
+        estimatedTime: 'estimatedTime' in translationResult ? translationResult.estimatedTime : 0,
+        isAsync: true
+      })
+    }
+
+    // 同步任务 - 立即扣除积分并返回结果
     if (calculation.credits_required > 0) {
       try {
         const supabase = createSupabaseAdminClient()
@@ -219,12 +232,15 @@ async function translateHandler(req: NextRequestWithUser) {
       }
     }
 
+    // 同步任务返回结果
+    const translatedText = 'translatedText' in translationResult ? translationResult.translatedText : ''
     return NextResponse.json({
       success: true,
-      translatedText: translationResult.translatedText,
+      translatedText: translatedText,
       originalLength: characterCount,
-      translatedLength: translationResult.translatedText.length,
+      translatedLength: translatedText.length,
       creditsUsed: calculation.credits_required,
+      isAsync: false,
       remainingCredits: userCredits - calculation.credits_required
     })
 
@@ -237,8 +253,8 @@ async function translateHandler(req: NextRequestWithUser) {
   }
 }
 
-// 执行翻译的主函数
-async function performTranslation(text: string, sourceLanguage: string, targetLanguage: string) {
+// 执行翻译的主函数 - 改为异步队列模式
+async function performTranslation(text: string, sourceLanguage: string, targetLanguage: string, fileId: string) {
   try {
     console.log(`[Translation] 开始翻译: ${text.length}字符`)
     
@@ -246,33 +262,15 @@ async function performTranslation(text: string, sourceLanguage: string, targetLa
     const chunks = smartDocumentChunking(text, ENHANCED_DOC_CONFIG.MAX_CHUNK_SIZE)
     console.log(`[Translation] 分块完成: ${chunks.length}个块`)
     
-    const translatedChunks: string[] = []
-    
-    // 顺序处理每个块
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i]
-      
-      // 添加块间延迟，避免请求过于频繁
-      if (i > 0) {
-        console.log(`⏳ 块间延迟 ${ENHANCED_DOC_CONFIG.CHUNK_DELAY}ms...`)
-        await new Promise(resolve => setTimeout(resolve, ENHANCED_DOC_CONFIG.CHUNK_DELAY))
-      }
-      
-      const chunkResult = await translateChunkWithRetry(chunk, sourceLanguage, targetLanguage)
-      if (!chunkResult.success) {
-        throw new Error(chunkResult.error || '翻译失败')
-      }
-      
-      translatedChunks.push(chunkResult.translatedText!)
+    // 如果块数较少，使用同步处理（避免小文档的复杂性）
+    if (chunks.length <= 5) {
+      console.log(`[Translation] 小文档同步处理: ${chunks.length}个块`)
+      return await performSyncTranslation(chunks, sourceLanguage, targetLanguage)
     }
     
-    const finalTranslation = translatedChunks.join(' ')
-    console.log(`[Translation] 翻译完成: ${finalTranslation.length}字符`)
-    
-    return {
-      success: true,
-      translatedText: finalTranslation
-    }
+    // 大文档使用异步队列处理
+    console.log(`[Translation] 大文档异步处理: ${chunks.length}个块`)
+    return await performAsyncTranslation(chunks, sourceLanguage, targetLanguage, fileId)
     
   } catch (error) {
     console.error('Translation error:', error)
@@ -280,6 +278,92 @@ async function performTranslation(text: string, sourceLanguage: string, targetLa
       success: false,
       error: error instanceof Error ? error.message : '翻译失败'
     }
+  }
+}
+
+// 小文档同步处理
+async function performSyncTranslation(chunks: string[], sourceLanguage: string, targetLanguage: string) {
+  const translatedChunks: string[] = []
+  
+  // 顺序处理每个块
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i]
+    
+    // 添加块间延迟，避免请求过于频繁
+    if (i > 0) {
+      console.log(`⏳ 块间延迟 ${ENHANCED_DOC_CONFIG.CHUNK_DELAY}ms...`)
+      await new Promise(resolve => setTimeout(resolve, ENHANCED_DOC_CONFIG.CHUNK_DELAY))
+    }
+    
+    const chunkResult = await translateChunkWithRetry(chunk, sourceLanguage, targetLanguage)
+    if (!chunkResult.success) {
+      throw new Error(chunkResult.error || '翻译失败')
+    }
+    
+    translatedChunks.push(chunkResult.translatedText!)
+  }
+  
+  const finalTranslation = translatedChunks.join(' ')
+  console.log(`[Translation] 同步翻译完成: ${finalTranslation.length}字符`)
+  
+  return {
+    success: true,
+    translatedText: finalTranslation
+  }
+}
+
+// 大文档异步处理
+async function performAsyncTranslation(chunks: string[], sourceLanguage: string, targetLanguage: string, fileId: string) {
+  // 创建翻译任务ID
+  const jobId = `doc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+  
+  // 创建任务对象
+  const job = {
+    id: jobId,
+    type: 'document',
+    fileId: fileId,
+    text: chunks.join(' '),
+    chunks: chunks,
+    sourceLanguage,
+    targetLanguage,
+    status: 'pending' as const,
+    progress: 0,
+    result: null as string | null,
+    error: null as string | null,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+  
+  // 获取或创建翻译队列
+  if (!(global as any).translationQueue) {
+    (global as any).translationQueue = new Map()
+  }
+  const translationQueue = (global as any).translationQueue
+  
+  // 保存任务到队列
+  translationQueue.set(jobId, job)
+  console.log(`[Translation] 创建异步翻译任务: ${jobId}, 块数: ${chunks.length}`)
+  
+  // 异步开始处理
+  setTimeout(() => {
+    processDocumentTranslationJob(jobId).catch(error => {
+      console.error(`[Translation] 文档翻译任务失败: ${jobId}`, error)
+      const job = translationQueue.get(jobId)
+      if (job) {
+        job.status = 'failed'
+        job.error = error.message
+        job.updatedAt = new Date()
+        translationQueue.set(jobId, job)
+      }
+    })
+  }, 100)
+  
+  return {
+    success: true,
+    jobId: jobId,
+    message: '大文档翻译任务已创建，正在后台处理',
+    totalChunks: chunks.length,
+    estimatedTime: Math.ceil(chunks.length * 2) // 预估时间（秒）
   }
 }
 
@@ -405,6 +489,95 @@ function forceChunkBySentence(sentence: string, maxSize: number): string[] {
   }
   
   return chunks
+}
+
+/**
+ * 处理文档翻译任务（异步）
+ */
+async function processDocumentTranslationJob(jobId: string) {
+  const translationQueue = (global as any).translationQueue
+  const job = translationQueue.get(jobId)
+  
+  if (!job) {
+    console.log(`[Translation] 任务不存在: ${jobId}`)
+    return
+  }
+  
+  console.log(`[Translation] 开始处理文档翻译任务: ${jobId}`)
+  
+  try {
+    // 设置处理状态
+    job.status = 'processing'
+    job.progress = 5
+    job.updatedAt = new Date()
+    translationQueue.set(jobId, job)
+    
+    const translatedChunks: string[] = []
+    const totalChunks = job.chunks.length
+    const BATCH_SIZE = 5 // 批次大小
+    
+    // 分批处理块
+    for (let i = 0; i < totalChunks; i += BATCH_SIZE) {
+      const batch = job.chunks.slice(i, i + BATCH_SIZE)
+      console.log(`[Translation] 处理批次 ${Math.floor(i/BATCH_SIZE) + 1}/${Math.ceil(totalChunks/BATCH_SIZE)}, 块数: ${batch.length}`)
+      
+      // 更新批次开始进度
+      const startProgress = Math.round((i / totalChunks) * 90) + 10
+      job.progress = startProgress
+      job.updatedAt = new Date()
+      translationQueue.set(jobId, job)
+      
+      // 并行处理当前批次
+      const batchPromises = batch.map((chunk, index) => {
+        console.log(`[Translation] 翻译块 ${i + index + 1}/${totalChunks}: ${chunk.substring(0, 50)}...`)
+        return translateChunkWithRetry(chunk, job.sourceLanguage, job.targetLanguage)
+      })
+      
+      const batchResults = await Promise.all(batchPromises)
+      console.log(`[Translation] 批次结果:`, batchResults.map(r => ({ success: r.success, length: r.translatedText?.length || 0 })))
+      
+      // 检查批次结果
+      for (const result of batchResults) {
+        if (!result.success) {
+          throw new Error(result.error || '翻译失败')
+        }
+        translatedChunks.push(result.translatedText!)
+      }
+      
+      // 更新进度
+      job.progress = Math.round(((i + batch.length) / totalChunks) * 100)
+      job.updatedAt = new Date()
+      translationQueue.set(jobId, job)
+      
+      console.log(`[Translation] 进度更新: ${job.progress}% (${i + batch.length}/${totalChunks})`)
+      
+      // 批次间延迟
+      if (i + BATCH_SIZE < totalChunks) {
+        await new Promise(resolve => setTimeout(resolve, 1000))
+      }
+    }
+    
+    // 合并结果
+    job.result = translatedChunks.join(' ')
+    job.status = 'completed'
+    job.progress = 100
+    job.updatedAt = new Date()
+    translationQueue.set(jobId, job)
+    
+    console.log(`[Translation] 文档翻译任务完成: ${jobId}`, {
+      totalChunks: translatedChunks.length,
+      resultLength: job.result.length,
+      resultPreview: job.result.substring(0, 100) + '...'
+    })
+    
+  } catch (error) {
+    job.status = 'failed'
+    job.error = error instanceof Error ? error.message : '翻译失败'
+    job.updatedAt = new Date()
+    translationQueue.set(jobId, job)
+    
+    console.error(`[Translation] 文档翻译任务失败: ${jobId}`, error)
+  }
 }
 
 /**

@@ -226,10 +226,25 @@ export function withApiAuth(handler: AppRouterApiHandler, requiredRoles?: RoleCh
 
     try {
       console.log('[API Auth] 验证JWT token:', { tokenLength: jwt.length, tokenPreview: jwt.substring(0, 20) + '...' });
-    const { data, error } = await supabase.auth.getUser(jwt)
+      const { data, error } = await supabase.auth.getUser(jwt)
 
-      if (error || !data.user) {
-        console.log('[API Auth] JWT验证失败:', { error: error?.message, hasUser: !!data.user });
+      if (error) {
+        console.log('[API Auth] JWT验证失败:', { error: error?.message, hasUser: !!data?.user });
+        
+        // 检查是否是网络连接问题
+        if (error.message && (error.message.includes('fetch failed') || error.message.includes('EAI_AGAIN'))) {
+          console.log('[API Auth] 检测到网络连接问题，返回服务不可用错误');
+          return NextResponse.json({ 
+            error: 'Service temporarily unavailable. Please check your network connection and try again.',
+            code: 'NETWORK_ERROR'
+          }, { status: 503 })
+        }
+        
+        return NextResponse.json({ error: 'Unauthorized: Invalid token' }, { status: 401 })
+      }
+
+      if (!data.user) {
+        console.log('[API Auth] JWT验证失败: 用户数据为空');
         return NextResponse.json({ error: 'Unauthorized: Invalid token' }, { status: 401 })
       }
 
@@ -254,6 +269,16 @@ export function withApiAuth(handler: AppRouterApiHandler, requiredRoles?: RoleCh
 
     } catch (e) {
       console.error('API Auth Error:', e)
+      
+      // 检查是否是网络连接错误
+      if (e instanceof Error && (e.message.includes('fetch failed') || e.message.includes('EAI_AGAIN') || e.message.includes('ENOTFOUND'))) {
+        console.log('[API Auth] Catch块检测到网络连接问题');
+        return NextResponse.json({ 
+          error: 'Service temporarily unavailable. Please check your network connection and try again.',
+          code: 'NETWORK_ERROR'
+        }, { status: 503 })
+      }
+      
       return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
     }
   }

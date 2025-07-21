@@ -18,6 +18,7 @@ import {
   Star,
   Zap
 } from 'lucide-react'
+import { getFreeCharacterLimit, getCreditRatePerCharacter } from '@/lib/config'
 import type { Language } from '../../../config/app.config'
 
 interface LanguagePageGeneratorProps {
@@ -40,6 +41,10 @@ export function LanguagePageGenerator({
   const [isTranslating, setIsTranslating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  
+  // 获取配置
+  const freeCharLimit = getFreeCharacterLimit()
+  const creditRate = getCreditRatePerCharacter()
 
   const handleTranslate = async () => {
     if (!sourceText.trim()) return
@@ -183,9 +188,9 @@ export function LanguagePageGenerator({
                 )}
               </div>
               
-              {characterCount > 1000 && (
+              {characterCount > freeCharLimit && (
                 <div className="text-xs text-gray-500">
-                  超出部分: {Math.ceil((characterCount - 1000) * 0.1)} 积分
+                  超出部分: {Math.ceil((characterCount - freeCharLimit) * creditRate)} 积分
                 </div>
               )}
             </div>

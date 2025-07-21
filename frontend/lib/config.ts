@@ -22,6 +22,20 @@ export const getMaxTextInputLimit = () => {
 }
 
 /**
+ * 获取积分费率（每字符）
+ */
+export const getCreditRatePerCharacter = () => {
+  return APP_CONFIG.translation.creditRatePerCharacter
+}
+
+/**
+ * 获取注册奖励积分
+ */
+export const getRegistrationBonus = () => {
+  return APP_CONFIG.translation.registrationBonus
+}
+
+/**
  * 获取队列模式阈值
  */
 export const getQueueThreshold = () => {
@@ -33,20 +47,6 @@ export const getQueueThreshold = () => {
  */
 export const getQueueConfig = () => {
   return APP_CONFIG.translation.queue
-}
-
-/**
- * 获取积分费率
- */
-export const getCreditRatePerCharacter = () => {
-  return APP_CONFIG.translation.creditRatePerCharacter
-}
-
-/**
- * 获取注册奖励积分
- */
-export const getRegistrationBonus = () => {
-  return APP_CONFIG.translation.registrationBonus
 }
 
 /**

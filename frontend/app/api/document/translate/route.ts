@@ -192,30 +192,7 @@ async function translateHandler(req: NextRequestWithUser) {
       }, { status: 402 })
     }
 
-    // 执行翻译
-    const translationResult = await performTranslation(text, sourceLanguage, targetLanguage, fileId)
-
-    if (!translationResult.success) {
-      return NextResponse.json({
-        error: 'error' in translationResult ? translationResult.error : '翻译失败',
-        code: 'TRANSLATION_FAILED'
-      }, { status: 500 })
-    }
-
-    // 检查是否是异步任务
-    if ('jobId' in translationResult && translationResult.jobId) {
-      // 异步任务 - 返回任务信息，不扣除积分（任务完成后再扣除）
-      return NextResponse.json({
-        success: true,
-        message: 'message' in translationResult ? translationResult.message : '异步任务已创建',
-        jobId: translationResult.jobId,
-        totalChunks: 'totalChunks' in translationResult ? translationResult.totalChunks : 0,
-        estimatedTime: 'estimatedTime' in translationResult ? translationResult.estimatedTime : 0,
-        isAsync: true
-      })
-    }
-
-    // 同步任务 - 立即扣除积分并返回结果
+    // 先扣除积分（无论同步还是异步都先扣除）
     if (calculation.credits_required > 0) {
       try {
         const supabase = createSupabaseAdminClient()
@@ -226,13 +203,48 @@ async function translateHandler(req: NextRequestWithUser) {
 
         if (deductError) {
           console.error('[Translation] 扣除积分失败:', deductError)
+          return NextResponse.json({
+            error: '积分扣除失败，请重试',
+            code: 'CREDIT_DEDUCTION_FAILED'
+          }, { status: 500 })
         }
+        
+        console.log(`[Translation] 积分扣除成功: ${calculation.credits_required} 积分，剩余: ${userCredits - calculation.credits_required}`)
       } catch (error) {
         console.error('[Translation] 积分扣除异常:', error)
+        return NextResponse.json({
+          error: '积分扣除失败，请重试',
+          code: 'CREDIT_DEDUCTION_ERROR'
+        }, { status: 500 })
       }
     }
 
-    // 同步任务返回结果
+    // 执行翻译（积分已扣除）
+    const translationResult = await performTranslation(text, sourceLanguage, targetLanguage, fileId, user.id, calculation.credits_required)
+
+    if (!translationResult.success) {
+      return NextResponse.json({
+        error: 'error' in translationResult ? translationResult.error : '翻译失败',
+        code: 'TRANSLATION_FAILED'
+      }, { status: 500 })
+    }
+
+    // 检查是否是异步任务
+    if ('jobId' in translationResult && translationResult.jobId) {
+      // 异步任务 - 积分已扣除，返回任务信息
+      return NextResponse.json({
+        success: true,
+        message: 'message' in translationResult ? translationResult.message : '异步任务已创建，积分已扣除',
+        jobId: translationResult.jobId,
+        totalChunks: 'totalChunks' in translationResult ? translationResult.totalChunks : 0,
+        estimatedTime: 'estimatedTime' in translationResult ? translationResult.estimatedTime : 0,
+        isAsync: true,
+        creditsUsed: calculation.credits_required,
+        remainingCredits: userCredits - calculation.credits_required
+      })
+    }
+
+    // 同步任务 - 积分已扣除，返回结果
     const translatedText = 'translatedText' in translationResult ? translationResult.translatedText : ''
     return NextResponse.json({
       success: true,
@@ -254,7 +266,7 @@ async function translateHandler(req: NextRequestWithUser) {
 }
 
 // 执行翻译的主函数 - 改为异步队列模式
-async function performTranslation(text: string, sourceLanguage: string, targetLanguage: string, fileId: string) {
+async function performTranslation(text: string, sourceLanguage: string, targetLanguage: string, fileId: string, userId?: string, creditsUsed?: number) {
   try {
     console.log(`[Translation] 开始翻译: ${text.length}字符`)
     
@@ -270,7 +282,7 @@ async function performTranslation(text: string, sourceLanguage: string, targetLa
     
     // 大文档使用异步队列处理
     console.log(`[Translation] 大文档异步处理: ${chunks.length}个块`)
-    return await performAsyncTranslation(chunks, sourceLanguage, targetLanguage, fileId)
+    return await performAsyncTranslation(chunks, sourceLanguage, targetLanguage, fileId, userId, creditsUsed)
     
   } catch (error) {
     console.error('Translation error:', error)
@@ -313,7 +325,7 @@ async function performSyncTranslation(chunks: string[], sourceLanguage: string, 
 }
 
 // 大文档异步处理
-async function performAsyncTranslation(chunks: string[], sourceLanguage: string, targetLanguage: string, fileId: string) {
+async function performAsyncTranslation(chunks: string[], sourceLanguage: string, targetLanguage: string, fileId: string, userId?: string, creditsUsed?: number) {
   // 创建翻译任务ID
   const jobId = `doc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
   
@@ -322,6 +334,8 @@ async function performAsyncTranslation(chunks: string[], sourceLanguage: string,
     id: jobId,
     type: 'document',
     fileId: fileId,
+    userId: userId, // 保存用户ID
+    creditsUsed: creditsUsed || 0, // 保存已扣除的积分
     text: chunks.join(' '),
     chunks: chunks,
     sourceLanguage,
@@ -574,6 +588,28 @@ async function processDocumentTranslationJob(jobId: string) {
     job.status = 'failed'
     job.error = error instanceof Error ? error.message : '翻译失败'
     job.updatedAt = new Date()
+    
+    // 翻译失败时退还积分
+    if (job.userId && job.creditsUsed > 0) {
+      try {
+        const supabase = createSupabaseAdminClient()
+        const { error: refundError } = await supabase
+          .from('users')
+          .update({ 
+            credits: supabase.raw(`credits + ${job.creditsUsed}`)
+          })
+          .eq('id', job.userId)
+
+        if (refundError) {
+          console.error(`[Translation] 退还积分失败: ${jobId}`, refundError)
+        } else {
+          console.log(`[Translation] 翻译失败，已退还积分: ${job.creditsUsed} 积分给用户 ${job.userId}`)
+        }
+      } catch (refundError) {
+        console.error(`[Translation] 积分退还异常: ${jobId}`, refundError)
+      }
+    }
+    
     translationQueue.set(jobId, job)
     
     console.error(`[Translation] 文档翻译任务失败: ${jobId}`, error)

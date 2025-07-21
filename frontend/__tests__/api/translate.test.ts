@@ -1,5 +1,6 @@
 import { createMocks } from 'node-mocks-http'
 import { POST } from '@/app/api/translate/route'
+import { APP_CONFIG } from '../../../config/app.config'
 
 // Mock Supabase
 jest.mock('@/lib/supabase-server', () => ({
@@ -28,9 +29,9 @@ jest.mock('@/lib/services/credits', () => ({
   createServerCreditService: () => ({
     calculateCreditsRequired: jest.fn((characterCount) => ({
       total_characters: characterCount,
-      free_characters: Math.min(characterCount, 1000),
-      billable_characters: Math.max(0, characterCount - 1000),
-      credits_required: Math.max(0, (characterCount - 1000) * 0.1),
+      free_characters: Math.min(characterCount, APP_CONFIG.translation.freeCharacterLimit),
+      billable_characters: Math.max(0, characterCount - APP_CONFIG.translation.freeCharacterLimit),
+      credits_required: Math.max(0, (characterCount - APP_CONFIG.translation.freeCharacterLimit) * APP_CONFIG.translation.creditRatePerCharacter),
     })),
     consumeTranslationCredits: jest.fn().mockResolvedValue({
       success: true,
@@ -122,7 +123,7 @@ describe('/api/translate', () => {
     const data = await response.json()
 
     expect(response.status).toBe(200)
-    expect(data.calculation.credits_required).toBe(50) // (1000-500) * 0.1
+    expect(data.calculation.credits_required).toBe(0) // (1000-5000) * 0.1 = 0 (免费范围内)
   })
 
   it('handles insufficient credits', async () => {

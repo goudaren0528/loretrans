@@ -3,7 +3,7 @@
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { getFreeCharacterLimit, getMaxTextInputLimit } from '@/lib/config';
+import { getFreeCharacterLimit, getMaxTextInputLimit, getCreditRatePerCharacter } from '@/lib/config';
 import { TranslationNavButtons } from '@/components/translation-nav-buttons';
 
 // 文本翻译专用 FAQ 组件
@@ -11,7 +11,7 @@ function TextTranslateFAQ({ locale }: { locale: string }) {
   const t = useTranslations('TextTranslatePage');
   const freeCharLimit = getFreeCharacterLimit();
   const maxInputLimit = getMaxTextInputLimit();
-  const creditRate = 0.1; // 从配置获取
+  const creditRate = getCreditRatePerCharacter(); // 从配置获取
   
   // 计算示例值
   const exampleChars = 2000;

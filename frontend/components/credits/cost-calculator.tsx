@@ -3,10 +3,11 @@
 import React, { useState, useMemo } from 'react'
 import { Textarea } from '../ui/textarea'
 import { Label } from '../ui/label'
+import { getCreditRatePerCharacter } from '@/lib/config'
 
 // 根据 docs/credits-and-pricing.md 的定义
 const CHARS_PER_CREDIT = 100
-const MINIMUM_COST = 0.1
+const MINIMUM_COST = getCreditRatePerCharacter()
 
 /**
  * 计算翻译所需积分的函数

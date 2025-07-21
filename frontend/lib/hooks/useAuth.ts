@@ -293,6 +293,27 @@ export function useCredits() {
     return Math.ceil((textLength - freeLimit) * 0.1) // 超出部分0.1积分/字符
   }, [])
   
+  // 直接更新积分状态（用于立即反馈）
+  const updateCredits = useCallback((newCredits: number) => {
+    console.log('[useCredits] 准备更新积分状态:', { to: newCredits });
+    setCredits(prevCredits => {
+      console.log('[useCredits] 积分状态更新:', { from: prevCredits, to: newCredits });
+      return newCredits;
+    });
+    
+    // 更新调试信息
+    if (typeof window !== 'undefined') {
+      window.__CREDITS_DEBUG__ = {
+        credits: newCredits,
+        isLoading: false,
+        lastUpdate: new Date().toISOString(),
+        updateType: 'direct'
+      }
+    }
+    
+    console.log('[useCredits] 积分状态更新完成:', newCredits);
+  }, []); // 移除 credits 依赖，避免闭包问题
+  
   return {
     credits,
     hasCredits,
@@ -300,5 +321,6 @@ export function useCredits() {
     estimateCredits,
     isLoading,
     refreshCredits: fetchCredits, // 使用新的获取函数
+    updateCredits, // 直接更新积分状态
   }
 } 

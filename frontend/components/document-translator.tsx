@@ -18,7 +18,8 @@ import {
   Shield,
   Languages
 } from 'lucide-react'
-import { useAuth, useCredits } from '@/lib/hooks/useAuth'
+import { useAuth } from '@/lib/hooks/useAuth'
+import { useGlobalCredits } from '@/lib/contexts/credits-context'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-balance'
 import { useRouter } from 'next/navigation'
@@ -90,7 +91,7 @@ interface TranslationResult {
 export function DocumentTranslator({ className }: DocumentTranslatorProps) {
   const { user } = useAuth()
 
-  const { credits, refreshCredits, isLoading: creditsLoading } = useCredits()
+  const { credits, refreshCredits, isLoading: creditsLoading, updateCredits } = useGlobalCredits()
   
   // 添加本地积分状态以确保实时更新
   const [localCredits, setLocalCredits] = useState<number>(credits)
@@ -361,6 +362,30 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
         }
       }
 
+      // 立即更新本地积分显示（预扣除）
+      if (creditCalculation.credits_required > 0) {
+        const newCredits = Math.max(0, localCredits - creditCalculation.credits_required);
+        setLocalCredits(newCredits);
+        updateCredits(newCredits); // 同时更新全局积分状态
+        console.log(`[Credits] 立即预扣除积分显示: ${creditCalculation.credits_required}, 剩余显示: ${newCredits}`);
+        
+        // 显示积分扣除提示
+        toast({
+          title: '积分已扣除',
+          description: `本次翻译消耗 ${creditCalculation.credits_required} 积分，剩余 ${newCredits} 积分`,
+          duration: 3000,
+        });
+      }
+
+      console.log('[Translation] Starting translation with:', {
+        fileId,
+        sourceLanguage,
+        targetLanguage,
+        characterCount,
+        creditsRequired: creditCalculation.credits_required,
+        creditsAfterDeduction: Math.max(0, localCredits - creditCalculation.credits_required)
+      });
+
       const response = await fetch('/api/document/translate', {
         method: 'POST',
         headers,
@@ -375,6 +400,70 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
       const data = await response.json()
 
       if (!response.ok) {
+        // 特殊处理积分不足的情况
+        if (response.status === 402 && data.code === 'INSUFFICIENT_CREDITS') {
+        // 积分不足时不预扣除，直接显示错误
+        if (data.code === 'INSUFFICIENT_CREDITS') {
+          toast({
+            title: '积分不足',
+            description: `需要 ${data.required} 积分，当前余额 ${data.available} 积分。请前往充值页面购买积分。`,
+            variant: "destructive",
+          });
+          
+          setTranslationState({
+            isTranslating: false,
+            result: null,
+            progress: 0,
+            error: `积分不足：需要 ${data.required} 积分，当前余额 ${data.available} 积分`
+          });
+          
+          return;
+        }
+          toast({
+            title: '积分不足',
+            description: `需要 ${data.required} 积分，当前余额 ${data.available} 积分。请前往充值页面购买积分。`,
+            variant: "destructive",
+          })
+          
+          // 显示充值按钮
+          setTranslationState({
+            isTranslating: false,
+            result: null,
+            progress: 0,
+            error: `积分不足：需要 ${data.required} 积分，当前余额 ${data.available} 积分`
+          })
+          
+          return
+        }
+        
+        // 翻译失败时恢复本地积分显示
+      if (calculation.credits_required > 0) {
+        const restoredCredits = localCredits + calculation.credits_required;
+        setLocalCredits(restoredCredits);
+          updateCredits(restoredCredits); // 同时更新全局积分状态
+        console.log(`[Credits] 翻译失败，恢复积分: ${calculation.credits_required}, 总计: ${restoredCredits}`);
+        
+        toast({
+          title: '积分已退还',
+          description: `翻译失败，已退还 ${calculation.credits_required} 积分`,
+          duration: 3000,
+        });
+      }
+      
+      // 翻译失败时恢复本地积分显示
+        if (creditCalculation.credits_required > 0) {
+          const restoredCredits = localCredits + creditCalculation.credits_required;
+          setLocalCredits(restoredCredits);
+          updateCredits(restoredCredits); // 同时更新全局积分状态
+          console.log(`[Credits] 翻译失败，恢复积分显示: ${creditCalculation.credits_required}, 总计: ${restoredCredits}`);
+          
+          toast({
+            title: '积分已退还',
+            description: `翻译失败，已退还 ${creditCalculation.credits_required} 积分`,
+            duration: 3000,
+          });
+        }
+        
         throw new Error(data.error || t('translation.translation_failed'))
       }
 
@@ -949,7 +1038,37 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                 {translationState.error && (
                   <Alert variant="destructive">
                     <AlertTriangle className="h-4 w-4" />
-                    <AlertDescription>{translationState.error}</AlertDescription>
+                    <AlertDescription>
+                      <div className="space-y-3">
+                        <p>{translationState.error}</p>
+                        {translationState.error.includes('积分不足') && (
+                          <div className="flex gap-2">
+                            <Button 
+                              size="sm" 
+                              onClick={() => router.push('/pricing')}
+                              className="bg-blue-600 hover:bg-blue-700"
+                            >
+                              <Coins className="h-4 w-4 mr-1" />
+                              前往充值
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => {
+                                setTranslationState({
+                                  isTranslating: false,
+                                  result: null,
+                                  progress: 0,
+                                  error: null
+                                })
+                              }}
+                            >
+                              重新尝试
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </AlertDescription>
                   </Alert>
                 )}
               </CardContent>

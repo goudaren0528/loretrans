@@ -8,11 +8,16 @@ import { Badge } from '@/components/ui/badge'
 import { CheckCircle, Gift, ArrowRight, Home, CreditCard } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { CreditBalance } from '@/components/credits/credit-balance'
+import { getFreeCharacterLimit, getCreditRatePerCharacter } from '@/lib/config'
 import Link from 'next/link'
 
 function CheckoutSuccessComponent() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  
+  // 获取配置
+  const freeCharLimit = getFreeCharacterLimit()
+  const creditRate = getCreditRatePerCharacter()
   const { user, refreshUser } = useAuth()
   const [loading, setLoading] = useState(true)
 
@@ -187,8 +192,8 @@ function CheckoutSuccessComponent() {
           <div className="mt-8 p-4 bg-blue-50 rounded-lg">
             <h4 className="font-medium text-blue-800 mb-2">💡 使用提示</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• 500字符以下的翻译完全免费</li>
-              <li>• 超出部分按0.1积分/字符计费</li>
+              <li>• {freeCharLimit}字符以下的翻译完全免费</li>
+              <li>• 超出部分按{creditRate}积分/字符计费</li>
               <li>• 支持所有语言对的双向翻译</li>
               <li>• 积分有效期根据套餐而定，请及时使用</li>
             </ul>

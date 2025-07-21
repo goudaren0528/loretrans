@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { detectLocaleFromPath } from '@/lib/navigation'
+import { getRegistrationBonus } from '@/lib/config'
 
 // 创建 Context 来传递未登录用户限制状态
 interface GuestLimitContextType {
@@ -44,6 +45,9 @@ export function GuestLimitGuard({
   const { locale } = detectLocaleFromPath(pathname)
   const t = useTranslations('Auth')
   const [limitStatus, setLimitStatus] = useState<GuestLimitStatus | null>(null)
+  
+  // 获取配置
+  const registrationBonus = getRegistrationBonus()
 
   // 检查限制状态
   useEffect(() => {
@@ -148,8 +152,8 @@ export function GuestLimitGuard({
                 <div className="rounded-full bg-blue-100 p-3 w-12 h-12 mx-auto mb-3 flex items-center justify-center">
                   <UserPlus className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-medium mb-1">500积分奖励</h3>
-                <p className="text-sm text-gray-600">注册即送500积分</p>
+                <h3 className="font-medium mb-1">{registrationBonus}积分奖励</h3>
+                <p className="text-sm text-gray-600">注册即送{registrationBonus}积分</p>
               </div>
               <div className="text-center">
                 <div className="rounded-full bg-purple-100 p-3 w-12 h-12 mx-auto mb-3 flex items-center justify-center">

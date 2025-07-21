@@ -8,11 +8,13 @@ import type {
   User
 } from '../../../shared/types'
 
-// 积分计费配置
+import { APP_CONFIG } from '../../../config/app.config'
+
+// 积分计费配置 - 从app.config获取
 export const CREDIT_CONFIG = {
-  FREE_CHARACTERS: 1000, // 每次翻译免费字符数 - 更新为1000
-  RATE_PER_CHARACTER: 0.1, // 超出免费额度后每字符积分数
-  REGISTRATION_BONUS: 500, // 注册奖励积分
+  FREE_CHARACTERS: APP_CONFIG.translation.freeCharacterLimit, // 每次翻译免费字符数
+  RATE_PER_CHARACTER: APP_CONFIG.translation.creditRatePerCharacter, // 超出免费额度后每字符积分数
+  REGISTRATION_BONUS: APP_CONFIG.translation.registrationBonus, // 注册奖励积分
   REFERRAL_BONUS: 200, // 推荐奖励积分
   FIRST_PURCHASE_BONUS_RATE: 0.2 // 首次充值奖励比例（20%）
 } as const

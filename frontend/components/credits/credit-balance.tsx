@@ -1,6 +1,6 @@
 'use client'
 
-import { useCredits } from '@/lib/hooks/useAuth'
+import { useGlobalCredits } from '@/lib/contexts/credits-context'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -8,6 +8,7 @@ import { Coins, Plus } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
 
 interface CreditBalanceProps {
   className?: string
@@ -24,9 +25,13 @@ export function CreditBalance({
   showPurchaseButton = true,
   size = 'md' 
 }: CreditBalanceProps) {
-  const { credits, refreshCredits } = useCredits()
+  const { credits, refreshCredits } = useGlobalCredits()
   const router = useRouter()
   const t = useTranslations('TranslatorWidget.credits')
+  // 调试：监听积分变化
+  useEffect(() => {
+    console.log('[CreditBalance] 积分状态更新:', credits);
+  }, [credits]);
 
   const handlePurchaseClick = () => {
     router.push('/pricing')

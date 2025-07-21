@@ -1,6 +1,7 @@
 'use client'
 
 import { AuthContext, useAuthState } from '../lib/hooks/useAuth'
+import { CreditsProvider } from '../lib/contexts/credits-context'
 import { useState, useEffect } from 'react'
 
 interface ProvidersProps {
@@ -25,5 +26,11 @@ function AuthProvider({ children }: ProvidersProps) {
 
 // 全局Providers组件
 export function Providers({ children }: ProvidersProps) {
-  return <AuthProvider>{children}</AuthProvider>
+  return (
+    <AuthProvider>
+      <CreditsProvider>
+        {children}
+      </CreditsProvider>
+    </AuthProvider>
+  )
 } 

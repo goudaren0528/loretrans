@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { useRouter } from 'next/navigation'
+import { getFreeCharacterLimit, getRegistrationBonus } from '@/lib/config'
 
 interface OnboardingStep {
   id: string
@@ -105,14 +106,14 @@ function WelcomeStep({ onNext, onSkip, currentStep, totalSteps }: OnboardingStep
           <Gift className="w-6 h-6 text-green-600" />
           <span className="text-lg font-semibold text-green-800">新用户礼包</span>
         </div>
-        <div className="text-3xl font-bold text-green-600 mb-2">500积分</div>
-        <div className="text-sm text-green-700">价值 $2，约可翻译 5万字符</div>
+        <div className="text-3xl font-bold text-green-600 mb-2">{registrationBonus}积分</div>
+        <div className="text-sm text-green-700">价值 ${(registrationBonus * 0.001).toFixed(2)}，约可翻译 {(registrationBonus * 10).toLocaleString()}字符</div>
       </div>
 
       <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
         <div className="flex items-center gap-2">
           <Check className="w-4 h-4 text-green-500" />
-          <span>500字符内免费</span>
+          <span>{freeCharLimit}字符内免费</span>
         </div>
         <div className="flex items-center gap-2">
           <Check className="w-4 h-4 text-green-500" />
@@ -382,6 +383,10 @@ function PersonalizationStep({ onNext, onComplete, currentStep, totalSteps }: On
 export function UserOnboarding() {
   const { user } = useAuth()
   const router = useRouter()
+  
+  // 获取配置
+  const freeCharLimit = getFreeCharacterLimit()
+  const registrationBonus = getRegistrationBonus()
   const [isOpen, setIsOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
 

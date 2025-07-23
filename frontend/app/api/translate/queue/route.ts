@@ -1,16 +1,71 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { TRANSLATION_CHUNK_CONFIG, getOptimalChunkSize, estimateChunkCount, estimateProcessingTime } from '@/lib/config/translation'
+import { createServerCreditService } from '@/lib/services/credits'
 
 // 翻译队列配置
-const QUEUE_CONFIG = {
-  MAX_CHUNK_SIZE: 300,        // 统一使用300字符分块
-  BATCH_SIZE: 5,              // 每批处理5个块
-  MAX_RETRIES: 3,             // 每个块最多重试3次
-  RETRY_DELAY: 1000,          // 重试延迟1秒
-  CHUNK_DELAY: 500,           // 块间延迟500ms
-  BATCH_DELAY: 1000,          // 批次间延迟1秒
-  REQUEST_TIMEOUT: 25000,     // 请求超时25秒
-  CONCURRENT_CHUNKS: 1        // 顺序处理，避免限流
-};
+// 使用全局翻译配置
+const CONFIG = TRANSLATION_CHUNK_CONFIG;
+
+// 动态导入 Supabase 客户端
+const createSupabaseAdminClient = () => {
+  const { createClient } = require('@supabase/supabase-js')
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    }
+  )
+}
+
+// 获取用户信息（可选）
+async function getOptionalUser(request: NextRequest) {
+  try {
+    console.log('[Queue Auth Debug] 开始用户认证检查');
+    
+    const authHeader = request.headers.get('authorization');
+    console.log('[Queue Auth Debug] Authorization header:', authHeader ? 'Present' : 'Missing');
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      console.log('[Queue Auth Debug] 无效的认证头格式');
+      return null;
+    }
+
+    const token = authHeader.substring(7);
+    console.log('[Queue Auth Debug] Token length:', token.length);
+    console.log('[Queue Auth Debug] Token preview:', token.substring(0, 20) + '...');
+    
+    const { createClient } = require('@supabase/supabase-js');
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+
+    console.log('[Queue Auth Debug] Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+    console.log('[Queue Auth Debug] Supabase Key present:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+
+    const { data: { user }, error } = await supabase.auth.getUser(token);
+    
+    if (error) {
+      console.log('[Queue Auth Debug] Supabase auth error:', error.message);
+      return null;
+    }
+    
+    if (user) {
+      console.log('[Queue Auth Debug] 用户认证成功:', user.id, user.email);
+      return user;
+    } else {
+      console.log('[Queue Auth Debug] 用户认证失败: 无用户数据');
+      return null;
+    }
+  } catch (error) {
+    console.log('[Queue Auth Debug] 认证异常:', error);
+    return null;
+  }
+}
 
 // 内存队列存储 (生产环境建议使用Redis)
 const translationQueue = new Map();
@@ -76,12 +131,21 @@ function loadQueueFromFile() {
         });
         console.log(`[Queue] 从备份恢复了 ${restoredCount} 个任务`);
         
-        // 如果有恢复的任务，启动处理器
+        // 如果有恢复的任务，它们会通过各自的processTranslationJob处理器处理
+        // 不再需要启动全局处理器，避免与新的并发处理系统冲突
         if (restoredCount > 0) {
-          console.log('[Queue] 启动处理器处理恢复的任务');
-          setTimeout(() => {
-            processNextPendingJob();
-          }, 1000);
+          console.log('[Queue] 恢复的任务将通过各自的处理器处理');
+          // 为每个恢复的任务启动独立的处理器
+          for (const [jobId, job] of translationQueue.entries()) {
+            if (job.status === 'pending') {
+              console.log(`[Queue] 为恢复的任务启动处理器: ${jobId}`);
+              setTimeout(() => {
+                processTranslationJob(jobId).catch(error => {
+                  console.error(`[Queue] 恢复任务 ${jobId} 处理失败:`, error);
+                });
+              }, 1000);
+            }
+          }
         }
       } else {
         console.log('[Queue] 备份文件过期，不进行恢复');
@@ -123,11 +187,107 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
+    // 获取用户信息（队列处理需要用户登录）
+    const user = await getOptionalUser(request);
+    
+    // 检查是否需要积分（5000字符以下免费，超过需要登录和积分）
+    const FREE_LIMIT = 5000; // 🔥 修复：提升免费限制到5000字符
+    const needsCredits = text.length > FREE_LIMIT && user;
+    
+    if (text.length > FREE_LIMIT && !user) {
+      return NextResponse.json({
+        error: '超过5000字符的长文本翻译需要登录',
+        code: 'LOGIN_REQUIRED'
+      }, { status: 401 });
+    }
+    
+    if (needsCredits) {
+      console.log(`[Queue Translation] 长文本翻译需要积分检查: ${text.length}字符`);
+      
+      // 计算所需积分
+      const creditService = createServerCreditService()
+      const calculation = creditService.calculateCreditsRequired(text.length)
+
+      // 获取用户积分
+      let userCredits = 0
+      try {
+        const supabase = createSupabaseAdminClient()
+        
+        const { data: userData, error: userError } = await supabase
+          .from('users')
+          .select('credits')
+          .eq('id', user.id)
+          .single()
+
+        if (userError) {
+          if (userError.code === 'PGRST116') {
+            // 用户记录不存在，创建新记录
+            const { data: newUser, error: createError } = await supabase
+              .from('users')
+              .insert([{ 
+                id: user.id, 
+                email: user.email,
+                credits: 3000 
+              }])
+              .select('credits')
+              .single()
+            
+            if (!createError && newUser) {
+              userCredits = newUser.credits
+            }
+          }
+        } else if (userData) {
+          userCredits = userData.credits
+        }
+      } catch (error) {
+        console.error('[Queue Translation] 积分查询异常:', error)
+      }
+
+      // 检查积分是否足够
+      if (calculation.credits_required > 0 && userCredits < calculation.credits_required) {
+        return NextResponse.json({
+          error: `积分不足，需要 ${calculation.credits_required} 积分，当前余额 ${userCredits} 积分`,
+          code: 'INSUFFICIENT_CREDITS',
+          required: calculation.credits_required,
+          available: userCredits
+        }, { status: 402 })
+      }
+
+      // 先扣除积分（在开始翻译之前）
+      if (calculation.credits_required > 0) {
+        try {
+          const supabase = createSupabaseAdminClient()
+          const { error: deductError } = await supabase
+            .from('users')
+            .update({ credits: userCredits - calculation.credits_required })
+            .eq('id', user.id)
+
+          if (deductError) {
+            console.error('[Queue Translation] 扣除积分失败:', deductError)
+            return NextResponse.json({
+              error: '积分扣除失败，请重试',
+              code: 'CREDIT_DEDUCTION_FAILED'
+            }, { status: 500 })
+          }
+          
+          console.log(`[Queue Translation] 积分扣除成功: ${calculation.credits_required} 积分，剩余: ${userCredits - calculation.credits_required}`)
+        } catch (error) {
+          console.error('[Queue Translation] 积分扣除异常:', error)
+          return NextResponse.json({
+            error: '积分扣除失败，请重试',
+            code: 'CREDIT_DEDUCTION_ERROR'
+          }, { status: 500 })
+        }
+      }
+    } else {
+      console.log(`[Queue Translation] 免费翻译: ${text.length}字符，用户: ${user ? '已登录' : '未登录'}`);
+    }
+
     // 生成任务ID
     const jobId = `job_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     
     // 智能分块
-    const chunks = smartTextChunking(text, QUEUE_CONFIG.MAX_CHUNK_SIZE);
+    const chunks = smartTextChunking(text, CONFIG.MAX_CHUNK_SIZE);
     
     // 创建队列任务
     const job: QueueJob = {
@@ -170,7 +330,7 @@ export async function POST(request: NextRequest) {
       success: true,
       jobId,
       totalChunks: chunks.length,
-      estimatedTime: Math.ceil(chunks.length / QUEUE_CONFIG.BATCH_SIZE) * 2, // 估算秒数
+      estimatedTime: Math.ceil(chunks.length / CONFIG.BATCH_SIZE) * 2, // 估算秒数
       message: '翻译任务已创建，正在后台处理'
     });
     
@@ -241,18 +401,20 @@ export async function GET(request: NextRequest) {
 }
 
 // 处理翻译任务
+
+// 优化后的翻译任务处理函数 - 并发批次处理
 async function processTranslationJob(jobId: string) {
-  console.log(`[Queue] processTranslationJob 开始执行: ${jobId}`);
+  console.log(`[Queue Debug] 🚀 processTranslationJob 开始执行: ${jobId}`);
   
   const job = translationQueue.get(jobId);
   if (!job) {
-    console.log(`[Queue] Job ${jobId} not found in queue`);
+    console.log(`[Queue Debug] ❌ Job ${jobId} not found in queue`);
     return;
   }
   
-  console.log(`[Queue] 找到任务，当前状态: ${job.status}`);
+  console.log(`[Queue Debug] ✅ 找到任务，当前状态: ${job.status}`);
   
-  console.log(`[Queue] 开始处理任务 ${jobId}:`, {
+  console.log(`[Queue Debug] 📋 开始优化处理任务 ${jobId}:`, {
     textLength: job.text.length,
     chunksCount: job.chunks.length,
     sourceLanguage: job.sourceLanguage,
@@ -260,56 +422,82 @@ async function processTranslationJob(jobId: string) {
   });
   
   try {
-    console.log(`[Queue] 设置任务状态为processing: ${jobId}`);
+    console.log(`[Queue Debug] 🔄 设置任务状态为processing: ${jobId}`);
     job.status = 'processing';
     job.progress = 5; // 设置初始进度5%，表示开始处理
     job.updatedAt = new Date();
     translationQueue.set(jobId, job); // 立即保存状态更新
     saveQueueToFile(); // 保存到备份文件
-    console.log(`[Queue] 任务状态已更新并保存: ${jobId}`);
+    console.log(`[Queue Debug] 任务状态已更新并保存: ${jobId}`);
     
     const translatedChunks: string[] = [];
     const totalChunks = job.chunks.length;
+    const BATCH_SIZE = CONFIG.BATCH_SIZE; // 3个块/批次
+    const CONCURRENT_BATCHES = 1; // 🔥 修复：减少到1个批次，避免NLLB服务过载
     
-    // 分批处理块
-    for (let i = 0; i < totalChunks; i += QUEUE_CONFIG.BATCH_SIZE) {
-      const batch = job.chunks.slice(i, i + QUEUE_CONFIG.BATCH_SIZE);
-      console.log(`[Queue] 处理批次 ${Math.floor(i/QUEUE_CONFIG.BATCH_SIZE) + 1}/${Math.ceil(totalChunks/QUEUE_CONFIG.BATCH_SIZE)}, 块数: ${batch.length}`);
+    console.log(`[Queue Debug] 🔧 优化配置: 批次大小=${BATCH_SIZE}, 并发批次=${CONCURRENT_BATCHES}, 总块数=${totalChunks}`);
+    
+    // 分组处理：每组包含多个并发批次
+    for (let groupStart = 0; groupStart < totalChunks; groupStart += BATCH_SIZE * CONCURRENT_BATCHES) {
+      const concurrentBatches = [];
+      const groupIndex = Math.floor(groupStart / (BATCH_SIZE * CONCURRENT_BATCHES)) + 1;
+      const totalGroups = Math.ceil(totalChunks / (BATCH_SIZE * CONCURRENT_BATCHES));
       
-      // 在批次开始时更新进度
-      const startProgress = Math.round((i / totalChunks) * 90) + 10; // 10-100%范围
-      job.progress = startProgress;
-      job.updatedAt = new Date();
-      translationQueue.set(jobId, job);
-      console.log(`[Queue] 批次开始进度: ${job.progress}%`);
+      console.log(`[Queue Debug] 🔄 处理并发组 ${groupIndex}/${totalGroups}, 起始位置=${groupStart}, 剩余块数=${totalChunks - groupStart}`);
       
-      // 并行处理当前批次
-      const batchPromises = batch.map((chunk, index) => {
-        console.log(`[Queue] 翻译块 ${i + index + 1}/${totalChunks}: ${chunk.substring(0, 50)}...`);
-        return translateChunkWithRetry(chunk, job.sourceLanguage, job.targetLanguage);
-      });
-      
-      const batchResults = await Promise.all(batchPromises);
-      console.log(`[Queue] 批次结果:`, batchResults.map(r => ({ success: r.success, length: r.translatedText?.length || 0 })));
-      
-      // 检查批次结果
-      for (const result of batchResults) {
-        if (!result.success) {
-          throw new Error(result.error || '翻译失败');
+      // 创建并发批次
+      for (let batchOffset = 0; batchOffset < CONCURRENT_BATCHES; batchOffset++) {
+        const batchStart = groupStart + batchOffset * BATCH_SIZE;
+        const batchEnd = Math.min(batchStart + BATCH_SIZE, totalChunks);
+        
+        if (batchStart < totalChunks) {
+          const batch = job.chunks.slice(batchStart, batchEnd);
+          const batchIndex = Math.floor(batchStart / BATCH_SIZE) + 1;
+          
+          console.log(`[Queue] 准备并发批次 ${batchIndex}, 块范围: ${batchStart + 1}-${batchEnd}`);
+          
+          // 创建批次处理Promise
+          const batchPromise = processBatchConcurrently(batch, job, batchStart, batchIndex);
+          concurrentBatches.push({ 
+            promise: batchPromise, 
+            startIndex: batchStart,
+            batchIndex: batchIndex
+          });
         }
-        translatedChunks.push(result.translatedText!);
       }
       
-      // 更新进度并保存到队列
-      job.progress = Math.round(((i + batch.length) / totalChunks) * 100);
-      job.updatedAt = new Date();
-      translationQueue.set(jobId, job); // 重要：保存更新后的任务状态
-      
-      console.log(`[Queue] 进度更新: ${job.progress}% (${i + batch.length}/${totalChunks})`);
-      
-      // 批次间延迟
-      if (i + QUEUE_CONFIG.BATCH_SIZE < totalChunks) {
-        await new Promise(resolve => setTimeout(resolve, QUEUE_CONFIG.BATCH_DELAY));
+      if (concurrentBatches.length > 0) {
+        console.log(`[Queue] 🚀 开始并发处理 ${concurrentBatches.length} 个批次`);
+        
+        // 并发执行所有批次 - 关键优化点
+        const batchResults = await Promise.all(
+          concurrentBatches.map(({ promise }) => promise)
+        );
+        
+        console.log(`[Queue] ✅ 并发批次处理完成`);
+        
+        // 按顺序合并结果
+        concurrentBatches.forEach(({ startIndex }, index) => {
+          const results = batchResults[index];
+          for (let i = 0; i < results.length; i++) {
+            translatedChunks[startIndex + i] = results[i];
+          }
+        });
+        
+        // 更新进度
+        const completedChunks = Math.min(groupStart + BATCH_SIZE * CONCURRENT_BATCHES, totalChunks);
+        job.progress = Math.round((completedChunks / totalChunks) * 90) + 10; // 10-100%范围
+        job.updatedAt = new Date();
+        translationQueue.set(jobId, job); // 立即保存进度更新
+        saveQueueToFile(); // 确保持久化
+        
+        console.log(`[Queue] 并发组完成，进度: ${job.progress}% (${completedChunks}/${totalChunks})`);
+        
+        // 并发组间延迟 - 统一使用2秒延迟，与文档翻译保持一致
+        if (completedChunks < totalChunks) {
+          console.log(`[Queue] 并发组间延迟 2000ms...`);
+          await new Promise(resolve => setTimeout(resolve, 2000));
+        }
       }
     }
     
@@ -342,6 +530,54 @@ async function processTranslationJob(jobId: string) {
   }
 }
 
+// 并发批次处理函数
+async function processBatchConcurrently(
+  batch: string[], 
+  job: QueueJob, 
+  startIndex: number,
+  batchIndex: number
+): Promise<string[]> {
+  const batchResults: string[] = [];
+  
+  console.log(`[Queue] 📦 处理批次 ${batchIndex}: ${batch.length}个块`);
+  
+  // 🔥 修复：改为顺序处理避免NLLB服务过载
+  // 批次内顺序处理每个块，避免并发请求导致的中止错误
+  for (let i = 0; i < batch.length; i++) {
+    const chunk = batch[i];
+    const chunkIndex = startIndex + i + 1;
+    
+    console.log(`[Queue] 翻译块 ${chunkIndex}: ${chunk.substring(0, 30)}...`);
+    
+    try {
+      const result = await translateChunkWithRetry(chunk, job.sourceLanguage, job.targetLanguage);
+      
+      if (result.success) {
+        batchResults.push(result.translatedText!);
+        console.log(`[Queue] 块 ${chunkIndex} 翻译成功`);
+      } else {
+        console.error(`[Queue] 块 ${chunkIndex} 翻译失败: ${result.error}`);
+        // 失败时使用原文本作为后备
+        batchResults.push(chunk);
+      }
+      
+      // 块间延迟，避免API限流
+      if (i < batch.length - 1) {
+        console.log(`[Queue] 块间延迟 ${CONFIG.CHUNK_DELAY}ms...`);
+        await new Promise(resolve => setTimeout(resolve, CONFIG.CHUNK_DELAY));
+      }
+      
+    } catch (error) {
+      console.error(`[Queue] 块 ${chunkIndex} 处理异常:`, error);
+      // 异常时使用原文本作为后备
+      batchResults.push(chunk);
+    }
+  }
+  
+  console.log(`[Queue] 批次 ${batchIndex} 处理完成: ${batchResults.length}/${batch.length} 成功`);
+  return batchResults;
+}
+
 // 带重试的块翻译
 async function translateChunkWithRetry(
   text: string, 
@@ -358,7 +594,7 @@ async function translateChunkWithRetry(
     const nllbTargetLang = mapToNLLBLanguageCode(targetLanguage);
     
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), QUEUE_CONFIG.REQUEST_TIMEOUT);
+    const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT);
     
     const response = await fetch(nllbServiceUrl, {
       method: 'POST',
@@ -393,11 +629,16 @@ async function translateChunkWithRetry(
     };
 
   } catch (error: any) {
-    if (retryCount < QUEUE_CONFIG.MAX_RETRIES) {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    console.error(`[Queue] 翻译块失败 (重试 ${retryCount}/${CONFIG.MAX_RETRIES}):`, error.message);
+    
+    if (retryCount < CONFIG.MAX_RETRIES) {
+      const retryDelay = CONFIG.RETRY_DELAY * (retryCount + 1); // 递增延迟
+      console.log(`[Queue] ${retryDelay}ms后重试...`);
+      await new Promise(resolve => setTimeout(resolve, retryDelay));
       return translateChunkWithRetry(text, sourceLanguage, targetLanguage, retryCount + 1);
     }
     
+    console.error(`[Queue] 翻译块彻底失败，已重试${CONFIG.MAX_RETRIES}次`);
     return {
       success: false,
       error: error.message || '翻译失败'
@@ -410,7 +651,7 @@ async function translateChunkWithRetry(
  * 统一的智能文本分块函数
  * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
  */
-function smartTextChunking(text, maxChunkSize = 300) {
+function smartTextChunking(text, maxChunkSize = 600) {
   if (text.length <= maxChunkSize) {
     return [text];
   }
@@ -612,7 +853,7 @@ async function processNextPendingJob() {
         
         // 分块间延迟
         if (i < pendingJob.chunks.length - 1) {
-          await new Promise(resolve => setTimeout(resolve, QUEUE_CONFIG.CHUNK_DELAY));
+          await new Promise(resolve => setTimeout(resolve, CONFIG.CHUNK_DELAY));
         }
         
       } catch (error) {

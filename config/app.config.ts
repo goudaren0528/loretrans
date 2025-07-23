@@ -330,7 +330,7 @@ export const APP_CONFIG = {
   translation: {
     freeCharacterLimit: 5000, // 免费翻译字符限制 (从1000提升到5000)
     maxTextInputLimit: 10000, // 文本输入上限 (提升以支持更长文本)
-    queueThreshold: 1000, // 队列模式阈值
+    queueThreshold: 5000, // 队列模式阈值 - 与免费字符限制保持一致
     creditRatePerCharacter: 0.1, // 超出免费额度后每字符积分数
     registrationBonus: 500, // 注册奖励积分
     // 队列处理配置

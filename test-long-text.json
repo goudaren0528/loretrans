@@ -1,0 +1,5 @@
+{
+  "text": "This is a longer text that should trigger the credit system. It contains multiple sentences and should be long enough to test the credit checking functionality. The system should properly handle user authentication and credit deduction for logged-in users. This text is designed to be over 400 characters to ensure it triggers the appropriate code paths in the translation system. Let's see if the credit service methods are working correctly now.",
+  "sourceLang": "en",
+  "targetLang": "zh"
+}

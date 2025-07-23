@@ -28,6 +28,104 @@ const NLLB_LANGUAGE_MAP: Record<string, string> = {
   'vi': 'vie_Latn', // Vietnamese
 };
 
+// 智能文本分块函数
+function smartTextChunking(text: string, maxChunkSize = 400): string[] {
+  if (text.length <= maxChunkSize) {
+    return [text];
+  }
+
+  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
+  
+  const chunks: string[] = [];
+  
+  // 策略1: 按段落分割（双换行）
+  const paragraphs = text.split(/\n\s*\n/);
+  
+  for (const paragraph of paragraphs) {
+    if (paragraph.trim().length === 0) continue;
+    
+    if (paragraph.length <= maxChunkSize) {
+      chunks.push(paragraph.trim());
+    } else {
+      // 策略2: 按句子分割
+      const sentences = paragraph.split(/[.!?。！？]\s+/);
+      let currentChunk = '';
+      
+      for (let i = 0; i < sentences.length; i++) {
+        const sentence = sentences[i].trim();
+        if (!sentence) continue;
+        
+        const potentialChunk = currentChunk + (currentChunk ? '. ' : '') + sentence;
+        
+        if (potentialChunk.length <= maxChunkSize) {
+          currentChunk = potentialChunk;
+        } else {
+          // 保存当前块
+          if (currentChunk) {
+            chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
+          }
+          
+          // 处理超长句子 - 强制分割
+          if (sentence.length > maxChunkSize) {
+            const words = sentence.split(' ');
+            let subChunk = '';
+            for (const word of words) {
+              if ((subChunk + ' ' + word).length <= maxChunkSize) {
+                subChunk += (subChunk ? ' ' : '') + word;
+              } else {
+                if (subChunk) chunks.push(subChunk);
+                subChunk = word;
+              }
+            }
+            if (subChunk) chunks.push(subChunk);
+          } else {
+            currentChunk = sentence;
+          }
+        }
+      }
+      
+      if (currentChunk) {
+        chunks.push(currentChunk + (currentChunk.endsWith('.') ? '' : '.'));
+      }
+    }
+  }
+  
+  console.log(`✅ 分块完成: ${chunks.length}个块`);
+  return chunks.filter(chunk => chunk.trim().length > 0);
+}
+
+// 长文本翻译函数
+async function translateLongText(text: string, sourceLang: string, targetLang: string): Promise<string> {
+  const chunks = smartTextChunking(text, 400);
+  const translatedChunks: string[] = [];
+  
+  console.log(`📚 多块翻译模式: ${chunks.length}个块`);
+  
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
+    console.log(`📖 处理块 ${i + 1}/${chunks.length}: ${chunk.length}字符`);
+    
+    try {
+      const translatedChunk = await translateWithRetry(chunk, sourceLang, targetLang);
+      translatedChunks.push(translatedChunk);
+      console.log(`✅ 翻译成功: ${translatedChunk.length}字符`);
+      
+      // 块间延迟，避免API限制
+      if (i < chunks.length - 1) {
+        console.log(`⏳ 块间延迟 1000ms...`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    } catch (error) {
+      console.error(`❌ 块 ${i + 1} 翻译失败:`, error);
+      throw error;
+    }
+  }
+  
+  const result = translatedChunks.join(' ');
+  console.log(`✅ 多块翻译完成: ${result.length}字符`);
+  return result;
+}
+
 // 获取NLLB格式的语言代码
 function getNLLBLanguageCode(langCode: string): string {
   return NLLB_LANGUAGE_MAP[langCode] || langCode;
@@ -222,8 +320,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 文本长度限制
-    const maxFreeLength = 1000;
+    // 文本长度限制 - 5000字符以下免费
+    const maxFreeLength = 5000;
     if (text.length > maxFreeLength) {
       return NextResponse.json(
         { 
@@ -242,8 +340,15 @@ export async function POST(request: NextRequest) {
     let method = 'api';
 
     try {
-      // 尝试API翻译
-      translatedText = await translateWithRetry(text, sourceLang, targetLang);
+      // 对于长文本（超过800字符），使用分块处理
+      if (text.length > 800) {
+        console.log(`[Translation API] 长文本分块处理: ${text.length}字符`);
+        translatedText = await translateLongText(text, sourceLang, targetLang);
+        method = 'chunked-api';
+      } else {
+        // 短文本直接翻译
+        translatedText = await translateWithRetry(text, sourceLang, targetLang);
+      }
     } catch (apiError) {
       console.error('[Translation API] All API services failed:', apiError);
       

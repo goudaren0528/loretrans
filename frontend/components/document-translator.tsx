@@ -371,8 +371,11 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
         
         // 显示积分扣除提示
         toast({
-          title: '积分已扣除',
-          description: `本次翻译消耗 ${creditCalculation.credits_required} 积分，剩余 ${newCredits} 积分`,
+          title: t('DocumentTranslation.credits.deducted_title'),
+          description: t('DocumentTranslation.credits.deducted_description', {
+            consumed: creditCalculation.credits_required,
+            remaining: newCredits
+          }),
           duration: 3000,
         });
       }
@@ -405,8 +408,11 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
         // 积分不足时不预扣除，直接显示错误
         if (data.code === 'INSUFFICIENT_CREDITS') {
           toast({
-            title: '积分不足',
-            description: `需要 ${data.required} 积分，当前余额 ${data.available} 积分。请前往充值页面购买积分。`,
+            title: t('DocumentTranslation.credits.insufficient_title'),
+            description: t('DocumentTranslation.credits.insufficient_description', {
+              required: data.required,
+              available: data.available
+            }),
             variant: "destructive",
           });
           
@@ -414,14 +420,20 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
             isTranslating: false,
             result: null,
             progress: 0,
-            error: `积分不足：需要 ${data.required} 积分，当前余额 ${data.available} 积分`
+            error: t('DocumentTranslation.credits.insufficient_error', {
+              required: data.required,
+              available: data.available
+            })
           });
           
           return;
         }
           toast({
-            title: '积分不足',
-            description: `需要 ${data.required} 积分，当前余额 ${data.available} 积分。请前往充值页面购买积分。`,
+            title: t('DocumentTranslation.credits.insufficient_title'),
+            description: t('DocumentTranslation.credits.insufficient_description', {
+              required: data.required,
+              available: data.available
+            }),
             variant: "destructive",
           })
           
@@ -430,7 +442,10 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
             isTranslating: false,
             result: null,
             progress: 0,
-            error: `积分不足：需要 ${data.required} 积分，当前余额 ${data.available} 积分`
+            error: t('DocumentTranslation.credits.insufficient_error', {
+              required: data.required,
+              available: data.available
+            })
           })
           
           return
@@ -524,7 +539,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
   const pollAsyncTranslationStatus = useCallback(async (jobId: string) => {
     console.log('[Document Translation] 开始轮询异步任务:', jobId)
     
-    const maxAttempts = 300 // 最多轮询5分钟 (300 * 1秒)，增加轮询次数
+    const maxAttempts = 10000 // 最多轮询约2.8小时 (10000 * 1秒)，大幅增加轮询次数
     let attempts = 0
     let consecutiveErrors = 0
     const maxConsecutiveErrors = 5 // 最多连续5次错误后停止
@@ -1041,7 +1056,7 @@ export function DocumentTranslator({ className }: DocumentTranslatorProps) {
                     <AlertDescription>
                       <div className="space-y-3">
                         <p>{translationState.error}</p>
-                        {translationState.error.includes('积分不足') && (
+                        {(translationState.error.includes('积分不足') || translationState.error.includes('Insufficient credits')) && (
                           <div className="flex gap-2">
                             <Button 
                               size="sm" 

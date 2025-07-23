@@ -20,7 +20,8 @@ import {
   CheckCircle,
   LogIn
 } from 'lucide-react'
-import { useAuth, useCredits } from '@/lib/hooks/useAuth'
+import { useAuth } from '@/lib/hooks/useAuth'
+import { useGlobalCredits } from '@/lib/contexts/credits-context'
 import { toast } from '@/lib/hooks/use-toast'
 import { useTranslations } from 'next-intl'
 import { 
@@ -76,7 +77,7 @@ export function EnhancedTextTranslator({
 }: EnhancedTextTranslatorProps) {
   const t = useTranslations('TextTranslatePage')
   const { user } = useAuth()
-  const { credits, refreshCredits } = useCredits()
+  const { credits, refreshCredits } = useGlobalCredits()
   
   // 配置
   const maxInputLimit = getMaxTextInputLimit()
@@ -173,7 +174,7 @@ export function EnhancedTextTranslator({
       return
     }
 
-    // 如果需要登录，跳转到登录页面
+    // 长文本翻译需要登录
     if (willUseQueue && !user) {
       window.location.href = '/auth/signin'
       return
@@ -211,10 +212,23 @@ export function EnhancedTextTranslator({
       console.log('[Translator] 任务已创建:', task);
       setCurrentTask(task)
       
+      // 🔥 如果使用队列API（长文本翻译），立即刷新积分余额
+      if (willUseQueue && user) {
+        console.log('[Translator] 长文本翻译任务已提交，刷新积分余额...')
+        setTimeout(async () => {
+          try {
+            await refreshCredits()
+            console.log('[Translator] 积分余额已刷新')
+          } catch (error) {
+            console.error('[Translator] 刷新积分失败:', error)
+          }
+        }, 1000) // 延迟1秒刷新，确保后端积分扣除完成
+      }
+      
       if (willUseQueue) {
         toast({
           title: "Translation queued",
-          description: "Your translation has been added to the queue. You can leave this page and come back later.",
+          description: "Your translation has been added to the queue.",
         })
       } else {
         // 对于短文本，直接检查结果
@@ -412,7 +426,7 @@ export function EnhancedTextTranslator({
               )}
               {willUseQueue && user && (
                 <p className="mt-1 text-sm">
-                  You can leave this page and return later to check your translation progress.
+                  Your translation will be processed in the background.
                 </p>
               )}
             </AlertDescription>
@@ -487,37 +501,7 @@ export function EnhancedTextTranslator({
                 className="min-h-[200px] resize-none"
               />
               
-              {/* 统一的翻译状态和进度显示 */}
-              {isTranslating && (
-                <div className="space-y-3 p-4 bg-blue-50 rounded-lg border">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                      <span className="text-sm font-medium text-blue-700">
-                        {currentTask?.status === 'processing' ? 'Translating...' : 'Preparing...'}
-                      </span>
-                    </div>
-                    <span className="text-sm text-blue-600">
-                      {currentTask?.progress || 0}%
-                    </span>
-                  </div>
-                  
-                  {currentTask && (
-                    <>
-                      <Progress 
-                        value={currentTask.progress || 0} 
-                        className="w-full h-2" 
-                      />
-                      <div className="flex justify-between text-xs text-blue-600">
-                        <span>Status: {currentTask.status || 'pending'}</span>
-                        {willUseQueue && (
-                          <span>Queue mode - You can leave this page</span>
-                        )}
-                      </div>
-                    </>
-                  )}
-                </div>
-              )}
+              {/* 进度显示组件已移除 */}
               
 
             </div>

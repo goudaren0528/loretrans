@@ -8,7 +8,9 @@ import { Label } from '@/components/ui/label'
 import { Copy, Volume2, ArrowUpDown, Loader2, AlertTriangle, Coins } from 'lucide-react'
 import { cn, copyToClipboard, getCharacterCount } from '@/lib/utils'
 import { APP_CONFIG } from '@/config/app.config'
-import { useAuth, useCredits } from '@/lib/hooks/useAuth'
+import { useAuth } from '@/lib/hooks/useAuth'
+import { useGlobalCredits } from '@/lib/contexts/credits-context'
+import { createServerCreditService } from '@/lib/services/credits'
 import { useGuestLimit } from '@/components/guest-limit-guard'
 import { ConditionalRender } from '@/components/auth/auth-guard'
 import { CreditEstimate, FreeQuotaProgress } from '@/components/credits/credit-balance'
@@ -35,13 +37,110 @@ interface TranslatorWidgetProps {
   placeholder?: string
 }
 
-export function TranslatorWidget({ 
+
+  // 🔥 轮询翻译任务状态
+  // 🔥 优化的轮询翻译任务状态
+  const pollTranslationStatus = useCallback(async (jobId: string) => {
+    console.log('[Translation Poll] 开始轮询任务状态:', jobId)
+    
+    if (!jobId || jobId === 'undefined') {
+      console.error('[Translation Poll] 无效的jobId:', jobId)
+      setState(prev => ({
+        ...prev,
+        error: '任务ID无效，请重新翻译',
+        isLoading: false,
+      }))
+      return
+    }
+    
+    let attempts = 0
+    const maxAttempts = 60 // 最多轮询5分钟
+    const startTime = Date.now()
+    
+    const poll = async () => {
+      try {
+        attempts++
+        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000)
+        console.log(`[Translation Poll] 轮询尝试 ${attempts}/${maxAttempts}, 已用时: ${elapsedSeconds}秒`)
+        
+        const response = await fetch(`/api/translate/status?jobId=${encodeURIComponent(jobId)}`)
+        const statusData = await response.json()
+        
+        if (!response.ok) {
+          console.error('[Translation Poll] 状态查询失败:', statusData)
+          throw new Error(statusData.error || '查询状态失败')
+        }
+        
+        console.log('[Translation Poll] 任务状态:', {
+          status: statusData.status,
+          progress: statusData.progress,
+          currentChunk: statusData.currentChunk,
+          totalChunks: statusData.totalChunks
+        })
+        
+        // 🔥 关键修复：确保进度正确显示
+        if (statusData.progress !== undefined && statusData.progress >= 0) {
+          const progressText = statusData.status === 'processing' 
+            ? `翻译进度: ${statusData.progress}% (${statusData.currentChunk || 0}/${statusData.totalChunks || 0} 块)`
+            : statusData.status === 'pending'
+            ? '翻译任务已创建，等待处理...'
+            : `处理中... ${statusData.progress}%`
+            
+          setState(prev => ({
+            ...prev,
+            translatedText: progressText,
+          }))
+        }
+        
+        if (statusData.status === 'completed' && statusData.result) {
+          // 🔥 关键修复：翻译完成后正确显示结果
+          console.log('[Translation Poll] 翻译完成！结果长度:', statusData.result.length)
+          setState(prev => ({
+            ...prev,
+            translatedText: statusData.result,
+            isLoading: false,
+          }))
+          
+          toast({
+            title: '翻译完成',
+            description: `长文本翻译已完成，共处理 ${statusData.totalChunks || 0} 个文本块，用时 ${elapsedSeconds} 秒`,
+          })
+          
+          return // 停止轮询
+        } else if (statusData.status === 'failed') {
+          // 翻译失败
+          console.error('[Translation Poll] 翻译失败:', statusData.error)
+          throw new Error(statusData.error || '翻译失败')
+        } else if (statusData.status === 'processing' || statusData.status === 'pending') {
+          // 继续轮询
+          if (attempts < maxAttempts) {
+            setTimeout(poll, 2000) // 2秒后再次轮询
+          } else {
+            throw new Error(`翻译超时（${Math.floor(maxAttempts * 2 / 60)}分钟），请重试`)
+          }
+        }
+        
+      } catch (error) {
+        console.error('[Translation Poll] 轮询失败:', error)
+        setState(prev => ({
+          ...prev,
+          error: error instanceof Error ? error.message : '查询翻译状态失败',
+          isLoading: false,
+        }))
+      }
+    }
+    
+    // 立即开始第一次轮询
+    poll()
+  }, [])
+  
+  export function TranslatorWidget({ 
   defaultSourceLang = 'ht',
   defaultTargetLang = 'en',
   placeholder = 'Type your text here...'
 }: TranslatorWidgetProps = {}) {
   const { user } = useAuth()
-  const { credits, hasEnoughCredits, estimateCredits } = useCredits()
+  const { credits, hasEnoughCredits, estimateCredits, updateCredits } = useGlobalCredits()
   const { limitStatus, recordTranslation, canTranslate, isLimitReached } = useGuestLimit()
   const router = useRouter()
   const pathname = usePathname()
@@ -173,6 +272,39 @@ export function TranslatorWidget({
             targetLanguage: state.targetLanguage,
           }
 
+      // 计算所需积分（仅对需要认证的翻译）
+      let creditsRequired = 0;
+      if (!shouldUsePublicAPI && user) {
+        const creditService = createServerCreditService();
+        const calculation = creditService.calculateCreditsRequired(characterCount);
+        creditsRequired = calculation.credits_required;
+        
+        // 检查积分是否足够
+        if (creditsRequired > 0 && credits < creditsRequired) {
+          setState(prev => ({ ...prev, isLoading: false }));
+          toast({
+            title: '积分不足',
+            description: `需要 ${creditsRequired} 积分，当前余额 ${credits} 积分。请前往充值页面购买积分。`,
+            variant: "destructive",
+          });
+          return;
+        }
+        
+        // 立即更新积分显示（预扣除）
+        if (creditsRequired > 0) {
+          const newCredits = Math.max(0, credits - creditsRequired);
+          updateCredits(newCredits);
+          console.log(`[Text Translation] 立即预扣除积分显示: ${creditsRequired}, 剩余显示: ${newCredits}`);
+          
+          // 显示积分扣除提示
+          toast({
+            title: '积分已扣除',
+            description: `本次翻译消耗 ${creditsRequired} 积分，剩余 ${newCredits} 积分`,
+            duration: 3000,
+          });
+        }
+      }
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers,
@@ -182,9 +314,37 @@ export function TranslatorWidget({
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error?.message || data.error || 'Translation failed')
+        // 特殊处理积分不足的情况
+        if (response.status === 402 && data.code === 'INSUFFICIENT_CREDITS') {
+          setState(prev => ({ ...prev, isLoading: false }));
+          toast({
+            title: '积分不足',
+            description: `需要 ${data.required} 积分，当前余额 ${data.available} 积分。请前往充值页面购买积分。`,
+            variant: "destructive",
+          });
+          return;
+        }
+        
+        throw new Error(data.error?.message || data.error || 'Translation failed');
       }
 
+      
+      // 🔥 处理长文本翻译的异步响应
+      if (data.jobId || data.taskId) {
+        console.log('[Long Text Translation] 检测到异步翻译任务:', data.jobId || data.taskId)
+        
+        // 显示进度提示
+        setState(prev => ({
+          ...prev,
+          translatedText: '正在处理长文本翻译，请稍候...',
+          isLoading: true,
+        }))
+        
+        // 开始轮询任务状态
+        pollTranslationStatus(data.jobId || data.taskId)
+        return
+      }
+      
       // 处理不同API的响应格式
       let translatedText = ''
       if (shouldUsePublicAPI) {

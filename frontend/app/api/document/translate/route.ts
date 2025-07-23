@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { TRANSLATION_CHUNK_CONFIG, DOCUMENT_TRANSLATION_CONFIG, getOptimalChunkSize, estimateChunkCount, estimateProcessingTime } from '@/lib/config/translation'
 import { withApiAuth, type NextRequestWithUser } from '@/lib/api-utils'
 import { createServerCreditService } from '@/lib/services/credits'
 
@@ -18,14 +19,16 @@ const createSupabaseAdminClient = () => {
 }
 
 
-// 增强的文档翻译配置
-const ENHANCED_DOC_CONFIG = {
-  MAX_CHUNK_SIZE: 300,        // 统一使用300字符分块
-  MAX_RETRIES: 5,             // 每个块最多重试5次（增加重试次数）
-  RETRY_DELAY: 2000,          // 重试延迟2秒（增加延迟）
-  CHUNK_DELAY: 1000,          // 块间延迟1秒（增加延迟避免限流）
-  REQUEST_TIMEOUT: 45000,     // 请求超时45秒（增加超时时间）
-  CONCURRENT_CHUNKS: 1        // 顺序处理，避免限流
+// 🔥 使用文档翻译专用配置
+const CONFIG = DOCUMENT_TRANSLATION_CONFIG || {
+  MAX_CHUNK_SIZE: 400,
+  BATCH_SIZE: 2,
+  CONCURRENT_CHUNKS: 2,
+  MAX_RETRIES: 3,
+  RETRY_DELAY: 1500,
+  CHUNK_DELAY: 1000,
+  BATCH_DELAY: 1500,
+  REQUEST_TIMEOUT: 25000
 };
 
 // 清理过期的缓存项
@@ -223,9 +226,31 @@ async function translateHandler(req: NextRequestWithUser) {
     const translationResult = await performTranslation(text, sourceLanguage, targetLanguage, fileId, user.id, calculation.credits_required)
 
     if (!translationResult.success) {
+      // 🔥 翻译失败时退还积分
+      if (calculation.credits_required > 0) {
+        try {
+          console.log(`[Translation] 翻译失败，退还积分: ${calculation.credits_required}`);
+          const supabase = createSupabaseAdminClient()
+          const { error: refundError } = await supabase
+            .from('users')
+            .update({ credits: userCredits }) // 恢复到扣除前的积分
+            .eq('id', user.id)
+
+          if (refundError) {
+            console.error('[Translation] 积分退还失败:', refundError)
+            // 即使退还失败，也要返回翻译失败的错误
+          } else {
+            console.log(`[Translation] 积分退还成功: ${calculation.credits_required} 积分已退还`)
+          }
+        } catch (refundException) {
+          console.error('[Translation] 积分退还异常:', refundException)
+        }
+      }
+      
       return NextResponse.json({
         error: 'error' in translationResult ? translationResult.error : '翻译失败',
-        code: 'TRANSLATION_FAILED'
+        code: 'TRANSLATION_FAILED',
+        creditsRefunded: calculation.credits_required > 0 ? calculation.credits_required : 0
       }, { status: 500 })
     }
 
@@ -271,7 +296,7 @@ async function performTranslation(text: string, sourceLanguage: string, targetLa
     console.log(`[Translation] 开始翻译: ${text.length}字符`)
     
     // 智能分块
-    const chunks = smartDocumentChunking(text, ENHANCED_DOC_CONFIG.MAX_CHUNK_SIZE)
+    const chunks = smartDocumentChunking(text, CONFIG.MAX_CHUNK_SIZE)
     console.log(`[Translation] 分块完成: ${chunks.length}个块`)
     
     // 如果块数较少，使用同步处理（避免小文档的复杂性）
@@ -303,8 +328,8 @@ async function performSyncTranslation(chunks: string[], sourceLanguage: string, 
     
     // 添加块间延迟，避免请求过于频繁
     if (i > 0) {
-      console.log(`⏳ 块间延迟 ${ENHANCED_DOC_CONFIG.CHUNK_DELAY}ms...`)
-      await new Promise(resolve => setTimeout(resolve, ENHANCED_DOC_CONFIG.CHUNK_DELAY))
+      console.log(`⏳ 块间延迟 ${CONFIG.CHUNK_DELAY}ms...`)
+      await new Promise(resolve => setTimeout(resolve, CONFIG.CHUNK_DELAY))
     }
     
     const chunkResult = await translateChunkWithRetry(chunk, sourceLanguage, targetLanguage)
@@ -382,18 +407,14 @@ async function performAsyncTranslation(chunks: string[], sourceLanguage: string,
 }
 
 /**
- * 智能文档分块
+ * 智能文档分块 - 400字符上限，优化并发处理
  */
-/**
- * 统一的智能文本分块函数
- * 优先级: 段落边界 > 句子边界 > 逗号边界 > 词汇边界
- */
-function smartDocumentChunking(text, maxChunkSize = 300) {
+function smartDocumentChunking(text, maxChunkSize = CONFIG.MAX_CHUNK_SIZE) {
   if (text.length <= maxChunkSize) {
     return [text];
   }
 
-  console.log(`📝 智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块`);
+  console.log(`📝 文档智能分块: ${text.length}字符 -> ${maxChunkSize}字符/块 (并发${CONFIG.CONCURRENT_CHUNKS}个)`);
   
   const chunks = [];
   
@@ -528,20 +549,22 @@ async function processDocumentTranslationJob(jobId: string) {
     
     const translatedChunks: string[] = []
     const totalChunks = job.chunks.length
-    const BATCH_SIZE = 5 // 批次大小
+    const BATCH_SIZE = CONFIG.BATCH_SIZE // 🔥 使用新配置：并行2个块
+    
+    console.log(`[Translation] 文档翻译配置: 块大小=${CONFIG.MAX_CHUNK_SIZE}字符, 并发=${CONFIG.CONCURRENT_CHUNKS}个, 批次大小=${BATCH_SIZE}`)
     
     // 分批处理块
     for (let i = 0; i < totalChunks; i += BATCH_SIZE) {
       const batch = job.chunks.slice(i, i + BATCH_SIZE)
       console.log(`[Translation] 处理批次 ${Math.floor(i/BATCH_SIZE) + 1}/${Math.ceil(totalChunks/BATCH_SIZE)}, 块数: ${batch.length}`)
       
-      // 更新批次开始进度
-      const startProgress = Math.round((i / totalChunks) * 90) + 10
-      job.progress = startProgress
+      // 更新批次开始进度（使用统一的0-100%计算）
+      const startProgress = Math.round((i / totalChunks) * 100)
+      job.progress = Math.max(startProgress, 5) // 最小显示5%
       job.updatedAt = new Date()
       translationQueue.set(jobId, job)
       
-      // 并行处理当前批次
+      // 🔥 并行处理当前批次（2个块并发）
       const batchPromises = batch.map((chunk, index) => {
         console.log(`[Translation] 翻译块 ${i + index + 1}/${totalChunks}: ${chunk.substring(0, 50)}...`)
         return translateChunkWithRetry(chunk, job.sourceLanguage, job.targetLanguage)
@@ -558,16 +581,18 @@ async function processDocumentTranslationJob(jobId: string) {
         translatedChunks.push(result.translatedText!)
       }
       
-      // 更新进度
-      job.progress = Math.round(((i + batch.length) / totalChunks) * 100)
+      // 更新进度（确保单调递增）
+      const newProgress = Math.round(((i + batch.length) / totalChunks) * 100)
+      job.progress = Math.max(newProgress, job.progress) // 确保进度不倒退
       job.updatedAt = new Date()
       translationQueue.set(jobId, job)
       
-      console.log(`[Translation] 进度更新: ${job.progress}% (${i + batch.length}/${totalChunks})`)
+      console.log(`[Translation] 进度更新: ${job.progress}% (${i + batch.length}/${totalChunks}) [批次${Math.floor(i/BATCH_SIZE) + 1}/${Math.ceil(totalChunks/BATCH_SIZE)}]`)
       
-      // 批次间延迟
+      // 🔥 批次间延迟 - 使用新配置的延迟时间
       if (i + BATCH_SIZE < totalChunks) {
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        console.log(`⏳ 批次间延迟 ${CONFIG.BATCH_DELAY}ms...`)
+        await new Promise(resolve => setTimeout(resolve, CONFIG.BATCH_DELAY))
       }
     }
     
@@ -593,17 +618,33 @@ async function processDocumentTranslationJob(jobId: string) {
     if (job.userId && job.creditsUsed > 0) {
       try {
         const supabase = createSupabaseAdminClient()
-        const { error: refundError } = await supabase
+        
+        // 先查询用户当前积分
+        const { data: userData, error: queryError } = await supabase
           .from('users')
-          .update({ 
-            credits: supabase.raw(`credits + ${job.creditsUsed}`)
-          })
+          .select('credits')
           .eq('id', job.userId)
+          .single()
+        
+        if (queryError) {
+          console.error(`[Translation] 查询用户积分失败: ${jobId}`, queryError)
+        } else if (userData) {
+          // 计算退还后的积分
+          const newCredits = userData.credits + job.creditsUsed
+          
+          // 更新用户积分
+          const { error: refundError } = await supabase
+            .from('users')
+            .update({ 
+              credits: newCredits
+            })
+            .eq('id', job.userId)
 
-        if (refundError) {
-          console.error(`[Translation] 退还积分失败: ${jobId}`, refundError)
-        } else {
-          console.log(`[Translation] 翻译失败，已退还积分: ${job.creditsUsed} 积分给用户 ${job.userId}`)
+          if (refundError) {
+            console.error(`[Translation] 退还积分失败: ${jobId}`, refundError)
+          } else {
+            console.log(`[Translation] 翻译失败，已退还积分: ${job.creditsUsed} 积分给用户 ${job.userId} (${userData.credits} -> ${newCredits})`)
+          }
         }
       } catch (refundError) {
         console.error(`[Translation] 积分退还异常: ${jobId}`, refundError)
@@ -621,10 +662,10 @@ async function processDocumentTranslationJob(jobId: string) {
  */
 async function translateChunkWithRetry(text: string, sourceLanguage: string, targetLanguage: string, retryCount: number = 0): Promise<{success: boolean, translatedText?: string, error?: string}> {
   const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), ENHANCED_DOC_CONFIG.REQUEST_TIMEOUT)
+  const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT)
   
   try {
-    console.log(`🔄 文档块翻译 (尝试 ${retryCount + 1}/${ENHANCED_DOC_CONFIG.MAX_RETRIES + 1}): ${text.length}字符`)
+    console.log(`🔄 文档块翻译 (尝试 ${retryCount + 1}/${CONFIG.MAX_RETRIES + 1}): ${text.length}字符`)
     
     const nllbServiceUrl = process.env.NLLB_SERVICE_URL || 'https://wane0528-my-nllb-api.hf.space/api/v4/translator'
     
@@ -694,9 +735,9 @@ async function translateChunkWithRetry(text: string, sourceLanguage: string, tar
     console.log(`❌ 文档块翻译失败 (尝试 ${retryCount + 1}): ${error.message}`)
     
     // 检查是否需要重试
-    if (retryCount < ENHANCED_DOC_CONFIG.MAX_RETRIES) {
-      console.log(`⏳ ${ENHANCED_DOC_CONFIG.RETRY_DELAY}ms后重试...`)
-      await new Promise(resolve => setTimeout(resolve, ENHANCED_DOC_CONFIG.RETRY_DELAY))
+    if (retryCount < CONFIG.MAX_RETRIES) {
+      console.log(`⏳ ${CONFIG.RETRY_DELAY}ms后重试...`)
+      await new Promise(resolve => setTimeout(resolve, CONFIG.RETRY_DELAY))
       return translateChunkWithRetry(text, sourceLanguage, targetLanguage, retryCount + 1)
     } else {
       console.log(`💥 重试次数已用完，返回错误`)

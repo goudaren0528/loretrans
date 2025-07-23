@@ -1534,5 +1534,15 @@
     "extracted_characters": "Extracted {count} characters",
     "processing": "Processing file...",
     "select_file": "Select a file to upload"
+  },
+  "DocumentTranslation": {
+    "credits": {
+      "insufficient_title": "Insufficient Credits",
+      "insufficient_description": "Need {required} credits, current balance {available} credits. Please go to the recharge page to purchase credits.",
+      "insufficient_error": "Insufficient credits: need {required} credits, current balance {available} credits",
+      "recharge_page": "Recharge Page",
+      "deducted_title": "Credits Deducted",
+      "deducted_description": "This translation consumed {consumed} credits, remaining {remaining} credits"
+    }
   }
 }

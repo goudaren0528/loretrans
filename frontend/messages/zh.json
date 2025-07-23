@@ -1549,5 +1549,15 @@
     "daily_limit_title": "超出每日限额",
     "daily_limit_description": "您已超出每日翻译限额。",
     "translation_failed": "翻译失败"
+  },
+  "DocumentTranslation": {
+    "credits": {
+      "insufficient_title": "积分不足",
+      "insufficient_description": "需要 {required} 积分，当前余额 {available} 积分。请前往充值页面购买积分。",
+      "insufficient_error": "积分不足：需要 {required} 积分，当前余额 {available} 积分",
+      "recharge_page": "充值页面",
+      "deducted_title": "积分已扣除",
+      "deducted_description": "本次翻译消耗 {consumed} 积分，剩余 {remaining} 积分"
+    }
   }
 }

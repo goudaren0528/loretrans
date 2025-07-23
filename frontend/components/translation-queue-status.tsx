@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { queueChecker, type QueueJob } from '@/lib/translation-queue'
+import { useGlobalCredits } from '@/lib/contexts/credits-context'
 
 interface TranslationQueueStatusProps {
   jobId: string
@@ -12,17 +13,23 @@ interface TranslationQueueStatusProps {
 export function TranslationQueueStatus({ jobId, onComplete, onError }: TranslationQueueStatusProps) {
   const [job, setJob] = useState<QueueJob | null>(null)
   const [isPolling, setIsPolling] = useState(true)
+  const { refreshCredits } = useGlobalCredits()
 
   useEffect(() => {
     if (!jobId || !isPolling) return
 
     const pollStatus = async () => {
       try {
-        await queueChecker.pollJobStatus(jobId, (updatedJob) => {
+        await queueChecker.pollJobStatus(jobId, async (updatedJob) => {
           setJob(updatedJob)
           
           if (updatedJob.status === 'completed' && updatedJob.result) {
             setIsPolling(false)
+            
+            // 🔥 翻译完成后刷新积分余额
+            console.log('[TranslationQueueStatus] 翻译完成，刷新积分余额...')
+            await refreshCredits()
+            
             onComplete(updatedJob.result)
           } else if (updatedJob.status === 'failed') {
             setIsPolling(false)
@@ -36,7 +43,7 @@ export function TranslationQueueStatus({ jobId, onComplete, onError }: Translati
     }
 
     pollStatus()
-  }, [jobId, isPolling, onComplete, onError])
+  }, [jobId, isPolling, onComplete, onError, refreshCredits])
 
   if (!job) {
     return (

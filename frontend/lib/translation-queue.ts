@@ -23,15 +23,18 @@ export class TranslationQueueChecker {
     return new Promise((resolve, reject) => {
       const poll = async () => {
         try {
-          const response = await fetch(`/api/translate/queue?jobId=${jobId}`);
-          const result = await response.json();
+          const response = await fetch(`/api/translate/status?jobId=${jobId}`);
           
-          if (!result.success) {
-            reject(new Error(result.error || '查询任务状态失败'));
+          if (!response.ok) {
+            if (response.status === 404) {
+              reject(new Error('任务不存在或已过期'));
+              return;
+            }
+            reject(new Error('查询任务状态失败'));
             return;
           }
           
-          const job = result.job;
+          const job = await response.json();
           onUpdate(job);
           
           if (job.status === 'completed') {
@@ -56,14 +59,16 @@ export class TranslationQueueChecker {
    * 一次性检查任务状态
    */
   async checkJobStatus(jobId: string): Promise<QueueJob> {
-    const response = await fetch(`/api/translate/queue?jobId=${jobId}`);
-    const result = await response.json();
+    const response = await fetch(`/api/translate/status?jobId=${jobId}`);
     
-    if (!result.success) {
-      throw new Error(result.error || '查询任务状态失败');
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('任务不存在或已过期');
+      }
+      throw new Error('查询任务状态失败');
     }
     
-    return result.job;
+    return await response.json();
   }
 }
 
@@ -87,6 +92,10 @@ export interface TranslationTask {
 
 class TranslationQueueManager {
   private tasks: Map<string, TranslationTask> = new Map();
+  
+  constructor() {
+    console.log('[Queue] TranslationQueueManager 初始化完成');
+  }
   
   getUserTasks(sessionId: string): TranslationTask[] {
     console.log('[Queue] 获取用户任务，sessionId:', sessionId, '总任务数:', this.tasks.size);
@@ -147,29 +156,50 @@ class TranslationQueueManager {
     // 根据文本长度决定使用哪个API
     try {
       if (text.length > 1000) {
-        // 长文本使用队列API
-        console.log(`[Queue] 长文本(${text.length}字符)使用队列处理`);
+        // 长文本现在也使用主翻译API（已统一架构）
+        console.log(`[Queue] 长文本(${text.length}字符)使用统一翻译API`);
         
         task.status = 'processing';
         task.progress = 5; // 降低初始进度，避免过度乐观
         task.updatedAt = new Date();
         this.dispatchTaskUpdate(task);
         
-        const response = await fetch('/api/translate/queue', {
+        // 准备请求头，包含认证信息
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json',
+        };
+        
+        // 获取认证token
+        try {
+          const { createSupabaseBrowserClient } = await import('@/lib/supabase');
+          const supabase = createSupabaseBrowserClient();
+          const { data: { session } } = await supabase.auth.getSession();
+          
+          if (session?.access_token) {
+            headers['Authorization'] = `Bearer ${session.access_token}`;
+            console.log('[Queue] 认证头已添加到队列请求');
+          } else {
+            console.warn('[Queue] 警告: 没有认证token可用');
+          }
+        } catch (error) {
+          console.error('[Queue] 获取认证token失败:', error);
+        }
+        
+        const response = await fetch('/api/translate', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers,
           body: JSON.stringify({
             text,
-            sourceLanguage,
-            targetLanguage
+            sourceLang: sourceLanguage,
+            targetLang: targetLanguage
           })
         });
         
         const result = await response.json();
+        console.log('[Queue] API响应:', { success: result.success, jobId: result.jobId, error: result.error });
         
         if (result.success) {
+          console.log('[Queue] 成功响应，准备启动轮询:', { taskId, jobId: result.jobId });
           task.status = 'processing';
           task.progress = 10; // 降低提交成功后的进度
           task.queueJobId = result.jobId;
@@ -177,6 +207,7 @@ class TranslationQueueManager {
           this.dispatchTaskUpdate(task);
           
           // 开始轮询队列状态
+          console.log('[Queue] 启动轮询:', { taskId, queueJobId: result.jobId });
           this.pollQueueStatus(taskId, result.jobId);
         } else {
           task.status = 'failed';
@@ -250,8 +281,14 @@ class TranslationQueueManager {
   }
   
   private async pollQueueStatus(taskId: string, queueJobId: string) {
+    console.log('[Queue] 开始轮询任务状态:', { taskId, queueJobId });
     const task = this.tasks.get(taskId);
-    if (!task) return;
+    if (!task) {
+      console.error('[Queue] 轮询失败: 任务不存在', { taskId, availableTasks: Array.from(this.tasks.keys()) });
+      return;
+    }
+    
+    console.log('[Queue] 找到任务，开始轮询:', { taskId, status: task.status, progress: task.progress });
     
     // 健康检查缓存
     let lastHealthCheck = 0;
@@ -331,7 +368,7 @@ class TranslationQueueManager {
         return;
       }
       try {
-        const response = await fetch(`/api/translate/queue?jobId=${queueJobId}`);
+        const response = await fetch(`/api/translate/status?jobId=${queueJobId}`);
         
         // 处理404错误 - 任务不存在或已过期
         if (response.status === 404) {
@@ -343,17 +380,20 @@ class TranslationQueueManager {
           return;
         }
         
-        const result = await response.json();
+        if (!response.ok) {
+          console.error('[Queue] 状态查询失败:', response.status);
+          setTimeout(poll, 5000); // 5秒后重试
+          return;
+        }
         
-        if (result.success) {
-          const job = result.job;
-          
-          task.status = job.status as any;
-          task.progress = job.progress;
-          task.updatedAt = new Date();
-          
-          if (job.status === 'completed') {
-            console.log('[Queue] 任务完成，结果长度:', job.result?.length || 0);
+        const job = await response.json();
+        
+        task.status = job.status as any;
+        task.progress = job.progress;
+        task.updatedAt = new Date();
+        
+        if (job.status === 'completed') {
+          console.log('[Queue] 任务完成，结果长度:', job.result?.length || 0);
             
             // 确保有实际的翻译结果才标记为完成
             if (job.result && job.result.trim() && job.result.length > 0) {
@@ -400,21 +440,6 @@ class TranslationQueueManager {
             setTimeout(poll, 2000);
             this.dispatchTaskUpdate(task);
           }
-        } else {
-          // API返回success: false
-          console.log('[Queue] API返回失败:', result.error);
-          
-          if (result.code === 'JOB_NOT_FOUND') {
-            task.status = 'failed';
-            task.error = result.suggestion || '任务不存在，请重新提交翻译请求';
-            task.updatedAt = new Date();
-            this.dispatchTaskUpdate(task);
-            return;
-          } else {
-            // 其他错误，继续重试
-            setTimeout(poll, 3000);
-          }
-        }
       } catch (error) {
         console.error('[Queue] 轮询失败:', error);
         

@@ -1,6 +1,23 @@
 #!/usr/bin/env node
 
-const { ENHANCED_CONFIG, NLLB_LANGUAGE_MAP, NLLB_SERVICE_URL } = require('./enhanced-translation-service');
+// 导入统一的翻译配置
+const { TRANSLATION_CHUNK_CONFIG } = require('./frontend/lib/config/translation.js');
+
+// 使用统一配置
+const CONFIG = TRANSLATION_CHUNK_CONFIG;
+
+// NLLB语言代码映射和服务URL
+const NLLB_LANGUAGE_MAP = {
+  'am': 'amh_Ethi', 'ar': 'arb_Arab', 'en': 'eng_Latn', 'es': 'spa_Latn',
+  'fr': 'fra_Latn', 'ha': 'hau_Latn', 'hi': 'hin_Deva', 'ht': 'hat_Latn',
+  'ig': 'ibo_Latn', 'km': 'khm_Khmr', 'ky': 'kir_Cyrl', 'lo': 'lao_Laoo',
+  'mg': 'plt_Latn', 'mn': 'khk_Cyrl', 'my': 'mya_Mymr', 'ne': 'npi_Deva',
+  'ps': 'pbt_Arab', 'pt': 'por_Latn', 'sd': 'snd_Arab', 'si': 'sin_Sinh',
+  'sw': 'swh_Latn', 'te': 'tel_Telu', 'tg': 'tgk_Cyrl', 'xh': 'xho_Latn',
+  'yo': 'yor_Latn', 'zh': 'zho_Hans', 'zu': 'zul_Latn'
+};
+
+const NLLB_SERVICE_URL = 'https://wane0528-my-nllb-api.hf.space/api/v4/translator';
 
 /**
  * 带重试机制的翻译函数
@@ -12,10 +29,10 @@ const { ENHANCED_CONFIG, NLLB_LANGUAGE_MAP, NLLB_SERVICE_URL } = require('./enha
  */
 async function translateWithRetry(text, sourceNLLB, targetNLLB, retryCount = 0) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), ENHANCED_CONFIG.REQUEST_TIMEOUT);
+  const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT);
   
   try {
-    console.log(`🔄 翻译请求 (尝试 ${retryCount + 1}/${ENHANCED_CONFIG.MAX_RETRIES + 1}): ${text.length}字符`);
+    console.log(`🔄 翻译请求 (尝试 ${retryCount + 1}/${CONFIG.MAX_RETRIES + 1}): ${text.length}字符`);
     
     const response = await fetch(NLLB_SERVICE_URL, {
       method: 'POST',
@@ -62,9 +79,9 @@ async function translateWithRetry(text, sourceNLLB, targetNLLB, retryCount = 0) 
     console.log(`❌ 翻译失败 (尝试 ${retryCount + 1}): ${error.message}`);
     
     // 检查是否需要重试
-    if (retryCount < ENHANCED_CONFIG.MAX_RETRIES) {
-      console.log(`⏳ ${ENHANCED_CONFIG.RETRY_DELAY}ms后重试...`);
-      await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.RETRY_DELAY));
+    if (retryCount < CONFIG.MAX_RETRIES) {
+      console.log(`⏳ ${CONFIG.RETRY_DELAY}ms后重试...`);
+      await new Promise(resolve => setTimeout(resolve, CONFIG.RETRY_DELAY));
       return translateWithRetry(text, sourceNLLB, targetNLLB, retryCount + 1);
     } else {
       console.log(`💥 重试次数已用完，抛出错误`);
@@ -108,7 +125,7 @@ async function enhancedTranslate(text, sourceLang, targetLang) {
     
     // 智能分块
     const { smartTextChunking } = require('./enhanced-translation-service');
-    const chunks = smartTextChunking(text, ENHANCED_CONFIG.MAX_CHUNK_SIZE);
+    const chunks = smartTextChunking(text, CONFIG.MAX_CHUNK_SIZE);
     
     if (chunks.length === 1) {
       // 单块处理
@@ -137,18 +154,26 @@ async function enhancedTranslate(text, sourceLang, targetLang) {
         try {
           const chunkResult = await translateWithRetry(chunk, sourceNLLB, targetNLLB);
           translatedChunks.push(chunkResult);
-          chunkResults.push({ index: i + 1, status: 'success', length: chunkResult.length });
+          chunkResults.push({ 
+            index: i + 1, 
+            status: 'success', 
+            length: chunkResult.length 
+          });
         } catch (chunkError) {
           console.log(`⚠️ 块 ${i + 1} 翻译失败，使用备用翻译`);
           const fallbackChunk = getFallbackTranslation(chunk, sourceLang, targetLang);
           translatedChunks.push(fallbackChunk);
-          chunkResults.push({ index: i + 1, status: 'fallback', error: chunkError.message });
+          chunkResults.push({ 
+            index: i + 1, 
+            status: 'fallback', 
+            error: chunkError.message 
+          });
         }
         
         // 块间延迟
         if (i < chunks.length - 1) {
-          console.log(`⏳ 块间延迟 ${ENHANCED_CONFIG.CHUNK_DELAY}ms...`);
-          await new Promise(resolve => setTimeout(resolve, ENHANCED_CONFIG.CHUNK_DELAY));
+          console.log(`⏳ 块间延迟 ${CONFIG.CHUNK_DELAY}ms...`);
+          await new Promise(resolve => setTimeout(resolve, CONFIG.CHUNK_DELAY));
         }
       }
       
@@ -180,4 +205,4 @@ module.exports = {
   enhancedTranslate
 };
 
-console.log('✅ 带重试机制的翻译函数创建完成！');
+console.log('✅ 统一配置的翻译函数创建完成！');

@@ -189,3 +189,22 @@ debug-*.html
 *.disabled
 .temp/
 
+
+# Development reports and summaries (local only)
+docs/summary/
+
+# Temporary scripts and files
+*.temp.js
+*.backup.*
+temp-*.js
+cleanup-*.js
+fix-*.js
+update-*.js
+add-*.js
+remove-*.js
+optimize-*.js
+validate-*.js
+test-*.json
+test-*.txt
+*-test-*.json
+*-progress.txt

@@ -5,6 +5,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { AuthProvider } from '@/components/auth/auth-provider'
 import { Toaster } from '@/components/ui/toaster'
+import { GoogleAnalytics } from '@/components/analytics/google-analytics'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'google9879f9edb25bbe5e',
     yandex: 'your-yandex-verification-code',
   },
 }
@@ -98,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
       <head>
+        <GoogleAnalytics />
         <script src="/polyfills-inline.js" defer></script>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

@@ -70,10 +70,15 @@ const nextConfig = {
   // 重写配置 - 修复GSC文件访问
   async rewrites() {
     return [
-      // 确保GSC验证文件可以直接访问
+      // 确保GSC验证文件可以直接访问，不经过国际化路由
       {
         source: '/google:verification*.html',
         destination: '/google:verification*.html',
+      },
+      // 备用方案：通过API路由提供验证文件
+      {
+        source: '/google9879f9edb25bbe5e.html',
+        destination: '/api/google-verification',
       },
     ];
   },

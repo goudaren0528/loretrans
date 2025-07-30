@@ -14,6 +14,7 @@ export const config = {
     // - Next.js internals
     // - Static files
     // - AI search optimization file
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llm.txt|images|icons|logo|manifest.json).*)',
+    // - Google verification files
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llm.txt|images|icons|logo|manifest.json|google.*\\.html).*)',
   ],
 }

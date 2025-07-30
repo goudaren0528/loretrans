@@ -18,16 +18,31 @@ Allow: /en/about
 Allow: /en/contact
 Allow: /en/pricing
 
-# Disallow admin and test pages
-Disallow: /en/admin/
-Disallow: /en/dashboard/
+# Disallow admin and management pages
+Disallow: /*/admin/
+Disallow: /*/dashboard/
+Disallow: /api/admin/
+
+# Disallow all test, demo, and mock pages
+Disallow: /*/test-*
+Disallow: /*/demo-*
+Disallow: /*/mock-*
 Disallow: /en/test-*
 Disallow: /en/demo-*
 Disallow: /en/mock-*
+
+# Disallow API endpoints
 Disallow: /api/
+Disallow: /api/auth/debug
+Disallow: /api/auth/mock-*
+Disallow: /api/webhooks/*/mock
 
 # Disallow auth pages (not useful for SEO)
+Disallow: /*/auth/
 Disallow: /en/auth/
+
+# Disallow checkout test pages
+Disallow: /checkout/mock
 
 # Allow sitemap
 Sitemap: https://loretrans.com/sitemap.xml

@@ -10,14 +10,21 @@ import {
   BreadcrumbStructuredData
 } from '@/components/structured-data'
 
-export const metadata: Metadata = {
-  title: 'Khmer to English Translation - Free AI Translator | LoReTrans',
-  description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts up to 5,000 characters.',
+type Props = {
+  params: { locale: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'Khmer to English Translation - Free AI Translator | LoReTrans',
+    description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Khmer to English translation', 'Khmer to English', 'Khmer-English translator', 'free Khmer to English translation', 'Khmer English converter', 'ខ្មែរ to English', 'Cambodian to English translation', 'Khmer language translator'],
   openGraph: {
     title: 'Khmer to English Translation - Free AI Translator',
     description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts and queue processing.',
-    url: 'https://loretrans.com/khmer-to-english',
+    url: `https://loretrans.com/${locale}/khmer-to-english`,
     siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
@@ -28,8 +35,9 @@ export const metadata: Metadata = {
     description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts and queue processing.',
   },
   alternates: {
-    canonical: 'https://loretrans.com/khmer-to-english',
+    canonical: `https://loretrans.com/${locale}/khmer-to-english`,
   },
+  }
 }
 
 const khmerToEnglishFAQs = [
@@ -107,7 +115,9 @@ const features = [
   }
 ];
 
-export default function KhmerToEnglishPage() {
+export default function KhmerToEnglishPage({ params }: Props) {
+  const { locale } = params
+  
   return (
     <main className="min-h-screen bg-background">
       {/* Structured Data */}
@@ -127,9 +137,9 @@ export default function KhmerToEnglishPage() {
       
       <BreadcrumbStructuredData 
         items={[
-          { name: "Home", url: "https://loretrans.com" },
-          { name: "Translation Tools", url: "https://loretrans.com/text-translate" },
-          { name: "Khmer to English", url: "https://loretrans.com/khmer-to-english" }
+          { name: "Home", url: `https://loretrans.com/${locale}` },
+          { name: "Translation Tools", url: `https://loretrans.com/${locale}/text-translate` },
+          { name: "Khmer to English", url: `https://loretrans.com/${locale}/khmer-to-english` }
         ]}
       />
       
@@ -140,7 +150,7 @@ export default function KhmerToEnglishPage() {
           "@type": "WebPage",
           "name": "Khmer to English Translation Tool",
           "description": "Free AI-powered Khmer-English translation with queue processing and history",
-          "url": "https://loretrans.com/khmer-to-english",
+          "url": `https://loretrans.com/${locale}/khmer-to-english`,
           "inLanguage": "en",
           "about": {
             "@type": "Thing",

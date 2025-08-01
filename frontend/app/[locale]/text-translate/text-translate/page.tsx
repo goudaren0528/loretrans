@@ -2,10 +2,7 @@ import { Metadata } from 'next'
 import { TranslatorWidget } from '@/components/translator-widget'
 import { LanguageGrid } from '@/components/language-grid'
 import { FAQ } from '@/components/faq'
-import {
-  WebApplicationStructuredData,
-  TranslationServiceStructuredData,
-} from '@/components/structured-data'
+
 
 export const metadata: Metadata = {
   title: 'Text Translator - Free AI Translation Tool | LoReTrans',
@@ -26,13 +23,60 @@ export const metadata: Metadata = {
 
 export default function TextTranslatePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Structured Data */}
-      <WebApplicationStructuredData />
-      <TranslationServiceStructuredData 
-        sourceLanguage="Multiple Languages" 
-        targetLanguage="English" 
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Text-translate/text-translate",
+          "description": "text-translate/text-translate page on LoReTrans translation platform.",
+          "url": "https://loretrans.com/en/text-translate/text-translate",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          },
+          "provider": {
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Text-translate/text-translate",
+                              "item": "https://loretrans.com/en/text-translate/text-translate"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Structured Data */}
+      
+      
 
       {/* Hero Section */}
       <section className="relative py-12 sm:py-16 lg:py-20">
@@ -161,4 +205,6 @@ export default function TextTranslatePage() {
       </section>
     </div>
   )
-} 
+    </>
+  )
+}

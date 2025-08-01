@@ -5,10 +5,7 @@ import { LanguageGrid } from '@/components/language-grid'
 import { FeatureSection } from '@/components/feature-section'
 import { FAQ } from '@/components/faq'
 import { HeroImage } from '@/components/hero-image'
-import {
-  WebApplicationStructuredData,
-  OrganizationStructuredData,
-} from '@/components/structured-data'
+
 
 export async function generateMetadata({
   params: { locale },
@@ -67,10 +64,60 @@ export default async function HomePage({
   console.log(`[Page] Rendering for locale: ${locale}`);
   const t = await getTranslations({ locale, namespace: 'HomePage' });
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Root",
+          "description": "root page on LoReTrans translation platform.",
+          "url": "https://loretrans.com/en/root",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          },
+          "provider": {
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Root",
+                              "item": "https://loretrans.com/en/root"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Structured Data */}
-      <WebApplicationStructuredData />
-      <OrganizationStructuredData />
+      
+      
       
       {/* Hero Section */}
       <section className="relative py-12 sm:py-16 lg:py-20">
@@ -239,4 +286,6 @@ export default async function HomePage({
       </section>
     </div>
   );
+    </>
+  )
 }

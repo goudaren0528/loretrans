@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { FAQStructuredData } from '@/components/structured-data'
+
 
 export const metadata: Metadata = {
   title: 'Help & FAQ - LoReTrans AI Translation Tool Support',
@@ -122,9 +122,59 @@ export default function HelpPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Help Center",
+          "description": "Find answers to common questions and learn how to use our translation tools.",
+          "url": "https://loretrans.com/en/help",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          },
+          "provider": {
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Help Center",
+                              "item": "https://loretrans.com/en/help"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Structured Data */}
-      <FAQStructuredData questions={allFAQs} />
+      
 
       {/* Hero Section */}
       <section className="relative py-12 sm:py-16 lg:py-20">
@@ -398,4 +448,6 @@ export default function HelpPage() {
       </section>
     </div>
   )
-} 
+    </>
+  )
+}

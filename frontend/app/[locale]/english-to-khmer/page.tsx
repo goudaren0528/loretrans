@@ -1,14 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
-import { 
-  StructuredData, 
-  FAQStructuredData, 
-  HowToStructuredData,
-  TranslationServiceStructuredData,
-  WebApplicationStructuredData,
-  BreadcrumbStructuredData
-} from '@/components/structured-data'
+
 
 type Props = {
   params: { locale: string }
@@ -119,99 +112,78 @@ export default function EnglishToKhmerPage({ params }: Props) {
   const { locale } = params
   
   return (
-    <main className="min-h-screen bg-background">
-      {/* Structured Data */}
-      <WebApplicationStructuredData />
-      
-      <TranslationServiceStructuredData 
-        sourceLanguage="English"
-        targetLanguage="Khmer"
-      />
-      
-      <FAQStructuredData questions={englishToKhmerFAQs} />
-      
-      <HowToStructuredData 
-        title="How to convert English to ខ្មែរ"
-        steps={howToSteps}
-      />
-      
-      <BreadcrumbStructuredData 
-        items={[
-          { name: "Home", url: `https://loretrans.com/${locale}` },
-          { name: "Translation Tools", url: `https://loretrans.com/${locale}/text-translate` },
-          { name: "English to Khmer", url: `https://loretrans.com/${locale}/english-to-khmer` }
-        ]}
-      />
-      
-      <StructuredData 
-        type="WebApplication"
-        data={{
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "English to Khmer Translation Tool",
-          "description": "Free AI-powered English-Khmer translation with queue processing and history",
-          "url": `https://loretrans.com/${locale}/english-to-khmer`,
-          "inLanguage": "en",
-          "about": {
-            "@type": "Thing",
-            "name": "English to Khmer Language Translation",
-            "description": "Professional English to Khmer (ខ្មែរ) translation service"
-          },
+          "@type": "WebApplication",
+          "name": "English to Khmer Translator - LoReTrans",
+          "description": "Free AI-powered English to Khmer translation tool with high accuracy and queue processing.",
+          "url": "https://loretrans.com/en/english-to-khmer",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web Browser",
+          "isAccessibleForFree": true,
           "provider": {
-            "@type": "Organization",
-            "name": "LoReTrans",
-            "url": "https://loretrans.com"
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "1180",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "author": {
-                "@type": "Person",
-                "name": "Michael Johnson"
-              },
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "reviewBody": "Excellent English to Khmer translator! Very accurate and handles complex English texts well. The Khmer translation quality is impressive for business documents."
-            },
-            {
-              "@type": "Review", 
-              "author": {
-                "@type": "Person",
-                "name": "Sarah Williams"
-              },
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "reviewBody": "Best free English to Khmer translator I've found. The AI translation preserves meaning perfectly when converting English to ខ្មែរ."
-            },
-            {
-              "@type": "Review",
-              "author": {
-                "@type": "Person", 
-                "name": "Chanthy Sok"
-              },
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "4",
-                "bestRating": "5"
-              },
-              "reviewBody": "Great tool for translating English documents to Khmer. The English-Khmer translation records feature is very useful for my translation work."
-            }
-          ]
+          "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+          }
+}, null, 2)
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Translation Tools",
+                              "item": "https://loretrans.com/en/text-translate"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 3,
+                              "name": "English to Khmer",
+                              "item": "https://loretrans.com/en/english-to-khmer"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <main className="min-h-screen bg-background">
+      {/* Structured Data */}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -392,5 +364,7 @@ export default function EnglishToKhmerPage({ params }: Props) {
         </div>
       </section>
     </main>
+  )
+    </>
   )
 }

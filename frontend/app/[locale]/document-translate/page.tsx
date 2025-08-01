@@ -7,13 +7,7 @@ import { Language, AVAILABLE_LANGUAGES } from '../../../../config/app.config';
 import { DocumentTranslator } from '@/components/document-translator';
 import { GuestLimitGuard } from '@/components/guest-limit-guard';
 import Link from 'next/link';
-import { 
-  StructuredData, 
-  FAQStructuredData, 
-  HowToStructuredData,
-  WebApplicationStructuredData,
-  BreadcrumbStructuredData
-} from '@/components/structured-data'
+
 
 export async function generateMetadata({
   params: { locale },
@@ -127,57 +121,67 @@ export default async function DocumentTranslatePage({
   const t = await getTranslations({ locale, namespace: 'DocumentTranslatePage' });
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Structured Data */}
-      <WebApplicationStructuredData />
-      
-      <StructuredData 
-        type="WebApplication"
-        data={{
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "Document Translation Tool - LoReTrans",
-          "description": "Upload and translate PDF, Word, PowerPoint documents to English. AI-powered translation for 20+ low-resource languages with high accuracy.",
-          "url": `https://loretrans.com/${locale}/document-translate`,
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
+          "@type": "WebPage",
+          "name": "Document Translation Tool",
+          "description": "Professional document translation service supporting multiple file formats.",
+          "url": "https://loretrans.com/en/document-translate",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
           },
           "provider": {
-            "@type": "Organization",
-            "name": "LoReTrans",
-            "url": "https://loretrans.com"
-          },
-          "featureList": [
-            "PDF document translation",
-            "Word document translation",
-            "PowerPoint translation",
-            "Text file translation",
-            "20+ low-resource languages",
-            "AI-powered NLLB technology",
-            "Format preservation",
-            "Batch processing"
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Document Translation Tool",
+                              "item": "https://loretrans.com/en/document-translate"
+                    }
           ]
+}, null, 2)
         }}
       />
       
-      <FAQStructuredData questions={documentTranslateFAQs} />
+
+          <div className="min-h-screen bg-background">
+      {/* Structured Data */}
       
-      <HowToStructuredData 
-        title="How to translate documents"
-        steps={documentHowToSteps}
-      />
       
-      <BreadcrumbStructuredData 
-        items={[
-          { name: "Home", url: `https://loretrans.com/${locale}` },
-          { name: "Document Translation", url: `https://loretrans.com/${locale}/document-translate` }
-        ]}
-      />
+      
+      
+      
+      
+      
+      
+      
 
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -282,4 +286,6 @@ export default async function DocumentTranslatePage({
       </div>
     </div>
   );
+    </>
+  )
 }

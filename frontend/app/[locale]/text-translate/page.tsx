@@ -1,13 +1,7 @@
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { TextTranslateClient } from './text-translate-client'
-import { 
-  StructuredData, 
-  FAQStructuredData, 
-  HowToStructuredData,
-  WebApplicationStructuredData,
-  BreadcrumbStructuredData
-} from '@/components/structured-data'
+
 
 export async function generateMetadata({
   params: { locale },
@@ -103,57 +97,71 @@ export default function TextTranslatePage({
   params: { locale: string };
 }) {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Structured Data */}
-      <WebApplicationStructuredData />
-      
-      <StructuredData 
-        type="WebApplication"
-        data={{
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "Text Translation Tool - LoReTrans",
-          "description": "Free AI-powered text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly.",
-          "url": `https://loretrans.com/${locale}/text-translate`,
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
+          "@type": "WebPage",
+          "name": "Text Translation Tool",
+          "description": "Free AI-powered text translation for 20+ languages with queue processing and history.",
+          "url": "https://loretrans.com/en/text-translate",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
           },
           "provider": {
-            "@type": "Organization",
-            "name": "LoReTrans",
-            "url": "https://loretrans.com"
-          },
-          "featureList": [
-            "Free text translation up to 5000 characters",
-            "20+ low-resource languages supported",
-            "Bidirectional translation",
-            "AI-powered NLLB technology",
-            "Instant translation results",
-            "Text-to-speech functionality"
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Text Translation Tool",
+                              "item": "https://loretrans.com/en/text-translate"
+                    }
           ]
+}, null, 2)
         }}
       />
       
-      <FAQStructuredData questions={textTranslateFAQs} />
+
+          <div className="min-h-screen bg-background">
+      {/* Structured Data */}
       
-      <HowToStructuredData 
-        title="How to use our text translator"
-        steps={howToSteps}
-      />
       
-      <BreadcrumbStructuredData 
-        items={[
-          { name: "Home", url: `https://loretrans.com/${locale}` },
-          { name: "Text Translation", url: `https://loretrans.com/${locale}/text-translate` }
-        ]}
-      />
+      
+      
+      
+      
+      
+      
+      
       
       <TextTranslateClient locale={locale} />
     </div>
   );
+    </>
+  )
 }

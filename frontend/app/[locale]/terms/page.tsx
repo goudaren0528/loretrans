@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { StructuredData } from '@/components/structured-data'
+
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -30,7 +30,57 @@ const structuredData = {
 export default function TermsPage() {
   return (
     <>
-      <StructuredData type="WebPage" data={structuredData} />
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Terms of Service",
+          "description": "Terms and conditions for using LoReTrans translation services.",
+          "url": "https://loretrans.com/en/terms",
+          "inLanguage": "en",
+          "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          },
+          "provider": {
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
+          }
+}, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Terms of Service",
+                              "item": "https://loretrans.com/en/terms"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <>
+      
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="prose prose-gray dark:prose-invert max-w-none">
           <div className="mb-8">

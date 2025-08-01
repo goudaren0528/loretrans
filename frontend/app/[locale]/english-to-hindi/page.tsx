@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
-import { StructuredData } from '@/components/structured-data'
+
 
 export const metadata: Metadata = {
   title: 'English to Hindi Translation - Free AI Translator | LoReTrans',
@@ -95,30 +95,68 @@ const features = [
 
 export default function EnglishToHindiPage() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Structured Data */}
-      <StructuredData 
-        type="WebApplication"
-        data={{
+    <>
+      {/* 结构化数据 - SSR优化 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "English to Hindi Translator",
-          "description": "Free AI-powered English to Hindi translation tool with queue processing and translation history",
-          "url": "https://loretrans.com/english-to-hindi",
-          "applicationCategory": "TranslationApplication",
-          "operatingSystem": "Any",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+          "name": "English to Hindi Translator - LoReTrans",
+          "description": "Free AI-powered English to Hindi translation tool with high accuracy and queue processing.",
+          "url": "https://loretrans.com/en/english-to-hindi",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web Browser",
+          "isAccessibleForFree": true,
+          "provider": {
+                    "@type": "Organization",
+                    "name": "LoReTrans",
+                    "url": "https://loretrans.com"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "1250"
+          "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
           }
+}, null, 2)
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+                    {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Home",
+                              "item": "https://loretrans.com/en"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Translation Tools",
+                              "item": "https://loretrans.com/en/text-translate"
+                    },
+                    {
+                              "@type": "ListItem",
+                              "position": 3,
+                              "name": "English to Hindi",
+                              "item": "https://loretrans.com/en/english-to-hindi"
+                    }
+          ]
+}, null, 2)
+        }}
+      />
+      
+
+          <main className="min-h-screen bg-background">
+      {/* Structured Data */}
+      
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -272,5 +310,7 @@ export default function EnglishToHindiPage() {
         </div>
       </section>
     </main>
+  )
+    </>
   )
 }

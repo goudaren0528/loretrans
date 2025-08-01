@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Burmese Translation - Free AI Translator | Loretrans',
+  title: 'English to Burmese Translation - Free AI Translator | LoReTrans',
   description: 'Translate English to Burmese (မြန်မာ) instantly with our AI-powered translator. Convert မြန်မာ text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['English to Burmese translation', 'English to မြန်မာ', 'English to Burmese translator', 'free English to Burmese translation', 'English Burmese converter', 'queue translation'],
   openGraph: {
     title: 'English to Burmese Translation - Free AI Translator',
     description: 'Translate English to Burmese (မြန်မာ) instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/english-to-burmese',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

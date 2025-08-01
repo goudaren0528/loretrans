@@ -32,7 +32,7 @@
           "description": "对低资源语言支持有限"
         },
         "loretrans": {
-          "title": "Loretrans",
+          "title": "LoReTrans",
           "description": "专业支持20+小语种"
         }
       },
@@ -75,11 +75,11 @@
       "translate_documents": "翻译文档"
     },
     "feature_section": {
-      "title": "为什么选择Loretrans?",
+      "title": "为什么选择LoReTrans?",
       "description": "专业级的翻译工具，专为小语种设计"
     },
     "cost_comparison": {
-      "title": "成本对比：为什么Loretrans更划算？",
+      "title": "成本对比：为什么LoReTrans更划算？",
       "human_translation": {
         "price": "$120",
         "title": "人工翻译",
@@ -92,7 +92,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000字符 × $0.001/字符 (1000字符免费 + 0×0.001)",
         "savings": "节省99%成本"
       }
@@ -146,7 +146,7 @@
     },
     "cta_section": {
       "title": "现在开始翻译",
-      "description": "加入成千上万的用户,他们信任Loretrans来满足他们的翻译需求",
+      "description": "加入成千上万的用户,他们信任LoReTrans来满足他们的翻译需求",
       "cta_try": "现在试试吧,这是免费的",
       "cta_docs": "翻译文档",
       "try_now": "注册获得500免费积分",
@@ -201,7 +201,7 @@
       "try_language": "试试 {language}"
     },
     "feature_section": {
-      "title": "为什么选择Loretrans?",
+      "title": "为什么选择LoReTrans?",
       "description": "专业级的翻译工具,专为资源较少的语言设计",
       "features": {
         "ai_powered": {
@@ -254,7 +254,7 @@
       }
     },
     "cost_comparison": {
-      "title": "成本对比：为什么Loretrans更划算？",
+      "title": "成本对比：为什么LoReTrans更划算？",
       "human_translation": {
         "price": "$120",
         "title": "人工翻译",
@@ -267,7 +267,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000字符 × $0.001/字",
         "savings": "节省99%成本"
       }
@@ -278,8 +278,8 @@
       "questions": {
         "0": {
           "0": "待",
-          "question": "Loretrans的定价如何运作？",
-          "answer": "Loretrans每次翻译提供1000字符免费额度。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励。"
+          "question": "LoReTrans的定价如何运作？",
+          "answer": "LoReTrans每次翻译提供1000字符免费额度。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励。"
         },
         "1": {
           "0": "翻",
@@ -308,19 +308,19 @@
           "answer": "免费用户可以每次请求翻译1000个字符.对于较长的文本,您可以将它们分成更小的块或上传文件进行处理."
         },
         "7": {
-          "question": "我可以用Loretrans商业用途吗?",
-          "answer": "是的,您可以使用Loretrans用于个人和商业用途."
+          "question": "我可以用LoReTrans商业用途吗?",
+          "answer": "是的,您可以使用LoReTrans用于个人和商业用途."
         }
       },
       "contact_prompt": "有没有更多的问题?",
       "contact_link": "联系我们的支持团队"
     },
     "faq": {
-      "q1_answer": "Loretrans每次翻译提供1000字符免费额度，无需注册。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励，非常适合翻译长文档。",
+      "q1_answer": "LoReTrans每次翻译提供1000字符免费额度，无需注册。超出部分按每字符0.1积分收费。新用户注册即可获得500积分欢迎奖励，非常适合翻译长文档。",
       "q3_answer": "我们目前支持PDF、Microsoft Word (.doc, .docx)、PowerPoint (.ppt, .pptx)和纯文本(.txt)文件，最大10MB，最多100页。我们正在根据用户反馈添加更多格式支持。",
       "q4_answer": "我们的翻译由Meta最先进的NLLB模型驱动，专门针对小语种训练。我们为每次翻译的前1000字符提供免费服务，超出部分按每字符0.1积分收费。例如，1000字符的文本需要0积分（1000字符免费 + 0×0.1 = 0积分）。虽然没有自动翻译是完美的，但我们的系统为小语种提供了比传统服务显著更好的结果。",
-      "q1_title": "Loretrans的定价如何运作？",
-      "q2_title": "Loretrans有什么不同？",
+      "q1_title": "LoReTrans的定价如何运作？",
+      "q2_title": "LoReTrans有什么不同？",
       "q2_answer": "我们专注于20+种主流服务支持不足的小语种。使用Meta的NLLB模型，为海地克里奥尔语、老挝语、斯瓦希里语、缅甸语等语言提供卓越的准确性。",
       "q5_title": "需要创建账户吗？",
       "q5_answer": "300字符翻译无需账户。但注册可获得500积分欢迎奖励、翻译历史、优先支持，以及即将推出的文档翻译等功能的访问权限。",
@@ -330,8 +330,8 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "关于Loretrans - 低资源语言的专业翻译",
-      "description": "了解Loretrans,这是小型语言的英语转换平台. 基于Meta NLLB模型,支持20多种语言."
+      "title": "关于LoReTrans - 低资源语言的专业翻译",
+      "description": "了解LoReTrans,这是小型语言的英语转换平台. 基于Meta NLLB模型,支持20多种语言."
     },
     "hero": {
       "title": "关于特朗斯利",
@@ -339,7 +339,7 @@
     },
     "mission": {
       "title": "我们的使命",
-      "p1": "我们相信每个语言都应该得到倾听.Loretrans为低资源语言的使用者弥合了沟通差距,提供准确且可访问的英语翻译服务.",
+      "p1": "我们相信每个语言都应该得到倾听.LoReTrans为低资源语言的使用者弥合了沟通差距,提供准确且可访问的英语翻译服务.",
       "p2": "支持20多种通常被主流翻译服务忽视的语言.",
       "cta": "试试文档翻译"
     },
@@ -381,7 +381,7 @@
     },
     "faq": {
       "title": "常见问题",
-      "q1_title": "什么让Loretrans与其他翻译服务不同?",
+      "q1_title": "什么让LoReTrans与其他翻译服务不同?",
       "q1_answer": "转换专注于资源较低的语言,这些语言通常不受主流翻译服务的支持.我们使用Meta的NLLB模型,该模型专门为这些语言设计,确保更好的准确性和文化背景.",
       "q2_title": "我的数据安全和私密吗?",
       "q2_answer": "是的,我们优先考虑您的隐私.我们不存储您的翻译或个人数据.所有翻译都会安全处理并在交付后立即删除.对于文档翻译,下载后文件会自动删除",
@@ -396,19 +396,19 @@
     },
     "cta_section": {
       "title": "准备好开始吗?",
-      "description": "无论是快速文本还是完整文档,Loretrans都在帮助您与世界沟通.",
+      "description": "无论是快速文本还是完整文档,LoReTrans都在帮助您与世界沟通.",
       "cta_text": "试试翻译文本",
       "cta_docs": "文件上传"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "联系支持 - 获取Loretrans的帮助",
-      "description": "需要翻译帮助?请联系我们的支持团队,以获得Loretrans翻译服务,技术问题或一般询问的帮助."
+      "title": "联系支持 - 获取LoReTrans的帮助",
+      "description": "需要翻译帮助?请联系我们的支持团队,以获得LoReTrans翻译服务,技术问题或一般询问的帮助."
     },
     "hero": {
       "title": "联系支持",
-      "description": "有问题需要技术支持?我们来帮助您充分利用Loretrans."
+      "description": "有问题需要技术支持?我们来帮助您充分利用LoReTrans."
     },
     "form": {
       "title": "给我们发消息",
@@ -469,7 +469,7 @@
       },
       "self_help": {
         "title": "自助资源",
-        "how_it_works": "→ 如何使用Loretrans",
+        "how_it_works": "→ 如何使用LoReTrans",
         "try_text": "→ 试试翻译文本",
         "try_docs": "→ 文档翻译指南",
         "privacy": "隐私政策",
@@ -539,7 +539,7 @@
     "loading": "装载...",
     "cta": {
       "title": "准备好开始吗?",
-      "description": "加入成千上万的用户,他们相信Loretrans可以满足他们的翻译需求.",
+      "description": "加入成千上万的用户,他们相信LoReTrans可以满足他们的翻译需求.",
       "free_trial": "试试免费翻译",
       "contact_sales": "联系销售"
     }
@@ -664,7 +664,7 @@
       "document_translation": "文档翻译",
       "document_translation_desc": "文件上传和翻译",
       "about": "关于",
-      "about_desc": "了解更多关于Loretrans的信息"
+      "about_desc": "了解更多关于LoReTrans的信息"
     },
     "Footer": {
       "tagline": "专业翻译低资源语言到英语. 支持Meta NLLB AI技术.",
@@ -835,7 +835,7 @@
       "contact_support": "联系支持"
     },
     "SignUpForm": {
-      "title": "创建一个Loretrans帐户",
+      "title": "创建一个LoReTrans帐户",
       "subtitle": "创建一个帐户获得500个积分",
       "name_label": "姓名",
       "name_placeholder": "输入您的姓名",
@@ -876,7 +876,7 @@
       "strength_excellent": "优秀"
     },
     "SignInForm": {
-      "title": "登录到Loretrans",
+      "title": "登录到LoReTrans",
       "subtitle": "欢迎重返!请登录您的帐户",
       "email_label": "电子邮件",
       "email_placeholder": "输入您的电子邮件",
@@ -998,7 +998,7 @@
   },
   "pricing": {
     "meta": {
-      "title": "定价套餐 - 选择适合您的翻译方案 | Loretrans",
+      "title": "定价套餐 - 选择适合您的翻译方案 | LoReTrans",
       "description": "基于使用场景的智能定价推荐。学生$5起，个人用户$10，专业用户$25。支持海地克里奥尔语、老挝语等20+小语种翻译。"
     },
     "title": "选择自己的积分方案",
@@ -1530,7 +1530,7 @@
   },
   "AuthPage": {
     "signin": {
-      "title": "登录到Loretrans",
+      "title": "登录到LoReTrans",
       "email": "邮箱",
       "password": "密码",
       "forgot_password": "忘记密码？",

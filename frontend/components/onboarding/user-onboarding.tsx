@@ -94,7 +94,7 @@ function WelcomeStep({ onNext, onSkip, currentStep, totalSteps }: OnboardingStep
       
       <div>
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          欢迎使用 Loretrans! 🎉
+          欢迎使用 LoReTrans! 🎉
         </h2>
         <p className="text-lg text-gray-600 max-w-md mx-auto">
           我们专注于小语种翻译，让每种语言都能被理解
@@ -394,7 +394,7 @@ export function UserOnboarding() {
     {
       id: 'welcome',
       title: '欢迎',
-      description: '欢迎使用Loretrans',
+      description: '欢迎使用LoReTrans',
       component: WelcomeStep
     },
     {

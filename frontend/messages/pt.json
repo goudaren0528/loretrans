@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - Tradutor IA para Idiomas de Poucos Recursos",
+      "title": "LoReTrans - Tradutor IA para Idiomas de Poucos Recursos",
       "description": "Tradução gratuita com IA para mais de 20 idiomas de poucos recursos como Crioulo, Lao e Suaíli. Traduza textos e documentos para o inglês instantaneamente."
     },
     "hero": {
@@ -44,7 +44,7 @@
         },
         "loretrans": {
           "description": "Apoio profissional para mais de 20 idiomas de baixo recurso",
-          "title": "Loretrans"
+          "title": "LoReTrans"
         }
       },
       "floating_cards": {
@@ -71,7 +71,7 @@
     },
     "cta": {
       "title": "Comece a Traduzir Hoje",
-      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução",
+      "description": "Junte-se a milhares de usuários que confiam no LoReTrans para suas necessidades de tradução",
       "try_now": "Experimente Agora - É Grátis",
       "translate_documents": "Traduzir Documentos"
     },
@@ -90,13 +90,13 @@
         "description": "1000 caracteres × $ 0,001/car",
         "price": "$1",
         "savings": "Economize 99% de custo",
-        "title": "Loretrans"
+        "title": "LoReTrans"
       },
-      "title": "Comparação de custos: Por que o Loretrans é mais rentável?"
+      "title": "Comparação de custos: Por que o LoReTrans é mais rentável?"
     },
     "feature_section": {
       "description": "Ferramentas de tradução de nível profissional concebidas para línguas com poucos recursos",
-      "title": "Por que escolher o Loretrans?"
+      "title": "Por que escolher o LoReTrans?"
     },
     "user_scenarios": {
       "academic": {
@@ -122,7 +122,7 @@
   },
   "IndexPage": {
     "meta": {
-      "title": "Loretrans - Tradutor de IA para Línguas de Baixo Recursos",
+      "title": "LoReTrans - Tradutor de IA para Línguas de Baixo Recursos",
       "description": "Tradução gratuita com IA para mais de 20 idiomas de baixo recurso como crioula, lao e suaíli. Traduza texto e documentos para inglês instantaneamente."
     },
     "title": "Traduza línguas de baixo recurso",
@@ -144,7 +144,7 @@
     },
     "cta_section": {
       "title": "Comece a traduzir hoje",
-      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução",
+      "description": "Junte-se a milhares de usuários que confiam no LoReTrans para suas necessidades de tradução",
       "cta_try": "Tente agora - é grátis",
       "cta_docs": "Traduza documentos"
     },
@@ -197,7 +197,7 @@
       "try_language": "Tente {linguagem}"
     },
     "feature_section": {
-      "title": "Por que escolher o Loretrans?",
+      "title": "Por que escolher o LoReTrans?",
       "description": "Ferramentas de tradução de nível profissional concebidas para línguas com poucos recursos",
       "features": {
         "ai_powered": {
@@ -234,12 +234,12 @@
     },
     "faq_section": {
       "title": "Perguntas Frequentes",
-      "description": "Tudo o que precisas de saber sobre o Loretrans",
+      "description": "Tudo o que precisas de saber sobre o LoReTrans",
       "questions": {
         "0": {
           "0": "T",
-          "question": "Como funciona o preço da Loretrans?",
-          "answer": "Loretrans oferece 300 caracteres gratuitos por tradução. Para textos mais longos, cobramos 0,1 créditos por caracter. Os novos usuários recebem 500 créditos de boas-vindas quando se registam."
+          "question": "Como funciona o preço da LoReTrans?",
+          "answer": "LoReTrans oferece 300 caracteres gratuitos por tradução. Para textos mais longos, cobramos 0,1 créditos por caracter. Os novos usuários recebem 500 créditos de boas-vindas quando se registam."
         },
         "1": {
           "0": "r",
@@ -273,8 +273,8 @@
         },
         "7": {
           "0": "o",
-          "question": "Posso usar o Loretrans para fins comerciais? ",
-          "answer": "Sim, você pode usar o Loretrans para fins pessoais e comerciais."
+          "question": "Posso usar o LoReTrans para fins comerciais? ",
+          "answer": "Sim, você pode usar o LoReTrans para fins pessoais e comerciais."
         },
         "8": " ",
         "9": "n",
@@ -294,16 +294,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "Sobre a Loretrans - Tradução Profissional para Línguas de Baixo Recursos",
-      "description": "Saiba mais sobre o Loretrans, a plataforma líder de tradução de línguas pequenas para o inglês."
+      "title": "Sobre a LoReTrans - Tradução Profissional para Línguas de Baixo Recursos",
+      "description": "Saiba mais sobre o LoReTrans, a plataforma líder de tradução de línguas pequenas para o inglês."
     },
     "hero": {
-      "title": "Sobre o Loretrans",
+      "title": "Sobre o LoReTrans",
       "description": "Plataforma de tradução profissional dedicada a conectar idiomas de baixo recurso com o mundo através de traduções precisas para o inglês."
     },
     "mission": {
       "title": "Nossa Missão",
-      "p1": "Acreditamos que todas as línguas merecem ser ouvidas.A Loretrans preenche a lacuna de comunicação para falantes de língu as com poucos recursos, fornecendo serviços de tradução para o inglês, precisos e acessíveis.",
+      "p1": "Acreditamos que todas as línguas merecem ser ouvidas.A LoReTrans preenche a lacuna de comunicação para falantes de língu as com poucos recursos, fornecendo serviços de tradução para o inglês, precisos e acessíveis.",
       "p2": "Com o modelo NLLB (No Language Left Behind) de última geração da Meta, suportamos mais de 20 idiomas que são frequentemente ignorados pelos principais serviços de tradução.",
       "cta": "Tente tradução de documentos"
     },
@@ -329,7 +329,7 @@
     },
     "technology": {
       "title": "Alimentado por IA Avançada",
-      "description": "O Loretrans usa o modelo NLLB (No Language Left Behind) do Meta, projetado especificamente para fornecer tradução de alta qualidade para idiomas de baixo recurso com os quais os sistemas tradicionais lutam.",
+      "description": "O LoReTrans usa o modelo NLLB (No Language Left Behind) do Meta, projetado especificamente para fornecer tradução de alta qualidade para idiomas de baixo recurso com os quais os sistemas tradicionais lutam.",
       "cultural_preservation": {
         "title": "Preservação cultural",
         "description": "Apoiar a diversidade linguística e ajudar a preservar o património cultural através da tecnologia"
@@ -345,8 +345,8 @@
     },
     "faq": {
       "title": "Perguntas Frequentes",
-      "q1_title": "O que diferencia a Loretrans de outros serviços de tradução?",
-      "q1_answer": "A Loretrans é especializada em idiomas de baixo recurso que são frequentemente mal suportados pelos serviços de tradução convencionais.",
+      "q1_title": "O que diferencia a LoReTrans de outros serviços de tradução?",
+      "q1_answer": "A LoReTrans é especializada em idiomas de baixo recurso que são frequentemente mal suportados pelos serviços de tradução convencionais.",
       "q2_title": "Os meus dados estão seguros e privados?",
       "q2_answer": "Sim, damos prioridade à sua privacidade. Não armazenamos suas traduções ou dados pessoais. Todas as traduções são processadas com segurança e excluídas imediatamente após a entrega. Para traduções de documentos, os arquivos são removidos automaticamente após o download.",
       "q3_title": "Que formatos de ficheiros suporta para tradução de documentos?",
@@ -360,19 +360,19 @@
     },
     "cta_section": {
       "title": "Pronto para começar?",
-      "description": "Experimente tradução precisa para o seu idioma hoje. Quer seja um texto rápido ou um documento completo, o Loretrans está aqui para ajudá-lo a se comunicar com o mundo.",
+      "description": "Experimente tradução precisa para o seu idioma hoje. Quer seja um texto rápido ou um documento completo, o LoReTrans está aqui para ajudá-lo a se comunicar com o mundo.",
       "cta_text": "Tente tradução de texto",
       "cta_docs": "Carregar documento"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Contato de suporte - Obtenha ajuda com o Loretrans",
-      "description": "Se precisar de ajuda com tradução, entre em contato com a nossa equipa de apoio para obter assistência com serviços de tradução da Loretrans, problemas técnicos ou perguntas gerais."
+      "title": "Contato de suporte - Obtenha ajuda com o LoReTrans",
+      "description": "Se precisar de ajuda com tradução, entre em contato com a nossa equipa de apoio para obter assistência com serviços de tradução da LoReTrans, problemas técnicos ou perguntas gerais."
     },
     "hero": {
       "title": "Contato de apoio",
-      "description": "Tem dúvidas sobre os nossos serviços de tradução? Precisa de apoio técnico? Estamos aqui para ajudá-lo a tirar o máximo partido do Loretrans."
+      "description": "Tem dúvidas sobre os nossos serviços de tradução? Precisa de apoio técnico? Estamos aqui para ajudá-lo a tirar o máximo partido do LoReTrans."
     },
     "form": {
       "title": "Envia-nos uma mensagem.",
@@ -433,7 +433,7 @@
       },
       "self_help": {
         "title": "Recursos de autoajuda",
-        "how_it_works": "→ Como funciona o Loretrans",
+        "how_it_works": "→ Como funciona o LoReTrans",
         "try_text": "→ Tente tradução de texto",
         "try_docs": "→ Guia de tradução de documentos",
         "privacy": "→ Política de privacidade",
@@ -458,7 +458,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Preços - Escolha o Plano Certo para Você | Loretrans",
+      "title": "Preços - Escolha o Plano Certo para Você | LoReTrans",
       "description": "Recomendações inteligentes baseadas em cenários. Comece com $5 para estudantes, $10 para usuários pessoais, $25 para profissionais."
     },
     "hero": {
@@ -503,12 +503,12 @@
     "loading": "Carregando...",
     "cta": {
       "title": "Pronto para começar?",
-      "description": "Junte-se a milhares de usuários que confiam no Loretrans para suas necessidades de tradução.",
+      "description": "Junte-se a milhares de usuários que confiam no LoReTrans para suas necessidades de tradução.",
       "free_trial": "Tente tradução livre",
       "contact_sales": "Contacto de vendas"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "title": "💰 Cost Comparison: Why Choose LoReTrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -521,7 +521,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
@@ -647,7 +647,7 @@
       "document_translation": "Tradução de documentos",
       "document_translation_desc": "Fazer upload e traduzir documentos",
       "about": "Cerca de ",
-      "about_desc": "Aprenda sobre a Loretrans"
+      "about_desc": "Aprenda sobre a LoReTrans"
     },
     "Footer": {
       "tagline": "Tradução profissional para idiomas de baixo recurso para o inglês.",
@@ -664,7 +664,7 @@
       "faq": "FAQ",
       "contact_support": "Contato de apoio",
       "api_docs": "Documentação da API",
-      "copyright": "© 2025 Loretrans. Todos os direitos reservados.",
+      "copyright": "© 2025 LoReTrans. Todos os direitos reservados.",
       "powered_by": "Alimentado pela Meta NLLB AI Technology",
       "contact_us": "Contact Us",
       "support_email": "support@loretrans.com",
@@ -808,7 +808,7 @@
       "contact_support": "Contato de apoio"
     },
     "SignUpForm": {
-      "title": "Crie uma conta do Loretrans",
+      "title": "Crie uma conta do LoReTrans",
       "subtitle": "Crie uma conta para receber 500 créditos de bônus",
       "name_label": "Nome ",
       "name_placeholder": "Digite o seu nome",
@@ -837,7 +837,7 @@
       "signin_link": "Inscreva-se"
     },
     "SignInForm": {
-      "title": "Inscreva-se no Loretrans",
+      "title": "Inscreva-se no LoReTrans",
       "subtitle": "Por favor, entre na sua conta.",
       "email_label": "E-mail",
       "email_placeholder": "Insira o seu e-mail",

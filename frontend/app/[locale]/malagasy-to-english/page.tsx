@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Malagasy to English Translation - Free AI Translator | Loretrans',
+  title: 'Malagasy to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Malagasy (Malagasy) to English instantly with our AI-powered translator. Convert Malagasy text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Malagasy to English translation', 'Malagasy to English', 'Malagasy to English translator', 'free Malagasy to English translation', 'Malagasy English converter', 'queue translation'],
   openGraph: {
     title: 'Malagasy to English Translation - Free AI Translator',
     description: 'Translate Malagasy (Malagasy) to English instantly with our AI-powered translator. Convert Malagasy text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/malagasy-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

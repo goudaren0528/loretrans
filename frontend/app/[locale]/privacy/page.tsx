@@ -3,9 +3,9 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Loretrans Privacy Policy - How we collect, use, and protect your data when using our AI translation services.',
+  description: 'LoReTrans Privacy Policy - How we collect, use, and protect your data when using our AI translation services.',
   openGraph: {
-    title: 'Privacy Policy | Loretrans',
+    title: 'Privacy Policy | LoReTrans',
     description: 'Learn about our data practices and privacy commitments.',
   },
 }
@@ -14,14 +14,14 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Privacy Policy",
-  "description": "Loretrans Privacy Policy and data protection practices",
+  "description": "LoReTrans Privacy Policy and data protection practices",
   "url": "https://loretrans.com/privacy",
   "mainEntity": {
     "@type": "PrivacyPolicy",
-    "name": "Loretrans Privacy Policy",
+    "name": "LoReTrans Privacy Policy",
     "provider": {
       "@type": "Organization",
-      "name": "Loretrans",
+      "name": "LoReTrans",
       "url": "https://loretrans.com"
     }
   }
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
               <p className="mb-4">
-                At Loretrans, we are committed to protecting your privacy and ensuring the 
+                At LoReTrans, we are committed to protecting your privacy and ensuring the 
                 security of your personal information. This Privacy Policy explains how we 
                 collect, use, disclose, and safeguard your information when you use our 
                 AI-powered translation platform.

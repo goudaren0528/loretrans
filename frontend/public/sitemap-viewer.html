@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Viewer - 多语言验证</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .language-section {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .language-header {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .language-content {
+            padding: 15px;
+            display: none;
+        }
+        .language-content.active {
+            display: block;
+        }
+        .url-list {
+            list-style: none;
+            padding: 0;
+        }
+        .url-list li {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+        }
+        .url-list li:hover {
+            background-color: #f0f0f0;
+        }
+        .url-list a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .url-list a:hover {
+            text-decoration: underline;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .refresh-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .refresh-btn:hover {
+            background: #5a6fd8;
+        }
+        .toggle-all {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌍 Sitemap多语言验证器</h1>
+        <p>实时查看网站sitemap的多语言支持情况</p>
+    </div>
+
+    <button class="refresh-btn" onclick="loadSitemap()">🔄 刷新Sitemap</button>
+    <button class="toggle-all" onclick="toggleAll()">📂 展开/收起所有</button>
+
+    <div id="loading" class="loading">
+        <p>⏳ 正在加载sitemap数据...</p>
+    </div>
+
+    <div id="error" class="error" style="display: none;"></div>
+
+    <div id="stats" class="stats" style="display: none;"></div>
+
+    <div id="languages" style="display: none;"></div>
+
+    <script>
+        let allExpanded = false;
+
+        async function loadSitemap() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const stats = document.getElementById('stats');
+            const languages = document.getElementById('languages');
+
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            stats.style.display = 'none';
+            languages.style.display = 'none';
+
+            try {
+                const response = await fetch('/sitemap.xml');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                
+                const urls = Array.from(xmlDoc.querySelectorAll('loc')).map(loc => loc.textContent);
+                
+                if (urls.length === 0) {
+                    throw new Error('Sitemap中没有找到URL');
+                }
+
+                displaySitemapData(urls);
+                
+            } catch (err) {
+                error.textContent = `❌ 加载失败: ${err.message}`;
+                error.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function displaySitemapData(urls) {
+            const stats = document.getElementById('stats');
+            const languages = document.getElementById('languages');
+
+            // 分析URL
+            const languageGroups = {};
+            const rootUrls = [];
+
+            urls.forEach(url => {
+                if (url === 'https://loretrans.com') {
+                    rootUrls.push(url);
+                } else {
+                    const match = url.match(/loretrans\.com\/([a-z]{2})\//);
+                    if (match) {
+                        const lang = match[1];
+                        if (!languageGroups[lang]) languageGroups[lang] = [];
+                        languageGroups[lang].push(url);
+                    }
+                }
+            });
+
+            // 显示统计信息
+            const languageCount = Object.keys(languageGroups).length;
+            stats.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${urls.length}</div>
+                    <div>总URL数量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${languageCount}</div>
+                    <div>支持语言数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${rootUrls.length}</div>
+                    <div>根页面</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${new Date().toLocaleTimeString()}</div>
+                    <div>更新时间</div>
+                </div>
+            `;
+
+            // 显示语言分组
+            const sortedLanguages = Object.keys(languageGroups).sort();
+            languages.innerHTML = sortedLanguages.map(lang => {
+                const langUrls = languageGroups[lang];
+                const langName = getLanguageName(lang);
+                
+                return `
+                    <div class="language-section">
+                        <div class="language-header" onclick="toggleLanguage('${lang}')">
+                            <span>${langName} (${lang.toUpperCase()}) - ${langUrls.length} 个页面</span>
+                            <span id="arrow-${lang}">▼</span>
+                        </div>
+                        <div class="language-content" id="content-${lang}">
+                            <ul class="url-list">
+                                ${langUrls.map(url => `
+                                    <li><a href="${url}" target="_blank">${url}</a></li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            stats.style.display = 'grid';
+            languages.style.display = 'block';
+        }
+
+        function getLanguageName(code) {
+            const names = {
+                'en': '🇺🇸 English',
+                'zh': '🇨🇳 中文',
+                'es': '🇪🇸 Español',
+                'fr': '🇫🇷 Français',
+                'ar': '🇸🇦 العربية',
+                'hi': '🇮🇳 हिन्दी',
+                'ht': '🇭🇹 Kreyòl',
+                'lo': '🇱🇦 ລາວ',
+                'pt': '🇵🇹 Português',
+                'sw': '🇰🇪 Kiswahili'
+            };
+            return names[code] || code.toUpperCase();
+        }
+
+        function toggleLanguage(lang) {
+            const content = document.getElementById(`content-${lang}`);
+            const arrow = document.getElementById(`arrow-${lang}`);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('active');
+                arrow.textContent = '▲';
+            }
+        }
+
+        function toggleAll() {
+            const contents = document.querySelectorAll('.language-content');
+            const arrows = document.querySelectorAll('[id^="arrow-"]');
+            
+            allExpanded = !allExpanded;
+            
+            contents.forEach(content => {
+                if (allExpanded) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+            
+            arrows.forEach(arrow => {
+                arrow.textContent = allExpanded ? '▲' : '▼';
+            });
+        }
+
+        // 页面加载时自动获取sitemap
+        window.addEventListener('load', loadSitemap);
+    </script>
+</body>
+</html>

@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Tajik to English Translation - Free AI Translator | Loretrans',
+  title: 'Tajik to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Tajik (Тоҷикӣ) to English instantly with our AI-powered translator. Convert Тоҷикӣ text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Tajik to English translation', 'Tajik to English', 'Tajik to English translator', 'free Tajik to English translation', 'Tajik English converter', 'queue translation'],
   openGraph: {
     title: 'Tajik to English Translation - Free AI Translator',
     description: 'Translate Tajik (Тоҷикӣ) to English instantly with our AI-powered translator. Convert Тоҷикӣ text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/tajik-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

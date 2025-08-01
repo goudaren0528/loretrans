@@ -8,7 +8,7 @@ import {
 } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Text Translator - Free AI Translation Tool | Loretrans',
+  title: 'Text Translator - Free AI Translation Tool | LoReTrans',
   description:
     'Free online text translator for 20+ low-resource languages. Translate between English and Creole, Lao, Swahili, Burmese, Telugu and more with AI.',
   keywords: [
@@ -147,7 +147,7 @@ export default function TextTranslatePage() {
             Ready to Translate?
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            Join thousands of users who trust Loretrans for accurate translations
+            Join thousands of users who trust LoReTrans for accurate translations
           </p>
           <div className="mt-8">
             <a

@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Spanish Translation - Free AI Translator | Loretrans',
+  title: 'English to Spanish Translation - Free AI Translator | LoReTrans',
   description: 'Translate English to Spanish (Español) instantly with our AI-powered translator. Convert Español text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['English to Spanish translation', 'English to Español', 'English to Spanish translator', 'free English to Spanish translation', 'English Spanish converter', 'queue translation'],
   openGraph: {
     title: 'English to Spanish Translation - Free AI Translator',
     description: 'Translate English to Spanish (Español) instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/english-to-spanish',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

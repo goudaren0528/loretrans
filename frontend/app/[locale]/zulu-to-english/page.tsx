@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Zulu to English Translation - Free AI Translator | Loretrans',
+  title: 'Zulu to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Zulu (isiZulu) to English instantly with our AI-powered translator. Convert isiZulu text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Zulu to English translation', 'Zulu to English', 'Zulu to English translator', 'free Zulu to English translation', 'Zulu English converter', 'queue translation'],
   openGraph: {
     title: 'Zulu to English Translation - Free AI Translator',
     description: 'Translate Zulu (isiZulu) to English instantly with our AI-powered translator. Convert isiZulu text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/zulu-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

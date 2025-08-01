@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Amharic to English Translation - Free AI Translator | Loretrans',
+  title: 'Amharic to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Amharic (አማርኛ) to English instantly with our AI-powered translator. Convert አማርኛ text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Amharic to English translation', 'Amharic to English', 'Amharic to English translator', 'free Amharic to English translation', 'Amharic English converter', 'queue translation'],
   openGraph: {
     title: 'Amharic to English Translation - Free AI Translator',
     description: 'Translate Amharic (አማርኛ) to English instantly with our AI-powered translator. Convert አማርኛ text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/amharic-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

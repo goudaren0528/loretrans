@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Xhosa to English Translation - Free AI Translator | Loretrans',
+  title: 'Xhosa to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Xhosa (isiXhosa) to English instantly with our AI-powered translator. Convert isiXhosa text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Xhosa to English translation', 'Xhosa to English', 'Xhosa to English translator', 'free Xhosa to English translation', 'Xhosa English converter', 'queue translation'],
   openGraph: {
     title: 'Xhosa to English Translation - Free AI Translator',
     description: 'Translate Xhosa (isiXhosa) to English instantly with our AI-powered translator. Convert isiXhosa text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/xhosa-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

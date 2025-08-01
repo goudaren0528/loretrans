@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Hausa to English Translation - Free AI Translator | Loretrans',
+  title: 'Hausa to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Hausa to English translation', 'Hausa to English', 'Hausa to English translator', 'free Hausa to English translation', 'Hausa English converter', 'queue translation'],
   openGraph: {
     title: 'Hausa to English Translation - Free AI Translator',
     description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/hausa-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

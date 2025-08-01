@@ -38,7 +38,7 @@ export async function generateMetadata({
       url: `https://loretrans.com/${locale}`,
       type: 'website',
       images: ['/images/og-image.png'],
-      siteName: 'Loretrans',
+      siteName: 'LoReTrans',
       locale: locale === 'en' ? 'en_US' : locale,
     },
     twitter: {
@@ -46,7 +46,7 @@ export async function generateMetadata({
       title: t('meta.title'),
       description: t('meta.description'),
       images: ['/images/og-image.png'],
-      creator: '@LoretransApp',
+      creator: '@LoReTransApp',
     },
     alternates: {
       canonical: `/${locale}`,
@@ -206,7 +206,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Features - 保留这个作为唯一的Why Choose Loretrans */}
+      {/* Features - 保留这个作为唯一的Why Choose LoReTrans */}
       <FeatureSection />
 
       {/* FAQ */}

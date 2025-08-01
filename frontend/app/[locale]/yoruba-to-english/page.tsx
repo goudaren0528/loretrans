@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Yoruba to English Translation - Free AI Translator | Loretrans',
+  title: 'Yoruba to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Yoruba (Yorùbá) to English instantly with our AI-powered translator. Convert Yorùbá text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Yoruba to English translation', 'Yoruba to English', 'Yoruba to English translator', 'free Yoruba to English translation', 'Yoruba English converter', 'queue translation'],
   openGraph: {
     title: 'Yoruba to English Translation - Free AI Translator',
     description: 'Translate Yoruba (Yorùbá) to English instantly with our AI-powered translator. Convert Yorùbá text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/yoruba-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

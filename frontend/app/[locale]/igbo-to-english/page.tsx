@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Igbo to English Translation - Free AI Translator | Loretrans',
+  title: 'Igbo to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Igbo (Igbo) to English instantly with our AI-powered translator. Convert Igbo text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Igbo to English translation', 'Igbo to English', 'Igbo to English translator', 'free Igbo to English translation', 'Igbo English converter', 'queue translation'],
   openGraph: {
     title: 'Igbo to English Translation - Free AI Translator',
     description: 'Translate Igbo (Igbo) to English instantly with our AI-powered translator. Convert Igbo text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/igbo-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

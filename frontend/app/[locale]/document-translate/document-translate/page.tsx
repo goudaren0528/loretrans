@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { SimpleFileSelector } from '@/components/simple-file-selector'
 
 export const metadata: Metadata = {
-  title: 'Document Translator - Free AI Document Translation | Loretrans',
+  title: 'Document Translator - Free AI Document Translation | LoReTrans',
   description:
     'Translate PDF, Word, and PowerPoint documents from 20+ low-resource languages to English. Free AI-powered document translation with format preservation.',
   keywords: [

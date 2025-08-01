@@ -3,12 +3,12 @@ import { Key, Zap, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'API Documentation - Loretrans Developer Resources',
-  description: 'Integrate Loretrans translation services into your applications. Comprehensive API documentation for developers.',
+  title: 'API Documentation - LoReTrans Developer Resources',
+  description: 'Integrate LoReTrans translation services into your applications. Comprehensive API documentation for developers.',
   keywords: 'API documentation, translation API, developer resources, REST API, integration',
   openGraph: {
-    title: 'API Documentation - Loretrans Developer Resources',
-    description: 'Integrate Loretrans translation services into your applications. Comprehensive API documentation.',
+    title: 'API Documentation - LoReTrans Developer Resources',
+    description: 'Integrate LoReTrans translation services into your applications. Comprehensive API documentation.',
     type: 'website',
     locale: 'en_US',
   },
@@ -33,7 +33,7 @@ export default function ApiDocsPage() {
               API Documentation
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-              Integrate Loretrans' powerful translation capabilities into your applications. 
+              Integrate LoReTrans' powerful translation capabilities into your applications. 
               Our REST API provides programmatic access to all translation features.
             </p>
           </div>

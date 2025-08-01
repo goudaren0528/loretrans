@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - Kitafsiri cha AI kwa Lugha za Rasilimali Chache",
+      "title": "LoReTrans - Kitafsiri cha AI kwa Lugha za Rasilimali Chache",
       "description": "Utafsiri wa bure kwa kutumia AI kwa lugha 20+ za rasilimali chache kama Creole, Lao, na Kiswahili. Tafsiri maandishi na hati kwa Kiingereza mara moja."
     },
     "hero": {
@@ -44,7 +44,7 @@
         },
         "loretrans": {
           "description": "Msaada wa kitaalamu kwa lugha 20+ za rasilimali ndogo",
-          "title": "Loretrans"
+          "title": "LoReTrans"
         }
       },
       "floating_cards": {
@@ -71,7 +71,7 @@
     },
     "cta": {
       "title": "Anza Kutafsiri Leo",
-      "description": "Jiunge na maelfu ya watumiaji wanaomwamini Loretrans kwa mahitaji yao ya utafsiri",
+      "description": "Jiunge na maelfu ya watumiaji wanaomwamini LoReTrans kwa mahitaji yao ya utafsiri",
       "try_now": "Jaribu Sasa - Ni Bure",
       "translate_documents": "Tafsiri Hati"
     },
@@ -90,13 +90,13 @@
         "description": "1000 wahusika × $ 0.001/char",
         "price": "$1",
         "savings": "Kuokoa gharama 99%",
-        "title": "Loretrans"
+        "title": "LoReTrans"
       },
-      "title": "Kulinganisha gharama: Kwa nini Loretrans ni gharama nafuu zaidi?"
+      "title": "Kulinganisha gharama: Kwa nini LoReTrans ni gharama nafuu zaidi?"
     },
     "feature_section": {
       "description": "Vifaa vya tafsiri ya kitaalamu iliyoundwa kwa lugha za rasilimali ndogo",
-      "title": "Kwa Nini Uchague Loretrans?"
+      "title": "Kwa Nini Uchague LoReTrans?"
     },
     "user_scenarios": {
       "academic": {
@@ -238,8 +238,8 @@
       "questions": {
         "0": {
           "0": "I",
-          "question": "Jinsi gani Loretrans bei kazi?",
-          "answer": "Loretrans inatoa wahusika 300 bure kwa kila tafsiri. Kwa maandishi ya muda mrefu, sisi malipo 0.1 mikopo kwa kila tabia. watumiaji wapya kupata mikopo 500 kuwakaribisha wakati wao kujiandikisha."
+          "question": "Jinsi gani LoReTrans bei kazi?",
+          "answer": "LoReTrans inatoa wahusika 300 bure kwa kila tafsiri. Kwa maandishi ya muda mrefu, sisi malipo 0.1 mikopo kwa kila tabia. watumiaji wapya kupata mikopo 500 kuwakaribisha wakati wao kujiandikisha."
         },
         "1": {
           "0": "n",
@@ -273,8 +273,8 @@
         },
         "7": {
           "0": "j",
-          "question": "Je, ninaweza kutumia Loretrans kwa ajili ya biashara?",
-          "answer": "Ndiyo, unaweza kutumia Loretrans kwa ajili ya matumizi ya kibinafsi na kibiashara. Kwa ajili ya kiasi kikubwa cha matumizi ya kibiashara, tafadhali wasiliana nasi kuhusu huduma zetu API."
+          "question": "Je, ninaweza kutumia LoReTrans kwa ajili ya biashara?",
+          "answer": "Ndiyo, unaweza kutumia LoReTrans kwa ajili ya matumizi ya kibinafsi na kibiashara. Kwa ajili ya kiasi kikubwa cha matumizi ya kibiashara, tafadhali wasiliana nasi kuhusu huduma zetu API."
         },
         "8": "i",
         "9": " ",
@@ -296,16 +296,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "Kuhusu Loretrans - Utafsiri wa Kitaalamu kwa Lugha za Rasilimali Ndogo",
-      "description": "Jifunze kuhusu Loretrans, jukwaa la utafsiri la kwanza kwa lugha ndogo hadi Kiingereza. Inaendeshwa na mfano wa Meta NLLB na lugha 20+ zinazotumika."
+      "title": "Kuhusu LoReTrans - Utafsiri wa Kitaalamu kwa Lugha za Rasilimali Ndogo",
+      "description": "Jifunze kuhusu LoReTrans, jukwaa la utafsiri la kwanza kwa lugha ndogo hadi Kiingereza. Inaendeshwa na mfano wa Meta NLLB na lugha 20+ zinazotumika."
     },
     "hero": {
-      "title": "Kuhusu Loretrans",
+      "title": "Kuhusu LoReTrans",
       "description": "Jukwaa la utafsiri wa kitaalamu lililojitolea kuunganisha lugha za rasilimali ndogo na ulimwengu kupitia utafsiri sahihi wa Kiingereza."
     },
     "mission": {
       "title": "Dhamira Yetu",
-      "p1": "Katika Loretrans, tunaamini kila lugha ina thamani na inapaswa kusikika. Dhamira yetu ni kupunguza pengo kati ya lugha za rasilimali ndogo na Kiingereza, kukuza mawasiliano na uelewa wa kimataifa.",
+      "p1": "Katika LoReTrans, tunaamini kila lugha ina thamani na inapaswa kusikika. Dhamira yetu ni kupunguza pengo kati ya lugha za rasilimali ndogo na Kiingereza, kukuza mawasiliano na uelewa wa kimataifa.",
       "p2": "Kwa kuchanganya teknolojia ya hali ya juu ya AI na maarifa ya kina kutoka jamii za kilugha, tunafanikiwa pale ambapo huduma za utafsiri za jadi mara nyingi zinashindwa.",
       "cta": "Anza Sasa"
     },
@@ -331,7 +331,7 @@
     },
     "technology": {
       "title": "Inaendeshwa na AI ya Hali ya Juu",
-      "description": "Loretrans inatumia mfano wa Meta NLLB (Hakuna Lugha Iliyoachwa Nyuma), uliotengenezwa maalum kutoa utafsiri wa ubora wa juu kwa lugha za rasilimali ndogo ambazo mifumo ya jadi inashindwa nazo.",
+      "description": "LoReTrans inatumia mfano wa Meta NLLB (Hakuna Lugha Iliyoachwa Nyuma), uliotengenezwa maalum kutoa utafsiri wa ubora wa juu kwa lugha za rasilimali ndogo ambazo mifumo ya jadi inashindwa nazo.",
       "cultural_preservation": {
         "title": "Uhifadhi wa Kitamaduni",
         "description": "Kuunga mkono utofauti wa kilugha na kusaidia kuhifadhi urithi wa kitamaduni kupitia teknolojia."
@@ -362,7 +362,7 @@
     },
     "cta_section": {
       "title": "Tayari Kuanza?",
-      "description": "Pata uzoefu wa utafsiri sahihi kwa lugha yako leo. Iwe ni maandishi ya haraka au hati kamili, Loretrans iko hapa kukusaidia kuwasiliana na ulimwengu.",
+      "description": "Pata uzoefu wa utafsiri sahihi kwa lugha yako leo. Iwe ni maandishi ya haraka au hati kamili, LoReTrans iko hapa kukusaidia kuwasiliana na ulimwengu.",
       "cta_text": "Jaribu Utafsiri wa Maandishi",
       "cta_docs": "Pakia Hati"
     }
@@ -460,7 +460,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Bei - Chagua Mpango Unaokufaa | Loretrans",
+      "title": "Bei - Chagua Mpango Unaokufaa | LoReTrans",
       "description": "Mapendekezo ya akili yanayotegemea mazingira. Anza kwa $5 kwa wanafunzi, $10 kwa watumiaji binafsi, $25 kwa wataalamu."
     },
     "hero": {
@@ -510,7 +510,7 @@
       "contact_sales": "Wasiliana"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "title": "💰 Cost Comparison: Why Choose LoReTrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -523,7 +523,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }

@@ -18,8 +18,8 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - Free AI Low-Resource Language Translator",
-      "description": "Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology."
+      "title": "LoReTrans - Free AI Low-Resource Language Translator",
+      "description": "LoReTrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology."
     },
     "hero": {
       "badge": "Professional Low-Resource Language Translation • Languages Google Translate Doesn't Cover",
@@ -33,7 +33,7 @@
           "description": "Limited support for low-resource languages"
         },
         "loretrans": {
-          "title": "Loretrans",
+          "title": "LoReTrans",
           "description": "Professional support for 20+ low-resource languages"
         }
       },
@@ -71,16 +71,16 @@
     },
     "cta": {
       "title": "Start Translating Today",
-      "description": "Join thousands of users who trust Loretrans for their translation needs",
+      "description": "Join thousands of users who trust LoReTrans for their translation needs",
       "try_now": "Try Now - It's Free",
       "translate_documents": "Translate Documents"
     },
     "feature_section": {
-      "title": "Why Choose Loretrans?",
+      "title": "Why Choose LoReTrans?",
       "description": "Professional-grade translation tools designed for low-resource languages"
     },
     "cost_comparison": {
-      "title": "Cost Comparison: Why Loretrans is More Cost-Effective?",
+      "title": "Cost Comparison: Why LoReTrans is More Cost-Effective?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -93,7 +93,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char (1000 free + 0×0.001)",
         "savings": "Save 99% cost"
       }
@@ -125,7 +125,7 @@
   },
   "IndexPage": {
     "meta": {
-      "title": "Loretrans - AI Translator for Low-Resource Languages",
+      "title": "LoReTrans - AI Translator for Low-Resource Languages",
       "description": "Free AI-powered translation for 20+ low-resource languages like Creole, Lao, and Swahili. Translate text and documents to English instantly."
     },
     "title": "Translate Low-Resource Languages",
@@ -147,7 +147,7 @@
     },
     "cta_section": {
       "title": "Start Translating Today",
-      "description": "Join thousands of users who trust Loretrans for their translation needs",
+      "description": "Join thousands of users who trust LoReTrans for their translation needs",
       "cta_try": "Try Now - It's Free",
       "cta_docs": "Translate Documents",
       "try_now": "Register for 500 Free Credits",
@@ -202,7 +202,7 @@
       "try_language": "Try {language}"
     },
     "feature_section": {
-      "title": "Why Choose Loretrans?",
+      "title": "Why Choose LoReTrans?",
       "description": "Professional-grade translation tools designed for low-resource languages",
       "features": {
         "ai_powered": {
@@ -255,7 +255,7 @@
       }
     },
     "cost_comparison": {
-      "title": "Cost Comparison: Why Loretrans is More Cost-Effective?",
+      "title": "Cost Comparison: Why LoReTrans is More Cost-Effective?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -268,18 +268,18 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
     },
     "faq_section": {
       "title": "Frequently Asked Questions",
-      "description": "Everything you need to know about Loretrans",
+      "description": "Everything you need to know about LoReTrans",
       "questions": [
         {
-          "question": "How does Loretrans pricing work?",
-          "answer": "Loretrans offers 5000 free characters per translation. For longer texts, we charge 0.1 credits per character beyond the free limit. New users get 500 welcome credits when they register."
+          "question": "How does LoReTrans pricing work?",
+          "answer": "LoReTrans offers 5000 free characters per translation. For longer texts, we charge 0.1 credits per character beyond the free limit. New users get 500 welcome credits when they register."
         },
         {
           "question": "What languages do you support?",
@@ -306,19 +306,19 @@
           "answer": "Free users can translate up to 5000 characters per request. For longer texts, you can break them into smaller chunks or upload documents for processing."
         },
         {
-          "question": "Can I use Loretrans for commercial purposes?",
-          "answer": "Yes, you can use Loretrans for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
+          "question": "Can I use LoReTrans for commercial purposes?",
+          "answer": "Yes, you can use LoReTrans for both personal and commercial purposes. For high-volume commercial use, please contact us about our API services."
         }
       ],
       "contact_prompt": "Have more questions?",
       "contact_link": "Contact our support team"
     },
     "faq": {
-      "q1_answer": "Loretrans offers 5000 free characters per translation with no registration required. For longer texts, we charge 0.1 credits per character beyond the free limit. New users receive 500 welcome credits when they register, perfect for translating longer documents.",
+      "q1_answer": "LoReTrans offers 5000 free characters per translation with no registration required. For longer texts, we charge 0.1 credits per character beyond the free limit. New users receive 500 welcome credits when they register, perfect for translating longer documents.",
       "q3_answer": "Currently we support TXT files up to 10MB. We're actively developing support for PDF, Microsoft Word (.doc, .docx), and PowerPoint (.ppt, .pptx) formats based on user feedback.",
       "q4_answer": "Our translations use Meta's NLLB model, specifically trained for low-resource languages. We offer 5000 free characters per translation, with additional characters at 0.1 credits each. For example, a 5000-character text costs 0 credits (5000 free + 0×0.1). Register to get 500 welcome credits.",
-      "q1_title": "How does Loretrans pricing work?",
-      "q2_title": "What makes Loretrans different?",
+      "q1_title": "How does LoReTrans pricing work?",
+      "q2_title": "What makes LoReTrans different?",
       "q2_answer": "We specialize in 20+ low-resource languages often poorly supported by mainstream services. Using Meta's NLLB model, we provide superior accuracy for languages like Haitian Creole, Lao, Swahili, and Burmese.",
       "q5_title": "Do I need to create an account?",
       "q5_answer": "No account needed for 5000-character translations. However, registering gives you 500 welcome credits, translation history, priority support, and access to upcoming features like document translation.",
@@ -328,16 +328,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "About Loretrans - Professional Translation for Low-Resource Languages",
-      "description": "Learn about Loretrans, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
+      "title": "About LoReTrans - Professional Translation for Low-Resource Languages",
+      "description": "Learn about LoReTrans, the leading translation platform for small languages to English. Powered by Meta NLLB model with 20+ supported languages."
     },
     "hero": {
-      "title": "About Loretrans",
+      "title": "About LoReTrans",
       "description": "Professional translation platform dedicated to connecting low-resource languages with the world through accurate English translation."
     },
     "mission": {
       "title": "Our Mission",
-      "p1": "We believe every language deserves to be heard. Loretrans bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
+      "p1": "We believe every language deserves to be heard. LoReTrans bridges the communication gap for speakers of low-resource languages, providing accurate and accessible translation services to English.",
       "p2": "Powered by Meta's state-of-the-art NLLB (No Language Left Behind) model, we support over 20 languages that are often overlooked by mainstream translation services.",
       "cta": "Try Document Translation"
     },
@@ -363,7 +363,7 @@
     },
     "technology": {
       "title": "Powered by Advanced AI",
-      "description": "Loretrans uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
+      "description": "LoReTrans uses Meta's NLLB (No Language Left Behind) model, specifically designed to provide high-quality translation for low-resource languages that traditional systems struggle with.",
       "cultural_preservation": {
         "title": "Cultural Preservation",
         "description": "Supporting linguistic diversity and helping preserve cultural heritage through technology."
@@ -379,8 +379,8 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "q1_title": "What makes Loretrans different from other translation services?",
-      "q1_answer": "Loretrans specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
+      "q1_title": "What makes LoReTrans different from other translation services?",
+      "q1_answer": "LoReTrans specializes in low-resource languages that are often poorly supported by mainstream translation services. We use Meta's NLLB model, which is specifically designed for these languages, ensuring better accuracy and cultural context.",
       "q2_title": "Is my data safe and private?",
       "q2_answer": "Yes, we prioritize your privacy. We don't store your translations or personal data. All translations are processed securely and deleted immediately after delivery. For document translations, files are automatically removed after download.",
       "q3_title": "What file formats do you support for document translation?",
@@ -394,19 +394,19 @@
     },
     "cta_section": {
       "title": "Ready to Get Started?",
-      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, Loretrans is here to help you communicate with the world.",
+      "description": "Experience accurate translation for your language today. Whether it's a quick text or a full document, LoReTrans is here to help you communicate with the world.",
       "cta_text": "Try Text Translation",
       "cta_docs": "Upload Document"
     }
   },
   "ContactPage": {
     "meta": {
-      "title": "Contact Support - Get Help with Loretrans",
-      "description": "Need help with translation? Contact our support team for assistance with Loretrans translation services, technical issues, or general inquiries."
+      "title": "Contact Support - Get Help with LoReTrans",
+      "description": "Need help with translation? Contact our support team for assistance with LoReTrans translation services, technical issues, or general inquiries."
     },
     "hero": {
       "title": "Contact Support",
-      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of Loretrans."
+      "description": "Have questions about our translation services? Need technical support? We're here to help you get the most out of LoReTrans."
     },
     "form": {
       "title": "Send us a message",
@@ -467,7 +467,7 @@
       },
       "self_help": {
         "title": "Self-Help Resources",
-        "how_it_works": "→ How Loretrans works",
+        "how_it_works": "→ How LoReTrans works",
         "try_text": "→ Try text translation",
         "try_docs": "→ Document translation guide",
         "privacy": "→ Privacy policy",
@@ -492,7 +492,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Pricing - Choose Your Translation Credits | Loretrans",
+      "title": "Pricing - Choose Your Translation Credits | LoReTrans",
       "description": "Choose a credit package that suits your translation needs. Flexible pricing for individuals, professionals, and businesses."
     },
     "hero": {
@@ -538,7 +538,7 @@
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Text Translator - Free AI Translation Tool | Loretrans",
+      "title": "Text Translator - Free AI Translation Tool | LoReTrans",
       "description": "Free online text translator for 20+ low-resource languages. Translate Creole, Lao, Swahili, Burmese and more to English instantly with AI."
     },
     "hero": {
@@ -658,7 +658,7 @@
       "document_translation": "Document Translation",
       "document_translation_desc": "Upload and translate documents",
       "about": "About",
-      "about_desc": "Learn about Loretrans"
+      "about_desc": "Learn about LoReTrans"
     },
     "Footer": {
       "tagline": "Professional translation for low-resource languages to English. Powered by Meta NLLB AI technology.",
@@ -683,13 +683,13 @@
       "contact_form": "Contact Form",
       "view_all_languages": "View All →",
       "telugu_language": "Telugu",
-      "copyright": "© 2025 Loretrans. All rights reserved.",
+      "copyright": "© 2025 LoReTrans. All rights reserved.",
       "powered_by": "Powered by Meta NLLB AI Technology"
     }
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Document Translation - Translate PDF, Word, PowerPoint | Loretrans",
+      "title": "Document Translation - Translate PDF, Word, PowerPoint | LoReTrans",
       "description": "Upload and translate documents to English. Support for PDF, Word, PowerPoint files with AI-powered translation for low-resource languages."
     },
     "title": "Document Translation",
@@ -829,7 +829,7 @@
       "contact_support": "Contact Support"
     },
     "SignUpForm": {
-      "title": "Create a Loretrans Account",
+      "title": "Create a LoReTrans Account",
       "subtitle": "Create an account to get 500 bonus credits",
       "name_label": "Name",
       "name_placeholder": "Enter your name",
@@ -870,7 +870,7 @@
       "strength_excellent": "Excellent"
     },
     "SignInForm": {
-      "title": "Sign In to Loretrans",
+      "title": "Sign In to LoReTrans",
       "subtitle": "Welcome back! Please sign in to your account",
       "email_label": "Email",
       "email_placeholder": "Enter your email",
@@ -993,7 +993,7 @@
   },
   "pricing": {
     "meta": {
-      "title": "Pricing Plans - Choose Your Translation Solution | Loretrans",
+      "title": "Pricing Plans - Choose Your Translation Solution | LoReTrans",
       "description": "Smart pricing recommendations based on usage scenarios. Starting from $5 for students, $10 for individuals, $25 for professionals. Support for 20+ low-resource languages including Haitian Creole and Lao."
     },
     "title": "Choose Your Credit Package",
@@ -1511,7 +1511,7 @@
   },
   "AuthPage": {
     "signin": {
-      "title": "Sign In to Loretrans",
+      "title": "Sign In to LoReTrans",
       "email": "Email",
       "password": "Password",
       "forgot_password": "Forgot password?",

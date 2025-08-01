@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Sinhala to English Translation - Free AI Translator | Loretrans',
+  title: 'Sinhala to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Sinhala (සිංහල) to English instantly with our AI-powered translator. Convert සිංහල text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Sinhala to English translation', 'Sinhala to English', 'Sinhala to English translator', 'free Sinhala to English translation', 'Sinhala English converter', 'queue translation'],
   openGraph: {
     title: 'Sinhala to English Translation - Free AI Translator',
     description: 'Translate Sinhala (සිංහල) to English instantly with our AI-powered translator. Convert සිංහල text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/sinhala-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Sindhi to English Translation - Free AI Translator | Loretrans',
+  title: 'Sindhi to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert سنڌي text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Sindhi to English translation', 'Sindhi to English', 'Sindhi to English translator', 'free Sindhi to English translation', 'Sindhi English converter', 'queue translation'],
   openGraph: {
     title: 'Sindhi to English Translation - Free AI Translator',
     description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert سنڌي text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/sindhi-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

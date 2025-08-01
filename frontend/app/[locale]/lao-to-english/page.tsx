@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Lao to English Translation - Free AI Translator | Loretrans',
+  title: 'Lao to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Lao (ລາວ) to English instantly with our AI-powered translator. Convert ລາວ text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Lao to English translation', 'ລາວ to English', 'Lao translator', 'free Lao translation', 'Lao English converter', 'queue translation'],
   openGraph: {
     title: 'Lao to English Translation - Free AI Translator',
     description: 'Translate Lao (ລາວ) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/lao-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

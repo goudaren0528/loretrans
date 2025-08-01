@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Chinese to English Translation - Free AI Translator | Loretrans',
+  title: 'Chinese to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Chinese (中文) to English instantly with our AI-powered translator. Convert 中文 text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Chinese to English translation', '中文 to English', 'Chinese translator', 'free Chinese translation', 'Chinese English converter', 'queue translation'],
   openGraph: {
     title: 'Chinese to English Translation - Free AI Translator',
     description: 'Translate Chinese (中文) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/chinese-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

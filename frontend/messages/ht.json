@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - Tradiktè AI pou Lang ki pa gen Anpil Resous",
+      "title": "LoReTrans - Tradiktè AI pou Lang ki pa gen Anpil Resous",
       "description": "Tradiksyon gratis ak AI pou 20+ lang ki pa gen anpil resous tankou Kreyòl, Lao, ak Swahili. Tradwi tèks ak dokiman yo nan Anglè imedyatman."
     },
     "hero": {
@@ -44,7 +44,7 @@
         },
         "loretrans": {
           "description": "Sipò pwofesyonèl pou 20+ lang ki gen ti resous",
-          "title": "Loretrans"
+          "title": "LoReTrans"
         }
       },
       "floating_cards": {
@@ -71,7 +71,7 @@
     },
     "cta": {
       "title": "Kòmanse Tradwi Jodi a",
-      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan Loretrans pou bezwen tradiksyon yo",
+      "description": "Vin jwenn dè milye itilizatè ki fè konfyans nan LoReTrans pou bezwen tradiksyon yo",
       "try_now": "Eseye Kounye a - Li Gratis",
       "translate_documents": "Tradwi Dokiman yo"
     },
@@ -90,13 +90,13 @@
         "description": "1000 karaktè × $0.001/char",
         "price": "$1",
         "savings": "Ekonomize 99% depans",
-        "title": "Loretrans"
+        "title": "LoReTrans"
       },
-      "title": "Konparezon Pri: Poukisa Loretrans se pi pri-efikas?"
+      "title": "Konparezon Pri: Poukisa LoReTrans se pi pri-efikas?"
     },
     "feature_section": {
       "description": "Zouti tradiksyon pwofesyonèl ki fèt pou lang ki gen ti resous",
-      "title": "Poukisa w chwazi Loretrans?"
+      "title": "Poukisa w chwazi LoReTrans?"
     },
     "user_scenarios": {
       "academic": {
@@ -238,8 +238,8 @@
       "questions": {
         "0": {
           "0": "G",
-          "question": "Ki jan Loretrans pri travay?",
-          "answer": "Loretrans ofri 300 karaktè gratis pou chak tradiksyon. Pou tèks pi long, nou chaje 0.1 kredi pou chak karaktè. Nouvo itilizatè jwenn 500 kredi akeyi lè yo enskri."
+          "question": "Ki jan LoReTrans pri travay?",
+          "answer": "LoReTrans ofri 300 karaktè gratis pou chak tradiksyon. Pou tèks pi long, nou chaje 0.1 kredi pou chak karaktè. Nouvo itilizatè jwenn 500 kredi akeyi lè yo enskri."
         },
         "1": {
           "0": "e",
@@ -273,8 +273,8 @@
         },
         "7": {
           "0": " ",
-          "question": "Èske mwen ka itilize Loretrans pou rezon komèsyal?",
-          "answer": "Wi, ou ka itilize Loretrans pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
+          "question": "Èske mwen ka itilize LoReTrans pou rezon komèsyal?",
+          "answer": "Wi, ou ka itilize LoReTrans pou tou de pèsonèl ak komèsyal rezon. pou gwo volim komèssyal itilize, tanpri kontakte nou sou nou API sèvis."
         },
         "8": "t",
         "9": "r",
@@ -289,16 +289,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "Konsèy Loretrans - Tradiksyon Pwofesyonèl pou Lang ki gen Mwens Resous",
-      "description": "Aprann sou Loretrans, platfòm tradiksyon prensipal la pou lang ti yo nan Angle. Ki gen pouvwa pa Meta NLLB modèl ak 20+ lang yo sipòte."
+      "title": "Konsèy LoReTrans - Tradiksyon Pwofesyonèl pou Lang ki gen Mwens Resous",
+      "description": "Aprann sou LoReTrans, platfòm tradiksyon prensipal la pou lang ti yo nan Angle. Ki gen pouvwa pa Meta NLLB modèl ak 20+ lang yo sipòte."
     },
     "hero": {
-      "title": "Konsèy Loretrans",
+      "title": "Konsèy LoReTrans",
       "description": "Platfòm tradiksyon pwofesyonèl ki dedye nan konekte lang ki gen mwens resous yo ak mond lan nan tradiksyon Angle egzak."
     },
     "mission": {
       "title": "Misyon Nou an",
-      "p1": "Nan Loretrans, nou kwè chak lang gen valè e yo dwe tande. Misyon nou an se diminye distans lan ant lang ki gen mwens resous yo ak Angle, ankouraje kominikasyon ak konprann mondyal.",
+      "p1": "Nan LoReTrans, nou kwè chak lang gen valè e yo dwe tande. Misyon nou an se diminye distans lan ant lang ki gen mwens resous yo ak Angle, ankouraje kominikasyon ak konprann mondyal.",
       "p2": "Lè nou konbine teknoloji AI avanse ak konesans pwofon nan kominote lang yo, nou reyisi kote sèvis tradiksyon tradisyonèl yo souvan echwe.",
       "cta": "Kòmanse Kounye a"
     },
@@ -324,7 +324,7 @@
     },
     "technology": {
       "title": "Ki gen Pouvwa pa AI Avanse",
-      "description": "Loretrans sèvi ak Meta a NLLB (Pa gen Lang ki Kite Dèyè) modèl, ki fèt espesyalman pou bay tradiksyon kalite segondè pou lang ki gen mwens resous yo ke sistèm tradisyonèl yo gen difikilte ak yo.",
+      "description": "LoReTrans sèvi ak Meta a NLLB (Pa gen Lang ki Kite Dèyè) modèl, ki fèt espesyalman pou bay tradiksyon kalite segondè pou lang ki gen mwens resous yo ke sistèm tradisyonèl yo gen difikilte ak yo.",
       "cultural_preservation": {
         "title": "Konsèvasyon Kiltirèl",
         "description": "Sipòte divèsite lang ak ede konsève eritaj kiltirèl nan teknoloji."
@@ -355,7 +355,7 @@
     },
     "cta_section": {
       "title": "Pare pou Kòmanse?",
-      "description": "Fè eksperyans tradiksyon egzak pou lang ou an jodi a. Kit li se yon tèks rapid oswa yon dokiman konplè, Loretrans la pou ede ou kominike ak mond lan.",
+      "description": "Fè eksperyans tradiksyon egzak pou lang ou an jodi a. Kit li se yon tèks rapid oswa yon dokiman konplè, LoReTrans la pou ede ou kominike ak mond lan.",
       "cta_text": "Eseye Tradiksyon Tèks",
       "cta_docs": "Telechaje Dokiman"
     }
@@ -453,7 +453,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | Loretrans",
+      "title": "Pri yo - Chwazi Plan ki Bon pou Ou | LoReTrans",
       "description": "Plan ki baze sou senayo yo ak rekòmandasyon entelijan. Kòmanse ak $5 pou etidyan yo, $10 pou itilizatè pèsonèl yo, $25 pou pwofesyonèl yo."
     },
     "hero": {
@@ -503,7 +503,7 @@
       "contact_sales": "Kontak"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "title": "💰 Cost Comparison: Why Choose LoReTrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -516,7 +516,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }

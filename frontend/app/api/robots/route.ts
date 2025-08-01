@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const robotsContent = `# Robots.txt for Loretrans - AI Translation Platform
+  const robotsContent = `# Robots.txt for LoReTrans - AI Translation Platform
 # https://loretrans.com
 
 User-agent: *

@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Portuguese to English Translation - Free AI Translator | Loretrans',
+  title: 'Portuguese to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Portuguese (Português) to English instantly with our AI-powered translator. Convert Português text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Portuguese to English translation', 'Português to English', 'Portuguese translator', 'free Portuguese translation', 'Portuguese English converter', 'queue translation'],
   openGraph: {
     title: 'Portuguese to English Translation - Free AI Translator',
     description: 'Translate Portuguese (Português) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/portuguese-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

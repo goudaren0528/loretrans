@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '商业分析 - 管理员控制台 | Loretrans',
+  title: '商业分析 - 管理员控制台 | LoReTrans',
   description: '查看详细的商业指标、支付分析和转化率优化数据',
 }
 

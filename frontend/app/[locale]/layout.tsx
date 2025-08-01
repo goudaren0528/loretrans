@@ -32,17 +32,17 @@ export async function generateMetadata({
   });
 
   return {
-    title: 'Loretrans - Free AI Low-Resource Language Translator',
-    description: 'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology.',
+    title: 'LoReTrans - Free AI Low-Resource Language Translator',
+    description: 'LoReTrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English with advanced NLLB technology.',
     alternates: {
       canonical: locale === 'en' ? canonicalBaseUrl : `${canonicalBaseUrl}/${locale}`,
       languages: alternates
     },
     openGraph: {
-      title: 'Loretrans - Free AI Low-Resource Language Translator',
-      description: 'Loretrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English.',
+      title: 'LoReTrans - Free AI Low-Resource Language Translator',
+      description: 'LoReTrans: Free AI translator for 20+ low-resource languages including Creole, Lao, Swahili, Burmese. Instant translation to English.',
       url: locale === 'en' ? canonicalBaseUrl : `${canonicalBaseUrl}/${locale}`,
-      siteName: 'Loretrans',
+      siteName: 'LoReTrans',
       locale: locale,
       type: 'website',
     },

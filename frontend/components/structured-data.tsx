@@ -1,15 +1,15 @@
 import React from 'react'
-import Script from 'next/script'
 
 interface StructuredDataProps {
   type: 'WebApplication' | 'SoftwareApplication' | 'WebPage' | 'FAQ' | 'HowTo'
   data: any
+  id?: string
 }
 
-export function StructuredData({ type, data }: StructuredDataProps) {
+export function StructuredData({ type, data, id }: StructuredDataProps) {
   return (
-    <Script
-      id={`structured-data-${type.toLowerCase()}`}
+    <script
+      id={id || `structured-data-${type.toLowerCase()}`}
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(data, null, 2)

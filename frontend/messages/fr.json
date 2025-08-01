@@ -18,7 +18,7 @@
   },
   "HomePage": {
     "meta": {
-      "title": "Loretrans - Traducteur IA pour Langues à Faibles Ressources",
+      "title": "LoReTrans - Traducteur IA pour Langues à Faibles Ressources",
       "description": "Traduction IA gratuite pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez textes et documents en anglais instantanément."
     },
     "hero": {
@@ -44,7 +44,7 @@
         },
         "loretrans": {
           "description": "Assistance professionnelle pour plus de 20 langues à faible ressource",
-          "title": "Loretrans"
+          "title": "LoReTrans"
         }
       },
       "floating_cards": {
@@ -71,7 +71,7 @@
     },
     "cta": {
       "title": "Commencez à Traduire Aujourd'hui",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à LoReTrans pour leurs besoins de traduction",
       "try_now": "Essayez Maintenant - C'est Gratuit",
       "translate_documents": "Traduire des Documents"
     },
@@ -90,13 +90,13 @@
         "description": "1000 caractères × 0,001 $/char",
         "price": "1 $",
         "savings": "Économisez 99% de coût",
-        "title": "Loretrans"
+        "title": "LoReTrans"
       },
-      "title": "Comparaison des coûts: Pourquoi Loretrans est-il plus rentable?"
+      "title": "Comparaison des coûts: Pourquoi LoReTrans est-il plus rentable?"
     },
     "feature_section": {
       "description": "Outils de traduction de qualité professionnelle conçus pour les langues à faible ressource",
-      "title": "Pourquoi choisir Loretrans ?"
+      "title": "Pourquoi choisir LoReTrans ?"
     },
     "user_scenarios": {
       "academic": {
@@ -122,7 +122,7 @@
   },
   "IndexPage": {
     "meta": {
-      "title": "Loretrans - Traducteur IA pour Langues à Faibles Ressources",
+      "title": "LoReTrans - Traducteur IA pour Langues à Faibles Ressources",
       "description": "Traduction gratuite par IA pour plus de 20 langues à faibles ressources comme le Créole, le Lao et le Swahili. Traduisez instantanément du texte et des documents en anglais."
     },
     "hero": {
@@ -185,7 +185,7 @@
       "coming_soon": "Bientôt disponible"
     },
     "feature_section": {
-      "title": "Pourquoi Choisir Loretrans ?",
+      "title": "Pourquoi Choisir LoReTrans ?",
       "description": "Outils de traduction de qualité professionnelle conçus pour les langues à faibles ressources",
       "features": {
         "ai_powered": {
@@ -222,11 +222,11 @@
     },
     "faq_section": {
       "title": "Questions Fréquemment Posées",
-      "description": "Tout ce que vous devez savoir sur Loretrans",
+      "description": "Tout ce que vous devez savoir sur LoReTrans",
       "questions": {
         "0": {
-          "question": "Comment fonctionne le prix de Loretrans ?",
-          "answer": "Loretrans offre 1000 caractères gratuits par traduction. Pour les textes plus longs, nous facturons 0,1 crédit par caractère. Les nouveaux utilisateurs obtiennent 500 crédits de bienvenue lors de leur inscription."
+          "question": "Comment fonctionne le prix de LoReTrans ?",
+          "answer": "LoReTrans offre 1000 caractères gratuits par traduction. Pour les textes plus longs, nous facturons 0,1 crédit par caractère. Les nouveaux utilisateurs obtiennent 500 crédits de bienvenue lors de leur inscription."
         },
         "1": {
           "question": "Quelles langues prenez-vous en charge ?",
@@ -253,8 +253,8 @@
           "answer": "Les utilisateurs gratuits peuvent traduire jusqu'à 1000 caractères par requête. Pour les textes plus longs, vous pouvez les diviser en morceaux plus petits ou charger des documents pour le traitement."
         },
         "7": {
-          "question": "Puis-je utiliser Loretrans à des fins commerciales ?",
-          "answer": "Oui, vous pouvez utiliser Loretrans à des fins personnelles et commerciales. Pour une utilisation commerciale à grand volume, veuillez nous contacter au sujet de nos services API."
+          "question": "Puis-je utiliser LoReTrans à des fins commerciales ?",
+          "answer": "Oui, vous pouvez utiliser LoReTrans à des fins personnelles et commerciales. Pour une utilisation commerciale à grand volume, veuillez nous contacter au sujet de nos services API."
         }
       },
       "contact_prompt": "Vous avez d'autres questions ?",
@@ -262,7 +262,7 @@
     },
     "cta_section": {
       "title": "Commencez à Traduire Dès Aujourd'hui",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à LoReTrans pour leurs besoins de traduction",
       "cta_try": "Essayez Maintenant - C'est Gratuit",
       "cta_docs": "Traduire des Documents"
     },
@@ -280,7 +280,7 @@
       "document_translation": "Traduction de Documents",
       "document_translation_desc": "Charger et traduire des documents",
       "about": "À propos",
-      "about_desc": "En savoir plus sur Loretrans"
+      "about_desc": "En savoir plus sur LoReTrans"
     },
     "Footer": {
       "tagline": "Traduction professionnelle pour les langues à faibles ressources vers l'anglais. Propulsé par la technologie IA de Meta NLLB.",
@@ -297,7 +297,7 @@
       "faq": "FAQ",
       "contact_support": "Contacter le Support",
       "api_docs": "Documentation de l'API",
-      "copyright": "© 2025 Loretrans. Tous droits réservés.",
+      "copyright": "© 2025 LoReTrans. Tous droits réservés.",
       "powered_by": "Propulsé par la Technologie IA de Meta NLLB",
       "contact_us": "Contact Us",
       "support_email": "support@loretrans.com",
@@ -309,7 +309,7 @@
   },
   "PricingPage": {
     "meta": {
-      "title": "Tarifs - Choisissez Votre Pack de Crédits de Traduction | Loretrans",
+      "title": "Tarifs - Choisissez Votre Pack de Crédits de Traduction | LoReTrans",
       "description": "Choisissez un pack de crédits qui correspond à vos besoins de traduction. Tarifs flexibles pour particuliers, professionnels et entreprises."
     },
     "hero": {
@@ -354,13 +354,13 @@
     "loading": "Chargement...",
     "cta": {
       "title": "Prêt à Commencer?",
-      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à Loretrans pour leurs besoins de traduction",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à LoReTrans pour leurs besoins de traduction",
       "try_now": "Essayer Maintenant - C'est Gratuit",
       "free_trial": "Essai Gratuit",
       "contact_sales": "Contacter les Ventes"
     },
     "cost_comparison": {
-      "title": "💰 Cost Comparison: Why Choose Loretrans?",
+      "title": "💰 Cost Comparison: Why Choose LoReTrans?",
       "human_translation": {
         "price": "$120",
         "title": "Human Translation",
@@ -373,7 +373,7 @@
       },
       "loretrans": {
         "price": "$1",
-        "title": "Loretrans",
+        "title": "LoReTrans",
         "description": "1000 characters × $0.001/char",
         "savings": "Save 99% cost"
       }
@@ -381,7 +381,7 @@
   },
   "DocumentTranslatePage": {
     "meta": {
-      "title": "Traduction de Documents - Traduire PDF, Word, PowerPoint | Loretrans",
+      "title": "Traduction de Documents - Traduire PDF, Word, PowerPoint | LoReTrans",
       "description": "Chargez et traduisez des documents en anglais. Support pour les fichiers PDF, Word, PowerPoint avec traduction IA pour les langues à faibles ressources."
     },
     "title": "Traduction de Documents",
@@ -513,7 +513,7 @@
       "contact_support": "Contacter le support"
     },
     "SignUpForm": {
-      "title": "Créer un compte Loretrans",
+      "title": "Créer un compte LoReTrans",
       "subtitle": "Créez un compte pour obtenir 500 crédits bonus",
       "name_label": "Nom",
       "name_placeholder": "Entrez votre nom",
@@ -554,7 +554,7 @@
       "strength_excellent": "Excellent"
     },
     "SignInForm": {
-      "title": "Se connecter à Loretrans",
+      "title": "Se connecter à LoReTrans",
       "subtitle": "Content de vous revoir ! Veuillez vous connecter à votre compte",
       "email_label": "Votre courriel",
       "email_placeholder": "Entrez votre email",
@@ -676,12 +676,12 @@
   },
   "ContactPage": {
     "meta": {
-      "title": "Contacter le Support - Obtenir de l'Aide avec Loretrans",
-      "description": "Besoin d'aide avec la traduction ? Contactez notre équipe de support pour obtenir de l'assistance avec les services de traduction Loretrans, les problèmes techniques ou les demandes générales."
+      "title": "Contacter le Support - Obtenir de l'Aide avec LoReTrans",
+      "description": "Besoin d'aide avec la traduction ? Contactez notre équipe de support pour obtenir de l'assistance avec les services de traduction LoReTrans, les problèmes techniques ou les demandes générales."
     },
     "hero": {
       "title": "Contacter le Support",
-      "description": "Vous avez des questions sur nos services de traduction ? Besoin d'un support technique ? Nous sommes là pour vous aider à tirer le meilleur parti de Loretrans."
+      "description": "Vous avez des questions sur nos services de traduction ? Besoin d'un support technique ? Nous sommes là pour vous aider à tirer le meilleur parti de LoReTrans."
     },
     "form": {
       "title": "Envoyez-nous un message",
@@ -742,7 +742,7 @@
       },
       "self_help": {
         "title": "Ressources d'Auto-assistance",
-        "how_it_works": "→ Comment fonctionne Loretrans",
+        "how_it_works": "→ Comment fonctionne LoReTrans",
         "try_text": "→ Essayer la traduction de texte",
         "try_docs": "→ Guide de traduction de documents",
         "privacy": "→ Politique de confidentialité",
@@ -767,16 +767,16 @@
   },
   "AboutPage": {
     "meta": {
-      "title": "À propos de Loretrans - Traduction Professionnelle pour les Langues à Faibles Ressources",
-      "description": "Découvrez Loretrans, la plateforme de traduction leader pour les petites langues vers l'anglais. Alimenté par le modèle NLLB de Meta avec plus de 20 langues supportées."
+      "title": "À propos de LoReTrans - Traduction Professionnelle pour les Langues à Faibles Ressources",
+      "description": "Découvrez LoReTrans, la plateforme de traduction leader pour les petites langues vers l'anglais. Alimenté par le modèle NLLB de Meta avec plus de 20 langues supportées."
     },
     "hero": {
-      "title": "À propos de Loretrans",
+      "title": "À propos de LoReTrans",
       "description": "Plateforme de traduction professionnelle dédiée à connecter les langues à faibles ressources avec le monde grâce à une traduction précise vers l'anglais."
     },
     "mission": {
       "title": "Notre Mission",
-      "p1": "Nous croyons que chaque langue mérite d'être entendue. Loretrans comble le fossé de communication pour les locuteurs de langues à faibles ressources, en fournissant des services de traduction précis et accessibles vers l'anglais.",
+      "p1": "Nous croyons que chaque langue mérite d'être entendue. LoReTrans comble le fossé de communication pour les locuteurs de langues à faibles ressources, en fournissant des services de traduction précis et accessibles vers l'anglais.",
       "p2": "Alimenté par le modèle NLLB (No Language Left Behind) de pointe de Meta, nous supportons plus de 20 langues qui sont souvent négligées par les services de traduction grand public.",
       "cta": "Essayer la Traduction de Documents"
     },
@@ -802,7 +802,7 @@
     },
     "technology": {
       "title": "Alimenté par l'IA Avancée",
-      "description": "Loretrans utilise le modèle NLLB (No Language Left Behind) de Meta, spécialement conçu pour fournir une traduction de haute qualité pour les langues à faibles ressources avec lesquelles les systèmes traditionnels ont des difficultés.",
+      "description": "LoReTrans utilise le modèle NLLB (No Language Left Behind) de Meta, spécialement conçu pour fournir une traduction de haute qualité pour les langues à faibles ressources avec lesquelles les systèmes traditionnels ont des difficultés.",
       "cultural_preservation": {
         "title": "Préservation Culturelle",
         "description": "Soutenir la diversité linguistique et aider à préserver le patrimoine culturel grâce à la technologie."
@@ -818,8 +818,8 @@
     },
     "faq": {
       "title": "Questions Fréquemment Posées",
-      "q1_title": "Qu'est-ce qui différencie Loretrans des autres services de traduction ?",
-      "q1_answer": "Loretrans se spécialise dans les langues à faibles ressources qui sont souvent mal prises en charge par les services de traduction grand public. Nous utilisons le modèle NLLB de Meta, qui est spécialement conçu pour ces langues, garantissant une meilleure précision et un meilleur contexte culturel.",
+      "q1_title": "Qu'est-ce qui différencie LoReTrans des autres services de traduction ?",
+      "q1_answer": "LoReTrans se spécialise dans les langues à faibles ressources qui sont souvent mal prises en charge par les services de traduction grand public. Nous utilisons le modèle NLLB de Meta, qui est spécialement conçu pour ces langues, garantissant une meilleure précision et un meilleur contexte culturel.",
       "q2_title": "Mes données sont-elles sécurisées et privées ?",
       "q2_answer": "Oui, nous accordons la priorité à votre vie privée. Nous ne stockons ni vos traductions ni vos données personnelles. Toutes les traductions sont traitées de manière sécurisée et supprimées immédiatement après leur livraison. Pour les traductions de documents, les fichiers sont automatiquement supprimés après le téléchargement.",
       "q3_title": "Quels formats de fichiers prenez-vous en charge pour la traduction de documents ?",
@@ -833,7 +833,7 @@
     },
     "cta_section": {
       "title": "Prêt à Commencer ?",
-      "description": "Découvrez une traduction précise pour votre langue aujourd'hui. Qu'il s'agisse d'un texte rapide ou d'un document complet, Loretrans est là pour vous aider à communiquer avec le monde.",
+      "description": "Découvrez une traduction précise pour votre langue aujourd'hui. Qu'il s'agisse d'un texte rapide ou d'un document complet, LoReTrans est là pour vous aider à communiquer avec le monde.",
       "cta_text": "Essayer la Traduction de Texte",
       "cta_docs": "Télécharger un Document"
     }
@@ -1015,7 +1015,7 @@
   },
   "TextTranslatePage": {
     "meta": {
-      "title": "Traducteur de Texte - Outil de Traduction IA Gratuit | Loretrans",
+      "title": "Traducteur de Texte - Outil de Traduction IA Gratuit | LoReTrans",
       "description": "Traducteur de texte en ligne gratuit pour plus de 20 langues à faibles ressources. Traduisez Créole, Lao, Swahili, Birman et plus vers l'anglais instantanément avec l'IA."
     },
     "hero": {
@@ -1387,7 +1387,7 @@
   },
   "AuthPage": {
     "signin": {
-      "title": "Se connecter à Loretrans",
+      "title": "Se connecter à LoReTrans",
       "email": "E-mail",
       "password": "Mot de passe",
       "forgot_password": "Mot de passe oublié ?",

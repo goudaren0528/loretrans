@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Arabic Translation - Free AI Translator | Loretrans',
+  title: 'English to Arabic Translation - Free AI Translator | LoReTrans',
   description: 'Translate English to Arabic (العربية) instantly with our AI-powered translator. Convert العربية text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['English to Arabic translation', 'English to العربية', 'English to Arabic translator', 'free English to Arabic translation', 'English Arabic converter', 'queue translation'],
   openGraph: {
     title: 'English to Arabic Translation - Free AI Translator',
     description: 'Translate English to Arabic (العربية) instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/english-to-arabic',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

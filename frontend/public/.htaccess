@@ -1,0 +1,14 @@
+# 图标文件 MIME 类型配置
+<IfModule mod_mime.c>
+    AddType image/x-icon .ico
+    AddType image/svg+xml .svg
+    AddType image/png .png
+</IfModule>
+
+# 缓存配置
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+</IfModule>

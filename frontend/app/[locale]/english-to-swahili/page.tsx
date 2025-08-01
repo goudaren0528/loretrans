@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'English to Swahili Translation - Free AI Translator | Loretrans',
+  title: 'English to Swahili Translation - Free AI Translator | LoReTrans',
   description: 'Translate English to Swahili (Kiswahili) instantly with our AI-powered translator. Convert Kiswahili text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['English to Swahili translation', 'English to Kiswahili', 'English to Swahili translator', 'free English to Swahili translation', 'English Swahili converter', 'queue translation'],
   openGraph: {
     title: 'English to Swahili Translation - Free AI Translator',
     description: 'Translate English to Swahili (Kiswahili) instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/english-to-swahili',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

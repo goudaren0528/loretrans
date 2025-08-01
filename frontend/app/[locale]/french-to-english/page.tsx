@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'French to English Translation - Free AI Translator | Loretrans',
+  title: 'French to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate French (Français) to English instantly with our AI-powered translator. Convert Français text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['French to English translation', 'Français to English', 'French translator', 'free French translation', 'French English converter', 'queue translation'],
   openGraph: {
     title: 'French to English Translation - Free AI Translator',
     description: 'Translate French (Français) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/french-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

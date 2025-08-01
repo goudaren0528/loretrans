@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Nepali to English Translation - Free AI Translator | Loretrans',
+  title: 'Nepali to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Nepali (नेपाली) to English instantly with our AI-powered translator. Convert नेपाली text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Nepali to English translation', 'Nepali to English', 'Nepali to English translator', 'free Nepali to English translation', 'Nepali English converter', 'queue translation'],
   openGraph: {
     title: 'Nepali to English Translation - Free AI Translator',
     description: 'Translate Nepali (नेपाली) to English instantly with our AI-powered translator. Convert नेपाली text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/nepali-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

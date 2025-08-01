@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Pashto to English Translation - Free AI Translator | Loretrans',
+  title: 'Pashto to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Pashto (پښتو) to English instantly with our AI-powered translator. Convert پښتو text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Pashto to English translation', 'Pashto to English', 'Pashto to English translator', 'free Pashto to English translation', 'Pashto English converter', 'queue translation'],
   openGraph: {
     title: 'Pashto to English Translation - Free AI Translator',
     description: 'Translate Pashto (پښتو) to English instantly with our AI-powered translator. Convert پښتو text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/pashto-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

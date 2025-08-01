@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Haitian Creole to English Translation - Free AI Translator | Loretrans',
+  title: 'Haitian Creole to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with our AI-powered translator. Convert Kreyòl Ayisyen text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Haitian Creole to English translation', 'Kreyòl Ayisyen to English', 'Haitian Creole translator', 'free Haitian Creole translation', 'Haitian Creole English converter', 'queue translation'],
   openGraph: {
     title: 'Haitian Creole to English Translation - Free AI Translator',
     description: 'Translate Haitian Creole (Kreyòl Ayisyen) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/creole-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

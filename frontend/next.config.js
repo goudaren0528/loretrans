@@ -67,9 +67,34 @@ const nextConfig = {
     ];
   },
   
-  // 重写配置 - 修复GSC文件访问
+  // 重写配置 - 修复GSC文件访问和图标文件访问
   async rewrites() {
     return [
+      // 确保图标文件可以直接访问，不经过国际化路由
+      {
+        source: '/favicon.ico',
+        destination: '/favicon.ico',
+      },
+      {
+        source: '/icon.svg',
+        destination: '/icon.svg',
+      },
+      {
+        source: '/icon-192.png',
+        destination: '/icon-192.png',
+      },
+      {
+        source: '/icon-512.png',
+        destination: '/icon-512.png',
+      },
+      {
+        source: '/apple-touch-icon.png',
+        destination: '/apple-touch-icon.png',
+      },
+      {
+        source: '/loretrans-logo.svg',
+        destination: '/loretrans-logo.svg',
+      },
       // 确保GSC验证文件可以直接访问，不经过国际化路由
       {
         source: '/google:verification*.html',
@@ -86,6 +111,59 @@ const nextConfig = {
   // 头部配置
   async headers() {
     return [
+      // 图标文件配置
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/x-icon',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/icon.svg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/svg+xml',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/loretrans-logo.svg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/svg+xml',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(icon-192|icon-512|apple-touch-icon).png',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/png',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [

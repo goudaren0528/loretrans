@@ -3,9 +3,9 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Compliance Statement',
-  description: 'Loretrans Compliance Statement - Our commitment to GDPR, CCPA, and other regulatory standards for AI translation services.',
+  description: 'LoReTrans Compliance Statement - Our commitment to GDPR, CCPA, and other regulatory standards for AI translation services.',
   openGraph: {
-    title: 'Compliance Statement | Loretrans',
+    title: 'Compliance Statement | LoReTrans',
     description: 'Learn about our regulatory compliance and data protection standards.',
   },
 }
@@ -14,11 +14,11 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Compliance Statement",
-  "description": "Loretrans Compliance Statement and regulatory adherence",
+  "description": "LoReTrans Compliance Statement and regulatory adherence",
   "url": "https://loretrans.com/compliance",
   "mainEntity": {
     "@type": "Organization",
-    "name": "Loretrans",
+    "name": "LoReTrans",
     "url": "https://loretrans.com",
     "compliance": [
       "GDPR",
@@ -50,7 +50,7 @@ export default function CompliancePage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Our Commitment to Compliance</h2>
               <p className="mb-4">
-                At Loretrans, we are committed to maintaining the highest standards of 
+                At LoReTrans, we are committed to maintaining the highest standards of 
                 compliance with applicable laws, regulations, and industry best practices. 
                 This Compliance Statement outlines our adherence to various regulatory 
                 frameworks and our ongoing efforts to ensure responsible AI development 

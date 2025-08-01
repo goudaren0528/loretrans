@@ -7,6 +7,13 @@ import { Language, AVAILABLE_LANGUAGES } from '../../../../config/app.config';
 import { DocumentTranslator } from '@/components/document-translator';
 import { GuestLimitGuard } from '@/components/guest-limit-guard';
 import Link from 'next/link';
+import { 
+  StructuredData, 
+  FAQStructuredData, 
+  HowToStructuredData,
+  WebApplicationStructuredData,
+  BreadcrumbStructuredData
+} from '@/components/structured-data'
 
 export async function generateMetadata({
   params: { locale },
@@ -32,13 +39,13 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       url: `https://loretrans.com/${locale}/document-translate`,
-      siteName: 'Loretrans',
+      siteName: 'LoReTrans',
       images: [
         {
           url: '/images/og-document-translate.png',
           width: 1200,
           height: 630,
-          alt: 'Document Translation - Loretrans',
+          alt: 'Document Translation - LoReTrans',
         },
       ],
       locale: locale,
@@ -70,6 +77,48 @@ export async function generateMetadata({
   };
 }
 
+const documentTranslateFAQs = [
+  {
+    question: "What file formats do you support for document translation?",
+    answer: "We support PDF, Microsoft Word (.docx), PowerPoint (.pptx), and plain text (.txt) files. Maximum file size is 50MB. We're working on adding support for more formats based on user feedback."
+  },
+  {
+    question: "How much does document translation cost?",
+    answer: "Document translation uses the same pricing as text translation - free for up to 5,000 characters, then 0.1 credits per character. The cost depends on the amount of text extracted from your document. New users get 500 welcome credits."
+  },
+  {
+    question: "How accurate is document translation?",
+    answer: "Our document translations use the same AI-powered NLLB technology as our text translator, ensuring high accuracy for low-resource languages. We extract text while preserving formatting and context for the best translation quality."
+  },
+  {
+    question: "Do I need an account for document translation?",
+    answer: "Yes, document translation requires a free account for security and processing purposes. This also allows you to access your translation history and download results at any time."
+  },
+  {
+    question: "How long does document translation take?",
+    answer: "Translation time depends on document size and complexity. Small documents (under 1,000 characters) translate instantly, while larger documents use our queue system with estimated completion times provided."
+  }
+];
+
+const documentHowToSteps = [
+  {
+    name: "Upload your document",
+    text: "Choose your PDF, Word, PowerPoint, or text file to translate. We support files up to 50MB and automatically extract text while preserving formatting."
+  },
+  {
+    name: "Select source language",
+    text: "Choose the language of your document from our list of 20+ supported low-resource languages. Our AI will analyze and prepare your document for translation."
+  },
+  {
+    name: "AI processing and translation",
+    text: "Our advanced NLLB AI processes your document, translating it to English while maintaining context and meaning. You'll see real-time progress updates."
+  },
+  {
+    name: "Download translated document",
+    text: "Once complete, download your translated document in the same format as the original. All translations are saved to your history for future access."
+  }
+];
+
 export default async function DocumentTranslatePage({
   params: { locale },
 }: {
@@ -79,6 +128,56 @@ export default async function DocumentTranslatePage({
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Structured Data */}
+      <WebApplicationStructuredData />
+      
+      <StructuredData 
+        type="WebApplication"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Document Translation Tool - LoReTrans",
+          "description": "Upload and translate PDF, Word, PowerPoint documents to English. AI-powered translation for 20+ low-resource languages with high accuracy.",
+          "url": `https://loretrans.com/${locale}/document-translate`,
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "LoReTrans",
+            "url": "https://loretrans.com"
+          },
+          "featureList": [
+            "PDF document translation",
+            "Word document translation",
+            "PowerPoint translation",
+            "Text file translation",
+            "20+ low-resource languages",
+            "AI-powered NLLB technology",
+            "Format preservation",
+            "Batch processing"
+          ]
+        }}
+      />
+      
+      <FAQStructuredData questions={documentTranslateFAQs} />
+      
+      <HowToStructuredData 
+        title="How to translate documents"
+        steps={documentHowToSteps}
+      />
+      
+      <BreadcrumbStructuredData 
+        items={[
+          { name: "Home", url: `https://loretrans.com/${locale}` },
+          { name: "Document Translation", url: `https://loretrans.com/${locale}/document-translate` }
+        ]}
+      />
 
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8 max-w-4xl">

@@ -4,14 +4,14 @@ import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-t
 import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Hindi to English Translation - Free AI Translator | Loretrans',
+  title: 'Hindi to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Hindi (हिन्दी) to English instantly with our AI-powered translator. Convert हिन्दी text to English with high accuracy. Support for long texts up to 5,000 characters.',
   keywords: ['Hindi to English translation', 'हिन्दी to English', 'Hindi translator', 'free Hindi translation', 'Hindi English converter', 'queue translation'],
   openGraph: {
     title: 'Hindi to English Translation - Free AI Translator',
     description: 'Translate Hindi (हिन्दी) to English instantly with AI. Support for long texts and queue processing.',
     url: 'https://loretrans.com/hindi-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },

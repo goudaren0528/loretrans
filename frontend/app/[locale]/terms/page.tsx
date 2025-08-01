@@ -3,10 +3,10 @@ import { StructuredData } from '@/components/structured-data'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Loretrans Terms of Service - Legal agreement governing the use of our AI translation platform for low-resource languages.',
+  description: 'LoReTrans Terms of Service - Legal agreement governing the use of our AI translation platform for low-resource languages.',
   openGraph: {
-    title: 'Terms of Service | Loretrans',
-    description: 'Legal terms and conditions for using Loretrans translation services.',
+    title: 'Terms of Service | LoReTrans',
+    description: 'Legal terms and conditions for using LoReTrans translation services.',
   },
 }
 
@@ -14,14 +14,14 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Terms of Service",
-  "description": "Loretrans Terms of Service and legal agreement",
+  "description": "LoReTrans Terms of Service and legal agreement",
   "url": "https://loretrans.com/terms",
   "mainEntity": {
     "@type": "TermsOfService",
-    "name": "Loretrans Terms of Service",
+    "name": "LoReTrans Terms of Service",
     "provider": {
       "@type": "Organization",
-      "name": "Loretrans",
+      "name": "LoReTrans",
       "url": "https://loretrans.com"
     }
   }
@@ -48,7 +48,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">1. Agreement to Terms</h2>
               <p className="mb-4">
-                By accessing and using Loretrans ("Service"), you accept and agree to be bound by 
+                By accessing and using LoReTrans ("Service"), you accept and agree to be bound by 
                 the terms and provision of this agreement. If you do not agree to abide by the 
                 above, please do not use this service.
               </p>
@@ -61,7 +61,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">2. Service Description</h2>
               <p className="mb-4">
-                Loretrans provides AI-powered translation services including:
+                LoReTrans provides AI-powered translation services including:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Text translation between low-resource languages and English</li>
@@ -141,7 +141,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">7. Intellectual Property</h2>
               <p className="mb-4">
-                The Loretrans platform, including its design, functionality, and underlying 
+                The LoReTrans platform, including its design, functionality, and underlying 
                 technology, is protected by intellectual property laws. You agree to:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -226,7 +226,7 @@ export default function TermsPage() {
                 If you have questions about these Terms, please contact us at:
               </p>
               <div className="bg-muted p-4 rounded-lg">
-                <p className="font-medium">Loretrans Support</p>
+                <p className="font-medium">LoReTrans Support</p>
                 <p>Email: legal@loretrans.com</p>
                 <p>Website: https://loretrans.com</p>
               </div>
@@ -235,12 +235,12 @@ export default function TermsPage() {
             <section className="border-t pt-8">
               <h2 className="text-2xl font-semibold mb-4">14. Acknowledgment</h2>
               <p className="mb-4">
-                By using Loretrans, you acknowledge that you have read, understood, and 
+                By using LoReTrans, you acknowledge that you have read, understood, and 
                 agree to be bound by these Terms of Service. If you do not agree to 
                 these terms, please discontinue use of our service immediately.
               </p>
               <p className="text-sm text-muted-foreground">
-                These Terms constitute the entire agreement between you and Loretrans 
+                These Terms constitute the entire agreement between you and LoReTrans 
                 regarding your use of the service, superseding any prior agreements.
               </p>
             </section>

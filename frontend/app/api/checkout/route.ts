@@ -29,7 +29,14 @@ async function createCheckoutSession(req: NextRequestWithUser) {
     console.log(`🚀 Creating checkout session for plan ${planId} with request_id: ${request_id}`);
 
     // 🔄 尝试CREEM API调用
-    const apiKey = process.env.CREEM_API_KEY;
+    const apiKey = process.env.CREEM_API_KEY || process.env.CREEM_SECRET_KEY;
+    console.log('🔑 API Key check:', { 
+      hasApiKey: !!apiKey, 
+      hasProductId: !!plan.creemProductId,
+      hasPaymentUrl: !!plan.creemPaymentUrl,
+      planId: planId 
+    });
+    
     if (apiKey && plan.creemProductId) {
       console.log('🧪 Attempting CREEM API call');
       
@@ -100,19 +107,40 @@ async function createCheckoutSession(req: NextRequestWithUser) {
 
     // 🔗 如果没有API密钥但有直接支付URL，使用直接支付URL
     if (plan.creemPaymentUrl) {
-      console.log('📋 Using direct payment URL');
+      console.log('📋 Using direct payment URL (no API key)');
       return handleDirectPaymentUrl(plan, planId, req, origin);
     }
 
+    // 🔗 如果有产品ID但没有API密钥，生成默认的支付URL
+    if (plan.creemProductId && !apiKey) {
+      console.log('🔧 Generating default payment URL for product:', plan.creemProductId);
+      const defaultPaymentUrl = `https://www.creem.io/test/payment/${plan.creemProductId}`;
+      const planWithUrl = { ...plan, creemPaymentUrl: defaultPaymentUrl };
+      return handleDirectPaymentUrl(planWithUrl, planId, req, origin);
+    }
+
     // 🚨 最后的错误处理
-    console.error(`❌ No payment method available for plan: ${planId}`);
+    console.error(`❌ No payment method available for plan: ${planId}`, {
+      hasApiKey: !!apiKey,
+      hasProductId: !!plan.creemProductId,
+      hasPaymentUrl: !!plan.creemPaymentUrl,
+      planConfig: {
+        id: plan.id,
+        name: plan.name,
+        creemProductId: plan.creemProductId,
+        creemPaymentUrl: plan.creemPaymentUrl
+      }
+    });
+    
     return NextResponse.json({ 
       error: 'Payment method not configured',
-      details: 'Unable to create checkout session. Please contact support.',
-      suggestion: 'Please configure CREEM API key or payment URL.',
-      supportInfo: {
-        issue: 'CREEM API key or payment URL needs to be configured',
+      details: `No valid payment method found for plan: ${plan.name}`,
+      suggestion: 'Please configure CREEM_API_KEY environment variable or creemPaymentUrl in plan configuration.',
+      debug: {
         planId: planId,
+        hasApiKey: !!apiKey,
+        hasProductId: !!plan.creemProductId,
+        hasPaymentUrl: !!plan.creemPaymentUrl,
         timestamp: new Date().toISOString()
       }
     }, { status: 503 });

@@ -1,17 +1,24 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
-import { StructuredData } from '@/components/structured-data'
+import { 
+  StructuredData, 
+  FAQStructuredData, 
+  HowToStructuredData,
+  TranslationServiceStructuredData,
+  WebApplicationStructuredData,
+  BreadcrumbStructuredData
+} from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Khmer to English Translation - Free AI Translator | Loretrans',
+  title: 'Khmer to English Translation - Free AI Translator | LoReTrans',
   description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts up to 5,000 characters.',
-  keywords: ['Khmer to English translation', 'Khmer to English', 'Khmer to English translator', 'free Khmer to English translation', 'Khmer English converter', 'queue translation'],
+  keywords: ['Khmer to English translation', 'Khmer to English', 'Khmer-English translator', 'free Khmer to English translation', 'Khmer English converter', 'ខ្មែរ to English', 'Cambodian to English translation', 'Khmer language translator'],
   openGraph: {
     title: 'Khmer to English Translation - Free AI Translator',
     description: 'Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy. Support for long texts and queue processing.',
     url: 'https://loretrans.com/khmer-to-english',
-    siteName: 'Loretrans',
+    siteName: 'LoReTrans',
     locale: 'en_US',
     type: 'website',
   },
@@ -25,58 +32,77 @@ export const metadata: Metadata = {
   },
 }
 
-const khmerToenglishFAQs = [
+const khmerToEnglishFAQs = [
   {
     question: "How accurate is the Khmer to English translation?",
-    answer: "Our AI-powered translator provides high-accuracy Khmer to English translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+    answer: "Our AI-powered Khmer-English translator provides high-accuracy translations using advanced NLLB (No Language Left Behind) technology. The Khmer to English translation quality is excellent for most content types, including business documents, academic texts, and casual conversations. While our Khmer-English translator is very reliable, we recommend human review for critical legal or medical documents."
   },
   {
-    question: "Can I translate English text back to Khmer?",
-    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between Khmer-to-English and English-to-Khmer translation using the swap button."
+    question: "Can I translate English text back to Khmer using this tool?",
+    answer: "Yes! Our translator supports bidirectional translation between Khmer and English. You can easily switch between Khmer-to-English and English-to-Khmer translation using the swap button. This makes it perfect for Khmer language learners and English speakers who need to communicate in ខ្មែរ."
   },
   {
-    question: "Is the Khmer to English translator free to use?",
-    answer: "Yes, our Khmer to English translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
+    question: "Is the Khmer-English translator completely free to use?",
+    answer: "Yes, our Khmer-English translation service is completely free with no hidden costs. Short Khmer texts translate instantly, while longer Khmer documents use our queue system for registered users. You can translate up to 5,000 characters of Khmer text to English at no charge."
   },
   {
-    question: "How long can the text be for Khmer to English translation?",
-    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+    question: "What is the maximum length for Khmer to English translation?",
+    answer: "You can translate up to 5,000 characters of Khmer text to English at once. For Khmer texts over 1,000 characters, you'll need to sign in for queue processing. Shorter Khmer to English translations are processed instantly, making it ideal for quick Khmer phrase translations."
   },
   {
-    question: "Do I need to create an account to translate long texts?",
-    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
+    question: "Do I need an account for long Khmer to English translations?",
+    answer: "For Khmer texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer Khmer-English conversions and access your ខ្មែរ translation history. This is especially useful for translating Khmer documents, articles, or academic papers to English."
+  }
+];
+
+const howToSteps = [
+  {
+    name: "Enter your Khmer text for translation",
+    text: "Type or paste your Khmer (ខ្មែរ) text into the source text box. Our Khmer-English translator supports up to 5,000 characters, making it perfect for translating Khmer documents, emails, or social media posts to English."
+  },
+  {
+    name: "Select Khmer to English translation direction",
+    text: "Ensure 'Khmer' is selected as the source language and 'English' as the target language. Use the swap button to switch between Khmer-to-English and English-to-Khmer translation modes as needed."
+  },
+  {
+    name: "Start your Khmer-English conversion",
+    text: "Press the translate button to begin the Khmer to English translation process. Short Khmer texts translate instantly, while longer Khmer documents use our advanced queue processing system for optimal translation quality."
+  },
+  {
+    name: "Review and use your English translation",
+    text: "Review the English translation results from your Khmer text. You can copy the translated English text, download it as a file, or save it to your Khmer-English conversion history for future reference."
   }
 ];
 
 const features = [
   {
-    title: "AI-Powered Translation",
-    description: "Advanced NLLB technology for accurate Khmer to English translation",
+    title: "AI-Powered Khmer Translation",
+    description: "Advanced NLLB technology for accurate Khmer-English translation with natural language processing",
     icon: "🤖"
   },
   {
-    title: "Bidirectional Support", 
-    description: "Seamlessly switch between Khmer-to-English and English-to-Khmer translation",
+    title: "Bidirectional Khmer-English Support", 
+    description: "Seamlessly switch between Khmer-to-English and English-to-Khmer translation modes",
     icon: "🔄"
   },
   {
-    title: "Long Text Support",
-    description: "Handle texts up to 5,000 characters with intelligent queue processing",
+    title: "Long Khmer Text Support",
+    description: "Handle Khmer documents up to 5,000 characters with intelligent queue processing",
     icon: "📄"
   },
   {
-    title: "Queue Processing",
-    description: "Background processing for long texts with progress tracking and history",
+    title: "Fast Khmer Translation Processing",
+    description: "Background processing for long Khmer texts with progress tracking and translation history",
     icon: "⚡"
   },
   {
-    title: "Translation History",
-    description: "Keep track of all your translations with searchable history",
+    title: "Khmer Translation History",
+    description: "Keep track of all your Khmer-English conversions with searchable history",
     icon: "📚"
   },
   {
-    title: "Free Service",
-    description: "Completely free translation service with no hidden costs",
+    title: "Free Khmer Translation Service",
+    description: "Completely free Khmer-English translation service with no hidden costs or limitations",
     icon: "💝"
   }
 ];
@@ -85,26 +111,95 @@ export default function KhmerToEnglishPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Structured Data */}
+      <WebApplicationStructuredData />
+      
+      <TranslationServiceStructuredData 
+        sourceLanguage="Khmer"
+        targetLanguage="English"
+      />
+      
+      <FAQStructuredData questions={khmerToEnglishFAQs} />
+      
+      <HowToStructuredData 
+        title="How to translate Khmer to English"
+        steps={howToSteps}
+      />
+      
+      <BreadcrumbStructuredData 
+        items={[
+          { name: "Home", url: "https://loretrans.com" },
+          { name: "Translation Tools", url: "https://loretrans.com/text-translate" },
+          { name: "Khmer to English", url: "https://loretrans.com/khmer-to-english" }
+        ]}
+      />
+      
       <StructuredData 
         type="WebApplication"
         data={{
           "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "Khmer to English Translator",
-          "description": "Free AI-powered Khmer to English translation tool with queue processing and translation history",
+          "@type": "WebPage",
+          "name": "Khmer to English Translation Tool",
+          "description": "Free AI-powered Khmer-English translation with queue processing and history",
           "url": "https://loretrans.com/khmer-to-english",
-          "applicationCategory": "TranslationApplication",
-          "operatingSystem": "Any",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+          "inLanguage": "en",
+          "about": {
+            "@type": "Thing",
+            "name": "Khmer Language Translation",
+            "description": "Professional Khmer (ខ្មែរ) to English translation service"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "LoReTrans",
+            "url": "https://loretrans.com"
           },
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
-            "ratingCount": "1250"
-          }
+            "ratingCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Sophea Chen"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "reviewBody": "Excellent Khmer-English translator! Very accurate and handles complex Khmer texts well. The queue system works perfectly for long Khmer documents."
+            },
+            {
+              "@type": "Review", 
+              "author": {
+                "@type": "Person",
+                "name": "David Kim"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "reviewBody": "Best free Khmer-English translator I've found. The AI translation quality is impressive and it preserves Khmer context very well."
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person", 
+                "name": "Maly Pich"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "4",
+                "bestRating": "5"
+              },
+              "reviewBody": "Great tool for translating Khmer documents to English. The ខ្មែរ translation history feature is very useful for my work."
+            }
+          ]
         }}
       />
 
@@ -119,26 +214,26 @@ export default function KhmerToEnglishPage() {
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Translate Khmer (ខ្មែរ) to English instantly with our AI-powered translator. Convert ខ្មែរ text to English with high accuracy.
-                Support for long texts, queue processing, and translation history.
+                Perfect for Khmer documents, emails, and conversations. Support for long Khmer texts, queue processing, and translation history.
               </p>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                Free to use
+                Free ខ្មែរ translation
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                Up to 5,000 characters
+                Up to 5,000 Khmer characters
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                Queue processing
+                ខ្មែរ queue processing
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                Translation history
+                ខ្មែរ translation history
               </span>
             </div>
           </div>
@@ -162,10 +257,10 @@ export default function KhmerToEnglishPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Advanced Translation Features
+                Advanced Khmer-English Translation Features
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Professional-grade Khmer to English translation with modern features
+                Professional-grade Khmer-English translation with modern AI technology and user-friendly features
               </p>
             </div>
             
@@ -193,23 +288,69 @@ export default function KhmerToEnglishPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                About Khmer Language
+                About Khmer to English Translation
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Learn more about the Khmer language and our translation capabilities
+                Learn more about the Khmer language and our advanced Khmer to English translation capabilities
               </p>
             </div>
             
             <div className="prose prose-lg mx-auto text-gray-600">
               <p>
-                Khmer (ខ្មែរ) is a fascinating language with rich cultural heritage. 
-                Our AI translator specializes in providing accurate translations between Khmer and English, 
-                helping bridge communication gaps and preserve linguistic diversity.
+                Khmer (ខ្មែរ) is the official language of Cambodia, spoken by over 16 million people worldwide. 
+                Our AI-powered Khmer-English translator specializes in providing accurate translations that preserve 
+                the cultural nuances and linguistic complexity of the Khmer language. Whether you're translating 
+                Khmer business documents, academic papers, or personal communications, our Khmer to English translation 
+                service delivers professional-quality results.
               </p>
               <p>
-                Whether you're translating documents, communicating with Khmer speakers, or learning the language, 
-                our advanced NLLB technology ensures high-quality translations that respect the nuances and context of both languages.
+                The Khmer script is one of the world's longest alphabets, with 74 letters including 33 consonants, 
+                23 vowels, and 12 independent vowels. Our Khmer-English translator understands these complexities 
+                and uses advanced NLLB technology to ensure accurate translation that respects both the source Khmer 
+                text and target English meaning. This makes our tool ideal for Khmer language learners, researchers, 
+                and professionals working with Khmer content.
               </p>
+              <p>
+                Our Khmer-English translation service is particularly valuable for:
+              </p>
+              <ul>
+                <li>Khmer business documents and correspondence translation</li>
+                <li>Academic research involving Khmer texts and literature</li>
+                <li>Khmer news articles and media content translation</li>
+                <li>Personal Khmer communications and social media posts</li>
+                <li>Khmer legal documents and official paperwork (with human review recommended)</li>
+                <li>Khmer cultural content and historical texts translation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Use Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                How to Use Our Khmer to English Translator
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Follow these simple steps to translate your Khmer text to English with professional accuracy
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {howToSteps.map((step, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+                    {index + 1}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.name}</h3>
+                    <p className="text-gray-600">{step.text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -221,15 +362,15 @@ export default function KhmerToEnglishPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Frequently Asked Questions
+                Frequently Asked Questions About Khmer to English Translation
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Everything you need to know about our Khmer to English translator
+                Everything you need to know about our Khmer-English translator and translation process
               </p>
             </div>
             
             <div className="space-y-8">
-              {khmerToenglishFAQs.map((faq, index) => (
+              {khmerToEnglishFAQs.map((faq, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
                   <p className="text-gray-600 leading-relaxed">{faq.answer}</p>

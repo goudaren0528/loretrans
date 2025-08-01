@@ -118,72 +118,117 @@ export default function EnglishToKhmerPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "English to Khmer Translator - LoReTrans",
-          "description": "Free AI-powered English to Khmer translation tool with high accuracy and queue processing.",
-          "url": "https://loretrans.com/en/english-to-khmer",
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web Browser",
-          "isAccessibleForFree": true,
-          "provider": {
-                    "@type": "Organization",
-                    "name": "LoReTrans",
-                    "url": "https://loretrans.com"
-          },
-          "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock"
-          }
-}, null, 2)
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "English to Khmer Translator - LoReTrans",
+            "description": "Free AI-powered English to Khmer translation tool with high accuracy and queue processing.",
+            "url": "https://loretrans.com/en/english-to-khmer",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web Browser",
+            "isAccessibleForFree": true,
+            "provider": {
+              "@type": "Organization",
+              "name": "LoReTrans",
+              "url": "https://loretrans.com"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          }, null, 2)
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-                    {
-                              "@type": "ListItem",
-                              "position": 1,
-                              "name": "Home",
-                              "item": "https://loretrans.com/en"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 2,
-                              "name": "Translation Tools",
-                              "item": "https://loretrans.com/en/text-translate"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 3,
-                              "name": "English to Khmer",
-                              "item": "https://loretrans.com/en/english-to-khmer"
-                    }
-          ]
-}, null, 2)
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://loretrans.com/en"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Translation Tools",
+                "item": "https://loretrans.com/en/text-translate"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "English to Khmer",
+                "item": "https://loretrans.com/en/english-to-khmer"
+              }
+            ]
+          }, null, 2)
         }}
       />
       
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": englishToKhmerFAQs.map(item => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          }, null, 2)
+        }}
+      />
 
-          <main className="min-h-screen bg-background">
-      {/* Structured Data */}
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      {/* HowTo Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to translate English to Khmer",
+            "description": "Step-by-step guide to translate English text to Khmer using our AI translator",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Enter your English text for translation",
+                "text": "Type or paste your English text into the source text box. Our English-Khmer translator supports up to 5,000 characters, making it perfect for translating English documents, emails, or social media posts to Khmer."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Select English to Khmer translation direction",
+                "text": "Ensure 'English' is selected as the source language and 'Khmer' as the target language. Use the swap button to switch between English-to-Khmer and Khmer-to-English translation modes as needed."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Start your English-Khmer conversion",
+                "text": "Press the translate button to begin the English to Khmer translation process. Short English texts translate instantly, while longer English documents use our advanced queue processing system for optimal translation quality."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Review and use your Khmer translation",
+                "text": "Review the Khmer translation results from your English text. You can copy the translated Khmer text, download it as a file, or save it to your English-Khmer conversion history for future reference."
+              }
+            ]
+          }, null, 2)
+        }}
+      />
+
+      <main className="min-h-screen bg-background">
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">

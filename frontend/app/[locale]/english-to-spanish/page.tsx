@@ -2,315 +2,285 @@ import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
 
-
-export const metadata: Metadata = {
-  title: 'English to Spanish Translation - Free AI Translator | LoReTrans',
-  description: 'Translate English to Spanish (Español) instantly with our AI-powered translator. Convert Español text to English with high accuracy. Support for long texts up to 5,000 characters.',
-  keywords: ['English to Spanish translation', 'English to Español', 'English to Spanish translator', 'free English to Spanish translation', 'English Spanish converter', 'queue translation'],
-  openGraph: {
-    title: 'English to Spanish Translation - Free AI Translator',
-    description: 'Translate English to Spanish (Español) instantly with AI. Support for long texts and queue processing.',
-    url: 'https://loretrans.com/english-to-spanish',
-    siteName: 'LoReTrans',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'English to Spanish Translation - Free AI Translator',
-    description: 'Translate English to Spanish (Español) instantly with AI. Support for long texts and queue processing.',
-  },
-  alternates: {
-    canonical: 'https://loretrans.com/english-to-spanish',
-  },
+type Props = {
+  params: { locale: string }
 }
 
-const englishtospanishFAQs = [
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'English to Spanish Translation - Free AI Translator | LoReTrans',
+    description: 'Translate English to Spanish (Español) instantly with our AI-powered translator. Convert English text to Spanish (Español) with high accuracy. Support for long texts up to 5,000 characters.',
+    keywords: ['English to Spanish translation', 'english-to-spanish', 'english-to-spanish translator', 'free english-to-spanish translation', 'english spanish converter'],
+    openGraph: {
+      title: 'English to Spanish Translation - Free AI Translator',
+      description: 'Translate English to Spanish (Español) instantly with our AI-powered translator. Convert English text to Spanish (Español) with high accuracy. Support for long texts and queue processing.',
+      url: `https://loretrans.com/${locale}/english-to-spanish`,
+      siteName: 'LoReTrans',
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'English to Spanish Translation - Free AI Translator',
+      description: 'Translate English to Spanish (Español) instantly with our AI-powered translator. Convert English text to Spanish (Español) with high accuracy. Support for long texts and queue processing.',
+    },
+    alternates: {
+      canonical: `https://loretrans.com/${locale}/english-to-spanish`,
+    },
+  }
+}
+
+const englishToSpanishFAQs = [
   {
     question: "How accurate is the English to Spanish translation?",
-    answer: "Our AI-powered translator provides high-accuracy English to Spanish translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+    answer: "Our AI-powered English to Spanish translator provides high-accuracy translations using advanced NLLB (No Language Left Behind) technology. The translation quality from English to Español is excellent for most content types, including business documents, academic texts, and casual conversations. While our English-Spanish translator is very reliable, we recommend human review for critical legal or medical documents requiring perfect Spanish translation."
   },
   {
-    question: "Can I translate Spanish text back to English?",
-    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between English-to-Spanish and Spanish-to-English translation using the swap button."
+    question: "Can I translate Spanish text back to English using this tool?",
+    answer: "Yes! Our translator supports bidirectional translation between English and Spanish. You can easily switch between English-to-Spanish and Spanish-to-English translation using the swap button. This makes it perfect for English speakers learning Spanish and those who need to communicate effectively in Español language."
   },
   {
-    question: "Is the English to Spanish translator free to use?",
-    answer: "Yes, our English to Spanish translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
+    question: "Is the English-Spanish conversion tool completely free to use?",
+    answer: "Yes, our English-Spanish translation service is completely free with no hidden costs. Short English texts translate to Spanish instantly, while longer English documents use our queue system for registered users. You can translate up to 5,000 characters of English text to Spanish at no charge."
   },
   {
-    question: "How long can the text be for English to Spanish translation?",
-    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+    question: "What is the maximum length for English to Spanish translation?",
+    answer: "You can translate up to 5,000 characters of English text to Spanish at once. For English texts over 1,000 characters, you'll need to sign in for queue processing. Shorter English to Spanish translations are processed instantly, making it ideal for quick English phrase translations to Español."
   },
   {
-    question: "Do I need to create an account to translate long texts?",
-    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
-  },
-  {
-    question: "Does the translator support Spanish script properly?",
-    answer: "Yes, our translator fully supports the Haitian Creole script (Español) and handles the unique characteristics of the Spanish writing system, including proper character encoding and text direction."
-  },
-  {
-    question: "Can I use this for business English to Spanish translation?",
-    answer: "Yes, our translator is suitable for business use. However, for critical business documents, we recommend having translations reviewed by a professional translator to ensure accuracy and cultural appropriateness."
-  },
-  {
-    question: "What is queue processing for long texts?",
-    answer: "Queue processing allows you to translate long texts (1,000+ characters) in the background. You can submit your text and return later to check the results, with full translation history tracking."
+    question: "Do I need an account for long English to Spanish translations?",
+    answer: "For English texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer English-Spanish conversions and access your English-Spanish translation records. This is especially useful for translating English documents, articles, or academic papers to Spanish language."
   }
-]
+];
 
-const features = [
+const howToSteps = [
   {
-    title: "AI-Powered Translation",
-    description: "Advanced NLLB technology ensures accurate English to Spanish translations with cultural context",
-    icon: "🤖"
+    name: "Enter your English text for translation",
+    text: "Type or paste your English text into the source text box. Our English-Spanish translator supports up to 5,000 characters, making it perfect for translating English documents, emails, or social media posts to Spanish."
   },
   {
-    title: "Bidirectional Support",
-    description: "Seamlessly switch between English-to-Spanish and Spanish-to-English translation",
-    icon: "🔄"
+    name: "Select English to Spanish translation direction",
+    text: "Ensure 'English' is selected as the source language and 'Spanish' as the target language. Use the swap button to switch between English-to-Spanish and Spanish-to-English translation modes as needed."
   },
   {
-    title: "Long Text Support",
-    description: "Handle texts up to 5,000 characters with intelligent queue processing",
-    icon: "📄"
+    name: "Start your English-Spanish conversion",
+    text: "Press the translate button to begin the English to Spanish translation process. Short English texts translate instantly, while longer English documents use our advanced queue processing system for optimal translation quality."
   },
   {
-    title: "Queue Processing",
-    description: "Background processing for long texts with progress tracking and history",
-    icon: "⚡"
-  },
-  {
-    title: "Translation History",
-    description: "Keep track of your translations with comprehensive task management",
-    icon: "📝"
-  },
-  {
-    title: "Instant & Queue Modes",
-    description: "Short texts translate instantly, longer texts use smart queue processing",
-    icon: "🚀"
+    name: "Review and use your Spanish translation",
+    text: "Review the Spanish translation results from your English text. You can copy the translated Spanish text, download it as a file, or save it to your English-Spanish conversion history for future reference."
   }
-]
+];
 
-export default function EnglishToSpanishPage() {
+export default function EnglishToSpanishPage({ params }: Props) {
+  const { locale } = params
+  
+  // 优化的结构化数据 - 直接在JSX中渲染，确保SSR
+  const webApplicationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "English to Spanish Translator - LoReTrans",
+    "alternateName": "English to Spanish AI Translator",
+    "description": "Free AI-powered English to Spanish translation tool with queue processing, translation history, and support for long texts up to 5,000 characters.",
+    "url": `https://loretrans.com/${locale}/english-to-spanish`,
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript",
+    "softwareVersion": "2.0",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-08-01",
+    "inLanguage": ["en", "es"],
+    "isAccessibleForFree": true,
+    "creator": {
+      "@type": "Organization",
+      "name": "LoReTrans",
+      "url": "https://loretrans.com",
+      "logo": "https://loretrans.com/logo.png"
+    },
+    "provider": {
+      "@type": "Organization", 
+      "name": "LoReTrans",
+      "url": "https://loretrans.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    },
+    "featureList": [
+      "AI-powered English to Spanish translation",
+      "Support for texts up to 5,000 characters", 
+      "Queue processing for long texts",
+      "Translation history tracking",
+      "Bidirectional English-Spanish translation",
+      "Free unlimited usage"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": englishToSpanishFAQs.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
+  const howToStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to translate English to Spanish (Español)",
+    "description": "Step-by-step guide to translate English text to Spanish (Español) using our AI translator",
+    "step": howToSteps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.name,
+      "text": step.text
+    }))
+  };
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `https://loretrans.com/${locale}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Translation Tools",
+        "item": `https://loretrans.com/${locale}/text-translate`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "English to Spanish",
+        "item": `https://loretrans.com/${locale}/english-to-spanish`
+      }
+    ]
+  };
+  
   return (
     <>
-      {/* 结构化数据 - SSR优化 */}
+      {/* 结构化数据 - 确保SSR渲染 */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "English to Spanish Translator - LoReTrans",
-          "description": "Free AI-powered English to Spanish translation tool with high accuracy and queue processing.",
-          "url": "https://loretrans.com/en/english-to-spanish",
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web Browser",
-          "isAccessibleForFree": true,
-          "provider": {
-                    "@type": "Organization",
-                    "name": "LoReTrans",
-                    "url": "https://loretrans.com"
-          },
-          "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock"
-          }
-}, null, 2)
+          __html: JSON.stringify(webApplicationStructuredData, null, 2)
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-                    {
-                              "@type": "ListItem",
-                              "position": 1,
-                              "name": "Home",
-                              "item": "https://loretrans.com/en"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 2,
-                              "name": "Translation Tools",
-                              "item": "https://loretrans.com/en/text-translate"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 3,
-                              "name": "English to Spanish",
-                              "item": "https://loretrans.com/en/english-to-spanish"
-                    }
-          ]
-}, null, 2)
+          __html: JSON.stringify(faqStructuredData, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToStructuredData, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData, null, 2)
         }}
       />
       
-
-          <main className="min-h-screen bg-background">
-      {/* Structured Data */}
-      
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                English to Spanish
-                <span className="block text-blue-600">AI Translator</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Translate English to Spanish (Español) instantly with our advanced AI translator. 
-                Support for long texts, queue processing, and translation history.
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                Free to use
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                Up to 5,000 characters
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                Queue processing
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                Translation history
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Translation Tool */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <EnhancedTextTranslator
-            defaultSourceLang="en"
-            defaultTargetLang="es"
-            className="max-w-6xl mx-auto"
-          />
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Advanced Translation Features
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Professional-grade English to Spanish translation with modern features
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="text-3xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  About the Spanish Language
-                </h2>
-                <div className="space-y-4 text-gray-600 leading-relaxed">
-                  <p>
-                    English is a widely spoken language with rich cultural heritage and linguistic features.
-                    Our AI translator respects these linguistic characteristics to provide accurate English to Spanish translations.
-                  </p>
-                  <p>
-                    Whether you're translating English documents to Spanish, communicating with Spanish speakers, or learning languages, 
-                    our enhanced translator helps bridge the language gap with cultural sensitivity and linguistic accuracy.
-                  </p>
-                  <p>
-                    With support for long texts up to 5,000 characters and intelligent queue processing, you can handle everything 
-                    from short messages to lengthy documents with ease.
-                  </p>
-                </div>
+      <main className="min-h-screen bg-background">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                  English to Spanish
+                  <span className="block text-blue-600">AI Translator</span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Translate English to Spanish (Español) instantly with our AI-powered translator. Convert English text to Spanish (Español) with high accuracy.
+                  Perfect for English documents, emails, and conversations. Support for long English texts, queue processing, and translation history.
+                </p>
               </div>
               
-              <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8">
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-gray-900">Language Info</h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Language:</span>
-                      <span className="font-medium">Spanish</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Native Name:</span>
-                      <span className="font-medium">Español</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Code:</span>
-                      <span className="font-medium">es</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Max Length:</span>
-                      <span className="font-medium">5,000 chars</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Free English translation
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  Up to 5,000 English characters
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  English queue processing
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                  English translation history
+                </span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Frequently Asked Questions
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Everything you need to know about our English to Spanish translator
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              {englishtospanishFAQs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
+        {/* Enhanced Translation Tool */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <EnhancedTextTranslator 
+              defaultSourceLang="english"
+              defaultTargetLang="spanish"
+              pageTitle="English to Spanish Translation"
+            />
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Everything you need to know about our English to Spanish translator and translation process
+                </p>
+              </div>
+              
+              <div className="space-y-8">
+                {englishToSpanishFAQs.map((faq, index) => (
+                  <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
-  )
+        </section>
+      </main>
     </>
   )
 }

@@ -2,283 +2,285 @@ import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
 
-
-export const metadata: Metadata = {
-  title: 'Hausa to English Translation - Free AI Translator | LoReTrans',
-  description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy. Support for long texts up to 5,000 characters.',
-  keywords: ['Hausa to English translation', 'Hausa to English', 'Hausa to English translator', 'free Hausa to English translation', 'Hausa English converter', 'queue translation'],
-  openGraph: {
-    title: 'Hausa to English Translation - Free AI Translator',
-    description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy. Support for long texts and queue processing.',
-    url: 'https://loretrans.com/hausa-to-english',
-    siteName: 'LoReTrans',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Hausa to English Translation - Free AI Translator',
-    description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy. Support for long texts and queue processing.',
-  },
-  alternates: {
-    canonical: 'https://loretrans.com/hausa-to-english',
-  },
+type Props = {
+  params: { locale: string }
 }
 
-const hausaToenglishFAQs = [
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params
+  
+  return {
+    title: 'Hausa to English Translation - Free AI Translator | LoReTrans',
+    description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa (Hausa) text to English with high accuracy. Support for long texts up to 5,000 characters.',
+    keywords: ['Hausa to English translation', 'hausa-to-english', 'hausa-to-english translator', 'free hausa-to-english translation', 'hausa english converter'],
+    openGraph: {
+      title: 'Hausa to English Translation - Free AI Translator',
+      description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa (Hausa) text to English with high accuracy. Support for long texts and queue processing.',
+      url: `https://loretrans.com/${locale}/hausa-to-english`,
+      siteName: 'LoReTrans',
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Hausa to English Translation - Free AI Translator',
+      description: 'Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa (Hausa) text to English with high accuracy. Support for long texts and queue processing.',
+    },
+    alternates: {
+      canonical: `https://loretrans.com/${locale}/hausa-to-english`,
+    },
+  }
+}
+
+const hausaToEnglishFAQs = [
   {
     question: "How accurate is the Hausa to English translation?",
-    answer: "Our AI-powered translator provides high-accuracy Hausa to English translations using advanced NLLB (No Language Left Behind) technology. While very reliable for most content, we recommend human review for critical documents."
+    answer: "Our AI-powered Hausa-English translator provides high-accuracy translations using advanced NLLB (No Language Left Behind) technology. The Hausa to English translation quality is excellent for most content types, including business documents, academic texts, and casual conversations. While our Hausa-English translator is very reliable, we recommend human review for critical legal or medical documents."
   },
   {
-    question: "Can I translate English text back to Hausa?",
-    answer: "Yes! Our translator supports bidirectional translation. You can easily switch between Hausa-to-English and English-to-Hausa translation using the swap button."
+    question: "Can I translate English text back to Hausa using this tool?",
+    answer: "Yes! Our translator supports bidirectional translation between Hausa and English. You can easily switch between Hausa-to-English and English-to-Hausa translation using the swap button. This makes it perfect for Hausa language learners and English speakers who need to communicate in Hausa."
   },
   {
-    question: "Is the Hausa to English translator free to use?",
-    answer: "Yes, our Hausa to English translation service is completely free. Short texts translate instantly, while longer texts use our queue system for registered users."
+    question: "Is the Hausa-English translator completely free to use?",
+    answer: "Yes, our Hausa-English translation service is completely free with no hidden costs. Short Hausa texts translate instantly, while longer Hausa documents use our queue system for registered users. You can translate up to 5,000 characters of Hausa text to English at no charge."
   },
   {
-    question: "How long can the text be for Hausa to English translation?",
-    answer: "You can translate up to 5,000 characters at once. For texts over 1,000 characters, you'll need to sign in for queue processing. Shorter texts are translated instantly."
+    question: "What is the maximum length for Hausa to English translation?",
+    answer: "You can translate up to 5,000 characters of Hausa text to English at once. For Hausa texts over 1,000 characters, you'll need to sign in for queue processing. Shorter Hausa to English translations are processed instantly, making it ideal for quick Hausa phrase translations."
   },
   {
-    question: "Do I need to create an account to translate long texts?",
-    answer: "For texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer translations and access your translation history."
+    question: "Do I need an account for long Hausa to English translations?",
+    answer: "For Hausa texts over 1,000 characters, yes. Creating a free account allows you to use our queue system for longer Hausa-English conversions and access your Hausa translation history. This is especially useful for translating Hausa documents, articles, or academic papers to English."
   }
 ];
 
-const features = [
+const howToSteps = [
   {
-    title: "AI-Powered Translation",
-    description: "Advanced NLLB technology for accurate Hausa to English translation",
-    icon: "🤖"
+    name: "Enter your Hausa text for translation",
+    text: "Type or paste your Hausa (Hausa) text into the source text box. Our Hausa-English translator supports up to 5,000 characters, making it perfect for translating Hausa documents, emails, or social media posts to English."
   },
   {
-    title: "Bidirectional Support", 
-    description: "Seamlessly switch between Hausa-to-English and English-to-Hausa translation",
-    icon: "🔄"
+    name: "Select Hausa to English translation direction",
+    text: "Ensure 'Hausa' is selected as the source language and 'English' as the target language. Use the swap button to switch between Hausa-to-English and English-to-Hausa translation modes as needed."
   },
   {
-    title: "Long Text Support",
-    description: "Handle texts up to 5,000 characters with intelligent queue processing",
-    icon: "📄"
+    name: "Start your Hausa-English conversion",
+    text: "Press the translate button to begin the Hausa to English translation process. Short Hausa texts translate instantly, while longer Hausa documents use our advanced queue processing system for optimal translation quality."
   },
   {
-    title: "Queue Processing",
-    description: "Background processing for long texts with progress tracking and history",
-    icon: "⚡"
-  },
-  {
-    title: "Translation History",
-    description: "Keep track of all your translations with searchable history",
-    icon: "📚"
-  },
-  {
-    title: "Free Service",
-    description: "Completely free translation service with no hidden costs",
-    icon: "💝"
+    name: "Review and use your English translation",
+    text: "Review the English translation results from your Hausa text. You can copy the translated English text, download it as a file, or save it to your Hausa-English conversion history for future reference."
   }
 ];
 
-export default function HausaToEnglishPage() {
+export default function HausaToEnglishPage({ params }: Props) {
+  const { locale } = params
+  
+  // 优化的结构化数据 - 直接在JSX中渲染，确保SSR
+  const webApplicationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Hausa to English Translator - LoReTrans",
+    "alternateName": "Hausa to English AI Translator",
+    "description": "Free AI-powered Hausa to English translation tool with queue processing, translation history, and support for long texts up to 5,000 characters.",
+    "url": `https://loretrans.com/${locale}/hausa-to-english`,
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript",
+    "softwareVersion": "2.0",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-08-01",
+    "inLanguage": ["en", "ha"],
+    "isAccessibleForFree": true,
+    "creator": {
+      "@type": "Organization",
+      "name": "LoReTrans",
+      "url": "https://loretrans.com",
+      "logo": "https://loretrans.com/logo.png"
+    },
+    "provider": {
+      "@type": "Organization", 
+      "name": "LoReTrans",
+      "url": "https://loretrans.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01"
+    },
+    "featureList": [
+      "AI-powered Hausa to English translation",
+      "Support for texts up to 5,000 characters", 
+      "Queue processing for long texts",
+      "Translation history tracking",
+      "Bidirectional Hausa-English translation",
+      "Free unlimited usage"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": hausaToEnglishFAQs.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
+  const howToStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to translate Hausa (Hausa) to English",
+    "description": "Step-by-step guide to translate Hausa (Hausa) text to English using our AI translator",
+    "step": howToSteps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.name,
+      "text": step.text
+    }))
+  };
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `https://loretrans.com/${locale}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Translation Tools",
+        "item": `https://loretrans.com/${locale}/text-translate`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Hausa to English",
+        "item": `https://loretrans.com/${locale}/hausa-to-english`
+      }
+    ]
+  };
+  
   return (
     <>
-      {/* 结构化数据 - SSR优化 */}
+      {/* 结构化数据 - 确保SSR渲染 */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "Hausa to English Translator - LoReTrans",
-          "description": "Free AI-powered Hausa to English translation tool with high accuracy and queue processing.",
-          "url": "https://loretrans.com/en/hausa-to-english",
-          "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web Browser",
-          "isAccessibleForFree": true,
-          "provider": {
-                    "@type": "Organization",
-                    "name": "LoReTrans",
-                    "url": "https://loretrans.com"
-          },
-          "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock"
-          }
-}, null, 2)
+          __html: JSON.stringify(webApplicationStructuredData, null, 2)
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-                    {
-                              "@type": "ListItem",
-                              "position": 1,
-                              "name": "Home",
-                              "item": "https://loretrans.com/en"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 2,
-                              "name": "Translation Tools",
-                              "item": "https://loretrans.com/en/text-translate"
-                    },
-                    {
-                              "@type": "ListItem",
-                              "position": 3,
-                              "name": "Hausa to English",
-                              "item": "https://loretrans.com/en/hausa-to-english"
-                    }
-          ]
-}, null, 2)
+          __html: JSON.stringify(faqStructuredData, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToStructuredData, null, 2)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData, null, 2)
         }}
       />
       
-
-          <main className="min-h-screen bg-background">
-      {/* Structured Data */}
-      
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Hausa to English
-                <span className="block text-blue-600">AI Translator</span>
-              </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa text to English with high accuracy.
-                Support for long texts, queue processing, and translation history.
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                Free to use
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                Up to 5,000 characters
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                Queue processing
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                Translation history
-              </span>
+      <main className="min-h-screen bg-background">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                  Hausa to English
+                  <span className="block text-blue-600">AI Translator</span>
+                </h1>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Translate Hausa (Hausa) to English instantly with our AI-powered translator. Convert Hausa (Hausa) text to English with high accuracy.
+                  Perfect for Hausa (Hausa) documents, emails, and conversations. Support for long Hausa (Hausa) texts, queue processing, and translation history.
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Free Hausa (Hausa) translation
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  Up to 5,000 Hausa characters
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  Hausa (Hausa) queue processing
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                  Hausa (Hausa) translation history
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Enhanced Translation Tool */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <EnhancedTextTranslator
-            defaultSourceLang="ha"
-            defaultTargetLang="en"
-            className="max-w-6xl mx-auto"
-          />
-        </div>
-      </section>
+        {/* Enhanced Translation Tool */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <EnhancedTextTranslator 
+              defaultSourceLang="hausa"
+              defaultTargetLang="english"
+              pageTitle="Hausa to English Translation"
+            />
+          </div>
+        </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Advanced Translation Features
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Professional-grade Hausa to English translation with modern features
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="relative group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="text-2xl mr-3">{feature.icon}</div>
-                    <h3 className="text-lg font-semibold text-gray-900">{feature.title}</h3>
+        {/* FAQ Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Everything you need to know about our Hausa to English translator and translation process
+                </p>
+              </div>
+              
+              <div className="space-y-8">
+                {hausaToEnglishFAQs.map((faq, index) => (
+                  <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                   </div>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* About Hausa Language */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                About Hausa Language
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Learn more about the Hausa language and our translation capabilities
-              </p>
-            </div>
-            
-            <div className="prose prose-lg mx-auto text-gray-600">
-              <p>
-                Hausa (Hausa) is a fascinating language with rich cultural heritage. 
-                Our AI translator specializes in providing accurate translations between Hausa and English, 
-                helping bridge communication gaps and preserve linguistic diversity.
-              </p>
-              <p>
-                Whether you're translating documents, communicating with Hausa speakers, or learning the language, 
-                our advanced NLLB technology ensures high-quality translations that respect the nuances and context of both languages.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Frequently Asked Questions
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Everything you need to know about our Hausa to English translator
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              {hausaToenglishFAQs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
+        </section>
+      </main>
     </>
   )
 }

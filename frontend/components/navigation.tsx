@@ -49,8 +49,8 @@ export function Navigation() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
-            <Languages className="h-6 w-6 text-blue-600" />
-            <span className="text-xl font-bold">Loretrans</span>
+            <img src="/loretrans-logo.svg" alt="LoReTrans Logo" className="h-8 w-8" />
+            <span className="text-xl font-bold">LoReTrans</span>
           </Link>
         </div>
 
@@ -183,8 +183,8 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Languages className="h-6 w-6 text-blue-600" />
-              <span className="text-xl font-bold">Loretrans</span>
+              <img src="/loretrans-logo.svg" alt="LoReTrans Logo" className="h-8 w-8" />
+              <span className="text-xl font-bold">LoReTrans</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {tLayout('Footer.tagline')}
@@ -303,7 +303,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2025 Loretrans. All rights reserved.</p>
+          <p>&copy; 2025 LoReTrans. All rights reserved.</p>
         </div>
       </div>
     </footer>

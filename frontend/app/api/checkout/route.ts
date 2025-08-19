@@ -29,12 +29,15 @@ async function createCheckoutSession(req: NextRequestWithUser) {
     console.log(`🚀 Creating checkout session for plan ${planId} with request_id: ${request_id}`);
 
     // 🔄 尝试CREEM API调用
-    const apiKey = process.env.CREEM_API_KEY || process.env.CREEM_SECRET_KEY;
+    const apiKey = process.env.CREEM_API_KEY;
     console.log('🔑 API Key check:', { 
       hasApiKey: !!apiKey, 
       hasProductId: !!plan.creemProductId,
       hasPaymentUrl: !!plan.creemPaymentUrl,
-      planId: planId 
+      planId: planId,
+      apiKeyPrefix: apiKey ? apiKey.substring(0, 10) + '...' : 'none',
+      productId: plan.creemProductId,
+      paymentUrl: plan.creemPaymentUrl
     });
     
     if (apiKey && plan.creemProductId) {

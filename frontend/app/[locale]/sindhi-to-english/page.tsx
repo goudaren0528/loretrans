@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { EnhancedTextTranslator } from '@/components/translation/enhanced-text-translator'
+import { generateHreflangAlternates, getOpenGraphLocale } from '@/lib/seo-utils'
 
 type Props = {
   params: { locale: string }
@@ -9,26 +10,62 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
   
+  // 本地化元数据
+  const metadata = {
+    en: {
+      title: 'Sindhi to English Translation - Free AI Translator | LoReTrans',
+      description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy. Support for long texts up to 5,000 characters.',
+      keywords: ['Sindhi to English translation', 'sindhi-to-english', 'sindhi-to-english translator', 'free sindhi-to-english translation', 'sindhi english converter'],
+      ogTitle: 'Sindhi to English Translation - Free AI Translator',
+      ogDescription: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy. Support for long texts and queue processing.'
+    },
+    fr: {
+      title: 'Traduction Sindhi vers Anglais - Traducteur IA Gratuit | LoReTrans',
+      description: 'Traduisez le sindhi (سنڌي) vers l\'anglais instantanément avec notre traducteur IA. Convertissez le texte sindhi en anglais avec une grande précision. Support pour les longs textes jusqu\'à 5 000 caractères.',
+      keywords: ['traduction sindhi anglais', 'traducteur sindhi-anglais', 'traduction sindhi-anglais gratuite', 'convertisseur sindhi anglais', 'traducteur IA sindhi'],
+      ogTitle: 'Traduction Sindhi vers Anglais - Traducteur IA Gratuit',
+      ogDescription: 'Traduisez le sindhi (سنڌي) vers l\'anglais instantanément avec notre traducteur IA. Convertissez le texte sindhi en anglais avec une grande précision. Support pour les longs textes et traitement en file d\'attente.'
+    },
+    es: {
+      title: 'Traducción de Sindhi a Inglés - Traductor IA Gratuito | LoReTrans',
+      description: 'Traduce sindhi (سنڌي) al inglés instantáneamente con nuestro traductor IA. Convierte texto sindhi al inglés con alta precisión. Soporte para textos largos hasta 5,000 caracteres.',
+      keywords: ['traducción sindhi inglés', 'traductor sindhi-inglés', 'traducción sindhi-inglés gratis', 'convertidor sindhi inglés', 'traductor IA sindhi'],
+      ogTitle: 'Traducción de Sindhi a Inglés - Traductor IA Gratuito',
+      ogDescription: 'Traduce sindhi (سنڌي) al inglés instantáneamente con nuestro traductor IA. Convierte texto sindhi al inglés con alta precisión. Soporte para textos largos y procesamiento en cola.'
+    },
+    zh: {
+      title: '信德语到英语翻译 - 免费AI翻译器 | LoReTrans',
+      description: '使用我们的AI翻译器即时将信德语(سنڌي)翻译成英语。高精度将信德语文本转换为英语。支持最多5,000字符的长文本。',
+      keywords: ['信德语英语翻译', '信德语-英语翻译器', '免费信德语-英语翻译', '信德语英语转换器', 'AI信德语翻译器'],
+      ogTitle: '信德语到英语翻译 - 免费AI翻译器',
+      ogDescription: '使用我们的AI翻译器即时将信德语(سنڌي)翻译成英语。高精度将信德语文本转换为英语。支持长文本和队列处理。'
+    }
+  };
+
+  // 获取当前语言的元数据，如果不存在则使用英语
+  const currentMetadata = metadata[locale as keyof typeof metadata] || metadata.en;
+  
+  // 生成 hreflang alternates
+  const alternates = generateHreflangAlternates('sindhi-to-english', locale);
+  
   return {
-    title: 'Sindhi to English Translation - Free AI Translator | LoReTrans',
-    description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy. Support for long texts up to 5,000 characters.',
-    keywords: ['Sindhi to English translation', 'sindhi-to-english', 'sindhi-to-english translator', 'free sindhi-to-english translation', 'sindhi english converter'],
+    title: currentMetadata.title,
+    description: currentMetadata.description,
+    keywords: currentMetadata.keywords,
     openGraph: {
-      title: 'Sindhi to English Translation - Free AI Translator',
-      description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy. Support for long texts and queue processing.',
+      title: currentMetadata.ogTitle,
+      description: currentMetadata.ogDescription,
       url: `https://loretrans.com/${locale}/sindhi-to-english`,
       siteName: 'LoReTrans',
-      locale: 'en_US',
+      locale: getOpenGraphLocale(locale),
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Sindhi to English Translation - Free AI Translator',
-      description: 'Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy. Support for long texts and queue processing.',
+      title: currentMetadata.ogTitle,
+      description: currentMetadata.ogDescription,
     },
-    alternates: {
-      canonical: `https://loretrans.com/${locale}/sindhi-to-english`,
-    },
+    alternates,
   }
 }
 
@@ -214,13 +251,10 @@ export default function SindhiToEnglishPage({ params }: Props) {
             <div className="max-w-4xl mx-auto text-center space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                  Sindhi to English
-                  <span className="block text-blue-600">AI Translator</span>
+                  AI翻译器<span className="block text-blue-600">信德语到英语</span>
                 </h1>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Translate Sindhi (سنڌي) to English instantly with our AI-powered translator. Convert Sindhi (سنڌي) text to English with high accuracy.
-                  Perfect for Sindhi (سنڌي) documents, emails, and conversations. Support for long Sindhi (سنڌي) texts, queue processing, and translation history.
-                </p>
+                  使用我们的AI翻译器即时将信德语(سنڌي)翻译成英语。高精度将信德语(سنڌي)文本转换为英语。完美适用于信德语(سنڌي)文档、电子邮件和对话。支持长信德语(سنڌي)文本、队列处理和翻译历史。</p>
               </div>
               
               <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
@@ -262,11 +296,9 @@ export default function SindhiToEnglishPage({ params }: Props) {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Frequently Asked Questions
-                </h2>
+                  常见问题</h2>
                 <p className="text-lg text-gray-600">
-                  Everything you need to know about our Sindhi to English translator and translation process
-                </p>
+                  关于我们的信德语到英语翻译器和翻译过程的所有信息</p>
               </div>
               
               <div className="space-y-8">

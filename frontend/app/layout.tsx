@@ -111,7 +111,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
+    <html className={cn(inter.variable, 'scroll-smooth')} suppressHydrationWarning>
       <head>
         <GoogleAnalytics />
         <script src="/polyfills-inline.js" defer></script>

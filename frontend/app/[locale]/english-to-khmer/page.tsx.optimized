@@ -174,9 +174,11 @@ export default function EnglishToKhmerPage({ params }: Props) {
       </div>
 
       <EnhancedTextTranslator 
-        defaultSourceLang="en"
-        defaultTargetLang="km"
-      />
+        fromLang="en"
+        toLang="km"
+        fromLangName="English"
+        toLangName="Khmer"
+        placeholder="Enter English text here..."
       />
 
       {/* FAQ 部分 */}

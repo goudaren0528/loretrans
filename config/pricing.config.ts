@@ -8,9 +8,21 @@ import type { PricingPlan } from '../shared/types';
  * - 计费公式：超出部分字符数 × 0.1积分/字符
  * - 最小扣费：100积分（1000字符以上的最小扣费）
  * 
- * 注意：creemProductId 需要在 Creem 控制台中预先创建对应的产品
+ * 注意：creemProductId 和支付URL现在从环境变量读取
  * 快速上线版本仅包含3个核心套餐，基于用户反馈后续扩展
  */
+
+// 从环境变量获取支付配置
+const getPaymentConfig = (planId: string) => {
+  const productIdKey = `CREEM_PRODUCT_ID_${planId.toUpperCase()}`;
+  const productId = process.env[productIdKey] || '';
+  const baseUrl = process.env.CREEM_PAYMENT_BASE_URL || 'https://www.creem.io/test/payment';
+  
+  return {
+    creemProductId: productId,
+    creemPaymentUrl: productId ? `${baseUrl}/${productId}` : ''
+  };
+};
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
@@ -36,8 +48,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'Perfect for occasional users',
     credits: 1000,
     priceUSD: 5,
-    creemProductId: 'prod_starter_2500',
-    creemPaymentUrl: '',
+    ...getPaymentConfig('starter'),
     originalValue: 5,
     discount: 0,
     popular: false,
@@ -55,8 +66,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'Most popular choice',
     credits: 5000,
     priceUSD: 10,
-    creemProductId: 'prod_7ghOSJ2klCjPTjnURPbMoh',
-    creemPaymentUrl: 'https://www.creem.io/test/payment/prod_7ghOSJ2klCjPTjnURPbMoh',
+    ...getPaymentConfig('basic'),
     originalValue: 12,
     discount: 20,
     popular: true,
@@ -75,8 +85,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'Perfect for heavy users',
     credits: 10000,
     priceUSD: 25,
-    creemProductId: 'prod_professional_20k',
-    creemPaymentUrl: '',
+    ...getPaymentConfig('pro'),
     originalValue: 30,
     discount: 30,
     popular: false,
@@ -96,8 +105,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'Perfect for teams and enterprises',
     credits: 25000,
     priceUSD: 50,
-    creemProductId: 'prod_business_50k',
-    creemPaymentUrl: '',
+    ...getPaymentConfig('business'),
     originalValue: 65,
     discount: 35,
     popular: false,
@@ -118,8 +126,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'Large enterprise solution',
     credits: 50000,
     priceUSD: 80,
-    creemProductId: 'prod_enterprise_150k',
-    creemPaymentUrl: '',
+    ...getPaymentConfig('enterprise'),
     originalValue: 180,
     discount: 40,
     popular: false,
